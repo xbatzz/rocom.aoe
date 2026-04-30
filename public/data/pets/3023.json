@@ -44,6 +44,7 @@
         "id": 200154,
         "name": "燃烧效率变更",
         "description": "火系攻击技能赋予2层灼烧。",
+        "icon_id": "200154",
         "localized": {
             "zh": {
                 "name": "燃烧效率变更",
@@ -127,6 +128,11 @@
         "classis_id": 11,
         "classis_name": "小鸡类精灵",
         "handbook_area_ids": []
+    },
+    "catch_info": {
+        "catch_threshold": null,
+        "catch_guarant_rate": null,
+        "catch_ball_level": 1
     },
     "breeding": null,
     "breeding_profile": {

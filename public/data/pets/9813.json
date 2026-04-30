@@ -44,6 +44,7 @@
         "id": 200000,
         "name": "GM被动",
         "description": "回合末恢复10能量。",
+        "icon_id": "200074",
         "localized": {
             "zh": {
                 "name": "GM被动",
@@ -55,6 +56,7 @@
         {
             "id": 7150250,
             "name": "俯冲猛击",
+            "icon_id": "114020",
             "move_type": {
                 "id": 13,
                 "name": "Flying",
@@ -76,6 +78,7 @@
         {
             "id": 7150260,
             "name": "闪击",
+            "icon_id": "114021",
             "move_type": {
                 "id": 13,
                 "name": "Flying",
@@ -97,6 +100,7 @@
         {
             "id": 7150270,
             "name": "飞羽",
+            "icon_id": "214022",
             "move_type": {
                 "id": 13,
                 "name": "Flying",
@@ -118,6 +122,7 @@
         {
             "id": 7150300,
             "name": "侵蚀龙卷",
+            "icon_id": "114025",
             "move_type": {
                 "id": 13,
                 "name": "Flying",
@@ -139,6 +144,7 @@
         {
             "id": 7150310,
             "name": "羽化加速",
+            "icon_id": "114027",
             "move_type": {
                 "id": 13,
                 "name": "Flying",
@@ -160,6 +166,7 @@
         {
             "id": 7150320,
             "name": "应对！羽翼庇护",
+            "icon_id": "314028",
             "move_type": {
                 "id": 13,
                 "name": "Flying",
@@ -225,6 +232,7 @@
         "classis_name": "猫咪类精灵",
         "handbook_area_ids": []
     },
+    "catch_info": null,
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 9813,

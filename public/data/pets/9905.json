@@ -44,6 +44,7 @@
         "id": 200107,
         "name": "浸润",
         "description": "使用水系技能后，全技能能耗-1。",
+        "icon_id": "200107",
         "localized": {
             "zh": {
                 "name": "浸润",
@@ -98,6 +99,7 @@
         "classis_name": "自然类精灵",
         "handbook_area_ids": []
     },
+    "catch_info": null,
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 9905,

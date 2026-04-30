@@ -44,6 +44,7 @@
         "id": 200146,
         "name": "助燃",
         "description": "使用火系技能后，获得双攻+20%。",
+        "icon_id": "200146",
         "localized": {
             "zh": {
                 "name": "助燃",
@@ -98,6 +99,7 @@
         "classis_name": "自然类精灵",
         "handbook_area_ids": []
     },
+    "catch_info": null,
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 9906,

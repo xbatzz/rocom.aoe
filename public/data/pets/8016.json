@@ -44,6 +44,7 @@
         "id": 7000358,
         "name": "羁绊的力量",
         "description": "托付着大家的勇气，信念和牵绊，芙蕾雅充满能量！",
+        "icon_id": "img_wenhao",
         "localized": {
             "zh": {
                 "name": "羁绊的力量",
@@ -55,6 +56,7 @@
         {
             "id": 7000342,
             "name": "熵增",
+            "icon_id": "7000342",
             "move_type": {
                 "id": 18,
                 "name": "Illusion",
@@ -76,6 +78,7 @@
         {
             "id": 7000343,
             "name": "聚变",
+            "icon_id": "7000343",
             "move_type": {
                 "id": 18,
                 "name": "Illusion",
@@ -97,6 +100,7 @@
         {
             "id": 7000344,
             "name": "对撞",
+            "icon_id": "7000344",
             "move_type": {
                 "id": 18,
                 "name": "Illusion",
@@ -118,6 +122,7 @@
         {
             "id": 7000345,
             "name": "星系团",
+            "icon_id": "7000345",
             "move_type": {
                 "id": 18,
                 "name": "Illusion",
@@ -257,6 +262,7 @@
         "classis_name": "自然类精灵",
         "handbook_area_ids": []
     },
+    "catch_info": null,
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 8016,

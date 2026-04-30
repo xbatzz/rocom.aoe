@@ -44,6 +44,7 @@
         "id": 200265,
         "name": "上古战龙",
         "description": "应对成功时，下次技能无需蓄力",
+        "icon_id": "200074",
         "localized": {
             "zh": {
                 "name": "上古战龙",
@@ -151,6 +152,11 @@
         "classis_id": 6,
         "classis_name": "自然类精灵",
         "handbook_area_ids": []
+    },
+    "catch_info": {
+        "catch_threshold": null,
+        "catch_guarant_rate": null,
+        "catch_ball_level": null
     },
     "breeding": null,
     "breeding_profile": {

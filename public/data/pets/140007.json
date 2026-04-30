@@ -45,6 +45,7 @@
         {
             "id": 7020390,
             "name": "对敌方精灵造成物理伤害。",
+            "icon_id": "702047",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -66,6 +67,7 @@
         {
             "id": 7030170,
             "name": "种子弹",
+            "icon_id": "703014",
             "move_type": {
                 "id": 2,
                 "name": "Grass",
@@ -87,6 +89,7 @@
         {
             "id": 7050170,
             "name": "造成魔伤，自己回复1能量。",
+            "icon_id": "703101",
             "move_type": {
                 "id": 4,
                 "name": "Water",
@@ -108,6 +111,7 @@
         {
             "id": 7060090,
             "name": "应对！水星水1",
+            "icon_id": "704002",
             "move_type": {
                 "id": 5,
                 "name": "Light",
@@ -129,6 +133,7 @@
         {
             "id": 7080120,
             "name": "对敌方精灵造成物理伤害。",
+            "icon_id": "708012",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -150,6 +155,7 @@
         {
             "id": 7110190,
             "name": "电弧",
+            "icon_id": "711007",
             "move_type": {
                 "id": 9,
                 "name": "Electric",
@@ -171,6 +177,7 @@
         {
             "id": 7160130,
             "name": "疾风连袭",
+            "icon_id": "716001",
             "move_type": {
                 "id": 14,
                 "name": "Cute",
@@ -192,6 +199,7 @@
         {
             "id": 7170160,
             "name": "减伤70%，应对攻击：敌方失去3能量。",
+            "icon_id": "705002",
             "move_type": {
                 "id": 15,
                 "name": "Ghost",
@@ -213,6 +221,7 @@
         {
             "id": 7190210,
             "name": "应对！小光恶1",
+            "icon_id": "719008",
             "move_type": {
                 "id": 18,
                 "name": "Illusion",
@@ -280,6 +289,7 @@
         "classis_name": "猫咪类精灵",
         "handbook_area_ids": []
     },
+    "catch_info": null,
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 140007,

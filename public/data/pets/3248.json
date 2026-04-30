@@ -44,6 +44,7 @@
         "id": 200086,
         "name": "蛰伏",
         "description": "攻击生命小于自身的精灵时，威力提升50%。",
+        "icon_id": "200086",
         "localized": {
             "zh": {
                 "name": "蛰伏",
@@ -127,6 +128,11 @@
         "classis_id": 6,
         "classis_name": "自然类精灵",
         "handbook_area_ids": []
+    },
+    "catch_info": {
+        "catch_threshold": null,
+        "catch_guarant_rate": null,
+        "catch_ball_level": 1
     },
     "breeding": {
         "id": 3248001,

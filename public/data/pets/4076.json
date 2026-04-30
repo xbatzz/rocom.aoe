@@ -50,6 +50,7 @@
         "id": 280009,
         "name": "夺目",
         "description": "额外获得三个未携带的随机技能，且非光系技能威力+25%。",
+        "icon_id": "200075",
         "localized": {
             "zh": {
                 "name": "夺目",
@@ -191,6 +192,7 @@
             3
         ]
     },
+    "catch_info": null,
     "breeding": {
         "id": 3401001,
         "pet_id": 3401001,

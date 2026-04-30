@@ -68,6 +68,7 @@ declare module 'vue' {
     Separator: typeof import('./components/ui/separator/Separator.vue')['default']
     Sidebar: typeof import('./components/Sidebar.vue')['default']
     Skeleton: typeof import('./components/ui/skeleton/Skeleton.vue')['default']
+    SkillIcon: typeof import('./components/SkillIcon.vue')['default']
     Table: typeof import('./components/ui/table/Table.vue')['default']
     TableBody: typeof import('./components/ui/table/TableBody.vue')['default']
     TableCaption: typeof import('./components/ui/table/TableCaption.vue')['default']

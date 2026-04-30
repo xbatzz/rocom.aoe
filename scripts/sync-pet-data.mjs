@@ -12,6 +12,8 @@ const petsDetailDir = path.join(publicDataDir, "pets");
 const typesPath = path.join(publicDataDir, "types.json");
 const bloodlineIndexPath = path.join(publicDataDir, "bloodline_index.json");
 const petSkillIndexPath = path.join(publicDataDir, "PetSkillIndex.json");
+const itemsIndexPath = path.join(publicDataDir, "items.json");
+const handbookRewardsPath = path.join(publicDataDir, "handbook-rewards.json");
 
 const UNKNOWN_TYPE_ID = 20;
 const CANONICAL_PETBASE_ID_RANGE = {
@@ -89,7 +91,7 @@ const UNKNOWN_TYPE = {
 };
 
 async function main() {
-    const [typeRows, petBaseTable, handbookTable, evolutionTable, levelSkillTable, skillTable, classisTable, petEggTable, petRandomEggTable, petNameMapTable, bagItemTable, megaMapGatheringTable] =
+    const [typeRows, petBaseTable, handbookTable, evolutionTable, levelSkillTable, skillTable, classisTable, petEggTable, petRandomEggTable, petNameMapTable, bagItemTable, megaMapGatheringTable, monsterTable, monsterCatchTable, rewardTable, visualItemTable, exchangeTable] =
         await Promise.all([
             readJson(typesPath),
             readTable("PETBASE_CONF.json"),
@@ -103,6 +105,11 @@ async function main() {
             readTable("PET_NAME_MAP_CONF.json"),
             readTable("BAG_ITEM_CONF.json"),
             readTable("MEGAMAP_GATHERING_CONF.json"),
+            readTable("MONSTER_CONF.json"),
+            readTable("MONSTER_CATCH_CONF.json"),
+            readTable("REWARD_CONF.json"),
+            readTable("VISUAL_ITEM_CONF.json"),
+            readTable("EXCHANGE_CONF.json"),
         ]);
 
     const typesById = new Map(
@@ -146,6 +153,10 @@ async function main() {
                 cleanText(row?.genre) ?? cleanText(row?.editor_name) ?? null,
             ])
             .filter((entry) => Boolean(entry[1])),
+    );
+    const catchInfoByPetBaseId = buildCatchInfoByPetBaseId(
+        getRows(monsterTable),
+        getRows(monsterCatchTable),
     );
     const handbookByPetBaseId = buildHandbookByPetBaseId(handbookRows);
     const handbookById = indexBy(handbookRows);
@@ -241,6 +252,7 @@ async function main() {
             context,
             levelSkillById.get(context.petBase.level_skill_conf_id),
             skillById,
+            typesById,
         );
         const leaderForm = leaderFlagById.get(context.id) ?? false;
         const breeding = buildBreedingInfo(
@@ -286,6 +298,7 @@ async function main() {
             legacy_moves: legacyMoves,
             evolution_tree: evolutionTree,
             world_profile: buildWorldProfile(context),
+            catch_info: catchInfoByPetBaseId.get(context.id) ?? null,
             breeding,
             breeding_profile: buildBreedingProfile(context.petBase),
         };
@@ -341,6 +354,13 @@ async function main() {
         (left, right) => left.name.localeCompare(right.name, "zh-CN") || left.id - right.id,
     );
 
+    const itemLabelTypeTable = await readTable("ITEM_LABLE_TYPE_CONF.json");
+    const itemCategories = buildItemCategories(getRows(itemLabelTypeTable));
+    const evolutionItemUsage = buildEvolutionItemUsageFromRaw(petBaseRows, contexts);
+    const alchemyRecipes = buildAlchemyRecipes(getRows(exchangeTable), itemById);
+    const itemEntries = buildItemEntries(getRows(bagItemTable), itemCategories, evolutionItemUsage, skillById, alchemyRecipes);
+    const handbookRewards = buildHandbookRewards(handbookRows, rewardTable, visualItemTable, itemById);
+
     await syncMirroredTables();
     await fs.mkdir(petsDetailDir, { recursive: true });
     await cleanGeneratedPetDetails();
@@ -350,17 +370,19 @@ async function main() {
         entries: petSkillIndexEntries,
         skills: petSkillCatalogEntries,
     });
-    await Promise.all(
-        details.map((detail) => {
+    await Promise.all([
+        ...details.map((detail) => {
             return writeJson(
                 path.join(petsDetailDir, `${detail.id}.json`),
                 detail,
             );
         }),
-    );
+        writeJson(itemsIndexPath, itemEntries),
+        writeJson(handbookRewardsPath, handbookRewards),
+    ]);
 
     console.log(
-        `Generated ${indexEntries.length} pet index entries and ${details.length} pet detail files from BinData.`,
+        `Generated ${indexEntries.length} pet index entries, ${details.length} pet detail files, and ${itemEntries.length} item entries from BinData.`,
     );
 }
 
@@ -484,6 +506,55 @@ function buildHandbookByPetBaseId(handbookRows) {
     }
 
     return map;
+}
+
+function buildCatchInfoByPetBaseId(monsterRows, monsterCatchRows) {
+    const catchById = indexBy(monsterCatchRows);
+
+    const candidatesByBaseId = new Map();
+
+    for (const monster of monsterRows) {
+        const baseId = monster?.base_id;
+
+        if (!Number.isFinite(baseId) || !Number.isFinite(monster?.id)) {
+            continue;
+        }
+
+        const catchRow = catchById.get(monster.id);
+
+        if (!catchRow) {
+            continue;
+        }
+
+        const bucket = candidatesByBaseId.get(baseId) ?? [];
+        bucket.push(catchRow);
+        candidatesByBaseId.set(baseId, bucket);
+    }
+
+    const result = new Map();
+
+    for (const [baseId, candidates] of candidatesByBaseId) {
+        const best =
+            candidates.find((row) => Number.isFinite(row.Catch_Threshold)) ??
+            candidates[0];
+
+        result.set(baseId, {
+            catch_threshold:
+                typeof best.Catch_Threshold === "number"
+                    ? best.Catch_Threshold
+                    : null,
+            catch_guarant_rate:
+                typeof best.catch_guarant_rate === "number"
+                    ? best.catch_guarant_rate
+                    : null,
+            catch_ball_level:
+                typeof best.Catch_Ball_level === "number"
+                    ? best.Catch_Ball_level
+                    : null,
+        });
+    }
+
+    return result;
 }
 
 function pickHandbookRow(petBase, candidates, handbookById) {
@@ -726,6 +797,7 @@ function buildTrait(petBase, skillById) {
         id: skill.id,
         name,
         description,
+        icon_id: extractIconId(skill.icon) ?? null,
         localized: {
             zh: {
                 name,
@@ -791,7 +863,7 @@ function buildMoveStones(levelSkillRow, skillById, typesById) {
     return moves;
 }
 
-function buildLegacyMoves(context, levelSkillRow, skillById) {
+function buildLegacyMoves(context, levelSkillRow, skillById, typesById) {
     const entries = [];
 
     for (const [fieldName, typeId] of LEGACY_SKILL_TYPE_FIELDS) {
@@ -805,6 +877,7 @@ function buildLegacyMoves(context, levelSkillRow, skillById) {
             monster_id: context.id,
             type_id: typeId,
             move_id: skillId,
+            move: buildMove(skillById.get(skillId), typesById, skillId) ?? null,
         });
     }
 
@@ -847,6 +920,62 @@ function registerPetSkillCatalog(moves, catalogById) {
     }
 }
 
+function buildHandbookRewards(handbookRows, rewardTable, visualItemTable, bagItemById) {
+    const rewardById = rewardTable?.RocoDataRows ?? {};
+    const visualItemById = visualItemTable?.RocoDataRows ?? {};
+    const rewardIds = new Set();
+
+    for (const row of handbookRows) {
+        for (const topic of normalizeArray(row.pet_topic)) {
+            if (Number.isFinite(topic?.topic_reward)) {
+                rewardIds.add(topic.topic_reward);
+            }
+        }
+    }
+
+    const result = {};
+
+    for (const rewardId of rewardIds) {
+        const rewardRow = rewardById[String(rewardId)];
+
+        if (!rewardRow) {
+            continue;
+        }
+
+        const items = [];
+
+        for (const entry of normalizeArray(rewardRow.RewardItem)) {
+            const type = entry?.Type;
+            const id = entry?.Id;
+            const count = entry?.Count ?? 1;
+
+            if (!Number.isFinite(type) || !Number.isFinite(id)) {
+                continue;
+            }
+
+            if (type === 1) {
+                const bagItem = bagItemById.get(id);
+                const name = cleanText(bagItem?.name) ?? `道具 ${id}`;
+                const iconId = extractIconId(bagItem?.icon);
+
+                items.push({ type, id, name, icon_id: iconId, count });
+            } else if (type === 2) {
+                const visualItem = visualItemById[String(id)];
+                const name = cleanText(visualItem?.displayName) ?? `资源 ${id}`;
+                const iconId = extractIconId(visualItem?.bigIcon) ?? extractIconId(visualItem?.iconPath);
+
+                items.push({ type, id, name, icon_id: iconId, count });
+            }
+        }
+
+        if (items.length > 0) {
+            result[rewardId] = items;
+        }
+    }
+
+    return result;
+}
+
 function buildMove(skill, typesById, fallbackSkillId, options = {}) {
     const skillId = skill?.id ?? fallbackSkillId;
 
@@ -862,6 +991,7 @@ function buildMove(skill, typesById, fallbackSkillId, options = {}) {
     return {
         id: skillId,
         name,
+        icon_id: extractIconId(skill?.icon) ?? null,
         move_type: moveType,
         localized: {
             zh: {
@@ -1763,6 +1893,206 @@ async function writeJson(filePath, value) {
         `${JSON.stringify(value, null, 4)}\n`,
         "utf8",
     );
+}
+
+function resolveItemIconId(row, labelType, skillById) {
+    if (labelType === 5) {
+        const skillId = normalizeArray(row.item_behavior)?.[0]?.ratio?.[0];
+        const skill = Number.isFinite(skillId) ? skillById.get(skillId) : null;
+
+        if (skill?.icon) {
+            return extractIconId(skill.icon);
+        }
+    }
+
+    return extractIconId(row.icon);
+}
+
+function extractIconId(iconPath) {
+    if (typeof iconPath !== "string") {
+        return null;
+    }
+
+    const match = iconPath.match(/\/([^/.]+)\.[^/']+'/);
+
+    return match?.[1] ?? null;
+}
+
+const ITEM_QUALITY_LABELS = new Map([
+    [1, "普通"],
+    [2, "优秀"],
+    [3, "精良"],
+    [4, "史诗"],
+    [5, "传说"],
+]);
+
+function buildItemCategories(labelTypeRows) {
+    const categories = new Map();
+
+    for (const row of labelTypeRows) {
+        if (typeof row?.id !== "number") {
+            continue;
+        }
+
+        const labelType = row.lable_type ?? 0;
+        categories.set(labelType, cleanText(row.type_name) ?? `分类${labelType}`);
+    }
+
+    return categories;
+}
+
+function buildEvolutionItemUsageFromRaw(petBaseRows, contexts) {
+    const usage = new Map();
+    const contextById = new Map(contexts.map((c) => [c.id, c]));
+
+    for (const petBase of petBaseRows) {
+        if (typeof petBase?.id !== "number") {
+            continue;
+        }
+
+        const context = contextById.get(petBase.id);
+        const displayName = context?.displayName ?? cleanText(petBase.name) ?? String(petBase.id);
+
+        for (const itemRequirement of normalizeArray(petBase.evolution_need_items)) {
+            const itemId = itemRequirement?.evolution_need_item;
+
+            if (!Number.isFinite(itemId)) {
+                continue;
+            }
+
+            if (!usage.has(itemId)) {
+                usage.set(itemId, []);
+            }
+
+            const existing = usage.get(itemId);
+            const petEntry = { id: petBase.id, name: displayName };
+
+            if (!existing.some((entry) => entry.id === petEntry.id)) {
+                existing.push(petEntry);
+            }
+        }
+    }
+
+    return usage;
+}
+
+function buildAlchemyRecipes(exchangeRows, bagItemById) {
+    const recipesByProductId = new Map();
+
+    for (const row of exchangeRows) {
+        if (row?.use_type !== 8) continue;
+
+        const getItems = normalizeArray(row.get_item);
+        if (getItems.length === 0) continue;
+
+        const productId = getItems[0]?.get_goods_id;
+        if (typeof productId !== "number") continue;
+
+        const costGroups = normalizeArray(row.cost_item).map((cost) => {
+            const ids = normalizeArray(cost?.cost_goods_id).filter(
+                (id) => typeof id === "number",
+            );
+            return {
+                options: ids.map((id) => {
+                    const item = bagItemById.get(id);
+                    return {
+                        id,
+                        name: cleanText(item?.name) ?? `道具 ${id}`,
+                        icon_id: extractIconId(item?.icon),
+                    };
+                }),
+                count: typeof cost?.cost_goods_num === "number" ? cost.cost_goods_num : 1,
+            };
+        }).filter((group) => group.options.length > 0);
+
+        if (costGroups.length === 0) continue;
+
+        const editorNames = normalizeArray(row.editor_name).map((n) => cleanText(n)).filter(Boolean);
+        const canCraft = !editorNames.some((n) => n.includes("不能合成"));
+
+        const recipe = {
+            cost: costGroups,
+            can_craft: canCraft,
+        };
+
+        if (!recipesByProductId.has(productId)) {
+            recipesByProductId.set(productId, []);
+        }
+        recipesByProductId.get(productId).push(recipe);
+    }
+
+    return recipesByProductId;
+}
+
+function buildItemEntries(bagItemRows, itemCategories, evolutionItemUsage, skillById, alchemyRecipes) {
+    const entries = [];
+
+    for (const row of bagItemRows) {
+        if (typeof row?.id !== "number") {
+            continue;
+        }
+
+        const rawName = cleanText(row.name);
+
+        if (!rawName) {
+            continue;
+        }
+
+        const isRelease = row.is_release === true;
+        const canSee = row.can_see === 1;
+
+        if (!isRelease && !canSee) {
+            continue;
+        }
+
+        const description = cleanText(row.description);
+
+        if (!description || description.startsWith("（没投放")) {
+            continue;
+        }
+
+        const labelType = row.lable_type ?? 0;
+        const categoryName = itemCategories.get(labelType) ?? null;
+        const editorName = cleanText(row.editor_name);
+        const name = labelType === 9 && editorName ? editorName : rawName;
+        const typeDesc = cleanText(row.type_desc) ?? null;
+        const flavorText = cleanText(row.flavor_text) ?? null;
+        const quality = typeof row.item_quality === "number" ? row.item_quality : 1;
+        const qualityLabel = ITEM_QUALITY_LABELS.get(quality) ?? "普通";
+
+        const acquireWays = normalizeArray(row.acquire_struct)
+            .map((entry) => cleanText(entry?.acquire_way_text))
+            .filter(Boolean);
+
+        const relatedPets = evolutionItemUsage.get(row.id) ?? [];
+
+        const iconId = resolveItemIconId(row, labelType, skillById);
+
+        const recipes = alchemyRecipes?.get(row.id) ?? [];
+
+        const entry = {
+            id: row.id,
+            name,
+            icon_id: iconId,
+            description,
+            flavor_text: flavorText,
+            category: categoryName,
+            type_desc: typeDesc,
+            quality,
+            quality_label: qualityLabel,
+            acquire_ways: acquireWays,
+            related_pets: relatedPets,
+        };
+
+        if (recipes.length > 0) {
+            entry.recipes = recipes;
+        }
+
+        entries.push(entry);
+    }
+
+    entries.sort((left, right) => left.id - right.id);
+    return entries;
 }
 
 main().catch((error) => {

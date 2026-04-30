@@ -44,6 +44,7 @@
         "id": 200000,
         "name": "GM被动",
         "description": "回合末恢复10能量。",
+        "icon_id": "200074",
         "localized": {
             "zh": {
                 "name": "GM被动",
@@ -55,6 +56,7 @@
         {
             "id": 7190220,
             "name": "对敌方精灵造成物理伤害。",
+            "icon_id": "719002",
             "move_type": {
                 "id": 18,
                 "name": "Illusion",
@@ -76,6 +78,7 @@
         {
             "id": 7190230,
             "name": "空间压迫",
+            "icon_id": "719011",
             "move_type": {
                 "id": 18,
                 "name": "Illusion",
@@ -97,6 +100,7 @@
         {
             "id": 7190240,
             "name": "坍缩",
+            "icon_id": "118004",
             "move_type": {
                 "id": 18,
                 "name": "Illusion",
@@ -118,6 +122,7 @@
         {
             "id": 7190260,
             "name": "偷师",
+            "icon_id": "218006",
             "move_type": {
                 "id": 18,
                 "name": "Illusion",
@@ -139,6 +144,7 @@
         {
             "id": 7190270,
             "name": "造成魔伤，1连击，敌方每有1层星陨印记，本次技能连击数+1。",
+            "icon_id": "118007",
             "move_type": {
                 "id": 18,
                 "name": "Illusion",
@@ -160,6 +166,7 @@
         {
             "id": 7190280,
             "name": "应对！错乱",
+            "icon_id": "719004",
             "move_type": {
                 "id": 18,
                 "name": "Illusion",
@@ -181,6 +188,7 @@
         {
             "id": 7190290,
             "name": "敌方获得4层星陨印记。",
+            "icon_id": "118009",
             "move_type": {
                 "id": 18,
                 "name": "Illusion",
@@ -202,6 +210,7 @@
         {
             "id": 7190300,
             "name": "敌方获得2层星陨印记。",
+            "icon_id": "218007",
             "move_type": {
                 "id": 18,
                 "name": "Illusion",
@@ -223,6 +232,7 @@
         {
             "id": 7190310,
             "name": "2连击，每次连击使敌方获得1层星陨印记。",
+            "icon_id": "318016",
             "move_type": {
                 "id": 18,
                 "name": "Illusion",
@@ -244,6 +254,7 @@
         {
             "id": 7190320,
             "name": "敌方获得2层星陨印记，每使用1次，赋予的星陨印记层数+1。",
+            "icon_id": "719012",
             "move_type": {
                 "id": 18,
                 "name": "Illusion",
@@ -265,6 +276,7 @@
         {
             "id": 7190330,
             "name": "心灵洞悉",
+            "icon_id": "719009",
             "move_type": {
                 "id": 18,
                 "name": "Illusion",
@@ -286,6 +298,7 @@
         {
             "id": 7190400,
             "name": "对敌方精灵造成魔法伤害。",
+            "icon_id": "118022",
             "move_type": {
                 "id": 18,
                 "name": "Illusion",
@@ -351,6 +364,7 @@
         "classis_name": "猫咪类精灵",
         "handbook_area_ids": []
     },
+    "catch_info": null,
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 9818,

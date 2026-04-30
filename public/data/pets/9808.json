@@ -44,6 +44,7 @@
         "id": 200000,
         "name": "GM被动",
         "description": "回合末恢复10能量。",
+        "icon_id": "200074",
         "localized": {
             "zh": {
                 "name": "GM被动",
@@ -55,6 +56,7 @@
         {
             "id": 7100240,
             "name": "隼鳞",
+            "icon_id": "209014",
             "move_type": {
                 "id": 8,
                 "name": "Dragon",
@@ -76,6 +78,7 @@
         {
             "id": 7100250,
             "name": "龙威",
+            "icon_id": "109016",
             "move_type": {
                 "id": 8,
                 "name": "Dragon",
@@ -97,6 +100,7 @@
         {
             "id": 7100260,
             "name": "减伤70%，本技能可以在蓄力状态下使用，应对攻击：下次技能无需蓄力。",
+            "icon_id": "309017",
             "move_type": {
                 "id": 8,
                 "name": "Dragon",
@@ -162,6 +166,7 @@
         "classis_name": "猫咪类精灵",
         "handbook_area_ids": []
     },
+    "catch_info": null,
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 9808,

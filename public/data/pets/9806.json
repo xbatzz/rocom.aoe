@@ -44,6 +44,7 @@
         "id": 200000,
         "name": "GM被动",
         "description": "回合末恢复10能量。",
+        "icon_id": "200074",
         "localized": {
             "zh": {
                 "name": "GM被动",
@@ -55,6 +56,7 @@
         {
             "id": 7080320,
             "name": "陨石",
+            "icon_id": "107028",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -76,6 +78,7 @@
         {
             "id": 7080330,
             "name": "造成物伤，物防比敌方越高，本次技能威力越高。",
+            "icon_id": "107029",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -97,6 +100,7 @@
         {
             "id": 7080340,
             "name": "应对！地陷",
+            "icon_id": "107031",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -118,6 +122,7 @@
         {
             "id": 7080350,
             "name": "岩脉崩毁",
+            "icon_id": "107032",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -139,6 +144,7 @@
         {
             "id": 7080360,
             "name": "震击",
+            "icon_id": "107033",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -160,6 +166,7 @@
         {
             "id": 7080370,
             "name": "石肤术",
+            "icon_id": "107034",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -181,6 +188,7 @@
         {
             "id": 7080380,
             "name": "自己获得物防+140%和速度-30。",
+            "icon_id": "307035",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -202,6 +210,7 @@
         {
             "id": 7080400,
             "name": "蓄势待发",
+            "icon_id": "107036",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -223,6 +232,7 @@
         {
             "id": 7080410,
             "name": "应对！淤泥表皮",
+            "icon_id": "107039",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -288,6 +298,7 @@
         "classis_name": "猫咪类精灵",
         "handbook_area_ids": []
     },
+    "catch_info": null,
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 9806,
