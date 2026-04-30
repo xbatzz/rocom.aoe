@@ -12,7 +12,39 @@
         "acquire_ways": [
             "炼金造物获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100628,
+                                "name": "黑晶琉璃",
+                                "icon_id": "100628"
+                            },
+                            {
+                                "id": 100675,
+                                "name": "黄石榴石",
+                                "icon_id": "100683"
+                            },
+                            {
+                                "id": 100676,
+                                "name": "蓝晶碧玺",
+                                "icon_id": "100681"
+                            },
+                            {
+                                "id": 100677,
+                                "name": "紫莲刚玉",
+                                "icon_id": "100682"
+                            }
+                        ],
+                        "count": 1
+                    }
+                ],
+                "can_craft": true
+            }
+        ]
     },
     {
         "id": 100003,
@@ -567,7 +599,24 @@
             "珍稀道具城购买",
             "炼金造物获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100204,
+                                "name": "损坏的国王球",
+                                "icon_id": "100723"
+                            }
+                        ],
+                        "count": 10
+                    }
+                ],
+                "can_craft": true
+            }
+        ]
     },
     {
         "id": 100262,
@@ -584,7 +633,49 @@
             "精灵首领·奇梦咪掉落",
             "炼金造物获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100002,
+                                "name": "普通咕噜球",
+                                "icon_id": "100002"
+                            }
+                        ],
+                        "count": 1
+                    },
+                    {
+                        "options": [
+                            {
+                                "id": 100608,
+                                "name": "天使草",
+                                "icon_id": "100608"
+                            },
+                            {
+                                "id": 100662,
+                                "name": "雪菇",
+                                "icon_id": "100693"
+                            },
+                            {
+                                "id": 100850,
+                                "name": "短木莲",
+                                "icon_id": "100869"
+                            },
+                            {
+                                "id": 100665,
+                                "name": "荧光兰",
+                                "icon_id": "100694"
+                            }
+                        ],
+                        "count": 2
+                    }
+                ],
+                "can_craft": true
+            }
+        ]
     },
     {
         "id": 100263,
@@ -601,7 +692,49 @@
             "精灵首领·伊兰龙掉落",
             "炼金造物获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100002,
+                                "name": "普通咕噜球",
+                                "icon_id": "100002"
+                            }
+                        ],
+                        "count": 1
+                    },
+                    {
+                        "options": [
+                            {
+                                "id": 100839,
+                                "name": "藻羽花",
+                                "icon_id": "100750"
+                            },
+                            {
+                                "id": 100843,
+                                "name": "海珊瑚",
+                                "icon_id": "100754"
+                            },
+                            {
+                                "id": 100666,
+                                "name": "大嘴花",
+                                "icon_id": "100684"
+                            },
+                            {
+                                "id": 100607,
+                                "name": "睡铃",
+                                "icon_id": "100607"
+                            }
+                        ],
+                        "count": 2
+                    }
+                ],
+                "can_craft": true
+            }
+        ]
     },
     {
         "id": 100271,
@@ -618,7 +751,44 @@
             "精灵首领·钻石蜗掉落",
             "炼金造物获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100002,
+                                "name": "普通咕噜球",
+                                "icon_id": "100002"
+                            }
+                        ],
+                        "count": 1
+                    },
+                    {
+                        "options": [
+                            {
+                                "id": 100625,
+                                "name": "凤眼莲",
+                                "icon_id": "100625"
+                            },
+                            {
+                                "id": 100841,
+                                "name": "象牙花",
+                                "icon_id": "100762"
+                            },
+                            {
+                                "id": 100605,
+                                "name": "喵喵草",
+                                "icon_id": "100605"
+                            }
+                        ],
+                        "count": 2
+                    }
+                ],
+                "can_craft": true
+            }
+        ]
     },
     {
         "id": 100272,
@@ -635,7 +805,49 @@
             "精灵首领·千棘海针掉落",
             "炼金造物获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100002,
+                                "name": "普通咕噜球",
+                                "icon_id": "100002"
+                            }
+                        ],
+                        "count": 1
+                    },
+                    {
+                        "options": [
+                            {
+                                "id": 100842,
+                                "name": "风卷草",
+                                "icon_id": "100753"
+                            },
+                            {
+                                "id": 100624,
+                                "name": "喷气菇",
+                                "icon_id": "100624"
+                            },
+                            {
+                                "id": 100844,
+                                "name": "海神花",
+                                "icon_id": "100755"
+                            },
+                            {
+                                "id": 100606,
+                                "name": "蓝掌",
+                                "icon_id": "100606"
+                            }
+                        ],
+                        "count": 2
+                    }
+                ],
+                "can_craft": true
+            }
+        ]
     },
     {
         "id": 100273,
@@ -652,7 +864,44 @@
             "精灵首领·幻影荆棘掉落",
             "炼金造物获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100002,
+                                "name": "普通咕噜球",
+                                "icon_id": "100002"
+                            }
+                        ],
+                        "count": 1
+                    },
+                    {
+                        "options": [
+                            {
+                                "id": 100670,
+                                "name": "恶魔雪茄",
+                                "icon_id": "100686"
+                            },
+                            {
+                                "id": 100627,
+                                "name": "幽幽草",
+                                "icon_id": "100627"
+                            },
+                            {
+                                "id": 100663,
+                                "name": "骨片",
+                                "icon_id": "100695"
+                            }
+                        ],
+                        "count": 2
+                    }
+                ],
+                "can_craft": true
+            }
+        ]
     },
     {
         "id": 100274,
@@ -669,7 +918,49 @@
             "精灵首领·雪影冰灵掉落",
             "炼金造物获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100002,
+                                "name": "普通咕噜球",
+                                "icon_id": "100002"
+                            }
+                        ],
+                        "count": 1
+                    },
+                    {
+                        "options": [
+                            {
+                                "id": 100604,
+                                "name": "向阳花",
+                                "icon_id": "100604"
+                            },
+                            {
+                                "id": 100622,
+                                "name": "伞伞菌",
+                                "icon_id": "100622"
+                            },
+                            {
+                                "id": 100661,
+                                "name": "星霜花",
+                                "icon_id": "100692"
+                            },
+                            {
+                                "id": 100674,
+                                "name": "火焰花",
+                                "icon_id": "100690"
+                            }
+                        ],
+                        "count": 2
+                    }
+                ],
+                "can_craft": true
+            }
+        ]
     },
     {
         "id": 100275,
@@ -686,7 +977,49 @@
             "精灵首领·蹦蹦果掉落",
             "炼金造物获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100002,
+                                "name": "普通咕噜球",
+                                "icon_id": "100002"
+                            }
+                        ],
+                        "count": 1
+                    },
+                    {
+                        "options": [
+                            {
+                                "id": 100848,
+                                "name": "洋红珊瑚",
+                                "icon_id": "100868"
+                            },
+                            {
+                                "id": 100849,
+                                "name": "杏黄贝",
+                                "icon_id": "100867"
+                            },
+                            {
+                                "id": 100669,
+                                "name": "海桑花",
+                                "icon_id": "100687"
+                            },
+                            {
+                                "id": 100664,
+                                "name": "花星角",
+                                "icon_id": "100689"
+                            }
+                        ],
+                        "count": 2
+                    }
+                ],
+                "can_craft": true
+            }
+        ]
     },
     {
         "id": 100283,
@@ -703,7 +1036,49 @@
             "精灵首领·迷嶂布莱克掉落",
             "炼金造物获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100002,
+                                "name": "普通咕噜球",
+                                "icon_id": "100002"
+                            }
+                        ],
+                        "count": 1
+                    },
+                    {
+                        "options": [
+                            {
+                                "id": 100623,
+                                "name": "蜜黄菌",
+                                "icon_id": "100623"
+                            },
+                            {
+                                "id": 100621,
+                                "name": "石耳",
+                                "icon_id": "100621"
+                            },
+                            {
+                                "id": 100845,
+                                "name": "幽幽鬼火",
+                                "icon_id": "100763"
+                            },
+                            {
+                                "id": 100840,
+                                "name": "彩玉花",
+                                "icon_id": "100751"
+                            }
+                        ],
+                        "count": 2
+                    }
+                ],
+                "can_craft": true
+            }
+        ]
     },
     {
         "id": 100284,
@@ -720,7 +1095,44 @@
             "精灵首领·圣剑骑士",
             "炼金造物获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100002,
+                                "name": "普通咕噜球",
+                                "icon_id": "100002"
+                            }
+                        ],
+                        "count": 1
+                    },
+                    {
+                        "options": [
+                            {
+                                "id": 100667,
+                                "name": "流星兰",
+                                "icon_id": "100691"
+                            },
+                            {
+                                "id": 100668,
+                                "name": "紫晶菇",
+                                "icon_id": "100706"
+                            },
+                            {
+                                "id": 100846,
+                                "name": "紫雀花",
+                                "icon_id": "100764"
+                            }
+                        ],
+                        "count": 2
+                    }
+                ],
+                "can_craft": true
+            }
+        ]
     },
     {
         "id": 100285,
@@ -753,7 +1165,24 @@
             "珍稀道具城购买",
             "炼金造物获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100699,
+                                "name": "分光水晶",
+                                "icon_id": "100796"
+                            }
+                        ],
+                        "count": 1600
+                    }
+                ],
+                "can_craft": true
+            }
+        ]
     },
     {
         "id": 100287,
@@ -823,6 +1252,23 @@
                 "id": 9819,
                 "name": "木桶"
             }
+        ],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100201,
+                                "name": "魔法粉尘",
+                                "icon_id": "100201"
+                            }
+                        ],
+                        "count": 3
+                    }
+                ],
+                "can_craft": false
+            }
         ]
     },
     {
@@ -839,7 +1285,24 @@
             "精灵首领·风暴战犬掉落",
             "炼金转化获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100201,
+                                "name": "魔法粉尘",
+                                "icon_id": "100201"
+                            }
+                        ],
+                        "count": 3
+                    }
+                ],
+                "can_craft": false
+            }
+        ]
     },
     {
         "id": 100303,
@@ -860,6 +1323,23 @@
                 "id": 3056,
                 "name": "咔咔壳"
             }
+        ],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100201,
+                                "name": "魔法粉尘",
+                                "icon_id": "100201"
+                            }
+                        ],
+                        "count": 3
+                    }
+                ],
+                "can_craft": false
+            }
         ]
     },
     {
@@ -876,7 +1356,24 @@
             "精灵首领·钻石蜗掉落",
             "炼金转化获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100201,
+                                "name": "魔法粉尘",
+                                "icon_id": "100201"
+                            }
+                        ],
+                        "count": 3
+                    }
+                ],
+                "can_craft": false
+            }
+        ]
     },
     {
         "id": 100305,
@@ -892,7 +1389,24 @@
             "精灵首领·恶魔狼王掉落",
             "炼金转化获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100201,
+                                "name": "魔法粉尘",
+                                "icon_id": "100201"
+                            }
+                        ],
+                        "count": 3
+                    }
+                ],
+                "can_craft": false
+            }
+        ]
     },
     {
         "id": 100306,
@@ -913,6 +1427,23 @@
                 "id": 3066,
                 "name": "影狸"
             }
+        ],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100201,
+                                "name": "魔法粉尘",
+                                "icon_id": "100201"
+                            }
+                        ],
+                        "count": 3
+                    }
+                ],
+                "can_craft": false
+            }
         ]
     },
     {
@@ -929,7 +1460,24 @@
             "精灵首领·黑猫密探掉落",
             "炼金转化获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100201,
+                                "name": "魔法粉尘",
+                                "icon_id": "100201"
+                            }
+                        ],
+                        "count": 3
+                    }
+                ],
+                "can_craft": false
+            }
+        ]
     },
     {
         "id": 100309,
@@ -945,7 +1493,24 @@
             "精灵首领·迷嶂布莱克掉落",
             "炼金转化获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100201,
+                                "name": "魔法粉尘",
+                                "icon_id": "100201"
+                            }
+                        ],
+                        "count": 3
+                    }
+                ],
+                "can_craft": false
+            }
+        ]
     },
     {
         "id": 100310,
@@ -961,7 +1526,24 @@
             "精灵首领·雪影冰灵掉落",
             "炼金转化获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100201,
+                                "name": "魔法粉尘",
+                                "icon_id": "100201"
+                            }
+                        ],
+                        "count": 3
+                    }
+                ],
+                "can_craft": false
+            }
+        ]
     },
     {
         "id": 100311,
@@ -977,7 +1559,24 @@
             "精灵首领·伊兰龙掉落",
             "炼金转化获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100201,
+                                "name": "魔法粉尘",
+                                "icon_id": "100201"
+                            }
+                        ],
+                        "count": 3
+                    }
+                ],
+                "can_craft": false
+            }
+        ]
     },
     {
         "id": 100312,
@@ -993,7 +1592,24 @@
             "精灵首领·波普鹿掉落",
             "炼金转化获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100201,
+                                "name": "魔法粉尘",
+                                "icon_id": "100201"
+                            }
+                        ],
+                        "count": 3
+                    }
+                ],
+                "can_craft": false
+            }
+        ]
     },
     {
         "id": 100313,
@@ -1009,7 +1625,24 @@
             "精灵首领·蹦蹦果掉落",
             "炼金转化获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100201,
+                                "name": "魔法粉尘",
+                                "icon_id": "100201"
+                            }
+                        ],
+                        "count": 3
+                    }
+                ],
+                "can_craft": false
+            }
+        ]
     },
     {
         "id": 100314,
@@ -1030,6 +1663,23 @@
                 "id": 3059,
                 "name": "黄蜂后"
             }
+        ],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100201,
+                                "name": "魔法粉尘",
+                                "icon_id": "100201"
+                            }
+                        ],
+                        "count": 3
+                    }
+                ],
+                "can_craft": false
+            }
         ]
     },
     {
@@ -1046,7 +1696,24 @@
             "精灵首领·棋契陛下掉落",
             "炼金转化获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100201,
+                                "name": "魔法粉尘",
+                                "icon_id": "100201"
+                            }
+                        ],
+                        "count": 3
+                    }
+                ],
+                "can_craft": false
+            }
+        ]
     },
     {
         "id": 100316,
@@ -1083,6 +1750,23 @@
                 "id": 3287,
                 "name": "岚鸟"
             }
+        ],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100201,
+                                "name": "魔法粉尘",
+                                "icon_id": "100201"
+                            }
+                        ],
+                        "count": 3
+                    }
+                ],
+                "can_craft": false
+            }
         ]
     },
     {
@@ -1099,7 +1783,24 @@
             "精灵首领·奇梦咪掉落",
             "炼金转化获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100201,
+                                "name": "魔法粉尘",
+                                "icon_id": "100201"
+                            }
+                        ],
+                        "count": 3
+                    }
+                ],
+                "can_craft": false
+            }
+        ]
     },
     {
         "id": 100318,
@@ -1115,7 +1816,24 @@
             "精灵首领·圣剑骑士",
             "炼金转化获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100201,
+                                "name": "魔法粉尘",
+                                "icon_id": "100201"
+                            }
+                        ],
+                        "count": 3
+                    }
+                ],
+                "can_craft": false
+            }
+        ]
     },
     {
         "id": 100319,
@@ -1131,7 +1849,24 @@
             "精灵首领·祭礼巨像掉落",
             "炼金转化获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100201,
+                                "name": "魔法粉尘",
+                                "icon_id": "100201"
+                            }
+                        ],
+                        "count": 3
+                    }
+                ],
+                "can_craft": false
+            }
+        ]
     },
     {
         "id": 100420,
@@ -1218,7 +1953,34 @@
         "acquire_ways": [
             "炼金造物获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100531,
+                                "name": "愿力灵碎",
+                                "icon_id": "100733"
+                            }
+                        ],
+                        "count": 5
+                    },
+                    {
+                        "options": [
+                            {
+                                "id": 100201,
+                                "name": "魔法粉尘",
+                                "icon_id": "100201"
+                            }
+                        ],
+                        "count": 5
+                    }
+                ],
+                "can_craft": true
+            }
+        ]
     },
     {
         "id": 100426,
@@ -3364,7 +4126,24 @@
         "acquire_ways": [
             "炼金造物获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100530,
+                                "name": "首领血脉凝露",
+                                "icon_id": "100530"
+                            }
+                        ],
+                        "count": 10
+                    }
+                ],
+                "can_craft": true
+            }
+        ]
     },
     {
         "id": 102024,
@@ -3379,7 +4158,34 @@
         "acquire_ways": [
             "炼金造物获得"
         ],
-        "related_pets": []
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100532,
+                                "name": "奇异血脉凝露",
+                                "icon_id": "100877"
+                            }
+                        ],
+                        "count": 5
+                    },
+                    {
+                        "options": [
+                            {
+                                "id": 100201,
+                                "name": "魔法粉尘",
+                                "icon_id": "100201"
+                            }
+                        ],
+                        "count": 5
+                    }
+                ],
+                "can_craft": true
+            }
+        ]
     },
     {
         "id": 103000,

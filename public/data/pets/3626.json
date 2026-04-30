@@ -50,6 +50,7 @@
         "id": 200279,
         "name": "冥古龙",
         "description": "战斗开始时，队伍内所有精灵噩梦化",
+        "icon_id": "200075",
         "localized": {
             "zh": {
                 "name": "冥古龙",
@@ -143,6 +144,11 @@
         "classis_id": 6,
         "classis_name": "自然类精灵",
         "handbook_area_ids": []
+    },
+    "catch_info": {
+        "catch_threshold": null,
+        "catch_guarant_rate": null,
+        "catch_ball_level": null
     },
     "breeding": null,
     "breeding_profile": {

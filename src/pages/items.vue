@@ -5,7 +5,9 @@ import {
     ChevronRight,
     ChevronsLeft,
     ChevronsRight,
+    FlaskConical,
     Package,
+    Plus,
     RotateCcw,
     Search,
     SlidersHorizontal,
@@ -31,6 +33,9 @@ const QUALITY_STYLES: Record<number, { border: string; bg: string; text: string;
     1: { border: "border-slate-400/30", bg: "bg-slate-400/10", text: "text-slate-300", dot: "bg-slate-400" },
 };
 
+const route = useRoute();
+const router = useRouter();
+
 const items = ref<IItem[]>([]);
 const isLoading = ref(false);
 const errorMessage = ref("");
@@ -40,6 +45,7 @@ const selectedQuality = ref("all");
 const currentPage = ref(1);
 const pageSize = ref(48);
 const expandedItemId = ref<number | null>(null);
+const highlightedItemId = ref<number | null>(null);
 const failedIcons = ref(new Set<number>());
 
 let controller: AbortController | null = null;
@@ -154,8 +160,13 @@ function toggleExpand(itemId: number) {
     expandedItemId.value = expandedItemId.value === itemId ? null : itemId;
 }
 
-function getQualityStyle(quality: number) {
-    return QUALITY_STYLES[quality] ?? QUALITY_STYLES[1];
+function navigateToItem(itemId: number) {
+    const resolved = router.resolve({ path: "/items", query: { highlight: String(itemId) } });
+    window.open(resolved.href, "_blank");
+}
+
+function getQualityStyle(quality: number): { border: string; bg: string; text: string; dot: string } {
+    return QUALITY_STYLES[quality] ?? QUALITY_STYLES[1]!;
 }
 
 function getIconSrc(item: IItem) {
@@ -168,6 +179,23 @@ function getIconSrc(item: IItem) {
 
 function onIconError(itemId: number) {
     failedIcons.value.add(itemId);
+}
+
+function getMaterialIconSrc(iconId: string | null) {
+    if (!iconId) return null;
+    return `/assets/webp/items/${iconId}.webp`;
+}
+
+const itemById = computed(() => {
+    const map = new Map<number, IItem>();
+    for (const item of items.value) {
+        map.set(item.id, item);
+    }
+    return map;
+});
+
+function getItemDetail(itemId: number): IItem | null {
+    return itemById.value.get(itemId) ?? null;
 }
 
 function buildPageItems(current: number, total: number) {
@@ -226,10 +254,32 @@ async function loadItems() {
     }
 }
 
+function applyHighlightFromRoute() {
+    const raw = route.query.highlight;
+    const id = Number(Array.isArray(raw) ? raw[0] : raw);
+
+    if (!Number.isFinite(id) || id <= 0) {
+        return;
+    }
+
+    highlightedItemId.value = id;
+    searchQuery.value = String(id);
+    expandedItemId.value = id;
+
+    nextTick(() => {
+        const el = document.getElementById(`item-${id}`);
+
+        if (el) {
+            el.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+    });
+}
+
 document.title = "道具 - 洛克王国工具箱";
 
-onMounted(() => {
-    void loadItems();
+onMounted(async () => {
+    await loadItems();
+    applyHighlightFromRoute();
 });
 
 onBeforeUnmount(() => {
@@ -359,9 +409,14 @@ onBeforeUnmount(() => {
         </div>
 
         <div v-else class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-            <div v-for="entry in paginatedItems" :key="entry.id" class="group" @click="toggleExpand(entry.id)">
+            <div v-for="entry in paginatedItems" :key="entry.id" :id="`item-${entry.id}`" class="group" @click="toggleExpand(entry.id)">
                 <Card
-                    class="h-full cursor-pointer border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] py-0 shadow-md transition duration-300 group-hover:-translate-y-1 group-hover:border-primary/30 group-hover:shadow-xl"
+                    :class="[
+                        'h-full cursor-pointer py-0 shadow-md transition duration-300 group-hover:-translate-y-1 group-hover:shadow-xl',
+                        highlightedItemId === entry.id
+                            ? 'border-amber-400/40 bg-[linear-gradient(180deg,rgba(251,191,36,0.12),rgba(251,191,36,0.04))] ring-1 ring-amber-400/20 group-hover:border-amber-400/50'
+                            : 'border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] group-hover:border-primary/30',
+                    ]"
                     style="content-visibility: auto; contain-intrinsic-size: 200px;">
                     <CardContent class="p-4">
                         <div class="flex gap-3">
@@ -455,6 +510,101 @@ onBeforeUnmount(() => {
                                             {{ pet.name }}
                                         </Badge>
                                     </RouterLink>
+                                </div>
+                            </div>
+
+                            <div v-if="entry.recipes?.length" @click.stop>
+                                <p class="flex items-center gap-1 text-xs font-medium text-slate-500">
+                                    <FlaskConical class="h-3 w-3" />
+                                    炼金造物配方
+                                </p>
+                                <div class="mt-1.5 space-y-2">
+                                    <div v-for="(recipe, rIdx) in entry.recipes" :key="rIdx"
+                                        class="rounded-xl border px-3 py-2.5"
+                                        :class="recipe.can_craft
+                                            ? 'border-amber-400/15 bg-amber-400/5'
+                                            : 'border-white/8 bg-black/20 opacity-60'">
+                                        <div v-if="!recipe.can_craft" class="mb-1.5 text-[10px] font-medium text-slate-500">
+                                            暂不可合成
+                                        </div>
+                                        <div class="flex flex-wrap items-center gap-1.5">
+                                            <template v-for="(group, gIdx) in recipe.cost" :key="gIdx">
+                                                <Plus v-if="gIdx > 0" class="h-3 w-3 shrink-0 text-slate-500" />
+                                                <div class="flex flex-wrap items-center gap-1">
+                                                    <template v-for="(mat, mIdx) in group.options" :key="mat.id">
+                                                        <HoverCard :open-delay="200" :close-delay="100">
+                                                            <HoverCardTrigger as-child>
+                                                                <button
+                                                                    class="inline-flex cursor-pointer items-center gap-1 rounded-lg border border-white/8 bg-white/4 px-2 py-1 transition hover:border-amber-400/30 hover:bg-amber-400/10"
+                                                                    @click="navigateToItem(mat.id)">
+                                                                    <img v-if="getMaterialIconSrc(mat.icon_id)"
+                                                                        :src="getMaterialIconSrc(mat.icon_id)!"
+                                                                        :alt="mat.name"
+                                                                        class="h-4 w-4 object-contain" />
+                                                                    <span class="text-[11px] text-slate-300">{{ mat.name }}</span>
+                                                                </button>
+                                                            </HoverCardTrigger>
+                                                            <HoverCardContent
+                                                                side="top"
+                                                                :side-offset="6"
+                                                                class="w-72 rounded-xl border-white/10 bg-slate-950/95 p-0 shadow-xl backdrop-blur">
+                                                                <template v-for="detail in ([getItemDetail(mat.id)] as IItem[])" :key="mat.id">
+                                                                    <div class="flex gap-3 p-3">
+                                                                        <div :class="[
+                                                                            'relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg border',
+                                                                            getQualityStyle(detail.quality).border,
+                                                                            'bg-slate-900/80',
+                                                                        ]">
+                                                                            <img v-if="getMaterialIconSrc(mat.icon_id)"
+                                                                                :src="getMaterialIconSrc(mat.icon_id)!"
+                                                                                :alt="mat.name"
+                                                                                class="h-full w-full object-contain p-1" />
+                                                                            <span v-else :class="['text-sm font-bold', getQualityStyle(detail.quality).text]">
+                                                                                {{ mat.name.slice(0, 1) }}
+                                                                            </span>
+                                                                            <div :class="['absolute bottom-0 left-0 right-0 h-0.5', getQualityStyle(detail.quality).dot]" />
+                                                                        </div>
+                                                                        <div class="min-w-0 flex-1">
+                                                                            <div class="flex items-center gap-1.5">
+                                                                                <p class="truncate text-sm font-semibold text-white">{{ detail.name }}</p>
+                                                                                <Badge :class="[
+                                                                                    'shrink-0 rounded-full border px-1.5 py-0.5 text-[10px]',
+                                                                                    getQualityStyle(detail.quality).border,
+                                                                                    getQualityStyle(detail.quality).bg,
+                                                                                    getQualityStyle(detail.quality).text,
+                                                                                ]">
+                                                                                    {{ detail.quality_label }}
+                                                                                </Badge>
+                                                                            </div>
+                                                                            <div class="mt-0.5 flex flex-wrap gap-1">
+                                                                                <span v-if="detail.category" class="text-[10px] text-slate-500">{{ detail.category }}</span>
+                                                                                <span v-if="detail.category && detail.type_desc" class="text-[10px] text-slate-600">·</span>
+                                                                                <span v-if="detail.type_desc" class="text-[10px] text-slate-500">{{ detail.type_desc }}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="border-t border-white/8 px-3 py-2">
+                                                                        <p class="line-clamp-3 text-xs leading-5 text-slate-400">{{ detail.description }}</p>
+                                                                    </div>
+                                                                    <div v-if="detail.acquire_ways.length > 0" class="border-t border-white/8 px-3 py-2">
+                                                                        <div class="flex flex-wrap gap-1">
+                                                                            <Badge v-for="(way, wIdx) in detail.acquire_ways" :key="wIdx" variant="outline"
+                                                                                class="rounded-full border-white/8 bg-white/4 px-2 py-0.5 text-[10px] text-slate-400">
+                                                                                {{ way }}
+                                                                            </Badge>
+                                                                        </div>
+                                                                    </div>
+                                                                </template>
+                                                            </HoverCardContent>
+                                                        </HoverCard>
+                                                        <span v-if="mIdx < group.options.length - 1"
+                                                            class="text-[10px] text-slate-500">/</span>
+                                                    </template>
+                                                    <span class="text-[10px] font-medium text-amber-300/80">x{{ group.count }}</span>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

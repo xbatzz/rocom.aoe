@@ -50,6 +50,7 @@
         "id": 200081,
         "name": "诈死",
         "description": "自己力竭时，少损失1点魔力。",
+        "icon_id": "200081",
         "localized": {
             "zh": {
                 "name": "诈死",
@@ -272,6 +273,11 @@
         "classis_id": 5,
         "classis_name": "昆虫类精灵",
         "handbook_area_ids": []
+    },
+    "catch_info": {
+        "catch_threshold": 500,
+        "catch_guarant_rate": 1200,
+        "catch_ball_level": 1
     },
     "breeding": null,
     "breeding_profile": {

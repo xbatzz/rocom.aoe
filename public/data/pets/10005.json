@@ -45,6 +45,7 @@
         {
             "id": 7020370,
             "name": "造成物伤，自己回复1能量。",
+            "icon_id": "700001",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -110,6 +111,7 @@
         "classis_name": "猫咪类精灵",
         "handbook_area_ids": []
     },
+    "catch_info": null,
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 10005,

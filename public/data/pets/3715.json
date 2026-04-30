@@ -44,6 +44,7 @@
         "id": 200199,
         "name": "受身",
         "description": "防御技能应对成功时，速度永久+40。",
+        "icon_id": "200199",
         "localized": {
             "zh": {
                 "name": "受身",
@@ -55,6 +56,7 @@
         {
             "id": 7020780,
             "name": "敌方获得1层萌化。",
+            "icon_id": "700023",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -121,6 +123,11 @@
         "classis_id": 6,
         "classis_name": "自然类精灵",
         "handbook_area_ids": []
+    },
+    "catch_info": {
+        "catch_threshold": null,
+        "catch_guarant_rate": null,
+        "catch_ball_level": null
     },
     "breeding": null,
     "breeding_profile": {

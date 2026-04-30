@@ -100,6 +100,7 @@
         "classis_name": "萌萌类精灵",
         "handbook_area_ids": []
     },
+    "catch_info": null,
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 440306,

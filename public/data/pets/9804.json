@@ -44,6 +44,7 @@
         "id": 200000,
         "name": "GM被动",
         "description": "回合末恢复10能量。",
+        "icon_id": "200074",
         "localized": {
             "zh": {
                 "name": "GM被动",
@@ -55,6 +56,7 @@
         {
             "id": 7050250,
             "name": "自己获得1层湿润印记。",
+            "icon_id": "705019",
             "move_type": {
                 "id": 4,
                 "name": "Water",
@@ -76,6 +78,7 @@
         {
             "id": 7050390,
             "name": "激流",
+            "icon_id": "104028",
             "move_type": {
                 "id": 4,
                 "name": "Water",
@@ -97,6 +100,7 @@
         {
             "id": 7050400,
             "name": "涌泉",
+            "icon_id": "104029",
             "move_type": {
                 "id": 4,
                 "name": "Water",
@@ -118,6 +122,7 @@
         {
             "id": 7050410,
             "name": "洗礼",
+            "icon_id": "104031",
             "move_type": {
                 "id": 4,
                 "name": "Water",
@@ -139,6 +144,7 @@
         {
             "id": 7050420,
             "name": "应对！盐水浴",
+            "icon_id": "104033",
             "move_type": {
                 "id": 4,
                 "name": "Water",
@@ -160,6 +166,7 @@
         {
             "id": 7300004,
             "name": "测试buff134",
+            "icon_id": "708003",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -181,6 +188,7 @@
         {
             "id": 7300005,
             "name": "测试buff4",
+            "icon_id": "708003",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -246,6 +254,7 @@
         "classis_name": "猫咪类精灵",
         "handbook_area_ids": []
     },
+    "catch_info": null,
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 9804,

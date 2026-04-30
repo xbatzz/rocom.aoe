@@ -50,6 +50,7 @@
         "id": 200078,
         "name": "生物碱",
         "description": "使用草系技能时，敌方获得2层中毒。",
+        "icon_id": "200078",
         "localized": {
             "zh": {
                 "name": "生物碱",
@@ -142,6 +143,7 @@
         "classis_name": "植物类精灵",
         "handbook_area_ids": []
     },
+    "catch_info": null,
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 13000161,

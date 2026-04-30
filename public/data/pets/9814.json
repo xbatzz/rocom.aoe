@@ -44,6 +44,7 @@
         "id": 200000,
         "name": "GM被动",
         "description": "回合末恢复10能量。",
+        "icon_id": "200074",
         "localized": {
             "zh": {
                 "name": "GM被动",
@@ -55,6 +56,7 @@
         {
             "id": 7160270,
             "name": "爆米花爆破",
+            "icon_id": "215015",
             "move_type": {
                 "id": 14,
                 "name": "Cute",
@@ -76,6 +78,7 @@
         {
             "id": 7160280,
             "name": "击鼓传花",
+            "icon_id": "115016",
             "move_type": {
                 "id": 14,
                 "name": "Cute",
@@ -97,6 +100,7 @@
         {
             "id": 7160290,
             "name": "月光合奏",
+            "icon_id": "115017",
             "move_type": {
                 "id": 14,
                 "name": "Cute",
@@ -162,6 +166,7 @@
         "classis_name": "猫咪类精灵",
         "handbook_area_ids": []
     },
+    "catch_info": null,
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 9814,

@@ -44,6 +44,7 @@
         "id": 200280,
         "name": "冲浪",
         "description": "入场时，随机一个技能能耗-3。",
+        "icon_id": "200075",
         "localized": {
             "zh": {
                 "name": "冲浪",
@@ -205,6 +206,11 @@
         "classis_id": 6,
         "classis_name": "自然类精灵",
         "handbook_area_ids": []
+    },
+    "catch_info": {
+        "catch_threshold": null,
+        "catch_guarant_rate": null,
+        "catch_ball_level": null
     },
     "breeding": null,
     "breeding_profile": {

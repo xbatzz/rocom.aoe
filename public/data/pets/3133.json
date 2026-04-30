@@ -44,6 +44,7 @@
         "id": 200134,
         "name": "双刃",
         "description": "能量上限为0，技能可以使用2次。",
+        "icon_id": "200134",
         "localized": {
             "zh": {
                 "name": "双刃",
@@ -168,6 +169,11 @@
         "classis_id": 5,
         "classis_name": "昆虫类精灵",
         "handbook_area_ids": []
+    },
+    "catch_info": {
+        "catch_threshold": null,
+        "catch_guarant_rate": null,
+        "catch_ball_level": 1
     },
     "breeding": {
         "id": 3133001,

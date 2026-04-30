@@ -44,6 +44,7 @@
         "id": 200275,
         "name": "巨鼓象",
         "description": "技能携带上限为3",
+        "icon_id": "200275",
         "localized": {
             "zh": {
                 "name": "巨鼓象",
@@ -127,6 +128,11 @@
         "classis_id": 6,
         "classis_name": "自然类精灵",
         "handbook_area_ids": []
+    },
+    "catch_info": {
+        "catch_threshold": 250,
+        "catch_guarant_rate": 625,
+        "catch_ball_level": null
     },
     "breeding": null,
     "breeding_profile": {

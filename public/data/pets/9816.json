@@ -44,6 +44,7 @@
         "id": 200000,
         "name": "GM被动",
         "description": "回合末恢复10能量。",
+        "icon_id": "200074",
         "localized": {
             "zh": {
                 "name": "GM被动",
@@ -55,6 +56,7 @@
         {
             "id": 7180300,
             "name": "应对！跌落",
+            "icon_id": "217028",
             "move_type": {
                 "id": 16,
                 "name": "Dark",
@@ -76,6 +78,7 @@
         {
             "id": 7180310,
             "name": "造成魔伤，能量不足时，消耗5%生命代替1能量。",
+            "icon_id": "117029",
             "move_type": {
                 "id": 16,
                 "name": "Dark",
@@ -97,6 +100,7 @@
         {
             "id": 7180320,
             "name": "造成魔伤，敌方每有1只力竭精灵，本次技能威力+30。",
+            "icon_id": "117030",
             "move_type": {
                 "id": 16,
                 "name": "Dark",
@@ -118,6 +122,7 @@
         {
             "id": 7180330,
             "name": "应对！暗箱操作",
+            "icon_id": "117032",
             "move_type": {
                 "id": 16,
                 "name": "Dark",
@@ -139,6 +144,7 @@
         {
             "id": 7180340,
             "name": "应对！虚假破产",
+            "icon_id": "117033",
             "move_type": {
                 "id": 16,
                 "name": "Dark",
@@ -160,6 +166,7 @@
         {
             "id": 7180350,
             "name": "造成物伤，2连击，若击败敌方，本技能连击数永久+2。",
+            "icon_id": "117034",
             "move_type": {
                 "id": 16,
                 "name": "Dark",
@@ -225,6 +232,7 @@
         "classis_name": "猫咪类精灵",
         "handbook_area_ids": []
     },
+    "catch_info": null,
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 9816,

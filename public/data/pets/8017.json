@@ -50,6 +50,7 @@
         "id": 7000354,
         "name": "怨恨",
         "description": "入场和回合结束扣除敌人100绩点",
+        "icon_id": "img_wenhao",
         "localized": {
             "zh": {
                 "name": "怨恨",
@@ -170,6 +171,7 @@
         "classis_name": "自然类精灵",
         "handbook_area_ids": []
     },
+    "catch_info": null,
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 8017,

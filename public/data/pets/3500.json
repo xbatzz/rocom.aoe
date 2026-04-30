@@ -44,6 +44,7 @@
         "id": 200103,
         "name": "刺肤",
         "description": "每受到1次攻击，对攻击自己的精灵造成50威力物理伤害。",
+        "icon_id": "200103",
         "localized": {
             "zh": {
                 "name": "刺肤",
@@ -55,6 +56,7 @@
         {
             "id": 7020780,
             "name": "敌方获得1层萌化。",
+            "icon_id": "700023",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -76,6 +78,7 @@
         {
             "id": 7080280,
             "name": "对敌方精灵造成魔法伤害。",
+            "icon_id": "107024",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -97,6 +100,7 @@
         {
             "id": 7080360,
             "name": "震击",
+            "icon_id": "107033",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -118,6 +122,7 @@
         {
             "id": 7020890,
             "name": "拍击",
+            "icon_id": "101071",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -139,6 +144,7 @@
         {
             "id": 7080370,
             "name": "石肤术",
+            "icon_id": "107034",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -160,6 +166,7 @@
         {
             "id": 7080290,
             "name": "泥巴喷射",
+            "icon_id": "107025",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -181,6 +188,7 @@
         {
             "id": 7080230,
             "name": "应对！刺盾",
+            "icon_id": "708020",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -202,6 +210,7 @@
         {
             "id": 7080310,
             "name": "热砂",
+            "icon_id": "107027",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -223,6 +232,7 @@
         {
             "id": 7080150,
             "name": "岩土暴击",
+            "icon_id": "708007",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -244,6 +254,7 @@
         {
             "id": 7080250,
             "name": "应对！壁垒",
+            "icon_id": "708016",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -265,6 +276,7 @@
         {
             "id": 7020420,
             "name": "对敌方精灵造成魔法伤害。",
+            "icon_id": "702058",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -286,6 +298,7 @@
         {
             "id": 7080140,
             "name": "造成物伤，应对状态：额外打断被应对技能。",
+            "icon_id": "708013",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -307,6 +320,7 @@
         {
             "id": 7020800,
             "name": "应对！防反",
+            "icon_id": "301053",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -328,6 +342,7 @@
         {
             "id": 7080330,
             "name": "造成物伤，物防比敌方越高，本次技能威力越高。",
+            "icon_id": "107029",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -349,6 +364,7 @@
         {
             "id": 7080220,
             "name": "沙涌",
+            "icon_id": "708019",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -372,6 +388,7 @@
         {
             "id": 7080410,
             "name": "应对！淤泥表皮",
+            "icon_id": "107039",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -393,6 +410,7 @@
         {
             "id": 7120070,
             "name": "毒针",
+            "icon_id": "712005",
             "move_type": {
                 "id": 10,
                 "name": "Poison",
@@ -414,6 +432,7 @@
         {
             "id": 7120210,
             "name": "毒沼",
+            "icon_id": "111018",
             "move_type": {
                 "id": 10,
                 "name": "Poison",
@@ -435,6 +454,7 @@
         {
             "id": 7120230,
             "name": "应对！鸩毒",
+            "icon_id": "111020",
             "move_type": {
                 "id": 10,
                 "name": "Poison",
@@ -456,6 +476,7 @@
         {
             "id": 7160240,
             "name": "魅惑",
+            "icon_id": "115012",
             "move_type": {
                 "id": 14,
                 "name": "Cute",
@@ -477,6 +498,7 @@
         {
             "id": 7160150,
             "name": "超级糖果",
+            "icon_id": "215003",
             "move_type": {
                 "id": 14,
                 "name": "Cute",
@@ -498,6 +520,7 @@
         {
             "id": 7160290,
             "name": "月光合奏",
+            "icon_id": "115017",
             "move_type": {
                 "id": 14,
                 "name": "Cute",
@@ -519,6 +542,7 @@
         {
             "id": 7021020,
             "name": "当头棒喝",
+            "icon_id": "101084",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -540,6 +564,7 @@
         {
             "id": 7080130,
             "name": "跺地",
+            "icon_id": "708002",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -561,6 +586,7 @@
         {
             "id": 7020860,
             "name": "每回合随机变成敌方任意精灵的技能，且该技能能耗-2。",
+            "icon_id": "702085",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -582,6 +608,7 @@
         {
             "id": 7020740,
             "name": "应对！应激反应",
+            "icon_id": "702063",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -603,6 +630,7 @@
         {
             "id": 7020790,
             "name": "应对！防御",
+            "icon_id": "703005",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -624,6 +652,7 @@
         {
             "id": 7021120,
             "name": "应对！有效预防",
+            "icon_id": "301096",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -645,6 +674,7 @@
         {
             "id": 7020810,
             "name": "应对！血气",
+            "icon_id": "702053",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -666,6 +696,7 @@
         {
             "id": 7020620,
             "name": "造成物伤，10连击。",
+            "icon_id": "700021",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -689,92 +720,488 @@
         {
             "monster_id": 3500,
             "type_id": 1,
-            "move_id": 7020910
+            "move_id": 7020910,
+            "move": {
+                "id": 7020910,
+                "name": "对敌方精灵造成魔法伤害。",
+                "icon_id": "101073",
+                "move_type": {
+                    "id": 1,
+                    "name": "Normal",
+                    "localized": {
+                        "zh": "普通"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "对敌方精灵造成魔法伤害。",
+                        "description": "他们为了愿望而来。"
+                    }
+                },
+                "move_category": "Magic Attack",
+                "energy_cost": 2,
+                "power": 90,
+                "description": "他们为了愿望而来。"
+            }
         },
         {
             "monster_id": 3500,
             "type_id": 2,
-            "move_id": 7030330
+            "move_id": 7030330,
+            "move": {
+                "id": 7030330,
+                "name": "减伤80%，应对攻击：自己回复20%生命。",
+                "icon_id": "703026",
+                "move_type": {
+                    "id": 2,
+                    "name": "Grass",
+                    "localized": {
+                        "zh": "草"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "减伤80%，应对攻击：自己回复20%生命。",
+                        "description": "酶溶剂有一点臭臭的，但精灵们很喜欢，会使劲地嗅。"
+                    }
+                },
+                "move_category": "Defense",
+                "energy_cost": 2,
+                "power": null,
+                "description": "酶溶剂有一点臭臭的，但精灵们很喜欢，会使劲地嗅。"
+            }
         },
         {
             "monster_id": 3500,
             "type_id": 3,
-            "move_id": 7040300
+            "move_id": 7040300,
+            "move": {
+                "id": 7040300,
+                "name": "应对！天火",
+                "icon_id": "704019",
+                "move_type": {
+                    "id": 3,
+                    "name": "Fire",
+                    "localized": {
+                        "zh": "火"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "应对！天火",
+                        "description": "敌方获得10层灼烧，应对防御：改为获得30层。"
+                    }
+                },
+                "move_category": "Defense",
+                "energy_cost": 2,
+                "power": null,
+                "description": "敌方获得10层灼烧，应对防御：改为获得30层。"
+            }
         },
         {
             "monster_id": 3500,
             "type_id": 4,
-            "move_id": 7050270
+            "move_id": 7050270,
+            "move": {
+                "id": 7050270,
+                "name": "应对！泡沫幻影",
+                "icon_id": "703104",
+                "move_type": {
+                    "id": 4,
+                    "name": "Water",
+                    "localized": {
+                        "zh": "水"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "应对！泡沫幻影",
+                        "description": "减伤80%，应对攻击：自己脱离。"
+                    }
+                },
+                "move_category": "Defense",
+                "energy_cost": 2,
+                "power": null,
+                "description": "减伤80%，应对攻击：自己脱离。"
+            }
         },
         {
             "monster_id": 3500,
             "type_id": 5,
-            "move_id": 7060200
+            "move_id": 7060200,
+            "move": {
+                "id": 7060200,
+                "name": "脉冲光线",
+                "icon_id": "105012",
+                "move_type": {
+                    "id": 5,
+                    "name": "Light",
+                    "localized": {
+                        "zh": "光"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "脉冲光线",
+                        "description": "对敌方精灵造成魔法伤害。"
+                    }
+                },
+                "move_category": "Magic Attack",
+                "energy_cost": 3,
+                "power": 100,
+                "description": "对敌方精灵造成魔法伤害。"
+            }
         },
         {
             "monster_id": 3500,
             "type_id": 6,
-            "move_id": 7080120
+            "move_id": 7080120,
+            "move": {
+                "id": 7080120,
+                "name": "对敌方精灵造成物理伤害。",
+                "icon_id": "708012",
+                "move_type": {
+                    "id": 6,
+                    "name": "Ground",
+                    "localized": {
+                        "zh": "地"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "对敌方精灵造成物理伤害。",
+                        "description": "聚沙，成塔，成为利刃。"
+                    }
+                },
+                "move_category": "Physical Attack",
+                "energy_cost": 2,
+                "power": 80,
+                "description": "聚沙，成塔，成为利刃。"
+            }
         },
         {
             "monster_id": 3500,
             "type_id": 7,
-            "move_id": 7090350
+            "move_id": 7090350,
+            "move": {
+                "id": 7090350,
+                "name": "应对！冰蛋壳",
+                "icon_id": "108031",
+                "move_type": {
+                    "id": 7,
+                    "name": "Ice",
+                    "localized": {
+                        "zh": "冰"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "应对！冰蛋壳",
+                        "description": "减伤60%，应对攻击：敌方获得2层减速印记。"
+                    }
+                },
+                "move_category": "Defense",
+                "energy_cost": 2,
+                "power": null,
+                "description": "减伤60%，应对攻击：敌方获得2层减速印记。"
+            }
         },
         {
             "monster_id": 3500,
             "type_id": 8,
-            "move_id": 7100150
+            "move_id": 7100150,
+            "move": {
+                "id": 7100150,
+                "name": "蓄力，造成魔伤，若蓄力期间受到攻击，本技能威力变为敌方技能威力的3倍。",
+                "icon_id": "710004",
+                "move_type": {
+                    "id": 8,
+                    "name": "Dragon",
+                    "localized": {
+                        "zh": "龙"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "蓄力，造成魔伤，若蓄力期间受到攻击，本技能威力变为敌方技能威力的3倍。",
+                        "description": "必将加倍奉还。"
+                    }
+                },
+                "move_category": "Magic Attack",
+                "energy_cost": 3,
+                "power": 200,
+                "description": "必将加倍奉还。"
+            }
         },
         {
             "monster_id": 3500,
             "type_id": 9,
-            "move_id": 7110280
+            "move_id": 7110280,
+            "move": {
+                "id": 7110280,
+                "name": "加大功率",
+                "icon_id": "310012",
+                "move_type": {
+                    "id": 9,
+                    "name": "Electric",
+                    "localized": {
+                        "zh": "电"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "加大功率",
+                        "description": "自己脱离，替换入场的精灵回复8能量。"
+                    }
+                },
+                "move_category": "Defense",
+                "energy_cost": 2,
+                "power": null,
+                "description": "自己脱离，替换入场的精灵回复8能量。"
+            }
         },
         {
             "monster_id": 3500,
             "type_id": 10,
-            "move_id": 7120190
+            "move_id": 7120190,
+            "move": {
+                "id": 7120190,
+                "name": "毒泡泡",
+                "icon_id": "111016",
+                "move_type": {
+                    "id": 10,
+                    "name": "Poison",
+                    "localized": {
+                        "zh": "毒"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "毒泡泡",
+                        "description": "对敌方精灵造成魔法伤害。"
+                    }
+                },
+                "move_category": "Physical Attack",
+                "energy_cost": 1,
+                "power": 60,
+                "description": "对敌方精灵造成魔法伤害。"
+            }
         },
         {
             "monster_id": 3500,
             "type_id": 11,
-            "move_id": 7130220
+            "move_id": 7130220,
+            "move": {
+                "id": 7130220,
+                "name": "贮藏",
+                "icon_id": "212015",
+                "move_type": {
+                    "id": 11,
+                    "name": "Bug",
+                    "localized": {
+                        "zh": "虫"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "贮藏",
+                        "description": "自己获得双攻+50%，每携带1个0能耗技能，额外+50%。"
+                    }
+                },
+                "move_category": "Defense",
+                "energy_cost": 2,
+                "power": null,
+                "description": "自己获得双攻+50%，每携带1个0能耗技能，额外+50%。"
+            }
         },
         {
             "monster_id": 3500,
             "type_id": 12,
-            "move_id": 7140100
+            "move_id": 7140100,
+            "move": {
+                "id": 7140100,
+                "name": "应对！斩断",
+                "icon_id": "113027",
+                "move_type": {
+                    "id": 12,
+                    "name": "Fighting",
+                    "localized": {
+                        "zh": "武"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "应对！斩断",
+                        "description": "造成物伤，应对状态：额外打断被应对技能。"
+                    }
+                },
+                "move_category": "Physical Attack",
+                "energy_cost": 2,
+                "power": 25,
+                "description": "造成物伤，应对状态：额外打断被应对技能。"
+            }
         },
         {
             "monster_id": 3500,
             "type_id": 13,
-            "move_id": 7150150
+            "move_id": 7150150,
+            "move": {
+                "id": 7150150,
+                "name": "行动时连击数+100%。",
+                "icon_id": "715012",
+                "move_type": {
+                    "id": 13,
+                    "name": "Flying",
+                    "localized": {
+                        "zh": "翼"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "行动时连击数+100%。",
+                        "description": "“圣城！请带着无翼的我们乘风而起吧！”"
+                    }
+                },
+                "move_category": "Defense",
+                "energy_cost": 2,
+                "power": null,
+                "description": "“圣城！请带着无翼的我们乘风而起吧！”"
+            }
         },
         {
             "monster_id": 3500,
             "type_id": 14,
-            "move_id": 7160230
+            "move_id": 7160230,
+            "move": {
+                "id": 7160230,
+                "name": "鞭打",
+                "icon_id": "115011",
+                "move_type": {
+                    "id": 14,
+                    "name": "Cute",
+                    "localized": {
+                        "zh": "萌"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "鞭打",
+                        "description": "对敌方精灵造成物理伤害。"
+                    }
+                },
+                "move_category": "Magic Attack",
+                "energy_cost": 1,
+                "power": 60,
+                "description": "对敌方精灵造成物理伤害。"
+            }
         },
         {
             "monster_id": 3500,
             "type_id": 15,
-            "move_id": 7170260
+            "move_id": 7170260,
+            "move": {
+                "id": 7170260,
+                "name": "偷取敌方3能量。",
+                "icon_id": "116020",
+                "move_type": {
+                    "id": 15,
+                    "name": "Ghost",
+                    "localized": {
+                        "zh": "幽"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "偷取敌方3能量。",
+                        "description": "真的有鬼，月圆夜的时候，魔法学院2楼厕所的卫生纸会全部消失，太可怕了。"
+                    }
+                },
+                "move_category": "Defense",
+                "energy_cost": 2,
+                "power": null,
+                "description": "真的有鬼，月圆夜的时候，魔法学院2楼厕所的卫生纸会全部消失，太可怕了。"
+            }
         },
         {
             "monster_id": 3500,
             "type_id": 16,
-            "move_id": 7180210
+            "move_id": 7180210,
+            "move": {
+                "id": 7180210,
+                "name": "与敌方交换携带的技能。",
+                "icon_id": "317018",
+                "move_type": {
+                    "id": 16,
+                    "name": "Dark",
+                    "localized": {
+                        "zh": "恶"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "与敌方交换携带的技能。",
+                        "description": "“条约里面的超小号字体已经把隐藏条款已经写得很清楚了”。"
+                    }
+                },
+                "move_category": "Defense",
+                "energy_cost": 3,
+                "power": null,
+                "description": "“条约里面的超小号字体已经把隐藏条款已经写得很清楚了”。"
+            }
         },
         {
             "monster_id": 3500,
             "type_id": 17,
-            "move_id": 7070110
+            "move_id": 7070110,
+            "move": {
+                "id": 7070110,
+                "name": "拆卸",
+                "icon_id": "106011",
+                "move_type": {
+                    "id": 17,
+                    "name": "Mechanical",
+                    "localized": {
+                        "zh": "机械"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "拆卸",
+                        "description": "对敌方精灵造成物理伤害。"
+                    }
+                },
+                "move_category": "Magic Attack",
+                "energy_cost": 3,
+                "power": 90,
+                "description": "对敌方精灵造成物理伤害。"
+            }
         },
         {
             "monster_id": 3500,
             "type_id": 18,
-            "move_id": 7190400
+            "move_id": 7190400,
+            "move": {
+                "id": 7190400,
+                "name": "对敌方精灵造成魔法伤害。",
+                "icon_id": "118022",
+                "move_type": {
+                    "id": 18,
+                    "name": "Illusion",
+                    "localized": {
+                        "zh": "幻"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "对敌方精灵造成魔法伤害。",
+                        "description": "宇宙按下重启键，所有被遗忘的愿望同时点燃，所有未竟的梦一起闪耀。"
+                    }
+                },
+                "move_category": "Defense",
+                "energy_cost": 3,
+                "power": null,
+                "description": "宇宙按下重启键，所有被遗忘的愿望同时点燃，所有未竟的梦一起闪耀。"
+            }
         }
     ],
     "evolution_tree": {
@@ -945,6 +1372,11 @@
             1,
             2
         ]
+    },
+    "catch_info": {
+        "catch_threshold": 1000,
+        "catch_guarant_rate": 3000,
+        "catch_ball_level": 1
     },
     "breeding": {
         "id": 3106001,

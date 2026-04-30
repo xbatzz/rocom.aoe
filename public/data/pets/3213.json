@@ -50,6 +50,7 @@
         "id": 200176,
         "name": "傲慢",
         "description": "蓄力技能获得50%吸血效果。",
+        "icon_id": "200074",
         "localized": {
             "zh": {
                 "name": "傲慢",
@@ -145,6 +146,11 @@
         "classis_id": 6,
         "classis_name": "自然类精灵",
         "handbook_area_ids": []
+    },
+    "catch_info": {
+        "catch_threshold": null,
+        "catch_guarant_rate": null,
+        "catch_ball_level": 1
     },
     "breeding": {
         "id": 3213001,

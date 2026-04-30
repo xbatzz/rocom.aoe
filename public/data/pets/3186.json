@@ -44,6 +44,7 @@
         "id": 200276,
         "name": "小光",
         "description": "无视敌方攻击属性和防御属性增益",
+        "icon_id": "200276",
         "localized": {
             "zh": {
                 "name": "小光",
@@ -99,6 +100,11 @@
         "classis_id": 6,
         "classis_name": "自然类精灵",
         "handbook_area_ids": []
+    },
+    "catch_info": {
+        "catch_threshold": null,
+        "catch_guarant_rate": null,
+        "catch_ball_level": 1
     },
     "breeding": {
         "id": 3186001,

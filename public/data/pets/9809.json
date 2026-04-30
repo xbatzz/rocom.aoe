@@ -44,6 +44,7 @@
         "id": 200000,
         "name": "GM被动",
         "description": "回合末恢复10能量。",
+        "icon_id": "200074",
         "localized": {
             "zh": {
                 "name": "GM被动",
@@ -55,6 +56,7 @@
         {
             "id": 7110340,
             "name": "交叉闪电",
+            "icon_id": "110019",
             "move_type": {
                 "id": 9,
                 "name": "Electric",
@@ -76,6 +78,7 @@
         {
             "id": 7110350,
             "name": "超导加速",
+            "icon_id": "110020",
             "move_type": {
                 "id": 9,
                 "name": "Electric",
@@ -97,6 +100,7 @@
         {
             "id": 7110360,
             "name": "双联脉冲",
+            "icon_id": "110021",
             "move_type": {
                 "id": 9,
                 "name": "Electric",
@@ -118,6 +122,7 @@
         {
             "id": 7110370,
             "name": "过载回路",
+            "icon_id": "110022",
             "move_type": {
                 "id": 9,
                 "name": "Electric",
@@ -139,6 +144,7 @@
         {
             "id": 7110380,
             "name": "远程访问",
+            "icon_id": "110023",
             "move_type": {
                 "id": 9,
                 "name": "Electric",
@@ -160,6 +166,7 @@
         {
             "id": 7110390,
             "name": "感电",
+            "icon_id": "110025",
             "move_type": {
                 "id": 9,
                 "name": "Electric",
@@ -181,6 +188,7 @@
         {
             "id": 7110400,
             "name": "应对！强制重启",
+            "icon_id": "310026",
             "move_type": {
                 "id": 9,
                 "name": "Electric",
@@ -202,6 +210,7 @@
         {
             "id": 7110410,
             "name": "电容循环",
+            "icon_id": "110027",
             "move_type": {
                 "id": 9,
                 "name": "Electric",
@@ -223,6 +232,7 @@
         {
             "id": 7110420,
             "name": "电离爆破",
+            "icon_id": "110029",
             "move_type": {
                 "id": 9,
                 "name": "Electric",
@@ -288,6 +298,7 @@
         "classis_name": "猫咪类精灵",
         "handbook_area_ids": []
     },
+    "catch_info": null,
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 9809,

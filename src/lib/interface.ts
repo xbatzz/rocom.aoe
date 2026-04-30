@@ -31,12 +31,14 @@ export interface IPetsTrait {
     id: number;
     name: string;
     description: string;
+    icon_id: string | null;
     localized: ILocalizedPetsText;
 }
 
 export interface IPetsMove {
     id: number;
     name: string;
+    icon_id: string | null;
     move_type: IPetsType;
     localized: ILocalizedPetsText;
     move_category: string;
@@ -129,6 +131,12 @@ export interface IPetsBreedingProfile {
     female_rate: number | null;
 }
 
+export interface IPetsCatchInfo {
+    catch_threshold: number | null;
+    catch_guarant_rate: number | null;
+    catch_ball_level: number | null;
+}
+
 export interface IPetsWorldProfile {
     type_desc: string | null;
     description_habitat: string | null;
@@ -144,6 +152,7 @@ export interface IPetsLegacyMove {
     monster_id: number;
     type_id: number;
     move_id: number;
+    move?: IPetsMove | null;
 }
 
 export interface IPetsEvolutionNode {
@@ -198,6 +207,7 @@ export interface IPets {
 export interface IPetsDetail extends IPets {
     species: IPetsSpecies;
     trait: IPetsTrait | null;
+    catch_info: IPetsCatchInfo | null;
     move_pool: IPetsMove[];
     move_stones: IPetsMove[];
     legacy_moves: IPetsLegacyMove[];
@@ -217,6 +227,22 @@ export interface IItemRelatedPet {
     name: string;
 }
 
+export interface IItemRecipeMaterial {
+    id: number;
+    name: string;
+    icon_id: string | null;
+}
+
+export interface IItemRecipeCostGroup {
+    options: IItemRecipeMaterial[];
+    count: number;
+}
+
+export interface IItemRecipe {
+    cost: IItemRecipeCostGroup[];
+    can_craft: boolean;
+}
+
 export interface IItem {
     id: number;
     name: string;
@@ -229,4 +255,5 @@ export interface IItem {
     quality_label: string;
     acquire_ways: string[];
     related_pets: IItemRelatedPet[];
+    recipes?: IItemRecipe[];
 }

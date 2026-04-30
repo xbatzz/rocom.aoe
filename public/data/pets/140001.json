@@ -45,6 +45,7 @@
         {
             "id": 7020370,
             "name": "造成物伤，自己回复1能量。",
+            "icon_id": "700001",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -66,6 +67,7 @@
         {
             "id": 7040150,
             "name": "针刺射击",
+            "icon_id": "704010",
             "move_type": {
                 "id": 3,
                 "name": "Fire",
@@ -87,6 +89,7 @@
         {
             "id": 7070010,
             "name": "光系技能威力永久+50%，应对防御：改为永久+100%。",
+            "icon_id": "720001",
             "move_type": {
                 "id": 17,
                 "name": "Mechanical",
@@ -108,6 +111,7 @@
         {
             "id": 7080110,
             "name": "应对！机械2",
+            "icon_id": "708015",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -129,6 +133,7 @@
         {
             "id": 7100120,
             "name": "蓄力",
+            "icon_id": "710002",
             "move_type": {
                 "id": 8,
                 "name": "Dragon",
@@ -150,6 +155,7 @@
         {
             "id": 7180080,
             "name": "魔爪",
+            "icon_id": "718013",
             "move_type": {
                 "id": 16,
                 "name": "Dark",
@@ -171,6 +177,7 @@
         {
             "id": 7999107,
             "name": "检测工具返场",
+            "icon_id": "715017",
             "move_type": {
                 "id": 13,
                 "name": "Flying",
@@ -238,6 +245,7 @@
         "classis_name": "猫咪类精灵",
         "handbook_area_ids": []
     },
+    "catch_info": null,
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 140001,
