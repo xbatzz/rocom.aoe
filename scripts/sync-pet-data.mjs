@@ -345,7 +345,7 @@ async function main() {
     const itemLabelTypeTable = await readTable("ITEM_LABLE_TYPE_CONF.json");
     const itemCategories = buildItemCategories(getRows(itemLabelTypeTable));
     const evolutionItemUsage = buildEvolutionItemUsageFromRaw(petBaseRows, contexts);
-    const itemEntries = buildItemEntries(getRows(bagItemTable), itemCategories, evolutionItemUsage);
+    const itemEntries = buildItemEntries(getRows(bagItemTable), itemCategories, evolutionItemUsage, skillById);
 
     await syncMirroredTables();
     await fs.mkdir(petsDetailDir, { recursive: true });
@@ -1772,6 +1772,19 @@ async function writeJson(filePath, value) {
     );
 }
 
+function resolveItemIconId(row, labelType, skillById) {
+    if (labelType === 5) {
+        const skillId = normalizeArray(row.item_behavior)?.[0]?.ratio?.[0];
+        const skill = Number.isFinite(skillId) ? skillById.get(skillId) : null;
+
+        if (skill?.icon) {
+            return extractIconId(skill.icon);
+        }
+    }
+
+    return extractIconId(row.icon);
+}
+
 function extractIconId(iconPath) {
     if (typeof iconPath !== "string") {
         return null;
@@ -1840,7 +1853,7 @@ function buildEvolutionItemUsageFromRaw(petBaseRows, contexts) {
     return usage;
 }
 
-function buildItemEntries(bagItemRows, itemCategories, evolutionItemUsage) {
+function buildItemEntries(bagItemRows, itemCategories, evolutionItemUsage, skillById) {
     const entries = [];
 
     for (const row of bagItemRows) {
@@ -1882,7 +1895,7 @@ function buildItemEntries(bagItemRows, itemCategories, evolutionItemUsage) {
 
         const relatedPets = evolutionItemUsage.get(row.id) ?? [];
 
-        const iconId = extractIconId(row.icon);
+        const iconId = resolveItemIconId(row, labelType, skillById);
 
         entries.push({
             id: row.id,
