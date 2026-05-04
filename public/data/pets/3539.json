@@ -215,7 +215,7 @@
         },
         {
             "id": 7180190,
-            "name": "与敌方交换增益和减益。",
+            "name": "恶意逃离",
             "icon_id": "317016",
             "move_type": {
                 "id": 16,
@@ -226,14 +226,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "与敌方交换增益和减益。",
-                    "description": "有借有还，再借不难。"
+                    "name": "恶意逃离",
+                    "description": "与敌方交换增益和减益。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "有借有还，再借不难。"
+            "description": "与敌方交换增益和减益。"
         },
         {
             "id": 7180340,

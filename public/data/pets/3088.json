@@ -591,7 +591,7 @@
         },
         {
             "id": 7150140,
-            "name": "自己获得1层风起印记。",
+            "name": "暴风眼",
             "icon_id": "715011",
             "move_type": {
                 "id": 13,
@@ -602,14 +602,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "自己获得1层风起印记。",
-                    "description": "吾所在即是风起之处。"
+                    "name": "暴风眼",
+                    "description": "自己获得1层风起印记。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "吾所在即是风起之处。"
+            "description": "自己获得1层风起印记。"
         },
         {
             "id": 7080280,

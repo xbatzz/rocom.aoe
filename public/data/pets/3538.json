@@ -193,7 +193,7 @@
         },
         {
             "id": 7040210,
-            "name": "造成物伤，每次使用后，本技能威力永久+20。",
+            "name": "流星火雨",
             "icon_id": "702004",
             "move_type": {
                 "id": 3,
@@ -204,18 +204,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，每次使用后，本技能威力永久+20。",
-                    "description": "“不要给精灵喝太多上头水饮料！即使对战的时候有用也不行！”"
+                    "name": "流星火雨",
+                    "description": "造成物伤，每次使用后，本技能威力永久+20。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "“不要给精灵喝太多上头水饮料！即使对战的时候有用也不行！”"
+            "description": "造成物伤，每次使用后，本技能威力永久+20。"
         },
         {
             "id": 7180190,
-            "name": "与敌方交换增益和减益。",
+            "name": "恶意逃离",
             "icon_id": "317016",
             "move_type": {
                 "id": 16,
@@ -226,14 +226,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "与敌方交换增益和减益。",
-                    "description": "有借有还，再借不难。"
+                    "name": "恶意逃离",
+                    "description": "与敌方交换增益和减益。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "有借有还，再借不难。"
+            "description": "与敌方交换增益和减益。"
         },
         {
             "id": 7040390,

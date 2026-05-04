@@ -99,7 +99,7 @@
         },
         {
             "id": 7130100,
-            "name": "减伤50%，敌方每有1层中毒效果，本技能减伤+10%，应对攻击。",
+            "name": "啃咬",
             "icon_id": "713008",
             "move_type": {
                 "id": 11,
@@ -110,14 +110,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "减伤50%，敌方每有1层中毒效果，本技能减伤+10%，应对攻击。",
-                    "description": "老师千叮咛万嘱咐，给精灵使用毒系秘药的时候，记得带好口罩手套。"
+                    "name": "啃咬",
+                    "description": "减伤50%，敌方每有1层中毒效果，本技能减伤+10%，应对攻击。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 0,
             "power": 40,
-            "description": "老师千叮咛万嘱咐，给精灵使用毒系秘药的时候，记得带好口罩手套。"
+            "description": "减伤50%，敌方每有1层中毒效果，本技能减伤+10%，应对攻击。"
         },
         {
             "id": 7130110,
@@ -629,7 +629,7 @@
         },
         {
             "id": 7020510,
-            "name": "造成魔伤，5连击。",
+            "name": "乘胜追击",
             "icon_id": "702050",
             "move_type": {
                 "id": 1,
@@ -640,14 +640,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成魔伤，5连击。",
-                    "description": "无招胜有招。"
+                    "name": "乘胜追击",
+                    "description": "造成魔伤，5连击。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 40,
-            "description": "无招胜有招。"
+            "description": "造成魔伤，5连击。"
         },
         {
             "id": 7020470,
@@ -1145,7 +1145,7 @@
             "move_id": 7170260,
             "move": {
                 "id": 7170260,
-                "name": "偷取敌方3能量。",
+                "name": "虚化",
                 "icon_id": "116020",
                 "move_type": {
                     "id": 15,
@@ -1156,14 +1156,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "偷取敌方3能量。",
-                        "description": "真的有鬼，月圆夜的时候，魔法学院2楼厕所的卫生纸会全部消失，太可怕了。"
+                        "name": "虚化",
+                        "description": "偷取敌方3能量。"
                     }
                 },
                 "move_category": "Defense",
                 "energy_cost": 2,
                 "power": null,
-                "description": "真的有鬼，月圆夜的时候，魔法学院2楼厕所的卫生纸会全部消失，太可怕了。"
+                "description": "偷取敌方3能量。"
             }
         },
         {
@@ -1172,7 +1172,7 @@
             "move_id": 7180210,
             "move": {
                 "id": 7180210,
-                "name": "与敌方交换携带的技能。",
+                "name": "等价交换",
                 "icon_id": "317018",
                 "move_type": {
                     "id": 16,
@@ -1183,14 +1183,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "与敌方交换携带的技能。",
-                        "description": "“条约里面的超小号字体已经把隐藏条款已经写得很清楚了”。"
+                        "name": "等价交换",
+                        "description": "与敌方交换携带的技能。"
                     }
                 },
                 "move_category": "Defense",
                 "energy_cost": 3,
                 "power": null,
-                "description": "“条约里面的超小号字体已经把隐藏条款已经写得很清楚了”。"
+                "description": "与敌方交换携带的技能。"
             }
         },
         {
@@ -1226,7 +1226,7 @@
             "move_id": 7190400,
             "move": {
                 "id": 7190400,
-                "name": "对敌方精灵造成魔法伤害。",
+                "name": "冥想",
                 "icon_id": "118022",
                 "move_type": {
                     "id": 18,
@@ -1237,14 +1237,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "对敌方精灵造成魔法伤害。",
-                        "description": "宇宙按下重启键，所有被遗忘的愿望同时点燃，所有未竟的梦一起闪耀。"
+                        "name": "冥想",
+                        "description": "对敌方精灵造成魔法伤害。"
                     }
                 },
                 "move_category": "Defense",
                 "energy_cost": 3,
                 "power": null,
-                "description": "宇宙按下重启键，所有被遗忘的愿望同时点燃，所有未竟的梦一起闪耀。"
+                "description": "对敌方精灵造成魔法伤害。"
             }
         }
     ],

@@ -105,7 +105,7 @@
         },
         {
             "id": 7180090,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "蝙蝠",
             "icon_id": "706001",
             "move_type": {
                 "id": 16,
@@ -116,14 +116,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "没有恶意的恶。"
+                    "name": "蝙蝠",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 65,
-            "description": "没有恶意的恶。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7180270,
@@ -193,7 +193,7 @@
         },
         {
             "id": 7180180,
-            "name": "敌方获得全技能威力-20，自己获得全技能威力+20。",
+            "name": "欺诈契约",
             "icon_id": "718024",
             "move_type": {
                 "id": 16,
@@ -204,14 +204,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方获得全技能威力-20，自己获得全技能威力+20。",
-                    "description": "你的就是我的，我的还是我的。"
+                    "name": "欺诈契约",
+                    "description": "敌方获得全技能威力-20，自己获得全技能威力+20。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "你的就是我的，我的还是我的。"
+            "description": "敌方获得全技能威力-20，自己获得全技能威力+20。"
         },
         {
             "id": 7180130,
@@ -237,7 +237,7 @@
         },
         {
             "id": 7180200,
-            "name": "脱离，应对防御：额外使敌方攻击技能能耗+4。",
+            "name": "隐藏条款",
             "icon_id": "217018",
             "move_type": {
                 "id": 16,
@@ -248,18 +248,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "脱离，应对防御：额外使敌方攻击技能能耗+4。",
-                    "description": "“他有急事，先走了。”"
+                    "name": "隐藏条款",
+                    "description": "脱离，应对防御：额外使敌方攻击技能能耗+4。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 8,
             "power": null,
-            "description": "“他有急事，先走了。”"
+            "description": "脱离，应对防御：额外使敌方攻击技能能耗+4。"
         },
         {
             "id": 7180150,
-            "name": "对自己造成物伤，应对状态：改为对敌方造成物伤。",
+            "name": "彼岸之手",
             "icon_id": "706003",
             "move_type": {
                 "id": 16,
@@ -270,18 +270,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对自己造成物伤，应对状态：改为对敌方造成物伤。",
-                    "description": "厄运就像烫山芋，总要扔出去。"
+                    "name": "彼岸之手",
+                    "description": "对自己造成物伤，应对状态：改为对敌方造成物伤。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 10,
             "power": 150,
-            "description": "厄运就像烫山芋，总要扔出去。"
+            "description": "对自己造成物伤，应对状态：改为对敌方造成物伤。"
         },
         {
             "id": 7180190,
-            "name": "与敌方交换增益和减益。",
+            "name": "恶意逃离",
             "icon_id": "317016",
             "move_type": {
                 "id": 16,
@@ -292,14 +292,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "与敌方交换增益和减益。",
-                    "description": "有借有还，再借不难。"
+                    "name": "恶意逃离",
+                    "description": "与敌方交换增益和减益。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "有借有还，再借不难。"
+            "description": "与敌方交换增益和减益。"
         },
         {
             "id": 7180100,

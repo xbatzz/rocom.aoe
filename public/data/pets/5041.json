@@ -237,7 +237,7 @@
         },
         {
             "id": 7020370,
-            "name": "造成物伤，自己回复1能量。",
+            "name": "猛烈撞击",
             "icon_id": "700001",
             "move_type": {
                 "id": 1,
@@ -248,14 +248,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，自己回复1能量。",
-                    "description": "某些精灵平日里也会有这种行为，小心家里的厕纸和魔法卷轴。"
+                    "name": "猛烈撞击",
+                    "description": "造成物伤，自己回复1能量。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 1,
             "power": 65,
-            "description": "某些精灵平日里也会有这种行为，小心家里的厕纸和魔法卷轴。"
+            "description": "造成物伤，自己回复1能量。"
         },
         {
             "id": 7140250,
@@ -459,7 +459,7 @@
         },
         {
             "id": 7140190,
-            "name": "应对攻击：打断被应对技能，并造成90威力物伤。",
+            "name": "听桥",
             "icon_id": "714009",
             "move_type": {
                 "id": 12,
@@ -470,14 +470,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "应对攻击：打断被应对技能，并造成90威力物伤。",
-                    "description": "某个擅长对决的魔法师点评此武学：硬门之韵在于对手先攻，我方以静制动。"
+                    "name": "听桥",
+                    "description": "应对攻击：打断被应对技能，并造成90威力物伤。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 4,
             "power": null,
-            "description": "某个擅长对决的魔法师点评此武学：硬门之韵在于对手先攻，我方以静制动。"
+            "description": "应对攻击：打断被应对技能，并造成90威力物伤。"
         },
         {
             "id": 7140290,
@@ -701,7 +701,7 @@
         },
         {
             "id": 7020400,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "迫近攻击",
             "icon_id": "702073",
             "move_type": {
                 "id": 1,
@@ -712,14 +712,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "注意：当看到尾巴扫过来的时候，请记得起跳，像跳绳那样。"
+                    "name": "迫近攻击",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 90,
-            "description": "注意：当看到尾巴扫过来的时候，请记得起跳，像跳绳那样。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7020970,

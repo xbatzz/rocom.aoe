@@ -226,7 +226,7 @@
         },
         {
             "id": 7120100,
-            "name": "造成物伤，敌方获得2层中毒，应对状态：改为获得6层。",
+            "name": "毒液渗透",
             "icon_id": "311006",
             "move_type": {
                 "id": 10,
@@ -237,18 +237,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，敌方获得2层中毒，应对状态：改为获得6层。",
-                    "description": "黑市里淘来的毒系技能石，摸起来总是黏糊糊的，建议戴着手套触摸。"
+                    "name": "毒液渗透",
+                    "description": "造成物伤，敌方获得2层中毒，应对状态：改为获得6层。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 5,
             "power": 120,
-            "description": "黑市里淘来的毒系技能石，摸起来总是黏糊糊的，建议戴着手套触摸。"
+            "description": "造成物伤，敌方获得2层中毒，应对状态：改为获得6层。"
         },
         {
             "id": 7120130,
-            "name": "敌方获得5层中毒。",
+            "name": "毒雾",
             "icon_id": "712002",
             "move_type": {
                 "id": 10,
@@ -259,14 +259,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方获得5层中毒。",
-                    "description": "毒祭司们将草药学与生物学知识活用，得到了这种技能。"
+                    "name": "毒雾",
+                    "description": "敌方获得5层中毒。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 7,
             "power": null,
-            "description": "毒祭司们将草药学与生物学知识活用，得到了这种技能。"
+            "description": "敌方获得5层中毒。"
         },
         {
             "id": 7050390,
@@ -558,7 +558,7 @@
         },
         {
             "id": 7120140,
-            "name": "将敌方所有增益，转化成中毒。",
+            "name": "剧毒",
             "icon_id": "712004",
             "move_type": {
                 "id": 10,
@@ -569,18 +569,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "将敌方所有增益，转化成中毒。",
-                    "description": "紫雀花迷雾下签订的契约。"
+                    "name": "剧毒",
+                    "description": "将敌方所有增益，转化成中毒。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "紫雀花迷雾下签订的契约。"
+            "description": "将敌方所有增益，转化成中毒。"
         },
         {
             "id": 7050220,
-            "name": "造成魔伤，应对状态：本技能能耗永久-6。",
+            "name": "润泽",
             "icon_id": "104001",
             "move_type": {
                 "id": 4,
@@ -591,14 +591,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成魔伤，应对状态：本技能能耗永久-6。",
-                    "description": "月兔暗港最好的水手，可以让船在洪水风暴里张满帆。"
+                    "name": "润泽",
+                    "description": "造成魔伤，应对状态：本技能能耗永久-6。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 7,
             "power": null,
-            "description": "月兔暗港最好的水手，可以让船在洪水风暴里张满帆。"
+            "description": "造成魔伤，应对状态：本技能能耗永久-6。"
         },
         {
             "id": 7020860,
@@ -765,7 +765,7 @@
             "move_id": 7080200,
             "move": {
                 "id": 7080200,
-                "name": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。",
+                "name": "泥浆铠甲",
                 "icon_id": "708018",
                 "move_type": {
                     "id": 6,
@@ -776,14 +776,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。",
-                        "description": "越挣扎，时间反而流走得越快。"
+                        "name": "泥浆铠甲",
+                        "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
                     }
                 },
                 "move_category": "Status",
                 "energy_cost": 2,
                 "power": null,
-                "description": "越挣扎，时间反而流走得越快。"
+                "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
             }
         },
         {
@@ -1008,7 +1008,7 @@
             "move_id": 7170250,
             "move": {
                 "id": 7170250,
-                "name": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。",
+                "name": "勾魂",
                 "icon_id": "116019",
                 "move_type": {
                     "id": 15,
@@ -1019,14 +1019,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。",
-                        "description": "昨天半夜我们俩摸黑背完咒语课考试范围，隔天发现学长给画的考试范围全是错的。"
+                        "name": "勾魂",
+                        "description": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。"
                     }
                 },
                 "move_category": "Status",
                 "energy_cost": 1,
                 "power": null,
-                "description": "昨天半夜我们俩摸黑背完咒语课考试范围，隔天发现学长给画的考试范围全是错的。"
+                "description": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。"
             }
         },
         {

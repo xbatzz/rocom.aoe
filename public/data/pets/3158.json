@@ -55,7 +55,7 @@
     "move_pool": [
         {
             "id": 7020370,
-            "name": "造成物伤，自己回复1能量。",
+            "name": "猛烈撞击",
             "icon_id": "700001",
             "move_type": {
                 "id": 1,
@@ -66,14 +66,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，自己回复1能量。",
-                    "description": "某些精灵平日里也会有这种行为，小心家里的厕纸和魔法卷轴。"
+                    "name": "猛烈撞击",
+                    "description": "造成物伤，自己回复1能量。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 1,
             "power": 65,
-            "description": "某些精灵平日里也会有这种行为，小心家里的厕纸和魔法卷轴。"
+            "description": "造成物伤，自己回复1能量。"
         },
         {
             "id": 7020640,
@@ -673,7 +673,7 @@
     "move_stones": [
         {
             "id": 7020380,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "飞踢",
             "icon_id": "700007",
             "move_type": {
                 "id": 1,
@@ -684,18 +684,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "头比计划先达到目的地。"
+                    "name": "飞踢",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 110,
-            "description": "头比计划先达到目的地。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7020390,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "扫尾",
             "icon_id": "702047",
             "move_type": {
                 "id": 1,
@@ -706,14 +706,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "魔法学院里体术的第一课。"
+                    "name": "扫尾",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 90,
-            "description": "魔法学院里体术的第一课。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7020480,
@@ -739,7 +739,7 @@
         },
         {
             "id": 7020510,
-            "name": "造成魔伤，5连击。",
+            "name": "乘胜追击",
             "icon_id": "702050",
             "move_type": {
                 "id": 1,
@@ -750,14 +750,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成魔伤，5连击。",
-                    "description": "无招胜有招。"
+                    "name": "乘胜追击",
+                    "description": "造成魔伤，5连击。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 40,
-            "description": "无招胜有招。"
+            "description": "造成魔伤，5连击。"
         },
         {
             "id": 7020540,
@@ -1487,7 +1487,7 @@
         },
         {
             "id": 7030290,
-            "name": "自己获得物攻和魔攻+140%。",
+            "name": "移花接木",
             "icon_id": "302016",
             "move_type": {
                 "id": 2,
@@ -1498,14 +1498,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "自己获得物攻和魔攻+140%。",
-                    "description": "“信我！白树真的没有死，她仍然在喂养我们！”"
+                    "name": "移花接木",
+                    "description": "自己获得物攻和魔攻+140%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "“信我！白树真的没有死，她仍然在喂养我们！”"
+            "description": "自己获得物攻和魔攻+140%。"
         },
         {
             "id": 7030320,
@@ -1707,7 +1707,7 @@
         },
         {
             "id": 7120140,
-            "name": "将敌方所有增益，转化成中毒。",
+            "name": "剧毒",
             "icon_id": "712004",
             "move_type": {
                 "id": 10,
@@ -1718,14 +1718,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "将敌方所有增益，转化成中毒。",
-                    "description": "紫雀花迷雾下签订的契约。"
+                    "name": "剧毒",
+                    "description": "将敌方所有增益，转化成中毒。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "紫雀花迷雾下签订的契约。"
+            "description": "将敌方所有增益，转化成中毒。"
         },
         {
             "id": 7120210,
@@ -2024,7 +2024,7 @@
             "move_id": 7080200,
             "move": {
                 "id": 7080200,
-                "name": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。",
+                "name": "泥浆铠甲",
                 "icon_id": "708018",
                 "move_type": {
                     "id": 6,
@@ -2035,14 +2035,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。",
-                        "description": "越挣扎，时间反而流走得越快。"
+                        "name": "泥浆铠甲",
+                        "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
                     }
                 },
                 "move_category": "Status",
                 "energy_cost": 2,
                 "power": null,
-                "description": "越挣扎，时间反而流走得越快。"
+                "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
             }
         },
         {
@@ -2267,7 +2267,7 @@
             "move_id": 7170250,
             "move": {
                 "id": 7170250,
-                "name": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。",
+                "name": "勾魂",
                 "icon_id": "116019",
                 "move_type": {
                     "id": 15,
@@ -2278,14 +2278,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。",
-                        "description": "昨天半夜我们俩摸黑背完咒语课考试范围，隔天发现学长给画的考试范围全是错的。"
+                        "name": "勾魂",
+                        "description": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。"
                     }
                 },
                 "move_category": "Status",
                 "energy_cost": 1,
                 "power": null,
-                "description": "昨天半夜我们俩摸黑背完咒语课考试范围，隔天发现学长给画的考试范围全是错的。"
+                "description": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。"
             }
         },
         {

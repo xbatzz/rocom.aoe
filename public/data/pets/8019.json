@@ -160,7 +160,7 @@
         },
         {
             "id": 7180180,
-            "name": "敌方获得全技能威力-20，自己获得全技能威力+20。",
+            "name": "欺诈契约",
             "icon_id": "718024",
             "move_type": {
                 "id": 16,
@@ -171,14 +171,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方获得全技能威力-20，自己获得全技能威力+20。",
-                    "description": "你的就是我的，我的还是我的。"
+                    "name": "欺诈契约",
+                    "description": "敌方获得全技能威力-20，自己获得全技能威力+20。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "你的就是我的，我的还是我的。"
+            "description": "敌方获得全技能威力-20，自己获得全技能威力+20。"
         },
         {
             "id": 7120080,
@@ -204,7 +204,7 @@
         },
         {
             "id": 7120130,
-            "name": "敌方获得5层中毒。",
+            "name": "毒雾",
             "icon_id": "712002",
             "move_type": {
                 "id": 10,
@@ -215,14 +215,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方获得5层中毒。",
-                    "description": "毒祭司们将草药学与生物学知识活用，得到了这种技能。"
+                    "name": "毒雾",
+                    "description": "敌方获得5层中毒。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 7,
             "power": null,
-            "description": "毒祭司们将草药学与生物学知识活用，得到了这种技能。"
+            "description": "敌方获得5层中毒。"
         },
         {
             "id": 7020430,

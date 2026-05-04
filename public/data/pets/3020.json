@@ -231,7 +231,7 @@
         },
         {
             "id": 7080200,
-            "name": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。",
+            "name": "泥浆铠甲",
             "icon_id": "708018",
             "move_type": {
                 "id": 6,
@@ -242,14 +242,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。",
-                    "description": "越挣扎，时间反而流走得越快。"
+                    "name": "泥浆铠甲",
+                    "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "越挣扎，时间反而流走得越快。"
+            "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
         },
         {
             "id": 7020550,
@@ -475,7 +475,7 @@
         },
         {
             "id": 7070050,
-            "name": "造成物伤，本技能位于1号位时威力+90，传动2。",
+            "name": "杠杆置换",
             "icon_id": "206005",
             "move_type": {
                 "id": 17,
@@ -486,14 +486,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，本技能位于1号位时威力+90，传动2。",
-                    "description": "机械原本没有意志，所行善恶来自造物者的欲望。"
+                    "name": "杠杆置换",
+                    "description": "造成物伤，本技能位于1号位时威力+90，传动2。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 0,
             "power": null,
-            "description": "机械原本没有意志，所行善恶来自造物者的欲望。"
+            "description": "造成物伤，本技能位于1号位时威力+90，传动2。"
         },
         {
             "id": 7130110,
@@ -679,7 +679,7 @@
             "move_id": 7020370,
             "move": {
                 "id": 7020370,
-                "name": "造成物伤，自己回复1能量。",
+                "name": "猛烈撞击",
                 "icon_id": "700001",
                 "move_type": {
                     "id": 1,
@@ -690,14 +690,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "造成物伤，自己回复1能量。",
-                        "description": "某些精灵平日里也会有这种行为，小心家里的厕纸和魔法卷轴。"
+                        "name": "猛烈撞击",
+                        "description": "造成物伤，自己回复1能量。"
                     }
                 },
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 65,
-                "description": "某些精灵平日里也会有这种行为，小心家里的厕纸和魔法卷轴。"
+                "description": "造成物伤，自己回复1能量。"
             }
         },
         {

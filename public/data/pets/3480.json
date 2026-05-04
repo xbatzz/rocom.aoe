@@ -231,7 +231,7 @@
         },
         {
             "id": 7150140,
-            "name": "自己获得1层风起印记。",
+            "name": "暴风眼",
             "icon_id": "715011",
             "move_type": {
                 "id": 13,
@@ -242,14 +242,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "自己获得1层风起印记。",
-                    "description": "吾所在即是风起之处。"
+                    "name": "暴风眼",
+                    "description": "自己获得1层风起印记。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "吾所在即是风起之处。"
+            "description": "自己获得1层风起印记。"
         },
         {
             "id": 7021020,
@@ -497,7 +497,7 @@
         },
         {
             "id": 7060170,
-            "name": "对敌方精灵造成魔法伤害。",
+            "name": "光之矛",
             "icon_id": "105009",
             "move_type": {
                 "id": 5,
@@ -508,14 +508,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成魔法伤害。",
-                    "description": "一颗未孵化的星辰。"
+                    "name": "光之矛",
+                    "description": "对敌方精灵造成魔法伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 30,
-            "description": "一颗未孵化的星辰。"
+            "description": "对敌方精灵造成魔法伤害。"
         },
         {
             "id": 7060220,
@@ -585,7 +585,7 @@
         },
         {
             "id": 7020510,
-            "name": "造成魔伤，5连击。",
+            "name": "乘胜追击",
             "icon_id": "702050",
             "move_type": {
                 "id": 1,
@@ -596,14 +596,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成魔伤，5连击。",
-                    "description": "无招胜有招。"
+                    "name": "乘胜追击",
+                    "description": "造成魔伤，5连击。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 40,
-            "description": "无招胜有招。"
+            "description": "造成魔伤，5连击。"
         },
         {
             "id": 7020460,
@@ -629,7 +629,7 @@
         },
         {
             "id": 7020520,
-            "name": "造成物伤，1连击，每次使用后，本技能连击数永久+1。",
+            "name": "阻断",
             "icon_id": "702062",
             "move_type": {
                 "id": 1,
@@ -640,14 +640,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，1连击，每次使用后，本技能连击数永久+1。",
-                    "description": "“怎么又来了？”"
+                    "name": "阻断",
+                    "description": "造成物伤，1连击，每次使用后，本技能连击数永久+1。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 2,
             "power": 80,
-            "description": "“怎么又来了？”"
+            "description": "造成物伤，1连击，每次使用后，本技能连击数永久+1。"
         },
         {
             "id": 7020840,

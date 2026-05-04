@@ -149,7 +149,7 @@
         },
         {
             "id": 7070060,
-            "name": "自己回复2能量，交换两侧技能位置。",
+            "name": "轴承支撑",
             "icon_id": "720004",
             "move_type": {
                 "id": 17,
@@ -160,14 +160,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "自己回复2能量，交换两侧技能位置。",
-                    "description": "想得到些什么，就要付出些什么。想清楚代价是什么再行动。"
+                    "name": "轴承支撑",
+                    "description": "自己回复2能量，交换两侧技能位置。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "想得到些什么，就要付出些什么。想清楚代价是什么再行动。"
+            "description": "自己回复2能量，交换两侧技能位置。"
         },
         {
             "id": 7080320,
@@ -393,7 +393,7 @@
         },
         {
             "id": 7180150,
-            "name": "对自己造成物伤，应对状态：改为对敌方造成物伤。",
+            "name": "彼岸之手",
             "icon_id": "706003",
             "move_type": {
                 "id": 16,
@@ -404,14 +404,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对自己造成物伤，应对状态：改为对敌方造成物伤。",
-                    "description": "厄运就像烫山芋，总要扔出去。"
+                    "name": "彼岸之手",
+                    "description": "对自己造成物伤，应对状态：改为对敌方造成物伤。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 10,
             "power": 150,
-            "description": "厄运就像烫山芋，总要扔出去。"
+            "description": "对自己造成物伤，应对状态：改为对敌方造成物伤。"
         },
         {
             "id": 7180330,
@@ -1046,7 +1046,7 @@
             "move_id": 7180210,
             "move": {
                 "id": 7180210,
-                "name": "与敌方交换携带的技能。",
+                "name": "等价交换",
                 "icon_id": "317018",
                 "move_type": {
                     "id": 16,
@@ -1057,14 +1057,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "与敌方交换携带的技能。",
-                        "description": "“条约里面的超小号字体已经把隐藏条款已经写得很清楚了”。"
+                        "name": "等价交换",
+                        "description": "与敌方交换携带的技能。"
                     }
                 },
                 "move_category": "Defense",
                 "energy_cost": 3,
                 "power": null,
-                "description": "“条约里面的超小号字体已经把隐藏条款已经写得很清楚了”。"
+                "description": "与敌方交换携带的技能。"
             }
         },
         {
@@ -1100,7 +1100,7 @@
             "move_id": 7190400,
             "move": {
                 "id": 7190400,
-                "name": "对敌方精灵造成魔法伤害。",
+                "name": "冥想",
                 "icon_id": "118022",
                 "move_type": {
                     "id": 18,
@@ -1111,14 +1111,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "对敌方精灵造成魔法伤害。",
-                        "description": "宇宙按下重启键，所有被遗忘的愿望同时点燃，所有未竟的梦一起闪耀。"
+                        "name": "冥想",
+                        "description": "对敌方精灵造成魔法伤害。"
                     }
                 },
                 "move_category": "Defense",
                 "energy_cost": 3,
                 "power": null,
-                "description": "宇宙按下重启键，所有被遗忘的愿望同时点燃，所有未竟的梦一起闪耀。"
+                "description": "对敌方精灵造成魔法伤害。"
             }
         }
     ],

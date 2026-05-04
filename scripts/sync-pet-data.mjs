@@ -976,6 +976,38 @@ function buildHandbookRewards(handbookRows, rewardTable, visualItemTable, bagIte
     return result;
 }
 
+const MOVE_EFFECT_TEXT_PATTERN =
+    /(造成|对敌方|敌方|自己|回复|恢复|获得|减伤|连击|本技能|魔法伤害|物理伤害|物伤|魔伤|消耗|能量|速度|物攻|魔攻|物防|魔防|威力|命中|应对|印记|萌化|睡眠|中毒|烧伤|暴击|先手|后手|生命|回合|下次|本次|永久|打断|蓄力|吸血|脱离|交换|失去|赋予|翻倍|冷却|眩晕|冻结|变成|无法更换)/;
+
+function looksLikeMoveEffectText(text) {
+    return typeof text === "string" && MOVE_EFFECT_TEXT_PATTERN.test(text);
+}
+
+function resolveMoveText(skill, fallbackSkillId, options = {}) {
+    const skillId = skill?.id ?? fallbackSkillId;
+    const rawName = cleanText(skill?.name);
+    const rawDescription = cleanText(skill?.desc);
+    const flavorText = cleanText(skill?.flavor_text);
+    const fallbackName = cleanText(options.fallbackName);
+
+    if (
+        rawName &&
+        flavorText &&
+        looksLikeMoveEffectText(rawName) &&
+        !looksLikeMoveEffectText(rawDescription)
+    ) {
+        return {
+            name: flavorText,
+            description: rawName,
+        };
+    }
+
+    return {
+        name: rawName ?? fallbackName ?? `技能 ${skillId}`,
+        description: rawDescription ?? "",
+    };
+}
+
 function buildMove(skill, typesById, fallbackSkillId, options = {}) {
     const skillId = skill?.id ?? fallbackSkillId;
 
@@ -983,9 +1015,11 @@ function buildMove(skill, typesById, fallbackSkillId, options = {}) {
         return null;
     }
 
-    const name =
-        cleanText(skill?.name) ?? options.fallbackName ?? `技能 ${skillId}`;
-    const description = cleanText(skill?.desc) ?? "";
+    const { name, description } = resolveMoveText(
+        skill,
+        fallbackSkillId,
+        options,
+    );
     const moveType = buildMoveType(skill?.skill_dam_type, typesById);
 
     return {
@@ -1673,7 +1707,13 @@ function resolveSkillName(skillId, skillById) {
         return null;
     }
 
-    return cleanText(skillById.get(skillId)?.name) ?? null;
+    const skill = skillById.get(skillId);
+
+    if (!skill) {
+        return null;
+    }
+
+    return resolveMoveText(skill, skillId).name;
 }
 
 function resolveTypeName(typeId, typesById) {

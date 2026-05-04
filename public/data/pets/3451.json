@@ -503,7 +503,7 @@
         },
         {
             "id": 7190400,
-            "name": "对敌方精灵造成魔法伤害。",
+            "name": "冥想",
             "icon_id": "118022",
             "move_type": {
                 "id": 18,
@@ -514,14 +514,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成魔法伤害。",
-                    "description": "宇宙按下重启键，所有被遗忘的愿望同时点燃，所有未竟的梦一起闪耀。"
+                    "name": "冥想",
+                    "description": "对敌方精灵造成魔法伤害。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 3,
             "power": null,
-            "description": "宇宙按下重启键，所有被遗忘的愿望同时点燃，所有未竟的梦一起闪耀。"
+            "description": "对敌方精灵造成魔法伤害。"
         },
         {
             "id": 7021020,
@@ -1151,7 +1151,7 @@
             "move_id": 7170260,
             "move": {
                 "id": 7170260,
-                "name": "偷取敌方3能量。",
+                "name": "虚化",
                 "icon_id": "116020",
                 "move_type": {
                     "id": 15,
@@ -1162,14 +1162,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "偷取敌方3能量。",
-                        "description": "真的有鬼，月圆夜的时候，魔法学院2楼厕所的卫生纸会全部消失，太可怕了。"
+                        "name": "虚化",
+                        "description": "偷取敌方3能量。"
                     }
                 },
                 "move_category": "Defense",
                 "energy_cost": 2,
                 "power": null,
-                "description": "真的有鬼，月圆夜的时候，魔法学院2楼厕所的卫生纸会全部消失，太可怕了。"
+                "description": "偷取敌方3能量。"
             }
         },
         {
@@ -1178,7 +1178,7 @@
             "move_id": 7180210,
             "move": {
                 "id": 7180210,
-                "name": "与敌方交换携带的技能。",
+                "name": "等价交换",
                 "icon_id": "317018",
                 "move_type": {
                     "id": 16,
@@ -1189,14 +1189,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "与敌方交换携带的技能。",
-                        "description": "“条约里面的超小号字体已经把隐藏条款已经写得很清楚了”。"
+                        "name": "等价交换",
+                        "description": "与敌方交换携带的技能。"
                     }
                 },
                 "move_category": "Defense",
                 "energy_cost": 3,
                 "power": null,
-                "description": "“条约里面的超小号字体已经把隐藏条款已经写得很清楚了”。"
+                "description": "与敌方交换携带的技能。"
             }
         },
         {

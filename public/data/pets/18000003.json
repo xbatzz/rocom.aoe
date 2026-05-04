@@ -393,7 +393,7 @@
         },
         {
             "id": 7140070,
-            "name": "造成物伤，应对状态：自己获得物攻+100%。",
+            "name": "散手",
             "icon_id": "113005",
             "move_type": {
                 "id": 12,
@@ -404,14 +404,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，应对状态：自己获得物攻+100%。",
-                    "description": "崩的是对方的架势，合的是破招的美学。"
+                    "name": "散手",
+                    "description": "造成物伤，应对状态：自己获得物攻+100%。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 35,
-            "description": "崩的是对方的架势，合的是破招的美学。"
+            "description": "造成物伤，应对状态：自己获得物攻+100%。"
         },
         {
             "id": 7040440,
@@ -503,7 +503,7 @@
         },
         {
             "id": 7150140,
-            "name": "自己获得1层风起印记。",
+            "name": "暴风眼",
             "icon_id": "715011",
             "move_type": {
                 "id": 13,
@@ -514,14 +514,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "自己获得1层风起印记。",
-                    "description": "吾所在即是风起之处。"
+                    "name": "暴风眼",
+                    "description": "自己获得1层风起印记。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "吾所在即是风起之处。"
+            "description": "自己获得1层风起印记。"
         },
         {
             "id": 7080290,
@@ -663,7 +663,7 @@
             "move_id": 7020370,
             "move": {
                 "id": 7020370,
-                "name": "造成物伤，自己回复1能量。",
+                "name": "猛烈撞击",
                 "icon_id": "700001",
                 "move_type": {
                     "id": 1,
@@ -674,14 +674,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "造成物伤，自己回复1能量。",
-                        "description": "某些精灵平日里也会有这种行为，小心家里的厕纸和魔法卷轴。"
+                        "name": "猛烈撞击",
+                        "description": "造成物伤，自己回复1能量。"
                     }
                 },
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 65,
-                "description": "某些精灵平日里也会有这种行为，小心家里的厕纸和魔法卷轴。"
+                "description": "造成物伤，自己回复1能量。"
             }
         },
         {

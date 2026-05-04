@@ -105,7 +105,7 @@
         },
         {
             "id": 7180090,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "蝙蝠",
             "icon_id": "706001",
             "move_type": {
                 "id": 16,
@@ -116,14 +116,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "没有恶意的恶。"
+                    "name": "蝙蝠",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 65,
-            "description": "没有恶意的恶。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7130270,
@@ -281,7 +281,7 @@
         },
         {
             "id": 7130190,
-            "name": "自己回复2能量，己方队伍获得1次奉献：能耗-2。",
+            "name": "虫茧",
             "icon_id": "212011",
             "move_type": {
                 "id": 11,
@@ -292,14 +292,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "自己回复2能量，己方队伍获得1次奉献：能耗-2。",
-                    "description": "研究手记：我在巢中坠入无光之梦，听见黑暗深处传来虫群的轰鸣。"
+                    "name": "虫茧",
+                    "description": "自己回复2能量，己方队伍获得1次奉献：能耗-2。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "研究手记：我在巢中坠入无光之梦，听见黑暗深处传来虫群的轰鸣。"
+            "description": "自己回复2能量，己方队伍获得1次奉献：能耗-2。"
         },
         {
             "id": 7130150,
@@ -325,7 +325,7 @@
         },
         {
             "id": 7180210,
-            "name": "与敌方交换携带的技能。",
+            "name": "等价交换",
             "icon_id": "317018",
             "move_type": {
                 "id": 16,
@@ -336,18 +336,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "与敌方交换携带的技能。",
-                    "description": "“条约里面的超小号字体已经把隐藏条款已经写得很清楚了”。"
+                    "name": "等价交换",
+                    "description": "与敌方交换携带的技能。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 3,
             "power": null,
-            "description": "“条约里面的超小号字体已经把隐藏条款已经写得很清楚了”。"
+            "description": "与敌方交换携带的技能。"
         },
         {
             "id": 7180140,
-            "name": "造成物伤，若生命高于50%，使用后自己获得双攻-50%。",
+            "name": "灾厄",
             "icon_id": "217011",
             "move_type": {
                 "id": 16,
@@ -358,14 +358,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，若生命高于50%，使用后自己获得双攻-50%。",
-                    "description": "总要付出点代价。"
+                    "name": "灾厄",
+                    "description": "造成物伤，若生命高于50%，使用后自己获得双攻-50%。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 1,
             "power": 150,
-            "description": "总要付出点代价。"
+            "description": "造成物伤，若生命高于50%，使用后自己获得双攻-50%。"
         }
     ],
     "move_stones": [

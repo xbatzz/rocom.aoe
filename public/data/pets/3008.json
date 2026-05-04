@@ -319,7 +319,7 @@
         },
         {
             "id": 7140070,
-            "name": "造成物伤，应对状态：自己获得物攻+100%。",
+            "name": "散手",
             "icon_id": "113005",
             "move_type": {
                 "id": 12,
@@ -330,14 +330,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，应对状态：自己获得物攻+100%。",
-                    "description": "崩的是对方的架势，合的是破招的美学。"
+                    "name": "散手",
+                    "description": "造成物伤，应对状态：自己获得物攻+100%。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 35,
-            "description": "崩的是对方的架势，合的是破招的美学。"
+            "description": "造成物伤，应对状态：自己获得物攻+100%。"
         },
         {
             "id": 7030530,

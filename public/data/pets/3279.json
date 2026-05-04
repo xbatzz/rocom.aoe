@@ -475,7 +475,7 @@
         },
         {
             "id": 7030290,
-            "name": "自己获得物攻和魔攻+140%。",
+            "name": "移花接木",
             "icon_id": "302016",
             "move_type": {
                 "id": 2,
@@ -486,14 +486,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "自己获得物攻和魔攻+140%。",
-                    "description": "“信我！白树真的没有死，她仍然在喂养我们！”"
+                    "name": "移花接木",
+                    "description": "自己获得物攻和魔攻+140%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "“信我！白树真的没有死，她仍然在喂养我们！”"
+            "description": "自己获得物攻和魔攻+140%。"
         },
         {
             "id": 7180110,

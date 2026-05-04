@@ -308,7 +308,7 @@
         },
         {
             "id": 7080200,
-            "name": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。",
+            "name": "泥浆铠甲",
             "icon_id": "708018",
             "move_type": {
                 "id": 6,
@@ -319,14 +319,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。",
-                    "description": "越挣扎，时间反而流走得越快。"
+                    "name": "泥浆铠甲",
+                    "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "越挣扎，时间反而流走得越快。"
+            "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
         },
         {
             "id": 7080160,
@@ -574,7 +574,7 @@
         },
         {
             "id": 7020410,
-            "name": "造成物伤。每次使用后，本技能威力永久+45。",
+            "name": "音爆",
             "icon_id": "702046",
             "move_type": {
                 "id": 1,
@@ -585,14 +585,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤。每次使用后，本技能威力永久+45。",
-                    "description": "埋伏，冲刺，出击。驮着小洛克的时候不要做这种事哦。"
+                    "name": "音爆",
+                    "description": "造成物伤。每次使用后，本技能威力永久+45。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 4,
             "power": 130,
-            "description": "埋伏，冲刺，出击。驮着小洛克的时候不要做这种事哦。"
+            "description": "造成物伤。每次使用后，本技能威力永久+45。"
         },
         {
             "id": 7020470,
@@ -712,7 +712,7 @@
             "move_id": 7020370,
             "move": {
                 "id": 7020370,
-                "name": "造成物伤，自己回复1能量。",
+                "name": "猛烈撞击",
                 "icon_id": "700001",
                 "move_type": {
                     "id": 1,
@@ -723,14 +723,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "造成物伤，自己回复1能量。",
-                        "description": "某些精灵平日里也会有这种行为，小心家里的厕纸和魔法卷轴。"
+                        "name": "猛烈撞击",
+                        "description": "造成物伤，自己回复1能量。"
                     }
                 },
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 65,
-                "description": "某些精灵平日里也会有这种行为，小心家里的厕纸和魔法卷轴。"
+                "description": "造成物伤，自己回复1能量。"
             }
         },
         {

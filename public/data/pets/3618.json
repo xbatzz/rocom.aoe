@@ -61,7 +61,7 @@
     "move_pool": [
         {
             "id": 7070050,
-            "name": "造成物伤，本技能位于1号位时威力+90，传动2。",
+            "name": "杠杆置换",
             "icon_id": "206005",
             "move_type": {
                 "id": 17,
@@ -72,14 +72,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，本技能位于1号位时威力+90，传动2。",
-                    "description": "机械原本没有意志，所行善恶来自造物者的欲望。"
+                    "name": "杠杆置换",
+                    "description": "造成物伤，本技能位于1号位时威力+90，传动2。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 0,
             "power": null,
-            "description": "机械原本没有意志，所行善恶来自造物者的欲望。"
+            "description": "造成物伤，本技能位于1号位时威力+90，传动2。"
         },
         {
             "id": 7070080,
@@ -193,7 +193,7 @@
         },
         {
             "id": 7190300,
-            "name": "敌方获得2层星陨印记。",
+            "name": "星链",
             "icon_id": "218007",
             "move_type": {
                 "id": 18,
@@ -204,14 +204,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方获得2层星陨印记。",
-                    "description": "走失的星星在愿力的指引下，正在寻找回去的轨道。"
+                    "name": "星链",
+                    "description": "敌方获得2层星陨印记。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "走失的星星在愿力的指引下，正在寻找回去的轨道。"
+            "description": "敌方获得2层星陨印记。"
         },
         {
             "id": 7020780,
@@ -281,7 +281,7 @@
         },
         {
             "id": 7190400,
-            "name": "对敌方精灵造成魔法伤害。",
+            "name": "冥想",
             "icon_id": "118022",
             "move_type": {
                 "id": 18,
@@ -292,14 +292,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成魔法伤害。",
-                    "description": "宇宙按下重启键，所有被遗忘的愿望同时点燃，所有未竟的梦一起闪耀。"
+                    "name": "冥想",
+                    "description": "对敌方精灵造成魔法伤害。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 3,
             "power": null,
-            "description": "宇宙按下重启键，所有被遗忘的愿望同时点燃，所有未竟的梦一起闪耀。"
+            "description": "对敌方精灵造成魔法伤害。"
         },
         {
             "id": 7070140,
@@ -525,7 +525,7 @@
         },
         {
             "id": 7020410,
-            "name": "造成物伤。每次使用后，本技能威力永久+45。",
+            "name": "音爆",
             "icon_id": "702046",
             "move_type": {
                 "id": 1,
@@ -536,14 +536,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤。每次使用后，本技能威力永久+45。",
-                    "description": "埋伏，冲刺，出击。驮着小洛克的时候不要做这种事哦。"
+                    "name": "音爆",
+                    "description": "造成物伤。每次使用后，本技能威力永久+45。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 4,
             "power": 130,
-            "description": "埋伏，冲刺，出击。驮着小洛克的时候不要做这种事哦。"
+            "description": "造成物伤。每次使用后，本技能威力永久+45。"
         },
         {
             "id": 7020930,
@@ -1151,7 +1151,7 @@
             "move_id": 7170260,
             "move": {
                 "id": 7170260,
-                "name": "偷取敌方3能量。",
+                "name": "虚化",
                 "icon_id": "116020",
                 "move_type": {
                     "id": 15,
@@ -1162,14 +1162,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "偷取敌方3能量。",
-                        "description": "真的有鬼，月圆夜的时候，魔法学院2楼厕所的卫生纸会全部消失，太可怕了。"
+                        "name": "虚化",
+                        "description": "偷取敌方3能量。"
                     }
                 },
                 "move_category": "Defense",
                 "energy_cost": 2,
                 "power": null,
-                "description": "真的有鬼，月圆夜的时候，魔法学院2楼厕所的卫生纸会全部消失，太可怕了。"
+                "description": "偷取敌方3能量。"
             }
         },
         {
@@ -1178,7 +1178,7 @@
             "move_id": 7180210,
             "move": {
                 "id": 7180210,
-                "name": "与敌方交换携带的技能。",
+                "name": "等价交换",
                 "icon_id": "317018",
                 "move_type": {
                     "id": 16,
@@ -1189,14 +1189,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "与敌方交换携带的技能。",
-                        "description": "“条约里面的超小号字体已经把隐藏条款已经写得很清楚了”。"
+                        "name": "等价交换",
+                        "description": "与敌方交换携带的技能。"
                     }
                 },
                 "move_category": "Defense",
                 "energy_cost": 3,
                 "power": null,
-                "description": "“条约里面的超小号字体已经把隐藏条款已经写得很清楚了”。"
+                "description": "与敌方交换携带的技能。"
             }
         },
         {

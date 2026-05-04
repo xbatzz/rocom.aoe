@@ -187,7 +187,7 @@
         },
         {
             "id": 7190290,
-            "name": "敌方获得4层星陨印记。",
+            "name": "星轨裂变",
             "icon_id": "118009",
             "move_type": {
                 "id": 18,
@@ -198,18 +198,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方获得4层星陨印记。",
-                    "description": "一位小洛克一口气许下五个愿望，此时五颗星星应声划过。"
+                    "name": "星轨裂变",
+                    "description": "敌方获得4层星陨印记。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "一位小洛克一口气许下五个愿望，此时五颗星星应声划过。"
+            "description": "敌方获得4层星陨印记。"
         },
         {
             "id": 7190300,
-            "name": "敌方获得2层星陨印记。",
+            "name": "星链",
             "icon_id": "218007",
             "move_type": {
                 "id": 18,
@@ -220,18 +220,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方获得2层星陨印记。",
-                    "description": "走失的星星在愿力的指引下，正在寻找回去的轨道。"
+                    "name": "星链",
+                    "description": "敌方获得2层星陨印记。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "走失的星星在愿力的指引下，正在寻找回去的轨道。"
+            "description": "敌方获得2层星陨印记。"
         },
         {
             "id": 7190310,
-            "name": "2连击，每次连击使敌方获得1层星陨印记。",
+            "name": "超新星馈赠",
             "icon_id": "318016",
             "move_type": {
                 "id": 18,
@@ -242,14 +242,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "2连击，每次连击使敌方获得1层星陨印记。",
-                    "description": "别睡了，醒醒！老师点名了！"
+                    "name": "超新星馈赠",
+                    "description": "2连击，每次连击使敌方获得1层星陨印记。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "别睡了，醒醒！老师点名了！"
+            "description": "2连击，每次连击使敌方获得1层星陨印记。"
         },
         {
             "id": 7190320,
@@ -297,7 +297,7 @@
         },
         {
             "id": 7190400,
-            "name": "对敌方精灵造成魔法伤害。",
+            "name": "冥想",
             "icon_id": "118022",
             "move_type": {
                 "id": 18,
@@ -308,14 +308,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成魔法伤害。",
-                    "description": "宇宙按下重启键，所有被遗忘的愿望同时点燃，所有未竟的梦一起闪耀。"
+                    "name": "冥想",
+                    "description": "对敌方精灵造成魔法伤害。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 3,
             "power": null,
-            "description": "宇宙按下重启键，所有被遗忘的愿望同时点燃，所有未竟的梦一起闪耀。"
+            "description": "对敌方精灵造成魔法伤害。"
         }
     ],
     "move_stones": [],

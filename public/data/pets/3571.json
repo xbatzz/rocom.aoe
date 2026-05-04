@@ -347,7 +347,7 @@
         },
         {
             "id": 7180210,
-            "name": "与敌方交换携带的技能。",
+            "name": "等价交换",
             "icon_id": "317018",
             "move_type": {
                 "id": 16,
@@ -358,14 +358,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "与敌方交换携带的技能。",
-                    "description": "“条约里面的超小号字体已经把隐藏条款已经写得很清楚了”。"
+                    "name": "等价交换",
+                    "description": "与敌方交换携带的技能。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 3,
             "power": null,
-            "description": "“条约里面的超小号字体已经把隐藏条款已经写得很清楚了”。"
+            "description": "与敌方交换携带的技能。"
         },
         {
             "id": 7180280,
@@ -391,7 +391,7 @@
         },
         {
             "id": 7180140,
-            "name": "造成物伤，若生命高于50%，使用后自己获得双攻-50%。",
+            "name": "灾厄",
             "icon_id": "217011",
             "move_type": {
                 "id": 16,
@@ -402,14 +402,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，若生命高于50%，使用后自己获得双攻-50%。",
-                    "description": "总要付出点代价。"
+                    "name": "灾厄",
+                    "description": "造成物伤，若生命高于50%，使用后自己获得双攻-50%。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 1,
             "power": 150,
-            "description": "总要付出点代价。"
+            "description": "造成物伤，若生命高于50%，使用后自己获得双攻-50%。"
         }
     ],
     "move_stones": [
@@ -591,7 +591,7 @@
         },
         {
             "id": 7050220,
-            "name": "造成魔伤，应对状态：本技能能耗永久-6。",
+            "name": "润泽",
             "icon_id": "104001",
             "move_type": {
                 "id": 4,
@@ -602,14 +602,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成魔伤，应对状态：本技能能耗永久-6。",
-                    "description": "月兔暗港最好的水手，可以让船在洪水风暴里张满帆。"
+                    "name": "润泽",
+                    "description": "造成魔伤，应对状态：本技能能耗永久-6。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 7,
             "power": null,
-            "description": "月兔暗港最好的水手，可以让船在洪水风暴里张满帆。"
+            "description": "造成魔伤，应对状态：本技能能耗永久-6。"
         },
         {
             "id": 7020650,
@@ -1210,7 +1210,7 @@
             "move_id": 7190400,
             "move": {
                 "id": 7190400,
-                "name": "对敌方精灵造成魔法伤害。",
+                "name": "冥想",
                 "icon_id": "118022",
                 "move_type": {
                     "id": 18,
@@ -1221,14 +1221,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "对敌方精灵造成魔法伤害。",
-                        "description": "宇宙按下重启键，所有被遗忘的愿望同时点燃，所有未竟的梦一起闪耀。"
+                        "name": "冥想",
+                        "description": "对敌方精灵造成魔法伤害。"
                     }
                 },
                 "move_category": "Defense",
                 "energy_cost": 3,
                 "power": null,
-                "description": "宇宙按下重启键，所有被遗忘的愿望同时点燃，所有未竟的梦一起闪耀。"
+                "description": "对敌方精灵造成魔法伤害。"
             }
         }
     ],

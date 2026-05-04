@@ -61,7 +61,7 @@
     "move_pool": [
         {
             "id": 7020390,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "扫尾",
             "icon_id": "702047",
             "move_type": {
                 "id": 1,
@@ -72,14 +72,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "魔法学院里体术的第一课。"
+                    "name": "扫尾",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 90,
-            "description": "魔法学院里体术的第一课。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7020630,
@@ -171,7 +171,7 @@
         },
         {
             "id": 7020380,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "飞踢",
             "icon_id": "700007",
             "move_type": {
                 "id": 1,
@@ -182,14 +182,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "头比计划先达到目的地。"
+                    "name": "飞踢",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 110,
-            "description": "头比计划先达到目的地。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7020710,
@@ -789,7 +789,7 @@
         },
         {
             "id": 7190290,
-            "name": "敌方获得4层星陨印记。",
+            "name": "星轨裂变",
             "icon_id": "118009",
             "move_type": {
                 "id": 18,
@@ -800,14 +800,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方获得4层星陨印记。",
-                    "description": "一位小洛克一口气许下五个愿望，此时五颗星星应声划过。"
+                    "name": "星轨裂变",
+                    "description": "敌方获得4层星陨印记。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "一位小洛克一口气许下五个愿望，此时五颗星星应声划过。"
+            "description": "敌方获得4层星陨印记。"
         },
         {
             "id": 7190280,
