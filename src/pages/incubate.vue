@@ -689,7 +689,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
 
 <template>
     <section class="space-y-3">
-        <Card class="relative overflow-hidden border-white/10">
+        <Card class="relative overflow-hidden border-border">
             <CardContent class="relative">
                 <div
                     class="grid gap-3 xl:grid-cols-[1.1fr_0.9fr] xl:items-center"
@@ -697,7 +697,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                     <div class="max-w-3xl space-y-4">
                         <div class="space-y-3">
                             <h1
-                                class="text-3xl font-semibold tracking-tight text-white md:text-5xl"
+                                class="text-3xl font-semibold tracking-tight text-foreground md:text-5xl"
                             >
                                 孵蛋
                             </h1>
@@ -708,14 +708,16 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                         <div
                             v-for="item in summaryCards"
                             :key="item.label"
-                            class="rounded-xl border border-white/10 bg-black/25 p-4 backdrop-blur-sm"
+                            class="rounded-[10px] border border-border bg-card p-4"
                         >
                             <div
-                                class="text-xs uppercase tracking-[0.24em] text-slate-400"
+                                class="text-xs uppercase tracking-[0.24em] text-foreground"
                             >
                                 {{ item.label }}
                             </div>
-                            <div class="mt-3 text-2xl font-semibold text-white">
+                            <div
+                                class="mt-3 text-2xl font-semibold text-foreground"
+                            >
                                 {{ item.value }}
                             </div>
                         </div>
@@ -726,12 +728,12 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
 
         <div class="grid gap-3 xl:grid-cols-[340px_minmax(0,1fr)]">
             <Card
-                class="border-white/10 bg-black/25 py-0 shadow-[0_24px_80px_-44px_rgba(0,0,0,0.88)] xl:sticky xl:top-4 xl:self-start"
+                class="border-border bg-card py-0 shadow-md xl:sticky xl:top-4 xl:self-start"
             >
                 <CardContent class="space-y-5 px-5 py-4">
                     <div class="space-y-2">
-                        <div class="flex items-center gap-2 text-slate-100">
-                            <Search class="h-4 w-4 text-amber-200" />
+                        <div class="flex items-center gap-2 text-foreground">
+                            <Search class="h-4 w-4 text-foreground" />
                             <h2 class="text-lg font-semibold">输入观察值</h2>
                         </div>
                     </div>
@@ -739,7 +741,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                     <div class="grid gap-4">
                         <label class="space-y-2">
                             <span
-                                class="flex items-center gap-2 text-sm text-slate-200"
+                                class="flex items-center gap-2 text-sm text-foreground"
                             >
                                 <Ruler class="h-4 w-4 text-sky-200" />
                                 身高
@@ -751,10 +753,10 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                     min="0"
                                     step="1"
                                     placeholder="例如 23"
-                                    class="border-white/10 bg-slate-950/70 pr-12 text-slate-100"
+                                    class="border-border bg-slate-950/70 pr-12 text-foreground"
                                 />
                                 <span
-                                    class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-sm text-slate-400"
+                                    class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-sm text-foreground"
                                 >
                                     cm
                                 </span>
@@ -763,7 +765,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
 
                         <label class="space-y-2">
                             <span
-                                class="flex items-center gap-2 text-sm text-slate-200"
+                                class="flex items-center gap-2 text-sm text-foreground"
                             >
                                 <Scale class="h-4 w-4 text-emerald-200" />
                                 体重
@@ -775,10 +777,10 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                     min="0"
                                     step="0.01"
                                     placeholder="例如 2.35"
-                                    class="border-white/10 bg-slate-950/70 pr-12 text-slate-100"
+                                    class="border-border bg-slate-950/70 pr-12 text-foreground"
                                 />
                                 <span
-                                    class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-sm text-slate-400"
+                                    class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-sm text-foreground"
                                 >
                                     kg
                                 </span>
@@ -788,7 +790,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
 
                     <div
                         v-if="invalidInputMessage"
-                        class="rounded-2xl border border-red-400/20 bg-red-500/8 px-4 py-3 text-sm leading-6 text-red-100"
+                        class="rounded-[10px] border border-red-400/20 bg-red-500/8 px-4 py-3 text-sm leading-6 text-red-100"
                     >
                         {{ invalidInputMessage }}
                     </div>
@@ -797,10 +799,10 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                         <div
                             v-for="item in activeInputSummary"
                             :key="item.label"
-                            class="rounded-2xl border border-white/10 bg-white/6 p-4"
+                            class="rounded-[10px] border border-border bg-muted p-4"
                         >
                             <div
-                                class="flex items-center gap-2 text-xs tracking-[0.2em] text-slate-400 uppercase"
+                                class="flex items-center gap-2 text-xs tracking-[0.2em] text-foreground uppercase"
                             >
                                 <component
                                     :is="item.icon"
@@ -808,7 +810,9 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                 />
                                 {{ item.label }}
                             </div>
-                            <div class="mt-3 text-lg font-semibold text-white">
+                            <div
+                                class="mt-3 text-lg font-semibold text-foreground"
+                            >
                                 {{ item.value }}
                             </div>
                         </div>
@@ -818,7 +822,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
 
                     <Button
                         variant="outline"
-                        class="w-full border-white/10 bg-white/6 text-slate-100 hover:bg-white/10"
+                        class="w-full border-border bg-muted text-foreground hover:bg-accent"
                         @click="resetInputs"
                     >
                         <RotateCcw class="h-4 w-4" />
@@ -830,16 +834,16 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
             <div class="space-y-3">
                 <Card
                     v-if="isLoading"
-                    class="border-white/10 bg-black/25 py-0 shadow-[0_24px_80px_-44px_rgba(0,0,0,0.88)]"
+                    class="border-border bg-card py-0 shadow-md"
                 >
-                    <CardContent class="px-4 py-10 text-center text-slate-300">
+                    <CardContent class="px-4 py-10 text-center text-foreground">
                         正在加载孵化区间数据...
                     </CardContent>
                 </Card>
 
                 <Card
                     v-else-if="errorMessage"
-                    class="border-red-400/20 bg-red-500/8 py-0 shadow-[0_24px_80px_-44px_rgba(0,0,0,0.88)]"
+                    class="border-red-400/20 bg-red-500/8 py-0 shadow-md"
                 >
                     <CardContent class="px-4 py-10 text-center text-red-100">
                         数据加载失败：{{ errorMessage }}
@@ -848,19 +852,19 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
 
                 <Card
                     v-else-if="!hasAnyInput"
-                    class="border-white/10 bg-black/25 py-0 shadow-[0_24px_80px_-44px_rgba(0,0,0,0.88)]"
+                    class="border-border bg-card py-0 shadow-md"
                 >
                     <CardContent class="px-4 py-6 text-center">
                         <div
-                            class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/8 text-slate-100"
+                            class="mx-auto flex h-14 w-14 items-center justify-center rounded-[10px] border border-border bg-muted text-foreground"
                         >
                             <Search class="h-6 w-6" />
                         </div>
-                        <h2 class="mt-5 text-2xl font-semibold text-white">
+                        <h2 class="mt-5 text-2xl font-semibold text-foreground">
                             先给我一组观察值
                         </h2>
                         <p
-                            class="mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-400"
+                            class="mx-auto mt-3 max-w-xl text-sm leading-7 text-foreground"
                         >
                             例如输入身高 23 cm、体重 2.35
                             kg，就能开始按孵化区间反推最低阶段精灵。
@@ -870,19 +874,19 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
 
                 <Card
                     v-else-if="!filteredMatches.length"
-                    class="border-white/10 bg-black/25 py-0 shadow-[0_24px_80px_-44px_rgba(0,0,0,0.88)]"
+                    class="border-border bg-card py-0 shadow-md"
                 >
                     <CardContent class="px-4 py-6 text-center">
                         <div
-                            class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/8 text-slate-100"
+                            class="mx-auto flex h-14 w-14 items-center justify-center rounded-[10px] border border-border bg-muted text-foreground"
                         >
                             <Sparkles class="h-6 w-6" />
                         </div>
-                        <h2 class="mt-5 text-2xl font-semibold text-white">
+                        <h2 class="mt-5 text-2xl font-semibold text-foreground">
                             {{ emptyStateTitle }}
                         </h2>
                         <p
-                            class="mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-400"
+                            class="mx-auto mt-3 max-w-xl text-sm leading-7 text-foreground"
                         >
                             {{ emptyStateDescription }}
                         </p>
@@ -890,10 +894,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                 </Card>
 
                 <template v-else>
-                    <Card
-                        v-if="topMatch"
-                        class="overflow-hidden border-white/10"
-                    >
+                    <Card v-if="topMatch" class="overflow-hidden border-border">
                         <CardContent>
                             <div
                                 class="grid gap-3 lg:grid-cols-[240px_minmax(0,1fr)] lg:items-center"
@@ -901,7 +902,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                 <FriendPortrait
                                     :name="topMatch.rootPet.name"
                                     :alt="topMatch.rootPet.localized.zh.name"
-                                    class="aspect-4/3 w-full rounded-[1.75rem] border-white/10"
+                                    class="aspect-4/3 w-full rounded-[10px] border-border"
                                     img-class="object-contain p-1"
                                 />
 
@@ -909,14 +910,14 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                     <div class="space-y-3">
                                         <div class="flex flex-wrap gap-2">
                                             <Badge
-                                                class="bg-amber-300 text-slate-950"
+                                                class="bg-card hover:bg-accent text-foreground"
                                             >
                                                 <Sparkles class="h-3.5 w-3.5" />
                                                 最贴合结果
                                             </Badge>
                                             <Badge
                                                 variant="outline"
-                                                class="border-white/10 text-slate-200"
+                                                class="border-border text-foreground"
                                             >
                                                 {{
                                                     topMatch.matchedMetricCount ===
@@ -932,7 +933,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                                     )
                                                 "
                                                 variant="outline"
-                                                class="border-amber-300/20 bg-amber-300/10 text-amber-100"
+                                                class="border-border/20 bg-card hover:bg-accent/10 text-foreground"
                                             >
                                                 未实装
                                             </Badge>
@@ -940,7 +941,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
 
                                         <div>
                                             <h2
-                                                class="text-2xl font-semibold text-white md:text-3xl"
+                                                class="text-2xl font-semibold text-foreground md:text-3xl"
                                             >
                                                 {{
                                                     topMatch.rootPet.localized
@@ -948,7 +949,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                                 }}
                                             </h2>
                                             <p
-                                                class="mt-2 text-sm leading-6 text-slate-300 md:text-base"
+                                                class="mt-2 text-sm leading-6 text-foreground md:text-base"
                                             >
                                                 {{
                                                     getMatchSourceLabel(
@@ -968,7 +969,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                             </Badge>
                                             <Badge
                                                 variant="outline"
-                                                class="border-white/10 text-slate-200"
+                                                class="border-border text-foreground"
                                             >
                                                 {{
                                                     getEggGroupSummary(
@@ -978,7 +979,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                             </Badge>
                                             <Badge
                                                 variant="outline"
-                                                class="border-white/10 text-slate-200"
+                                                class="border-border text-foreground"
                                             >
                                                 进化链成员
                                                 {{ topMatch.memberCount }} 个
@@ -990,16 +991,16 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                         class="grid gap-3 sm:grid-cols-2 xl:grid-cols-4"
                                     >
                                         <div
-                                            class="rounded-2xl border border-white/10 bg-black/20 p-4"
+                                            class="rounded-[10px] border border-border bg-card p-4"
                                         >
                                             <div
-                                                class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate-400"
+                                                class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-foreground"
                                             >
                                                 <Ruler class="h-3.5 w-3.5" />
                                                 身高区间
                                             </div>
                                             <div
-                                                class="mt-3 text-lg font-semibold text-white"
+                                                class="mt-3 text-lg font-semibold text-foreground"
                                             >
                                                 {{
                                                     getHeightRangeLabel(
@@ -1010,16 +1011,16 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                         </div>
 
                                         <div
-                                            class="rounded-2xl border border-white/10 bg-black/20 p-4"
+                                            class="rounded-[10px] border border-border bg-card p-4"
                                         >
                                             <div
-                                                class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate-400"
+                                                class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-foreground"
                                             >
                                                 <Scale class="h-3.5 w-3.5" />
                                                 体重区间
                                             </div>
                                             <div
-                                                class="mt-3 text-lg font-semibold text-white"
+                                                class="mt-3 text-lg font-semibold text-foreground"
                                             >
                                                 {{
                                                     getWeightRangeLabel(
@@ -1030,16 +1031,16 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                         </div>
 
                                         <div
-                                            class="rounded-2xl border border-white/10 bg-black/20 p-4"
+                                            class="rounded-[10px] border border-border bg-card p-4"
                                         >
                                             <div
-                                                class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate-400"
+                                                class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-foreground"
                                             >
                                                 <Clock3 class="h-3.5 w-3.5" />
                                                 孵化时长
                                             </div>
                                             <div
-                                                class="mt-3 text-lg font-semibold text-white"
+                                                class="mt-3 text-lg font-semibold text-foreground"
                                             >
                                                 {{
                                                     formatDuration(
@@ -1051,16 +1052,16 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                         </div>
 
                                         <div
-                                            class="rounded-2xl border border-white/10 bg-black/20 p-4"
+                                            class="rounded-[10px] border border-border bg-card p-4"
                                         >
                                             <div
-                                                class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate-400"
+                                                class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-foreground"
                                             >
                                                 <Egg class="h-3.5 w-3.5" />
                                                 命中来源
                                             </div>
                                             <div
-                                                class="mt-3 text-lg font-semibold text-white"
+                                                class="mt-3 text-lg font-semibold text-foreground"
                                             >
                                                 {{ topMatch.sourcePetName }}
                                             </div>
@@ -1070,7 +1071,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                     <div class="flex flex-wrap gap-3">
                                         <Button
                                             as-child
-                                            class="bg-amber-300 text-slate-950 hover:bg-amber-200"
+                                            class="bg-card hover:bg-accent text-foreground hover:bg-card hover:bg-accent"
                                         >
                                             <RouterLink
                                                 :to="`/pets/${topMatch.rootPet.id}`"
@@ -1080,7 +1081,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                         </Button>
                                         <Button
                                             variant="outline"
-                                            class="border-white/10 bg-white/6 text-slate-100 hover:bg-white/10"
+                                            class="border-border bg-muted text-foreground hover:bg-accent"
                                             @click="resetInputs"
                                         >
                                             重新输入
@@ -1092,7 +1093,9 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                     </Card>
 
                     <Tabs default-value="result" class="w-full">
-                        <TabsList class="grid w-full grid-cols-2 bg-black/25">
+                        <TabsList
+                            class="grid w-full grid-cols-2 bg-muted p-1 rounded-[10px]"
+                        >
                             <TabsTrigger value="result">推荐候选</TabsTrigger>
                             <TabsTrigger value="rule">匹配规则</TabsTrigger>
                         </TabsList>
@@ -1104,7 +1107,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                 <Card
                                     v-for="result in visibleMatches"
                                     :key="result.rootPet.id"
-                                    class="border-white/10 bg-black/25 py-0 shadow-[0_24px_80px_-44px_rgba(0,0,0,0.88)] transition-transform hover:-translate-y-1"
+                                    class="border-border bg-card py-0 shadow-md transition-transform hover:-translate-y-1"
                                 >
                                     <CardContent class="space-y-4 px-5 py-5">
                                         <div class="flex items-start gap-4">
@@ -1114,7 +1117,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                                     result.rootPet.localized.zh
                                                         .name
                                                 "
-                                                class="h-20 w-20 shrink-0 rounded-xl border-white/10"
+                                                class="h-20 w-20 shrink-0 rounded-[10px] border-border"
                                                 img-class="object-contain p-2"
                                             />
 
@@ -1123,7 +1126,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                             >
                                                 <div>
                                                     <h3
-                                                        class="truncate text-xl font-semibold text-white"
+                                                        class="truncate text-xl font-semibold text-foreground"
                                                     >
                                                         {{
                                                             result.rootPet
@@ -1132,7 +1135,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                                         }}
                                                     </h3>
                                                     <p
-                                                        class="text-sm text-slate-400"
+                                                        class="text-sm text-foreground"
                                                     >
                                                         {{
                                                             getTypeLabel(
@@ -1160,13 +1163,13 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                                             )
                                                         "
                                                         variant="outline"
-                                                        class="border-amber-300/20 bg-amber-300/10 text-amber-100"
+                                                        class="border-border/20 bg-card hover:bg-accent/10 text-foreground"
                                                     >
                                                         未实装
                                                     </Badge>
                                                     <Badge
                                                         variant="outline"
-                                                        class="border-white/10 text-slate-200"
+                                                        class="border-border text-foreground"
                                                     >
                                                         {{
                                                             result.sourcePetName
@@ -1178,15 +1181,15 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
 
                                         <div class="grid gap-3 sm:grid-cols-2">
                                             <div
-                                                class="rounded-2xl border border-white/10 bg-white/6 p-3"
+                                                class="rounded-[10px] border border-border bg-muted p-3"
                                             >
                                                 <div
-                                                    class="text-xs uppercase tracking-[0.2em] text-slate-400"
+                                                    class="text-xs uppercase tracking-[0.2em] text-foreground"
                                                 >
                                                     身高
                                                 </div>
                                                 <div
-                                                    class="mt-2 text-sm font-medium text-slate-100"
+                                                    class="mt-2 text-sm font-medium text-foreground"
                                                 >
                                                     {{
                                                         getHeightRangeLabel(
@@ -1197,15 +1200,15 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                             </div>
 
                                             <div
-                                                class="rounded-2xl border border-white/10 bg-white/6 p-3"
+                                                class="rounded-[10px] border border-border bg-muted p-3"
                                             >
                                                 <div
-                                                    class="text-xs uppercase tracking-[0.2em] text-slate-400"
+                                                    class="text-xs uppercase tracking-[0.2em] text-foreground"
                                                 >
                                                     体重
                                                 </div>
                                                 <div
-                                                    class="mt-2 text-sm font-medium text-slate-100"
+                                                    class="mt-2 text-sm font-medium text-foreground"
                                                 >
                                                     {{
                                                         getWeightRangeLabel(
@@ -1217,7 +1220,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                         </div>
 
                                         <div
-                                            class="space-y-2 text-sm leading-6 text-slate-400"
+                                            class="space-y-2 text-sm leading-6 text-foreground"
                                         >
                                             <p>
                                                 {{
@@ -1237,7 +1240,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                         <Button
                                             as-child
                                             variant="outline"
-                                            class="w-full border-white/10 bg-white/6 text-slate-100 hover:bg-white/10"
+                                            class="w-full border-border bg-muted text-foreground hover:bg-accent"
                                         >
                                             <RouterLink
                                                 :to="`/pets/${result.rootPet.id}`"
@@ -1257,7 +1260,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                 v-if="remainingMatchCount > 0"
                                 class="mt-4 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between"
                             >
-                                <p class="text-sm text-slate-500">
+                                <p class="text-sm text-foreground">
                                     还有
                                     {{ remainingMatchCount }}
                                     个命中结果未展开，当前已展示
@@ -1266,7 +1269,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                 </p>
                                 <Button
                                     variant="outline"
-                                    class="border-white/10 bg-white/6 text-slate-100 hover:bg-white/10"
+                                    class="border-border bg-muted text-foreground hover:bg-accent"
                                     @click="loadMoreMatches"
                                 >
                                     继续加载候选
@@ -1275,18 +1278,16 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                         </TabsContent>
 
                         <TabsContent value="rule" class="mt-4">
-                            <Card
-                                class="border-white/10 bg-black/25 py-0 shadow-[0_24px_80px_-44px_rgba(0,0,0,0.88)]"
-                            >
+                            <Card class="border-border bg-card py-0 shadow-md">
                                 <CardContent class="space-y-5 px-4 py-4">
                                     <div class="space-y-2">
                                         <h3
-                                            class="text-xl font-semibold text-white"
+                                            class="text-xl font-semibold text-foreground"
                                         >
                                             当前页面如何反推
                                         </h3>
                                         <p
-                                            class="text-sm leading-7 text-slate-400"
+                                            class="text-sm leading-7 text-foreground"
                                         >
                                             数据来自公开精灵表中的 breeding 与
                                             variants
@@ -1296,45 +1297,45 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
 
                                     <div class="grid gap-3 md:grid-cols-3">
                                         <div
-                                            class="rounded-2xl border border-white/10 bg-white/6 p-4"
+                                            class="rounded-[10px] border border-border bg-muted p-4"
                                         >
                                             <div
-                                                class="text-sm font-medium text-white"
+                                                class="text-sm font-medium text-foreground"
                                             >
                                                 1. 严格命中区间
                                             </div>
                                             <p
-                                                class="mt-2 text-sm leading-6 text-slate-400"
+                                                class="mt-2 text-sm leading-6 text-foreground"
                                             >
                                                 输入值必须落在身高或体重区间内，不做模糊扩张。
                                             </p>
                                         </div>
 
                                         <div
-                                            class="rounded-2xl border border-white/10 bg-white/6 p-4"
+                                            class="rounded-[10px] border border-border bg-muted p-4"
                                         >
                                             <div
-                                                class="text-sm font-medium text-white"
+                                                class="text-sm font-medium text-foreground"
                                             >
                                                 2. 按整条进化链判断
                                             </div>
                                             <p
-                                                class="mt-2 text-sm leading-6 text-slate-400"
+                                                class="mt-2 text-sm leading-6 text-foreground"
                                             >
                                                 任一进化形态命中后，统一回落展示最低阶段精灵。
                                             </p>
                                         </div>
 
                                         <div
-                                            class="rounded-2xl border border-white/10 bg-white/6 p-4"
+                                            class="rounded-[10px] border border-border bg-muted p-4"
                                         >
                                             <div
-                                                class="text-sm font-medium text-white"
+                                                class="text-sm font-medium text-foreground"
                                             >
                                                 3. 按贴合度排序
                                             </div>
                                             <p
-                                                class="mt-2 text-sm leading-6 text-slate-400"
+                                                class="mt-2 text-sm leading-6 text-foreground"
                                             >
                                                 越接近区间中心、区间越收敛的候选，会排得更靠前。
                                             </p>

@@ -1,7 +1,7 @@
 <template>
     <thead
         data-slot="table-header"
-        class="[&_tr]:border-b [&_tr]:border-white/10"
+        class="[&_tr]:border-b [&_tr]:border-border"
         v-bind="$attrs">
         <slot />
     </thead>

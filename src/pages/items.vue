@@ -26,11 +26,11 @@ const QUALITY_OPTIONS = [
 ];
 
 const QUALITY_STYLES: Record<number, { border: string; bg: string; text: string; dot: string }> = {
-    5: { border: "border-amber-400/30", bg: "bg-amber-400/10", text: "text-amber-200", dot: "bg-amber-400" },
-    4: { border: "border-purple-400/30", bg: "bg-purple-400/10", text: "text-purple-200", dot: "bg-purple-400" },
+    5: { border: "border-border/30", bg: "bg-card hover:bg-accent/10", text: "text-foreground", dot: "bg-card hover:bg-accent" },
+    4: { border: "border-purple-400/30", bg: "bg-card hover:bg-accent/10", text: "text-purple-200", dot: "bg-card hover:bg-accent" },
     3: { border: "border-blue-400/30", bg: "bg-blue-400/10", text: "text-blue-200", dot: "bg-blue-400" },
-    2: { border: "border-emerald-400/30", bg: "bg-emerald-400/10", text: "text-emerald-200", dot: "bg-emerald-400" },
-    1: { border: "border-slate-400/30", bg: "bg-slate-400/10", text: "text-slate-300", dot: "bg-slate-400" },
+    2: { border: "border-emerald-400/30", bg: "bg-card hover:bg-accent/10", text: "text-emerald-200", dot: "bg-card hover:bg-accent" },
+    1: { border: "border-border/30", bg: "bg-slate-400/10", text: "text-foreground", dot: "bg-slate-400" },
 };
 
 const route = useRoute();
@@ -290,20 +290,20 @@ onBeforeUnmount(() => {
 <template>
     <section class="space-y-3">
         <Card
-            class="overflow-hidden border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(139,92,246,0.16),transparent_18%),radial-gradient(circle_at_78%_18%,rgba(56,189,248,0.14),transparent_22%),linear-gradient(135deg,rgba(15,23,42,0.96),rgba(2,6,23,0.98))] py-0 shadow-lg">
+            class="overflow-hidden border-border bg-card py-0 shadow-lg">
             <CardHeader class="gap-3 px-4 py-4">
                 <div class="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
-                    <CardTitle class="text-2xl tracking-tight text-white md:text-3xl">
+                    <CardTitle class="text-2xl tracking-tight text-foreground md:text-3xl">
                         道具图鉴
                     </CardTitle>
 
                     <div class="grid grid-cols-2 gap-3 md:grid-cols-4">
                         <div v-for="item in summaryItems" :key="item.label"
-                            class="rounded-xl border border-white/10 bg-white/6 px-4 py-3 shadow-sm backdrop-blur-sm">
-                            <p class="text-xs tracking-[0.2em] text-slate-500 uppercase">
+                            class="rounded-[10px] border border-border bg-muted px-4 py-3 shadow-sm ">
+                            <p class="text-xs tracking-[0.2em] text-foreground uppercase">
                                 {{ item.label }}
                             </p>
-                            <p class="mt-2 text-2xl font-semibold text-white">
+                            <p class="mt-2 text-2xl font-semibold text-foreground">
                                 {{ item.value }}
                             </p>
                         </div>
@@ -317,17 +317,17 @@ onBeforeUnmount(() => {
                 <div class="grid gap-3 xl:grid-cols-[2fr_1fr_1fr]">
                     <div class="relative">
                         <Search
-                            class="pointer-events-none absolute left-4 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-slate-500" />
+                            class="pointer-events-none absolute left-4 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-foreground" />
                         <Input v-model="searchQuery" type="search" placeholder="搜索道具名称、描述、编号或关联精灵"
-                            class="h-10 rounded-2xl border-white/10 bg-black/25 pl-11 text-sm text-slate-100 placeholder:text-slate-500 focus-visible:border-primary/60 focus-visible:ring-primary/20" />
+                            class="h-10 rounded-[10px] border-border bg-card pl-11 text-sm text-foreground placeholder:text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20" />
                     </div>
 
                     <Select v-model="selectedCategory">
                         <SelectTrigger
-                            class="h-10 w-full rounded-2xl border-white/10 bg-black/25 text-slate-100 focus-visible:border-primary/60 focus-visible:ring-primary/20">
+                            class="h-10 w-full rounded-[10px] border-border bg-card text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20">
                             <SelectValue placeholder="全部分类" />
                         </SelectTrigger>
-                        <SelectContent class="border-white/10 bg-slate-950/95 text-slate-100">
+                        <SelectContent class="border-border bg-slate-950/95 text-foreground">
                             <SelectItem value="all">全部分类</SelectItem>
                             <SelectItem v-for="category in categoryOptions" :key="category" :value="category">
                                 {{ category }}
@@ -337,10 +337,10 @@ onBeforeUnmount(() => {
 
                     <Select v-model="selectedQuality">
                         <SelectTrigger
-                            class="h-10 w-full rounded-2xl border-white/10 bg-black/25 text-slate-100 focus-visible:border-primary/60 focus-visible:ring-primary/20">
+                            class="h-10 w-full rounded-[10px] border-border bg-card text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20">
                             <SelectValue placeholder="全部品质" />
                         </SelectTrigger>
-                        <SelectContent class="border-white/10 bg-slate-950/95 text-slate-100">
+                        <SelectContent class="border-border bg-slate-950/95 text-foreground">
                             <SelectItem v-for="option in QUALITY_OPTIONS" :key="option.value" :value="option.value">
                                 {{ option.label }}
                             </SelectItem>
@@ -348,23 +348,23 @@ onBeforeUnmount(() => {
                     </Select>
                 </div>
 
-                <div class="flex flex-wrap items-center justify-between gap-3 text-sm text-slate-300">
+                <div class="flex flex-wrap items-center justify-between gap-3 text-sm text-foreground">
                     <div class="flex flex-wrap items-center gap-2">
                         <Badge variant="outline"
-                            class="rounded-full border-white/10 bg-white/5 px-3 py-1 text-slate-200">
-                            <SlidersHorizontal class="h-3.5 w-3.5 text-slate-400" />
+                            class="rounded-[10px] border-border bg-white/5 px-3 py-1 text-foreground">
+                            <SlidersHorizontal class="h-3.5 w-3.5 text-foreground" />
                             {{ filteredItems.length }} 项结果
                         </Badge>
                         <Badge v-if="searchQuery" variant="outline"
-                            class="rounded-full border-primary/20 bg-primary/10 px-3 py-1 text-primary">
+                            class="rounded-[10px] border-primary/20 bg-primary/10 px-3 py-1 text-primary">
                             关键词 {{ searchQuery }}
                         </Badge>
                         <Badge v-if="selectedCategory !== 'all'" variant="outline"
-                            class="rounded-full border-violet-400/20 bg-violet-400/10 px-3 py-1 text-violet-200">
+                            class="rounded-[10px] border-violet-400/20 bg-card hover:bg-accent/10 px-3 py-1 text-violet-200">
                             {{ selectedCategory }}
                         </Badge>
                         <Badge v-if="selectedQuality !== 'all'" variant="outline"
-                            class="rounded-full border-amber-400/20 bg-amber-400/10 px-3 py-1 text-amber-200">
+                            class="rounded-[10px] border-border/20 bg-card hover:bg-accent/10 px-3 py-1 text-foreground">
                             {{ QUALITY_OPTIONS.find((o) => o.value === selectedQuality)?.label }}
                         </Badge>
                     </div>
@@ -372,10 +372,10 @@ onBeforeUnmount(() => {
                     <div class="flex flex-wrap items-center gap-2">
                         <Select v-model="pageSizeModel">
                             <SelectTrigger
-                                class="h-10 w-34.5 rounded-full border-white/10 bg-black/25 text-slate-100 focus-visible:border-primary/60 focus-visible:ring-primary/20">
+                                class="h-10 w-34.5 rounded-[10px] border-border bg-card text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20">
                                 <SelectValue placeholder="每页显示" />
                             </SelectTrigger>
-                            <SelectContent class="border-white/10 bg-slate-950/95 text-slate-100">
+                            <SelectContent class="border-border bg-slate-950/95 text-foreground">
                                 <SelectItem v-for="option in PAGE_SIZE_OPTIONS" :key="option" :value="String(option)">
                                     每页 {{ option }} 条
                                 </SelectItem>
@@ -383,7 +383,7 @@ onBeforeUnmount(() => {
                         </Select>
 
                         <Button v-if="hasActiveFilters" variant="outline"
-                            class="rounded-full border-white/10 bg-white/5 text-slate-100 hover:bg-white/10"
+                            class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
                             @click="resetFilters">
                             <RotateCcw class="h-3.5 w-3.5" />
                             重置条件
@@ -395,16 +395,16 @@ onBeforeUnmount(() => {
 
         <div v-if="isLoading" class="grid grid-cols-1 gap-4 md:grid-cols-2 2xl:grid-cols-3">
             <Skeleton v-for="index in 6" :key="index"
-                class="h-48 rounded-2xl border border-white/10 bg-white/6" />
+                class="h-48 rounded-[10px] border border-border bg-muted" />
         </div>
 
         <div v-else-if="errorMessage"
-            class="rounded-2xl border border-destructive/20 bg-destructive/8 px-4 py-10 text-center text-sm text-destructive">
+            class="rounded-[10px] border border-destructive/20 bg-destructive/8 px-4 py-10 text-center text-sm text-destructive">
             {{ errorMessage }}
         </div>
 
         <div v-else-if="filteredItems.length === 0"
-            class="rounded-2xl border border-dashed border-white/12 bg-black/20 px-4 py-6 text-center text-sm text-slate-400">
+            class="rounded-[10px] border border-dashed border-white/12 bg-card px-4 py-6 text-center text-sm text-foreground">
             当前筛选条件下没有找到对应道具，请尝试放宽关键词或切换筛选项。
         </div>
 
@@ -414,14 +414,14 @@ onBeforeUnmount(() => {
                     :class="[
                         'h-full cursor-pointer py-0 shadow-md transition duration-300 group-hover:-translate-y-1 group-hover:shadow-xl',
                         highlightedItemId === entry.id
-                            ? 'border-amber-400/40 bg-[linear-gradient(180deg,rgba(251,191,36,0.12),rgba(251,191,36,0.04))] ring-1 ring-amber-400/20 group-hover:border-amber-400/50'
-                            : 'border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] group-hover:border-primary/30',
+                            ? 'border-border/40 bg-card ring-1 ring-amber-400/20 group-hover:border-border/50'
+                            : 'border-border bg-card group-hover:border-primary/30',
                     ]"
                     style="content-visibility: auto; contain-intrinsic-size: 200px;">
                     <CardContent class="p-4">
                         <div class="flex gap-3">
                             <div :class="[
-                                'relative flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl border shadow-sm',
+                                'relative flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-[10px] border shadow-sm',
                                 getQualityStyle(entry.quality).border,
                                 'bg-slate-900/80',
                             ]">
@@ -444,16 +444,16 @@ onBeforeUnmount(() => {
                             <div class="min-w-0 flex-1">
                                 <div class="flex items-start justify-between gap-2">
                                     <div class="min-w-0 space-y-0.5">
-                                        <p class="text-xs tracking-[0.22em] text-slate-500 uppercase">
+                                        <p class="text-xs tracking-[0.22em] text-foreground uppercase">
                                             #{{ entry.id }}
                                         </p>
-                                        <h3 class="truncate text-lg font-semibold tracking-tight text-white">
+                                        <h3 class="truncate text-lg font-semibold tracking-tight text-foreground">
                                             {{ entry.name }}
                                         </h3>
                                     </div>
 
                                     <Badge :class="[
-                                        'shrink-0 rounded-full border px-2.5 py-1 text-xs font-medium',
+                                        'shrink-0 rounded-[10px] border px-2.5 py-1 text-xs font-medium',
                                         getQualityStyle(entry.quality).border,
                                         getQualityStyle(entry.quality).bg,
                                         getQualityStyle(entry.quality).text,
@@ -464,21 +464,21 @@ onBeforeUnmount(() => {
                             </div>
                         </div>
 
-                        <p class="mt-2 line-clamp-2 text-sm leading-6 text-slate-400">
+                        <p class="mt-2 line-clamp-2 text-sm leading-6 text-foreground">
                             {{ entry.description }}
                         </p>
 
                         <div class="mt-3 flex flex-wrap gap-2">
                             <Badge v-if="entry.category" variant="outline"
-                                class="rounded-full border-white/10 bg-white/5 px-2.5 py-1 text-xs text-slate-300">
+                                class="rounded-[10px] border-border bg-white/5 px-2.5 py-1 text-xs text-foreground">
                                 {{ entry.category }}
                             </Badge>
                             <Badge v-if="entry.type_desc" variant="outline"
-                                class="rounded-full border-sky-400/20 bg-sky-400/10 px-2.5 py-1 text-xs text-sky-200">
+                                class="rounded-[10px] border-sky-400/20 bg-sky-400/10 px-2.5 py-1 text-xs text-sky-200">
                                 {{ entry.type_desc }}
                             </Badge>
                             <Badge v-if="entry.related_pets.length > 0" variant="outline"
-                                class="rounded-full border-emerald-400/20 bg-emerald-400/10 px-2.5 py-1 text-xs text-emerald-200">
+                                class="rounded-[10px] border-emerald-400/20 bg-card hover:bg-accent/10 px-2.5 py-1 text-xs text-emerald-200">
                                 <Sparkles class="mr-1 h-3 w-3" />
                                 关联 {{ entry.related_pets.length }} 只精灵
                             </Badge>
@@ -486,27 +486,27 @@ onBeforeUnmount(() => {
 
                         <div v-if="expandedItemId === entry.id" class="mt-4 space-y-3 border-t border-white/8 pt-4">
                             <div v-if="entry.flavor_text"
-                                class="rounded-xl border border-white/8 bg-black/20 px-3 py-2.5 text-xs italic leading-5 text-slate-400">
+                                class="rounded-[10px] border border-white/8 bg-card px-3 py-2.5 text-xs italic leading-5 text-foreground">
                                 "{{ entry.flavor_text }}"
                             </div>
 
                             <div v-if="entry.acquire_ways.length > 0">
-                                <p class="text-xs font-medium text-slate-500">获取方式</p>
+                                <p class="text-xs font-medium text-foreground">获取方式</p>
                                 <div class="mt-1.5 flex flex-wrap gap-1.5">
                                     <Badge v-for="(way, index) in entry.acquire_ways" :key="index" variant="outline"
-                                        class="rounded-full border-white/8 bg-white/4 px-2.5 py-1 text-xs text-slate-300">
+                                        class="rounded-[10px] border-white/8 bg-white/4 px-2.5 py-1 text-xs text-foreground">
                                         {{ way }}
                                     </Badge>
                                 </div>
                             </div>
 
                             <div v-if="entry.related_pets.length > 0">
-                                <p class="text-xs font-medium text-slate-500">关联精灵（进化材料）</p>
+                                <p class="text-xs font-medium text-foreground">关联精灵（进化材料）</p>
                                 <div class="mt-1.5 flex flex-wrap gap-1.5">
                                     <RouterLink v-for="pet in entry.related_pets" :key="pet.id" :to="`/pets/${pet.id}`"
                                         class="inline-flex" @click.stop>
                                         <Badge variant="outline"
-                                            class="rounded-full border-emerald-400/15 bg-emerald-400/8 px-2.5 py-1 text-xs text-emerald-200 transition hover:border-emerald-400/30 hover:bg-emerald-400/15">
+                                            class="rounded-[10px] border-emerald-400/15 bg-card hover:bg-accent/8 px-2.5 py-1 text-xs text-emerald-200 transition hover:border-emerald-400/30 hover:bg-card hover:bg-accent/15">
                                             {{ pet.name }}
                                         </Badge>
                                     </RouterLink>
@@ -514,44 +514,44 @@ onBeforeUnmount(() => {
                             </div>
 
                             <div v-if="entry.recipes?.length" @click.stop>
-                                <p class="flex items-center gap-1 text-xs font-medium text-slate-500">
+                                <p class="flex items-center gap-1 text-xs font-medium text-foreground">
                                     <FlaskConical class="h-3 w-3" />
                                     炼金造物配方
                                 </p>
                                 <div class="mt-1.5 space-y-2">
                                     <div v-for="(recipe, rIdx) in entry.recipes" :key="rIdx"
-                                        class="rounded-xl border px-3 py-2.5"
+                                        class="rounded-[10px] border px-3 py-2.5"
                                         :class="recipe.can_craft
-                                            ? 'border-amber-400/15 bg-amber-400/5'
-                                            : 'border-white/8 bg-black/20 opacity-60'">
-                                        <div v-if="!recipe.can_craft" class="mb-1.5 text-[10px] font-medium text-slate-500">
+                                            ? 'border-border/15 bg-card hover:bg-accent/5'
+                                            : 'border-white/8 bg-card opacity-60'">
+                                        <div v-if="!recipe.can_craft" class="mb-1.5 text-[10px] font-medium text-foreground">
                                             暂不可合成
                                         </div>
                                         <div class="flex flex-wrap items-center gap-1.5">
                                             <template v-for="(group, gIdx) in recipe.cost" :key="gIdx">
-                                                <Plus v-if="gIdx > 0" class="h-3 w-3 shrink-0 text-slate-500" />
+                                                <Plus v-if="gIdx > 0" class="h-3 w-3 shrink-0 text-foreground" />
                                                 <div class="flex flex-wrap items-center gap-1">
                                                     <template v-for="(mat, mIdx) in group.options" :key="mat.id">
                                                         <HoverCard :open-delay="200" :close-delay="100">
                                                             <HoverCardTrigger as-child>
                                                                 <button
-                                                                    class="inline-flex cursor-pointer items-center gap-1 rounded-lg border border-white/8 bg-white/4 px-2 py-1 transition hover:border-amber-400/30 hover:bg-amber-400/10"
+                                                                    class="inline-flex cursor-pointer items-center gap-1 rounded-[10px] border border-white/8 bg-white/4 px-2 py-1 transition hover:border-border/30 hover:bg-card hover:bg-accent/10"
                                                                     @click="navigateToItem(mat.id)">
                                                                     <img v-if="getMaterialIconSrc(mat.icon_id)"
                                                                         :src="getMaterialIconSrc(mat.icon_id)!"
                                                                         :alt="mat.name"
                                                                         class="h-4 w-4 object-contain" />
-                                                                    <span class="text-[11px] text-slate-300">{{ mat.name }}</span>
+                                                                    <span class="text-[11px] text-foreground">{{ mat.name }}</span>
                                                                 </button>
                                                             </HoverCardTrigger>
                                                             <HoverCardContent
                                                                 side="top"
                                                                 :side-offset="6"
-                                                                class="w-72 rounded-xl border-white/10 bg-slate-950/95 p-0 shadow-xl backdrop-blur">
+                                                                class="w-72 rounded-[10px] border-border bg-slate-950/95 p-0 shadow-xl backdrop-blur">
                                                                 <template v-for="detail in ([getItemDetail(mat.id)] as IItem[])" :key="mat.id">
                                                                     <div class="flex gap-3 p-3">
                                                                         <div :class="[
-                                                                            'relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg border',
+                                                                            'relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[10px] border',
                                                                             getQualityStyle(detail.quality).border,
                                                                             'bg-slate-900/80',
                                                                         ]">
@@ -566,9 +566,9 @@ onBeforeUnmount(() => {
                                                                         </div>
                                                                         <div class="min-w-0 flex-1">
                                                                             <div class="flex items-center gap-1.5">
-                                                                                <p class="truncate text-sm font-semibold text-white">{{ detail.name }}</p>
+                                                                                <p class="truncate text-sm font-semibold text-foreground">{{ detail.name }}</p>
                                                                                 <Badge :class="[
-                                                                                    'shrink-0 rounded-full border px-1.5 py-0.5 text-[10px]',
+                                                                                    'shrink-0 rounded-[10px] border px-1.5 py-0.5 text-[10px]',
                                                                                     getQualityStyle(detail.quality).border,
                                                                                     getQualityStyle(detail.quality).bg,
                                                                                     getQualityStyle(detail.quality).text,
@@ -577,19 +577,19 @@ onBeforeUnmount(() => {
                                                                                 </Badge>
                                                                             </div>
                                                                             <div class="mt-0.5 flex flex-wrap gap-1">
-                                                                                <span v-if="detail.category" class="text-[10px] text-slate-500">{{ detail.category }}</span>
-                                                                                <span v-if="detail.category && detail.type_desc" class="text-[10px] text-slate-600">·</span>
-                                                                                <span v-if="detail.type_desc" class="text-[10px] text-slate-500">{{ detail.type_desc }}</span>
+                                                                                <span v-if="detail.category" class="text-[10px] text-foreground">{{ detail.category }}</span>
+                                                                                <span v-if="detail.category && detail.type_desc" class="text-[10px] text-foreground">·</span>
+                                                                                <span v-if="detail.type_desc" class="text-[10px] text-foreground">{{ detail.type_desc }}</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="border-t border-white/8 px-3 py-2">
-                                                                        <p class="line-clamp-3 text-xs leading-5 text-slate-400">{{ detail.description }}</p>
+                                                                        <p class="line-clamp-3 text-xs leading-5 text-foreground">{{ detail.description }}</p>
                                                                     </div>
                                                                     <div v-if="detail.acquire_ways.length > 0" class="border-t border-white/8 px-3 py-2">
                                                                         <div class="flex flex-wrap gap-1">
                                                                             <Badge v-for="(way, wIdx) in detail.acquire_ways" :key="wIdx" variant="outline"
-                                                                                class="rounded-full border-white/8 bg-white/4 px-2 py-0.5 text-[10px] text-slate-400">
+                                                                                class="rounded-[10px] border-white/8 bg-white/4 px-2 py-0.5 text-[10px] text-foreground">
                                                                                 {{ way }}
                                                                             </Badge>
                                                                         </div>
@@ -598,9 +598,9 @@ onBeforeUnmount(() => {
                                                             </HoverCardContent>
                                                         </HoverCard>
                                                         <span v-if="mIdx < group.options.length - 1"
-                                                            class="text-[10px] text-slate-500">/</span>
+                                                            class="text-[10px] text-foreground">/</span>
                                                     </template>
-                                                    <span class="text-[10px] font-medium text-amber-300/80">x{{ group.count }}</span>
+                                                    <span class="text-[10px] font-medium text-foreground/80">x{{ group.count }}</span>
                                                 </div>
                                             </template>
                                         </div>
@@ -614,21 +614,21 @@ onBeforeUnmount(() => {
         </div>
 
         <div v-if="filteredItems.length > 0 && pageCount > 1"
-            class="flex flex-col gap-3 rounded-2xl border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] px-4 py-4 md:flex-row md:items-center md:justify-between">
-            <p class="text-sm text-slate-300">
+            class="flex flex-col gap-3 rounded-[10px] border border-border bg-card px-4 py-4 md:flex-row md:items-center md:justify-between">
+            <p class="text-sm text-foreground">
                 当前第 {{ currentPage }} / {{ pageCount }} 页，显示 {{ currentRangeStart }}-{{ currentRangeEnd }}
                 / {{ filteredItems.length }} 条结果。
             </p>
 
             <div class="flex flex-wrap items-center gap-2">
                 <Button variant="outline" size="icon"
-                    class="rounded-full border-white/10 bg-white/5 text-slate-100 hover:bg-white/10"
+                    class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
                     :disabled="currentPage === 1" @click="setPage(1)">
                     <ChevronsLeft class="h-4 w-4" />
                 </Button>
 
                 <Button variant="outline" size="icon"
-                    class="rounded-full border-white/10 bg-white/5 text-slate-100 hover:bg-white/10"
+                    class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
                     :disabled="currentPage === 1" @click="setPage(currentPage - 1)">
                     <ChevronLeft class="h-4 w-4" />
                 </Button>
@@ -636,21 +636,21 @@ onBeforeUnmount(() => {
                 <template v-for="item in pageItems" :key="item.key">
                     <Button v-if="item.kind === 'page'"
                         :variant="item.value === currentPage ? 'default' : 'outline'"
-                        class="min-w-10 rounded-full border-white/10 bg-white/5 text-slate-100 hover:bg-white/10"
+                        class="min-w-10 rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
                         @click="setPage(item.value ?? 1)">
                         {{ item.value }}
                     </Button>
-                    <span v-else class="px-1 text-slate-500">...</span>
+                    <span v-else class="px-1 text-foreground">...</span>
                 </template>
 
                 <Button variant="outline" size="icon"
-                    class="rounded-full border-white/10 bg-white/5 text-slate-100 hover:bg-white/10"
+                    class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
                     :disabled="currentPage === pageCount" @click="setPage(currentPage + 1)">
                     <ChevronRight class="h-4 w-4" />
                 </Button>
 
                 <Button variant="outline" size="icon"
-                    class="rounded-full border-white/10 bg-white/5 text-slate-100 hover:bg-white/10"
+                    class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
                     :disabled="currentPage === pageCount" @click="setPage(pageCount)">
                     <ChevronsRight class="h-4 w-4" />
                 </Button>

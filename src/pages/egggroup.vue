@@ -1415,7 +1415,7 @@ function escapeXml(value: string) {
 <template>
     <section class="space-y-3">
         <Card
-            class="overflow-hidden border-white/10 bg-[linear-gradient(145deg,rgba(15,23,42,0.94),rgba(10,14,28,0.98))] py-0 shadow-[0_24px_90px_-50px_rgba(0,0,0,0.88)]"
+            class="overflow-hidden border-border bg-card py-0 shadow-md"
         >
             <CardHeader class="gap-4 px-4 py-5 sm:px-4 sm:py-4">
                 <div
@@ -1423,14 +1423,14 @@ function escapeXml(value: string) {
                 >
                     <div class="space-y-2">
                         <p
-                            class="text-xs tracking-[0.18em] text-slate-500 uppercase"
+                            class="text-xs tracking-[0.18em] text-foreground uppercase"
                         >
                             蛋组星图
                         </p>
-                        <CardTitle class="text-2xl tracking-tight text-white">
+                        <CardTitle class="text-2xl tracking-tight text-foreground">
                             {{ viewTitle }}
                         </CardTitle>
-                        <CardDescription class="max-w-3xl text-slate-400">
+                        <CardDescription class="max-w-3xl text-foreground">
                             当前显示 {{ visiblePetCount }} 只精灵、{{
                                 visibleGroupCount
                             }}
@@ -1443,15 +1443,15 @@ function escapeXml(value: string) {
                         class="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center"
                     >
                         <label
-                            class="flex min-w-0 flex-1 flex-col gap-2 text-sm text-slate-300 sm:min-w-72"
+                            class="flex min-w-0 flex-1 flex-col gap-2 text-sm text-foreground sm:min-w-72"
                         >
                             <span
-                                class="text-xs tracking-[0.16em] text-slate-500 uppercase"
+                                class="text-xs tracking-[0.16em] text-foreground uppercase"
                                 >精灵搜索</span
                             >
                             <div class="relative">
                                 <Search
-                                    class="pointer-events-none absolute top-1/2 left-4 h-4 w-4 -translate-y-1/2 text-slate-500"
+                                    class="pointer-events-none absolute top-1/2 left-4 h-4 w-4 -translate-y-1/2 text-foreground"
                                 />
                                 <input
                                     v-model="petSearchQuery"
@@ -1460,12 +1460,12 @@ function escapeXml(value: string) {
                                     autocomplete="off"
                                     spellcheck="false"
                                     placeholder="输入中文名、原名或形态"
-                                    class="h-11 w-full rounded-2xl border border-white/10 bg-black/20 pr-11 pl-11 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-300/40 focus:bg-black/30"
+                                    class="h-11 w-full rounded-[10px] border border-border bg-card pr-11 pl-11 text-sm text-foreground outline-none transition placeholder:text-foreground focus:border-sky-300/40 focus:bg-black/30"
                                 />
                                 <button
                                     v-if="petSearchQuery"
                                     type="button"
-                                    class="absolute top-1/2 right-3 inline-flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full text-slate-400 transition hover:bg-white/8 hover:text-white"
+                                    class="absolute top-1/2 right-3 inline-flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-[10px] text-foreground transition hover:bg-muted hover:text-foreground"
                                     aria-label="清空搜索"
                                     @click="clearSearchQuery"
                                 >
@@ -1475,20 +1475,20 @@ function escapeXml(value: string) {
                         </label>
 
                         <label
-                            class="flex min-w-0 flex-col gap-2 text-sm text-slate-300 sm:min-w-55"
+                            class="flex min-w-0 flex-col gap-2 text-sm text-foreground sm:min-w-55"
                         >
                             <span
-                                class="text-xs tracking-[0.16em] text-slate-500 uppercase"
+                                class="text-xs tracking-[0.16em] text-foreground uppercase"
                                 >蛋组筛选</span
                             >
                             <select
                                 v-model="legendSelectionValue"
                                 :disabled="eggGroupEntries.length === 0"
-                                class="h-11 w-full rounded-2xl border border-white/10 bg-black/20 px-4 text-sm text-white outline-none transition focus:border-sky-300/40 focus:bg-black/30 sm:min-w-55"
+                                class="h-11 w-full rounded-[10px] border border-border bg-card px-4 text-sm text-foreground outline-none transition focus:border-sky-300/40 focus:bg-black/30 sm:min-w-55"
                             >
                                 <option
                                     value="all"
-                                    class="bg-slate-950 text-white"
+                                    class="bg-slate-950 text-foreground"
                                 >
                                     全部蛋组
                                 </option>
@@ -1496,7 +1496,7 @@ function escapeXml(value: string) {
                                     v-for="group in eggGroupEntries"
                                     :key="group.id"
                                     :value="String(group.id)"
-                                    class="bg-slate-950 text-white"
+                                    class="bg-slate-950 text-foreground"
                                 >
                                     {{ group.label }} · {{ group.petCount }}
                                 </option>
@@ -1505,7 +1505,7 @@ function escapeXml(value: string) {
 
                         <Button
                             variant="outline"
-                            class="w-full rounded-full border-white/10 bg-white/6 text-slate-100 hover:bg-white/10 disabled:opacity-40 sm:w-auto"
+                            class="w-full rounded-[10px] border-border bg-muted text-foreground hover:bg-accent disabled:opacity-40 sm:w-auto"
                             :disabled="!hasFocus"
                             @click="clearFocus"
                         >
@@ -1515,14 +1515,14 @@ function escapeXml(value: string) {
                     </div>
 
                     <div
-                        class="flex flex-col gap-2 rounded-xl border border-white/8 bg-white/4 px-4 py-3 text-sm text-slate-300 sm:flex-row sm:items-center sm:justify-between"
+                        class="flex flex-col gap-2 rounded-[10px] border border-white/8 bg-white/4 px-4 py-3 text-sm text-foreground sm:flex-row sm:items-center sm:justify-between"
                     >
-                        <p class="leading-6 text-slate-300">
+                        <p class="leading-6 text-foreground">
                             {{ searchSummaryLabel }}
                         </p>
                         <p
                             v-if="hasSearchQuery"
-                            class="text-xs tracking-[0.14em] text-slate-500 uppercase"
+                            class="text-xs tracking-[0.14em] text-foreground uppercase"
                         >
                             {{
                                 searchTargetPet
@@ -1537,23 +1537,23 @@ function escapeXml(value: string) {
 
                 <div
                     v-if="showUnimplementedList"
-                    class="rounded-xl border border-amber-300/15 bg-amber-300/6 px-4 py-4"
+                    class="rounded-[10px] border border-border/15 bg-card hover:bg-accent/6 px-4 py-4"
                 >
                     <div
                         class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
                     >
                         <div>
                             <p
-                                class="text-xs tracking-[0.18em] text-amber-100/70 uppercase"
+                                class="text-xs tracking-[0.18em] text-foreground/70 uppercase"
                             >
                                 未实装精灵
                             </p>
-                            <p class="mt-1 text-sm text-amber-50">
+                            <p class="mt-1 text-sm text-foreground">
                                 这些精灵当前未纳入已实装列表，因此不会进入关系图。
                             </p>
                         </div>
                         <div
-                            class="rounded-full border border-amber-300/20 bg-amber-300/10 px-3 py-1 text-xs text-amber-100"
+                            class="rounded-[10px] border border-border/20 bg-card hover:bg-accent/10 px-3 py-1 text-xs text-foreground"
                         >
                             {{ visibleUnimplementedPets.length }} 只
                         </div>
@@ -1564,14 +1564,14 @@ function escapeXml(value: string) {
                             v-for="pet in visibleUnimplementedPets"
                             :key="pet.id"
                             :to="`/pets/${pet.id}`"
-                            class="inline-flex items-center gap-2 rounded-full border border-amber-300/20 bg-amber-300/10 px-3 py-1.5 text-sm text-amber-50 transition hover:bg-amber-300/15"
+                            class="inline-flex items-center gap-2 rounded-[10px] border border-border/20 bg-card hover:bg-accent/10 px-3 py-1.5 text-sm text-foreground transition hover:bg-card hover:bg-accent/15"
                         >
                             <span>{{ pet.localized.zh.name }}</span>
-                            <span class="text-xs text-amber-100/70"
+                            <span class="text-xs text-foreground/70"
                                 >#{{ pet.id }}</span
                             >
                             <span
-                                class="rounded-full bg-amber-950/60 px-2 py-0.5 text-[11px] text-amber-100"
+                                class="rounded-[10px] bg-card hover:bg-accent/60 px-2 py-0.5 text-[11px] text-foreground"
                                 >未实装</span
                             >
                         </RouterLink>
@@ -1582,33 +1582,33 @@ function escapeXml(value: string) {
             <CardContent class="space-y-5 px-4 pb-5 sm:px-4 sm:pb-6">
                 <div
                     v-if="errorMessage"
-                    class="rounded-2xl border border-rose-400/20 bg-rose-500/10 px-5 py-4 text-sm leading-7 text-rose-100"
+                    class="rounded-[10px] border border-rose-400/20 bg-rose-500/10 px-5 py-4 text-sm leading-7 text-rose-100"
                 >
                     {{ errorMessage }}
                 </div>
 
                 <div
                     v-else-if="isLoading && !eligiblePets.length"
-                    class="rounded-2xl border border-white/10 bg-white/4 px-5 py-10 text-center text-sm leading-7 text-slate-400"
+                    class="rounded-[10px] border border-border bg-white/4 px-5 py-10 text-center text-sm leading-7 text-foreground"
                 >
                     正在加载精灵与蛋组数据...
                 </div>
 
                 <div
                     v-else-if="!eligiblePets.length"
-                    class="rounded-2xl border border-dashed border-white/10 bg-white/4 px-5 py-10 text-center text-sm leading-7 text-slate-400"
+                    class="rounded-[10px] border border-dashed border-border bg-white/4 px-5 py-10 text-center text-sm leading-7 text-foreground"
                 >
                     暂无可用蛋组数据。
                 </div>
 
                 <div
                     v-else-if="hasSearchQuery && !searchedPets.length"
-                    class="rounded-2xl border border-dashed border-white/10 bg-white/4 px-5 py-10 text-center text-sm leading-7 text-slate-400"
+                    class="rounded-[10px] border border-dashed border-border bg-white/4 px-5 py-10 text-center text-sm leading-7 text-foreground"
                 >
                     <p>没有找到匹配的精灵名称。</p>
                     <Button
                         variant="outline"
-                        class="mt-4 rounded-full border-white/10 bg-white/6 text-slate-100 hover:bg-white/10"
+                        class="mt-4 rounded-[10px] border-border bg-muted text-foreground hover:bg-accent"
                         @click="clearSearchQuery"
                     >
                         清空搜索
@@ -1620,17 +1620,17 @@ function escapeXml(value: string) {
                         implementationFilter === 'unimplemented' ||
                         !chartSourcePets.length
                     "
-                    class="rounded-2xl border border-dashed border-white/10 bg-white/4 px-5 py-10 text-center text-sm leading-7 text-slate-400"
+                    class="rounded-[10px] border border-dashed border-border bg-white/4 px-5 py-10 text-center text-sm leading-7 text-foreground"
                 >
                     当前筛选下没有可绘制的蛋组关系图。
                 </div>
 
                 <div v-else class="space-y-5">
                     <div
-                        class="rounded-[1.9rem] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(250,204,21,0.08),transparent_24%),linear-gradient(145deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-2 sm:p-3 md:p-4"
+                        class="rounded-[1.9rem] border border-border bg-card p-2 sm:p-3 md:p-4"
                     >
                         <div
-                            class="overflow-hidden rounded-xl border border-white/10 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.10),transparent_24%),rgba(2,6,23,0.88)]"
+                            class="overflow-hidden rounded-[10px] border border-border bg-card"
                         >
                             <div
                                 ref="chartRef"

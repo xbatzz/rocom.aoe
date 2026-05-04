@@ -58,11 +58,9 @@ document.title = "洛克王国工具箱";
 <template>
     <section class="space-y-3">
         <Card
-            class="relative overflow-hidden border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(250,204,21,0.18),transparent_24%),radial-gradient(circle_at_84%_12%,rgba(56,189,248,0.16),transparent_22%),linear-gradient(145deg,rgba(15,23,42,0.98),rgba(2,6,23,0.98))] py-0 shadow-lg"
+            class="relative overflow-hidden border-border bg-white dark:bg-card py-0 shadow-lg"
         >
-            <div
-                class="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent_0%,rgba(255,255,255,0.05)_32%,transparent_58%)]"
-            />
+            <div class="pointer-events-none absolute inset-0 bg-transparent" />
 
             <CardContent class="relative px-4 py-8 md:px-8 md:py-10 xl:px-10">
                 <div
@@ -71,7 +69,7 @@ document.title = "洛克王国工具箱";
                     <div class="max-w-3xl space-y-3">
                         <div class="space-y-4">
                             <h1
-                                class="max-w-4xl text-3xl font-semibold tracking-tight text-white md:text-5xl xl:text-6xl"
+                                class="max-w-4xl text-3xl font-semibold tracking-tight text-foreground md:text-5xl xl:text-6xl"
                             >
                                 洛克王国工具箱
                             </h1>
@@ -81,7 +79,7 @@ document.title = "洛克王国工具箱";
                             <Button
                                 as-child
                                 size="lg"
-                                class="rounded-full bg-amber-300 text-slate-950 hover:bg-amber-200"
+                                class="rounded-[10px] bg-primary text-primary-foreground shadow-md hover:shadow-lg uppercase tracking-wider"
                             >
                                 <RouterLink to="/encyclopedia">
                                     查看图鉴
@@ -92,7 +90,7 @@ document.title = "洛克王国工具箱";
                                 as-child
                                 size="lg"
                                 variant="outline"
-                                class="rounded-full border-white/10 bg-white/6 text-slate-100 hover:bg-white/10"
+                                class="rounded-[10px] border border-border bg-card shadow-sm hover:shadow-md text-foreground hover:bg-accent"
                             >
                                 <RouterLink to="/table"> 表格 </RouterLink>
                             </Button>
@@ -100,7 +98,7 @@ document.title = "洛克王国工具箱";
                                 as-child
                                 size="lg"
                                 variant="outline"
-                                class="rounded-full border-white/10 bg-white/6 text-slate-100 hover:bg-white/10"
+                                class="rounded-[10px] border border-border bg-card shadow-sm hover:shadow-md text-foreground hover:bg-accent"
                             >
                                 <RouterLink to="/breeding">
                                     精灵配种
@@ -110,7 +108,7 @@ document.title = "洛克王国工具箱";
                                 as-child
                                 size="lg"
                                 variant="outline"
-                                class="rounded-full border-white/10 bg-white/6 text-slate-100 hover:bg-white/10"
+                                class="rounded-[10px] border border-border bg-card shadow-sm hover:shadow-md text-foreground hover:bg-accent"
                             >
                                 <a
                                     href="https://github.com/aoe-top/rocom.aoe.top"
@@ -128,7 +126,7 @@ document.title = "洛克王国工具箱";
                         v-for="item in heroLinks"
                         :key="item.to"
                         :to="item.to"
-                        class="group rounded-[1.75rem] border border-white/10 bg-black/24 p-3 transition-all hover:-translate-y-1 hover:border-white/20 hover:bg-white/8"
+                        class="group rounded-[10px] border border border-border bg-card shadow-sm hover:shadow-md p-3 transition-all hover:-translate-y-1 hover:border-primary hover:bg-accent"
                     >
                         <div class="relative overflow-hidden p-4">
                             <div
@@ -137,12 +135,12 @@ document.title = "洛克王国工具箱";
                                 <div class="space-y-3">
                                     <div>
                                         <h2
-                                            class="text-xl font-semibold text-white"
+                                            class="text-xl font-semibold text-foreground"
                                         >
                                             {{ item.title }}
                                         </h2>
                                         <p
-                                            class="mt-2 text-sm leading-6 text-slate-300"
+                                            class="mt-2 text-sm leading-6 text-muted-foreground"
                                         >
                                             {{ item.description }}
                                         </p>
@@ -150,7 +148,7 @@ document.title = "洛克王国工具箱";
                                 </div>
 
                                 <div
-                                    class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/8 text-slate-100"
+                                    class="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] border border-border bg-accent text-foreground"
                                 >
                                     <component
                                         :is="item.icon"
@@ -160,7 +158,7 @@ document.title = "洛克王国工具箱";
                             </div>
 
                             <div
-                                class="relative mt-5 flex items-center gap-2 text-sm text-slate-200"
+                                class="relative mt-5 flex items-center gap-2 text-sm text-muted-foreground"
                             >
                                 进入模块
                                 <ArrowRight

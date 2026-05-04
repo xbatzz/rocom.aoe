@@ -43,7 +43,7 @@
 
 :root {
   color-scheme: dark;
-  --radius: 0.625rem;
+  --radius: 10px;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -124,11 +124,7 @@
 
   body {
     @apply text-foreground antialiased;
-    background-color: #09090f;
-    background-image:
-      radial-gradient(circle at top, rgba(251, 191, 36, 0.12), transparent 18%),
-      radial-gradient(circle at 85% 12%, rgba(59, 130, 246, 0.16), transparent 22%),
-      linear-gradient(180deg, #09090f 0%, #0d1320 45%, #09090f 100%);
-    font-family: "Segoe UI Variable", "Noto Sans SC", "Microsoft YaHei UI", sans-serif;
+    background-color: var(--background);
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
   }
 }

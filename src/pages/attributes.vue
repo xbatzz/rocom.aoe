@@ -1014,17 +1014,17 @@ onBeforeUnmount(() => {
     <section class="flex flex-col gap-6">
 
         <section v-if="isLoading"
-            class="rounded-[30px] border border-slate-200/70 bg-white/85 p-10 text-center shadow-[0_18px_60px_rgba(15,23,42,0.06)] backdrop-blur-xl">
-            <p class="text-base font-semibold text-slate-700">正在读取属性数据...</p>
-            <p class="mt-3 text-sm text-slate-500">类型表和颜色映射加载完成后，会自动绘制关系图。</p>
+            class="rounded-[30px] border border-border/70 bg-muted5 p-10 text-center shadow-md ">
+            <p class="text-base font-semibold text-foreground">正在读取属性数据...</p>
+            <p class="mt-3 text-sm text-foreground">类型表和颜色映射加载完成后，会自动绘制关系图。</p>
         </section>
 
         <section v-else-if="errorMessage"
-            class="rounded-[30px] border border-rose-200 bg-rose-50/80 p-10 text-center shadow-[0_18px_60px_rgba(15,23,42,0.06)]">
+            class="rounded-[30px] border border-rose-200 bg-rose-50/80 p-10 text-center shadow-md">
             <p class="text-base font-semibold text-rose-700">{{ errorMessage }}</p>
             <p class="mt-3 text-sm text-rose-600">你可以重新加载一次，通常是本地数据或网络瞬时失败。</p>
             <button type="button"
-                class="mt-5 inline-flex items-center rounded-full border border-rose-200 bg-white px-4 py-2 text-sm font-semibold text-rose-700 transition hover:border-rose-300 hover:bg-rose-50"
+                class="mt-5 inline-flex items-center rounded-[10px] border border-rose-200 bg-white px-4 py-2 text-sm font-semibold text-rose-700 transition hover:border-rose-300 hover:bg-rose-50"
                 @click="loadTypeData">
                 重新加载
             </button>
@@ -1032,22 +1032,22 @@ onBeforeUnmount(() => {
         <Card v-else-if="currentType">
             <CardHeader>
                 <h1 class=" text-2xl ">属性关系</h1>
-                <p class="mt-3 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+                <p class="mt-3 max-w-2xl text-sm leading-7 text-foreground sm:text-base">
                     {{
                         supportsHover
                             ? "把鼠标停在下方属性字徽上，就能即时查看该属性与其他各系的单属性克制关系。"
                             : "点击下方属性字徽，就能查看该属性与其他各系的单属性克制关系。"
                     }}
                 </p>
-                <div v-if="currentType" class="mt-5 flex flex-wrap items-center gap-3 text-sm text-slate-600">
-                    <span class="inline-flex items-center rounded-full border px-4 py-2 font-semibold"
+                <div v-if="currentType" class="mt-5 flex flex-wrap items-center gap-3 text-sm text-foreground">
+                    <span class="inline-flex items-center rounded-[10px] border px-4 py-2 font-semibold"
                         :style="getBadgeStyle(currentType, true)">
                         当前选择 · {{ currentType.label }}
                     </span>
-                    <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-4 py-2">
+                    <span class="inline-flex items-center rounded-[10px] border border-border bg-slate-50 px-4 py-2">
                         克制 {{ relationBuckets.attackAdvantage.length }} 项
                     </span>
-                    <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-4 py-2">
+                    <span class="inline-flex items-center rounded-[10px] border border-border bg-slate-50 px-4 py-2">
                         被克制 {{ relationBuckets.defenseWeakness.length }} 项
                     </span>
                 </div>
@@ -1064,7 +1064,7 @@ onBeforeUnmount(() => {
                 </div>
             </CardHeader>
             <CardContent>
-                <div class="mt-2 text-sm leading-6 text-slate-600">
+                <div class="mt-2 text-sm leading-6 text-foreground">
                     中心节点始终是 {{ currentType.label }}，其余节点按属性编号环绕排列，方便同时看清进攻与防守两种关系。
                 </div>
                 <div class=" flex flex-col xl:flex-row ">
@@ -1079,7 +1079,7 @@ onBeforeUnmount(() => {
                                 </span>
                                 <span>{{ RELATION_META[kind].multiplier }}</span>
                             </div>
-                            <p class="mt-2 text-xs leading-6 text-slate-500">
+                            <p class="mt-2 text-xs leading-6 text-foreground">
                                 {{ RELATION_META[kind].description }}
                             </p>
                         </div>

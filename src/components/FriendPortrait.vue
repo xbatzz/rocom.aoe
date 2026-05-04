@@ -8,6 +8,7 @@ interface Props {
     class?: HTMLAttributes["class"];
     imgClass?: HTMLAttributes["class"];
     eager?: boolean;
+    loading?: "lazy" | "eager";
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -25,6 +26,10 @@ const imageSrc = computed(() => {
     return `/assets/webp/friends/JL_${props.name}.webp`;
 });
 
+const imageLoading = computed(() => {
+    return props.loading ?? (props.eager ? "eager" : undefined);
+});
+
 const fallbackText = computed(() => props.alt.trim().slice(0, 2) || "? ");
 
 watch(
@@ -39,7 +44,7 @@ watch(
     <div
         :class="
             cn(
-                'relative overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-slate-900 via-slate-950 to-slate-900 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.9)]',
+                'relative overflow-hidden rounded-[10px] border border-border bg-linear-to-br from-slate-900 via-slate-950 to-slate-900 shadow-md',
                 props.class,
             )
         "
@@ -48,7 +53,7 @@ watch(
             v-if="imageSrc && !failed"
             :src="imageSrc"
             :alt="props.alt"
-            :loading="props.eager ? 'eager' : 'lazy'"
+            :loading="imageLoading"
             decoding="async"
             :class="cn('block h-full w-full object-cover', props.imgClass)"
             @error="failed = true"
@@ -56,13 +61,9 @@ watch(
 
         <div
             v-else
-            class="flex h-full w-full items-center justify-center text-lg font-semibold tracking-wide text-slate-100"
+            class="flex h-full w-full items-center justify-center text-lg font-semibold tracking-wide text-muted-foreground"
         >
             {{ fallbackText }}
         </div>
-
-        <div
-            class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(251,191,36,0.22),transparent_18%),linear-gradient(135deg,rgba(15,23,42,0.12),rgba(14,165,233,0.12))]"
-        />
     </div>
 </template>

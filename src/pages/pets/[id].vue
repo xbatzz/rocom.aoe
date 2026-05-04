@@ -350,11 +350,19 @@ function collectMoveFilterOptions(moves: IPetsMove[]) {
     };
 }
 
-const movePoolFilterOptions = computed(() => collectMoveFilterOptions(friend.value?.move_pool ?? []));
-const moveStonesFilterOptions = computed(() => collectMoveFilterOptions(friend.value?.move_stones ?? []));
+const movePoolFilterOptions = computed(() =>
+    collectMoveFilterOptions(friend.value?.move_pool ?? []),
+);
+const moveStonesFilterOptions = computed(() =>
+    collectMoveFilterOptions(friend.value?.move_stones ?? []),
+);
 
 const hasActiveMoveFilters = computed(() => {
-    return moveFilterQuery.value.trim() !== "" || moveFilterType.value !== "all" || moveFilterCategory.value !== "all";
+    return (
+        moveFilterQuery.value.trim() !== "" ||
+        moveFilterType.value !== "all" ||
+        moveFilterCategory.value !== "all"
+    );
 });
 
 function resetMoveFilters() {
@@ -383,30 +391,65 @@ const catchDifficulty = computed(() => {
     const rate = catchInfo.value?.catch_guarant_rate;
 
     if (rate === null || rate === undefined) {
-        return { label: "暂无数据", stars: 0, color: "text-slate-500", barColor: "bg-slate-600" };
+        return {
+            label: "暂无数据",
+            stars: 0,
+            color: "text-foreground",
+            barColor: "bg-slate-600",
+        };
     }
 
     if (rate >= 10000) {
-        return { label: "必定捕获", stars: 5, color: "text-emerald-400", barColor: "bg-emerald-400" };
+        return {
+            label: "必定捕获",
+            stars: 5,
+            color: "text-emerald-400",
+            barColor: "bg-card hover:bg-accent",
+        };
     }
 
     if (rate >= 5000) {
-        return { label: "非常容易", stars: 4, color: "text-green-400", barColor: "bg-green-400" };
+        return {
+            label: "非常容易",
+            stars: 4,
+            color: "text-green-400",
+            barColor: "bg-card hover:bg-accent",
+        };
     }
 
     if (rate >= 2000) {
-        return { label: "容易", stars: 3, color: "text-sky-400", barColor: "bg-sky-400" };
+        return {
+            label: "容易",
+            stars: 3,
+            color: "text-sky-400",
+            barColor: "bg-sky-400",
+        };
     }
 
     if (rate >= 500) {
-        return { label: "普通", stars: 2, color: "text-amber-400", barColor: "bg-amber-400" };
+        return {
+            label: "普通",
+            stars: 2,
+            color: "text-foreground",
+            barColor: "bg-card hover:bg-accent",
+        };
     }
 
     if (rate > 0) {
-        return { label: "困难", stars: 1, color: "text-rose-400", barColor: "bg-rose-400" };
+        return {
+            label: "困难",
+            stars: 1,
+            color: "text-rose-400",
+            barColor: "bg-rose-400",
+        };
     }
 
-    return { label: "无法野外捕获", stars: 0, color: "text-slate-500", barColor: "bg-slate-600" };
+    return {
+        label: "无法野外捕获",
+        stars: 0,
+        color: "text-foreground",
+        barColor: "bg-slate-600",
+    };
 });
 
 const catchGuarantCountLabel = computed(() => {
@@ -432,7 +475,12 @@ const catchGuarantByBall = computed(() => {
 
     if (rate >= 10000) {
         return [
-            { name: "任意球", count: "1 次", efficiency: "—", color: "text-slate-300" },
+            {
+                name: "任意球",
+                count: "1 次",
+                efficiency: "—",
+                color: "text-foreground",
+            },
         ];
     }
 
@@ -440,10 +488,30 @@ const catchGuarantByBall = computed(() => {
     const advancedCount = Math.ceil(10000 / ((rate * 20000) / 10000));
 
     return [
-        { name: "普通咕噜球", count: `约 ${normalCount} 次`, efficiency: "×1.2", color: "text-slate-300" },
-        { name: "高级咕噜球", count: `约 ${advancedCount} 次`, efficiency: "×2.0", color: "text-sky-300" },
-        { name: petAttributeBallLabel.value, count: `约 ${advancedCount} 次`, efficiency: "×2.0", color: "text-emerald-300" },
-        { name: "国王球 / 捕光球", count: "1 次", efficiency: "必捕", color: "text-amber-300" },
+        {
+            name: "普通咕噜球",
+            count: `约 ${normalCount} 次`,
+            efficiency: "×1.2",
+            color: "text-foreground",
+        },
+        {
+            name: "高级咕噜球",
+            count: `约 ${advancedCount} 次`,
+            efficiency: "×2.0",
+            color: "text-sky-300",
+        },
+        {
+            name: petAttributeBallLabel.value,
+            count: `约 ${advancedCount} 次`,
+            efficiency: "×2.0",
+            color: "text-emerald-300",
+        },
+        {
+            name: "国王球 / 捕光球",
+            count: "1 次",
+            efficiency: "必捕",
+            color: "text-foreground",
+        },
     ];
 });
 
@@ -526,15 +594,15 @@ const TYPE_TO_ATTRIBUTE_BALL: Record<number, string> = {
 };
 
 const ATTRIBUTE_BALL_DESCRIPTION: Record<string, string> = {
-    "光合球": "对草系、光系精灵效果更好",
-    "网兜球": "对水系、翼系精灵效果更好",
-    "暗星球": "对幽系、恶系精灵效果更好",
-    "调温球": "对火系、冰系精灵效果更好",
-    "绝缘球": "对电系、毒系精灵效果更好",
-    "淘沙球": "对地系、虫系精灵效果更好",
-    "变幻球": "对幻系、机械系精灵效果更好",
-    "美妙球": "对普通系、萌系精灵效果更好",
-    "好战球": "对龙系、武系精灵效果更好",
+    光合球: "对草系、光系精灵效果更好",
+    网兜球: "对水系、翼系精灵效果更好",
+    暗星球: "对幽系、恶系精灵效果更好",
+    调温球: "对火系、冰系精灵效果更好",
+    绝缘球: "对电系、毒系精灵效果更好",
+    淘沙球: "对地系、虫系精灵效果更好",
+    变幻球: "对幻系、机械系精灵效果更好",
+    美妙球: "对普通系、萌系精灵效果更好",
+    好战球: "对龙系、武系精灵效果更好",
 };
 
 const petAttributeBalls = computed(() => {
@@ -567,7 +635,8 @@ const ballDescriptions = computed(() => {
     const attrBalls = petAttributeBalls.value;
     const attrEntries = attrBalls.map((name) => ({
         name,
-        description: ATTRIBUTE_BALL_DESCRIPTION[name] ?? "对特定属性精灵效果更好",
+        description:
+            ATTRIBUTE_BALL_DESCRIPTION[name] ?? "对特定属性精灵效果更好",
         color: "text-emerald-300",
     }));
 
@@ -575,7 +644,7 @@ const ballDescriptions = computed(() => {
         {
             name: "普通咕噜球",
             description: "基础捕捉，需要较多互动",
-            color: "text-slate-300",
+            color: "text-foreground",
         },
         {
             name: "高级咕噜球",
@@ -584,24 +653,30 @@ const ballDescriptions = computed(() => {
         },
         ...(attrEntries.length > 0
             ? attrEntries
-            : [{
-                name: "属性球",
-                description: "对特定属性精灵效果更好，效果同高级球",
-                color: "text-emerald-300",
-            }]),
+            : [
+                  {
+                      name: "属性球",
+                      description: "对特定属性精灵效果更好，效果同高级球",
+                      color: "text-emerald-300",
+                  },
+              ]),
         {
             name: "必捕球（国王球/捕光球/棱镜球）",
             description: "100% 必定捕获，无需任何互动",
-            color: "text-amber-300",
+            color: "text-foreground",
         },
     ];
 });
 
 const catchTips = [
-    { label: "偷袭进战（从背后接近）", value: "×15", color: "text-amber-300" },
-    { label: "同行精灵在场", value: "×15", color: "text-amber-300" },
+    { label: "偷袭进战（从背后接近）", value: "×15", color: "text-foreground" },
+    { label: "同行精灵在场", value: "×15", color: "text-foreground" },
     { label: "星星魔法标记后投球", value: "×1.2", color: "text-sky-300" },
-    { label: "等级差加成（等级越高）", value: "×1.08", color: "text-slate-300" },
+    {
+        label: "等级差加成（等级越高）",
+        value: "×1.08",
+        color: "text-foreground",
+    },
     { label: "3 分钟内未投球", value: "保底清零", color: "text-rose-400" },
 ];
 
@@ -1068,7 +1143,7 @@ function getQualityColor(quality: number): string {
         case 2:
             return "text-emerald-300";
         default:
-            return "text-slate-300";
+            return "text-foreground";
     }
 }
 
@@ -1403,45 +1478,43 @@ async function getFriendDetail(idParam: string | string[]) {
         <div v-if="isLoading" class="grid gap-4 xl:grid-cols-[260px_1fr]">
             <div class="space-y-4">
                 <Skeleton
-                    class="aspect-square rounded-xl border border-white/10 bg-white/6"
+                    class="aspect-square rounded-[10px] border border-border bg-muted"
                 />
                 <Skeleton
-                    class="min-h-64 rounded-xl border border-white/10 bg-white/6"
+                    class="min-h-64 rounded-[10px] border border-border bg-muted"
                 />
             </div>
             <Skeleton
-                class="min-h-72 rounded-xl border border-white/10 bg-white/6"
+                class="min-h-72 rounded-[10px] border border-border bg-muted"
             />
         </div>
 
         <div
             v-else-if="errorMessage"
-            class="rounded-xl border border-destructive/20 bg-destructive/8 px-4 py-8 text-center text-sm text-destructive"
+            class="rounded-[10px] border border-destructive/20 bg-destructive/8 px-4 py-8 text-center text-sm text-destructive"
         >
             {{ errorMessage }}
         </div>
 
         <template v-else-if="friend">
-            <Card
-                class="overflow-hidden border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.96),rgba(2,6,23,0.98))] py-0 shadow-[0_20px_60px_-36px_rgba(0,0,0,0.85)]"
-            >
+            <Card class="overflow-hidden border-border bg-card py-0 shadow-md">
                 <div class="grid gap-4 p-4 xl:grid-cols-[260px_1fr]">
                     <div class="space-y-4">
                         <FriendPortrait
                             :name="friend.name"
                             :alt="friend.localized.zh.name"
-                            class="aspect-square w-full rounded-xl"
+                            class="aspect-square w-full rounded-[10px]"
                             img-class="object-contain p-4"
                             eager
                         />
 
                         <div
-                            class="rounded-xl border border-white/10 bg-black/20 p-4"
+                            class="rounded-[10px] border border-border bg-card p-4"
                         >
                             <p
-                                class="flex items-center gap-2 text-[11px] tracking-[0.18em] text-slate-500 uppercase"
+                                class="flex items-center gap-2 text-[11px] tracking-[0.18em] text-foreground uppercase"
                             >
-                                <ListTodo class="h-3.5 w-3.5 text-amber-300" />
+                                <ListTodo class="h-3.5 w-3.5 text-foreground" />
                                 图鉴任务
                             </p>
 
@@ -1450,38 +1523,38 @@ async function getFriendDetail(idParam: string | string[]) {
                                 class="mt-3 space-y-2.5"
                             >
                                 <Skeleton
-                                    class="h-20 rounded-2xl border border-white/10 bg-white/6"
+                                    class="h-20 rounded-[10px] border border-border bg-muted"
                                 />
                                 <Skeleton
-                                    class="h-16 rounded-2xl border border-white/10 bg-white/6"
+                                    class="h-16 rounded-[10px] border border-border bg-muted"
                                 />
                                 <Skeleton
-                                    class="h-16 rounded-2xl border border-white/10 bg-white/6"
+                                    class="h-16 rounded-[10px] border border-border bg-muted"
                                 />
                             </div>
 
                             <div
                                 v-else-if="petTopicErrorMessage"
-                                class="mt-3 rounded-2xl border border-destructive/20 bg-destructive/8 px-3 py-4 text-sm text-destructive"
+                                class="mt-3 rounded-[10px] border border-destructive/20 bg-destructive/8 px-3 py-4 text-sm text-destructive"
                             >
                                 {{ petTopicErrorMessage }}
                             </div>
 
                             <template v-else-if="petTopics.length">
                                 <div
-                                    class="mt-3 rounded-2xl border border-white/10 bg-white/6 p-3"
+                                    class="mt-3 rounded-[10px] border border-border bg-muted p-3"
                                 >
                                     <div
                                         class="flex items-end justify-between gap-3"
                                     >
                                         <div>
                                             <p
-                                                class="text-[11px] tracking-[0.14em] text-slate-500 uppercase"
+                                                class="text-[11px] tracking-[0.14em] text-foreground uppercase"
                                             >
                                                 完成进度
                                             </p>
                                             <p
-                                                class="mt-1 text-lg font-semibold text-white"
+                                                class="mt-1 text-lg font-semibold text-foreground"
                                             >
                                                 {{ completedPetTopicCount }}/{{
                                                     petTopics.length
@@ -1496,10 +1569,10 @@ async function getFriendDetail(idParam: string | string[]) {
                                     </div>
 
                                     <div
-                                        class="mt-3 h-2 overflow-hidden rounded-full bg-white/8"
+                                        class="mt-3 h-2 overflow-hidden rounded-[10px] bg-muted"
                                     >
                                         <div
-                                            class="h-full rounded-full bg-[linear-gradient(90deg,rgba(74,222,128,0.65),rgba(16,185,129,0.95))] transition-[width] duration-300"
+                                            class="h-full rounded-[10px] bg-card transition-[width] duration-300"
                                             :style="{
                                                 width: `${petTopicCompletionRate}%`,
                                             }"
@@ -1507,7 +1580,7 @@ async function getFriendDetail(idParam: string | string[]) {
                                     </div>
 
                                     <p
-                                        class="mt-2 text-xs leading-5 text-slate-500"
+                                        class="mt-2 text-xs leading-5 text-foreground"
                                     >
                                         最近记录：{{
                                             petTopicLastRecordedLabel
@@ -1516,7 +1589,7 @@ async function getFriendDetail(idParam: string | string[]) {
                                 </div>
 
                                 <p
-                                    class="mt-3 text-sm leading-6 text-slate-300 text-center"
+                                    class="mt-3 text-sm leading-6 text-foreground text-center"
                                 >
                                     共
                                     {{ petTopics.length }}
@@ -1525,7 +1598,7 @@ async function getFriendDetail(idParam: string | string[]) {
 
                                 <Button
                                     variant="outline"
-                                    class="mt-3 w-full rounded-2xl border-white/10 bg-white/5 text-slate-100 hover:bg-white/10"
+                                    class="mt-3 w-full rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
                                     @click="petTopicDialogOpen = true"
                                 >
                                     <ListTodo class="h-4 w-4" />
@@ -1533,7 +1606,7 @@ async function getFriendDetail(idParam: string | string[]) {
                                 </Button>
 
                                 <p
-                                    class="mt-3 text-xs leading-5 text-slate-500 text-center"
+                                    class="mt-3 text-xs leading-5 text-foreground text-center"
                                 >
                                     任务完成状态不会同步到其他设备!
                                 </p>
@@ -1541,7 +1614,7 @@ async function getFriendDetail(idParam: string | string[]) {
 
                             <p
                                 v-else
-                                class="mt-3 text-sm leading-6 text-slate-400"
+                                class="mt-3 text-sm leading-6 text-foreground"
                             >
                                 暂无图鉴任务。
                             </p>
@@ -1556,25 +1629,25 @@ async function getFriendDetail(idParam: string | string[]) {
                                 <div class="flex flex-wrap gap-2">
                                     <Badge
                                         variant="outline"
-                                        class="rounded-full border-white/10 bg-white/5 px-2.5 py-0.5 text-slate-300"
+                                        class="rounded-[10px] border-border bg-white/5 px-2.5 py-0.5 text-foreground"
                                     >
                                         No.{{ friend.id }}
                                     </Badge>
                                     <Badge
-                                        class="rounded-full bg-white/10 text-slate-100"
+                                        class="rounded-[10px] bg-white/10 text-foreground"
                                     >
                                         {{ friend.main_type.localized.zh }}
                                     </Badge>
                                     <Badge
                                         v-if="friend.sub_type"
                                         variant="secondary"
-                                        class="rounded-full bg-slate-700/60 text-slate-100"
+                                        class="rounded-[10px] bg-slate-700/60 text-foreground"
                                     >
                                         {{ friend.sub_type.localized.zh }}
                                     </Badge>
                                     <Badge
                                         variant="outline"
-                                        class="rounded-full border-sky-400/20 bg-sky-400/10 text-sky-200"
+                                        class="rounded-[10px] border-sky-400/20 bg-sky-400/10 text-sky-200"
                                     >
                                         {{
                                             friend.default_legacy_type.localized
@@ -1583,21 +1656,21 @@ async function getFriendDetail(idParam: string | string[]) {
                                     </Badge>
                                     <Badge
                                         v-if="friend.is_leader_form"
-                                        class="rounded-full border-0 bg-amber-400/15 text-amber-200"
+                                        class="rounded-[10px] border-0 bg-card hover:bg-accent/15 text-foreground"
                                     >
                                         首领形态
                                     </Badge>
                                     <Badge
                                         v-if="!isPetImplemented(friend)"
                                         variant="outline"
-                                        class="rounded-full border-amber-300/20 bg-amber-300/10 text-amber-100"
+                                        class="rounded-[10px] border-border/20 bg-card hover:bg-accent/10 text-foreground"
                                     >
                                         未实装
                                     </Badge>
                                     <Badge
                                         v-if="worldProfile?.classis_name"
                                         variant="outline"
-                                        class="rounded-full border-emerald-400/20 bg-emerald-400/10 text-emerald-200"
+                                        class="rounded-[10px] border-emerald-400/20 bg-card hover:bg-accent/10 text-emerald-200"
                                     >
                                         {{ worldProfile.classis_name }}
                                     </Badge>
@@ -1605,11 +1678,11 @@ async function getFriendDetail(idParam: string | string[]) {
 
                                 <div class="space-y-1.5">
                                     <h1
-                                        class="text-2xl font-semibold tracking-tight text-white md:text-3xl"
+                                        class="text-2xl font-semibold tracking-tight text-foreground md:text-3xl"
                                     >
                                         {{ friend.localized.zh.name }}
                                     </h1>
-                                    <p class="text-sm text-slate-300">
+                                    <p class="text-sm text-foreground">
                                         {{ friend.species.localized.zh }} ·
                                         {{
                                             getAttackStyleLabel(
@@ -1625,7 +1698,7 @@ async function getFriendDetail(idParam: string | string[]) {
 
                             <Button
                                 variant="outline"
-                                class="rounded-full border-white/10 bg-white/5 text-slate-100 hover:bg-white/10"
+                                class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
                                 as-child
                             >
                                 <RouterLink to="/encyclopedia"
@@ -1638,30 +1711,30 @@ async function getFriendDetail(idParam: string | string[]) {
 
                         <div class="grid gap-2 md:grid-cols-2 xl:grid-cols-4">
                             <div
-                                class="rounded-2xl border border-white/10 bg-white/6 px-3 py-2.5"
+                                class="rounded-[10px] border border-border bg-muted px-3 py-2.5"
                             >
                                 <p
-                                    class="text-[11px] tracking-[0.18em] text-slate-500 uppercase"
+                                    class="text-[11px] tracking-[0.18em] text-foreground uppercase"
                                 >
                                     总种族值
                                 </p>
                                 <p
-                                    class="mt-1.5 text-xl font-semibold text-white"
+                                    class="mt-1.5 text-xl font-semibold text-foreground"
                                 >
                                     {{ totalStats }}
                                 </p>
                             </div>
 
                             <div
-                                class="rounded-2xl border border-white/10 bg-white/6 px-3 py-2.5"
+                                class="rounded-[10px] border border-border bg-muted px-3 py-2.5"
                             >
                                 <p
-                                    class="text-[11px] tracking-[0.18em] text-slate-500 uppercase"
+                                    class="text-[11px] tracking-[0.18em] text-foreground uppercase"
                                 >
                                     最高单项
                                 </p>
                                 <p
-                                    class="mt-1.5 text-xl font-semibold text-white"
+                                    class="mt-1.5 text-xl font-semibold text-foreground"
                                 >
                                     {{ highestStat.label }}
                                     {{ highestStat.value }}
@@ -1669,30 +1742,30 @@ async function getFriendDetail(idParam: string | string[]) {
                             </div>
 
                             <div
-                                class="rounded-2xl border border-white/10 bg-white/6 px-3 py-2.5"
+                                class="rounded-[10px] border border-border bg-muted px-3 py-2.5"
                             >
                                 <p
-                                    class="text-[11px] tracking-[0.18em] text-slate-500 uppercase"
+                                    class="text-[11px] tracking-[0.18em] text-foreground uppercase"
                                 >
                                     自有技能
                                 </p>
                                 <p
-                                    class="mt-1.5 text-xl font-semibold text-white"
+                                    class="mt-1.5 text-xl font-semibold text-foreground"
                                 >
                                     {{ friend.move_pool.length }}
                                 </p>
                             </div>
 
                             <div
-                                class="rounded-2xl border border-white/10 bg-white/6 px-3 py-2.5"
+                                class="rounded-[10px] border border-border bg-muted px-3 py-2.5"
                             >
                                 <p
-                                    class="text-[11px] tracking-[0.18em] text-slate-500 uppercase"
+                                    class="text-[11px] tracking-[0.18em] text-foreground uppercase"
                                 >
                                     覆盖属性
                                 </p>
                                 <p
-                                    class="mt-1.5 text-xl font-semibold text-white"
+                                    class="mt-1.5 text-xl font-semibold text-foreground"
                                 >
                                     {{ moveCoverageTypes.length }}
                                 </p>
@@ -1701,10 +1774,10 @@ async function getFriendDetail(idParam: string | string[]) {
 
                         <div class="grid gap-3 xl:grid-cols-[1.08fr_0.92fr]">
                             <div
-                                class="rounded-xl border border-white/10 bg-black/20 p-4"
+                                class="rounded-[10px] border border-border bg-card p-4"
                             >
                                 <p
-                                    class="flex items-center gap-2 text-[11px] tracking-[0.18em] text-slate-500 uppercase"
+                                    class="flex items-center gap-2 text-[11px] tracking-[0.18em] text-foreground uppercase"
                                 >
                                     <BookOpen
                                         class="h-3.5 w-3.5 text-sky-300"
@@ -1713,42 +1786,42 @@ async function getFriendDetail(idParam: string | string[]) {
                                 </p>
                                 <div class="mt-3 flex flex-wrap gap-2">
                                     <Badge
-                                        class="rounded-full bg-white/10 text-slate-100"
+                                        class="rounded-[10px] bg-white/10 text-foreground"
                                     >
                                         {{ worldTypeLabel }}
                                     </Badge>
                                     <Badge
                                         v-if="worldProfile?.classis_name"
                                         variant="outline"
-                                        class="rounded-full border-white/10 bg-black/20 text-slate-300"
+                                        class="rounded-[10px] border-border bg-card text-foreground"
                                     >
                                         {{ worldProfile.classis_name }}
                                     </Badge>
                                     <Badge
                                         v-if="worldProfile?.movement_type"
                                         variant="outline"
-                                        class="rounded-full border-white/10 bg-black/20 text-slate-300"
+                                        class="rounded-[10px] border-border bg-card text-foreground"
                                     >
                                         {{ worldProfile.movement_type }}
                                     </Badge>
                                 </div>
                                 <p
-                                    class="mt-3 text-sm leading-6 text-slate-300"
+                                    class="mt-3 text-sm leading-6 text-foreground"
                                 >
                                     {{ introductionText }}
                                 </p>
                                 <p
-                                    class="mt-3 text-xs leading-6 text-slate-400"
+                                    class="mt-3 text-xs leading-6 text-foreground"
                                 >
                                     {{ habitatSummary }}
                                 </p>
                             </div>
 
                             <div
-                                class="rounded-xl border border-white/10 bg-black/20 p-4"
+                                class="rounded-[10px] border border-border bg-card p-4"
                             >
                                 <p
-                                    class="flex items-center gap-2 text-[11px] tracking-[0.18em] text-slate-500 uppercase"
+                                    class="flex items-center gap-2 text-[11px] tracking-[0.18em] text-foreground uppercase"
                                 >
                                     <MapPin
                                         class="h-3.5 w-3.5 text-emerald-300"
@@ -1758,21 +1831,21 @@ async function getFriendDetail(idParam: string | string[]) {
                                 <div class="mt-3 flex flex-wrap gap-2">
                                     <Badge
                                         variant="outline"
-                                        class="rounded-full border-white/10 bg-black/20 text-slate-300"
+                                        class="rounded-[10px] border-border bg-card text-foreground"
                                     >
                                         蛋组 {{ eggGroupSummaryLabel }}
                                     </Badge>
                                     <Badge
                                         v-if="!isPetImplemented(friend)"
                                         variant="outline"
-                                        class="rounded-full border-amber-300/20 bg-amber-300/10 text-amber-100"
+                                        class="rounded-[10px] border-border/20 bg-card hover:bg-accent/10 text-foreground"
                                     >
                                         未实装
                                     </Badge>
                                     <Badge
                                         v-if="!refreshLocations.length"
                                         variant="outline"
-                                        class="rounded-full border-white/10 bg-black/20 text-slate-400"
+                                        class="rounded-[10px] border-border bg-card text-foreground"
                                     >
                                         暂无刷新位置数据
                                     </Badge>
@@ -1780,27 +1853,27 @@ async function getFriendDetail(idParam: string | string[]) {
 
                                 <div class="mt-4 grid gap-2 sm:grid-cols-3">
                                     <div
-                                        class="rounded-2xl border border-white/10 bg-white/6 px-3 py-2.5"
+                                        class="rounded-[10px] border border-border bg-muted px-3 py-2.5"
                                     >
                                         <p
-                                            class="flex items-center gap-1.5 text-[11px] tracking-[0.14em] text-slate-500 uppercase"
+                                            class="flex items-center gap-1.5 text-[11px] tracking-[0.14em] text-foreground uppercase"
                                         >
                                             <Egg
-                                                class="h-3.5 w-3.5 text-amber-300"
+                                                class="h-3.5 w-3.5 text-foreground"
                                             />
                                             孵化时长
                                         </p>
                                         <p
-                                            class="mt-1.5 text-sm font-semibold text-white"
+                                            class="mt-1.5 text-sm font-semibold text-foreground"
                                         >
                                             {{ hatchDurationLabel }}
                                         </p>
                                     </div>
                                     <div
-                                        class="rounded-2xl border border-white/10 bg-white/6 px-3 py-2.5"
+                                        class="rounded-[10px] border border-border bg-muted px-3 py-2.5"
                                     >
                                         <p
-                                            class="flex items-center gap-1.5 text-[11px] tracking-[0.14em] text-slate-500 uppercase"
+                                            class="flex items-center gap-1.5 text-[11px] tracking-[0.14em] text-foreground uppercase"
                                         >
                                             <Ruler
                                                 class="h-3.5 w-3.5 text-sky-300"
@@ -1808,49 +1881,44 @@ async function getFriendDetail(idParam: string | string[]) {
                                             身高范围
                                         </p>
                                         <p
-                                            class="mt-1.5 text-sm font-semibold text-white"
+                                            class="mt-1.5 text-sm font-semibold text-foreground"
                                         >
                                             {{ heightRangeLabel }}
                                         </p>
                                     </div>
                                     <div
-                                        class="rounded-2xl border border-white/10 bg-white/6 px-3 py-2.5"
+                                        class="rounded-[10px] border border-border bg-muted px-3 py-2.5"
                                     >
                                         <p
-                                            class="text-[11px] tracking-[0.14em] text-slate-500 uppercase"
+                                            class="text-[11px] tracking-[0.14em] text-foreground uppercase"
                                         >
                                             体重范围
                                         </p>
                                         <p
-                                            class="mt-1.5 text-sm font-semibold text-white"
+                                            class="mt-1.5 text-sm font-semibold text-foreground"
                                         >
                                             {{ weightRangeLabel }}
                                         </p>
                                     </div>
                                 </div>
 
-                                <div
-                                    v-if="hasCatchInfo"
-                                    class="mt-4"
-                                >
+                                <div v-if="hasCatchInfo" class="mt-4">
                                     <p
-                                        class="flex items-center gap-2 text-[11px] tracking-[0.18em] text-slate-500 uppercase"
+                                        class="flex items-center gap-2 text-[11px] tracking-[0.18em] text-foreground uppercase"
                                     >
                                         <Target
                                             class="h-3.5 w-3.5 text-rose-300"
                                         />
                                         捕捉信息
                                     </p>
-                                    <div
-                                        class="mt-2 grid gap-2 sm:grid-cols-3"
-                                    >
+                                    <div class="mt-2 grid gap-2 sm:grid-cols-3">
                                         <HoverCard :open-delay="200">
                                             <HoverCardTrigger as-child>
                                                 <div
-                                                    class="cursor-help rounded-2xl border border-white/10 bg-white/6 px-3 py-2.5 transition-colors hover:border-white/20 hover:bg-white/10"
+                                                    class="cursor-help rounded-[10px] border border-border bg-muted px-3 py-2.5 transition-colors hover:border-border hover:bg-accent"
                                                 >
                                                     <p
-                                                        class="text-[11px] tracking-[0.14em] text-slate-500 uppercase"
+                                                        class="text-[11px] tracking-[0.14em] text-foreground uppercase"
                                                     >
                                                         捕捉难度
                                                     </p>
@@ -1870,7 +1938,7 @@ async function getFriendDetail(idParam: string | string[]) {
                                                         <span
                                                             v-for="i in 5"
                                                             :key="i"
-                                                            class="h-1.5 w-4 rounded-full"
+                                                            class="h-1.5 w-4 rounded-[10px]"
                                                             :class="
                                                                 i <=
                                                                 catchDifficulty.stars
@@ -1884,15 +1952,15 @@ async function getFriendDetail(idParam: string | string[]) {
                                             <HoverCardContent
                                                 side="top"
                                                 :side-offset="8"
-                                                class="w-72 rounded-xl border border-white/15 bg-slate-900 p-4 text-sm shadow-xl"
+                                                class="w-72 rounded-[10px] border border-white/15 bg-slate-900 p-4 text-sm shadow-xl"
                                             >
                                                 <p
-                                                    class="font-semibold text-white"
+                                                    class="font-semibold text-foreground"
                                                 >
                                                     关于捕捉难度
                                                 </p>
                                                 <p
-                                                    class="mt-2 leading-relaxed text-slate-300"
+                                                    class="mt-2 leading-relaxed text-foreground"
                                                 >
                                                     难度越高，需要更多互动才能让精灵进入可捕获状态。以下技巧可以提升捕捉概率：
                                                 </p>
@@ -1909,17 +1977,17 @@ async function getFriendDetail(idParam: string | string[]) {
                                                             {{ tip.label }}
                                                         </p>
                                                         <p
-                                                            class="shrink-0 text-xs text-slate-500"
+                                                            class="shrink-0 text-xs text-foreground"
                                                         >
                                                             {{ tip.value }}
                                                         </p>
                                                     </div>
                                                 </div>
                                                 <div
-                                                    class="mt-3 border-t border-white/10 pt-3"
+                                                    class="mt-3 border-t border-border pt-3"
                                                 >
                                                     <p
-                                                        class="text-[10px] tracking-wider text-slate-500 uppercase"
+                                                        class="text-[10px] tracking-wider text-foreground uppercase"
                                                     >
                                                         原始数据
                                                     </p>
@@ -1927,12 +1995,12 @@ async function getFriendDetail(idParam: string | string[]) {
                                                         class="mt-1.5 grid grid-cols-2 gap-x-4 gap-y-1 text-xs"
                                                     >
                                                         <p
-                                                            class="text-slate-500"
+                                                            class="text-foreground"
                                                         >
                                                             捕捉阈值
                                                         </p>
                                                         <p
-                                                            class="text-slate-300"
+                                                            class="text-foreground"
                                                         >
                                                             {{
                                                                 catchRawThreshold ??
@@ -1940,12 +2008,12 @@ async function getFriendDetail(idParam: string | string[]) {
                                                             }}
                                                         </p>
                                                         <p
-                                                            class="text-slate-500"
+                                                            class="text-foreground"
                                                         >
                                                             保底捕获率
                                                         </p>
                                                         <p
-                                                            class="text-slate-300"
+                                                            class="text-foreground"
                                                         >
                                                             {{
                                                                 catchRawGuarantRate !==
@@ -1961,15 +2029,15 @@ async function getFriendDetail(idParam: string | string[]) {
                                         <HoverCard :open-delay="200">
                                             <HoverCardTrigger as-child>
                                                 <div
-                                                    class="cursor-help rounded-2xl border border-white/10 bg-white/6 px-3 py-2.5 transition-colors hover:border-white/20 hover:bg-white/10"
+                                                    class="cursor-help rounded-[10px] border border-border bg-muted px-3 py-2.5 transition-colors hover:border-border hover:bg-accent"
                                                 >
                                                     <p
-                                                        class="text-[11px] tracking-[0.14em] text-slate-500 uppercase"
+                                                        class="text-[11px] tracking-[0.14em] text-foreground uppercase"
                                                     >
                                                         普通球保底
                                                     </p>
                                                     <p
-                                                        class="mt-1.5 text-sm font-semibold text-white"
+                                                        class="mt-1.5 text-sm font-semibold text-foreground"
                                                     >
                                                         {{
                                                             catchGuarantCountLabel
@@ -1980,15 +2048,15 @@ async function getFriendDetail(idParam: string | string[]) {
                                             <HoverCardContent
                                                 side="top"
                                                 :side-offset="8"
-                                                class="w-64 rounded-xl border border-white/15 bg-slate-900 p-4 text-sm shadow-xl"
+                                                class="w-64 rounded-[10px] border border-white/15 bg-slate-900 p-4 text-sm shadow-xl"
                                             >
                                                 <p
-                                                    class="font-semibold text-white"
+                                                    class="font-semibold text-foreground"
                                                 >
                                                     各球保底次数
                                                 </p>
                                                 <p
-                                                    class="mt-1.5 text-xs leading-relaxed text-slate-400"
+                                                    class="mt-1.5 text-xs leading-relaxed text-foreground"
                                                 >
                                                     使用不同球时，大约需要多少次保底捕获
                                                 </p>
@@ -1996,17 +2064,17 @@ async function getFriendDetail(idParam: string | string[]) {
                                                     class="mt-3 grid grid-cols-[1fr_auto_auto] items-center gap-x-3 gap-y-2"
                                                 >
                                                     <p
-                                                        class="text-[10px] text-slate-500"
+                                                        class="text-[10px] text-foreground"
                                                     >
                                                         球
                                                     </p>
                                                     <p
-                                                        class="text-[10px] text-slate-500"
+                                                        class="text-[10px] text-foreground"
                                                     >
                                                         效率
                                                     </p>
                                                     <p
-                                                        class="text-right text-[10px] text-slate-500"
+                                                        class="text-right text-[10px] text-foreground"
                                                     >
                                                         保底
                                                     </p>
@@ -2021,24 +2089,24 @@ async function getFriendDetail(idParam: string | string[]) {
                                                             {{ ball.name }}
                                                         </p>
                                                         <p
-                                                            class="text-xs text-slate-400"
+                                                            class="text-xs text-foreground"
                                                         >
                                                             {{
                                                                 ball.efficiency
                                                             }}
                                                         </p>
                                                         <p
-                                                            class="text-right text-xs font-semibold text-white"
+                                                            class="text-right text-xs font-semibold text-foreground"
                                                         >
                                                             {{ ball.count }}
                                                         </p>
                                                     </template>
                                                 </div>
                                                 <div
-                                                    class="mt-3 border-t border-white/10 pt-3"
+                                                    class="mt-3 border-t border-border pt-3"
                                                 >
                                                     <p
-                                                        class="text-[10px] tracking-wider text-slate-500 uppercase"
+                                                        class="text-[10px] tracking-wider text-foreground uppercase"
                                                     >
                                                         原始数据
                                                     </p>
@@ -2046,12 +2114,12 @@ async function getFriendDetail(idParam: string | string[]) {
                                                         class="mt-1.5 grid grid-cols-2 gap-x-4 gap-y-1 text-xs"
                                                     >
                                                         <p
-                                                            class="text-slate-500"
+                                                            class="text-foreground"
                                                         >
                                                             保底捕获率
                                                         </p>
                                                         <p
-                                                            class="text-slate-300"
+                                                            class="text-foreground"
                                                         >
                                                             {{
                                                                 catchRawGuarantRate !==
@@ -2061,46 +2129,47 @@ async function getFriendDetail(idParam: string | string[]) {
                                                             }}
                                                         </p>
                                                         <p
-                                                            class="text-slate-500"
+                                                            class="text-foreground"
                                                         >
                                                             普通球效率
                                                         </p>
                                                         <p
-                                                            class="text-slate-300"
+                                                            class="text-foreground"
                                                         >
                                                             12000
                                                         </p>
                                                         <p
-                                                            class="text-slate-500"
+                                                            class="text-foreground"
                                                         >
                                                             高级/属性球效率
                                                         </p>
                                                         <p
-                                                            class="text-slate-300"
+                                                            class="text-foreground"
                                                         >
                                                             20000
                                                         </p>
                                                     </div>
                                                 </div>
                                                 <p
-                                                    class="mt-2 text-xs text-slate-500"
+                                                    class="mt-2 text-xs text-foreground"
                                                 >
-                                                    注：3 分钟内未投球，保底进度会清零。
+                                                    注：3
+                                                    分钟内未投球，保底进度会清零。
                                                 </p>
                                             </HoverCardContent>
                                         </HoverCard>
                                         <HoverCard :open-delay="200">
                                             <HoverCardTrigger as-child>
                                                 <div
-                                                    class="cursor-help rounded-2xl border border-white/10 bg-white/6 px-3 py-2.5 transition-colors hover:border-white/20 hover:bg-white/10"
+                                                    class="cursor-help rounded-[10px] border border-border bg-muted px-3 py-2.5 transition-colors hover:border-border hover:bg-accent"
                                                 >
                                                     <p
-                                                        class="text-[11px] tracking-[0.14em] text-slate-500 uppercase"
+                                                        class="text-[11px] tracking-[0.14em] text-foreground uppercase"
                                                     >
                                                         推荐用球
                                                     </p>
                                                     <p
-                                                        class="mt-1.5 text-sm font-semibold text-white"
+                                                        class="mt-1.5 text-sm font-semibold text-foreground"
                                                     >
                                                         {{
                                                             catchRecommendedBall
@@ -2111,10 +2180,10 @@ async function getFriendDetail(idParam: string | string[]) {
                                             <HoverCardContent
                                                 side="top"
                                                 :side-offset="8"
-                                                class="w-72 rounded-xl border border-white/15 bg-slate-900 p-4 text-sm shadow-xl"
+                                                class="w-72 rounded-[10px] border border-white/15 bg-slate-900 p-4 text-sm shadow-xl"
                                             >
                                                 <p
-                                                    class="font-semibold text-white"
+                                                    class="font-semibold text-foreground"
                                                 >
                                                     不同精灵球效果
                                                 </p>
@@ -2130,7 +2199,7 @@ async function getFriendDetail(idParam: string | string[]) {
                                                             {{ ball.name }}
                                                         </p>
                                                         <p
-                                                            class="mt-0.5 text-xs leading-relaxed text-slate-400"
+                                                            class="mt-0.5 text-xs leading-relaxed text-foreground"
                                                         >
                                                             {{
                                                                 ball.description
@@ -2139,9 +2208,10 @@ async function getFriendDetail(idParam: string | string[]) {
                                                     </div>
                                                 </div>
                                                 <p
-                                                    class="mt-3 text-xs text-slate-500"
+                                                    class="mt-3 text-xs text-foreground"
                                                 >
-                                                    注：3 分钟内未投球，保底进度会清零。
+                                                    注：3
+                                                    分钟内未投球，保底进度会清零。
                                                 </p>
                                             </HoverCardContent>
                                         </HoverCard>
@@ -2152,10 +2222,10 @@ async function getFriendDetail(idParam: string | string[]) {
 
                         <div class="grid gap-3 lg:grid-cols-[1.15fr_0.85fr]">
                             <div
-                                class="rounded-xl border border-white/10 bg-black/20 p-4"
+                                class="rounded-[10px] border border-border bg-card p-4"
                             >
                                 <p
-                                    class="text-[11px] tracking-[0.18em] text-slate-500 uppercase"
+                                    class="text-[11px] tracking-[0.18em] text-foreground uppercase"
                                 >
                                     特性
                                 </p>
@@ -2168,15 +2238,15 @@ async function getFriendDetail(idParam: string | string[]) {
                                     />
                                     <div class="min-w-0 flex-1">
                                         <h2
-                                            class="text-lg font-semibold tracking-tight text-white"
+                                            class="text-lg font-semibold tracking-tight text-foreground"
                                         >
                                             {{
-                                                friend.trait?.localized.zh.name ??
-                                                "暂无特性数据"
+                                                friend.trait?.localized.zh
+                                                    .name ?? "暂无特性数据"
                                             }}
                                         </h2>
                                         <p
-                                            class="mt-1 text-sm leading-6 text-slate-300"
+                                            class="mt-1 text-sm leading-6 text-foreground"
                                         >
                                             {{
                                                 friend.trait?.localized.zh
@@ -2189,10 +2259,10 @@ async function getFriendDetail(idParam: string | string[]) {
                             </div>
 
                             <div
-                                class="rounded-xl border border-white/10 bg-black/20 p-4"
+                                class="rounded-[10px] border border-border bg-card p-4"
                             >
                                 <p
-                                    class="flex items-center gap-2 text-[11px] tracking-[0.18em] text-slate-500 uppercase"
+                                    class="flex items-center gap-2 text-[11px] tracking-[0.18em] text-foreground uppercase"
                                 >
                                     <BarChart3
                                         class="h-3.5 w-3.5 text-primary"
@@ -2204,13 +2274,13 @@ async function getFriendDetail(idParam: string | string[]) {
                                         v-for="item in moveSummary"
                                         :key="item.category"
                                         variant="outline"
-                                        class="rounded-full border-white/10 bg-white/5 text-slate-200"
+                                        class="rounded-[10px] border-border bg-white/5 text-foreground"
                                     >
                                         {{ item.label }} {{ item.count }}
                                     </Badge>
                                 </div>
                                 <p
-                                    class="mt-3 text-sm leading-6 text-slate-300"
+                                    class="mt-3 text-sm leading-6 text-foreground"
                                 >
                                     最高属性为
                                     {{ highestStat.label }}，当前技能覆盖
@@ -2224,27 +2294,35 @@ async function getFriendDetail(idParam: string | string[]) {
 
             <Tabs default-value="overview" class="space-y-3">
                 <TabsList
-                    class="h-auto w-full flex-wrap justify-start rounded-2xl bg-white/6 p-1"
+                    class="h-auto w-full flex-wrap justify-start rounded-[10px] bg-muted p-1"
                 >
                     <TabsTrigger
                         value="overview"
-                        class="rounded-xl px-3 py-1.5"
+                        class="rounded-[10px] px-3 py-1.5"
                     >
                         概览
                     </TabsTrigger>
-                    <TabsTrigger value="moves" class="rounded-xl px-3 py-1.5">
+                    <TabsTrigger
+                        value="moves"
+                        class="rounded-[10px] px-3 py-1.5"
+                    >
                         自有技能
                     </TabsTrigger>
-                    <TabsTrigger value="stones" class="rounded-xl px-3 py-1.5">
+                    <TabsTrigger
+                        value="stones"
+                        class="rounded-[10px] px-3 py-1.5"
+                    >
                         学习技能
                     </TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="overview" class="space-y-4">
-                    <Card class="border-white/10 bg-black/20 shadow-sm">
+                    <Card class="border-border bg-card shadow-sm">
                         <CardHeader class="pb-3">
-                            <CardTitle class="text-white">进化链</CardTitle>
-                            <CardDescription class="text-slate-400">
+                            <CardTitle class="text-foreground"
+                                >进化链</CardTitle
+                            >
+                            <CardDescription class="text-foreground">
                                 按阶段横向展示，点击节点可跳转到对应详情页。
                             </CardDescription>
                         </CardHeader>
@@ -2258,20 +2336,20 @@ async function getFriendDetail(idParam: string | string[]) {
                                         :key="stage.depth"
                                     >
                                         <div
-                                            class="min-w-48 rounded-xl border border-white/10 bg-white/6 p-3"
+                                            class="min-w-48 rounded-[10px] border border-border bg-muted p-3"
                                         >
                                             <div
                                                 class="mb-3 flex items-center justify-between gap-2"
                                             >
                                                 <p
-                                                    class="text-sm font-medium text-white"
+                                                    class="text-sm font-medium text-foreground"
                                                 >
                                                     第
                                                     {{ stage.depth + 1 }} 阶段
                                                 </p>
                                                 <Badge
                                                     v-if="stage.is_leader_stage"
-                                                    class="rounded-full border-0 bg-amber-400/15 text-amber-200"
+                                                    class="rounded-[10px] border-0 bg-card hover:bg-accent/15 text-foreground"
                                                 >
                                                     <Crown
                                                         class="h-3.5 w-3.5"
@@ -2287,15 +2365,15 @@ async function getFriendDetail(idParam: string | string[]) {
                                                     :to="`/pets/${monster.id}`"
                                                     :class="[
                                                         monster.id === friend.id
-                                                            ? 'border-primary/40 bg-primary/10 shadow-[0_0_0_1px_rgba(251,191,36,0.15)]'
-                                                            : 'border-white/10 bg-black/25 hover:border-sky-400/30 hover:bg-white/8',
+                                                            ? 'border-primary/40 bg-primary/10 shadow-md'
+                                                            : 'border-border bg-card hover:border-sky-400/30 hover:bg-muted',
                                                         !isEvolutionMonsterImplemented(
                                                             monster.id,
                                                         )
                                                             ? 'opacity-60'
                                                             : '',
                                                     ]"
-                                                    class="group block rounded-2xl border p-2.5 transition-colors"
+                                                    class="group block rounded-[10px] border p-2.5 transition-colors"
                                                 >
                                                     <div
                                                         class="flex items-center gap-2.5"
@@ -2307,7 +2385,7 @@ async function getFriendDetail(idParam: string | string[]) {
                                                                     .localized
                                                                     .zh.name
                                                             "
-                                                            class="h-16 w-16 shrink-0 rounded-2xl"
+                                                            class="h-16 w-16 shrink-0 rounded-[10px]"
                                                             img-class="object-contain p-2"
                                                         />
 
@@ -2318,7 +2396,7 @@ async function getFriendDetail(idParam: string | string[]) {
                                                                 class="flex flex-wrap items-center gap-2"
                                                             >
                                                                 <p
-                                                                    class="text-[11px] tracking-[0.14em] text-slate-500 uppercase"
+                                                                    class="text-[11px] tracking-[0.14em] text-foreground uppercase"
                                                                 >
                                                                     No.{{
                                                                         monster.id
@@ -2330,13 +2408,13 @@ async function getFriendDetail(idParam: string | string[]) {
                                                                         friend.id
                                                                     "
                                                                     variant="outline"
-                                                                    class="rounded-full border-primary/30 bg-primary/10 text-primary"
+                                                                    class="rounded-[10px] border-primary/30 bg-primary/10 text-primary"
                                                                 >
                                                                     当前
                                                                 </Badge>
                                                             </div>
                                                             <p
-                                                                class="mt-1 truncate text-sm font-semibold text-white"
+                                                                class="mt-1 truncate text-sm font-semibold text-foreground"
                                                             >
                                                                 {{
                                                                     monster
@@ -2345,7 +2423,7 @@ async function getFriendDetail(idParam: string | string[]) {
                                                                 }}
                                                             </p>
                                                             <p
-                                                                class="mt-1 truncate text-xs text-slate-400"
+                                                                class="mt-1 truncate text-xs text-foreground"
                                                             >
                                                                 {{
                                                                     monster
@@ -2369,20 +2447,28 @@ async function getFriendDetail(idParam: string | string[]) {
                                                             </p>
 
                                                             <div
-                                                                v-if="monster.evolution_conditions.length"
+                                                                v-if="
+                                                                    monster
+                                                                        .evolution_conditions
+                                                                        .length
+                                                                "
                                                                 class="mt-2 space-y-1"
                                                             >
                                                                 <p
-                                                                    class="text-[10px] tracking-[0.14em] text-slate-500 uppercase"
+                                                                    class="text-[10px] tracking-[0.14em] text-foreground uppercase"
                                                                 >
                                                                     进化条件
                                                                 </p>
                                                                 <p
                                                                     v-for="condition in monster.evolution_conditions"
-                                                                    :key="condition"
-                                                                    class="text-xs leading-5 text-slate-300"
+                                                                    :key="
+                                                                        condition
+                                                                    "
+                                                                    class="text-xs leading-5 text-foreground"
                                                                 >
-                                                                    {{ condition }}
+                                                                    {{
+                                                                        condition
+                                                                    }}
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -2396,7 +2482,7 @@ async function getFriendDetail(idParam: string | string[]) {
                                                 stageIndex <
                                                 evolutionStages.length - 1
                                             "
-                                            class="flex items-center justify-center px-1 text-slate-500"
+                                            class="flex items-center justify-center px-1 text-foreground"
                                         >
                                             <ArrowRight class="h-4 w-4" />
                                         </div>
@@ -2407,18 +2493,18 @@ async function getFriendDetail(idParam: string | string[]) {
                     </Card>
 
                     <div class="grid gap-4 2xl:grid-cols-[1.08fr_0.92fr]">
-                        <Card class="border-white/10 bg-black/20 shadow-sm">
+                        <Card class="border-border bg-card shadow-sm">
                             <CardHeader class="pb-3">
-                                <CardTitle class="text-white"
+                                <CardTitle class="text-foreground"
                                     >基础面板</CardTitle
                                 >
-                                <CardDescription class="text-slate-400">
+                                <CardDescription class="text-foreground">
                                     使用 ECharts 雷达图展示六维属性。
                                 </CardDescription>
                             </CardHeader>
                             <CardContent class="space-y-4">
                                 <div
-                                    class="stat-radar-panel relative rounded-xl border border-white/10 bg-slate-950/70 p-3"
+                                    class="stat-radar-panel relative rounded-[10px] border border-border bg-slate-950/70 p-3"
                                 >
                                     <div
                                         ref="radarChartRef"
@@ -2428,20 +2514,20 @@ async function getFriendDetail(idParam: string | string[]) {
                                         class="pointer-events-none absolute inset-0 flex items-center justify-center"
                                     >
                                         <div
-                                            class="rounded-2xl border border-white/10 bg-slate-950/82 px-4 py-3 text-center shadow-[0_12px_32px_-18px_rgba(0,0,0,0.85)]"
+                                            class="rounded-[10px] border border-border bg-slate-950/82 px-4 py-3 text-center shadow-md"
                                         >
                                             <p
-                                                class="text-[10px] tracking-[0.2em] text-slate-500 uppercase"
+                                                class="text-[10px] tracking-[0.2em] text-foreground uppercase"
                                             >
                                                 Total
                                             </p>
                                             <p
-                                                class="mt-1 text-2xl font-semibold text-white"
+                                                class="mt-1 text-2xl font-semibold text-foreground"
                                             >
                                                 {{ totalStats }}
                                             </p>
                                             <p
-                                                class="mt-1 text-[11px] text-slate-400"
+                                                class="mt-1 text-[11px] text-foreground"
                                             >
                                                 {{ highestStat.label }}领先
                                             </p>
@@ -2455,25 +2541,25 @@ async function getFriendDetail(idParam: string | string[]) {
                                     <div
                                         v-for="stat in statRows"
                                         :key="stat.key"
-                                        class="rounded-2xl border border-white/10 bg-white/6 px-3 py-2.5"
+                                        class="rounded-[10px] border border-border bg-muted px-3 py-2.5"
                                     >
                                         <div
                                             class="flex items-center justify-between gap-2"
                                         >
                                             <span
-                                                class="text-sm text-slate-300"
+                                                class="text-sm text-foreground"
                                                 >{{ stat.label }}</span
                                             >
                                             <span
-                                                class="text-sm font-semibold text-white"
+                                                class="text-sm font-semibold text-foreground"
                                                 >{{ stat.value }}</span
                                             >
                                         </div>
                                         <div
-                                            class="mt-2 h-1.5 overflow-hidden rounded-full bg-white/8"
+                                            class="mt-2 h-1.5 overflow-hidden rounded-[10px] bg-muted"
                                         >
                                             <div
-                                                class="h-full rounded-full bg-sky-500"
+                                                class="h-full rounded-[10px] bg-sky-500"
                                                 :style="{
                                                     width: `${(stat.value / statChartMax) * 100}%`,
                                                 }"
@@ -2484,28 +2570,28 @@ async function getFriendDetail(idParam: string | string[]) {
                             </CardContent>
                         </Card>
 
-                        <Card class="border-white/10 bg-black/20 shadow-sm">
+                        <Card class="border-border bg-card shadow-sm">
                             <CardHeader class="pb-3">
                                 <CardTitle
-                                    class="flex items-center gap-2 text-white"
+                                    class="flex items-center gap-2 text-foreground"
                                 >
                                     <Sparkles class="h-4 w-4 text-primary" />
                                     战斗概况
                                 </CardTitle>
-                                <CardDescription class="text-slate-400">
+                                <CardDescription class="text-foreground">
                                     倾向、覆盖与遗传技能的快速摘要。
                                 </CardDescription>
                             </CardHeader>
                             <CardContent class="space-y-4">
                                 <div class="grid gap-2 sm:grid-cols-2">
                                     <div
-                                        class="rounded-2xl border border-white/10 bg-white/6 px-3 py-2.5"
+                                        class="rounded-[10px] border border-border bg-muted px-3 py-2.5"
                                     >
-                                        <p class="text-xs text-slate-500">
+                                        <p class="text-xs text-foreground">
                                             攻击倾向
                                         </p>
                                         <p
-                                            class="mt-1.5 text-sm font-semibold text-white"
+                                            class="mt-1.5 text-sm font-semibold text-foreground"
                                         >
                                             {{
                                                 getAttackStyleLabel(
@@ -2515,13 +2601,13 @@ async function getFriendDetail(idParam: string | string[]) {
                                         </p>
                                     </div>
                                     <div
-                                        class="rounded-2xl border border-white/10 bg-white/6 px-3 py-2.5"
+                                        class="rounded-[10px] border border-border bg-muted px-3 py-2.5"
                                     >
-                                        <p class="text-xs text-slate-500">
+                                        <p class="text-xs text-foreground">
                                             遗传技能
                                         </p>
                                         <p
-                                            class="mt-1.5 text-sm font-semibold text-white"
+                                            class="mt-1.5 text-sm font-semibold text-foreground"
                                         >
                                             {{ friend.legacy_moves.length }} 项
                                         </p>
@@ -2531,7 +2617,9 @@ async function getFriendDetail(idParam: string | string[]) {
                                 <Separator class="bg-white/10" />
 
                                 <div class="space-y-2.5">
-                                    <p class="text-sm font-medium text-white">
+                                    <p
+                                        class="text-sm font-medium text-foreground"
+                                    >
                                         技能覆盖属性
                                     </p>
                                     <div class="flex flex-wrap gap-2">
@@ -2539,7 +2627,7 @@ async function getFriendDetail(idParam: string | string[]) {
                                             v-for="type in moveCoverageTypes"
                                             :key="type.id"
                                             variant="outline"
-                                            class="rounded-full border-sky-400/20 bg-sky-400/10 text-sky-200"
+                                            class="rounded-[10px] border-sky-400/20 bg-sky-400/10 text-sky-200"
                                         >
                                             {{ type.label }}
                                         </Badge>
@@ -2547,14 +2635,16 @@ async function getFriendDetail(idParam: string | string[]) {
                                 </div>
 
                                 <div class="space-y-2.5">
-                                    <p class="text-sm font-medium text-white">
+                                    <p
+                                        class="text-sm font-medium text-foreground"
+                                    >
                                         高威力技能
                                     </p>
                                     <div class="space-y-2">
                                         <div
                                             v-for="move in strongestMoves"
                                             :key="move.id"
-                                            class="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/6 px-3 py-2.5 text-sm"
+                                            class="flex items-center gap-3 rounded-[10px] border border-border bg-muted px-3 py-2.5 text-sm"
                                         >
                                             <SkillIcon
                                                 :icon-id="move.icon_id"
@@ -2562,19 +2652,24 @@ async function getFriendDetail(idParam: string | string[]) {
                                             />
                                             <div class="min-w-0 flex-1">
                                                 <p
-                                                    class="truncate font-medium text-white"
+                                                    class="truncate font-medium text-foreground"
                                                 >
                                                     {{ move.localized.zh.name }}
                                                 </p>
-                                                <div class="mt-1 flex flex-wrap items-center gap-1.5">
+                                                <div
+                                                    class="mt-1 flex flex-wrap items-center gap-1.5"
+                                                >
                                                     <Badge
-                                                        class="rounded-full bg-white/10 px-2 py-0 text-[11px] text-slate-100"
+                                                        class="rounded-[10px] bg-white/10 px-2 py-0 text-[11px] text-foreground"
                                                     >
-                                                        {{ move.move_type.localized.zh }}
+                                                        {{
+                                                            move.move_type
+                                                                .localized.zh
+                                                        }}
                                                     </Badge>
                                                     <Badge
                                                         variant="outline"
-                                                        class="rounded-full border-white/10 bg-black/20 px-2 py-0 text-[11px] text-slate-300"
+                                                        class="rounded-[10px] border-border bg-card px-2 py-0 text-[11px] text-foreground"
                                                     >
                                                         {{
                                                             getCategoryLabel(
@@ -2584,14 +2679,15 @@ async function getFriendDetail(idParam: string | string[]) {
                                                     </Badge>
                                                     <Badge
                                                         variant="outline"
-                                                        class="rounded-full border-white/10 bg-black/20 px-2 py-0 text-[11px] text-slate-300"
+                                                        class="rounded-[10px] border-border bg-card px-2 py-0 text-[11px] text-foreground"
                                                     >
-                                                        {{ move.energy_cost }} 能量
+                                                        {{ move.energy_cost }}
+                                                        能量
                                                     </Badge>
                                                 </div>
                                             </div>
                                             <span
-                                                class="shrink-0 text-lg font-semibold text-white"
+                                                class="shrink-0 text-lg font-semibold text-foreground"
                                             >
                                                 {{ move.power }}
                                             </span>
@@ -2602,41 +2698,43 @@ async function getFriendDetail(idParam: string | string[]) {
                         </Card>
                     </div>
 
-                    <div class="grid gap-4 xl:grid-cols-[1fr_1fr]">
-                        <Card class="border-white/10 bg-black/20 shadow-sm">
+                    <div class="grid gap-4">
+                        <Card class="border-border bg-card shadow-sm">
                             <CardHeader class="pb-3">
                                 <CardTitle
-                                    class="flex items-center gap-2 text-white"
+                                    class="flex items-center gap-2 text-foreground"
                                 >
                                     <WandSparkles
                                         class="h-4 w-4 text-sky-300"
                                     />
                                     遗传技能索引
                                 </CardTitle>
-                                <CardDescription class="text-slate-400">
+                                <CardDescription class="text-foreground">
                                     展示当前精灵可继承的全部血脉技能。
                                 </CardDescription>
                             </CardHeader>
                             <CardContent>
-                                <div class="grid gap-2 md:grid-cols-2">
+                                <div
+                                    class="grid gap-2 md:grid-cols-2 lg:grid-cols-4"
+                                >
                                     <div
                                         v-for="item in legacyTypeEntries"
                                         :key="`${item.type_id}-${item.move_id}`"
-                                        class="rounded-2xl border border-white/10 bg-white/6 px-3 py-3"
+                                        class="rounded-[10px] border border-border bg-muted px-3 py-3"
                                     >
                                         <div
                                             class="flex flex-wrap items-center gap-2"
                                         >
                                             <Badge
                                                 variant="outline"
-                                                class="rounded-full border-sky-400/20 bg-sky-400/10 text-sky-200"
+                                                class="rounded-[10px] border-sky-400/20 bg-sky-400/10 text-sky-200"
                                             >
                                                 {{ item.label }}血脉
                                             </Badge>
                                             <Badge
                                                 v-if="item.move"
                                                 variant="outline"
-                                                class="rounded-full border-white/10 bg-black/20 text-slate-300"
+                                                class="rounded-[10px] border-border bg-card text-foreground"
                                             >
                                                 {{
                                                     getCategoryLabel(
@@ -2650,47 +2748,54 @@ async function getFriendDetail(idParam: string | string[]) {
                                             <SkillIcon
                                                 v-if="item.move"
                                                 :icon-id="item.move.icon_id"
-                                                :alt="item.move.localized.zh.name"
+                                                :alt="
+                                                    item.move.localized.zh.name
+                                                "
                                             />
-                                            <div class="min-w-0 flex-1 space-y-1.5">
-                                            <p
-                                                class="text-sm font-semibold text-white"
+                                            <div
+                                                class="min-w-0 flex-1 space-y-1.5"
                                             >
-                                                {{
-                                                    item.move?.localized.zh
-                                                        .name ??
-                                                    `技能 #${item.move_id}`
-                                                }}
-                                            </p>
-                                            <p
-                                                class="text-xs leading-5 text-slate-400"
-                                            >
-                                                {{
-                                                    item.move?.localized.zh
-                                                        .description ??
-                                                    "当前索引暂未解析到技能说明。"
-                                                }}
-                                            </p>
+                                                <p
+                                                    class="text-sm font-semibold text-foreground"
+                                                >
+                                                    {{
+                                                        item.move?.localized.zh
+                                                            .name ??
+                                                        `技能 #${item.move_id}`
+                                                    }}
+                                                </p>
+                                                <p
+                                                    class="text-xs leading-5 text-foreground"
+                                                >
+                                                    {{
+                                                        item.move?.localized.zh
+                                                            .description ??
+                                                        "当前索引暂未解析到技能说明。"
+                                                    }}
+                                                </p>
                                             </div>
                                         </div>
 
                                         <div
-                                            class="mt-3 flex flex-wrap gap-2 text-xs text-slate-300"
+                                            class="mt-3 flex flex-wrap gap-2 text-xs text-foreground"
                                         >
                                             <span
-                                                class="rounded-full border border-white/10 bg-black/20 px-2 py-0.5"
+                                                class="rounded-[10px] border border-border bg-card px-2 py-0.5"
                                             >
                                                 #{{ item.move_id }}
                                             </span>
                                             <span
                                                 v-if="item.move"
-                                                class="rounded-full border border-white/10 bg-black/20 px-2 py-0.5"
+                                                class="rounded-[10px] border border-border bg-card px-2 py-0.5"
                                             >
                                                 能耗 {{ item.move.energy_cost }}
                                             </span>
                                             <span
-                                                v-if="item.move && item.move.power !== null"
-                                                class="rounded-full border border-white/10 bg-black/20 px-2 py-0.5"
+                                                v-if="
+                                                    item.move &&
+                                                    item.move.power !== null
+                                                "
+                                                class="rounded-[10px] border border-border bg-card px-2 py-0.5"
                                             >
                                                 威力 {{ item.move.power }}
                                             </span>
@@ -2703,53 +2808,87 @@ async function getFriendDetail(idParam: string | string[]) {
                 </TabsContent>
 
                 <TabsContent value="moves">
-                    <Card class="border-white/10 bg-black/20 shadow-sm">
+                    <Card class="border-border bg-card shadow-sm">
                         <CardHeader class="pb-3">
-                            <CardTitle class="text-white">自有技能</CardTitle>
-                            <div class="mt-2 grid gap-2 sm:grid-cols-[1fr_auto_auto_auto]">
+                            <CardTitle class="text-foreground"
+                                >自有技能</CardTitle
+                            >
+                            <div
+                                class="mt-2 grid gap-2 sm:grid-cols-[1fr_auto_auto_auto]"
+                            >
                                 <div class="relative">
-                                    <Search class="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-500" />
+                                    <Search
+                                        class="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-foreground"
+                                    />
                                     <Input
                                         v-model="moveFilterQuery"
                                         type="search"
                                         placeholder="搜索技能名称或描述"
-                                        class="h-8 rounded-xl border-white/10 bg-black/25 pl-9 text-xs text-slate-100 placeholder:text-slate-500 focus-visible:border-primary/60 focus-visible:ring-primary/20"
+                                        class="h-8 rounded-[10px] border-border bg-card pl-9 text-xs text-foreground placeholder:text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
                                     />
                                 </div>
                                 <Select v-model="moveFilterType">
-                                    <SelectTrigger class="h-8 w-auto min-w-24 rounded-xl border-white/10 bg-black/25 text-xs text-slate-100">
+                                    <SelectTrigger
+                                        class="h-8 w-auto min-w-24 rounded-[10px] border-border bg-card text-xs text-foreground"
+                                    >
                                         <SelectValue placeholder="全部属性" />
                                     </SelectTrigger>
-                                    <SelectContent class="border-white/10 bg-slate-950/95 text-slate-100">
-                                        <SelectItem value="all">全部属性</SelectItem>
-                                        <SelectItem v-for="t in movePoolFilterOptions.types" :key="t" :value="t">{{ t }}</SelectItem>
+                                    <SelectContent
+                                        class="border-border bg-slate-950/95 text-foreground"
+                                    >
+                                        <SelectItem value="all"
+                                            >全部属性</SelectItem
+                                        >
+                                        <SelectItem
+                                            v-for="t in movePoolFilterOptions.types"
+                                            :key="t"
+                                            :value="t"
+                                            >{{ t }}</SelectItem
+                                        >
                                     </SelectContent>
                                 </Select>
                                 <Select v-model="moveFilterCategory">
-                                    <SelectTrigger class="h-8 w-auto min-w-24 rounded-xl border-white/10 bg-black/25 text-xs text-slate-100">
+                                    <SelectTrigger
+                                        class="h-8 w-auto min-w-24 rounded-[10px] border-border bg-card text-xs text-foreground"
+                                    >
                                         <SelectValue placeholder="全部分类" />
                                     </SelectTrigger>
-                                    <SelectContent class="border-white/10 bg-slate-950/95 text-slate-100">
-                                        <SelectItem value="all">全部分类</SelectItem>
-                                        <SelectItem v-for="c in movePoolFilterOptions.categories" :key="c" :value="c">{{ getCategoryLabel(c) }}</SelectItem>
+                                    <SelectContent
+                                        class="border-border bg-slate-950/95 text-foreground"
+                                    >
+                                        <SelectItem value="all"
+                                            >全部分类</SelectItem
+                                        >
+                                        <SelectItem
+                                            v-for="c in movePoolFilterOptions.categories"
+                                            :key="c"
+                                            :value="c"
+                                            >{{
+                                                getCategoryLabel(c)
+                                            }}</SelectItem
+                                        >
                                     </SelectContent>
                                 </Select>
                                 <button
                                     v-if="hasActiveMoveFilters"
-                                    class="inline-flex h-8 items-center gap-1.5 rounded-xl border border-white/10 bg-black/25 px-3 text-xs text-slate-400 transition hover:bg-white/8 hover:text-slate-200"
+                                    class="inline-flex h-8 items-center gap-1.5 rounded-[10px] border border-border bg-card px-3 text-xs text-foreground transition hover:bg-muted hover:text-foreground"
                                     @click="resetMoveFilters"
                                 >
                                     <RotateCcw class="h-3 w-3" />
                                     重置
                                 </button>
                             </div>
-                            <p v-if="hasActiveMoveFilters" class="mt-1.5 text-xs text-slate-500">
-                                {{ filteredMovePool.length }} / {{ friend.move_pool.length }} 项技能
+                            <p
+                                v-if="hasActiveMoveFilters"
+                                class="mt-1.5 text-xs text-foreground"
+                            >
+                                {{ filteredMovePool.length }} /
+                                {{ friend.move_pool.length }} 项技能
                             </p>
                         </CardHeader>
                         <CardContent class="space-y-2.5">
                             <div
-                                class="hidden grid-cols-[72px_minmax(0,2.1fr)_minmax(0,1.15fr)_96px_76px] items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-3 py-2.5 text-[11px] tracking-[0.14em] text-slate-500 uppercase md:grid"
+                                class="hidden grid-cols-[72px_minmax(0,2.1fr)_minmax(0,1.15fr)_96px_76px] items-center gap-3 rounded-[10px] border border-border bg-white/5 px-3 py-2.5 text-[11px] tracking-[0.14em] text-foreground uppercase md:grid"
                             >
                                 <span></span>
                                 <span>技能</span>
@@ -2759,8 +2898,11 @@ async function getFriendDetail(idParam: string | string[]) {
                             </div>
 
                             <p
-                                v-if="filteredMovePool.length === 0 && hasActiveMoveFilters"
-                                class="rounded-2xl border border-dashed border-white/10 bg-black/20 px-4 py-6 text-center text-sm text-slate-400"
+                                v-if="
+                                    filteredMovePool.length === 0 &&
+                                    hasActiveMoveFilters
+                                "
+                                class="rounded-[10px] border border-dashed border-border bg-card px-4 py-6 text-center text-sm text-foreground"
                             >
                                 当前筛选条件下没有匹配的技能。
                             </p>
@@ -2768,7 +2910,7 @@ async function getFriendDetail(idParam: string | string[]) {
                             <article
                                 v-for="move in filteredMovePool"
                                 :key="move.id"
-                                class="rounded-2xl border border-white/10 bg-white/6 px-3 py-3 transition-colors hover:border-white/15 hover:bg-white/8"
+                                class="rounded-[10px] border border-border bg-muted px-3 py-3 transition-colors hover:border-white/15 hover:bg-muted"
                             >
                                 <div
                                     class="flex gap-3 md:grid md:grid-cols-[72px_minmax(0,2.1fr)_minmax(0,1.15fr)_96px_76px] md:items-start"
@@ -2783,38 +2925,40 @@ async function getFriendDetail(idParam: string | string[]) {
                                     <div class="min-w-0">
                                         <div class="flex items-center gap-2">
                                             <h3
-                                                class="truncate text-sm font-semibold text-white"
+                                                class="truncate text-sm font-semibold text-foreground"
                                             >
                                                 {{ move.localized.zh.name }}
                                             </h3>
                                             <Badge
                                                 variant="outline"
-                                                class="shrink-0 rounded-full border-white/10 bg-black/20 text-slate-400"
+                                                class="shrink-0 rounded-[10px] border-border bg-card text-foreground"
                                             >
                                                 #{{ move.id }}
                                             </Badge>
                                         </div>
                                         <p
-                                            class="mt-0.5 text-[11px] text-slate-500"
+                                            class="mt-0.5 text-[11px] text-foreground"
                                         >
                                             {{ move.name }}
                                         </p>
                                         <p
-                                            class="mt-1.5 text-sm leading-6 text-slate-300"
+                                            class="mt-1.5 text-sm leading-6 text-foreground"
                                         >
                                             {{ move.localized.zh.description }}
                                         </p>
                                     </div>
 
-                                    <div class="hidden flex-wrap gap-2 md:flex md:pt-0.5">
+                                    <div
+                                        class="hidden flex-wrap gap-2 md:flex md:pt-0.5"
+                                    >
                                         <Badge
-                                            class="rounded-full bg-white/10 text-slate-100"
+                                            class="rounded-[10px] bg-white/10 text-foreground"
                                         >
                                             {{ move.move_type.localized.zh }}
                                         </Badge>
                                         <Badge
                                             variant="outline"
-                                            class="rounded-full border-white/10 bg-black/20 text-slate-300"
+                                            class="rounded-[10px] border-border bg-card text-foreground"
                                         >
                                             {{
                                                 getCategoryLabel(
@@ -2825,27 +2969,41 @@ async function getFriendDetail(idParam: string | string[]) {
                                     </div>
 
                                     <div
-                                        class="hidden text-sm font-medium text-slate-200 md:block md:pt-0.5"
+                                        class="hidden text-sm font-medium text-foreground md:block md:pt-0.5"
                                     >
                                         {{ getEnergyLabel(move) }}
                                     </div>
 
                                     <div
-                                        class="hidden text-sm font-semibold text-white md:block md:pt-0.5"
+                                        class="hidden text-sm font-semibold text-foreground md:block md:pt-0.5"
                                     >
                                         {{ getPowerLabel(move) }}
                                     </div>
                                 </div>
 
-                                <div class="mt-2 flex flex-wrap items-center gap-2 md:hidden">
-                                    <Badge class="rounded-full bg-white/10 text-slate-100">
+                                <div
+                                    class="mt-2 flex flex-wrap items-center gap-2 md:hidden"
+                                >
+                                    <Badge
+                                        class="rounded-[10px] bg-white/10 text-foreground"
+                                    >
                                         {{ move.move_type.localized.zh }}
                                     </Badge>
-                                    <Badge variant="outline" class="rounded-full border-white/10 bg-black/20 text-slate-300">
-                                        {{ getCategoryLabel(move.move_category) }}
+                                    <Badge
+                                        variant="outline"
+                                        class="rounded-[10px] border-border bg-card text-foreground"
+                                    >
+                                        {{
+                                            getCategoryLabel(move.move_category)
+                                        }}
                                     </Badge>
-                                    <span class="text-xs text-slate-400">{{ getEnergyLabel(move) }}</span>
-                                    <span class="text-xs font-semibold text-white">威力 {{ getPowerLabel(move) }}</span>
+                                    <span class="text-xs text-foreground">{{
+                                        getEnergyLabel(move)
+                                    }}</span>
+                                    <span
+                                        class="text-xs font-semibold text-foreground"
+                                        >威力 {{ getPowerLabel(move) }}</span
+                                    >
                                 </div>
                             </article>
                         </CardContent>
@@ -2853,53 +3011,87 @@ async function getFriendDetail(idParam: string | string[]) {
                 </TabsContent>
 
                 <TabsContent value="stones">
-                    <Card class="border-white/10 bg-black/20 shadow-sm">
+                    <Card class="border-border bg-card shadow-sm">
                         <CardHeader class="pb-3">
-                            <CardTitle class="text-white">学习技能</CardTitle>
-                            <div class="mt-2 grid gap-2 sm:grid-cols-[1fr_auto_auto_auto]">
+                            <CardTitle class="text-foreground"
+                                >学习技能</CardTitle
+                            >
+                            <div
+                                class="mt-2 grid gap-2 sm:grid-cols-[1fr_auto_auto_auto]"
+                            >
                                 <div class="relative">
-                                    <Search class="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-500" />
+                                    <Search
+                                        class="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-foreground"
+                                    />
                                     <Input
                                         v-model="moveFilterQuery"
                                         type="search"
                                         placeholder="搜索技能名称或描述"
-                                        class="h-8 rounded-xl border-white/10 bg-black/25 pl-9 text-xs text-slate-100 placeholder:text-slate-500 focus-visible:border-primary/60 focus-visible:ring-primary/20"
+                                        class="h-8 rounded-[10px] border-border bg-card pl-9 text-xs text-foreground placeholder:text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
                                     />
                                 </div>
                                 <Select v-model="moveFilterType">
-                                    <SelectTrigger class="h-8 w-auto min-w-24 rounded-xl border-white/10 bg-black/25 text-xs text-slate-100">
+                                    <SelectTrigger
+                                        class="h-8 w-auto min-w-24 rounded-[10px] border-border bg-card text-xs text-foreground"
+                                    >
                                         <SelectValue placeholder="全部属性" />
                                     </SelectTrigger>
-                                    <SelectContent class="border-white/10 bg-slate-950/95 text-slate-100">
-                                        <SelectItem value="all">全部属性</SelectItem>
-                                        <SelectItem v-for="t in moveStonesFilterOptions.types" :key="t" :value="t">{{ t }}</SelectItem>
+                                    <SelectContent
+                                        class="border-border bg-slate-950/95 text-foreground"
+                                    >
+                                        <SelectItem value="all"
+                                            >全部属性</SelectItem
+                                        >
+                                        <SelectItem
+                                            v-for="t in moveStonesFilterOptions.types"
+                                            :key="t"
+                                            :value="t"
+                                            >{{ t }}</SelectItem
+                                        >
                                     </SelectContent>
                                 </Select>
                                 <Select v-model="moveFilterCategory">
-                                    <SelectTrigger class="h-8 w-auto min-w-24 rounded-xl border-white/10 bg-black/25 text-xs text-slate-100">
+                                    <SelectTrigger
+                                        class="h-8 w-auto min-w-24 rounded-[10px] border-border bg-card text-xs text-foreground"
+                                    >
                                         <SelectValue placeholder="全部分类" />
                                     </SelectTrigger>
-                                    <SelectContent class="border-white/10 bg-slate-950/95 text-slate-100">
-                                        <SelectItem value="all">全部分类</SelectItem>
-                                        <SelectItem v-for="c in moveStonesFilterOptions.categories" :key="c" :value="c">{{ getCategoryLabel(c) }}</SelectItem>
+                                    <SelectContent
+                                        class="border-border bg-slate-950/95 text-foreground"
+                                    >
+                                        <SelectItem value="all"
+                                            >全部分类</SelectItem
+                                        >
+                                        <SelectItem
+                                            v-for="c in moveStonesFilterOptions.categories"
+                                            :key="c"
+                                            :value="c"
+                                            >{{
+                                                getCategoryLabel(c)
+                                            }}</SelectItem
+                                        >
                                     </SelectContent>
                                 </Select>
                                 <button
                                     v-if="hasActiveMoveFilters"
-                                    class="inline-flex h-8 items-center gap-1.5 rounded-xl border border-white/10 bg-black/25 px-3 text-xs text-slate-400 transition hover:bg-white/8 hover:text-slate-200"
+                                    class="inline-flex h-8 items-center gap-1.5 rounded-[10px] border border-border bg-card px-3 text-xs text-foreground transition hover:bg-muted hover:text-foreground"
                                     @click="resetMoveFilters"
                                 >
                                     <RotateCcw class="h-3 w-3" />
                                     重置
                                 </button>
                             </div>
-                            <p v-if="hasActiveMoveFilters" class="mt-1.5 text-xs text-slate-500">
-                                {{ filteredMoveStones.length }} / {{ friend.move_stones.length }} 项技能
+                            <p
+                                v-if="hasActiveMoveFilters"
+                                class="mt-1.5 text-xs text-foreground"
+                            >
+                                {{ filteredMoveStones.length }} /
+                                {{ friend.move_stones.length }} 项技能
                             </p>
                         </CardHeader>
                         <CardContent class="space-y-2.5">
                             <div
-                                class="hidden grid-cols-[72px_minmax(0,2.1fr)_minmax(0,1.15fr)_96px_76px] items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-3 py-2.5 text-[11px] tracking-[0.14em] text-slate-500 uppercase md:grid"
+                                class="hidden grid-cols-[72px_minmax(0,2.1fr)_minmax(0,1.15fr)_96px_76px] items-center gap-3 rounded-[10px] border border-border bg-white/5 px-3 py-2.5 text-[11px] tracking-[0.14em] text-foreground uppercase md:grid"
                             >
                                 <span></span>
                                 <span>技能</span>
@@ -2909,8 +3101,11 @@ async function getFriendDetail(idParam: string | string[]) {
                             </div>
 
                             <p
-                                v-if="filteredMoveStones.length === 0 && hasActiveMoveFilters"
-                                class="rounded-2xl border border-dashed border-white/10 bg-black/20 px-4 py-6 text-center text-sm text-slate-400"
+                                v-if="
+                                    filteredMoveStones.length === 0 &&
+                                    hasActiveMoveFilters
+                                "
+                                class="rounded-[10px] border border-dashed border-border bg-card px-4 py-6 text-center text-sm text-foreground"
                             >
                                 当前筛选条件下没有匹配的技能。
                             </p>
@@ -2918,7 +3113,7 @@ async function getFriendDetail(idParam: string | string[]) {
                             <article
                                 v-for="move in filteredMoveStones"
                                 :key="move.id"
-                                class="rounded-2xl border border-white/10 bg-white/6 px-3 py-3 transition-colors hover:border-white/15 hover:bg-white/8"
+                                class="rounded-[10px] border border-border bg-muted px-3 py-3 transition-colors hover:border-white/15 hover:bg-muted"
                             >
                                 <div
                                     class="flex gap-3 md:grid md:grid-cols-[72px_minmax(0,2.1fr)_minmax(0,1.15fr)_96px_76px] md:items-start"
@@ -2933,38 +3128,40 @@ async function getFriendDetail(idParam: string | string[]) {
                                     <div class="min-w-0">
                                         <div class="flex items-center gap-2">
                                             <h3
-                                                class="truncate text-sm font-semibold text-white"
+                                                class="truncate text-sm font-semibold text-foreground"
                                             >
                                                 {{ move.localized.zh.name }}
                                             </h3>
                                             <Badge
                                                 variant="outline"
-                                                class="shrink-0 rounded-full border-white/10 bg-black/20 text-slate-400"
+                                                class="shrink-0 rounded-[10px] border-border bg-card text-foreground"
                                             >
                                                 #{{ move.id }}
                                             </Badge>
                                         </div>
                                         <p
-                                            class="mt-0.5 text-[11px] text-slate-500"
+                                            class="mt-0.5 text-[11px] text-foreground"
                                         >
                                             {{ move.name }}
                                         </p>
                                         <p
-                                            class="mt-1.5 text-sm leading-6 text-slate-300"
+                                            class="mt-1.5 text-sm leading-6 text-foreground"
                                         >
                                             {{ move.localized.zh.description }}
                                         </p>
                                     </div>
 
-                                    <div class="hidden flex-wrap gap-2 md:flex md:pt-0.5">
+                                    <div
+                                        class="hidden flex-wrap gap-2 md:flex md:pt-0.5"
+                                    >
                                         <Badge
-                                            class="rounded-full bg-white/10 text-slate-100"
+                                            class="rounded-[10px] bg-white/10 text-foreground"
                                         >
                                             {{ move.move_type.localized.zh }}
                                         </Badge>
                                         <Badge
                                             variant="outline"
-                                            class="rounded-full border-white/10 bg-black/20 text-slate-300"
+                                            class="rounded-[10px] border-border bg-card text-foreground"
                                         >
                                             {{
                                                 getCategoryLabel(
@@ -2975,27 +3172,41 @@ async function getFriendDetail(idParam: string | string[]) {
                                     </div>
 
                                     <div
-                                        class="hidden text-sm font-medium text-slate-200 md:block md:pt-0.5"
+                                        class="hidden text-sm font-medium text-foreground md:block md:pt-0.5"
                                     >
                                         {{ getEnergyLabel(move) }}
                                     </div>
 
                                     <div
-                                        class="hidden text-sm font-semibold text-white md:block md:pt-0.5"
+                                        class="hidden text-sm font-semibold text-foreground md:block md:pt-0.5"
                                     >
                                         {{ getPowerLabel(move) }}
                                     </div>
                                 </div>
 
-                                <div class="mt-2 flex flex-wrap items-center gap-2 md:hidden">
-                                    <Badge class="rounded-full bg-white/10 text-slate-100">
+                                <div
+                                    class="mt-2 flex flex-wrap items-center gap-2 md:hidden"
+                                >
+                                    <Badge
+                                        class="rounded-[10px] bg-white/10 text-foreground"
+                                    >
                                         {{ move.move_type.localized.zh }}
                                     </Badge>
-                                    <Badge variant="outline" class="rounded-full border-white/10 bg-black/20 text-slate-300">
-                                        {{ getCategoryLabel(move.move_category) }}
+                                    <Badge
+                                        variant="outline"
+                                        class="rounded-[10px] border-border bg-card text-foreground"
+                                    >
+                                        {{
+                                            getCategoryLabel(move.move_category)
+                                        }}
                                     </Badge>
-                                    <span class="text-xs text-slate-400">{{ getEnergyLabel(move) }}</span>
-                                    <span class="text-xs font-semibold text-white">威力 {{ getPowerLabel(move) }}</span>
+                                    <span class="text-xs text-foreground">{{
+                                        getEnergyLabel(move)
+                                    }}</span>
+                                    <span
+                                        class="text-xs font-semibold text-foreground"
+                                        >威力 {{ getPowerLabel(move) }}</span
+                                    >
                                 </div>
                             </article>
                         </CardContent>
@@ -3005,49 +3216,49 @@ async function getFriendDetail(idParam: string | string[]) {
 
             <Dialog v-model:open="petTopicDialogOpen">
                 <DialogContent
-                    class="border-white/10 bg-slate-950 text-slate-100 sm:max-w-2xl"
+                    class="border-border bg-slate-950 text-foreground sm:max-w-2xl"
                 >
                     <DialogHeader>
-                        <DialogTitle class="text-white">
+                        <DialogTitle class="text-foreground">
                             {{ friend.localized.zh.name }} 图鉴任务
                         </DialogTitle>
-                        <DialogDescription class="text-slate-400">
+                        <DialogDescription class="text-foreground">
                             在这里记录当前精灵的图鉴任务完成状态。任务完成状态不会同步到其他设备。
                         </DialogDescription>
                     </DialogHeader>
 
                     <div v-if="isPetTopicLoading" class="space-y-2.5">
                         <Skeleton
-                            class="h-20 rounded-2xl border border-white/10 bg-white/6"
+                            class="h-20 rounded-[10px] border border-border bg-muted"
                         />
                         <Skeleton
-                            class="h-16 rounded-2xl border border-white/10 bg-white/6"
+                            class="h-16 rounded-[10px] border border-border bg-muted"
                         />
                         <Skeleton
-                            class="h-16 rounded-2xl border border-white/10 bg-white/6"
+                            class="h-16 rounded-[10px] border border-border bg-muted"
                         />
                     </div>
 
                     <div
                         v-else-if="petTopicErrorMessage"
-                        class="rounded-2xl border border-destructive/20 bg-destructive/8 px-3 py-4 text-sm text-destructive"
+                        class="rounded-[10px] border border-destructive/20 bg-destructive/8 px-3 py-4 text-sm text-destructive"
                     >
                         {{ petTopicErrorMessage }}
                     </div>
 
                     <template v-else-if="petTopics.length">
                         <div
-                            class="rounded-2xl border border-white/10 bg-white/6 p-3"
+                            class="rounded-[10px] border border-border bg-muted p-3"
                         >
                             <div class="flex items-end justify-between gap-3">
                                 <div>
                                     <p
-                                        class="text-[11px] tracking-[0.14em] text-slate-500 uppercase"
+                                        class="text-[11px] tracking-[0.14em] text-foreground uppercase"
                                     >
                                         完成进度
                                     </p>
                                     <p
-                                        class="mt-1 text-lg font-semibold text-white"
+                                        class="mt-1 text-lg font-semibold text-foreground"
                                     >
                                         {{ completedPetTopicCount }}/{{
                                             petTopics.length
@@ -3062,17 +3273,17 @@ async function getFriendDetail(idParam: string | string[]) {
                             </div>
 
                             <div
-                                class="mt-3 h-2 overflow-hidden rounded-full bg-white/8"
+                                class="mt-3 h-2 overflow-hidden rounded-[10px] bg-muted"
                             >
                                 <div
-                                    class="h-full rounded-full bg-[linear-gradient(90deg,rgba(74,222,128,0.65),rgba(16,185,129,0.95))] transition-[width] duration-300"
+                                    class="h-full rounded-[10px] bg-card transition-[width] duration-300"
                                     :style="{
                                         width: `${petTopicCompletionRate}%`,
                                     }"
                                 />
                             </div>
 
-                            <p class="mt-2 text-xs leading-5 text-slate-500">
+                            <p class="mt-2 text-xs leading-5 text-foreground">
                                 最近记录：{{ petTopicLastRecordedLabel }}
                             </p>
                         </div>
@@ -3083,11 +3294,11 @@ async function getFriendDetail(idParam: string | string[]) {
                             <label
                                 v-for="topic in petTopics"
                                 :key="topic.topic_Id"
-                                class="group flex cursor-pointer items-start gap-3 rounded-2xl border px-3 py-3 transition-colors"
+                                class="group flex cursor-pointer items-start gap-3 rounded-[10px] border px-3 py-3 transition-colors"
                                 :class="
                                     isPetTopicCompleted(topic.topic_Id)
-                                        ? 'border-emerald-400/25 bg-emerald-400/8'
-                                        : 'border-white/10 bg-white/5 hover:border-white/15 hover:bg-white/8'
+                                        ? 'border-emerald-400/25 bg-card hover:bg-accent/8'
+                                        : 'border-border bg-white/5 hover:border-white/15 hover:bg-muted'
                                 "
                             >
                                 <input
@@ -3105,11 +3316,11 @@ async function getFriendDetail(idParam: string | string[]) {
                                 />
 
                                 <span
-                                    class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border transition-colors"
+                                    class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-[10px] border transition-colors"
                                     :class="
                                         isPetTopicCompleted(topic.topic_Id)
-                                            ? 'border-emerald-400/50 bg-emerald-400/20 text-emerald-200'
-                                            : 'border-white/10 bg-black/20 text-transparent group-hover:text-slate-500'
+                                            ? 'border-emerald-400/50 bg-card hover:bg-accent/20 text-emerald-200'
+                                            : 'border-border bg-card text-transparent group-hover:text-foreground'
                                     "
                                 >
                                     <Check class="h-3.5 w-3.5" />
@@ -3120,8 +3331,8 @@ async function getFriendDetail(idParam: string | string[]) {
                                         class="block text-sm leading-6"
                                         :class="
                                             isPetTopicCompleted(topic.topic_Id)
-                                                ? 'text-slate-200 line-through decoration-slate-500/70'
-                                                : 'text-slate-100'
+                                                ? 'text-foreground line-through decoration-slate-500/70'
+                                                : 'text-foreground'
                                         "
                                     >
                                         {{ topic.topic_desc }}
@@ -3130,99 +3341,274 @@ async function getFriendDetail(idParam: string | string[]) {
                                         v-if="getTopicRewards(topic).length > 0"
                                         class="mt-1.5 flex flex-wrap items-center gap-1.5"
                                     >
-                                        <Gift class="h-3 w-3 shrink-0 text-amber-400/70" />
+                                        <Gift
+                                            class="h-3 w-3 shrink-0 text-foreground/70"
+                                        />
                                         <template
-                                            v-for="(reward, rIdx) in getTopicRewards(topic)"
+                                            v-for="(
+                                                reward, rIdx
+                                            ) in getTopicRewards(topic)"
                                             :key="`${topic.topic_Id}-r${rIdx}`"
                                         >
-                                            <HoverCard v-if="reward.type === 1" :open-delay="200" :close-delay="100">
+                                            <HoverCard
+                                                v-if="reward.type === 1"
+                                                :open-delay="200"
+                                                :close-delay="100"
+                                            >
                                                 <HoverCardTrigger as-child>
                                                     <a
                                                         :href="`/items?highlight=${reward.id}`"
                                                         target="_blank"
                                                         rel="noopener"
-                                                        class="inline-flex items-center gap-1 rounded-full border border-amber-400/15 bg-amber-400/8 px-2 py-0.5 text-[11px] text-amber-200 transition hover:border-amber-400/30 hover:bg-amber-400/15"
+                                                        class="inline-flex items-center gap-1 rounded-[10px] border border-border/15 bg-card hover:bg-accent/8 px-2 py-0.5 text-[11px] text-foreground transition hover:border-border/30 hover:bg-card hover:bg-accent/15"
                                                         @click.stop
                                                     >
                                                         <img
-                                                            v-if="getRewardIconSrc(reward)"
-                                                            :src="getRewardIconSrc(reward)!"
+                                                            v-if="
+                                                                getRewardIconSrc(
+                                                                    reward,
+                                                                )
+                                                            "
+                                                            :src="
+                                                                getRewardIconSrc(
+                                                                    reward,
+                                                                )!
+                                                            "
                                                             class="h-3.5 w-3.5 object-contain"
                                                             loading="lazy"
                                                         />
-                                                        {{ reward.name }} ×{{ reward.count }}
-                                                        <ExternalLink class="h-2.5 w-2.5 opacity-50" />
+                                                        {{ reward.name }} ×{{
+                                                            reward.count
+                                                        }}
+                                                        <ExternalLink
+                                                            class="h-2.5 w-2.5 opacity-50"
+                                                        />
                                                     </a>
                                                 </HoverCardTrigger>
                                                 <HoverCardContent
                                                     side="top"
                                                     :side-offset="6"
-                                                    class="w-72 border-white/10 bg-slate-950/95 p-0 shadow-xl backdrop-blur-sm"
+                                                    class="w-72 border-border bg-slate-950/95 p-0 shadow-xl"
                                                 >
                                                     <div class="flex gap-3 p-3">
-                                                        <div class="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-slate-900/80">
+                                                        <div
+                                                            class="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[10px] border border-border bg-slate-900/80"
+                                                        >
                                                             <img
-                                                                v-if="getRewardIconSrc(reward)"
-                                                                :src="getRewardIconSrc(reward)!"
+                                                                v-if="
+                                                                    getRewardIconSrc(
+                                                                        reward,
+                                                                    )
+                                                                "
+                                                                :src="
+                                                                    getRewardIconSrc(
+                                                                        reward,
+                                                                    )!
+                                                                "
                                                                 class="h-full w-full object-contain p-1.5"
                                                             />
-                                                            <span v-else class="text-lg font-bold text-slate-400">{{ reward.name.slice(0, 1) }}</span>
+                                                            <span
+                                                                v-else
+                                                                class="text-lg font-bold text-foreground"
+                                                                >{{
+                                                                    reward.name.slice(
+                                                                        0,
+                                                                        1,
+                                                                    )
+                                                                }}</span
+                                                            >
                                                         </div>
-                                                        <div class="min-w-0 flex-1">
-                                                            <p class="text-[10px] tracking-wider text-slate-500 uppercase">#{{ reward.id }}</p>
-                                                            <p class="truncate text-sm font-semibold text-white">{{ reward.name }}</p>
-                                                            <p v-if="getItemDetail(reward.id)?.quality_label" :class="['text-xs', getQualityColor(getItemDetail(reward.id)!.quality)]">
-                                                                {{ getItemDetail(reward.id)!.quality_label }}
+                                                        <div
+                                                            class="min-w-0 flex-1"
+                                                        >
+                                                            <p
+                                                                class="text-[10px] tracking-wider text-foreground uppercase"
+                                                            >
+                                                                #{{ reward.id }}
+                                                            </p>
+                                                            <p
+                                                                class="truncate text-sm font-semibold text-foreground"
+                                                            >
+                                                                {{
+                                                                    reward.name
+                                                                }}
+                                                            </p>
+                                                            <p
+                                                                v-if="
+                                                                    getItemDetail(
+                                                                        reward.id,
+                                                                    )
+                                                                        ?.quality_label
+                                                                "
+                                                                :class="[
+                                                                    'text-xs',
+                                                                    getQualityColor(
+                                                                        getItemDetail(
+                                                                            reward.id,
+                                                                        )!
+                                                                            .quality,
+                                                                    ),
+                                                                ]"
+                                                            >
+                                                                {{
+                                                                    getItemDetail(
+                                                                        reward.id,
+                                                                    )!
+                                                                        .quality_label
+                                                                }}
                                                             </p>
                                                         </div>
                                                     </div>
-                                                    <div v-if="getItemDetail(reward.id)?.description" class="border-t border-white/8 px-3 py-2">
-                                                        <p class="text-xs leading-5 text-slate-300">{{ getItemDetail(reward.id)!.description }}</p>
+                                                    <div
+                                                        v-if="
+                                                            getItemDetail(
+                                                                reward.id,
+                                                            )?.description
+                                                        "
+                                                        class="border-t border-white/8 px-3 py-2"
+                                                    >
+                                                        <p
+                                                            class="text-xs leading-5 text-foreground"
+                                                        >
+                                                            {{
+                                                                getItemDetail(
+                                                                    reward.id,
+                                                                )!.description
+                                                            }}
+                                                        </p>
                                                     </div>
-                                                    <div v-if="getItemDetail(reward.id)?.category || getItemDetail(reward.id)?.type_desc" class="flex flex-wrap gap-1.5 border-t border-white/8 px-3 py-2">
-                                                        <Badge v-if="getItemDetail(reward.id)?.category" variant="outline" class="rounded-full border-white/10 bg-white/5 px-2 py-0.5 text-[10px] text-slate-300">
-                                                            {{ getItemDetail(reward.id)!.category }}
+                                                    <div
+                                                        v-if="
+                                                            getItemDetail(
+                                                                reward.id,
+                                                            )?.category ||
+                                                            getItemDetail(
+                                                                reward.id,
+                                                            )?.type_desc
+                                                        "
+                                                        class="flex flex-wrap gap-1.5 border-t border-white/8 px-3 py-2"
+                                                    >
+                                                        <Badge
+                                                            v-if="
+                                                                getItemDetail(
+                                                                    reward.id,
+                                                                )?.category
+                                                            "
+                                                            variant="outline"
+                                                            class="rounded-[10px] border-border bg-white/5 px-2 py-0.5 text-[10px] text-foreground"
+                                                        >
+                                                            {{
+                                                                getItemDetail(
+                                                                    reward.id,
+                                                                )!.category
+                                                            }}
                                                         </Badge>
-                                                        <Badge v-if="getItemDetail(reward.id)?.type_desc" variant="outline" class="rounded-full border-sky-400/20 bg-sky-400/10 px-2 py-0.5 text-[10px] text-sky-200">
-                                                            {{ getItemDetail(reward.id)!.type_desc }}
+                                                        <Badge
+                                                            v-if="
+                                                                getItemDetail(
+                                                                    reward.id,
+                                                                )?.type_desc
+                                                            "
+                                                            variant="outline"
+                                                            class="rounded-[10px] border-sky-400/20 bg-sky-400/10 px-2 py-0.5 text-[10px] text-sky-200"
+                                                        >
+                                                            {{
+                                                                getItemDetail(
+                                                                    reward.id,
+                                                                )!.type_desc
+                                                            }}
                                                         </Badge>
                                                     </div>
-                                                    <div class="border-t border-white/8 px-3 py-1.5">
-                                                        <p class="text-center text-[10px] text-slate-500">×{{ reward.count }} · 点击查看详情</p>
+                                                    <div
+                                                        class="border-t border-white/8 px-3 py-1.5"
+                                                    >
+                                                        <p
+                                                            class="text-center text-[10px] text-foreground"
+                                                        >
+                                                            ×{{ reward.count }}
+                                                            · 点击查看详情
+                                                        </p>
                                                     </div>
                                                 </HoverCardContent>
                                             </HoverCard>
-                                            <HoverCard v-else :open-delay="200" :close-delay="100">
+                                            <HoverCard
+                                                v-else
+                                                :open-delay="200"
+                                                :close-delay="100"
+                                            >
                                                 <HoverCardTrigger as-child>
                                                     <span
-                                                        class="inline-flex items-center gap-1 rounded-full border border-sky-400/15 bg-sky-400/8 px-2 py-0.5 text-[11px] text-sky-200"
+                                                        class="inline-flex items-center gap-1 rounded-[10px] border border-sky-400/15 bg-sky-400/8 px-2 py-0.5 text-[11px] text-sky-200"
                                                     >
                                                         <img
-                                                            v-if="getRewardIconSrc(reward)"
-                                                            :src="getRewardIconSrc(reward)!"
+                                                            v-if="
+                                                                getRewardIconSrc(
+                                                                    reward,
+                                                                )
+                                                            "
+                                                            :src="
+                                                                getRewardIconSrc(
+                                                                    reward,
+                                                                )!
+                                                            "
                                                             class="h-3.5 w-3.5 object-contain"
                                                             loading="lazy"
                                                         />
-                                                        {{ reward.name }} ×{{ reward.count }}
+                                                        {{ reward.name }} ×{{
+                                                            reward.count
+                                                        }}
                                                     </span>
                                                 </HoverCardTrigger>
                                                 <HoverCardContent
                                                     side="top"
                                                     :side-offset="6"
-                                                    class="w-56 border-white/10 bg-slate-950/95 p-3 shadow-xl backdrop-blur-sm"
+                                                    class="w-56 border-border bg-slate-950/95 p-3 shadow-xl"
                                                 >
-                                                    <div class="flex items-center gap-2.5">
-                                                        <div class="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-slate-900/80">
+                                                    <div
+                                                        class="flex items-center gap-2.5"
+                                                    >
+                                                        <div
+                                                            class="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-[10px] border border-border bg-slate-900/80"
+                                                        >
                                                             <img
-                                                                v-if="getRewardIconSrc(reward)"
-                                                                :src="getRewardIconSrc(reward)!"
+                                                                v-if="
+                                                                    getRewardIconSrc(
+                                                                        reward,
+                                                                    )
+                                                                "
+                                                                :src="
+                                                                    getRewardIconSrc(
+                                                                        reward,
+                                                                    )!
+                                                                "
                                                                 class="h-full w-full object-contain p-1"
                                                             />
-                                                            <span v-else class="text-sm font-bold text-slate-400">{{ reward.name.slice(0, 1) }}</span>
+                                                            <span
+                                                                v-else
+                                                                class="text-sm font-bold text-foreground"
+                                                                >{{
+                                                                    reward.name.slice(
+                                                                        0,
+                                                                        1,
+                                                                    )
+                                                                }}</span
+                                                            >
                                                         </div>
                                                         <div>
-                                                            <p class="text-sm font-semibold text-white">{{ reward.name }}</p>
-                                                            <p class="text-xs text-sky-300">×{{ reward.count }}</p>
+                                                            <p
+                                                                class="text-sm font-semibold text-foreground"
+                                                            >
+                                                                {{
+                                                                    reward.name
+                                                                }}
+                                                            </p>
+                                                            <p
+                                                                class="text-xs text-sky-300"
+                                                            >
+                                                                ×{{
+                                                                    reward.count
+                                                                }}
+                                                            </p>
                                                         </div>
                                                     </div>
                                                 </HoverCardContent>
@@ -3230,7 +3616,7 @@ async function getFriendDetail(idParam: string | string[]) {
                                         </template>
                                     </span>
                                     <span
-                                        class="mt-1 block text-[11px] text-slate-500"
+                                        class="mt-1 block text-[11px] text-foreground"
                                     >
                                         任务 {{ topic.topic_Id }}
                                         <span
@@ -3252,12 +3638,12 @@ async function getFriendDetail(idParam: string | string[]) {
                             </label>
                         </div>
 
-                        <p class="text-xs leading-5 text-slate-500">
+                        <p class="text-xs leading-5 text-foreground">
                             任务完成状态不会同步到其他设备!
                         </p>
                     </template>
 
-                    <p v-else class="text-sm leading-6 text-slate-400">
+                    <p v-else class="text-sm leading-6 text-foreground">
                         暂无图鉴任务。
                     </p>
                 </DialogContent>

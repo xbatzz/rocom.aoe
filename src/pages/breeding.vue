@@ -605,7 +605,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
                 >
                     <div class="max-w-3xl space-y-3">
                         <CardTitle
-                            class="text-2xl tracking-tight text-white md:text-3xl"
+                            class="text-2xl tracking-tight text-foreground md:text-3xl"
                         >
                             精灵配种
                         </CardTitle>
@@ -613,26 +613,26 @@ document.title = "精灵配种 - 洛克王国工具箱";
 
                     <div class="grid gap-3 sm:grid-cols-3">
                         <div
-                            class="rounded-xl border border-white/10 bg-white/6 px-4 py-3 backdrop-blur-sm"
+                            class="rounded-[10px] border border-border bg-muted px-4 py-3 "
                         >
                             <p
-                                class="text-xs tracking-[0.18em] text-slate-500 uppercase"
+                                class="text-xs tracking-[0.18em] text-foreground uppercase"
                             >
                                 母体候选
                             </p>
-                            <p class="mt-2 text-2xl font-semibold text-white">
+                            <p class="mt-2 text-2xl font-semibold text-foreground">
                                 {{ motherEligibleCount }}
                             </p>
                         </div>
                         <div
-                            class="rounded-xl border border-white/10 bg-white/6 px-4 py-3 backdrop-blur-sm"
+                            class="rounded-[10px] border border-border bg-muted px-4 py-3 "
                         >
                             <p
-                                class="text-xs tracking-[0.18em] text-slate-500 uppercase"
+                                class="text-xs tracking-[0.18em] text-foreground uppercase"
                             >
                                 父体候选
                             </p>
-                            <p class="mt-2 text-2xl font-semibold text-white">
+                            <p class="mt-2 text-2xl font-semibold text-foreground">
                                 {{ fatherEligibleCount }}
                             </p>
                         </div>
@@ -645,7 +645,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
 
                 <div
                     v-if="errorMessage"
-                    class="rounded-xl border border-rose-400/20 bg-rose-500/10 px-4 py-3 text-sm text-rose-100"
+                    class="rounded-[10px] border border-rose-400/20 bg-rose-500/10 px-4 py-3 text-sm text-rose-100"
                 >
                     {{ errorMessage }}
                 </div>
@@ -654,14 +654,14 @@ document.title = "精灵配种 - 洛克王国工具箱";
                     v-else-if="isLoading"
                     class="grid gap-4 xl:grid-cols-[1fr_auto_1fr]"
                 >
-                    <Skeleton class="h-72 rounded-2xl bg-white/8" />
+                    <Skeleton class="h-72 rounded-[10px] bg-muted" />
                     <div class="hidden xl:block" />
-                    <Skeleton class="h-72 rounded-2xl bg-white/8" />
+                    <Skeleton class="h-72 rounded-[10px] bg-muted" />
                 </div>
 
                 <div v-else class="grid gap-4 xl:grid-cols-[1fr_auto_1fr]">
                     <Card
-                        class="overflow-hidden border-white/10 bg-black/24 shadow-none"
+                        class="overflow-hidden border-border bg-card shadow-none"
                     >
                         <CardHeader class="space-y-4 px-5 py-5">
                             <div
@@ -669,12 +669,12 @@ document.title = "精灵配种 - 洛克王国工具箱";
                             >
                                 <div>
                                     <p
-                                        class="text-xs tracking-[0.18em] text-slate-500 uppercase"
+                                        class="text-xs tracking-[0.18em] text-foreground uppercase"
                                     >
                                         精灵 A
                                     </p>
                                     <h2
-                                        class="mt-2 text-xl font-semibold tracking-tight text-white"
+                                        class="mt-2 text-xl font-semibold tracking-tight text-foreground"
                                     >
                                         母体
                                     </h2>
@@ -682,7 +682,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
 
                                 <Badge
                                     variant="outline"
-                                    class="rounded-full border-amber-300/20 bg-amber-300/10 text-amber-100"
+                                    class="rounded-[10px] border-border/20 bg-card hover:bg-accent/10 text-foreground"
                                 >
                                     出生结果跟随她
                                 </Badge>
@@ -692,14 +692,14 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                 <PopoverTrigger as-child>
                                     <Button
                                         variant="outline"
-                                        class="h-auto w-full justify-between rounded-xl border-white/10 bg-white/6 px-4 py-3 text-left text-slate-100 hover:bg-white/10"
+                                        class="h-auto w-full justify-between rounded-[10px] border-border bg-muted px-4 py-3 text-left text-foreground hover:bg-accent"
                                     >
                                         <div class="min-w-0">
-                                            <p class="text-xs text-slate-500">
+                                            <p class="text-xs text-foreground">
                                                 搜索并选择母体
                                             </p>
                                             <p
-                                                class="mt-1 truncate text-sm font-medium text-white"
+                                                class="mt-1 truncate text-sm font-medium text-foreground"
                                             >
                                                 {{
                                                     selectedMother?.localized.zh
@@ -708,7 +708,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                             </p>
                                         </div>
                                         <ChevronDown
-                                            class="h-4 w-4 shrink-0 text-slate-400"
+                                            class="h-4 w-4 shrink-0 text-foreground"
                                         />
                                     </Button>
                                 </PopoverTrigger>
@@ -716,26 +716,26 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                 <PopoverContent
                                     v-if="motherPopoverOpen"
                                     align="start"
-                                    class="w-[min(28rem,calc(100vw-2rem))] border-white/10 bg-slate-950/95 p-0 text-slate-100"
+                                    class="w-[min(28rem,calc(100vw-2rem))] border-border bg-slate-950/95 p-0 text-foreground"
                                 >
                                     <div
-                                        class="rounded-xl border-0 bg-transparent"
+                                        class="rounded-[10px] border-0 bg-transparent"
                                     >
                                         <div
-                                            class="border-b border-white/10 p-3"
+                                            class="border-b border-border p-3"
                                         >
                                             <div class="relative">
                                                 <Search
-                                                    class="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-slate-500"
+                                                    class="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-foreground"
                                                 />
                                                 <Input
                                                     v-model="motherSearchQuery"
                                                     placeholder="搜索母体名称、编号、属性"
-                                                    class="h-11 rounded-2xl border-white/10 bg-black/20 pl-9 text-slate-100 placeholder:text-slate-500"
+                                                    class="h-11 rounded-[10px] border-border bg-card pl-9 text-foreground placeholder:text-foreground"
                                                 />
                                             </div>
                                             <p
-                                                class="mt-2 text-xs text-slate-500"
+                                                class="mt-2 text-xs text-foreground"
                                             >
                                                 已匹配
                                                 {{
@@ -747,7 +747,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
 
                                         <div
                                             v-if="!filteredMotherOptions.length"
-                                            class="px-3 py-8 text-sm text-slate-500"
+                                            class="px-3 py-8 text-sm text-foreground"
                                         >
                                             没有符合条件的母体精灵。
                                         </div>
@@ -777,13 +777,13 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                                     "
                                                     type="button"
                                                     :class="[
-                                                        'mb-2 flex h-21 w-full items-center gap-3 rounded-2xl border border-transparent px-3 py-3 text-left text-slate-100 transition-colors',
+                                                        'mb-2 flex h-21 w-full items-center gap-3 rounded-[10px] border border-transparent px-3 py-3 text-left text-foreground transition-colors',
                                                         row.data.pet.id ===
                                                         selectedMotherId
-                                                            ? 'border-amber-300/30 bg-amber-300/10'
+                                                            ? 'border-border/30 bg-card hover:bg-accent/10'
                                                             : '',
                                                         row.data.compatible
-                                                            ? 'bg-white/4 hover:bg-white/8'
+                                                            ? 'bg-white/4 hover:bg-muted'
                                                             : 'bg-black/30 opacity-45',
                                                     ]"
                                                     @click="
@@ -803,7 +803,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                                                 .localized.zh
                                                                 .name
                                                         "
-                                                        class="h-10 w-12 shrink-0 rounded-xl border-white/10"
+                                                        class="h-10 w-12 shrink-0 rounded-[10px] border-border"
                                                         img-class="object-cover object-top"
                                                     />
                                                     <div
@@ -819,7 +819,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                                                     class="flex items-center gap-2"
                                                                 >
                                                                     <p
-                                                                        class="truncate font-medium text-white"
+                                                                        class="truncate font-medium text-foreground"
                                                                     >
                                                                         {{
                                                                             row
@@ -839,13 +839,13 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                                                             )
                                                                         "
                                                                         variant="outline"
-                                                                        class="rounded-full border-amber-300/20 bg-amber-300/10 px-1.5 py-0 text-[10px] text-amber-100"
+                                                                        class="rounded-[10px] border-border/20 bg-card hover:bg-accent/10 px-1.5 py-0 text-[10px] text-foreground"
                                                                     >
                                                                         未实装
                                                                     </Badge>
                                                                 </div>
                                                                 <p
-                                                                    class="text-xs text-slate-500"
+                                                                    class="text-xs text-foreground"
                                                                 >
                                                                     #{{
                                                                         row.data
@@ -856,7 +856,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                                             </div>
                                                         </div>
                                                         <p
-                                                            class="truncate text-xs text-slate-400"
+                                                            class="truncate text-xs text-foreground"
                                                         >
                                                             {{
                                                                 getTypeLabel(
@@ -892,7 +892,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
 
                         <CardContent class="px-5 pb-5 pt-0">
                             <div
-                                class="rounded-[1.75rem] border border-white/10 bg-white/5 p-4"
+                                class="rounded-[10px] border border-border bg-white/5 p-4"
                             >
                                 <div class="flex items-start gap-4">
                                     <FriendPortrait
@@ -901,18 +901,18 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                             selectedMother?.localized.zh.name ??
                                             '母体'
                                         "
-                                        class="h-24 w-24 rounded-[1.4rem] border-white/10"
+                                        class="h-24 w-24 rounded-[1.4rem] border-border"
                                         img-class="object-cover object-top"
                                         eager
                                     />
 
                                     <div class="min-w-0 flex-1 space-y-3">
                                         <div>
-                                            <p class="text-xs text-slate-500">
+                                            <p class="text-xs text-foreground">
                                                 当前母体
                                             </p>
                                             <h3
-                                                class="mt-1 text-xl font-semibold text-white"
+                                                class="mt-1 text-xl font-semibold text-foreground"
                                             >
                                                 {{
                                                     selectedMother?.localized.zh
@@ -927,7 +927,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                         >
                                             <Badge
                                                 variant="outline"
-                                                class="rounded-full border-amber-300/20 bg-amber-300/10 text-amber-100"
+                                                class="rounded-[10px] border-border/20 bg-card hover:bg-accent/10 text-foreground"
                                             >
                                                 {{
                                                     getTypeLabel(selectedMother)
@@ -940,7 +940,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                                     )
                                                 "
                                                 variant="outline"
-                                                class="rounded-full border-amber-300/20 bg-amber-300/10 text-amber-100"
+                                                class="rounded-[10px] border-border/20 bg-card hover:bg-accent/10 text-foreground"
                                             >
                                                 未实装
                                             </Badge>
@@ -948,7 +948,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
 
                                         <p
                                             v-if="!selectedMother"
-                                            class="text-sm leading-6 text-slate-400"
+                                            class="text-sm leading-6 text-foreground"
                                         >
                                             未选择母体时，只会展示能够担任母体的候选精灵。
                                         </p>
@@ -958,14 +958,14 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                 <div class="mt-4 flex gap-2">
                                     <Button
                                         variant="outline"
-                                        class="rounded-2xl border-white/10 bg-black/20 text-slate-200 hover:bg-white/10"
+                                        class="rounded-[10px] border-border bg-card text-foreground hover:bg-accent"
                                         @click="motherPopoverOpen = true"
                                     >
                                         重新选择
                                     </Button>
                                     <Button
                                         variant="ghost"
-                                        class="rounded-2xl text-slate-400 hover:bg-white/8 hover:text-white"
+                                        class="rounded-[10px] text-foreground hover:bg-muted hover:text-foreground"
                                         @click="clearPet('mother')"
                                     >
                                         清空
@@ -977,14 +977,14 @@ document.title = "精灵配种 - 洛克王国工具箱";
 
                     <div class="hidden items-center justify-center xl:flex">
                         <div
-                            class="flex h-16 w-16 items-center justify-center rounded-full border border-white/10 bg-white/8 shadow-[0_12px_36px_-20px_rgba(245,158,11,0.7)]"
+                            class="flex h-16 w-16 items-center justify-center rounded-[10px] border border-border bg-muted shadow-md"
                         >
-                            <ArrowRightLeft class="h-5 w-5 text-amber-200" />
+                            <ArrowRightLeft class="h-5 w-5 text-foreground" />
                         </div>
                     </div>
 
                     <Card
-                        class="overflow-hidden border-white/10 bg-black/24 shadow-none"
+                        class="overflow-hidden border-border bg-card shadow-none"
                     >
                         <CardHeader class="space-y-4 px-5 py-5">
                             <div
@@ -992,12 +992,12 @@ document.title = "精灵配种 - 洛克王国工具箱";
                             >
                                 <div>
                                     <p
-                                        class="text-xs tracking-[0.18em] text-slate-500 uppercase"
+                                        class="text-xs tracking-[0.18em] text-foreground uppercase"
                                     >
                                         精灵 B
                                     </p>
                                     <h2
-                                        class="mt-2 text-xl font-semibold tracking-tight text-white"
+                                        class="mt-2 text-xl font-semibold tracking-tight text-foreground"
                                     >
                                         父体
                                     </h2>
@@ -1005,7 +1005,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
 
                                 <Badge
                                     variant="outline"
-                                    class="rounded-full border-sky-300/20 bg-sky-300/10 text-sky-100"
+                                    class="rounded-[10px] border-sky-300/20 bg-sky-300/10 text-sky-100"
                                 >
                                     负责配对条件
                                 </Badge>
@@ -1015,14 +1015,14 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                 <PopoverTrigger as-child>
                                     <Button
                                         variant="outline"
-                                        class="h-auto w-full justify-between rounded-xl border-white/10 bg-white/6 px-4 py-3 text-left text-slate-100 hover:bg-white/10"
+                                        class="h-auto w-full justify-between rounded-[10px] border-border bg-muted px-4 py-3 text-left text-foreground hover:bg-accent"
                                     >
                                         <div class="min-w-0">
-                                            <p class="text-xs text-slate-500">
+                                            <p class="text-xs text-foreground">
                                                 搜索并选择父体
                                             </p>
                                             <p
-                                                class="mt-1 truncate text-sm font-medium text-white"
+                                                class="mt-1 truncate text-sm font-medium text-foreground"
                                             >
                                                 {{
                                                     selectedFather?.localized.zh
@@ -1031,7 +1031,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                             </p>
                                         </div>
                                         <ChevronDown
-                                            class="h-4 w-4 shrink-0 text-slate-400"
+                                            class="h-4 w-4 shrink-0 text-foreground"
                                         />
                                     </Button>
                                 </PopoverTrigger>
@@ -1039,26 +1039,26 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                 <PopoverContent
                                     v-if="fatherPopoverOpen"
                                     align="start"
-                                    class="w-[min(28rem,calc(100vw-2rem))] border-white/10 bg-slate-950/95 p-0 text-slate-100"
+                                    class="w-[min(28rem,calc(100vw-2rem))] border-border bg-slate-950/95 p-0 text-foreground"
                                 >
                                     <div
-                                        class="rounded-xl border-0 bg-transparent"
+                                        class="rounded-[10px] border-0 bg-transparent"
                                     >
                                         <div
-                                            class="border-b border-white/10 p-3"
+                                            class="border-b border-border p-3"
                                         >
                                             <div class="relative">
                                                 <Search
-                                                    class="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-slate-500"
+                                                    class="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-foreground"
                                                 />
                                                 <Input
                                                     v-model="fatherSearchQuery"
                                                     placeholder="搜索父体名称、编号、属性"
-                                                    class="h-11 rounded-2xl border-white/10 bg-black/20 pl-9 text-slate-100 placeholder:text-slate-500"
+                                                    class="h-11 rounded-[10px] border-border bg-card pl-9 text-foreground placeholder:text-foreground"
                                                 />
                                             </div>
                                             <p
-                                                class="mt-2 text-xs text-slate-500"
+                                                class="mt-2 text-xs text-foreground"
                                             >
                                                 已匹配
                                                 {{
@@ -1070,7 +1070,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
 
                                         <div
                                             v-if="!filteredFatherOptions.length"
-                                            class="px-3 py-8 text-sm text-slate-500"
+                                            class="px-3 py-8 text-sm text-foreground"
                                         >
                                             没有符合条件的父体精灵。
                                         </div>
@@ -1100,13 +1100,13 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                                     "
                                                     type="button"
                                                     :class="[
-                                                        'mb-2 flex h-21 w-full items-center gap-3 rounded-2xl border border-transparent px-3 py-3 text-left text-slate-100 transition-colors',
+                                                        'mb-2 flex h-21 w-full items-center gap-3 rounded-[10px] border border-transparent px-3 py-3 text-left text-foreground transition-colors',
                                                         row.data.pet.id ===
                                                         selectedFatherId
                                                             ? 'border-sky-300/30 bg-sky-300/10'
                                                             : '',
                                                         row.data.compatible
-                                                            ? 'bg-white/4 hover:bg-white/8'
+                                                            ? 'bg-white/4 hover:bg-muted'
                                                             : 'bg-black/30 opacity-45',
                                                     ]"
                                                     @click="
@@ -1126,7 +1126,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                                                 .localized.zh
                                                                 .name
                                                         "
-                                                        class="h-10 w-12 shrink-0 rounded-xl border-white/10"
+                                                        class="h-10 w-12 shrink-0 rounded-[10px] border-border"
                                                         img-class="object-cover object-top"
                                                     />
                                                     <div
@@ -1142,7 +1142,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                                                     class="flex items-center gap-2"
                                                                 >
                                                                     <p
-                                                                        class="truncate font-medium text-white"
+                                                                        class="truncate font-medium text-foreground"
                                                                     >
                                                                         {{
                                                                             row
@@ -1162,13 +1162,13 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                                                             )
                                                                         "
                                                                         variant="outline"
-                                                                        class="rounded-full border-amber-300/20 bg-amber-300/10 px-1.5 py-0 text-[10px] text-amber-100"
+                                                                        class="rounded-[10px] border-border/20 bg-card hover:bg-accent/10 px-1.5 py-0 text-[10px] text-foreground"
                                                                     >
                                                                         未实装
                                                                     </Badge>
                                                                 </div>
                                                                 <p
-                                                                    class="text-xs text-slate-500"
+                                                                    class="text-xs text-foreground"
                                                                 >
                                                                     #{{
                                                                         row.data
@@ -1179,7 +1179,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                                             </div>
                                                         </div>
                                                         <p
-                                                            class="truncate text-xs text-slate-400"
+                                                            class="truncate text-xs text-foreground"
                                                         >
                                                             {{
                                                                 getTypeLabel(
@@ -1215,7 +1215,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
 
                         <CardContent class="px-5 pb-5 pt-0">
                             <div
-                                class="rounded-[1.75rem] border border-white/10 bg-white/5 p-4"
+                                class="rounded-[10px] border border-border bg-white/5 p-4"
                             >
                                 <div class="flex items-start gap-4">
                                     <FriendPortrait
@@ -1224,18 +1224,18 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                             selectedFather?.localized.zh.name ??
                                             '父体'
                                         "
-                                        class="h-24 w-24 rounded-[1.4rem] border-white/10"
+                                        class="h-24 w-24 rounded-[1.4rem] border-border"
                                         img-class="object-cover object-top"
                                         eager
                                     />
 
                                     <div class="min-w-0 flex-1 space-y-3">
                                         <div>
-                                            <p class="text-xs text-slate-500">
+                                            <p class="text-xs text-foreground">
                                                 当前父体
                                             </p>
                                             <h3
-                                                class="mt-1 text-xl font-semibold text-white"
+                                                class="mt-1 text-xl font-semibold text-foreground"
                                             >
                                                 {{
                                                     selectedFather?.localized.zh
@@ -1250,7 +1250,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                         >
                                             <Badge
                                                 variant="outline"
-                                                class="rounded-full border-sky-300/20 bg-sky-300/10 text-sky-100"
+                                                class="rounded-[10px] border-sky-300/20 bg-sky-300/10 text-sky-100"
                                             >
                                                 {{
                                                     getTypeLabel(selectedFather)
@@ -1263,7 +1263,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                                     )
                                                 "
                                                 variant="outline"
-                                                class="rounded-full border-amber-300/20 bg-amber-300/10 text-amber-100"
+                                                class="rounded-[10px] border-border/20 bg-card hover:bg-accent/10 text-foreground"
                                             >
                                                 未实装
                                             </Badge>
@@ -1271,7 +1271,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
 
                                         <p
                                             v-if="!selectedFather"
-                                            class="text-sm leading-6 text-slate-400"
+                                            class="text-sm leading-6 text-foreground"
                                         >
                                             已选母体后，父体候选会按蛋组与雄性条件自动高亮排序。
                                         </p>
@@ -1281,14 +1281,14 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                 <div class="mt-4 flex gap-2">
                                     <Button
                                         variant="outline"
-                                        class="rounded-2xl border-white/10 bg-black/20 text-slate-200 hover:bg-white/10"
+                                        class="rounded-[10px] border-border bg-card text-foreground hover:bg-accent"
                                         @click="fatherPopoverOpen = true"
                                     >
                                         重新选择
                                     </Button>
                                     <Button
                                         variant="ghost"
-                                        class="rounded-2xl text-slate-400 hover:bg-white/8 hover:text-white"
+                                        class="rounded-[10px] text-foreground hover:bg-muted hover:text-foreground"
                                         @click="clearPet('father')"
                                     >
                                         清空
@@ -1302,7 +1302,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
         </Card>
         <Income />
         <Card
-            class="overflow-hidden border-white/10 bg-[linear-gradient(145deg,rgba(15,23,42,0.94),rgba(10,14,28,0.98))] py-0 shadow-[0_24px_90px_-50px_rgba(0,0,0,0.88)]"
+            class="overflow-hidden border-border bg-card py-0 shadow-md"
         >
             <CardHeader class="gap-4 px-4 py-4">
                 <div
@@ -1310,24 +1310,24 @@ document.title = "精灵配种 - 洛克王国工具箱";
                 >
                     <div>
                         <p
-                            class="inline-flex items-center gap-2 text-xs tracking-[0.18em] text-slate-500 uppercase"
+                            class="inline-flex items-center gap-2 text-xs tracking-[0.18em] text-foreground uppercase"
                         >
-                            <Sparkles class="h-3.5 w-3.5 text-amber-300" />
+                            <Sparkles class="h-3.5 w-3.5 text-foreground" />
                             精灵蛋信息
                         </p>
                         <CardTitle
-                            class="mt-2 text-2xl tracking-tight text-white"
+                            class="mt-2 text-2xl tracking-tight text-foreground"
                         >
                             配种结果预览
                         </CardTitle>
                     </div>
 
                     <div
-                        class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/6 px-3 py-1.5 text-sm text-slate-300"
+                        class="inline-flex items-center gap-2 rounded-[10px] border border-border bg-muted px-3 py-1.5 text-sm text-foreground"
                     >
                         <Link2 class="h-4 w-4 text-emerald-300" />
                         共享蛋组：
-                        <span class="font-medium text-white">
+                        <span class="font-medium text-foreground">
                             {{
                                 pairEvaluation.overlapEggGroups.length
                                     ? pairEvaluation.overlapEggGroups
@@ -1345,7 +1345,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
             <CardContent class="space-y-5 px-4 pb-6">
                 <div
                     v-if="!selectedMother || !selectedFather"
-                    class="rounded-2xl border border-dashed border-white/10 bg-white/4 px-5 py-8 text-center text-sm leading-7 text-slate-400"
+                    class="rounded-[10px] border border-dashed border-border bg-white/4 px-5 py-8 text-center text-sm leading-7 text-foreground"
                 >
                     先在上方分别选择母体与父体，底部会显示孵化时长、可继承结果、共享蛋组与配种参考信息。
                 </div>
@@ -1353,22 +1353,22 @@ document.title = "精灵配种 - 洛克王国工具箱";
                 <template v-else>
                     <div
                         v-if="!pairEvaluation.compatible"
-                        class="rounded-2xl border border-rose-400/20 bg-rose-500/10 p-3"
+                        class="rounded-[10px] border border-rose-400/20 bg-rose-500/10 p-3"
                     >
                         <div class="flex items-start gap-3">
                             <div
-                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-rose-400/20 bg-rose-500/10"
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] border border-rose-400/20 bg-rose-500/10"
                             >
                                 <CircleAlert class="h-5 w-5 text-rose-200" />
                             </div>
                             <div class="space-y-2">
-                                <h3 class="text-lg font-semibold text-white">
+                                <h3 class="text-lg font-semibold text-foreground">
                                     当前组合无法配种
                                 </h3>
                                 <p class="text-sm leading-6 text-rose-100/90">
                                     {{ pairEvaluation.reasons.join("，") }}。
                                 </p>
-                                <p class="text-sm leading-6 text-slate-300">
+                                <p class="text-sm leading-6 text-foreground">
                                     你仍然可以保留当前选择，继续从下拉列表中寻找高亮的可配对对象。
                                 </p>
                             </div>
@@ -1377,7 +1377,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
 
                     <div v-else class="grid gap-5 xl:grid-cols-[1.2fr_0.8fr]">
                         <div
-                            class="rounded-2xl border border-white/10 bg-[radial-gradient(circle_at_top,rgba(250,204,21,0.12),transparent_24%),linear-gradient(145deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-3"
+                            class="rounded-[10px] border border-border bg-card p-3"
                         >
                             <div
                                 class="flex flex-col gap-5 lg:flex-row lg:items-start"
@@ -1385,25 +1385,25 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                 <FriendPortrait
                                     :name="selectedMother.name"
                                     :alt="selectedMother.localized.zh.name"
-                                    class="h-28 w-28 rounded-[1.6rem] border-white/10"
+                                    class="h-28 w-28 rounded-[1.6rem] border-border"
                                     img-class="object-cover object-top"
                                     eager
                                 />
 
                                 <div class="min-w-0 flex-1 space-y-4">
                                     <div>
-                                        <p class="text-xs text-slate-500">
+                                        <p class="text-xs text-foreground">
                                             即将孵化
                                         </p>
                                         <h3
-                                            class="mt-1 text-2xl font-semibold tracking-tight text-white"
+                                            class="mt-1 text-2xl font-semibold tracking-tight text-foreground"
                                         >
                                             {{
                                                 selectedMother.localized.zh.name
                                             }}
                                         </h3>
                                         <p
-                                            class="mt-2 text-sm leading-6 text-slate-300"
+                                            class="mt-2 text-sm leading-6 text-foreground"
                                         >
                                             精灵的特性、颜色有概率从父母继承
                                         </p>
@@ -1412,19 +1412,19 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                     <div class="flex flex-wrap gap-2">
                                         <Badge
                                             variant="outline"
-                                            class="rounded-full border-amber-300/20 bg-amber-300/10 text-amber-100"
+                                            class="rounded-[10px] border-border/20 bg-card hover:bg-accent/10 text-foreground"
                                         >
                                             {{ inheritedTypeLabel }}
                                         </Badge>
                                         <Badge
                                             variant="outline"
-                                            class="rounded-full border-white/10 bg-white/6 text-slate-300"
+                                            class="rounded-[10px] border-border bg-muted text-foreground"
                                         >
                                             总种族值 {{ totalStatsLabel }}
                                         </Badge>
                                         <Badge
                                             variant="outline"
-                                            class="rounded-full border-white/10 bg-white/6 text-slate-300"
+                                            class="rounded-[10px] border-border bg-muted text-foreground"
                                         >
                                             {{ hatchDurationLabel }} 可孵化
                                         </Badge>
@@ -1436,28 +1436,28 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                 class="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4"
                             >
                                 <div
-                                    class="rounded-2xl border border-white/10 bg-black/18 px-4 py-3"
+                                    class="rounded-[10px] border border-border bg-black/18 px-4 py-3"
                                 >
                                     <p
-                                        class="flex items-center gap-1.5 text-[11px] tracking-[0.14em] text-slate-500 uppercase"
+                                        class="flex items-center gap-1.5 text-[11px] tracking-[0.14em] text-foreground uppercase"
                                     >
                                         <Clock3
-                                            class="h-3.5 w-3.5 text-amber-300"
+                                            class="h-3.5 w-3.5 text-foreground"
                                         />
                                         孵化时长
                                     </p>
                                     <p
-                                        class="mt-2 text-sm font-semibold text-white"
+                                        class="mt-2 text-sm font-semibold text-foreground"
                                     >
                                         {{ hatchDurationLabel }}
                                     </p>
                                 </div>
 
                                 <div
-                                    class="rounded-2xl border border-white/10 bg-black/18 px-4 py-3"
+                                    class="rounded-[10px] border border-border bg-black/18 px-4 py-3"
                                 >
                                     <p
-                                        class="flex items-center gap-1.5 text-[11px] tracking-[0.14em] text-slate-500 uppercase"
+                                        class="flex items-center gap-1.5 text-[11px] tracking-[0.14em] text-foreground uppercase"
                                     >
                                         <Egg
                                             class="h-3.5 w-3.5 text-emerald-300"
@@ -1465,37 +1465,37 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                         冷却参考
                                     </p>
                                     <p
-                                        class="mt-2 text-sm font-semibold text-white"
+                                        class="mt-2 text-sm font-semibold text-foreground"
                                     >
                                         {{ cooldownReferenceLabel }}
                                     </p>
                                 </div>
 
                                 <div
-                                    class="rounded-2xl border border-white/10 bg-black/18 px-4 py-3"
+                                    class="rounded-[10px] border border-border bg-black/18 px-4 py-3"
                                 >
                                     <p
-                                        class="text-[11px] tracking-[0.14em] text-slate-500 uppercase"
+                                        class="text-[11px] tracking-[0.14em] text-foreground uppercase"
                                     >
                                         身高范围
                                     </p>
                                     <p
-                                        class="mt-2 text-sm font-semibold text-white"
+                                        class="mt-2 text-sm font-semibold text-foreground"
                                     >
                                         {{ heightRangeLabel }}
                                     </p>
                                 </div>
 
                                 <div
-                                    class="rounded-2xl border border-white/10 bg-black/18 px-4 py-3"
+                                    class="rounded-[10px] border border-border bg-black/18 px-4 py-3"
                                 >
                                     <p
-                                        class="text-[11px] tracking-[0.14em] text-slate-500 uppercase"
+                                        class="text-[11px] tracking-[0.14em] text-foreground uppercase"
                                     >
                                         体重范围
                                     </p>
                                     <p
-                                        class="mt-2 text-sm font-semibold text-white"
+                                        class="mt-2 text-sm font-semibold text-foreground"
                                     >
                                         {{ weightRangeLabel }}
                                     </p>
@@ -1505,18 +1505,18 @@ document.title = "精灵配种 - 洛克王国工具箱";
 
                         <div class="space-y-4">
                             <div
-                                class="rounded-[1.8rem] border border-white/10 bg-white/5 p-4"
+                                class="rounded-[1.8rem] border border-border bg-white/5 p-4"
                             >
                                 <p
-                                    class="text-xs tracking-[0.16em] text-slate-500 uppercase"
+                                    class="text-xs tracking-[0.16em] text-foreground uppercase"
                                 >
                                     配种判定
                                 </p>
                                 <div
-                                    class="mt-3 space-y-3 text-sm text-slate-300"
+                                    class="mt-3 space-y-3 text-sm text-foreground"
                                 >
                                     <div
-                                        class="rounded-2xl border border-white/10 bg-black/18 px-3 py-2.5"
+                                        class="rounded-[10px] border border-border bg-black/18 px-3 py-2.5"
                                     >
                                         <p>共享蛋组</p>
                                         <div class="mt-2 flex flex-wrap gap-2">
@@ -1527,7 +1527,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                             >
                                                 <Badge
                                                     variant="outline"
-                                                    class="rounded-full border-emerald-300/20 bg-emerald-300/10 text-emerald-100"
+                                                    class="rounded-[10px] border-emerald-300/20 bg-card hover:bg-accent/10 text-emerald-100"
                                                 >
                                                     {{
                                                         formatEggGroup(groupId)
@@ -1543,7 +1543,7 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                         </div>
                                         <div class=""></div>
                                         <div
-                                            class="mt-3 space-y-3 text-sm leading-6 text-slate-300"
+                                            class="mt-3 space-y-3 text-sm leading-6 text-foreground"
                                         >
                                             <p>
                                                 冷却相关：{{

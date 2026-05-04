@@ -194,33 +194,33 @@ const personalityModKeyMap: Record<StatKey, keyof IPersonality> = {
 
 const typeToneMap: Record<string, string> = {
     Bug: "border-lime-400/30 bg-lime-400/12 text-lime-100",
-    Cute: "border-pink-400/30 bg-pink-400/12 text-pink-100",
-    Dark: "border-slate-400/30 bg-slate-400/12 text-slate-100",
-    Dragon: "border-violet-400/30 bg-violet-400/12 text-violet-100",
-    Electric: "border-yellow-400/30 bg-yellow-400/12 text-yellow-100",
+    Cute: "border-pink-400/30 bg-card hover:bg-accent/12 text-pink-100",
+    Dark: "border-border/30 bg-slate-400/12 text-foreground",
+    Dragon: "border-violet-400/30 bg-card hover:bg-accent/12 text-violet-100",
+    Electric: "border-yellow-400/30 bg-card hover:bg-accent/12 text-yellow-100",
     Fighting: "border-red-400/30 bg-red-400/12 text-red-100",
-    Fire: "border-orange-400/30 bg-orange-400/12 text-orange-100",
+    Fire: "border-orange-400/30 bg-card hover:bg-accent/12 text-orange-100",
     Flying: "border-sky-400/30 bg-sky-400/12 text-sky-100",
-    Ghost: "border-indigo-400/30 bg-indigo-400/12 text-indigo-100",
-    Grass: "border-emerald-400/30 bg-emerald-400/12 text-emerald-100",
-    Ground: "border-amber-500/30 bg-amber-500/12 text-amber-100",
-    Ice: "border-cyan-300/30 bg-cyan-300/12 text-cyan-50",
-    Illusion: "border-fuchsia-400/30 bg-fuchsia-400/12 text-fuchsia-100",
-    Leader: "border-amber-300/35 bg-amber-300/14 text-amber-50",
-    Light: "border-amber-300/30 bg-amber-300/12 text-amber-50",
+    Ghost: "border-indigo-400/30 bg-card hover:bg-accent/12 text-indigo-100",
+    Grass: "border-emerald-400/30 bg-card hover:bg-accent/12 text-emerald-100",
+    Ground: "border-border/30 bg-card hover:bg-accent/12 text-foreground",
+    Ice: "border-cyan-300/30 bg-card hover:bg-accent/12 text-cyan-50",
+    Illusion: "border-fuchsia-400/30 bg-card hover:bg-accent/12 text-fuchsia-100",
+    Leader: "border-border/35 bg-card hover:bg-accent/14 text-foreground",
+    Light: "border-border/30 bg-card hover:bg-accent/12 text-foreground",
     Mechanical: "border-zinc-300/30 bg-zinc-300/12 text-zinc-100",
     Normal: "border-stone-300/30 bg-stone-300/12 text-stone-100",
-    Poison: "border-purple-400/30 bg-purple-400/12 text-purple-100",
+    Poison: "border-purple-400/30 bg-card hover:bg-accent/12 text-purple-100",
     Water: "border-blue-400/30 bg-blue-400/12 text-blue-100",
 };
 
 const roleToneMap: Record<TeamRole, string> = {
-    辅助: "border-emerald-400/20 bg-emerald-400/10 text-emerald-100",
+    辅助: "border-emerald-400/20 bg-card hover:bg-accent/10 text-emerald-100",
     拦截: "border-rose-400/20 bg-rose-400/10 text-rose-100",
-    倾泻: "border-amber-300/20 bg-amber-300/10 text-amber-100",
+    倾泻: "border-border/20 bg-card hover:bg-accent/10 text-foreground",
     联攻: "border-sky-400/20 bg-sky-400/10 text-sky-100",
-    联防: "border-violet-400/20 bg-violet-400/10 text-violet-100",
-    中转: "border-slate-300/20 bg-slate-300/10 text-slate-100",
+    联防: "border-violet-400/20 bg-card hover:bg-accent/10 text-violet-100",
+    中转: "border-border/20 bg-slate-300/10 text-foreground",
 };
 
 const SPEED_REFERENCE_OPTIONS = [
@@ -1233,7 +1233,7 @@ function getTotalStats(friend: IPets) {
 }
 
 function getTypeTone(typeName: string) {
-    return typeToneMap[typeName] ?? "border-white/12 bg-white/8 text-slate-100";
+    return typeToneMap[typeName] ?? "border-white/12 bg-muted text-foreground";
 }
 
 function getRoleTone(role: TeamRole) {
@@ -2345,7 +2345,7 @@ document.title = "配队工具 - 洛克王国工具箱";
     <section class="grid gap-4 xl:grid-cols-[minmax(0,1.22fr)_380px]">
         <div class="space-y-4">
             <Card
-                class="overflow-hidden border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.14),transparent_18%),radial-gradient(circle_at_86%_12%,rgba(56,189,248,0.12),transparent_22%),linear-gradient(135deg,rgba(15,23,42,0.96),rgba(2,6,23,0.98))] py-0 shadow-[0_24px_100px_-56px_rgba(0,0,0,0.92)]">
+                class="overflow-hidden border-border bg-card py-0 shadow-md">
                 <CardHeader class="gap-3 px-5 py-5 md:px-4">
                     <div
                         class="flex flex-col gap-5 2xl:flex-row 2xl:items-start 2xl:justify-between">
@@ -2353,14 +2353,14 @@ document.title = "配队工具 - 洛克王国工具箱";
                             <div class="flex flex-wrap items-center gap-2">
                                 <Badge
                                     variant="secondary"
-                                    class="rounded-full border border-white/10 bg-white/8 px-3 py-1 text-slate-100">
+                                    class="rounded-[10px] border border-border bg-muted px-3 py-1 text-foreground">
                                     <Sparkles
                                         class="h-3.5 w-3.5 text-primary" />
                                     Team Builder
                                 </Badge>
                                 <Badge
                                     variant="secondary"
-                                    class="rounded-full border border-emerald-400/15 bg-emerald-400/10 px-3 py-1 text-emerald-100">
+                                    class="rounded-[10px] border border-emerald-400/15 bg-card hover:bg-accent/10 px-3 py-1 text-emerald-100">
                                     {{ filledSlotCount }}/{{ TEAM_SLOT_COUNT }}
                                     槽已占用
                                 </Badge>
@@ -2368,7 +2368,7 @@ document.title = "配队工具 - 洛克王国工具箱";
 
                             <div class="space-y-2">
                                 <CardTitle
-                                    class="text-2xl tracking-tight text-white md:text-3xl">
+                                    class="text-2xl tracking-tight text-foreground md:text-3xl">
                                     配队
                                 </CardTitle>
                             </div>
@@ -2378,13 +2378,13 @@ document.title = "配队工具 - 洛克王国工具箱";
                             <div
                                 v-for="item in teamSummaryItems"
                                 :key="item.label"
-                                class="rounded-2xl border border-white/10 bg-black/18 px-3 py-3 backdrop-blur-sm">
+                                class="rounded-[10px] border border-border bg-black/18 px-3 py-3 ">
                                 <p
-                                    class="text-[11px] tracking-[0.22em] text-slate-500 uppercase">
+                                    class="text-[11px] tracking-[0.22em] text-foreground uppercase">
                                     {{ item.label }}
                                 </p>
                                 <p
-                                    class="mt-1.5 text-xl font-semibold text-white">
+                                    class="mt-1.5 text-xl font-semibold text-foreground">
                                     {{ item.value }}
                                 </p>
                             </div>
@@ -2395,7 +2395,7 @@ document.title = "配队工具 - 洛克王国工具箱";
 
             <div
                 v-if="errorMessage"
-                class="rounded-xl border border-red-400/20 bg-red-400/10 px-4 py-3 text-sm text-red-100">
+                class="rounded-[10px] border border-red-400/20 bg-red-400/10 px-4 py-3 text-sm text-red-100">
                 {{ errorMessage }}
             </div>
 
@@ -2407,8 +2407,8 @@ document.title = "配队工具 - 洛克王国工具箱";
                     :class="[
                         'group rounded-[1.6rem] border p-4 text-left transition-all duration-200',
                         activeSlotId === slot.slotId
-                            ? 'border-primary/50 bg-white/8 shadow-[0_0_0_1px_rgba(251,191,36,0.22),0_22px_60px_-44px_rgba(251,191,36,0.55)]'
-                            : 'border-white/10 bg-black/20 hover:border-white/20 hover:bg-white/6',
+                            ? 'border-primary/50 bg-muted shadow-md'
+                            : 'border-border bg-card hover:border-border hover:bg-muted',
                         isSlotDragTarget(slot.slotId)
                             ? 'border-sky-300/55 bg-sky-300/10'
                             : '',
@@ -2429,10 +2429,10 @@ document.title = "配队工具 - 洛克王国工具箱";
                                     getSlotFriend(slot)?.localized.zh.name ??
                                     `槽位 ${slot.slotId}`
                                 "
-                                class="h-20 w-20 rounded-[1.2rem] border-white/10"
+                                class="h-20 w-20 rounded-[1.2rem] border-border"
                                 img-class="object-cover object-top" />
                             <div
-                                class="absolute -bottom-2 left-1/2 -translate-x-1/2 rounded-full border border-white/10 bg-slate-950/90 px-2 py-0.5 text-[11px] font-medium text-slate-300">
+                                class="absolute -bottom-2 left-1/2 -translate-x-1/2 rounded-[10px] border border-border bg-slate-950/90 px-2 py-0.5 text-[11px] font-medium text-foreground">
                                 {{ slot.slotId }}
                             </div>
                         </div>
@@ -2441,11 +2441,11 @@ document.title = "配队工具 - 洛克王国工具箱";
                             <div class="flex items-start justify-between gap-3">
                                 <div class="min-w-0 space-y-1">
                                     <p
-                                        class="text-[11px] tracking-[0.22em] text-slate-500 uppercase">
+                                        class="text-[11px] tracking-[0.22em] text-foreground uppercase">
                                         槽位 {{ slot.slotId }}
                                     </p>
                                     <h3
-                                        class="truncate text-lg font-semibold text-white">
+                                        class="truncate text-lg font-semibold text-foreground">
                                         {{
                                             getSlotFriend(slot)?.localized.zh
                                                 .name ?? "未选择"
@@ -2457,7 +2457,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                     v-if="slot.friendId"
                                     variant="ghost"
                                     size="icon-sm"
-                                    class="rounded-full text-slate-400 hover:bg-white/10 hover:text-white"
+                                    class="rounded-[10px] text-foreground hover:bg-accent hover:text-foreground"
                                     @click.stop="clearSlot(slot.slotId)">
                                     <Trash2 class="h-4 w-4" />
                                 </Button>
@@ -2471,13 +2471,13 @@ document.title = "配队工具 - 洛克王国工具箱";
                                         )"
                                         :key="`${slot.slotId}-${type.id}`"
                                         :class="[
-                                            'inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium',
+                                            'inline-flex items-center rounded-[10px] border px-2 py-0.5 text-xs font-medium',
                                             getTypeTone(type.name),
                                         ]">
                                         {{ type.localized.zh }}
                                     </span>
                                     <span
-                                        class="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-xs text-slate-300">
+                                        class="inline-flex items-center rounded-[10px] border border-border bg-white/5 px-2 py-0.5 text-xs text-foreground">
                                         {{
                                             getAttackStyleLabel(
                                                 getSlotFriend(slot)!
@@ -2489,7 +2489,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                         v-if="
                                             getSlotFriend(slot)?.is_leader_form
                                         "
-                                        class="inline-flex items-center rounded-full border border-amber-300/20 bg-amber-300/12 px-2 py-0.5 text-xs text-amber-50">
+                                        class="inline-flex items-center rounded-[10px] border border-border/20 bg-card hover:bg-accent/12 px-2 py-0.5 text-xs text-foreground">
                                         <Crown class="mr-1 h-3 w-3" />
                                         首领
                                     </span>
@@ -2499,7 +2499,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                         )"
                                         :key="`${slot.slotId}-${role}`"
                                         :class="[
-                                            'inline-flex items-center rounded-full border px-2 py-0.5 text-xs',
+                                            'inline-flex items-center rounded-[10px] border px-2 py-0.5 text-xs',
                                             getRoleTone(role),
                                         ]">
                                         {{ role }}
@@ -2507,16 +2507,16 @@ document.title = "配队工具 - 洛克王国工具箱";
                                 </div>
 
                                 <div
-                                    class="grid grid-cols-2 gap-2 text-xs text-slate-300">
+                                    class="grid grid-cols-2 gap-2 text-xs text-foreground">
                                     <div
-                                        class="rounded-2xl border border-white/8 bg-white/5 px-3 py-2">
-                                        <p class="text-[11px] text-slate-500">
+                                        class="rounded-[10px] border border-white/8 bg-white/5 px-3 py-2">
+                                        <p class="text-[11px] text-foreground">
                                             性格
                                         </p>
-                                        <p class="mt-1 truncate text-slate-100">
+                                        <p class="mt-1 truncate text-foreground">
                                             {{ getPersonalitySummary(slot) }}
                                         </p>
-                                        <p class="mt-1 text-[11px] text-slate-500">
+                                        <p class="mt-1 text-[11px] text-foreground">
                                             {{
                                                 getPersonalityStatDeltaSummary(
                                                     getSlotPersonality(slot),
@@ -2525,35 +2525,35 @@ document.title = "配队工具 - 洛克王国工具箱";
                                         </p>
                                     </div>
                                     <div
-                                        class="rounded-2xl border border-white/8 bg-white/5 px-3 py-2">
-                                        <p class="text-[11px] text-slate-500">
+                                        class="rounded-[10px] border border-white/8 bg-white/5 px-3 py-2">
+                                        <p class="text-[11px] text-foreground">
                                             血脉
                                         </p>
-                                        <p class="mt-1 truncate text-slate-100">
+                                        <p class="mt-1 truncate text-foreground">
                                             {{ getLegacySummary(slot) }}
                                         </p>
                                     </div>
                                 </div>
 
                                 <div
-                                    class="grid grid-cols-3 gap-2 text-xs text-slate-300">
+                                    class="grid grid-cols-3 gap-2 text-xs text-foreground">
                                     <div
-                                        class="rounded-2xl border border-white/8 bg-white/5 px-3 py-2">
-                                        <p class="text-[11px] text-slate-500">
+                                        class="rounded-[10px] border border-white/8 bg-white/5 px-3 py-2">
+                                        <p class="text-[11px] text-foreground">
                                             技能
                                         </p>
-                                        <p class="mt-1 text-slate-100">
+                                        <p class="mt-1 text-foreground">
                                             {{ slot.moveIds.length }}/{{
                                                 MAX_MOVES_PER_SLOT
                                             }}
                                         </p>
                                     </div>
                                     <div
-                                        class="rounded-2xl border border-white/8 bg-white/5 px-3 py-2">
-                                        <p class="text-[11px] text-slate-500">
+                                        class="rounded-[10px] border border-white/8 bg-white/5 px-3 py-2">
+                                        <p class="text-[11px] text-foreground">
                                             峰值属性
                                         </p>
-                                        <p class="mt-1 text-slate-100">
+                                        <p class="mt-1 text-foreground">
                                             {{
                                                 getSlotEntry(slot)
                                                     ? getPeakStatLabel(
@@ -2564,11 +2564,11 @@ document.title = "配队工具 - 洛克王国工具箱";
                                         </p>
                                     </div>
                                     <div
-                                        class="rounded-2xl border border-white/8 bg-white/5 px-3 py-2">
-                                        <p class="text-[11px] text-slate-500">
+                                        class="rounded-[10px] border border-white/8 bg-white/5 px-3 py-2">
+                                        <p class="text-[11px] text-foreground">
                                             定位
                                         </p>
-                                        <p class="mt-1 text-slate-100">
+                                        <p class="mt-1 text-foreground">
                                             {{ getRoleSummary(slot) }}
                                         </p>
                                     </div>
@@ -2579,13 +2579,13 @@ document.title = "配队工具 - 洛克王国工具箱";
                                 <div
                                     v-for="item in getSlotChecklist(slot)"
                                     :key="item.label"
-                                    class="flex items-center gap-2 rounded-2xl border border-white/8 bg-white/4 px-3 py-2 text-xs text-slate-300">
+                                    class="flex items-center gap-2 rounded-[10px] border border-white/8 bg-white/4 px-3 py-2 text-xs text-foreground">
                                     <span
                                         :class="[
-                                            'inline-flex h-5 w-5 items-center justify-center rounded-full border text-[10px]',
+                                            'inline-flex h-5 w-5 items-center justify-center rounded-[10px] border text-[10px]',
                                             item.done
-                                                ? 'border-emerald-400/30 bg-emerald-400/15 text-emerald-100'
-                                                : 'border-white/10 bg-black/20 text-slate-500',
+                                                ? 'border-emerald-400/30 bg-card hover:bg-accent/15 text-emerald-100'
+                                                : 'border-border bg-card text-foreground',
                                         ]">
                                         {{ item.done ? "✓" : "•" }}
                                     </span>
@@ -2595,7 +2595,7 @@ document.title = "配队工具 - 洛克王国工具箱";
 
                             <div
                                 v-if="isSlotLoading(slot.slotId)"
-                                class="flex items-center gap-2 text-xs text-slate-400">
+                                class="flex items-center gap-2 text-xs text-foreground">
                                 <Sparkles class="h-3.5 w-3.5 animate-spin" />
                                 正在载入精灵详情…
                             </div>
@@ -2606,13 +2606,13 @@ document.title = "配队工具 - 洛克王国工具箱";
 
             <div
                 class="grid gap-4 2xl:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
-                <Card class="border-white/10 bg-black/22 shadow-sm">
+                <Card class="border-border bg-card shadow-sm">
                     <CardHeader class="pb-4">
-                        <CardTitle class="flex items-center gap-2 text-white">
+                        <CardTitle class="flex items-center gap-2 text-foreground">
                             <WandSparkles class="h-4 w-4 text-primary" />
                             队伍设置
                         </CardTitle>
-                        <CardDescription class="text-slate-400">
+                        <CardDescription class="text-foreground">
                             队伍名、血脉魔法和分享都集中在这里。
                         </CardDescription>
                     </CardHeader>
@@ -2620,19 +2620,19 @@ document.title = "配队工具 - 洛克王国工具箱";
                         <div class="grid gap-3 md:grid-cols-2">
                             <div class="space-y-2">
                                 <p
-                                    class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                                    class="text-xs tracking-[0.18em] text-foreground uppercase">
                                     队伍名称
                                 </p>
                                 <Input
                                     v-model="teamState.name"
                                     maxlength="32"
                                     placeholder="输入队伍名称"
-                                    class="h-11 rounded-2xl border-white/10 bg-black/25 text-slate-100 placeholder:text-slate-500" />
+                                    class="h-11 rounded-[10px] border-border bg-card text-foreground placeholder:text-foreground" />
                             </div>
 
                             <div class="space-y-2">
                                 <p
-                                    class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                                    class="text-xs tracking-[0.18em] text-foreground uppercase">
                                     血脉魔法
                                 </p>
                                 <Select
@@ -2641,12 +2641,12 @@ document.title = "配队工具 - 洛克王国工具箱";
                                     "
                                     @update:model-value="updateMagicItem">
                                     <SelectTrigger
-                                        class="h-11 rounded-2xl border-white/10 bg-black/25 text-slate-100">
+                                        class="h-11 rounded-[10px] border-border bg-card text-foreground">
                                         <SelectValue
                                             placeholder="选择血脉魔法" />
                                     </SelectTrigger>
                                     <SelectContent
-                                        class="border-white/10 bg-slate-950/95 text-slate-100">
+                                        class="border-border bg-slate-950/95 text-foreground">
                                         <SelectItem value="none"
                                             >暂不选择</SelectItem
                                         >
@@ -2663,18 +2663,18 @@ document.title = "配队工具 - 洛克王国工具箱";
 
                         <div
                             v-if="selectedMagicItem"
-                            class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-300">
-                            <p class="font-medium text-white">
+                            class="rounded-[10px] border border-border bg-white/5 px-4 py-3 text-sm text-foreground">
+                            <p class="font-medium text-foreground">
                                 {{ selectedMagicItem.localized.zh.name }}
                             </p>
-                            <p class="mt-1 leading-6 text-slate-400">
+                            <p class="mt-1 leading-6 text-foreground">
                                 {{ selectedMagicItem.localized.zh.description }}
                             </p>
                         </div>
 
                         <div
-                            class="rounded-xl border border-white/10 bg-white/4 p-4">
-                            <div class="flex items-center gap-2 text-white">
+                            class="rounded-[10px] border border-border bg-white/4 p-4">
+                            <div class="flex items-center gap-2 text-foreground">
                                 <FlaskConical class="h-4 w-4 text-primary" />
                                 <p class="text-sm font-medium">自动配队</p>
                             </div>
@@ -2703,12 +2703,12 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                           ))
                                         ">
                                         <SelectTrigger
-                                            class="h-10 rounded-2xl border-white/10 bg-black/25 text-slate-100">
+                                            class="h-10 rounded-[10px] border-border bg-card text-foreground">
                                             <SelectValue
                                                 placeholder="选择目标首领" />
                                         </SelectTrigger>
                                         <SelectContent
-                                            class="border-white/10 bg-slate-950/95 text-slate-100">
+                                            class="border-border bg-slate-950/95 text-foreground">
                                             <SelectItem value="none"
                                                 >选择目标首领</SelectItem
                                             >
@@ -2722,7 +2722,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                     </Select>
                                     <Button
                                         variant="outline"
-                                        class="rounded-full border-white/10 bg-white/5 text-slate-100 hover:bg-white/10"
+                                        class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
                                         @click="generateBossAutoTeam">
                                         <Zap class="h-4 w-4" />
                                         按首领生成
@@ -2731,12 +2731,12 @@ document.title = "配队工具 - 洛克王国工具箱";
 
                                 <div
                                     v-if="selectedAutoBossWeaknesses.length > 0"
-                                    class="flex flex-wrap gap-1.5 text-xs text-slate-300">
-                                    <span class="text-slate-500">弱点参考</span>
+                                    class="flex flex-wrap gap-1.5 text-xs text-foreground">
+                                    <span class="text-foreground">弱点参考</span>
                                     <span
                                         v-for="label in selectedAutoBossWeaknesses"
                                         :key="label"
-                                        class="rounded-full border border-white/10 bg-black/20 px-2 py-0.5">
+                                        class="rounded-[10px] border border-border bg-card px-2 py-0.5">
                                         {{ label }}
                                     </span>
                                 </div>
@@ -2764,12 +2764,12 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                           ))
                                         ">
                                         <SelectTrigger
-                                            class="h-10 rounded-2xl border-white/10 bg-black/25 text-slate-100">
+                                            class="h-10 rounded-[10px] border-border bg-card text-foreground">
                                             <SelectValue
                                                 placeholder="按属性组队" />
                                         </SelectTrigger>
                                         <SelectContent
-                                            class="border-white/10 bg-slate-950/95 text-slate-100">
+                                            class="border-border bg-slate-950/95 text-foreground">
                                             <SelectItem value="none"
                                                 >选择属性主题</SelectItem
                                             >
@@ -2783,7 +2783,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                     </Select>
                                     <Button
                                         variant="outline"
-                                        class="rounded-full border-white/10 bg-white/5 text-slate-100 hover:bg-white/10"
+                                        class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
                                         @click="generateTypeAutoTeam">
                                         <WandSparkles class="h-4 w-4" />
                                         按属性生成
@@ -2813,12 +2813,12 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                           ))
                                         ">
                                         <SelectTrigger
-                                            class="h-10 rounded-2xl border-white/10 bg-black/25 text-slate-100">
+                                            class="h-10 rounded-[10px] border-border bg-card text-foreground">
                                             <SelectValue
                                                 placeholder="偏好属性" />
                                         </SelectTrigger>
                                         <SelectContent
-                                            class="border-white/10 bg-slate-950/95 text-slate-100">
+                                            class="border-border bg-slate-950/95 text-foreground">
                                             <SelectItem value="none"
                                                 >不限属性</SelectItem
                                             >
@@ -2832,12 +2832,12 @@ document.title = "配队工具 - 洛克王国工具箱";
                                     </Select>
                                     <Select v-model="autoPreferenceAttackStyle">
                                         <SelectTrigger
-                                            class="h-10 rounded-2xl border-white/10 bg-black/25 text-slate-100">
+                                            class="h-10 rounded-[10px] border-border bg-card text-foreground">
                                             <SelectValue
                                                 placeholder="输出偏好" />
                                         </SelectTrigger>
                                         <SelectContent
-                                            class="border-white/10 bg-slate-950/95 text-slate-100">
+                                            class="border-border bg-slate-950/95 text-foreground">
                                             <SelectItem
                                                 v-for="option in autoAttackStyleOptions"
                                                 :key="option.value"
@@ -2848,7 +2848,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                     </Select>
                                     <Button
                                         variant="outline"
-                                        class="rounded-full border-white/10 bg-white/5 text-slate-100 hover:bg-white/10"
+                                        class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
                                         @click="generatePreferenceAutoTeam">
                                         <FlaskConical class="h-4 w-4" />
                                         按偏好生成
@@ -2857,7 +2857,7 @@ document.title = "配队工具 - 洛克王国工具箱";
 
                                 <Button
                                     variant="ghost"
-                                    class="w-full rounded-2xl border border-dashed border-white/10 bg-black/20 text-slate-200 hover:bg-white/8 hover:text-white"
+                                    class="w-full rounded-[10px] border border-dashed border-border bg-card text-foreground hover:bg-muted hover:text-foreground"
                                     @click="generateRandomAutoTeam">
                                     <Sparkles class="h-4 w-4" />
                                     随机配队
@@ -2868,14 +2868,14 @@ document.title = "配队工具 - 洛克王国工具箱";
                         <div class="flex flex-wrap gap-2">
                             <Button
                                 variant="outline"
-                                class="rounded-full border-white/10 bg-white/5 text-slate-100 hover:bg-white/10"
+                                class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
                                 @click="shareDialogOpen = true">
                                 <Share2 class="h-4 w-4" />
                                 分享
                             </Button>
                             <Button
                                 variant="ghost"
-                                class="rounded-full text-slate-300 hover:bg-white/8 hover:text-white"
+                                class="rounded-[10px] text-foreground hover:bg-muted hover:text-foreground"
                                 @click="resetTeam">
                                 <RotateCcw class="h-4 w-4" />
                                 重置整队
@@ -2884,34 +2884,34 @@ document.title = "配队工具 - 洛克王国工具箱";
                     </CardContent>
                 </Card>
 
-                <Card class="border-white/10 bg-black/22 shadow-sm">
+                <Card class="border-border bg-card shadow-sm">
                     <CardHeader class="pb-4">
-                        <CardTitle class="flex items-center gap-2 text-white">
+                        <CardTitle class="flex items-center gap-2 text-foreground">
                             <Swords class="h-4 w-4 text-primary" />
                             阵容分析
                         </CardTitle>
-                        <CardDescription class="text-slate-400">
+                        <CardDescription class="text-foreground">
                             根据当前已选配置快速看队伍结构和缺口。
                         </CardDescription>
                     </CardHeader>
                     <CardContent class="space-y-4">
                         <div class="grid gap-3 xl:grid-cols-4">
                             <div
-                                class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                                class="rounded-[10px] border border-border bg-white/5 px-4 py-3">
                                 <p
-                                    class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                                    class="text-xs tracking-[0.18em] text-foreground uppercase">
                                     攻向分布
                                 </p>
-                                <p class="mt-2 text-sm text-slate-100">
+                                <p class="mt-2 text-sm text-foreground">
                                     物攻 {{ attackProfile.physical }} · 魔攻
                                     {{ attackProfile.magic }} · 双修
                                     {{ attackProfile.both }}
                                 </p>
                             </div>
                             <div
-                                class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                                class="rounded-[10px] border border-border bg-white/5 px-4 py-3">
                                 <p
-                                    class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                                    class="text-xs tracking-[0.18em] text-foreground uppercase">
                                     攻击覆盖
                                 </p>
                                 <div class="mt-2 flex flex-wrap gap-1.5">
@@ -2921,23 +2921,23 @@ document.title = "配队工具 - 洛克王国工具箱";
                                             8,
                                         )"
                                         :key="type.id"
-                                        class="rounded-full border border-white/10 bg-black/20 px-2 py-0.5 text-xs text-slate-200">
+                                        class="rounded-[10px] border border-border bg-card px-2 py-0.5 text-xs text-foreground">
                                         {{ type.label }}
                                     </span>
                                     <span
                                         v-if="attackCoverage.length === 0"
-                                        class="text-sm text-slate-500">
+                                        class="text-sm text-foreground">
                                         暂无覆盖数据
                                     </span>
                                 </div>
                             </div>
                             <div
-                                class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                                class="rounded-[10px] border border-border bg-white/5 px-4 py-3">
                                 <p
-                                    class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                                    class="text-xs tracking-[0.18em] text-foreground uppercase">
                                     防守侧重点
                                 </p>
-                                <p class="mt-2 text-sm text-slate-100">
+                                <p class="mt-2 text-sm text-foreground">
                                     抗性
                                     {{
                                         defenseSummary.resistances[0]?.label ??
@@ -2951,9 +2951,9 @@ document.title = "配队工具 - 洛克王国工具箱";
                                 </p>
                             </div>
                             <div
-                                class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                                class="rounded-[10px] border border-border bg-white/5 px-4 py-3">
                                 <p
-                                    class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                                    class="text-xs tracking-[0.18em] text-foreground uppercase">
                                     队内定位
                                 </p>
                                 <div class="mt-2 flex flex-wrap gap-1.5">
@@ -2961,14 +2961,14 @@ document.title = "配队工具 - 洛克王国工具箱";
                                         v-for="item in teamRoleCounts"
                                         :key="item.role"
                                         :class="[
-                                            'rounded-full border px-2 py-0.5 text-xs',
+                                            'rounded-[10px] border px-2 py-0.5 text-xs',
                                             getRoleTone(item.role),
                                         ]">
                                         {{ item.role }} × {{ item.count }}
                                     </span>
                                     <span
                                         v-if="teamRoleCounts.length === 0"
-                                        class="text-sm text-slate-500">
+                                        class="text-sm text-foreground">
                                         选中阵容后显示
                                     </span>
                                 </div>
@@ -2978,17 +2978,17 @@ document.title = "配队工具 - 洛克王国工具箱";
                         <div class="grid gap-4 lg:grid-cols-2">
                             <div class="space-y-3">
                                 <div
-                                    class="flex items-center gap-2 text-sm font-medium text-white">
+                                    class="flex items-center gap-2 text-sm font-medium text-foreground">
                                     <ShieldCheck
                                         class="h-4 w-4 text-emerald-300" />
                                     抗性较多
                                 </div>
                                 <div
-                                    class="flex min-h-16 flex-wrap gap-1.5 rounded-2xl border border-white/10 bg-white/4 p-3">
+                                    class="flex min-h-16 flex-wrap gap-1.5 rounded-[10px] border border-border bg-white/4 p-3">
                                     <span
                                         v-for="item in defenseSummary.resistances"
                                         :key="item.label"
-                                        class="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-2 py-0.5 text-xs text-emerald-100">
+                                        class="rounded-[10px] border border-emerald-400/20 bg-card hover:bg-accent/10 px-2 py-0.5 text-xs text-emerald-100">
                                         {{ item.label }} × {{ item.resist }}
                                     </span>
                                     <span
@@ -2996,7 +2996,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                             defenseSummary.resistances
                                                 .length === 0
                                         "
-                                        class="text-sm text-slate-500">
+                                        class="text-sm text-foreground">
                                         选中阵容后显示
                                     </span>
                                 </div>
@@ -3004,17 +3004,17 @@ document.title = "配队工具 - 洛克王国工具箱";
 
                             <div class="space-y-3">
                                 <div
-                                    class="flex items-center gap-2 text-sm font-medium text-white">
+                                    class="flex items-center gap-2 text-sm font-medium text-foreground">
                                     <ShieldAlert
                                         class="h-4 w-4 text-rose-300" />
                                     易被压制
                                 </div>
                                 <div
-                                    class="flex min-h-16 flex-wrap gap-1.5 rounded-2xl border border-white/10 bg-white/4 p-3">
+                                    class="flex min-h-16 flex-wrap gap-1.5 rounded-[10px] border border-border bg-white/4 p-3">
                                     <span
                                         v-for="item in defenseSummary.weaknesses"
                                         :key="item.label"
-                                        class="rounded-full border border-rose-400/20 bg-rose-400/10 px-2 py-0.5 text-xs text-rose-100">
+                                        class="rounded-[10px] border border-rose-400/20 bg-rose-400/10 px-2 py-0.5 text-xs text-rose-100">
                                         {{ item.label }} × {{ item.weak }}
                                     </span>
                                     <span
@@ -3022,7 +3022,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                             defenseSummary.weaknesses.length ===
                                             0
                                         "
-                                        class="text-sm text-slate-500">
+                                        class="text-sm text-foreground">
                                         选中阵容后显示
                                     </span>
                                 </div>
@@ -3032,36 +3032,36 @@ document.title = "配队工具 - 洛克王国工具箱";
                         <div class="grid gap-4 xl:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
                             <div class="space-y-3">
                                 <div
-                                    class="flex items-center gap-2 text-sm font-medium text-white">
+                                    class="flex items-center gap-2 text-sm font-medium text-foreground">
                                     <Zap class="h-4 w-4 text-sky-300" />
                                     队伍速度线
                                 </div>
                                 <div
-                                    class="space-y-2 rounded-2xl border border-white/10 bg-white/4 p-3">
+                                    class="space-y-2 rounded-[10px] border border-border bg-white/4 p-3">
                                     <div
                                         v-for="line in teamSpeedLines"
                                         :key="line.slotId"
-                                        class="flex items-center justify-between gap-3 rounded-2xl border border-white/8 bg-black/20 px-3 py-2 text-sm">
+                                        class="flex items-center justify-between gap-3 rounded-[10px] border border-white/8 bg-card px-3 py-2 text-sm">
                                         <div class="min-w-0">
-                                            <p class="truncate font-medium text-white">
+                                            <p class="truncate font-medium text-foreground">
                                                 {{ line.index }}. {{ line.petName }}
                                             </p>
-                                            <p class="mt-1 text-xs text-slate-500">
+                                            <p class="mt-1 text-xs text-foreground">
                                                 性格 {{ line.personalityLabel }} · {{ line.personalitySummary }}
                                             </p>
                                         </div>
                                         <div class="shrink-0 text-right">
-                                            <p class="text-lg font-semibold text-white">
+                                            <p class="text-lg font-semibold text-foreground">
                                                 {{ line.speed }}
                                             </p>
-                                            <p class="text-[11px] text-slate-500">
+                                            <p class="text-[11px] text-foreground">
                                                 原速 {{ line.baseSpeed }}
                                             </p>
                                         </div>
                                     </div>
                                     <p
                                         v-if="teamSpeedLines.length === 0"
-                                        class="rounded-2xl border border-dashed border-white/10 px-3 py-4 text-sm text-slate-500">
+                                        class="rounded-[10px] border border-dashed border-border px-3 py-4 text-sm text-foreground">
                                         选中阵容后显示队伍速度梯队。
                                     </p>
                                 </div>
@@ -3069,27 +3069,27 @@ document.title = "配队工具 - 洛克王国工具箱";
 
                             <div class="space-y-3">
                                 <div
-                                    class="flex items-center gap-2 text-sm font-medium text-white">
+                                    class="flex items-center gap-2 text-sm font-medium text-foreground">
                                     <ShieldAlert class="h-4 w-4 text-rose-300" />
                                     环境威胁
                                 </div>
                                 <div
-                                    class="space-y-2 rounded-2xl border border-white/10 bg-white/4 p-3">
+                                    class="space-y-2 rounded-[10px] border border-border bg-white/4 p-3">
                                     <button
                                         v-for="item in environmentThreats"
                                         :key="item.pet_id"
                                         type="button"
-                                        class="w-full rounded-2xl border border-white/8 bg-black/20 px-3 py-3 text-left transition-colors hover:border-white/15 hover:bg-white/6"
+                                        class="w-full rounded-[10px] border border-white/8 bg-card px-3 py-3 text-left transition-colors hover:border-white/15 hover:bg-muted"
                                         @click="selectDamageTarget(item.pet_id)">
                                         <div class="flex items-start justify-between gap-3">
                                             <div class="min-w-0">
-                                                <p class="truncate font-medium text-white">
+                                                <p class="truncate font-medium text-foreground">
                                                     {{ item.pet_name }}
                                                 </p>
-                                                <p class="mt-1 text-xs text-slate-400">
+                                                <p class="mt-1 text-xs text-foreground">
                                                     本系威胁 {{ item.stab_type_labels.join(' / ') || '未知' }}
                                                 </p>
-                                                <p class="mt-1 text-xs text-slate-500">
+                                                <p class="mt-1 text-xs text-foreground">
                                                     可稳定压制 {{ item.pressured_count }} / {{ filledSlotCount }} 槽
                                                 </p>
                                             </div>
@@ -3097,7 +3097,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                 <p class="text-sm font-semibold text-rose-100">
                                                     {{ item.max_multiplier.toFixed(2) }}x
                                                 </p>
-                                                <p class="text-[11px] text-slate-500">
+                                                <p class="text-[11px] text-foreground">
                                                     最痛本系倍率
                                                 </p>
                                             </div>
@@ -3105,7 +3105,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                     </button>
                                     <p
                                         v-if="environmentThreats.length === 0"
-                                        class="rounded-2xl border border-dashed border-white/10 px-3 py-4 text-sm text-slate-500">
+                                        class="rounded-[10px] border border-dashed border-border px-3 py-4 text-sm text-foreground">
                                         需要先选择至少一只精灵，才会开始评估环境威胁。
                                     </p>
                                 </div>
@@ -3113,8 +3113,8 @@ document.title = "配队工具 - 洛克王国工具箱";
                         </div>
 
                         <div
-                            class="space-y-2 rounded-2xl border border-white/10 bg-white/4 p-4 text-sm text-slate-300">
-                            <p class="font-medium text-white">构筑提示</p>
+                            class="space-y-2 rounded-[10px] border border-border bg-white/4 p-4 text-sm text-foreground">
+                            <p class="font-medium text-foreground">构筑提示</p>
                             <p
                                 v-for="item in analysisHighlights"
                                 :key="item"
@@ -3128,13 +3128,13 @@ document.title = "配队工具 - 洛克王国工具箱";
         </div>
 
         <Card
-            class="sticky top-4 h-fit border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.92),rgba(2,6,23,0.96))] shadow-[0_26px_70px_-50px_rgba(0,0,0,0.95)]">
+            class="sticky top-4 h-fit border-border bg-card shadow-md">
             <CardHeader class="gap-4 pb-4">
                 <div class="space-y-1">
-                    <CardTitle class="text-white">
+                    <CardTitle class="text-foreground">
                         面板 · 槽位 {{ activeSlot.slotId }}
                     </CardTitle>
-                    <CardDescription class="text-slate-400">
+                    <CardDescription class="text-foreground">
                         {{
                             activeFriend?.localized.zh.name ??
                             "先从候选列表选择一只精灵"
@@ -3144,13 +3144,13 @@ document.title = "配队工具 - 洛克王国工具箱";
 
                 <Tabs v-model="activePanelTab" class="gap-3">
                     <TabsList
-                        class="grid h-10 w-full grid-cols-2 rounded-full border border-white/10 bg-white/5 p-1">
+                        class="grid h-10 w-full grid-cols-2 rounded-[10px] border border-border bg-white/5 p-1">
                         <TabsTrigger
                             value="friends"
-                            class="rounded-full text-xs"
+                            class="rounded-[10px] text-xs"
                             >选择精灵</TabsTrigger
                         >
-                        <TabsTrigger value="build" class="rounded-full text-xs"
+                        <TabsTrigger value="build" class="rounded-[10px] text-xs"
                             >构筑配置</TabsTrigger
                         >
                     </TabsList>
@@ -3159,11 +3159,11 @@ document.title = "配队工具 - 洛克王国工具箱";
                         <div class="grid gap-2 sm:grid-cols-3 xl:grid-cols-1">
                             <Select v-model="selectedTypeFilter">
                                 <SelectTrigger
-                                    class="h-10 rounded-2xl border-white/10 bg-black/25 text-slate-100">
+                                    class="h-10 rounded-[10px] border-border bg-card text-foreground">
                                     <SelectValue placeholder="全部属性" />
                                 </SelectTrigger>
                                 <SelectContent
-                                    class="border-white/10 bg-slate-950/95 text-slate-100">
+                                    class="border-border bg-slate-950/95 text-foreground">
                                     <SelectItem value="all"
                                         >全部属性</SelectItem
                                     >
@@ -3178,11 +3178,11 @@ document.title = "配队工具 - 洛克王国工具箱";
 
                             <Select v-model="selectedAttackStyleFilter">
                                 <SelectTrigger
-                                    class="h-10 rounded-2xl border-white/10 bg-black/25 text-slate-100">
+                                    class="h-10 rounded-[10px] border-border bg-card text-foreground">
                                     <SelectValue placeholder="输出倾向" />
                                 </SelectTrigger>
                                 <SelectContent
-                                    class="border-white/10 bg-slate-950/95 text-slate-100">
+                                    class="border-border bg-slate-950/95 text-foreground">
                                     <SelectItem value="all"
                                         >全部定位</SelectItem
                                     >
@@ -3197,11 +3197,11 @@ document.title = "配队工具 - 洛克王国工具箱";
 
                             <Select v-model="selectedSpecialFilter">
                                 <SelectTrigger
-                                    class="h-10 rounded-2xl border-white/10 bg-black/25 text-slate-100">
+                                    class="h-10 rounded-[10px] border-border bg-card text-foreground">
                                     <SelectValue placeholder="特殊筛选" />
                                 </SelectTrigger>
                                 <SelectContent
-                                    class="border-white/10 bg-slate-950/95 text-slate-100">
+                                    class="border-border bg-slate-950/95 text-foreground">
                                     <SelectItem value="all"
                                         >全部形态</SelectItem
                                     >
@@ -3223,13 +3223,13 @@ document.title = "配队工具 - 洛克王国工具箱";
 
                         <Command
                             :filter-function="undefined"
-                            class="rounded-xl border border-white/10 bg-black/22">
+                            class="rounded-[10px] border border-border bg-card">
                             <CommandInput
                                 placeholder="搜索名称、编号、属性或定位"
-                                class="text-slate-100 placeholder:text-slate-500" />
+                                class="text-foreground placeholder:text-foreground" />
                             <CommandList class="max-h-[60vh] px-1 pb-1">
                                 <CommandEmpty
-                                    class="px-3 py-4 text-sm text-slate-500">
+                                    class="px-3 py-4 text-sm text-foreground">
                                     没有符合条件的精灵。
                                 </CommandEmpty>
                                 <CommandGroup heading="候选精灵">
@@ -3237,7 +3237,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                         v-for="friend in filteredCandidates"
                                         :key="friend.id"
                                         :value="String(friend.id)"
-                                        class="rounded-2xl px-3 py-3 text-slate-100"
+                                        class="rounded-[10px] px-3 py-3 text-foreground"
                                         draggable="true"
                                         @dragstart="startFriendDrag(friend.id)"
                                         @dragend="clearDragState"
@@ -3247,21 +3247,21 @@ document.title = "配队工具 - 洛克王国工具箱";
                                         <FriendPortrait
                                             :name="friend.name"
                                             :alt="friend.localized.zh.name"
-                                            class="h-10 w-12 rounded-xl border-white/10"
+                                            class="h-10 w-12 rounded-[10px] border-border"
                                             img-class="object-cover object-top" />
                                         <div class="min-w-0 flex-1 space-y-1">
                                             <div
                                                 class="flex items-center justify-between gap-3">
                                                 <div class="min-w-0">
                                                     <p
-                                                        class="truncate font-medium text-white">
+                                                        class="truncate font-medium text-foreground">
                                                         {{
                                                             friend.localized.zh
                                                                 .name
                                                         }}
                                                     </p>
                                                     <p
-                                                        class="text-xs text-slate-500">
+                                                        class="text-xs text-foreground">
                                                         #{{ friend.id }} ·
                                                         {{
                                                             getAttackStyleLabel(
@@ -3276,7 +3276,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                             friend.id,
                                                         )?.length
                                                     "
-                                                    class="rounded-full border border-white/10 bg-white/6 px-2 py-0.5 text-[11px] text-slate-300">
+                                                    class="rounded-[10px] border border-border bg-muted px-2 py-0.5 text-[11px] text-foreground">
                                                     已在
                                                     {{
                                                         selectedFriendUsageMap
@@ -3294,7 +3294,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                     )"
                                                     :key="`${friend.id}-${type.id}`"
                                                     :class="[
-                                                        'inline-flex items-center rounded-full border px-2 py-0.5 text-[11px]',
+                                                        'inline-flex items-center rounded-[10px] border px-2 py-0.5 text-[11px]',
                                                         getTypeTone(type.name),
                                                     ]">
                                                     {{ type.localized.zh }}
@@ -3310,18 +3310,18 @@ document.title = "配队工具 - 洛克王国工具箱";
                     <TabsContent value="build" class="mt-0 space-y-4">
                         <div
                             v-if="!activeFriend"
-                            class="rounded-xl border border-white/10 bg-white/4 px-4 py-8 text-center text-sm text-slate-400">
+                            class="rounded-[10px] border border-border bg-white/4 px-4 py-8 text-center text-sm text-foreground">
                             先为当前槽位选择精灵，再继续设置性格、血脉和技能。
                         </div>
 
                         <template v-else>
                             <div
-                                class="rounded-[1.6rem] border border-white/10 bg-white/4 p-4">
+                                class="rounded-[1.6rem] border border-border bg-white/4 p-4">
                                 <div class="flex items-start gap-3">
                                     <FriendPortrait
                                         :name="activeFriend.name"
                                         :alt="activeFriend.localized.zh.name"
-                                        class="h-18 w-18 rounded-[1.1rem] border-white/10"
+                                        class="h-18 w-18 rounded-[1.1rem] border-border"
                                         img-class="object-cover object-top" />
 
                                     <div class="min-w-0 flex-1 space-y-2">
@@ -3329,14 +3329,14 @@ document.title = "配队工具 - 洛克王国工具箱";
                                             class="flex items-start justify-between gap-3">
                                             <div>
                                                 <p
-                                                    class="text-lg font-semibold text-white">
+                                                    class="text-lg font-semibold text-foreground">
                                                     {{
                                                         activeFriend.localized
                                                             .zh.name
                                                     }}
                                                 </p>
                                                 <p
-                                                    class="text-xs text-slate-500">
+                                                    class="text-xs text-foreground">
                                                     #{{ activeFriend.id }} ·
                                                     {{
                                                         getAttackStyleLabel(
@@ -3348,7 +3348,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                             <Button
                                                 variant="ghost"
                                                 size="icon-sm"
-                                                class="rounded-full text-slate-400 hover:bg-white/10 hover:text-white"
+                                                class="rounded-[10px] text-foreground hover:bg-accent hover:text-foreground"
                                                 @click="
                                                     clearSlot(activeSlot.slotId)
                                                 ">
@@ -3363,7 +3363,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                 )"
                                                 :key="type.id"
                                                 :class="[
-                                                    'inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium',
+                                                    'inline-flex items-center rounded-[10px] border px-2 py-0.5 text-xs font-medium',
                                                     getTypeTone(type.name),
                                                 ]">
                                                 {{ type.localized.zh }}
@@ -3376,7 +3376,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                             <div class="grid gap-3 sm:grid-cols-2">
                                 <div class="space-y-2">
                                     <p
-                                        class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                                        class="text-xs tracking-[0.18em] text-foreground uppercase">
                                         性格
                                     </p>
                                     <Select
@@ -3393,12 +3393,12 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                 )
                                         ">
                                         <SelectTrigger
-                                            class="h-11 rounded-2xl border-white/10 bg-black/25 text-slate-100">
+                                            class="h-11 rounded-[10px] border-border bg-card text-foreground">
                                             <SelectValue
                                                 placeholder="选择性格" />
                                         </SelectTrigger>
                                         <SelectContent
-                                            class="border-white/10 bg-slate-950/95 text-slate-100">
+                                            class="border-border bg-slate-950/95 text-foreground">
                                             <SelectItem
                                                 v-for="item in personalities"
                                                 :key="item.id"
@@ -3411,7 +3411,7 @@ document.title = "配队工具 - 洛克王国工具箱";
 
                                 <div class="space-y-2">
                                     <p
-                                        class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                                        class="text-xs tracking-[0.18em] text-foreground uppercase">
                                         血脉
                                     </p>
                                     <Select
@@ -3428,12 +3428,12 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                 )
                                         ">
                                         <SelectTrigger
-                                            class="h-11 rounded-2xl border-white/10 bg-black/25 text-slate-100">
+                                            class="h-11 rounded-[10px] border-border bg-card text-foreground">
                                             <SelectValue
                                                 placeholder="选择血脉" />
                                         </SelectTrigger>
                                         <SelectContent
-                                            class="border-white/10 bg-slate-950/95 text-slate-100">
+                                            class="border-border bg-slate-950/95 text-foreground">
                                             <SelectItem
                                                 v-for="item in activeLegacyOptions"
                                                 :key="item.id"
@@ -3447,30 +3447,30 @@ document.title = "配队工具 - 洛克王国工具箱";
 
                             <div class="grid gap-3 sm:grid-cols-2">
                                 <div
-                                    class="rounded-xl border border-white/10 bg-white/4 p-4">
-                                    <p class="text-sm font-medium text-white">
+                                    class="rounded-[10px] border border-border bg-white/4 p-4">
+                                    <p class="text-sm font-medium text-foreground">
                                         性格加减值
                                     </p>
-                                    <p class="mt-2 text-sm text-slate-300">
+                                    <p class="mt-2 text-sm text-foreground">
                                         {{
                                             getPersonalityStatDeltaSummary(
                                                 getSlotPersonality(activeSlot),
                                             )
                                         }}
                                     </p>
-                                    <p class="mt-2 text-xs leading-5 text-slate-500">
+                                    <p class="mt-2 text-xs leading-5 text-foreground">
                                         当前速度会直接按性格修正写入队伍速度线，后面的速度计算器再额外叠加临时加速或百分比修正。
                                     </p>
                                 </div>
 
                                 <div
-                                    class="rounded-xl border border-white/10 bg-white/4 p-4">
+                                    class="rounded-[10px] border border-border bg-white/4 p-4">
                                     <div
                                         class="flex items-center justify-between gap-3">
-                                        <p class="text-sm font-medium text-white">
+                                        <p class="text-sm font-medium text-foreground">
                                             定位
                                         </p>
-                                        <p class="text-xs text-slate-500">
+                                        <p class="text-xs text-foreground">
                                             自动识别
                                         </p>
                                     </div>
@@ -3481,7 +3481,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                             )"
                                             :key="role"
                                             :class="[
-                                                'rounded-full border px-3 py-1.5 text-xs',
+                                                'rounded-[10px] border px-3 py-1.5 text-xs',
                                                 getRoleTone(role),
                                             ]">
                                             {{ role }}
@@ -3491,26 +3491,26 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                 getResolvedSlotRoles(activeSlot)
                                                     .length === 0
                                             "
-                                            class="rounded-full border border-dashed border-white/10 px-3 py-1.5 text-xs text-slate-500">
+                                            class="rounded-[10px] border border-dashed border-border px-3 py-1.5 text-xs text-foreground">
                                             选择技能后自动识别
                                         </span>
                                     </div>
-                                    <p class="mt-3 text-xs text-slate-500">
+                                    <p class="mt-3 text-xs text-foreground">
                                         当前定位：{{ getRoleSummary(activeSlot) }}。识别基于当前已选技能的类别、覆盖和功能描述。
                                     </p>
                                 </div>
                             </div>
 
                             <div
-                                class="rounded-xl border border-white/10 bg-black/22 p-4">
+                                class="rounded-[10px] border border-border bg-card p-4">
                                 <div
                                     class="flex items-center justify-between gap-3">
                                     <div>
                                         <p
-                                            class="text-sm font-medium text-white">
+                                            class="text-sm font-medium text-foreground">
                                             技能选择
                                         </p>
-                                        <p class="text-xs text-slate-500">
+                                        <p class="text-xs text-foreground">
                                             最多选择
                                             {{ MAX_MOVES_PER_SLOT }}
                                             个技能，支持技能池、技能石和当前血脉遗传技。
@@ -3519,7 +3519,7 @@ document.title = "配队工具 - 洛克王国工具箱";
 
                                     <Button
                                         variant="ghost"
-                                        class="rounded-full text-xs text-slate-300 hover:bg-white/8 hover:text-white"
+                                        class="rounded-[10px] text-xs text-foreground hover:bg-muted hover:text-foreground"
                                         @click="
                                             applyRecommendedMoves(
                                                 activeSlot.slotId,
@@ -3533,12 +3533,12 @@ document.title = "配队工具 - 洛克王国工具箱";
                                     <span
                                         v-for="move in activeSelectedMoves"
                                         :key="move.id"
-                                        class="inline-flex items-center gap-1 rounded-full border border-primary/20 bg-primary/12 px-2.5 py-1 text-xs text-primary-foreground">
+                                        class="inline-flex items-center gap-1 rounded-[10px] border border-primary/20 bg-primary/12 px-2.5 py-1 text-xs text-primary-foreground">
                                         {{ move.localized.zh.name }}
                                     </span>
                                     <span
                                         v-if="activeSelectedMoves.length === 0"
-                                        class="text-sm text-slate-500">
+                                        class="text-sm text-foreground">
                                         还没有选择技能
                                     </span>
                                 </div>
@@ -3549,7 +3549,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                         :key="group.heading"
                                         class="space-y-2">
                                         <p
-                                            class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                                            class="text-xs tracking-[0.18em] text-foreground uppercase">
                                             {{ group.heading }}
                                         </p>
                                         <div class="space-y-2">
@@ -3558,12 +3558,12 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                 :key="option.move.id"
                                                 type="button"
                                                 :class="[
-                                                    'w-full rounded-2xl border px-3 py-3 text-left transition-colors',
+                                                    'w-full rounded-[10px] border px-3 py-3 text-left transition-colors',
                                                     activeSlot.moveIds.includes(
                                                         option.move.id,
                                                     )
                                                         ? 'border-primary/35 bg-primary/10'
-                                                        : 'border-white/10 bg-white/4 hover:bg-white/8',
+                                                        : 'border-border bg-white/4 hover:bg-muted',
                                                 ]"
                                                 @click="
                                                     toggleMoveSelection(
@@ -3577,7 +3577,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                         <div
                                                             class="flex flex-wrap items-center gap-1.5">
                                                             <span
-                                                                class="font-medium text-white">
+                                                                class="font-medium text-foreground">
                                                                 {{
                                                                     option.move
                                                                         .localized
@@ -3586,7 +3586,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                             </span>
                                                             <span
                                                                 :class="[
-                                                                    'rounded-full border px-2 py-0.5 text-[11px]',
+                                                                    'rounded-[10px] border px-2 py-0.5 text-[11px]',
                                                                     getTypeTone(
                                                                         option
                                                                             .move
@@ -3602,7 +3602,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                                 }}
                                                             </span>
                                                             <span
-                                                                class="rounded-full border border-white/10 bg-black/20 px-2 py-0.5 text-[11px] text-slate-300">
+                                                                class="rounded-[10px] border border-border bg-card px-2 py-0.5 text-[11px] text-foreground">
                                                                 {{
                                                                     getMoveCategoryLabel(
                                                                         option
@@ -3615,12 +3615,12 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                                 v-if="
                                                                     option.recommended
                                                                 "
-                                                                class="rounded-full border border-amber-300/20 bg-amber-300/10 px-2 py-0.5 text-[11px] text-amber-50">
+                                                                class="rounded-[10px] border border-border/20 bg-card hover:bg-accent/10 px-2 py-0.5 text-[11px] text-foreground">
                                                                 推荐
                                                             </span>
                                                         </div>
                                                         <p
-                                                            class="text-xs leading-5 text-slate-400">
+                                                            class="text-xs leading-5 text-foreground">
                                                             {{
                                                                 option.move
                                                                     .localized
@@ -3632,11 +3632,11 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                     <div
                                                         class="shrink-0 text-right">
                                                         <p
-                                                            class="text-xs text-slate-500">
+                                                            class="text-xs text-foreground">
                                                             能耗
                                                         </p>
                                                         <p
-                                                            class="text-sm font-medium text-white">
+                                                            class="text-sm font-medium text-foreground">
                                                             {{
                                                                 option.move
                                                                     .energy_cost
@@ -3650,33 +3650,33 @@ document.title = "配队工具 - 洛克王国工具箱";
                                 </div>
                             </div>
 
-                            <div class="space-y-3 rounded-xl border border-white/10 bg-white/4 p-4">
+                            <div class="space-y-3 rounded-[10px] border border-border bg-white/4 p-4">
                                 <div class="flex items-center justify-between gap-3">
                                     <div>
-                                        <p class="text-sm font-medium text-white">
+                                        <p class="text-sm font-medium text-foreground">
                                             速度线计算器
                                         </p>
-                                        <p class="text-xs text-slate-500">
+                                        <p class="text-xs text-foreground">
                                             用于估算当前槽位在常见环境速度线中的位置。
                                         </p>
                                     </div>
-                                    <p class="text-sm font-semibold text-white">
+                                    <p class="text-sm font-semibold text-foreground">
                                         当前速度 {{ activeSpeedCalculation?.adjustedSpeed ?? '--' }}
                                     </p>
                                 </div>
 
                                 <div class="grid gap-2 sm:grid-cols-3">
                                     <div class="space-y-2">
-                                        <p class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                                        <p class="text-xs tracking-[0.18em] text-foreground uppercase">
                                             参考环境
                                         </p>
                                         <Select v-model="speedReferenceMode">
                                             <SelectTrigger
-                                                class="h-10 rounded-2xl border-white/10 bg-black/25 text-slate-100">
+                                                class="h-10 rounded-[10px] border-border bg-card text-foreground">
                                                 <SelectValue placeholder="选择环境速度线" />
                                             </SelectTrigger>
                                             <SelectContent
-                                                class="border-white/10 bg-slate-950/95 text-slate-100">
+                                                class="border-border bg-slate-950/95 text-foreground">
                                                 <SelectItem
                                                     v-for="option in SPEED_REFERENCE_OPTIONS"
                                                     :key="option.value"
@@ -3687,87 +3687,87 @@ document.title = "配队工具 - 洛克王国工具箱";
                                         </Select>
                                     </div>
                                     <div class="space-y-2">
-                                        <p class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                                        <p class="text-xs tracking-[0.18em] text-foreground uppercase">
                                             平加速度
                                         </p>
                                         <Input
                                             v-model.number="speedFlatBonus"
                                             type="number"
-                                            class="h-10 rounded-2xl border-white/10 bg-black/25 text-slate-100"
+                                            class="h-10 rounded-[10px] border-border bg-card text-foreground"
                                             placeholder="例如 80" />
                                     </div>
                                     <div class="space-y-2">
-                                        <p class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                                        <p class="text-xs tracking-[0.18em] text-foreground uppercase">
                                             百分比修正
                                         </p>
                                         <Input
                                             v-model.number="speedPercentBonus"
                                             type="number"
-                                            class="h-10 rounded-2xl border-white/10 bg-black/25 text-slate-100"
+                                            class="h-10 rounded-[10px] border-border bg-card text-foreground"
                                             placeholder="例如 20" />
                                     </div>
                                 </div>
 
                                 <div class="grid gap-3 sm:grid-cols-3">
-                                    <div class="rounded-2xl border border-white/10 bg-black/20 px-3 py-3">
-                                        <p class="text-[11px] text-slate-500">快过</p>
-                                        <p class="mt-1 text-lg font-semibold text-white">
+                                    <div class="rounded-[10px] border border-border bg-card px-3 py-3">
+                                        <p class="text-[11px] text-foreground">快过</p>
+                                        <p class="mt-1 text-lg font-semibold text-foreground">
                                             {{ activeSpeedCalculation?.fasterThanCount ?? 0 }}
                                         </p>
                                     </div>
-                                    <div class="rounded-2xl border border-white/10 bg-black/20 px-3 py-3">
-                                        <p class="text-[11px] text-slate-500">同速</p>
-                                        <p class="mt-1 text-lg font-semibold text-white">
+                                    <div class="rounded-[10px] border border-border bg-card px-3 py-3">
+                                        <p class="text-[11px] text-foreground">同速</p>
+                                        <p class="mt-1 text-lg font-semibold text-foreground">
                                             {{ activeSpeedCalculation?.tieCount ?? 0 }}
                                         </p>
                                     </div>
-                                    <div class="rounded-2xl border border-white/10 bg-black/20 px-3 py-3">
-                                        <p class="text-[11px] text-slate-500">参考样本</p>
-                                        <p class="mt-1 text-lg font-semibold text-white">
+                                    <div class="rounded-[10px] border border-border bg-card px-3 py-3">
+                                        <p class="text-[11px] text-foreground">参考样本</p>
+                                        <p class="mt-1 text-lg font-semibold text-foreground">
                                             {{ activeSpeedCalculation?.referenceLines.length ?? 0 }}
                                         </p>
                                     </div>
                                 </div>
 
                                 <div class="grid gap-3 lg:grid-cols-2">
-                                    <div class="space-y-2 rounded-2xl border border-white/10 bg-black/20 p-3">
-                                        <p class="text-sm font-medium text-white">已经超过</p>
+                                    <div class="space-y-2 rounded-[10px] border border-border bg-card p-3">
+                                        <p class="text-sm font-medium text-foreground">已经超过</p>
                                         <div class="space-y-2">
                                             <div
                                                 v-for="line in activeSpeedCalculation?.justBelow ?? []"
                                                 :key="`below-${line.pet_id}`"
                                                 class="flex items-center justify-between gap-3 text-sm">
-                                                <span class="truncate text-slate-200">
+                                                <span class="truncate text-foreground">
                                                     {{ line.pet_name }}
                                                 </span>
-                                                <span class="text-slate-500">
+                                                <span class="text-foreground">
                                                     {{ line.speed }}
                                                 </span>
                                             </div>
                                             <p
                                                 v-if="(activeSpeedCalculation?.justBelow.length ?? 0) === 0"
-                                                class="text-sm text-slate-500">
+                                                class="text-sm text-foreground">
                                                 当前还没有超过参考环境中的关键线。
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="space-y-2 rounded-2xl border border-white/10 bg-black/20 p-3">
-                                        <p class="text-sm font-medium text-white">仍慢于</p>
+                                    <div class="space-y-2 rounded-[10px] border border-border bg-card p-3">
+                                        <p class="text-sm font-medium text-foreground">仍慢于</p>
                                         <div class="space-y-2">
                                             <div
                                                 v-for="line in activeSpeedCalculation?.justAbove ?? []"
                                                 :key="`above-${line.pet_id}`"
                                                 class="flex items-center justify-between gap-3 text-sm">
-                                                <span class="truncate text-slate-200">
+                                                <span class="truncate text-foreground">
                                                     {{ line.pet_name }}
                                                 </span>
-                                                <span class="text-slate-500">
+                                                <span class="text-foreground">
                                                     {{ line.speed }}
                                                 </span>
                                             </div>
                                             <p
                                                 v-if="(activeSpeedCalculation?.justAbove.length ?? 0) === 0"
-                                                class="text-sm text-slate-500">
+                                                class="text-sm text-foreground">
                                                 当前已经快过可采样到的参考环境速度线。
                                             </p>
                                         </div>
@@ -3775,33 +3775,33 @@ document.title = "配队工具 - 洛克王国工具箱";
                                 </div>
                             </div>
 
-                            <div class="space-y-3 rounded-xl border border-white/10 bg-white/4 p-4">
+                            <div class="space-y-3 rounded-[10px] border border-border bg-white/4 p-4">
                                 <div class="flex items-center justify-between gap-3">
                                     <div>
-                                        <p class="text-sm font-medium text-white">
+                                        <p class="text-sm font-medium text-foreground">
                                             基础伤害计算器
                                         </p>
-                                        <p class="text-xs text-slate-500">
+                                        <p class="text-xs text-foreground">
                                             使用当前面板和静态倍率做近似估算，不等同于实战完整结算。
                                         </p>
                                     </div>
-                                    <p class="text-xs text-slate-500">
+                                    <p class="text-xs text-foreground">
                                         近似公式
                                     </p>
                                 </div>
 
                                 <div class="grid gap-2 sm:grid-cols-2">
                                     <div class="space-y-2 sm:col-span-2">
-                                        <p class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                                        <p class="text-xs tracking-[0.18em] text-foreground uppercase">
                                             目标检索
                                         </p>
                                         <Input
                                             v-model="damageTargetKeyword"
-                                            class="h-10 rounded-2xl border-white/10 bg-black/25 text-slate-100"
+                                            class="h-10 rounded-[10px] border-border bg-card text-foreground"
                                             placeholder="搜索环境精灵名称、编号或属性" />
                                     </div>
                                     <div class="space-y-2">
-                                        <p class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                                        <p class="text-xs tracking-[0.18em] text-foreground uppercase">
                                             目标精灵
                                         </p>
                                         <Select
@@ -3816,11 +3816,11 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                 }
                                             ">
                                             <SelectTrigger
-                                                class="h-10 rounded-2xl border-white/10 bg-black/25 text-slate-100">
+                                                class="h-10 rounded-[10px] border-border bg-card text-foreground">
                                                 <SelectValue placeholder="选择目标精灵" />
                                             </SelectTrigger>
                                             <SelectContent
-                                                class="border-white/10 bg-slate-950/95 text-slate-100">
+                                                class="border-border bg-slate-950/95 text-foreground">
                                                 <SelectItem value="none">选择目标精灵</SelectItem>
                                                 <SelectItem
                                                     v-for="target in damageTargetMatches"
@@ -3832,7 +3832,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                         </Select>
                                     </div>
                                     <div class="space-y-2">
-                                        <p class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                                        <p class="text-xs tracking-[0.18em] text-foreground uppercase">
                                             目标性格
                                         </p>
                                         <Select
@@ -3846,11 +3846,11 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                             : Number(normalizeSelectValue(value)))
                                             ">
                                             <SelectTrigger
-                                                class="h-10 rounded-2xl border-white/10 bg-black/25 text-slate-100">
+                                                class="h-10 rounded-[10px] border-border bg-card text-foreground">
                                                 <SelectValue placeholder="默认中性性格" />
                                             </SelectTrigger>
                                             <SelectContent
-                                                class="border-white/10 bg-slate-950/95 text-slate-100">
+                                                class="border-border bg-slate-950/95 text-foreground">
                                                 <SelectItem value="none">默认中性</SelectItem>
                                                 <SelectItem
                                                     v-for="item in personalities"
@@ -3862,7 +3862,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                         </Select>
                                     </div>
                                     <div class="space-y-2 sm:col-span-2">
-                                        <p class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                                        <p class="text-xs tracking-[0.18em] text-foreground uppercase">
                                             出招
                                         </p>
                                         <Select
@@ -3876,11 +3876,11 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                             : Number(normalizeSelectValue(value)))
                                             ">
                                             <SelectTrigger
-                                                class="h-10 rounded-2xl border-white/10 bg-black/25 text-slate-100">
+                                                class="h-10 rounded-[10px] border-border bg-card text-foreground">
                                                 <SelectValue placeholder="从当前四技能中选择" />
                                             </SelectTrigger>
                                             <SelectContent
-                                                class="border-white/10 bg-slate-950/95 text-slate-100">
+                                                class="border-border bg-slate-950/95 text-foreground">
                                                 <SelectItem value="none">选择技能</SelectItem>
                                                 <SelectItem
                                                     v-for="move in activeSelectedMoves"
@@ -3898,7 +3898,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                         v-for="target in damageTargetMatches"
                                         :key="`target-${target.id}`"
                                         type="button"
-                                        class="rounded-full border border-white/10 bg-black/20 px-2 py-1 text-xs text-slate-300 transition-colors hover:bg-white/8 hover:text-white"
+                                        class="rounded-[10px] border border-border bg-card px-2 py-1 text-xs text-foreground transition-colors hover:bg-muted hover:text-foreground"
                                         @click="selectDamageTarget(target.id)">
                                         {{ target.localized.zh.name }}
                                     </button>
@@ -3906,68 +3906,68 @@ document.title = "配队工具 - 洛克王国工具箱";
 
                                 <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
                                     <div class="space-y-2">
-                                        <p class="text-xs tracking-[0.18em] text-slate-500 uppercase">等级</p>
+                                        <p class="text-xs tracking-[0.18em] text-foreground uppercase">等级</p>
                                         <Input
                                             v-model.number="damageLevel"
                                             type="number"
                                             min="1"
-                                            class="h-10 rounded-2xl border-white/10 bg-black/25 text-slate-100" />
+                                            class="h-10 rounded-[10px] border-border bg-card text-foreground" />
                                     </div>
                                     <div class="space-y-2">
-                                        <p class="text-xs tracking-[0.18em] text-slate-500 uppercase">段数</p>
+                                        <p class="text-xs tracking-[0.18em] text-foreground uppercase">段数</p>
                                         <Input
                                             v-model.number="damageHitCount"
                                             type="number"
                                             min="1"
-                                            class="h-10 rounded-2xl border-white/10 bg-black/25 text-slate-100" />
+                                            class="h-10 rounded-[10px] border-border bg-card text-foreground" />
                                     </div>
                                     <div class="space-y-2">
-                                        <p class="text-xs tracking-[0.18em] text-slate-500 uppercase">威力附加</p>
+                                        <p class="text-xs tracking-[0.18em] text-foreground uppercase">威力附加</p>
                                         <Input
                                             v-model.number="damageFlatPowerBonus"
                                             type="number"
-                                            class="h-10 rounded-2xl border-white/10 bg-black/25 text-slate-100" />
+                                            class="h-10 rounded-[10px] border-border bg-card text-foreground" />
                                     </div>
                                     <div class="space-y-2">
-                                        <p class="text-xs tracking-[0.18em] text-slate-500 uppercase">增伤%</p>
+                                        <p class="text-xs tracking-[0.18em] text-foreground uppercase">增伤%</p>
                                         <Input
                                             v-model.number="damageBonusPct"
                                             type="number"
-                                            class="h-10 rounded-2xl border-white/10 bg-black/25 text-slate-100" />
+                                            class="h-10 rounded-[10px] border-border bg-card text-foreground" />
                                     </div>
                                     <div class="space-y-2">
-                                        <p class="text-xs tracking-[0.18em] text-slate-500 uppercase">减伤%</p>
+                                        <p class="text-xs tracking-[0.18em] text-foreground uppercase">减伤%</p>
                                         <Input
                                             v-model.number="damageReductionPct"
                                             type="number"
-                                            class="h-10 rounded-2xl border-white/10 bg-black/25 text-slate-100" />
+                                            class="h-10 rounded-[10px] border-border bg-card text-foreground" />
                                     </div>
                                 </div>
 
                                 <div
                                     v-if="damageEstimate"
                                     class="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-                                    <div class="rounded-2xl border border-white/10 bg-black/20 px-3 py-3">
-                                        <p class="text-[11px] text-slate-500">总伤害</p>
-                                        <p class="mt-1 text-lg font-semibold text-white">
+                                    <div class="rounded-[10px] border border-border bg-card px-3 py-3">
+                                        <p class="text-[11px] text-foreground">总伤害</p>
+                                        <p class="mt-1 text-lg font-semibold text-foreground">
                                             {{ damageEstimate.totalDamage }}
                                         </p>
                                     </div>
-                                    <div class="rounded-2xl border border-white/10 bg-black/20 px-3 py-3">
-                                        <p class="text-[11px] text-slate-500">单段</p>
-                                        <p class="mt-1 text-lg font-semibold text-white">
+                                    <div class="rounded-[10px] border border-border bg-card px-3 py-3">
+                                        <p class="text-[11px] text-foreground">单段</p>
+                                        <p class="mt-1 text-lg font-semibold text-foreground">
                                             {{ damageEstimate.singleHitDamage }}
                                         </p>
                                     </div>
-                                    <div class="rounded-2xl border border-white/10 bg-black/20 px-3 py-3">
-                                        <p class="text-[11px] text-slate-500">属性倍率</p>
-                                        <p class="mt-1 text-lg font-semibold text-white">
+                                    <div class="rounded-[10px] border border-border bg-card px-3 py-3">
+                                        <p class="text-[11px] text-foreground">属性倍率</p>
+                                        <p class="mt-1 text-lg font-semibold text-foreground">
                                             {{ damageEstimate.typeMultiplier.toFixed(2) }}x
                                         </p>
                                     </div>
-                                    <div class="rounded-2xl border border-white/10 bg-black/20 px-3 py-3">
-                                        <p class="text-[11px] text-slate-500">本系</p>
-                                        <p class="mt-1 text-lg font-semibold text-white">
+                                    <div class="rounded-[10px] border border-border bg-card px-3 py-3">
+                                        <p class="text-[11px] text-foreground">本系</p>
+                                        <p class="mt-1 text-lg font-semibold text-foreground">
                                             {{ damageEstimate.isStab ? '是' : '否' }}
                                         </p>
                                     </div>
@@ -3976,40 +3976,40 @@ document.title = "配队工具 - 洛克王国工具箱";
                                 <div
                                     v-if="damageEstimate"
                                     class="grid gap-3 sm:grid-cols-3">
-                                    <div class="rounded-2xl border border-white/10 bg-black/20 px-3 py-3">
-                                        <p class="text-[11px] text-slate-500">攻击侧</p>
-                                        <p class="mt-1 text-sm text-white">
+                                    <div class="rounded-[10px] border border-border bg-card px-3 py-3">
+                                        <p class="text-[11px] text-foreground">攻击侧</p>
+                                        <p class="mt-1 text-sm text-foreground">
                                             {{ damageEstimate.attackLabel }} {{ damageEstimate.attackStat }}
                                         </p>
                                     </div>
-                                    <div class="rounded-2xl border border-white/10 bg-black/20 px-3 py-3">
-                                        <p class="text-[11px] text-slate-500">防守侧</p>
-                                        <p class="mt-1 text-sm text-white">
+                                    <div class="rounded-[10px] border border-border bg-card px-3 py-3">
+                                        <p class="text-[11px] text-foreground">防守侧</p>
+                                        <p class="mt-1 text-sm text-foreground">
                                             {{ damageEstimate.defenseLabel }} {{ damageEstimate.defenseStat }}
                                         </p>
                                     </div>
-                                    <div class="rounded-2xl border border-white/10 bg-black/20 px-3 py-3">
-                                        <p class="text-[11px] text-slate-500">目标剩余 HP</p>
-                                        <p class="mt-1 text-sm text-white">
+                                    <div class="rounded-[10px] border border-border bg-card px-3 py-3">
+                                        <p class="text-[11px] text-foreground">目标剩余 HP</p>
+                                        <p class="mt-1 text-sm text-foreground">
                                             {{ damageEstimate.targetHp }}
                                         </p>
                                     </div>
                                 </div>
 
-                                <p class="text-xs leading-5 text-slate-500">
+                                <p class="text-xs leading-5 text-foreground">
                                     说明：该计算器按静态面板、技能威力、属性克制和本系加成做基础估算，未覆盖天气、护盾、随机浮动、连击特判等实战因素。
                                 </p>
                             </div>
 
                             <div class="grid gap-3 sm:grid-cols-4">
                                 <div
-                                    class="rounded-2xl border border-white/10 bg-white/4 px-4 py-3">
+                                    class="rounded-[10px] border border-border bg-white/4 px-4 py-3">
                                     <p
-                                        class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                                        class="text-xs tracking-[0.18em] text-foreground uppercase">
                                         速度
                                     </p>
                                     <p
-                                        class="mt-2 text-base font-semibold text-white">
+                                        class="mt-2 text-base font-semibold text-foreground">
                                         {{
                                             getSlotEntry(activeSlot)
                                                 ?.effectiveStats.base_spd ??
@@ -4018,13 +4018,13 @@ document.title = "配队工具 - 洛克王国工具箱";
                                     </p>
                                 </div>
                                 <div
-                                    class="rounded-2xl border border-white/10 bg-white/4 px-4 py-3">
+                                    class="rounded-[10px] border border-border bg-white/4 px-4 py-3">
                                     <p
-                                        class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                                        class="text-xs tracking-[0.18em] text-foreground uppercase">
                                         峰值属性
                                     </p>
                                     <p
-                                        class="mt-2 text-base font-semibold text-white">
+                                        class="mt-2 text-base font-semibold text-foreground">
                                         {{
                                             getSlotEntry(activeSlot)
                                                 ? getPeakStatLabel(
@@ -4035,24 +4035,24 @@ document.title = "配队工具 - 洛克王国工具箱";
                                     </p>
                                 </div>
                                 <div
-                                    class="rounded-2xl border border-white/10 bg-white/4 px-4 py-3">
+                                    class="rounded-[10px] border border-border bg-white/4 px-4 py-3">
                                     <p
-                                        class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                                        class="text-xs tracking-[0.18em] text-foreground uppercase">
                                         定位
                                     </p>
                                     <p
-                                        class="mt-2 text-base font-semibold text-white">
+                                        class="mt-2 text-base font-semibold text-foreground">
                                         {{ getRoleSummary(activeSlot) }}
                                     </p>
                                 </div>
                                 <div
-                                    class="rounded-2xl border border-white/10 bg-white/4 px-4 py-3">
+                                    class="rounded-[10px] border border-border bg-white/4 px-4 py-3">
                                     <p
-                                        class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                                        class="text-xs tracking-[0.18em] text-foreground uppercase">
                                         血脉魔法
                                     </p>
                                     <p
-                                        class="mt-2 text-base font-semibold text-white">
+                                        class="mt-2 text-base font-semibold text-foreground">
                                         {{
                                             selectedMagicItem?.localized.zh
                                                 .name ?? "未设置"
@@ -4068,13 +4068,13 @@ document.title = "配队工具 - 洛克王国工具箱";
             <CardContent class="pt-0">
                 <div
                     v-if="isLoading"
-                    class="rounded-xl border border-white/10 bg-white/4 px-4 py-4 text-sm text-slate-400">
+                    class="rounded-[10px] border border-border bg-white/4 px-4 py-4 text-sm text-foreground">
                     正在载入配队数据…
                 </div>
 
                 <div
                     v-else-if="shareFeedback"
-                    class="rounded-xl border border-primary/15 bg-primary/10 px-4 py-3 text-sm text-primary-foreground">
+                    class="rounded-[10px] border border-primary/15 bg-primary/10 px-4 py-3 text-sm text-primary-foreground">
                     {{ shareFeedback }}
                 </div>
             </CardContent>
@@ -4082,10 +4082,10 @@ document.title = "配队工具 - 洛克王国工具箱";
 
         <Dialog v-model:open="shareDialogOpen">
             <DialogContent
-                class="border-white/10 bg-slate-950 text-slate-100 sm:max-w-xl">
+                class="border-border bg-slate-950 text-foreground sm:max-w-xl">
                 <DialogHeader>
-                    <DialogTitle class="text-white">分享配队</DialogTitle>
-                    <DialogDescription class="text-slate-400">
+                    <DialogTitle class="text-foreground">分享配队</DialogTitle>
+                    <DialogDescription class="text-foreground">
                         当前页面状态会编码进链接，其他人打开后可直接看到这套构筑。
                     </DialogDescription>
                 </DialogHeader>
@@ -4093,21 +4093,21 @@ document.title = "配队工具 - 洛克王国工具箱";
                 <div class="space-y-3">
                     <div class="space-y-2">
                         <p
-                            class="text-xs tracking-[0.18em] text-slate-500 uppercase">
+                            class="text-xs tracking-[0.18em] text-foreground uppercase">
                             分享链接
                         </p>
                         <Input
                             :model-value="shareLink"
                             readonly
-                            class="h-11 rounded-2xl border-white/10 bg-black/25 text-slate-100" />
+                            class="h-11 rounded-[10px] border-border bg-card text-foreground" />
                     </div>
 
                     <div
-                        class="rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-sm text-slate-300">
-                        <p class="font-medium text-white">
+                        class="rounded-[10px] border border-border bg-white/4 px-4 py-3 text-sm text-foreground">
+                        <p class="font-medium text-foreground">
                             {{ teamState.name || DEFAULT_TEAM_NAME }}
                         </p>
-                        <p class="mt-1 text-slate-400">
+                        <p class="mt-1 text-foreground">
                             已配置 {{ filledSlotCount }}/{{ TEAM_SLOT_COUNT }}
                             槽 · 血脉魔法
                             {{
@@ -4120,7 +4120,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                 <DialogFooter>
                     <Button
                         variant="outline"
-                        class="rounded-full border-white/10 bg-white/5 text-slate-100 hover:bg-white/10"
+                        class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
                         @click="copyShareLink">
                         <Share2 class="h-4 w-4" />
                         复制链接
