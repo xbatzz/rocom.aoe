@@ -215,7 +215,7 @@
         },
         {
             "id": 7060160,
-            "name": "减伤70%，应对攻击：本技能变为被应对的技能。",
+            "name": "光球",
             "icon_id": "105008",
             "move_type": {
                 "id": 5,
@@ -226,14 +226,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "减伤70%，应对攻击：本技能变为被应对的技能。",
-                    "description": "镜面无法吞噬光，光只会变得面目模糊。"
+                    "name": "光球",
+                    "description": "减伤70%，应对攻击：本技能变为被应对的技能。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 2,
             "power": 80,
-            "description": "镜面无法吞噬光，光只会变得面目模糊。"
+            "description": "减伤70%，应对攻击：本技能变为被应对的技能。"
         },
         {
             "id": 7110270,
@@ -303,7 +303,7 @@
         },
         {
             "id": 7060170,
-            "name": "对敌方精灵造成魔法伤害。",
+            "name": "光之矛",
             "icon_id": "105009",
             "move_type": {
                 "id": 5,
@@ -314,14 +314,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成魔法伤害。",
-                    "description": "一颗未孵化的星辰。"
+                    "name": "光之矛",
+                    "description": "对敌方精灵造成魔法伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 30,
-            "description": "一颗未孵化的星辰。"
+            "description": "对敌方精灵造成魔法伤害。"
         },
         {
             "id": 7060120,
@@ -569,7 +569,7 @@
         },
         {
             "id": 7020520,
-            "name": "造成物伤，1连击，每次使用后，本技能连击数永久+1。",
+            "name": "阻断",
             "icon_id": "702062",
             "move_type": {
                 "id": 1,
@@ -580,18 +580,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，1连击，每次使用后，本技能连击数永久+1。",
-                    "description": "“怎么又来了？”"
+                    "name": "阻断",
+                    "description": "造成物伤，1连击，每次使用后，本技能连击数永久+1。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 2,
             "power": 80,
-            "description": "“怎么又来了？”"
+            "description": "造成物伤，1连击，每次使用后，本技能连击数永久+1。"
         },
         {
             "id": 7020510,
-            "name": "造成魔伤，5连击。",
+            "name": "乘胜追击",
             "icon_id": "702050",
             "move_type": {
                 "id": 1,
@@ -602,14 +602,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成魔伤，5连击。",
-                    "description": "无招胜有招。"
+                    "name": "乘胜追击",
+                    "description": "造成魔伤，5连击。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 40,
-            "description": "无招胜有招。"
+            "description": "造成魔伤，5连击。"
         },
         {
             "id": 7020860,

@@ -165,7 +165,7 @@
         },
         {
             "id": 7170240,
-            "name": "造成魔伤，3连击，若敌方本回合更换精灵，本次技能连击数翻倍。",
+            "name": "嘲弄",
             "icon_id": "116018",
             "move_type": {
                 "id": 15,
@@ -176,14 +176,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成魔伤，3连击，若敌方本回合更换精灵，本次技能连击数翻倍。",
-                    "description": "如果在凌晨两点的时候，看到魔法学院图书馆里有光，千万不要进去。"
+                    "name": "嘲弄",
+                    "description": "造成魔伤，3连击，若敌方本回合更换精灵，本次技能连击数翻倍。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "如果在凌晨两点的时候，看到魔法学院图书馆里有光，千万不要进去。"
+            "description": "造成魔伤，3连击，若敌方本回合更换精灵，本次技能连击数翻倍。"
         },
         {
             "id": 7020360,
@@ -209,7 +209,7 @@
         },
         {
             "id": 7170140,
-            "name": "敌方失去3能量，应对防御：改为敌方失去6能量。",
+            "name": "降灵",
             "icon_id": "717014",
             "move_type": {
                 "id": 15,
@@ -220,18 +220,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方失去3能量，应对防御：改为敌方失去6能量。",
-                    "description": "自从得知跳跃可以加速精灵蛋孵化，我的身体越来越强壮。"
+                    "name": "降灵",
+                    "description": "敌方失去3能量，应对防御：改为敌方失去6能量。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自从得知跳跃可以加速精灵蛋孵化，我的身体越来越强壮。"
+            "description": "敌方失去3能量，应对防御：改为敌方失去6能量。"
         },
         {
             "id": 7170150,
-            "name": "敌方获得1层降灵印记。",
+            "name": "报复",
             "icon_id": "705001",
             "move_type": {
                 "id": 15,
@@ -242,14 +242,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方获得1层降灵印记。",
-                    "description": "午夜，在黑暗的教室里，两个人共同握着一根羽毛笔，嘴里念念有词，笔尖疯狂抖动。"
+                    "name": "报复",
+                    "description": "敌方获得1层降灵印记。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "午夜，在黑暗的教室里，两个人共同握着一根羽毛笔，嘴里念念有词，笔尖疯狂抖动。"
+            "description": "敌方获得1层降灵印记。"
         },
         {
             "id": 7170200,
@@ -431,7 +431,7 @@
         },
         {
             "id": 7170260,
-            "name": "偷取敌方3能量。",
+            "name": "虚化",
             "icon_id": "116020",
             "move_type": {
                 "id": 15,
@@ -442,14 +442,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "偷取敌方3能量。",
-                    "description": "真的有鬼，月圆夜的时候，魔法学院2楼厕所的卫生纸会全部消失，太可怕了。"
+                    "name": "虚化",
+                    "description": "偷取敌方3能量。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "真的有鬼，月圆夜的时候，魔法学院2楼厕所的卫生纸会全部消失，太可怕了。"
+            "description": "偷取敌方3能量。"
         },
         {
             "id": 7170120,
@@ -1172,7 +1172,7 @@
             "move_id": 7180210,
             "move": {
                 "id": 7180210,
-                "name": "与敌方交换携带的技能。",
+                "name": "等价交换",
                 "icon_id": "317018",
                 "move_type": {
                     "id": 16,
@@ -1183,14 +1183,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "与敌方交换携带的技能。",
-                        "description": "“条约里面的超小号字体已经把隐藏条款已经写得很清楚了”。"
+                        "name": "等价交换",
+                        "description": "与敌方交换携带的技能。"
                     }
                 },
                 "move_category": "Defense",
                 "energy_cost": 3,
                 "power": null,
-                "description": "“条约里面的超小号字体已经把隐藏条款已经写得很清楚了”。"
+                "description": "与敌方交换携带的技能。"
             }
         },
         {
@@ -1226,7 +1226,7 @@
             "move_id": 7190400,
             "move": {
                 "id": 7190400,
-                "name": "对敌方精灵造成魔法伤害。",
+                "name": "冥想",
                 "icon_id": "118022",
                 "move_type": {
                     "id": 18,
@@ -1237,14 +1237,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "对敌方精灵造成魔法伤害。",
-                        "description": "宇宙按下重启键，所有被遗忘的愿望同时点燃，所有未竟的梦一起闪耀。"
+                        "name": "冥想",
+                        "description": "对敌方精灵造成魔法伤害。"
                     }
                 },
                 "move_category": "Defense",
                 "energy_cost": 3,
                 "power": null,
-                "description": "宇宙按下重启键，所有被遗忘的愿望同时点燃，所有未竟的梦一起闪耀。"
+                "description": "对敌方精灵造成魔法伤害。"
             }
         }
     ],

@@ -55,7 +55,7 @@
     "move_pool": [
         {
             "id": 7180090,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "蝙蝠",
             "icon_id": "706001",
             "move_type": {
                 "id": 16,
@@ -66,14 +66,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "没有恶意的恶。"
+                    "name": "蝙蝠",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 65,
-            "description": "没有恶意的恶。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7180110,
@@ -275,7 +275,7 @@
         },
         {
             "id": 7180190,
-            "name": "与敌方交换增益和减益。",
+            "name": "恶意逃离",
             "icon_id": "317016",
             "move_type": {
                 "id": 16,
@@ -286,14 +286,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "与敌方交换增益和减益。",
-                    "description": "有借有还，再借不难。"
+                    "name": "恶意逃离",
+                    "description": "与敌方交换增益和减益。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "有借有还，再借不难。"
+            "description": "与敌方交换增益和减益。"
         },
         {
             "id": 7180100,
@@ -319,7 +319,7 @@
         },
         {
             "id": 7180150,
-            "name": "对自己造成物伤，应对状态：改为对敌方造成物伤。",
+            "name": "彼岸之手",
             "icon_id": "706003",
             "move_type": {
                 "id": 16,
@@ -330,14 +330,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对自己造成物伤，应对状态：改为对敌方造成物伤。",
-                    "description": "厄运就像烫山芋，总要扔出去。"
+                    "name": "彼岸之手",
+                    "description": "对自己造成物伤，应对状态：改为对敌方造成物伤。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 10,
             "power": 150,
-            "description": "厄运就像烫山芋，总要扔出去。"
+            "description": "对自己造成物伤，应对状态：改为对敌方造成物伤。"
         }
     ],
     "move_stones": [
@@ -409,7 +409,7 @@
         },
         {
             "id": 7170250,
-            "name": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。",
+            "name": "勾魂",
             "icon_id": "116019",
             "move_type": {
                 "id": 15,
@@ -420,14 +420,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。",
-                    "description": "昨天半夜我们俩摸黑背完咒语课考试范围，隔天发现学长给画的考试范围全是错的。"
+                    "name": "勾魂",
+                    "description": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "昨天半夜我们俩摸黑背完咒语课考试范围，隔天发现学长给画的考试范围全是错的。"
+            "description": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。"
         },
         {
             "id": 7040390,

@@ -286,7 +286,7 @@
         },
         {
             "id": 7120100,
-            "name": "造成物伤，敌方获得2层中毒，应对状态：改为获得6层。",
+            "name": "毒液渗透",
             "icon_id": "311006",
             "move_type": {
                 "id": 10,
@@ -297,18 +297,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，敌方获得2层中毒，应对状态：改为获得6层。",
-                    "description": "黑市里淘来的毒系技能石，摸起来总是黏糊糊的，建议戴着手套触摸。"
+                    "name": "毒液渗透",
+                    "description": "造成物伤，敌方获得2层中毒，应对状态：改为获得6层。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 5,
             "power": 120,
-            "description": "黑市里淘来的毒系技能石，摸起来总是黏糊糊的，建议戴着手套触摸。"
+            "description": "造成物伤，敌方获得2层中毒，应对状态：改为获得6层。"
         },
         {
             "id": 7120140,
-            "name": "将敌方所有增益，转化成中毒。",
+            "name": "剧毒",
             "icon_id": "712004",
             "move_type": {
                 "id": 10,
@@ -319,14 +319,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "将敌方所有增益，转化成中毒。",
-                    "description": "紫雀花迷雾下签订的契约。"
+                    "name": "剧毒",
+                    "description": "将敌方所有增益，转化成中毒。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "紫雀花迷雾下签订的契约。"
+            "description": "将敌方所有增益，转化成中毒。"
         },
         {
             "id": 7120110,
@@ -530,7 +530,7 @@
         },
         {
             "id": 7180180,
-            "name": "敌方获得全技能威力-20，自己获得全技能威力+20。",
+            "name": "欺诈契约",
             "icon_id": "718024",
             "move_type": {
                 "id": 16,
@@ -541,14 +541,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方获得全技能威力-20，自己获得全技能威力+20。",
-                    "description": "你的就是我的，我的还是我的。"
+                    "name": "欺诈契约",
+                    "description": "敌方获得全技能威力-20，自己获得全技能威力+20。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "你的就是我的，我的还是我的。"
+            "description": "敌方获得全技能威力-20，自己获得全技能威力+20。"
         },
         {
             "id": 7140210,
@@ -618,7 +618,7 @@
         },
         {
             "id": 7020520,
-            "name": "造成物伤，1连击，每次使用后，本技能连击数永久+1。",
+            "name": "阻断",
             "icon_id": "702062",
             "move_type": {
                 "id": 1,
@@ -629,14 +629,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，1连击，每次使用后，本技能连击数永久+1。",
-                    "description": "“怎么又来了？”"
+                    "name": "阻断",
+                    "description": "造成物伤，1连击，每次使用后，本技能连击数永久+1。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 2,
             "power": 80,
-            "description": "“怎么又来了？”"
+            "description": "造成物伤，1连击，每次使用后，本技能连击数永久+1。"
         },
         {
             "id": 7020650,

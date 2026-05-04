@@ -275,7 +275,7 @@
         },
         {
             "id": 7020510,
-            "name": "造成魔伤，5连击。",
+            "name": "乘胜追击",
             "icon_id": "702050",
             "move_type": {
                 "id": 1,
@@ -286,14 +286,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成魔伤，5连击。",
-                    "description": "无招胜有招。"
+                    "name": "乘胜追击",
+                    "description": "造成魔伤，5连击。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 40,
-            "description": "无招胜有招。"
+            "description": "造成魔伤，5连击。"
         },
         {
             "id": 7021090,
@@ -495,7 +495,7 @@
         },
         {
             "id": 7060170,
-            "name": "对敌方精灵造成魔法伤害。",
+            "name": "光之矛",
             "icon_id": "105009",
             "move_type": {
                 "id": 5,
@@ -506,14 +506,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成魔法伤害。",
-                    "description": "一颗未孵化的星辰。"
+                    "name": "光之矛",
+                    "description": "对敌方精灵造成魔法伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 30,
-            "description": "一颗未孵化的星辰。"
+            "description": "对敌方精灵造成魔法伤害。"
         },
         {
             "id": 7150080,
@@ -649,7 +649,7 @@
         },
         {
             "id": 7020610,
-            "name": "造成魔伤，每使用1次普通系技能，本技能能耗永久-2。",
+            "name": "指指点点",
             "icon_id": "702051",
             "move_type": {
                 "id": 1,
@@ -660,20 +660,20 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成魔伤，每使用1次普通系技能，本技能能耗永久-2。",
-                    "description": "真正的环保主义，能源循环利用。"
+                    "name": "指指点点",
+                    "description": "造成魔伤，每使用1次普通系技能，本技能能耗永久-2。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 10,
             "power": 1,
-            "description": "真正的环保主义，能源循环利用。"
+            "description": "造成魔伤，每使用1次普通系技能，本技能能耗永久-2。"
         }
     ],
     "move_stones": [
         {
             "id": 7020380,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "飞踢",
             "icon_id": "700007",
             "move_type": {
                 "id": 1,
@@ -684,18 +684,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "头比计划先达到目的地。"
+                    "name": "飞踢",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 110,
-            "description": "头比计划先达到目的地。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7020390,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "扫尾",
             "icon_id": "702047",
             "move_type": {
                 "id": 1,
@@ -706,14 +706,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "魔法学院里体术的第一课。"
+                    "name": "扫尾",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 90,
-            "description": "魔法学院里体术的第一课。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7020450,
@@ -805,7 +805,7 @@
         },
         {
             "id": 7020510,
-            "name": "造成魔伤，5连击。",
+            "name": "乘胜追击",
             "icon_id": "702050",
             "move_type": {
                 "id": 1,
@@ -816,14 +816,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成魔伤，5连击。",
-                    "description": "无招胜有招。"
+                    "name": "乘胜追击",
+                    "description": "造成魔伤，5连击。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 40,
-            "description": "无招胜有招。"
+            "description": "造成魔伤，5连击。"
         },
         {
             "id": 7020540,
@@ -1575,7 +1575,7 @@
         },
         {
             "id": 7060170,
-            "name": "对敌方精灵造成魔法伤害。",
+            "name": "光之矛",
             "icon_id": "105009",
             "move_type": {
                 "id": 5,
@@ -1586,14 +1586,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成魔法伤害。",
-                    "description": "一颗未孵化的星辰。"
+                    "name": "光之矛",
+                    "description": "对敌方精灵造成魔法伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 30,
-            "description": "一颗未孵化的星辰。"
+            "description": "对敌方精灵造成魔法伤害。"
         },
         {
             "id": 7060180,
@@ -1751,7 +1751,7 @@
         },
         {
             "id": 7040210,
-            "name": "造成物伤，每次使用后，本技能威力永久+20。",
+            "name": "流星火雨",
             "icon_id": "702004",
             "move_type": {
                 "id": 3,
@@ -1762,14 +1762,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，每次使用后，本技能威力永久+20。",
-                    "description": "“不要给精灵喝太多上头水饮料！即使对战的时候有用也不行！”"
+                    "name": "流星火雨",
+                    "description": "造成物伤，每次使用后，本技能威力永久+20。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "“不要给精灵喝太多上头水饮料！即使对战的时候有用也不行！”"
+            "description": "造成物伤，每次使用后，本技能威力永久+20。"
         },
         {
             "id": 7040220,

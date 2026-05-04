@@ -237,7 +237,7 @@
         },
         {
             "id": 7020370,
-            "name": "造成物伤，自己回复1能量。",
+            "name": "猛烈撞击",
             "icon_id": "700001",
             "move_type": {
                 "id": 1,
@@ -248,14 +248,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，自己回复1能量。",
-                    "description": "某些精灵平日里也会有这种行为，小心家里的厕纸和魔法卷轴。"
+                    "name": "猛烈撞击",
+                    "description": "造成物伤，自己回复1能量。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 1,
             "power": 65,
-            "description": "某些精灵平日里也会有这种行为，小心家里的厕纸和魔法卷轴。"
+            "description": "造成物伤，自己回复1能量。"
         },
         {
             "id": 7140250,
@@ -283,7 +283,7 @@
     "move_stones": [
         {
             "id": 7020390,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "扫尾",
             "icon_id": "702047",
             "move_type": {
                 "id": 1,
@@ -294,18 +294,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "魔法学院里体术的第一课。"
+                    "name": "扫尾",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 90,
-            "description": "魔法学院里体术的第一课。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7020400,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "迫近攻击",
             "icon_id": "702073",
             "move_type": {
                 "id": 1,
@@ -316,14 +316,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "注意：当看到尾巴扫过来的时候，请记得起跳，像跳绳那样。"
+                    "name": "迫近攻击",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 90,
-            "description": "注意：当看到尾巴扫过来的时候，请记得起跳，像跳绳那样。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7020970,

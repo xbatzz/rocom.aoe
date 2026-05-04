@@ -314,7 +314,7 @@
         },
         {
             "id": 7050210,
-            "name": "造成物伤，应对状态：本技能能耗永久-4。",
+            "name": "天洪",
             "icon_id": "705015",
             "move_type": {
                 "id": 4,
@@ -325,14 +325,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，应对状态：本技能能耗永久-4。",
-                    "description": "把深海最硬的一截浪，削成无声的小刀。"
+                    "name": "天洪",
+                    "description": "造成物伤，应对状态：本技能能耗永久-4。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 7,
             "power": 150,
-            "description": "把深海最硬的一截浪，削成无声的小刀。"
+            "description": "造成物伤，应对状态：本技能能耗永久-4。"
         }
     ],
     "move_stones": [

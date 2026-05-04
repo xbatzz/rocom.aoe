@@ -44,7 +44,7 @@
     "move_pool": [
         {
             "id": 7020390,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "扫尾",
             "icon_id": "702047",
             "move_type": {
                 "id": 1,
@@ -55,14 +55,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "魔法学院里体术的第一课。"
+                    "name": "扫尾",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 90,
-            "description": "魔法学院里体术的第一课。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7030170,
@@ -198,7 +198,7 @@
         },
         {
             "id": 7170160,
-            "name": "减伤70%，应对攻击：敌方失去3能量。",
+            "name": "恐吓",
             "icon_id": "705002",
             "move_type": {
                 "id": 15,
@@ -209,14 +209,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "减伤70%，应对攻击：敌方失去3能量。",
-                    "description": "为报答学长的照顾，今天在他的炼金药剂里面加了一些汽水儿。"
+                    "name": "恐吓",
+                    "description": "减伤70%，应对攻击：敌方失去3能量。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 2,
             "power": 80,
-            "description": "为报答学长的照顾，今天在他的炼金药剂里面加了一些汽水儿。"
+            "description": "减伤70%，应对攻击：敌方失去3能量。"
         },
         {
             "id": 7190210,

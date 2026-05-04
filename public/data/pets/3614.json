@@ -149,7 +149,7 @@
         },
         {
             "id": 7180090,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "蝙蝠",
             "icon_id": "706001",
             "move_type": {
                 "id": 16,
@@ -160,14 +160,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "没有恶意的恶。"
+                    "name": "蝙蝠",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 65,
-            "description": "没有恶意的恶。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7060140,
@@ -193,7 +193,7 @@
         },
         {
             "id": 7060160,
-            "name": "减伤70%，应对攻击：本技能变为被应对的技能。",
+            "name": "光球",
             "icon_id": "105008",
             "move_type": {
                 "id": 5,
@@ -204,14 +204,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "减伤70%，应对攻击：本技能变为被应对的技能。",
-                    "description": "镜面无法吞噬光，光只会变得面目模糊。"
+                    "name": "光球",
+                    "description": "减伤70%，应对攻击：本技能变为被应对的技能。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 2,
             "power": 80,
-            "description": "镜面无法吞噬光，光只会变得面目模糊。"
+            "description": "减伤70%，应对攻击：本技能变为被应对的技能。"
         },
         {
             "id": 7180170,
@@ -325,7 +325,7 @@
         },
         {
             "id": 7180310,
-            "name": "造成魔伤，能量不足时，消耗5%生命代替1能量。",
+            "name": "牵连",
             "icon_id": "117029",
             "move_type": {
                 "id": 16,
@@ -336,18 +336,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成魔伤，能量不足时，消耗5%生命代替1能量。",
-                    "description": "你想要利息，他想要你的本金。 这是彼得大道黑市里最公平的交易。"
+                    "name": "牵连",
+                    "description": "造成魔伤，能量不足时，消耗5%生命代替1能量。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 4,
             "power": 85,
-            "description": "你想要利息，他想要你的本金。 这是彼得大道黑市里最公平的交易。"
+            "description": "造成魔伤，能量不足时，消耗5%生命代替1能量。"
         },
         {
             "id": 7180140,
-            "name": "造成物伤，若生命高于50%，使用后自己获得双攻-50%。",
+            "name": "灾厄",
             "icon_id": "217011",
             "move_type": {
                 "id": 16,
@@ -358,14 +358,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，若生命高于50%，使用后自己获得双攻-50%。",
-                    "description": "总要付出点代价。"
+                    "name": "灾厄",
+                    "description": "造成物伤，若生命高于50%，使用后自己获得双攻-50%。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 1,
             "power": 150,
-            "description": "总要付出点代价。"
+            "description": "造成物伤，若生命高于50%，使用后自己获得双攻-50%。"
         },
         {
             "id": 7180290,
@@ -393,7 +393,7 @@
     "move_stones": [
         {
             "id": 7060170,
-            "name": "对敌方精灵造成魔法伤害。",
+            "name": "光之矛",
             "icon_id": "105009",
             "move_type": {
                 "id": 5,
@@ -404,14 +404,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成魔法伤害。",
-                    "description": "一颗未孵化的星辰。"
+                    "name": "光之矛",
+                    "description": "对敌方精灵造成魔法伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 30,
-            "description": "一颗未孵化的星辰。"
+            "description": "对敌方精灵造成魔法伤害。"
         },
         {
             "id": 7020620,
@@ -437,7 +437,7 @@
         },
         {
             "id": 7180200,
-            "name": "脱离，应对防御：额外使敌方攻击技能能耗+4。",
+            "name": "隐藏条款",
             "icon_id": "217018",
             "move_type": {
                 "id": 16,
@@ -448,14 +448,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "脱离，应对防御：额外使敌方攻击技能能耗+4。",
-                    "description": "“他有急事，先走了。”"
+                    "name": "隐藏条款",
+                    "description": "脱离，应对防御：额外使敌方攻击技能能耗+4。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 8,
             "power": null,
-            "description": "“他有急事，先走了。”"
+            "description": "脱离，应对防御：额外使敌方攻击技能能耗+4。"
         },
         {
             "id": 7120070,
@@ -613,7 +613,7 @@
         },
         {
             "id": 7020520,
-            "name": "造成物伤，1连击，每次使用后，本技能连击数永久+1。",
+            "name": "阻断",
             "icon_id": "702062",
             "move_type": {
                 "id": 1,
@@ -624,14 +624,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，1连击，每次使用后，本技能连击数永久+1。",
-                    "description": "“怎么又来了？”"
+                    "name": "阻断",
+                    "description": "造成物伤，1连击，每次使用后，本技能连击数永久+1。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 2,
             "power": 80,
-            "description": "“怎么又来了？”"
+            "description": "造成物伤，1连击，每次使用后，本技能连击数永久+1。"
         },
         {
             "id": 7020460,
@@ -701,7 +701,7 @@
         },
         {
             "id": 7180190,
-            "name": "与敌方交换增益和减益。",
+            "name": "恶意逃离",
             "icon_id": "317016",
             "move_type": {
                 "id": 16,
@@ -712,14 +712,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "与敌方交换增益和减益。",
-                    "description": "有借有还，再借不难。"
+                    "name": "恶意逃离",
+                    "description": "与敌方交换增益和减益。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "有借有还，再借不难。"
+            "description": "与敌方交换增益和减益。"
         },
         {
             "id": 7020780,

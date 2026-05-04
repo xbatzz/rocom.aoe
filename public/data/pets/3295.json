@@ -415,7 +415,7 @@
         },
         {
             "id": 7130200,
-            "name": "自己回复20%生命，己方队伍获得1次奉献：获得10%吸血。",
+            "name": "虫群智慧",
             "icon_id": "212012",
             "move_type": {
                 "id": 11,
@@ -426,14 +426,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "自己回复20%生命，己方队伍获得1次奉献：获得10%吸血。",
-                    "description": "研究手记：茧不透光，只听到内里传出咀嚼声。"
+                    "name": "虫群智慧",
+                    "description": "自己回复20%生命，己方队伍获得1次奉献：获得10%吸血。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "研究手记：茧不透光，只听到内里传出咀嚼声。"
+            "description": "自己回复20%生命，己方队伍获得1次奉献：获得10%吸血。"
         },
         {
             "id": 7180070,
@@ -641,7 +641,7 @@
             "move_id": 7020370,
             "move": {
                 "id": 7020370,
-                "name": "造成物伤，自己回复1能量。",
+                "name": "猛烈撞击",
                 "icon_id": "700001",
                 "move_type": {
                     "id": 1,
@@ -652,14 +652,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "造成物伤，自己回复1能量。",
-                        "description": "某些精灵平日里也会有这种行为，小心家里的厕纸和魔法卷轴。"
+                        "name": "猛烈撞击",
+                        "description": "造成物伤，自己回复1能量。"
                     }
                 },
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 65,
-                "description": "某些精灵平日里也会有这种行为，小心家里的厕纸和魔法卷轴。"
+                "description": "造成物伤，自己回复1能量。"
             }
         },
         {

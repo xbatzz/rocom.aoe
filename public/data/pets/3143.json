@@ -209,7 +209,7 @@
         },
         {
             "id": 7180210,
-            "name": "与敌方交换携带的技能。",
+            "name": "等价交换",
             "icon_id": "317018",
             "move_type": {
                 "id": 16,
@@ -220,18 +220,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "与敌方交换携带的技能。",
-                    "description": "“条约里面的超小号字体已经把隐藏条款已经写得很清楚了”。"
+                    "name": "等价交换",
+                    "description": "与敌方交换携带的技能。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 3,
             "power": null,
-            "description": "“条约里面的超小号字体已经把隐藏条款已经写得很清楚了”。"
+            "description": "与敌方交换携带的技能。"
         },
         {
             "id": 7180090,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "蝙蝠",
             "icon_id": "706001",
             "move_type": {
                 "id": 16,
@@ -242,14 +242,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "没有恶意的恶。"
+                    "name": "蝙蝠",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 65,
-            "description": "没有恶意的恶。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7180350,
@@ -297,7 +297,7 @@
         },
         {
             "id": 7180180,
-            "name": "敌方获得全技能威力-20，自己获得全技能威力+20。",
+            "name": "欺诈契约",
             "icon_id": "718024",
             "move_type": {
                 "id": 16,
@@ -308,18 +308,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方获得全技能威力-20，自己获得全技能威力+20。",
-                    "description": "你的就是我的，我的还是我的。"
+                    "name": "欺诈契约",
+                    "description": "敌方获得全技能威力-20，自己获得全技能威力+20。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "你的就是我的，我的还是我的。"
+            "description": "敌方获得全技能威力-20，自己获得全技能威力+20。"
         },
         {
             "id": 7180200,
-            "name": "脱离，应对防御：额外使敌方攻击技能能耗+4。",
+            "name": "隐藏条款",
             "icon_id": "217018",
             "move_type": {
                 "id": 16,
@@ -330,14 +330,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "脱离，应对防御：额外使敌方攻击技能能耗+4。",
-                    "description": "“他有急事，先走了。”"
+                    "name": "隐藏条款",
+                    "description": "脱离，应对防御：额外使敌方攻击技能能耗+4。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 8,
             "power": null,
-            "description": "“他有急事，先走了。”"
+            "description": "脱离，应对防御：额外使敌方攻击技能能耗+4。"
         },
         {
             "id": 7180110,
@@ -363,7 +363,7 @@
         },
         {
             "id": 7180190,
-            "name": "与敌方交换增益和减益。",
+            "name": "恶意逃离",
             "icon_id": "317016",
             "move_type": {
                 "id": 16,
@@ -374,14 +374,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "与敌方交换增益和减益。",
-                    "description": "有借有还，再借不难。"
+                    "name": "恶意逃离",
+                    "description": "与敌方交换增益和减益。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "有借有还，再借不难。"
+            "description": "与敌方交换增益和减益。"
         }
     ],
     "move_stones": [
@@ -880,7 +880,7 @@
             "move_id": 7080200,
             "move": {
                 "id": 7080200,
-                "name": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。",
+                "name": "泥浆铠甲",
                 "icon_id": "708018",
                 "move_type": {
                     "id": 6,
@@ -891,14 +891,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。",
-                        "description": "越挣扎，时间反而流走得越快。"
+                        "name": "泥浆铠甲",
+                        "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
                     }
                 },
                 "move_category": "Status",
                 "energy_cost": 2,
                 "power": null,
-                "description": "越挣扎，时间反而流走得越快。"
+                "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
             }
         },
         {
@@ -1123,7 +1123,7 @@
             "move_id": 7170250,
             "move": {
                 "id": 7170250,
-                "name": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。",
+                "name": "勾魂",
                 "icon_id": "116019",
                 "move_type": {
                     "id": 15,
@@ -1134,14 +1134,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。",
-                        "description": "昨天半夜我们俩摸黑背完咒语课考试范围，隔天发现学长给画的考试范围全是错的。"
+                        "name": "勾魂",
+                        "description": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。"
                     }
                 },
                 "move_category": "Status",
                 "energy_cost": 1,
                 "power": null,
-                "description": "昨天半夜我们俩摸黑背完咒语课考试范围，隔天发现学长给画的考试范围全是错的。"
+                "description": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。"
             }
         },
         {

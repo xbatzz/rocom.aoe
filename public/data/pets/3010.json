@@ -415,7 +415,7 @@
         },
         {
             "id": 7170140,
-            "name": "敌方失去3能量，应对防御：改为敌方失去6能量。",
+            "name": "降灵",
             "icon_id": "717014",
             "move_type": {
                 "id": 15,
@@ -426,14 +426,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方失去3能量，应对防御：改为敌方失去6能量。",
-                    "description": "自从得知跳跃可以加速精灵蛋孵化，我的身体越来越强壮。"
+                    "name": "降灵",
+                    "description": "敌方失去3能量，应对防御：改为敌方失去6能量。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自从得知跳跃可以加速精灵蛋孵化，我的身体越来越强壮。"
+            "description": "敌方失去3能量，应对防御：改为敌方失去6能量。"
         },
         {
             "id": 7120080,
@@ -459,7 +459,7 @@
         },
         {
             "id": 7020510,
-            "name": "造成魔伤，5连击。",
+            "name": "乘胜追击",
             "icon_id": "702050",
             "move_type": {
                 "id": 1,
@@ -470,14 +470,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成魔伤，5连击。",
-                    "description": "无招胜有招。"
+                    "name": "乘胜追击",
+                    "description": "造成魔伤，5连击。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 40,
-            "description": "无招胜有招。"
+            "description": "造成魔伤，5连击。"
         },
         {
             "id": 7020490,
@@ -613,7 +613,7 @@
         },
         {
             "id": 7180150,
-            "name": "对自己造成物伤，应对状态：改为对敌方造成物伤。",
+            "name": "彼岸之手",
             "icon_id": "706003",
             "move_type": {
                 "id": 16,
@@ -624,14 +624,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对自己造成物伤，应对状态：改为对敌方造成物伤。",
-                    "description": "厄运就像烫山芋，总要扔出去。"
+                    "name": "彼岸之手",
+                    "description": "对自己造成物伤，应对状态：改为对敌方造成物伤。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 10,
             "power": 150,
-            "description": "厄运就像烫山芋，总要扔出去。"
+            "description": "对自己造成物伤，应对状态：改为对敌方造成物伤。"
         }
     ],
     "legacy_moves": [

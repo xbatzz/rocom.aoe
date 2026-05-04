@@ -347,7 +347,7 @@
         },
         {
             "id": 7120140,
-            "name": "将敌方所有增益，转化成中毒。",
+            "name": "剧毒",
             "icon_id": "712004",
             "move_type": {
                 "id": 10,
@@ -358,18 +358,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "将敌方所有增益，转化成中毒。",
-                    "description": "紫雀花迷雾下签订的契约。"
+                    "name": "剧毒",
+                    "description": "将敌方所有增益，转化成中毒。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "紫雀花迷雾下签订的契约。"
+            "description": "将敌方所有增益，转化成中毒。"
         },
         {
             "id": 7120100,
-            "name": "造成物伤，敌方获得2层中毒，应对状态：改为获得6层。",
+            "name": "毒液渗透",
             "icon_id": "311006",
             "move_type": {
                 "id": 10,
@@ -380,14 +380,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，敌方获得2层中毒，应对状态：改为获得6层。",
-                    "description": "黑市里淘来的毒系技能石，摸起来总是黏糊糊的，建议戴着手套触摸。"
+                    "name": "毒液渗透",
+                    "description": "造成物伤，敌方获得2层中毒，应对状态：改为获得6层。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 5,
             "power": 120,
-            "description": "黑市里淘来的毒系技能石，摸起来总是黏糊糊的，建议戴着手套触摸。"
+            "description": "造成物伤，敌方获得2层中毒，应对状态：改为获得6层。"
         },
         {
             "id": 7120090,

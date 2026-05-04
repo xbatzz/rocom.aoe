@@ -611,7 +611,7 @@
         },
         {
             "id": 7190310,
-            "name": "2连击，每次连击使敌方获得1层星陨印记。",
+            "name": "超新星馈赠",
             "icon_id": "318016",
             "move_type": {
                 "id": 18,
@@ -622,14 +622,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "2连击，每次连击使敌方获得1层星陨印记。",
-                    "description": "别睡了，醒醒！老师点名了！"
+                    "name": "超新星馈赠",
+                    "description": "2连击，每次连击使敌方获得1层星陨印记。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "别睡了，醒醒！老师点名了！"
+            "description": "2连击，每次连击使敌方获得1层星陨印记。"
         },
         {
             "id": 7190260,
@@ -679,7 +679,7 @@
     "move_stones": [
         {
             "id": 7020380,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "飞踢",
             "icon_id": "700007",
             "move_type": {
                 "id": 1,
@@ -690,18 +690,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "头比计划先达到目的地。"
+                    "name": "飞踢",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 110,
-            "description": "头比计划先达到目的地。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7020390,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "扫尾",
             "icon_id": "702047",
             "move_type": {
                 "id": 1,
@@ -712,14 +712,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "魔法学院里体术的第一课。"
+                    "name": "扫尾",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 90,
-            "description": "魔法学院里体术的第一课。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7020480,
@@ -745,7 +745,7 @@
         },
         {
             "id": 7020510,
-            "name": "造成魔伤，5连击。",
+            "name": "乘胜追击",
             "icon_id": "702050",
             "move_type": {
                 "id": 1,
@@ -756,14 +756,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成魔伤，5连击。",
-                    "description": "无招胜有招。"
+                    "name": "乘胜追击",
+                    "description": "造成魔伤，5连击。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 40,
-            "description": "无招胜有招。"
+            "description": "造成魔伤，5连击。"
         },
         {
             "id": 7020540,
@@ -1427,7 +1427,7 @@
         },
         {
             "id": 7190290,
-            "name": "敌方获得4层星陨印记。",
+            "name": "星轨裂变",
             "icon_id": "118009",
             "move_type": {
                 "id": 18,
@@ -1438,18 +1438,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方获得4层星陨印记。",
-                    "description": "一位小洛克一口气许下五个愿望，此时五颗星星应声划过。"
+                    "name": "星轨裂变",
+                    "description": "敌方获得4层星陨印记。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "一位小洛克一口气许下五个愿望，此时五颗星星应声划过。"
+            "description": "敌方获得4层星陨印记。"
         },
         {
             "id": 7190300,
-            "name": "敌方获得2层星陨印记。",
+            "name": "星链",
             "icon_id": "218007",
             "move_type": {
                 "id": 18,
@@ -1460,14 +1460,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方获得2层星陨印记。",
-                    "description": "走失的星星在愿力的指引下，正在寻找回去的轨道。"
+                    "name": "星链",
+                    "description": "敌方获得2层星陨印记。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "走失的星星在愿力的指引下，正在寻找回去的轨道。"
+            "description": "敌方获得2层星陨印记。"
         },
         {
             "id": 7190320,
@@ -1713,7 +1713,7 @@
         },
         {
             "id": 7080190,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "流沙",
             "icon_id": "708017",
             "move_type": {
                 "id": 6,
@@ -1724,14 +1724,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "大地伸着懒腰，翻了个身。"
+                    "name": "流沙",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "大地伸着懒腰，翻了个身。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7080220,
@@ -2030,7 +2030,7 @@
             "move_id": 7080200,
             "move": {
                 "id": 7080200,
-                "name": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。",
+                "name": "泥浆铠甲",
                 "icon_id": "708018",
                 "move_type": {
                     "id": 6,
@@ -2041,14 +2041,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。",
-                        "description": "越挣扎，时间反而流走得越快。"
+                        "name": "泥浆铠甲",
+                        "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
                     }
                 },
                 "move_category": "Status",
                 "energy_cost": 2,
                 "power": null,
-                "description": "越挣扎，时间反而流走得越快。"
+                "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
             }
         },
         {
@@ -2273,7 +2273,7 @@
             "move_id": 7170250,
             "move": {
                 "id": 7170250,
-                "name": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。",
+                "name": "勾魂",
                 "icon_id": "116019",
                 "move_type": {
                     "id": 15,
@@ -2284,14 +2284,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。",
-                        "description": "昨天半夜我们俩摸黑背完咒语课考试范围，隔天发现学长给画的考试范围全是错的。"
+                        "name": "勾魂",
+                        "description": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。"
                     }
                 },
                 "move_category": "Status",
                 "energy_cost": 1,
                 "power": null,
-                "description": "昨天半夜我们俩摸黑背完咒语课考试范围，隔天发现学长给画的考试范围全是错的。"
+                "description": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。"
             }
         },
         {

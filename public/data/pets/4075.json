@@ -83,7 +83,7 @@
         },
         {
             "id": 7180090,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "蝙蝠",
             "icon_id": "706001",
             "move_type": {
                 "id": 16,
@@ -94,14 +94,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "没有恶意的恶。"
+                    "name": "蝙蝠",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 65,
-            "description": "没有恶意的恶。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7180160,
@@ -281,7 +281,7 @@
         },
         {
             "id": 7080200,
-            "name": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。",
+            "name": "泥浆铠甲",
             "icon_id": "708018",
             "move_type": {
                 "id": 6,
@@ -292,14 +292,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。",
-                    "description": "越挣扎，时间反而流走得越快。"
+                    "name": "泥浆铠甲",
+                    "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "越挣扎，时间反而流走得越快。"
+            "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
         },
         {
             "id": 7180120,
@@ -393,7 +393,7 @@
         },
         {
             "id": 7180150,
-            "name": "对自己造成物伤，应对状态：改为对敌方造成物伤。",
+            "name": "彼岸之手",
             "icon_id": "706003",
             "move_type": {
                 "id": 16,
@@ -404,14 +404,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对自己造成物伤，应对状态：改为对敌方造成物伤。",
-                    "description": "厄运就像烫山芋，总要扔出去。"
+                    "name": "彼岸之手",
+                    "description": "对自己造成物伤，应对状态：改为对敌方造成物伤。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 10,
             "power": 150,
-            "description": "厄运就像烫山芋，总要扔出去。"
+            "description": "对自己造成物伤，应对状态：改为对敌方造成物伤。"
         },
         {
             "id": 7080360,

@@ -127,7 +127,7 @@
         },
         {
             "id": 7130100,
-            "name": "减伤50%，敌方每有1层中毒效果，本技能减伤+10%，应对攻击。",
+            "name": "啃咬",
             "icon_id": "713008",
             "move_type": {
                 "id": 11,
@@ -138,14 +138,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "减伤50%，敌方每有1层中毒效果，本技能减伤+10%，应对攻击。",
-                    "description": "老师千叮咛万嘱咐，给精灵使用毒系秘药的时候，记得带好口罩手套。"
+                    "name": "啃咬",
+                    "description": "减伤50%，敌方每有1层中毒效果，本技能减伤+10%，应对攻击。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 0,
             "power": 40,
-            "description": "老师千叮咛万嘱咐，给精灵使用毒系秘药的时候，记得带好口罩手套。"
+            "description": "减伤50%，敌方每有1层中毒效果，本技能减伤+10%，应对攻击。"
         },
         {
             "id": 7180350,
@@ -171,7 +171,7 @@
         },
         {
             "id": 7180090,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "蝙蝠",
             "icon_id": "706001",
             "move_type": {
                 "id": 16,
@@ -182,18 +182,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "没有恶意的恶。"
+                    "name": "蝙蝠",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 65,
-            "description": "没有恶意的恶。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7130200,
-            "name": "自己回复20%生命，己方队伍获得1次奉献：获得10%吸血。",
+            "name": "虫群智慧",
             "icon_id": "212012",
             "move_type": {
                 "id": 11,
@@ -204,18 +204,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "自己回复20%生命，己方队伍获得1次奉献：获得10%吸血。",
-                    "description": "研究手记：茧不透光，只听到内里传出咀嚼声。"
+                    "name": "虫群智慧",
+                    "description": "自己回复20%生命，己方队伍获得1次奉献：获得10%吸血。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "研究手记：茧不透光，只听到内里传出咀嚼声。"
+            "description": "自己回复20%生命，己方队伍获得1次奉献：获得10%吸血。"
         },
         {
             "id": 7180210,
-            "name": "与敌方交换携带的技能。",
+            "name": "等价交换",
             "icon_id": "317018",
             "move_type": {
                 "id": 16,
@@ -226,14 +226,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "与敌方交换携带的技能。",
-                    "description": "“条约里面的超小号字体已经把隐藏条款已经写得很清楚了”。"
+                    "name": "等价交换",
+                    "description": "与敌方交换携带的技能。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 3,
             "power": null,
-            "description": "“条约里面的超小号字体已经把隐藏条款已经写得很清楚了”。"
+            "description": "与敌方交换携带的技能。"
         },
         {
             "id": 7020970,
@@ -259,7 +259,7 @@
         },
         {
             "id": 7180180,
-            "name": "敌方获得全技能威力-20，自己获得全技能威力+20。",
+            "name": "欺诈契约",
             "icon_id": "718024",
             "move_type": {
                 "id": 16,
@@ -270,14 +270,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方获得全技能威力-20，自己获得全技能威力+20。",
-                    "description": "你的就是我的，我的还是我的。"
+                    "name": "欺诈契约",
+                    "description": "敌方获得全技能威力-20，自己获得全技能威力+20。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "你的就是我的，我的还是我的。"
+            "description": "敌方获得全技能威力-20，自己获得全技能威力+20。"
         },
         {
             "id": 7130280,
@@ -347,7 +347,7 @@
         },
         {
             "id": 7180140,
-            "name": "造成物伤，若生命高于50%，使用后自己获得双攻-50%。",
+            "name": "灾厄",
             "icon_id": "217011",
             "move_type": {
                 "id": 16,
@@ -358,14 +358,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "造成物伤，若生命高于50%，使用后自己获得双攻-50%。",
-                    "description": "总要付出点代价。"
+                    "name": "灾厄",
+                    "description": "造成物伤，若生命高于50%，使用后自己获得双攻-50%。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 1,
             "power": 150,
-            "description": "总要付出点代价。"
+            "description": "造成物伤，若生命高于50%，使用后自己获得双攻-50%。"
         },
         {
             "id": 7130150,
@@ -437,7 +437,7 @@
         },
         {
             "id": 7180150,
-            "name": "对自己造成物伤，应对状态：改为对敌方造成物伤。",
+            "name": "彼岸之手",
             "icon_id": "706003",
             "move_type": {
                 "id": 16,
@@ -448,14 +448,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对自己造成物伤，应对状态：改为对敌方造成物伤。",
-                    "description": "厄运就像烫山芋，总要扔出去。"
+                    "name": "彼岸之手",
+                    "description": "对自己造成物伤，应对状态：改为对敌方造成物伤。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 10,
             "power": 150,
-            "description": "厄运就像烫山芋，总要扔出去。"
+            "description": "对自己造成物伤，应对状态：改为对敌方造成物伤。"
         },
         {
             "id": 7130320,
@@ -679,7 +679,7 @@
         },
         {
             "id": 7180190,
-            "name": "与敌方交换增益和减益。",
+            "name": "恶意逃离",
             "icon_id": "317016",
             "move_type": {
                 "id": 16,
@@ -690,14 +690,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "与敌方交换增益和减益。",
-                    "description": "有借有还，再借不难。"
+                    "name": "恶意逃离",
+                    "description": "与敌方交换增益和减益。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "有借有还，再借不难。"
+            "description": "与敌方交换增益和减益。"
         },
         {
             "id": 7021130,
@@ -1129,7 +1129,7 @@
             "move_id": 7170260,
             "move": {
                 "id": 7170260,
-                "name": "偷取敌方3能量。",
+                "name": "虚化",
                 "icon_id": "116020",
                 "move_type": {
                     "id": 15,
@@ -1140,14 +1140,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "偷取敌方3能量。",
-                        "description": "真的有鬼，月圆夜的时候，魔法学院2楼厕所的卫生纸会全部消失，太可怕了。"
+                        "name": "虚化",
+                        "description": "偷取敌方3能量。"
                     }
                 },
                 "move_category": "Defense",
                 "energy_cost": 2,
                 "power": null,
-                "description": "真的有鬼，月圆夜的时候，魔法学院2楼厕所的卫生纸会全部消失，太可怕了。"
+                "description": "偷取敌方3能量。"
             }
         },
         {
@@ -1210,7 +1210,7 @@
             "move_id": 7190400,
             "move": {
                 "id": 7190400,
-                "name": "对敌方精灵造成魔法伤害。",
+                "name": "冥想",
                 "icon_id": "118022",
                 "move_type": {
                     "id": 18,
@@ -1221,14 +1221,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "对敌方精灵造成魔法伤害。",
-                        "description": "宇宙按下重启键，所有被遗忘的愿望同时点燃，所有未竟的梦一起闪耀。"
+                        "name": "冥想",
+                        "description": "对敌方精灵造成魔法伤害。"
                     }
                 },
                 "move_category": "Defense",
                 "energy_cost": 3,
                 "power": null,
-                "description": "宇宙按下重启键，所有被遗忘的愿望同时点燃，所有未竟的梦一起闪耀。"
+                "description": "对敌方精灵造成魔法伤害。"
             }
         }
     ],

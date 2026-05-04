@@ -259,7 +259,7 @@
         },
         {
             "id": 7030290,
-            "name": "自己获得物攻和魔攻+140%。",
+            "name": "移花接木",
             "icon_id": "302016",
             "move_type": {
                 "id": 2,
@@ -270,14 +270,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "自己获得物攻和魔攻+140%。",
-                    "description": "“信我！白树真的没有死，她仍然在喂养我们！”"
+                    "name": "移花接木",
+                    "description": "自己获得物攻和魔攻+140%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "“信我！白树真的没有死，她仍然在喂养我们！”"
+            "description": "自己获得物攻和魔攻+140%。"
         },
         {
             "id": 7080320,
@@ -347,7 +347,7 @@
         },
         {
             "id": 7080190,
-            "name": "对敌方精灵造成物理伤害。",
+            "name": "流沙",
             "icon_id": "708017",
             "move_type": {
                 "id": 6,
@@ -358,14 +358,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "对敌方精灵造成物理伤害。",
-                    "description": "大地伸着懒腰，翻了个身。"
+                    "name": "流沙",
+                    "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "大地伸着懒腰，翻了个身。"
+            "description": "对敌方精灵造成物理伤害。"
         },
         {
             "id": 7030180,
@@ -459,7 +459,7 @@
         },
         {
             "id": 7080200,
-            "name": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。",
+            "name": "泥浆铠甲",
             "icon_id": "708018",
             "move_type": {
                 "id": 6,
@@ -470,14 +470,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。",
-                    "description": "越挣扎，时间反而流走得越快。"
+                    "name": "泥浆铠甲",
+                    "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "越挣扎，时间反而流走得越快。"
+            "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
         },
         {
             "id": 7080370,
@@ -547,7 +547,7 @@
         },
         {
             "id": 7120130,
-            "name": "敌方获得5层中毒。",
+            "name": "毒雾",
             "icon_id": "712002",
             "move_type": {
                 "id": 10,
@@ -558,18 +558,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "敌方获得5层中毒。",
-                    "description": "毒祭司们将草药学与生物学知识活用，得到了这种技能。"
+                    "name": "毒雾",
+                    "description": "敌方获得5层中毒。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 7,
             "power": null,
-            "description": "毒祭司们将草药学与生物学知识活用，得到了这种技能。"
+            "description": "敌方获得5层中毒。"
         },
         {
             "id": 7120140,
-            "name": "将敌方所有增益，转化成中毒。",
+            "name": "剧毒",
             "icon_id": "712004",
             "move_type": {
                 "id": 10,
@@ -580,14 +580,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "将敌方所有增益，转化成中毒。",
-                    "description": "紫雀花迷雾下签订的契约。"
+                    "name": "剧毒",
+                    "description": "将敌方所有增益，转化成中毒。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "紫雀花迷雾下签订的契约。"
+            "description": "将敌方所有增益，转化成中毒。"
         },
         {
             "id": 7020560,
