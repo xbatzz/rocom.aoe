@@ -64,6 +64,10 @@ const LEGACY_SKILL_TYPE_FIELDS = [
     ["blood_skill_PHANTOM", 18],
 ];
 
+const PET_LEGACY_MOVE_OVERRIDES = new Map([
+    [3071, new Map([[3, 7040380]])],
+]);
+
 const EGG_GROUP_LABEL_BY_ID = new Map([
     [1, "未发现"],
     [2, "怪兽"],
@@ -881,6 +885,39 @@ function buildLegacyMoves(context, levelSkillRow, skillById, typesById) {
         });
     }
 
+    const overrides = PET_LEGACY_MOVE_OVERRIDES.get(context.id);
+
+    if (!overrides) {
+        return entries;
+    }
+
+    const entryByTypeId = new Map(entries.map((entry) => [entry.type_id, entry]));
+
+    for (const [typeId, moveId] of overrides.entries()) {
+        const skill = skillById.get(moveId);
+
+        if (!skill) {
+            continue;
+        }
+
+        const nextEntry = {
+            monster_id: context.id,
+            type_id: typeId,
+            move_id: moveId,
+            move: buildMove(skill, typesById, moveId) ?? null,
+        };
+
+        if (entryByTypeId.has(typeId)) {
+            entries[entries.findIndex((entry) => entry.type_id === typeId)] = nextEntry;
+            entryByTypeId.set(typeId, nextEntry);
+            continue;
+        }
+
+        entries.push(nextEntry);
+        entryByTypeId.set(typeId, nextEntry);
+    }
+
+    entries.sort((left, right) => left.type_id - right.type_id);
     return entries;
 }
 

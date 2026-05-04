@@ -686,11 +686,11 @@
         {
             "monster_id": 3071,
             "type_id": 3,
-            "move_id": 7040370,
+            "move_id": 7040380,
             "move": {
-                "id": 7040370,
-                "name": "火爪",
-                "icon_id": "103026",
+                "id": 7040380,
+                "name": "火焰箭",
+                "icon_id": "103027",
                 "move_type": {
                     "id": 3,
                     "name": "Fire",
@@ -700,14 +700,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "火爪",
-                        "description": "对敌方精灵造成魔法伤害。"
+                        "name": "火焰箭",
+                        "description": "对敌方精灵造成物理伤害。"
                     }
                 },
-                "move_category": "Physical Attack",
-                "energy_cost": 2,
-                "power": 80,
-                "description": "对敌方精灵造成魔法伤害。"
+                "move_category": "Magic Attack",
+                "energy_cost": 3,
+                "power": 55,
+                "description": "对敌方精灵造成物理伤害。"
             }
         },
         {
