@@ -1136,7 +1136,9 @@ function buildBreedingInfo(context, petEggRows, petRandomEggRows) {
         context,
         petEggRows,
         petRandomEggRows,
-    );
+    ).map((variant) => {
+        return applyPetBaseSizeRange(variant, context.petBase);
+    });
 
     if (!eggVariants.length) {
         return null;
@@ -1145,6 +1147,38 @@ function buildBreedingInfo(context, petEggRows, petRandomEggRows) {
     return {
         ...eggVariants[0],
         variants: eggVariants,
+    };
+}
+
+function applyPetBaseSizeRange(variant, petBase) {
+    const sizeRange = buildPetBaseSizeRange(petBase);
+
+    if (
+        sizeRange.weight_low === null &&
+        sizeRange.weight_high === null &&
+        sizeRange.height_low === null &&
+        sizeRange.height_high === null
+    ) {
+        return variant;
+    }
+
+    return {
+        ...variant,
+        weight_low: sizeRange.weight_low ?? variant.weight_low,
+        weight_high: sizeRange.weight_high ?? variant.weight_high,
+        height_low: sizeRange.height_low ?? variant.height_low,
+        height_high: sizeRange.height_high ?? variant.height_high,
+    };
+}
+
+function buildPetBaseSizeRange(petBase) {
+    return {
+        weight_low: typeof petBase?.weight_low === "number" ? petBase.weight_low : null,
+        weight_high:
+            typeof petBase?.weight_high === "number" ? petBase.weight_high : null,
+        height_low: typeof petBase?.height_low === "number" ? petBase.height_low : null,
+        height_high:
+            typeof petBase?.height_high === "number" ? petBase.height_high : null,
     };
 }
 
