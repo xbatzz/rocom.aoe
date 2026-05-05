@@ -1629,11 +1629,11 @@ function describeSpecialEvolutionRequirement(type, data1, data2, context, evolut
                 : "需激活指定进化分支";
         }
         case 13: {
-            const typeName = resolveTypeName(data1[0], typesById);
+            const typeName = cleanText(typesById.get(data1[0])?.localized?.zh) ?? null;
 
             return typeName
-                ? `需激活${typeName}系进化分支`
-                : "需激活指定属性进化分支";
+                ? `需激活${typeName}系血脉`
+                : "需激活指定血脉";
         }
         case 16: {
             const skillId = data1[0];
