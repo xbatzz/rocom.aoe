@@ -326,9 +326,11 @@ async function fetchJSON<T>(url: string, signal: AbortSignal) {
 }
 
 function getDefaultTypeId(types: ITypeEntry[]) {
-    return types.find((type) => type.name === DEFAULT_TYPE_NAME)?.id ??
+    return (
+        types.find((type) => type.name === DEFAULT_TYPE_NAME)?.id ??
         types[0]?.id ??
-        null;
+        null
+    );
 }
 
 function resolveNextLockedTypeId(
@@ -431,9 +433,7 @@ function extractRgbChannels(color: string) {
         red: Number.parseInt(digits.slice(0, 2), 16),
         green: Number.parseInt(digits.slice(2, 4), 16),
         blue: Number.parseInt(digits.slice(4, 6), 16),
-        alpha: hasAlpha
-            ? Number.parseInt(digits.slice(6, 8), 16) / 255
-            : 1,
+        alpha: hasAlpha ? Number.parseInt(digits.slice(6, 8), 16) / 255 : 1,
     };
 }
 
@@ -458,7 +458,9 @@ function getReadableTextColor(color: string) {
     }
 
     const luminance =
-        (0.299 * channels.red + 0.587 * channels.green + 0.114 * channels.blue) /
+        (0.299 * channels.red +
+            0.587 * channels.green +
+            0.114 * channels.blue) /
         255;
 
     return luminance > 0.68 ? "#0f172a" : "#f8fafc";
@@ -584,7 +586,8 @@ function buildChartScene(
 
     otherTypes.forEach((type, index) => {
         const angle =
-            -Math.PI / 2 + (index / Math.max(1, otherTypes.length)) * Math.PI * 2;
+            -Math.PI / 2 +
+            (index / Math.max(1, otherTypes.length)) * Math.PI * 2;
         const x = centerX + Math.cos(angle) * radius;
         const y = centerY + Math.sin(angle) * radius;
         const relation = relationLookup.get(type.id) ?? {
@@ -606,7 +609,8 @@ function buildChartScene(
         );
 
         const hasOutgoing = relation.attackAdvantage || relation.attackResisted;
-        const hasIncoming = relation.defenseWeakness || relation.defenseResistance;
+        const hasIncoming =
+            relation.defenseWeakness || relation.defenseResistance;
 
         if (relation.attackAdvantage) {
             links.push(
@@ -680,14 +684,14 @@ function buildPairSummary(
     const attackSummary = relation.attackAdvantage
         ? `${activeType.label}打${targetType.label}：克制 x2`
         : relation.attackResisted
-            ? `${activeType.label}打${targetType.label}：受阻 x0.5`
-            : `${activeType.label}打${targetType.label}：中性 x1`;
+          ? `${activeType.label}打${targetType.label}：受阻 x0.5`
+          : `${activeType.label}打${targetType.label}：中性 x1`;
 
     const defenseSummary = relation.defenseWeakness
         ? `${targetType.label}打${activeType.label}：克制 x2`
         : relation.defenseResistance
-            ? `${targetType.label}打${activeType.label}：受阻 x0.5`
-            : `${targetType.label}打${activeType.label}：中性 x1`;
+          ? `${targetType.label}打${activeType.label}：受阻 x0.5`
+          : `${targetType.label}打${activeType.label}：中性 x1`;
 
     return `${attackSummary}<br/>${defenseSummary}`;
 }
@@ -905,9 +909,7 @@ function getBadgeStyle(type: ITypeEntry, isActive: boolean) {
     return {
         color: textColor,
         borderColor: toRgba(type.color, isActive ? 0.92 : 0.22),
-        background: isActive
-            ? toRgba(type.color, 1)
-            : toRgba(type.color, 0.3),
+        background: isActive ? toRgba(type.color, 1) : toRgba(type.color, 0.3),
         boxShadow: isActive
             ? `0 18px 40px ${toRgba(type.color, 0.24)}`
             : "0 10px 24px rgba(148, 163, 184, 0.08)",
@@ -1012,51 +1014,81 @@ onBeforeUnmount(() => {
 
 <template>
     <section class="flex flex-col gap-6">
-
-        <section v-if="isLoading"
-            class="rounded-[30px] border border-border/70 bg-muted5 p-10 text-center shadow-md ">
-            <p class="text-base font-semibold text-foreground">正在读取属性数据...</p>
-            <p class="mt-3 text-sm text-foreground">类型表和颜色映射加载完成后，会自动绘制关系图。</p>
+        <section
+            v-if="isLoading"
+            class="rounded-[30px] border border-border/70 bg-muted5 p-10 text-center shadow-md"
+        >
+            <p class="text-base font-semibold text-foreground">
+                正在读取属性数据...
+            </p>
+            <p class="mt-3 text-sm text-foreground">
+                类型表和颜色映射加载完成后，会自动绘制关系图。
+            </p>
         </section>
 
-        <section v-else-if="errorMessage"
-            class="rounded-[30px] border border-rose-200 bg-rose-50/80 p-10 text-center shadow-md">
-            <p class="text-base font-semibold text-rose-700">{{ errorMessage }}</p>
-            <p class="mt-3 text-sm text-rose-600">你可以重新加载一次，通常是本地数据或网络瞬时失败。</p>
-            <button type="button"
+        <section
+            v-else-if="errorMessage"
+            class="rounded-[30px] border border-rose-200 bg-rose-50/80 p-10 text-center shadow-md"
+        >
+            <p class="text-base font-semibold text-rose-700">
+                {{ errorMessage }}
+            </p>
+            <p class="mt-3 text-sm text-rose-600">
+                你可以重新加载一次，通常是本地数据或网络瞬时失败。
+            </p>
+            <button
+                type="button"
                 class="mt-5 inline-flex items-center rounded-[10px] border border-rose-200 bg-white px-4 py-2 text-sm font-semibold text-rose-700 transition hover:border-rose-300 hover:bg-rose-50"
-                @click="loadTypeData">
+                @click="loadTypeData"
+            >
                 重新加载
             </button>
         </section>
         <Card v-else-if="currentType">
             <CardHeader>
-                <h1 class=" text-2xl ">属性关系</h1>
-                <p class="mt-3 max-w-2xl text-sm leading-7 text-foreground sm:text-base">
+                <h1 class="text-2xl">属性关系</h1>
+                <p
+                    class="mt-3 max-w-2xl text-sm leading-7 text-foreground sm:text-base"
+                >
                     {{
                         supportsHover
                             ? "把鼠标停在下方属性字徽上，就能即时查看该属性与其他各系的单属性克制关系。"
                             : "点击下方属性字徽，就能查看该属性与其他各系的单属性克制关系。"
                     }}
                 </p>
-                <div v-if="currentType" class="mt-5 flex flex-wrap items-center gap-3 text-sm text-foreground">
-                    <span class="inline-flex items-center rounded-[10px] border px-4 py-2 font-semibold"
-                        :style="getBadgeStyle(currentType, true)">
+                <div
+                    v-if="currentType"
+                    class="mt-5 flex flex-wrap items-center gap-3 text-sm text-foreground"
+                >
+                    <span
+                        class="inline-flex items-center rounded-[10px] border px-4 py-2 font-semibold"
+                        :style="getBadgeStyle(currentType, true)"
+                    >
                         当前选择 · {{ currentType.label }}
                     </span>
-                    <span class="inline-flex items-center rounded-[10px] border border-border bg-slate-50 px-4 py-2">
+                    <span
+                        class="inline-flex items-center rounded-[10px] border border-border px-4 py-2"
+                    >
                         克制 {{ relationBuckets.attackAdvantage.length }} 项
                     </span>
-                    <span class="inline-flex items-center rounded-[10px] border border-border bg-slate-50 px-4 py-2">
+                    <span
+                        class="inline-flex items-center rounded-[10px] border border-border px-4 py-2"
+                    >
                         被克制 {{ relationBuckets.defenseWeakness.length }} 项
                     </span>
                 </div>
                 <div class="mt-5 flex flex-wrap gap-3">
-                    <div v-for="type in typeEntries" :key="type.id"
-                        class="type-badge cursor-pointer flex  flex-col items-center rounded-[10px]  p-3 text-left"
-                        :style="getBadgeStyle(type, currentTypeId === type.id)" @mouseenter="previewType(type.id)"
-                        @mouseleave="clearPreview" @focus="previewType(type.id)" @blur="clearPreview"
-                        @click="selectType(type.id)">
+                    <div
+                        v-for="type in typeEntries"
+                        :key="type.id"
+                        class="type-badge cursor-pointer flex flex-col items-center rounded-[10px] p-3 text-left"
+                        :style="getBadgeStyle(type, currentTypeId === type.id)"
+                        @mouseenter="previewType(type.id)"
+                        @mouseleave="clearPreview"
+                        @focus="previewType(type.id)"
+                        @blur="clearPreview"
+                        @click="selectType(type.id)"
+                    >
                         <span class="text-lg font-black leading-none">
                             {{ type.shortLabel }}
                         </span>
@@ -1065,19 +1097,38 @@ onBeforeUnmount(() => {
             </CardHeader>
             <CardContent>
                 <div class="mt-2 text-sm leading-6 text-foreground">
-                    中心节点始终是 {{ currentType.label }}，其余节点按属性编号环绕排列，方便同时看清进攻与防守两种关系。
+                    中心节点始终是
+                    {{
+                        currentType.label
+                    }}，其余节点按属性编号环绕排列，方便同时看清进攻与防守两种关系。
                 </div>
-                <div class=" flex flex-col xl:flex-row ">
-                    <div ref="chartRef" class="mt-5 h-130 w-full overflow-hidden rounded-[28px] " />
+                <div class="flex flex-col xl:flex-row">
+                    <div
+                        ref="chartRef"
+                        class="mt-5 h-130 w-full overflow-hidden rounded-[28px]"
+                    />
                     <div class="mt-5 grid gap-3 sm:grid-cols-2">
-                        <div v-for="kind in relationLegendKinds" :key="kind" class="rounded-[20px] border px-4 py-3"
-                            :style="getLegendStyle(RELATION_META[kind].edgeColor)">
-                            <div class="flex items-center justify-between gap-3 text-sm font-semibold ">
+                        <div
+                            v-for="kind in relationLegendKinds"
+                            :key="kind"
+                            class="rounded-[20px] border px-4 py-3"
+                            :style="
+                                getLegendStyle(RELATION_META[kind].edgeColor)
+                            "
+                        >
+                            <div
+                                class="flex items-center justify-between gap-3 text-sm font-semibold"
+                            >
                                 <span class="inline-flex items-center gap-3">
-                                    <span class="w-8" :style="getLegendLineStyle(kind)" />
+                                    <span
+                                        class="w-8"
+                                        :style="getLegendLineStyle(kind)"
+                                    />
                                     {{ RELATION_META[kind].title }}
                                 </span>
-                                <span>{{ RELATION_META[kind].multiplier }}</span>
+                                <span>{{
+                                    RELATION_META[kind].multiplier
+                                }}</span>
                             </div>
                             <p class="mt-2 text-xs leading-6 text-foreground">
                                 {{ RELATION_META[kind].description }}
