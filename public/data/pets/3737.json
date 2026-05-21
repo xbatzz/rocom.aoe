@@ -31,7 +31,7 @@
             "name": "​​霹雳迪迪"
         }
     },
-    "implemented": false,
+    "implemented": true,
     "base_hp": 98,
     "base_phy_atk": 60,
     "base_mag_atk": 124,

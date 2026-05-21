@@ -61348,7 +61348,7 @@
                 "name": "小丑豆豆"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 5,
         "base_phy_atk": 5,
         "base_mag_atk": 5,
@@ -61441,7 +61441,7 @@
                 "name": "小丑兔"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 5,
         "base_phy_atk": 5,
         "base_mag_atk": 5,
@@ -61485,7 +61485,7 @@
                 "name": "小丑公爵"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 5,
         "base_phy_atk": 5,
         "base_mag_atk": 5,
@@ -66884,7 +66884,7 @@
                 "name": "小雪人"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 5,
         "base_phy_atk": 5,
         "base_mag_atk": 5,
@@ -66977,7 +66977,7 @@
                 "name": "雪怪"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 5,
         "base_phy_atk": 5,
         "base_mag_atk": 5,
@@ -71954,7 +71954,7 @@
                 "name": "爆焰仔"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 5,
         "base_phy_atk": 5,
         "base_mag_atk": 5,
@@ -72053,7 +72053,7 @@
                 "name": "爆焰喷喷"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 5,
         "base_phy_atk": 5,
         "base_mag_atk": 5,
@@ -78543,7 +78543,7 @@
                 "name": "加油海葵"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -78593,7 +78593,7 @@
                 "name": "加油蟹"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -79395,7 +79395,7 @@
                 "name": "烟花团"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -79494,7 +79494,7 @@
                 "name": "烟花伯爵"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -79726,7 +79726,7 @@
                 "name": "咕咕帽"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -79770,7 +79770,7 @@
                 "name": "咕德帽帽"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -81152,7 +81152,7 @@
                 "name": "小鼓象"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -81196,7 +81196,7 @@
                 "name": "巨鼓象"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -82352,7 +82352,7 @@
                 "name": "猴唛仔"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 98,
         "base_phy_atk": 60,
         "base_mag_atk": 124,
@@ -82402,7 +82402,7 @@
                 "name": "音碟吼"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 98,
         "base_phy_atk": 60,
         "base_mag_atk": 124,
@@ -82546,7 +82546,7 @@
                 "name": "钨丝贝贝"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 98,
         "base_phy_atk": 60,
         "base_mag_atk": 124,
@@ -82590,7 +82590,7 @@
                 "name": "辉光幕机"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 98,
         "base_phy_atk": 60,
         "base_mag_atk": 124,
@@ -82634,7 +82634,7 @@
                 "name": "机墓方舟"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 98,
         "base_phy_atk": 60,
         "base_mag_atk": 124,
@@ -82684,7 +82684,7 @@
                 "name": "炫光迪迪"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 98,
         "base_phy_atk": 60,
         "base_mag_atk": 124,
@@ -82734,7 +82734,7 @@
                 "name": "​​霹雳迪迪"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 98,
         "base_phy_atk": 60,
         "base_mag_atk": 124,
@@ -83894,7 +83894,7 @@
                 "name": "加油蟹"
             }
         },
-        "implemented": false,
+        "implemented": true,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,

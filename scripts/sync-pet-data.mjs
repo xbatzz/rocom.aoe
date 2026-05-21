@@ -64,9 +64,7 @@ const LEGACY_SKILL_TYPE_FIELDS = [
     ["blood_skill_PHANTOM", 18],
 ];
 
-const PET_LEGACY_MOVE_OVERRIDES = new Map([
-    [3071, new Map([[3, 7040380]])],
-]);
+const PET_LEGACY_MOVE_OVERRIDES = new Map([[3071, new Map([[3, 7040380]])]]);
 
 const EGG_GROUP_LABEL_BY_ID = new Map([
     [1, "未发现"],
@@ -95,26 +93,43 @@ const UNKNOWN_TYPE = {
 };
 
 async function main() {
-    const [typeRows, petBaseTable, handbookTable, evolutionTable, levelSkillTable, skillTable, classisTable, petEggTable, petRandomEggTable, petNameMapTable, bagItemTable, megaMapGatheringTable, monsterTable, monsterCatchTable, rewardTable, visualItemTable, exchangeTable] =
-        await Promise.all([
-            readJson(typesPath),
-            readTable("PETBASE_CONF.json"),
-            readTable("PET_HANDBOOK.json"),
-            readTable("PET_EVOLUTION_CONF.json"),
-            readTable("LEVEL_SKILL_CONF.json"),
-            readTable("SKILL_CONF.json"),
-            readTable("PET_CLASSIS_CONF.json"),
-            readTable("PET_EGG_CONF.json"),
-            readTable("PET_RANDOM_EGG_CONF.json"),
-            readTable("PET_NAME_MAP_CONF.json"),
-            readTable("BAG_ITEM_CONF.json"),
-            readTable("MEGAMAP_GATHERING_CONF.json"),
-            readTable("MONSTER_CONF.json"),
-            readTable("MONSTER_CATCH_CONF.json"),
-            readTable("REWARD_CONF.json"),
-            readTable("VISUAL_ITEM_CONF.json"),
-            readTable("EXCHANGE_CONF.json"),
-        ]);
+    const [
+        typeRows,
+        petBaseTable,
+        handbookTable,
+        evolutionTable,
+        levelSkillTable,
+        skillTable,
+        classisTable,
+        petEggTable,
+        petRandomEggTable,
+        petNameMapTable,
+        bagItemTable,
+        megaMapGatheringTable,
+        monsterTable,
+        monsterCatchTable,
+        rewardTable,
+        visualItemTable,
+        exchangeTable,
+    ] = await Promise.all([
+        readJson(typesPath),
+        readTable("PETBASE_CONF.json"),
+        readTable("PET_HANDBOOK.json"),
+        readTable("PET_EVOLUTION_CONF.json"),
+        readTable("LEVEL_SKILL_CONF.json"),
+        readTable("SKILL_CONF.json"),
+        readTable("PET_CLASSIS_CONF.json"),
+        readTable("PET_EGG_CONF.json"),
+        readTable("PET_RANDOM_EGG_CONF.json"),
+        readTable("PET_NAME_MAP_CONF.json"),
+        readTable("BAG_ITEM_CONF.json"),
+        readTable("MEGAMAP_GATHERING_CONF.json"),
+        readTable("MONSTER_CONF.json"),
+        readTable("MONSTER_CATCH_CONF.json"),
+        readTable("REWARD_CONF.json"),
+        readTable("VISUAL_ITEM_CONF.json"),
+        readTable("EXCHANGE_CONF.json"),
+    ]);
 
     const typesById = new Map(
         typeRows.map((row) => [
@@ -134,9 +149,8 @@ async function main() {
     const handbookRows = getRows(handbookTable);
     const evolutionRows = getRows(evolutionTable);
     const evolutionById = indexBy(evolutionRows);
-    const evolutionRowsByFamily = groupBy(
-        evolutionRows,
-        (row) => getEvolutionFamilyKeyFromRow(row, row?.id ?? "default"),
+    const evolutionRowsByFamily = groupBy(evolutionRows, (row) =>
+        getEvolutionFamilyKeyFromRow(row, row?.id ?? "default"),
     );
     const levelSkillById = indexBy(getRows(levelSkillTable));
     const skillById = indexBy(getRows(skillTable));
@@ -204,13 +218,15 @@ async function main() {
             ),
             classisRow:
                 typeof petBase.pet_classis_id === "number"
-                    ? classisByPetClassis.get(petBase.pet_classis_id) ?? null
+                    ? (classisByPetClassis.get(petBase.pet_classis_id) ?? null)
                     : null,
             typePair: buildTypePair(petBase.unit_type, typesById),
         };
     });
 
-    const contextById = new Map(contexts.map((context) => [context.id, context]));
+    const contextById = new Map(
+        contexts.map((context) => [context.id, context]),
+    );
     const contextsByGroup = groupBy(contexts, (context) => context.groupKey);
     const leaderFlagById = new Map(
         contexts.map((context) => [
@@ -219,10 +235,12 @@ async function main() {
         ]),
     );
     const groupHasLeaderForm = new Map(
-        Array.from(contextsByGroup.entries()).map(([groupKey, groupContexts]) => [
-            groupKey,
-            groupContexts.some((context) => leaderFlagById.get(context.id)),
-        ]),
+        Array.from(contextsByGroup.entries()).map(
+            ([groupKey, groupContexts]) => [
+                groupKey,
+                groupContexts.some((context) => leaderFlagById.get(context.id)),
+            ],
+        ),
     );
 
     const details = contexts.map((context) => {
@@ -279,7 +297,8 @@ async function main() {
             sub_type: context.typePair.subType,
             default_legacy_type: context.typePair.mainType,
             leader_potential:
-                !leaderForm && (groupHasLeaderForm.get(context.groupKey) ?? false),
+                !leaderForm &&
+                (groupHasLeaderForm.get(context.groupKey) ?? false),
             is_leader_form: leaderForm,
             preferred_attack_style: resolveAttackStyle(context.petBase),
             localized: {
@@ -340,7 +359,9 @@ async function main() {
         default_legacy_type_id: detail.default_legacy_type.id,
         preferred_attack_style: detail.preferred_attack_style,
         bloodline_moves: detail.legacy_moves
-            .map((entry) => buildBloodlineMoveSummary(entry, skillById, typesById))
+            .map((entry) =>
+                buildBloodlineMoveSummary(entry, skillById, typesById),
+            )
             .filter(Boolean),
     }));
     const petSkillCatalogById = new Map();
@@ -354,16 +375,36 @@ async function main() {
             move_stone_ids: detail.move_stones.map((move) => move.id),
         };
     });
-    const petSkillCatalogEntries = Array.from(petSkillCatalogById.values()).sort(
-        (left, right) => left.name.localeCompare(right.name, "zh-CN") || left.id - right.id,
+    const petSkillCatalogEntries = Array.from(
+        petSkillCatalogById.values(),
+    ).sort(
+        (left, right) =>
+            left.name.localeCompare(right.name, "zh-CN") || left.id - right.id,
     );
 
     const itemLabelTypeTable = await readTable("ITEM_LABLE_TYPE_CONF.json");
     const itemCategories = buildItemCategories(getRows(itemLabelTypeTable));
-    const evolutionItemUsage = buildEvolutionItemUsageFromRaw(petBaseRows, contexts);
-    const alchemyRecipes = buildAlchemyRecipes(getRows(exchangeTable), itemById);
-    const itemEntries = buildItemEntries(getRows(bagItemTable), itemCategories, evolutionItemUsage, skillById, alchemyRecipes);
-    const handbookRewards = buildHandbookRewards(handbookRows, rewardTable, visualItemTable, itemById);
+    const evolutionItemUsage = buildEvolutionItemUsageFromRaw(
+        petBaseRows,
+        contexts,
+    );
+    const alchemyRecipes = buildAlchemyRecipes(
+        getRows(exchangeTable),
+        itemById,
+    );
+    const itemEntries = buildItemEntries(
+        getRows(bagItemTable),
+        itemCategories,
+        evolutionItemUsage,
+        skillById,
+        alchemyRecipes,
+    );
+    const handbookRewards = buildHandbookRewards(
+        handbookRows,
+        rewardTable,
+        visualItemTable,
+        itemById,
+    );
 
     await syncMirroredTables();
     await fs.mkdir(petsDetailDir, { recursive: true });
@@ -630,14 +671,17 @@ function buildTypePair(rawTypes, typesById) {
     const normalizedTypeIds = [];
 
     for (const rawType of uniqueNumbers(normalizeArray(rawTypes))) {
-        const normalizedId = RAW_TYPE_TO_NORMALIZED_ID.get(rawType) ?? UNKNOWN_TYPE_ID;
+        const normalizedId =
+            RAW_TYPE_TO_NORMALIZED_ID.get(rawType) ?? UNKNOWN_TYPE_ID;
 
         if (!normalizedTypeIds.includes(normalizedId)) {
             normalizedTypeIds.push(normalizedId);
         }
     }
 
-    const mainType = cloneType(typesById.get(normalizedTypeIds[0]) ?? UNKNOWN_TYPE);
+    const mainType = cloneType(
+        typesById.get(normalizedTypeIds[0]) ?? UNKNOWN_TYPE,
+    );
     const subType = normalizedTypeIds[1]
         ? cloneType(typesById.get(normalizedTypeIds[1]) ?? UNKNOWN_TYPE)
         : null;
@@ -659,7 +703,9 @@ function cloneType(type) {
 }
 
 function isLeaderForm(petBase, portraitKey) {
-    return Boolean(petBase?.is_boss) || /(?:_shouling|_boss)$/u.test(portraitKey);
+    return (
+        Boolean(petBase?.is_boss) || /(?:_shouling|_boss)$/u.test(portraitKey)
+    );
 }
 
 function extractForm(context) {
@@ -676,7 +722,9 @@ function extractForm(context) {
     }
 
     if (displayName.endsWith(handbookName)) {
-        const prefix = displayName.slice(0, displayName.length - handbookName.length).trim();
+        const prefix = displayName
+            .slice(0, displayName.length - handbookName.length)
+            .trim();
 
         if (prefix) {
             return prefix;
@@ -719,7 +767,9 @@ function isCanonicalCollectiblePetBaseId(id) {
 }
 
 function hasBattleContent(movePool, moveStones, legacyMoves) {
-    return movePool.length > 0 || moveStones.length > 0 || legacyMoves.length > 0;
+    return (
+        movePool.length > 0 || moveStones.length > 0 || legacyMoves.length > 0
+    );
 }
 
 function hasHandbookPresentationAssets(petBase) {
@@ -770,7 +820,8 @@ function isImplementedContext(context, movePool, moveStones, legacyMoves) {
 
 function buildSpecies(context, contextById) {
     const speciesPetId =
-        context.speciesGroupIds.find((petId) => contextById.has(petId)) ?? context.id;
+        context.speciesGroupIds.find((petId) => contextById.has(petId)) ??
+        context.id;
     const speciesContext = contextById.get(speciesPetId) ?? context;
 
     return {
@@ -780,14 +831,18 @@ function buildSpecies(context, contextById) {
             context.id,
         name: speciesContext.portraitKey,
         localized: {
-            zh: cleanText(context.handbookRow?.name) ?? speciesContext.displayName,
+            zh:
+                cleanText(context.handbookRow?.name) ??
+                speciesContext.displayName,
         },
     };
 }
 
 function buildTrait(petBase, skillById) {
     const skillId =
-        petBase.pet_feature ?? petBase.pet_glass_feature ?? petBase.pet_chaos_feature;
+        petBase.pet_feature ??
+        petBase.pet_glass_feature ??
+        petBase.pet_chaos_feature;
     const skill = skillById.get(skillId);
 
     if (!skill) {
@@ -816,8 +871,8 @@ function buildMovePool(levelSkillRow, skillById, typesById) {
         .filter((entry) => Number.isFinite(entry?.param))
         .sort((left, right) => {
             return (
-                normalizeStat(left.level_point) - normalizeStat(right.level_point) ||
-                left.param - right.param
+                normalizeStat(left.level_point) -
+                    normalizeStat(right.level_point) || left.param - right.param
             );
         });
     const seenSkillIds = new Set();
@@ -828,7 +883,11 @@ function buildMovePool(levelSkillRow, skillById, typesById) {
             continue;
         }
 
-        const move = buildMove(skillById.get(entry.param), typesById, entry.param);
+        const move = buildMove(
+            skillById.get(entry.param),
+            typesById,
+            entry.param,
+        );
 
         if (!move) {
             continue;
@@ -891,7 +950,9 @@ function buildLegacyMoves(context, levelSkillRow, skillById, typesById) {
         return entries;
     }
 
-    const entryByTypeId = new Map(entries.map((entry) => [entry.type_id, entry]));
+    const entryByTypeId = new Map(
+        entries.map((entry) => [entry.type_id, entry]),
+    );
 
     for (const [typeId, moveId] of overrides.entries()) {
         const skill = skillById.get(moveId);
@@ -908,7 +969,8 @@ function buildLegacyMoves(context, levelSkillRow, skillById, typesById) {
         };
 
         if (entryByTypeId.has(typeId)) {
-            entries[entries.findIndex((entry) => entry.type_id === typeId)] = nextEntry;
+            entries[entries.findIndex((entry) => entry.type_id === typeId)] =
+                nextEntry;
             entryByTypeId.set(typeId, nextEntry);
             continue;
         }
@@ -922,7 +984,11 @@ function buildLegacyMoves(context, levelSkillRow, skillById, typesById) {
 }
 
 function buildBloodlineMoveSummary(entry, skillById, typesById) {
-    const move = buildMove(skillById.get(entry.move_id), typesById, entry.move_id);
+    const move = buildMove(
+        skillById.get(entry.move_id),
+        typesById,
+        entry.move_id,
+    );
 
     if (!move) {
         return null;
@@ -951,13 +1017,19 @@ function registerPetSkillCatalog(moves, catalogById) {
         catalogById.set(move.id, {
             id: move.id,
             name: move.localized?.zh?.name ?? move.name ?? `技能 ${move.id}`,
-            type_label: move.move_type?.localized?.zh ?? UNKNOWN_TYPE.localized.zh,
+            type_label:
+                move.move_type?.localized?.zh ?? UNKNOWN_TYPE.localized.zh,
             move_category: move.move_category,
         });
     }
 }
 
-function buildHandbookRewards(handbookRows, rewardTable, visualItemTable, bagItemById) {
+function buildHandbookRewards(
+    handbookRows,
+    rewardTable,
+    visualItemTable,
+    bagItemById,
+) {
     const rewardById = rewardTable?.RocoDataRows ?? {};
     const visualItemById = visualItemTable?.RocoDataRows ?? {};
     const rewardIds = new Set();
@@ -999,7 +1071,9 @@ function buildHandbookRewards(handbookRows, rewardTable, visualItemTable, bagIte
             } else if (type === 2) {
                 const visualItem = visualItemById[String(id)];
                 const name = cleanText(visualItem?.displayName) ?? `资源 ${id}`;
-                const iconId = extractIconId(visualItem?.bigIcon) ?? extractIconId(visualItem?.iconPath);
+                const iconId =
+                    extractIconId(visualItem?.bigIcon) ??
+                    extractIconId(visualItem?.iconPath);
 
                 items.push({ type, id, name, icon_id: iconId, count });
             }
@@ -1078,7 +1152,8 @@ function buildMove(skill, typesById, fallbackSkillId, options = {}) {
 }
 
 function buildMoveType(rawTypeId, typesById) {
-    const normalizedId = RAW_TYPE_TO_NORMALIZED_ID.get(rawTypeId) ?? UNKNOWN_TYPE_ID;
+    const normalizedId =
+        RAW_TYPE_TO_NORMALIZED_ID.get(rawTypeId) ?? UNKNOWN_TYPE_ID;
     return cloneType(typesById.get(normalizedId) ?? UNKNOWN_TYPE);
 }
 
@@ -1120,7 +1195,9 @@ function buildWorldProfile(context) {
 
     return {
         type_desc: cleanText(context.handbookRow?.type_desc),
-        description_habitat: cleanText(context.handbookRow?.description_habitat),
+        description_habitat: cleanText(
+            context.handbookRow?.description_habitat,
+        ),
         introduction: cleanText(context.petBase.description),
         refresh_locations: refreshHint ? [refreshHint] : [],
         movement_type: cleanText(context.petBase.move_type),
@@ -1186,10 +1263,7 @@ function buildBreedingInfo(context, petEggRows, petRandomEggRows) {
 }
 
 function collectEggVariants(context, petEggRows, petRandomEggRows) {
-    const primaryVariants = collectEggVariantsFromSource(
-        context,
-        petEggRows,
-    );
+    const primaryVariants = collectEggVariantsFromSource(context, petEggRows);
 
     if (primaryVariants.length) {
         return primaryVariants;
@@ -1204,7 +1278,14 @@ function collectEggVariantsFromSource(context, rows) {
     const variants = [];
 
     for (const row of rows) {
-        if (!isEggVariantForPet(row, prefix, context.displayName, context.handbookRow?.name)) {
+        if (
+            !isEggVariantForPet(
+                row,
+                prefix,
+                context.displayName,
+                context.handbookRow?.name,
+            )
+        ) {
             continue;
         }
 
@@ -1233,7 +1314,9 @@ function isEggVariantForPet(row, petBaseIdPrefix, displayName, handbookName) {
     }
 
     const rowName = cleanText(row?.name);
-    const names = [cleanText(displayName), cleanText(handbookName)].filter(Boolean);
+    const names = [cleanText(displayName), cleanText(handbookName)].filter(
+        Boolean,
+    );
 
     return rowName !== null && names.includes(rowName);
 }
@@ -1250,11 +1333,15 @@ function buildEggVariant(row) {
         model_id: typeof row.model_id === "number" ? row.model_id : null,
         hatch_data: typeof row.hatch_data === "number" ? row.hatch_data : null,
         weight_low: typeof row.weight_low === "number" ? row.weight_low : null,
-        weight_high: typeof row.weight_high === "number" ? row.weight_high : null,
+        weight_high:
+            typeof row.weight_high === "number" ? row.weight_high : null,
         height_low: typeof row.height_low === "number" ? row.height_low : null,
-        height_high: typeof row.height_high === "number" ? row.height_high : null,
+        height_high:
+            typeof row.height_high === "number" ? row.height_high : null,
         precious_egg_type:
-            typeof row.precious_egg_type === "number" ? row.precious_egg_type : null,
+            typeof row.precious_egg_type === "number"
+                ? row.precious_egg_type
+                : null,
         egg_base_glass_prob_array: Array.isArray(row.egg_base_glass_prob_array)
             ? row.egg_base_glass_prob_array
             : null,
@@ -1293,16 +1380,21 @@ function buildEvolutionTree(
     const stages = [];
     const seenIds = new Set();
     const stageBuckets = new Map();
-    const familyRows = (evolutionRowsByFamily.get(context.evolutionFamilyKey) ?? [])
+    const familyRows = (
+        evolutionRowsByFamily.get(context.evolutionFamilyKey) ?? []
+    )
         .filter(Boolean)
         .sort((left, right) => {
             return (left?.id ?? 0) - (right?.id ?? 0);
         });
 
-    for (const evolutionRow of familyRows.length ? familyRows : normalizeArray(context.evolutionRow)) {
+    for (const evolutionRow of familyRows.length
+        ? familyRows
+        : normalizeArray(context.evolutionRow)) {
         for (const node of normalizeArray(evolutionRow?.evolution_chain)) {
             const petBaseId = node?.petbase_id;
-            const stageNumber = typeof node?.stage === "number" ? node.stage : 1;
+            const stageNumber =
+                typeof node?.stage === "number" ? node.stage : 1;
 
             if (!Number.isFinite(petBaseId) || !contextById.has(petBaseId)) {
                 continue;
@@ -1342,10 +1434,17 @@ function buildEvolutionTree(
 
     const groupContexts = contextsByGroup.get(context.groupKey) ?? [context];
     const extraBaseIds = groupContexts
-        .filter((item) => !seenIds.has(item.id) && !(leaderFlagById.get(item.id) ?? false))
+        .filter(
+            (item) =>
+                !seenIds.has(item.id) &&
+                !(leaderFlagById.get(item.id) ?? false),
+        )
         .map((item) => item.id);
     const extraLeaderIds = groupContexts
-        .filter((item) => !seenIds.has(item.id) && (leaderFlagById.get(item.id) ?? false))
+        .filter(
+            (item) =>
+                !seenIds.has(item.id) && (leaderFlagById.get(item.id) ?? false),
+        )
         .map((item) => item.id);
 
     if (!stages.length) {
@@ -1396,7 +1495,11 @@ function buildEvolutionTree(
         seenIds.add(context.id);
     }
 
-    if (!extraLeaderIds.length && (leaderFlagById.get(context.id) ?? false) && !seenIds.has(context.id)) {
+    if (
+        !extraLeaderIds.length &&
+        (leaderFlagById.get(context.id) ?? false) &&
+        !seenIds.has(context.id)
+    ) {
         extraLeaderIds.push(context.id);
     }
 
@@ -1421,9 +1524,11 @@ function buildEvolutionTree(
     const normalizedStages = stages
         .map((stage) => ({
             ...stage,
-            monsters: dedupeEvolutionNodes(stage.monsters).sort((left, right) => {
-                return left.id - right.id;
-            }),
+            monsters: dedupeEvolutionNodes(stage.monsters).sort(
+                (left, right) => {
+                    return left.id - right.id;
+                },
+            ),
         }))
         .filter((stage) => stage.monsters.length > 0)
         .map((stage, depth) => ({
@@ -1450,7 +1555,12 @@ function buildEvolutionTree(
     };
 }
 
-function buildEvolutionNode(context, leaderFlagById, typesById, evolutionRequirementContext) {
+function buildEvolutionNode(
+    context,
+    leaderFlagById,
+    typesById,
+    evolutionRequirementContext,
+) {
     if (!context) {
         return null;
     }
@@ -1469,7 +1579,10 @@ function buildEvolutionNode(context, leaderFlagById, typesById, evolutionRequire
         sub_type: context.typePair.subType
             ? cloneType(context.typePair.subType)
             : null,
-        evolution_conditions: buildEvolutionConditions(context, evolutionRequirementContext),
+        evolution_conditions: buildEvolutionConditions(
+            context,
+            evolutionRequirementContext,
+        ),
     };
 }
 
@@ -1495,14 +1608,22 @@ function buildEvolutionConditions(context, evolutionRequirementContext) {
         typeof petBase.evolution_need_money === "number" &&
         petBase.evolution_need_money > 0
     ) {
-        conditions.push(`消耗 ${formatEvolutionNumber(petBase.evolution_need_money)} 洛克贝`);
+        conditions.push(
+            `消耗 ${formatEvolutionNumber(petBase.evolution_need_money)} 洛克贝`,
+        );
     }
 
-    for (const itemRequirement of normalizeArray(petBase.evolution_need_items)) {
+    for (const itemRequirement of normalizeArray(
+        petBase.evolution_need_items,
+    )) {
         const itemId = itemRequirement?.evolution_need_item;
         const itemCount = itemRequirement?.number;
 
-        if (!Number.isFinite(itemId) || !Number.isFinite(itemCount) || itemCount <= 0) {
+        if (
+            !Number.isFinite(itemId) ||
+            !Number.isFinite(itemCount) ||
+            itemCount <= 0
+        ) {
             continue;
         }
 
@@ -1517,12 +1638,16 @@ function buildEvolutionConditions(context, evolutionRequirementContext) {
             continue;
         }
 
-        const data1 = normalizeArray(requirement?.evolution_need_data1).filter((value) => {
-            return Number.isFinite(value);
-        });
-        const data2 = normalizeArray(requirement?.evolution_need_data2).filter((value) => {
-            return Number.isFinite(value);
-        });
+        const data1 = normalizeArray(requirement?.evolution_need_data1).filter(
+            (value) => {
+                return Number.isFinite(value);
+            },
+        );
+        const data2 = normalizeArray(requirement?.evolution_need_data2).filter(
+            (value) => {
+                return Number.isFinite(value);
+            },
+        );
 
         const description = describeSpecialEvolutionRequirement(
             type,
@@ -1540,7 +1665,13 @@ function buildEvolutionConditions(context, evolutionRequirementContext) {
     return [...new Set(conditions)];
 }
 
-function describeSpecialEvolutionRequirement(type, data1, data2, context, evolutionRequirementContext) {
+function describeSpecialEvolutionRequirement(
+    type,
+    data1,
+    data2,
+    context,
+    evolutionRequirementContext,
+) {
     const {
         contextById,
         gatheringGenreByParamId,
@@ -1557,7 +1688,8 @@ function describeSpecialEvolutionRequirement(type, data1, data2, context, evolut
         }
         case 4: {
             const routeLabel = resolveEvolutionRouteLabel(context);
-            const branchRequirement = formatEvolutionBranchRequirement(routeLabel);
+            const branchRequirement =
+                formatEvolutionBranchRequirement(routeLabel);
 
             if (branchRequirement) {
                 return branchRequirement;
@@ -1595,11 +1727,10 @@ function describeSpecialEvolutionRequirement(type, data1, data2, context, evolut
                 : "需激活指定进化分支";
         }
         case 13: {
-            const typeName = cleanText(typesById.get(data1[0])?.localized?.zh) ?? null;
+            const typeName =
+                cleanText(typesById.get(data1[0])?.localized?.zh) ?? null;
 
-            return typeName
-                ? `需激活${typeName}系血脉`
-                : "需激活指定血脉";
+            return typeName ? `需激活${typeName}系血脉` : "需激活指定血脉";
         }
         case 16: {
             const skillId = data1[0];
@@ -1625,7 +1756,11 @@ function describeSpecialEvolutionRequirement(type, data1, data2, context, evolut
                 return `需激活${chessVariantLabel}形态分支`;
             }
 
-            if (relatedPetName && Number.isFinite(targetCount) && targetCount > 0) {
+            if (
+                relatedPetName &&
+                Number.isFinite(targetCount) &&
+                targetCount > 0
+            ) {
                 return `需满足与对应形态「${relatedPetName}」关联的联动条件（参数 ${targetCount}）`;
             }
 
@@ -1639,9 +1774,14 @@ function describeSpecialEvolutionRequirement(type, data1, data2, context, evolut
             const minimum = data1[0];
             const maximum = data1[1];
             const routeLabel = resolveEvolutionRouteLabel(context);
-            const branchRequirement = formatEvolutionBranchRequirement(routeLabel);
+            const branchRequirement =
+                formatEvolutionBranchRequirement(routeLabel);
 
-            if (Number.isFinite(minimum) && Number.isFinite(maximum) && branchRequirement) {
+            if (
+                Number.isFinite(minimum) &&
+                Number.isFinite(maximum) &&
+                branchRequirement
+            ) {
                 return `${branchRequirement}，并满足区间条件（${formatEvolutionNumber(minimum)}-${formatEvolutionNumber(maximum)}）`;
             }
 
@@ -1654,7 +1794,10 @@ function describeSpecialEvolutionRequirement(type, data1, data2, context, evolut
         case 21: {
             const energyValue = data1[0] ?? data2[0];
 
-            if (Number.isFinite(energyValue) && isStarlightEvolutionContext(context)) {
+            if (
+                Number.isFinite(energyValue) &&
+                isStarlightEvolutionContext(context)
+            ) {
                 return `需积累 ${formatEvolutionNumber(energyValue)} 点星光能量`;
             }
 
@@ -1665,22 +1808,34 @@ function describeSpecialEvolutionRequirement(type, data1, data2, context, evolut
             return "需满足特殊能量条件";
         }
         case 20: {
-            const genres = [...new Set(data1
-                .map((materialId) => {
-                    return resolveEvolutionMaterialName(
-                        materialId,
-                        gatheringGenreByParamId,
-                        itemById,
-                    );
-                })
-                .filter(Boolean))];
+            const genres = [
+                ...new Set(
+                    data1
+                        .map((materialId) => {
+                            return resolveEvolutionMaterialName(
+                                materialId,
+                                gatheringGenreByParamId,
+                                itemById,
+                            );
+                        })
+                        .filter(Boolean),
+                ),
+            ];
             const targetCount = data2[0];
 
-            if (genres.length === 1 && Number.isFinite(targetCount) && targetCount > 0) {
+            if (
+                genres.length === 1 &&
+                Number.isFinite(targetCount) &&
+                targetCount > 0
+            ) {
                 return `需准备${genres[0]}系列材料共 ${targetCount} 份`;
             }
 
-            if (genres.length > 1 && Number.isFinite(targetCount) && targetCount > 0) {
+            if (
+                genres.length > 1 &&
+                Number.isFinite(targetCount) &&
+                targetCount > 0
+            ) {
                 return `需准备以下晶石系列材料共 ${targetCount} 份：${genres.join("、")}`;
             }
 
@@ -1702,7 +1857,8 @@ function describeSpecialEvolutionRequirement(type, data1, data2, context, evolut
                 contextById,
             );
             const routeLabel = resolveEvolutionRouteLabel(context);
-            const branchRequirement = formatEvolutionBranchRequirement(routeLabel);
+            const branchRequirement =
+                formatEvolutionBranchRequirement(routeLabel);
 
             if (
                 predecessorName &&
@@ -1778,11 +1934,17 @@ function resolvePetBaseName(petBaseId, contextById) {
 
     const context = contextById.get(petBaseId);
 
-    return cleanText(context?.displayName) ?? cleanText(context?.petBase?.name) ?? null;
+    return (
+        cleanText(context?.displayName) ??
+        cleanText(context?.petBase?.name) ??
+        null
+    );
 }
 
 function resolvePreviousEvolutionStageName(context, contextById) {
-    const evolutionChain = normalizeArray(context?.evolutionRow?.evolution_chain);
+    const evolutionChain = normalizeArray(
+        context?.evolutionRow?.evolution_chain,
+    );
     const currentIndex = evolutionChain.findIndex((entry) => {
         return entry?.petbase_id === context?.id;
     });
@@ -1791,7 +1953,10 @@ function resolvePreviousEvolutionStageName(context, contextById) {
         return null;
     }
 
-    return resolvePetBaseName(evolutionChain[currentIndex - 1]?.petbase_id, contextById);
+    return resolvePetBaseName(
+        evolutionChain[currentIndex - 1]?.petbase_id,
+        contextById,
+    );
 }
 
 function resolveEvolutionRouteLabel(context) {
@@ -1858,7 +2023,11 @@ function formatEvolutionParameterSuffix(data1, data2) {
     return segments.length ? `，${segments.join("；")}` : "";
 }
 
-function resolveEvolutionMaterialName(materialId, gatheringGenreByParamId, itemById) {
+function resolveEvolutionMaterialName(
+    materialId,
+    gatheringGenreByParamId,
+    itemById,
+) {
     if (!Number.isFinite(materialId)) {
         return null;
     }
@@ -1873,9 +2042,7 @@ function resolveEvolutionItemName(itemId, itemById) {
     const row = itemById.get(itemId);
 
     return (
-        cleanText(row?.editor_name) ??
-        cleanText(row?.name) ??
-        `道具 ${itemId}`
+        cleanText(row?.editor_name) ?? cleanText(row?.name) ?? `道具 ${itemId}`
     );
 }
 
@@ -1940,7 +2107,11 @@ async function syncMirroredTables() {
 
                 try {
                     const content = await fs.readFile(sourcePath, "utf8");
-                    await fs.writeFile(path.join(tablesDir, fileName), content, "utf8");
+                    await fs.writeFile(
+                        path.join(tablesDir, fileName),
+                        content,
+                        "utf8",
+                    );
                 } catch {
                     // Ignore table mirrors that do not have a BinData source.
                 }
@@ -1965,11 +2136,7 @@ async function cleanGeneratedPetDetails() {
 }
 
 async function writeJson(filePath, value) {
-    await fs.writeFile(
-        filePath,
-        `${JSON.stringify(value, null, 4)}\n`,
-        "utf8",
-    );
+    await fs.writeFile(filePath, `${JSON.stringify(value, null, 4)}\n`, "utf8");
 }
 
 function resolveItemIconId(row, labelType, skillById) {
@@ -2012,7 +2179,10 @@ function buildItemCategories(labelTypeRows) {
         }
 
         const labelType = row.lable_type ?? 0;
-        categories.set(labelType, cleanText(row.type_name) ?? `分类${labelType}`);
+        categories.set(
+            labelType,
+            cleanText(row.type_name) ?? `分类${labelType}`,
+        );
     }
 
     return categories;
@@ -2028,9 +2198,14 @@ function buildEvolutionItemUsageFromRaw(petBaseRows, contexts) {
         }
 
         const context = contextById.get(petBase.id);
-        const displayName = context?.displayName ?? cleanText(petBase.name) ?? String(petBase.id);
+        const displayName =
+            context?.displayName ??
+            cleanText(petBase.name) ??
+            String(petBase.id);
 
-        for (const itemRequirement of normalizeArray(petBase.evolution_need_items)) {
+        for (const itemRequirement of normalizeArray(
+            petBase.evolution_need_items,
+        )) {
             const itemId = itemRequirement?.evolution_need_item;
 
             if (!Number.isFinite(itemId)) {
@@ -2065,26 +2240,33 @@ function buildAlchemyRecipes(exchangeRows, bagItemById) {
         const productId = getItems[0]?.get_goods_id;
         if (typeof productId !== "number") continue;
 
-        const costGroups = normalizeArray(row.cost_item).map((cost) => {
-            const ids = normalizeArray(cost?.cost_goods_id).filter(
-                (id) => typeof id === "number",
-            );
-            return {
-                options: ids.map((id) => {
-                    const item = bagItemById.get(id);
-                    return {
-                        id,
-                        name: cleanText(item?.name) ?? `道具 ${id}`,
-                        icon_id: extractIconId(item?.icon),
-                    };
-                }),
-                count: typeof cost?.cost_goods_num === "number" ? cost.cost_goods_num : 1,
-            };
-        }).filter((group) => group.options.length > 0);
+        const costGroups = normalizeArray(row.cost_item)
+            .map((cost) => {
+                const ids = normalizeArray(cost?.cost_goods_id).filter(
+                    (id) => typeof id === "number",
+                );
+                return {
+                    options: ids.map((id) => {
+                        const item = bagItemById.get(id);
+                        return {
+                            id,
+                            name: cleanText(item?.name) ?? `道具 ${id}`,
+                            icon_id: extractIconId(item?.icon),
+                        };
+                    }),
+                    count:
+                        typeof cost?.cost_goods_num === "number"
+                            ? cost.cost_goods_num
+                            : 1,
+                };
+            })
+            .filter((group) => group.options.length > 0);
 
         if (costGroups.length === 0) continue;
 
-        const editorNames = normalizeArray(row.editor_name).map((n) => cleanText(n)).filter(Boolean);
+        const editorNames = normalizeArray(row.editor_name)
+            .map((n) => cleanText(n))
+            .filter(Boolean);
         const canCraft = !editorNames.some((n) => n.includes("不能合成"));
 
         const recipe = {
@@ -2101,7 +2283,13 @@ function buildAlchemyRecipes(exchangeRows, bagItemById) {
     return recipesByProductId;
 }
 
-function buildItemEntries(bagItemRows, itemCategories, evolutionItemUsage, skillById, alchemyRecipes) {
+function buildItemEntries(
+    bagItemRows,
+    itemCategories,
+    evolutionItemUsage,
+    skillById,
+    alchemyRecipes,
+) {
     const entries = [];
 
     for (const row of bagItemRows) {
@@ -2134,7 +2322,8 @@ function buildItemEntries(bagItemRows, itemCategories, evolutionItemUsage, skill
         const name = labelType === 9 && editorName ? editorName : rawName;
         const typeDesc = cleanText(row.type_desc) ?? null;
         const flavorText = cleanText(row.flavor_text) ?? null;
-        const quality = typeof row.item_quality === "number" ? row.item_quality : 1;
+        const quality =
+            typeof row.item_quality === "number" ? row.item_quality : 1;
         const qualityLabel = ITEM_QUALITY_LABELS.get(quality) ?? "普通";
 
         const acquireWays = normalizeArray(row.acquire_struct)
