@@ -1233,6 +1233,7 @@
                 "monsters": [
                     {
                         "id": 3170,
+                        "species_id": 111,
                         "name": "xiaoshitou",
                         "form": "石石",
                         "localized": {
@@ -1259,6 +1260,7 @@
                 "monsters": [
                     {
                         "id": 3171,
+                        "species_id": 112,
                         "name": "julingshi",
                         "form": "巨灵石",
                         "localized": {

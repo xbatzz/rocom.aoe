@@ -1277,6 +1277,7 @@
                 "monsters": [
                     {
                         "id": 3124,
+                        "species_id": 234,
                         "name": "dingding",
                         "form": "脆筒甜甜",
                         "localized": {
@@ -1303,6 +1304,7 @@
                 "monsters": [
                     {
                         "id": 3125,
+                        "species_id": 235,
                         "name": "yingtaodingding",
                         "form": "香草甜甜",
                         "localized": {
@@ -1326,6 +1328,7 @@
                     },
                     {
                         "id": 3478,
+                        "species_id": 235,
                         "name": "dingding_yangtao",
                         "form": "香草甜甜",
                         "localized": {
@@ -1349,6 +1352,7 @@
                     },
                     {
                         "id": 3479,
+                        "species_id": 235,
                         "name": "dingding_lanmei",
                         "form": "香草甜甜",
                         "localized": {
@@ -1378,6 +1382,7 @@
                 "monsters": [
                     {
                         "id": 3126,
+                        "species_id": 236,
                         "name": "shuangqiudingding",
                         "form": "圣代甜甜",
                         "localized": {
@@ -1401,6 +1406,7 @@
                     },
                     {
                         "id": 3458,
+                        "species_id": 236,
                         "name": "shuangqiudingding_yingtaocaomei",
                         "form": "圣代甜甜",
                         "localized": {
@@ -1424,6 +1430,7 @@
                     },
                     {
                         "id": 3459,
+                        "species_id": 236,
                         "name": "shuangqiudingding_yingtaomocha",
                         "form": "圣代甜甜",
                         "localized": {
@@ -1447,6 +1454,7 @@
                     },
                     {
                         "id": 3460,
+                        "species_id": 236,
                         "name": "shuangqiudingding_lanmeiqiaokeli",
                         "form": "圣代甜甜",
                         "localized": {
@@ -1470,6 +1478,7 @@
                     },
                     {
                         "id": 3461,
+                        "species_id": 236,
                         "name": "shuangqiudingding_lanmeicaomei",
                         "form": "圣代甜甜",
                         "localized": {
@@ -1493,6 +1502,7 @@
                     },
                     {
                         "id": 3462,
+                        "species_id": 236,
                         "name": "shuangqiudingding_lanmeimocha",
                         "form": "圣代甜甜",
                         "localized": {
@@ -1516,6 +1526,7 @@
                     },
                     {
                         "id": 3463,
+                        "species_id": 236,
                         "name": "shuangqiudingding_yangtaoqiaokeli",
                         "form": "圣代甜甜",
                         "localized": {
@@ -1539,6 +1550,7 @@
                     },
                     {
                         "id": 3464,
+                        "species_id": 236,
                         "name": "shuangqiudingding_yangtaocaomei",
                         "form": "圣代甜甜",
                         "localized": {
@@ -1562,6 +1574,7 @@
                     },
                     {
                         "id": 3465,
+                        "species_id": 236,
                         "name": "shuangqiudingding_yangtaomocha",
                         "form": "圣代甜甜",
                         "localized": {

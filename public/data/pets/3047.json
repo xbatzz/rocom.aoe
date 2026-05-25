@@ -1129,6 +1129,7 @@
                 "monsters": [
                     {
                         "id": 3045,
+                        "species_id": 15,
                         "name": "youlingyang",
                         "form": "default",
                         "localized": {
@@ -1155,6 +1156,7 @@
                 "monsters": [
                     {
                         "id": 3046,
+                        "species_id": 16,
                         "name": "lanlingyang",
                         "form": "default",
                         "localized": {
@@ -1186,6 +1188,7 @@
                 "monsters": [
                     {
                         "id": 3047,
+                        "species_id": 17,
                         "name": "guimeilingyang",
                         "form": "花影羚羊",
                         "localized": {

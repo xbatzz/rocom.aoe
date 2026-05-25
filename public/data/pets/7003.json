@@ -1167,6 +1167,7 @@
                 "monsters": [
                     {
                         "id": 7003,
+                        "species_id": 7003,
                         "name": "emolang_shouling",
                         "form": "default",
                         "localized": {
@@ -1194,6 +1195,7 @@
                 "monsters": [
                     {
                         "id": 7003,
+                        "species_id": 7003,
                         "name": "emolang_shouling",
                         "form": "default",
                         "localized": {

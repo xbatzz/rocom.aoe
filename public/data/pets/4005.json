@@ -1123,6 +1123,7 @@
                 "monsters": [
                     {
                         "id": 3002,
+                        "species_id": 8,
                         "name": "shuilanlan",
                         "form": "水蓝蓝",
                         "localized": {
@@ -1149,6 +1150,7 @@
                 "monsters": [
                     {
                         "id": 3033,
+                        "species_id": 9,
                         "name": "bobola",
                         "form": "波波拉",
                         "localized": {
@@ -1180,6 +1182,7 @@
                 "monsters": [
                     {
                         "id": 3005,
+                        "species_id": 10,
                         "name": "shuiling",
                         "form": "水灵",
                         "localized": {
@@ -1212,6 +1215,7 @@
                 "monsters": [
                     {
                         "id": 4005,
+                        "species_id": 10,
                         "name": "shuiling_shouling",
                         "form": "圣水守护",
                         "localized": {
@@ -1232,6 +1236,7 @@
                     },
                     {
                         "id": 5010,
+                        "species_id": 10,
                         "name": "shuiling_shouling",
                         "form": "圣水守护",
                         "localized": {

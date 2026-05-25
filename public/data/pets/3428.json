@@ -57,6 +57,7 @@
                 "monsters": [
                     {
                         "id": 3428,
+                        "species_id": 3428,
                         "name": "chouchouzhui",
                         "form": "default",
                         "localized": {
@@ -89,6 +90,7 @@
                 "monsters": [
                     {
                         "id": 3429,
+                        "species_id": 3429,
                         "name": "aiourongzhui",
                         "form": "default",
                         "localized": {

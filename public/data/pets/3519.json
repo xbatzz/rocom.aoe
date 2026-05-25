@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3519,
+                        "species_id": 3519,
                         "name": "haishanxing",
                         "form": "default",
                         "localized": {

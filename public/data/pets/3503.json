@@ -62,6 +62,7 @@
                 "monsters": [
                     {
                         "id": 3503,
+                        "species_id": 3503,
                         "name": "xianqiushu",
                         "form": "default",
                         "localized": {

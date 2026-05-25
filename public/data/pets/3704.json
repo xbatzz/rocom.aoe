@@ -1129,6 +1129,7 @@
                 "monsters": [
                     {
                         "id": 3704,
+                        "species_id": 270,
                         "name": "youyou",
                         "form": "优优",
                         "localized": {
@@ -1161,6 +1162,7 @@
                 "monsters": [
                     {
                         "id": 3705,
+                        "species_id": 271,
                         "name": "rongguangyouyou",
                         "form": "绒光优优",
                         "localized": {

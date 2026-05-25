@@ -1255,6 +1255,7 @@
                 "monsters": [
                     {
                         "id": 3001,
+                        "species_id": 2,
                         "name": "miaomiao",
                         "form": "喵喵",
                         "localized": {
@@ -1281,6 +1282,7 @@
                 "monsters": [
                     {
                         "id": 3025,
+                        "species_id": 3,
                         "name": "miaowu",
                         "form": "喵呜",
                         "localized": {
@@ -1312,6 +1314,7 @@
                 "monsters": [
                     {
                         "id": 3007,
+                        "species_id": 4,
                         "name": "molimiao",
                         "form": "魔力猫",
                         "localized": {
@@ -1344,6 +1347,7 @@
                 "monsters": [
                     {
                         "id": 4007,
+                        "species_id": 4,
                         "name": "molimiao_shouling",
                         "form": "叶冕魔力猫",
                         "localized": {
@@ -1364,6 +1368,7 @@
                     },
                     {
                         "id": 5003,
+                        "species_id": 4,
                         "name": "molimiao_shouling",
                         "form": "叶冕魔力猫",
                         "localized": {

@@ -1123,6 +1123,7 @@
                 "monsters": [
                     {
                         "id": 3309,
+                        "species_id": 310,
                         "name": "xijiaoniao",
                         "form": "犀角鸟",
                         "localized": {
@@ -1149,6 +1150,7 @@
                 "monsters": [
                     {
                         "id": 3310,
+                        "species_id": 311,
                         "name": "guangjiaoshou",
                         "form": "光纤兽",
                         "localized": {
@@ -1178,6 +1180,7 @@
                 "monsters": [
                     {
                         "id": 3311,
+                        "species_id": 312,
                         "name": "jiguangqianshou",
                         "form": "疾光千兽",
                         "localized": {

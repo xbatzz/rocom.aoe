@@ -1173,6 +1173,7 @@
                 "monsters": [
                     {
                         "id": 3262,
+                        "species_id": 137,
                         "name": "huhuzhu",
                         "form": "呼呼猪",
                         "localized": {
@@ -1199,6 +1200,7 @@
                     },
                     {
                         "id": 3621,
+                        "species_id": 3621,
                         "name": "guzhongshe_yidi",
                         "form": "default",
                         "localized": {
@@ -1233,6 +1235,7 @@
                 "monsters": [
                     {
                         "id": 3263,
+                        "species_id": 138,
                         "name": "liaoyazhu",
                         "form": "獠牙猪",
                         "localized": {
@@ -1261,6 +1264,7 @@
                     },
                     {
                         "id": 3622,
+                        "species_id": 3622,
                         "name": "hanyinshe_yidi",
                         "form": "default",
                         "localized": {

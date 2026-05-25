@@ -1129,6 +1129,7 @@
                 "monsters": [
                     {
                         "id": 3466,
+                        "species_id": 3466,
                         "name": "xingyunlvzhe",
                         "form": "default",
                         "localized": {

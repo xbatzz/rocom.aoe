@@ -1167,6 +1167,7 @@
                 "monsters": [
                     {
                         "id": 3211,
+                        "species_id": 203,
                         "name": "yileilong",
                         "form": "伊雷龙",
                         "localized": {
@@ -1193,6 +1194,7 @@
                 "monsters": [
                     {
                         "id": 3412,
+                        "species_id": 204,
                         "name": "yinlanyalong",
                         "form": "伊兰亚龙",
                         "localized": {
@@ -1222,6 +1224,7 @@
                 "monsters": [
                     {
                         "id": 4090,
+                        "species_id": 204,
                         "name": "yilanyalong_shouling",
                         "form": "伊兰龙",
                         "localized": {
@@ -1244,6 +1247,7 @@
                     },
                     {
                         "id": 5022,
+                        "species_id": 204,
                         "name": "yilanyalong_shouling",
                         "form": "伊兰龙",
                         "localized": {

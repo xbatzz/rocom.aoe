@@ -1151,6 +1151,7 @@
                 "monsters": [
                     {
                         "id": 3276,
+                        "species_id": 102,
                         "name": "lvyiniao",
                         "form": "绿翼鸟",
                         "localized": {
@@ -1183,6 +1184,7 @@
                 "monsters": [
                     {
                         "id": 3277,
+                        "species_id": 103,
                         "name": "moyiniao",
                         "form": "魔翼鸟",
                         "localized": {
@@ -1217,6 +1219,7 @@
                 "monsters": [
                     {
                         "id": 3278,
+                        "species_id": 104,
                         "name": "mojuanniao",
                         "form": "魔眷鸟",
                         "localized": {

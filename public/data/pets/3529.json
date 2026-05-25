@@ -1123,6 +1123,7 @@
                 "monsters": [
                     {
                         "id": 3529,
+                        "species_id": 183,
                         "name": "haoeryu",
                         "form": "号儿鱼",
                         "localized": {
@@ -1149,6 +1150,7 @@
                 "monsters": [
                     {
                         "id": 3530,
+                        "species_id": 184,
                         "name": "diyinhaoyu",
                         "form": "圆号鱼",
                         "localized": {

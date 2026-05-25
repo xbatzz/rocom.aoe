@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3328,
+                        "species_id": 3328,
                         "name": "jianjiaolong",
                         "form": "default",
                         "localized": {

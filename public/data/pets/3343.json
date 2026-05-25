@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3343,
+                        "species_id": 3343,
                         "name": "yinxuekuangshou",
                         "form": "default",
                         "localized": {

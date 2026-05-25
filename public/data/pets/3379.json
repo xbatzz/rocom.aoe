@@ -1239,6 +1239,7 @@
                 "monsters": [
                     {
                         "id": 3378,
+                        "species_id": 174,
                         "name": "guguding",
                         "form": "菇菇丁",
                         "localized": {
@@ -1271,6 +1272,7 @@
                 "monsters": [
                     {
                         "id": 3379,
+                        "species_id": 175,
                         "name": "duoguding",
                         "form": "多菇丁",
                         "localized": {
@@ -1306,6 +1308,7 @@
                 "monsters": [
                     {
                         "id": 3380,
+                        "species_id": 176,
                         "name": "jiuyougu",
                         "form": "九幽菇",
                         "localized": {

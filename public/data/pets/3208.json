@@ -1151,6 +1151,7 @@
                 "monsters": [
                     {
                         "id": 3206,
+                        "species_id": 221,
                         "name": "duoxi",
                         "form": "多西",
                         "localized": {
@@ -1183,6 +1184,7 @@
                 "monsters": [
                     {
                         "id": 3207,
+                        "species_id": 222,
                         "name": "kuduoxi",
                         "form": "库多西",
                         "localized": {
@@ -1217,6 +1219,7 @@
                 "monsters": [
                     {
                         "id": 3208,
+                        "species_id": 223,
                         "name": "boduoxi",
                         "form": "波多西",
                         "localized": {

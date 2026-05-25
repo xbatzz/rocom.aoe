@@ -1261,6 +1261,7 @@
                 "monsters": [
                     {
                         "id": 3746,
+                        "species_id": 3746,
                         "name": "xueyingwawa",
                         "form": "default",
                         "localized": {

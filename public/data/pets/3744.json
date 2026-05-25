@@ -1145,6 +1145,7 @@
                 "monsters": [
                     {
                         "id": 3744,
+                        "species_id": 340,
                         "name": "huohongwei",
                         "form": "火红尾",
                         "localized": {
@@ -1171,6 +1172,7 @@
                 "monsters": [
                     {
                         "id": 3745,
+                        "species_id": 341,
                         "name": "yadanbin",
                         "form": "雅丹鬃",
                         "localized": {

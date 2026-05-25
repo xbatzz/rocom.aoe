@@ -1151,6 +1151,7 @@
                 "monsters": [
                     {
                         "id": 13000166,
+                        "species_id": 13000166,
                         "name": "yishijuxiang_shouling",
                         "form": "default",
                         "localized": {
@@ -1184,6 +1185,7 @@
                 "monsters": [
                     {
                         "id": 13000166,
+                        "species_id": 13000166,
                         "name": "yishijuxiang_shouling",
                         "form": "default",
                         "localized": {

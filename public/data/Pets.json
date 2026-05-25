@@ -1,6 +1,7 @@
 [
     {
         "id": 3001,
+        "species_id": 2,
         "name": "miaomiao",
         "form": "喵喵",
         "main_type": {
@@ -109,6 +110,7 @@
     },
     {
         "id": 3002,
+        "species_id": 8,
         "name": "shuilanlan",
         "form": "水蓝蓝",
         "main_type": {
@@ -216,6 +218,7 @@
     },
     {
         "id": 3003,
+        "species_id": 5,
         "name": "huohua",
         "form": "火花",
         "main_type": {
@@ -324,6 +327,7 @@
     },
     {
         "id": 3004,
+        "species_id": 1,
         "name": "dimo",
         "form": "default",
         "main_type": {
@@ -495,6 +499,7 @@
     },
     {
         "id": 3005,
+        "species_id": 10,
         "name": "shuiling",
         "form": "水灵",
         "main_type": {
@@ -541,6 +546,7 @@
     },
     {
         "id": 3006,
+        "species_id": 7,
         "name": "huoshen",
         "form": "火神",
         "main_type": {
@@ -588,6 +594,7 @@
     },
     {
         "id": 3007,
+        "species_id": 4,
         "name": "molimiao",
         "form": "魔力猫",
         "main_type": {
@@ -635,6 +642,7 @@
     },
     {
         "id": 3008,
+        "species_id": 179,
         "name": "caotouya",
         "form": "草头鸭",
         "main_type": {
@@ -935,6 +943,7 @@
     },
     {
         "id": 3009,
+        "species_id": 3009,
         "name": "chimaojizai",
         "form": "default",
         "main_type": {
@@ -1206,6 +1215,7 @@
     },
     {
         "id": 3010,
+        "species_id": 30,
         "name": "emoding",
         "form": "恶魔叮",
         "main_type": {
@@ -1469,6 +1479,7 @@
     },
     {
         "id": 3011,
+        "species_id": 131,
         "name": "emolang",
         "form": "恶魔狼",
         "main_type": {
@@ -1862,6 +1873,7 @@
     },
     {
         "id": 3012,
+        "species_id": 11,
         "name": "yajiji",
         "form": "鸭吉吉",
         "main_type": {
@@ -2119,6 +2131,7 @@
     },
     {
         "id": 3013,
+        "species_id": 284,
         "name": "kaijiachong",
         "form": "铠甲虫",
         "main_type": {
@@ -2533,6 +2546,7 @@
     },
     {
         "id": 3014,
+        "species_id": 105,
         "name": "amiyate",
         "form": "阿米亚特",
         "main_type": {
@@ -3015,6 +3029,7 @@
     },
     {
         "id": 3015,
+        "species_id": 106,
         "name": "amiying",
         "form": "阿米樱",
         "main_type": {
@@ -3062,6 +3077,7 @@
     },
     {
         "id": 3016,
+        "species_id": 107,
         "name": "luoyin",
         "form": "罗隐",
         "main_type": {
@@ -3115,6 +3131,7 @@
     },
     {
         "id": 3017,
+        "species_id": 63,
         "name": "bengbengzhongzi",
         "form": "蹦蹦种子",
         "main_type": {
@@ -4294,6 +4311,7 @@
     },
     {
         "id": 3018,
+        "species_id": 64,
         "name": "bengbengcao",
         "form": "蹦蹦草",
         "main_type": {
@@ -4346,6 +4364,7 @@
     },
     {
         "id": 3019,
+        "species_id": 65,
         "name": "bengbenghua",
         "form": "蹦蹦花",
         "main_type": {
@@ -5243,6 +5262,7 @@
     },
     {
         "id": 3020,
+        "species_id": 277,
         "name": "dishu",
         "form": "地鼠",
         "main_type": {
@@ -5484,6 +5504,7 @@
     },
     {
         "id": 3021,
+        "species_id": 278,
         "name": "dunshu",
         "form": "遁鼠",
         "main_type": {
@@ -5530,6 +5551,7 @@
     },
     {
         "id": 3022,
+        "species_id": 279,
         "name": "dundishu",
         "form": "遁地鼠",
         "main_type": {
@@ -5576,6 +5598,7 @@
     },
     {
         "id": 3023,
+        "species_id": 3023,
         "name": "huoyundouji",
         "form": "default",
         "main_type": {
@@ -5620,6 +5643,7 @@
     },
     {
         "id": 3024,
+        "species_id": 3024,
         "name": "yilishabai",
         "form": "default",
         "main_type": {
@@ -5664,6 +5688,7 @@
     },
     {
         "id": 3025,
+        "species_id": 3,
         "name": "miaowu",
         "form": "喵呜",
         "main_type": {
@@ -5711,6 +5736,7 @@
     },
     {
         "id": 3026,
+        "species_id": 93,
         "name": "lvcaojingling",
         "form": "绿草精灵",
         "main_type": {
@@ -6001,6 +6027,7 @@
     },
     {
         "id": 3027,
+        "species_id": 70,
         "name": "pugongyingwawa",
         "form": "蒲公英娃娃",
         "main_type": {
@@ -6054,6 +6081,7 @@
     },
     {
         "id": 3028,
+        "species_id": 19,
         "name": "dongyuque",
         "form": "default",
         "main_type": {
@@ -6100,6 +6128,7 @@
     },
     {
         "id": 3029,
+        "species_id": 41,
         "name": "qilicao",
         "form": "奇丽草",
         "main_type": {
@@ -6493,6 +6522,7 @@
     },
     {
         "id": 3030,
+        "species_id": 42,
         "name": "qiliye",
         "form": "奇丽叶",
         "main_type": {
@@ -6588,6 +6618,7 @@
     },
     {
         "id": 3031,
+        "species_id": 43,
         "name": "qilihua",
         "form": "奇丽花",
         "main_type": {
@@ -6634,6 +6665,7 @@
     },
     {
         "id": 3032,
+        "species_id": 6,
         "name": "yanhuo",
         "form": "default",
         "main_type": {
@@ -6681,6 +6713,7 @@
     },
     {
         "id": 3033,
+        "species_id": 9,
         "name": "bobola",
         "form": "波波拉",
         "main_type": {
@@ -6727,6 +6760,7 @@
     },
     {
         "id": 3034,
+        "species_id": 69,
         "name": "pugongying",
         "form": "蒲公英",
         "main_type": {
@@ -6975,6 +7009,7 @@
     },
     {
         "id": 3035,
+        "species_id": 94,
         "name": "mocaowuling",
         "form": "魔草巫灵",
         "main_type": {
@@ -7028,6 +7063,7 @@
     },
     {
         "id": 3036,
+        "species_id": 11,
         "name": "yaji",
         "form": "鸭吉吉",
         "main_type": {
@@ -7253,6 +7289,7 @@
     },
     {
         "id": 3037,
+        "species_id": 20,
         "name": "lanniao",
         "form": "default",
         "main_type": {
@@ -7299,6 +7336,7 @@
     },
     {
         "id": 3038,
+        "species_id": 283,
         "name": "xiaojiachong",
         "form": "小甲虫",
         "main_type": {
@@ -7629,6 +7667,7 @@
     },
     {
         "id": 3039,
+        "species_id": 31,
         "name": "dingdingemo",
         "form": "叮叮恶魔",
         "main_type": {
@@ -7681,6 +7720,7 @@
     },
     {
         "id": 3040,
+        "species_id": 44,
         "name": "diudiu",
         "form": "丢丢",
         "main_type": {
@@ -8080,6 +8120,7 @@
     },
     {
         "id": 3041,
+        "species_id": 45,
         "name": "kakachong",
         "form": "卡卡虫",
         "main_type": {
@@ -8263,6 +8304,7 @@
     },
     {
         "id": 3042,
+        "species_id": 46,
         "name": "kawachong",
         "form": "卡瓦重",
         "main_type": {
@@ -8309,6 +8351,7 @@
     },
     {
         "id": 3043,
+        "species_id": 71,
         "name": "yibeier",
         "form": "伊贝儿",
         "main_type": {
@@ -8551,6 +8594,7 @@
     },
     {
         "id": 3044,
+        "species_id": 72,
         "name": "yibeifenfen",
         "form": "伊贝粉粉",
         "main_type": {
@@ -8598,6 +8642,7 @@
     },
     {
         "id": 3045,
+        "species_id": 15,
         "name": "youlingyang",
         "form": "default",
         "main_type": {
@@ -9099,6 +9144,7 @@
     },
     {
         "id": 3046,
+        "species_id": 16,
         "name": "lanlingyang",
         "form": "default",
         "main_type": {
@@ -9145,6 +9191,7 @@
     },
     {
         "id": 3047,
+        "species_id": 17,
         "name": "guimeilingyang",
         "form": "花影羚羊",
         "main_type": {
@@ -9197,6 +9244,7 @@
     },
     {
         "id": 3048,
+        "species_id": 3048,
         "name": "shengguangdimo",
         "form": "default",
         "main_type": {
@@ -9241,6 +9289,7 @@
     },
     {
         "id": 3049,
+        "species_id": 73,
         "name": "baifalanren",
         "form": "白发懒人",
         "main_type": {
@@ -10197,6 +10246,7 @@
     },
     {
         "id": 3050,
+        "species_id": 95,
         "name": "jiyishi",
         "form": "记忆石",
         "main_type": {
@@ -10642,6 +10692,7 @@
     },
     {
         "id": 3051,
+        "species_id": 3051,
         "name": "shengcaodimo",
         "form": "default",
         "main_type": {
@@ -10692,6 +10743,7 @@
     },
     {
         "id": 3052,
+        "species_id": 3052,
         "name": "meiqiuhanhan",
         "form": "default",
         "main_type": {
@@ -10807,6 +10859,7 @@
     },
     {
         "id": 3053,
+        "species_id": 3053,
         "name": "haixiuqiuqiu",
         "form": "default",
         "main_type": {
@@ -10857,6 +10910,7 @@
     },
     {
         "id": 3054,
+        "species_id": 3054,
         "name": "lanyiyeling",
         "form": "default",
         "main_type": {
@@ -10907,6 +10961,7 @@
     },
     {
         "id": 3055,
+        "species_id": 12,
         "name": "banbanke",
         "form": "板板壳",
         "main_type": {
@@ -11408,6 +11463,7 @@
     },
     {
         "id": 3056,
+        "species_id": 13,
         "name": "kakake",
         "form": "default",
         "main_type": {
@@ -11454,6 +11510,7 @@
     },
     {
         "id": 3057,
+        "species_id": 14,
         "name": "shuipaoke",
         "form": "default",
         "main_type": {
@@ -11500,6 +11557,7 @@
     },
     {
         "id": 3058,
+        "species_id": 82,
         "name": "xiaomifeng",
         "form": "一窝蜂",
         "main_type": {
@@ -11846,6 +11904,7 @@
     },
     {
         "id": 3059,
+        "species_id": 83,
         "name": "huangfenghou",
         "form": "黄蜂后",
         "main_type": {
@@ -11899,6 +11958,7 @@
     },
     {
         "id": 3060,
+        "species_id": 54,
         "name": "xiaoyoulinglian",
         "form": "小灵面",
         "main_type": {
@@ -12616,6 +12676,7 @@
     },
     {
         "id": 3061,
+        "species_id": 55,
         "name": "youlinglian",
         "form": "暗影灵面",
         "main_type": {
@@ -12662,6 +12723,7 @@
     },
     {
         "id": 3062,
+        "species_id": 116,
         "name": "xiaodujiaoshou",
         "form": "小独角兽",
         "main_type": {
@@ -13040,6 +13102,7 @@
     },
     {
         "id": 3063,
+        "species_id": 117,
         "name": "baijindujiaoshou",
         "form": "白金独角兽",
         "main_type": {
@@ -13087,6 +13150,7 @@
     },
     {
         "id": 3064,
+        "species_id": 35,
         "name": "youlingshu",
         "form": "幽影树",
         "main_type": {
@@ -13379,6 +13443,7 @@
     },
     {
         "id": 3065,
+        "species_id": 123,
         "name": "huyouli",
         "form": "忽幽狸",
         "main_type": {
@@ -13553,6 +13618,7 @@
     },
     {
         "id": 3066,
+        "species_id": 124,
         "name": "youlingli",
         "form": "影狸",
         "main_type": {
@@ -13606,6 +13672,7 @@
     },
     {
         "id": 3067,
+        "species_id": 180,
         "name": "zhuangzhuangya",
         "form": "卷毛鸭",
         "main_type": {
@@ -13704,6 +13771,7 @@
     },
     {
         "id": 3069,
+        "species_id": 92,
         "name": "chuitouguan",
         "form": "锤头鹳",
         "main_type": {
@@ -14124,6 +14192,7 @@
     },
     {
         "id": 3070,
+        "species_id": 47,
         "name": "huzhuquan",
         "form": "护主犬",
         "main_type": {
@@ -14491,6 +14560,7 @@
     },
     {
         "id": 3071,
+        "species_id": 48,
         "name": "yinsuquan",
         "form": "音速犬",
         "main_type": {
@@ -14582,6 +14652,7 @@
     },
     {
         "id": 3072,
+        "species_id": 274,
         "name": "gelanzhongzi",
         "form": "格兰种子",
         "main_type": {
@@ -15212,6 +15283,7 @@
     },
     {
         "id": 3073,
+        "species_id": 275,
         "name": "gelanhua",
         "form": "格兰花",
         "main_type": {
@@ -15259,6 +15331,7 @@
     },
     {
         "id": 3074,
+        "species_id": 276,
         "name": "gelanqiu",
         "form": "格兰球",
         "main_type": {
@@ -15306,6 +15379,7 @@
     },
     {
         "id": 3075,
+        "species_id": 147,
         "name": "linghu",
         "form": "灵狐",
         "main_type": {
@@ -15585,6 +15659,7 @@
     },
     {
         "id": 3076,
+        "species_id": 148,
         "name": "jiuweihu",
         "form": "九尾狐",
         "main_type": {
@@ -15637,6 +15712,7 @@
     },
     {
         "id": 3077,
+        "species_id": 149,
         "name": "jianzuihuxian",
         "form": "尖嘴狐仙",
         "main_type": {
@@ -15722,6 +15798,7 @@
     },
     {
         "id": 3078,
+        "species_id": 3078,
         "name": "liezuanniao",
         "form": "default",
         "main_type": {
@@ -15890,6 +15967,7 @@
     },
     {
         "id": 3079,
+        "species_id": 3079,
         "name": "changweihuoniao",
         "form": "default",
         "main_type": {
@@ -15943,6 +16021,7 @@
     },
     {
         "id": 3080,
+        "species_id": 3080,
         "name": "huoyu",
         "form": "default",
         "main_type": {
@@ -15996,6 +16075,7 @@
     },
     {
         "id": 3081,
+        "species_id": 255,
         "name": "zhiyuhuowa",
         "form": "治愈兔",
         "main_type": {
@@ -16610,6 +16690,7 @@
     },
     {
         "id": 3082,
+        "species_id": 256,
         "name": "shengguanghuowa",
         "form": "红丝绒",
         "main_type": {
@@ -16663,6 +16744,7 @@
     },
     {
         "id": 3083,
+        "species_id": 249,
         "name": "keaiyuan",
         "form": "可爱猿",
         "main_type": {
@@ -16819,6 +16901,7 @@
     },
     {
         "id": 3084,
+        "species_id": 250,
         "name": "zhireyuan",
         "form": "炽热猿",
         "main_type": {
@@ -16866,6 +16949,7 @@
     },
     {
         "id": 3085,
+        "species_id": 251,
         "name": "huoyanyuan",
         "form": "火焰猿",
         "main_type": {
@@ -16913,6 +16997,7 @@
     },
     {
         "id": 3086,
+        "species_id": 266,
         "name": "keliji",
         "form": "可立鸡",
         "main_type": {
@@ -17343,6 +17428,7 @@
     },
     {
         "id": 3087,
+        "species_id": 267,
         "name": "yunyunji",
         "form": "晕晕鸡",
         "main_type": {
@@ -17390,6 +17476,7 @@
     },
     {
         "id": 3088,
+        "species_id": 268,
         "name": "shenshiji",
         "form": "绅士鸡",
         "main_type": {
@@ -17443,6 +17530,7 @@
     },
     {
         "id": 3089,
+        "species_id": 269,
         "name": "wuzheji",
         "form": "武者鸡",
         "main_type": {
@@ -17496,6 +17584,7 @@
     },
     {
         "id": 3090,
+        "species_id": 216,
         "name": "huoweiwate",
         "form": "火尾瓦特",
         "main_type": {
@@ -17635,6 +17724,7 @@
     },
     {
         "id": 3091,
+        "species_id": 217,
         "name": "huoweizhanshi",
         "form": "火尾战士",
         "main_type": {
@@ -17730,6 +17820,7 @@
     },
     {
         "id": 3092,
+        "species_id": 218,
         "name": "liehuoshouhu",
         "form": "烈火守护",
         "main_type": {
@@ -17776,6 +17867,7 @@
     },
     {
         "id": 3093,
+        "species_id": 195,
         "name": "daixiaolu",
         "form": "呆小路",
         "main_type": {
@@ -18094,6 +18186,7 @@
     },
     {
         "id": 3094,
+        "species_id": 196,
         "name": "wudonglulu",
         "form": "舞动路路",
         "main_type": {
@@ -18147,6 +18240,7 @@
     },
     {
         "id": 3095,
+        "species_id": 197,
         "name": "baifalulu",
         "form": "白发路路",
         "main_type": {
@@ -18200,6 +18294,7 @@
     },
     {
         "id": 3097,
+        "species_id": 3097,
         "name": "lingmancaowang",
         "form": "default",
         "main_type": {
@@ -18244,6 +18339,7 @@
     },
     {
         "id": 3098,
+        "species_id": 49,
         "name": "lversongshu",
         "form": "绿耳松鼠",
         "main_type": {
@@ -18539,6 +18635,7 @@
     },
     {
         "id": 3099,
+        "species_id": 50,
         "name": "baozhensongshu",
         "form": "抱枕松鼠",
         "main_type": {
@@ -18662,6 +18759,7 @@
     },
     {
         "id": 3100,
+        "species_id": 51,
         "name": "bengchuangsongshu",
         "form": "蹦床松鼠",
         "main_type": {
@@ -18708,6 +18806,7 @@
     },
     {
         "id": 3101,
+        "species_id": 74,
         "name": "dongliyuan",
         "form": "动力猿",
         "main_type": {
@@ -18761,6 +18860,7 @@
     },
     {
         "id": 3102,
+        "species_id": 75,
         "name": "keshuiwang",
         "form": "瞌睡王",
         "main_type": {
@@ -18814,6 +18914,7 @@
     },
     {
         "id": 3103,
+        "species_id": 27,
         "name": "xiaobushi",
         "form": "default",
         "main_type": {
@@ -19376,6 +19477,7 @@
     },
     {
         "id": 3104,
+        "species_id": 28,
         "name": "bulaishi",
         "form": "default",
         "main_type": {
@@ -19423,6 +19525,7 @@
     },
     {
         "id": 3105,
+        "species_id": 29,
         "name": "bulaikeyan",
         "form": "布克棱岩",
         "main_type": {
@@ -19470,6 +19573,7 @@
     },
     {
         "id": 3106,
+        "species_id": 24,
         "name": "huociyanxiyi",
         "form": "石肤蜥",
         "main_type": {
@@ -19760,6 +19864,7 @@
     },
     {
         "id": 3107,
+        "species_id": 25,
         "name": "conglinluxiyi",
         "form": "default",
         "main_type": {
@@ -19807,6 +19912,7 @@
     },
     {
         "id": 3108,
+        "species_id": 26,
         "name": "shihuacixiyi",
         "form": "default",
         "main_type": {
@@ -19854,6 +19960,7 @@
     },
     {
         "id": 3109,
+        "species_id": 113,
         "name": "maya",
         "form": "仪使者",
         "main_type": {
@@ -20044,6 +20151,7 @@
     },
     {
         "id": 3110,
+        "species_id": 114,
         "name": "mayazhixing",
         "form": "仪式之星",
         "main_type": {
@@ -20097,6 +20205,7 @@
     },
     {
         "id": 3111,
+        "species_id": 115,
         "name": "mayashixianggui",
         "form": "仪式巨像",
         "main_type": {
@@ -20150,6 +20259,7 @@
     },
     {
         "id": 3112,
+        "species_id": 185,
         "name": "xiaotiantian",
         "form": "甜田螺",
         "main_type": {
@@ -20452,6 +20562,7 @@
     },
     {
         "id": 3113,
+        "species_id": 186,
         "name": "hailuoguniang",
         "form": "壳乙螺",
         "main_type": {
@@ -20505,6 +20616,7 @@
     },
     {
         "id": 3114,
+        "species_id": 187,
         "name": "kaluoer",
         "form": "卡洛儿",
         "main_type": {
@@ -20558,6 +20670,7 @@
     },
     {
         "id": 3115,
+        "species_id": 108,
         "name": "fuzhousha",
         "form": "风铃鲨",
         "main_type": {
@@ -20882,6 +20995,7 @@
     },
     {
         "id": 3116,
+        "species_id": 109,
         "name": "landiesha",
         "form": "蓝蝶鲨",
         "main_type": {
@@ -20935,6 +21049,7 @@
     },
     {
         "id": 3117,
+        "species_id": 110,
         "name": "caidiesha",
         "form": "彩蝶鲨",
         "main_type": {
@@ -20988,6 +21103,7 @@
     },
     {
         "id": 3118,
+        "species_id": 313,
         "name": "guodong",
         "form": "果冻",
         "main_type": {
@@ -21262,6 +21378,7 @@
     },
     {
         "id": 3119,
+        "species_id": 244,
         "name": "feicuishuimu",
         "form": "翡翠水母",
         "main_type": {
@@ -22346,6 +22463,7 @@
     },
     {
         "id": 3120,
+        "species_id": 245,
         "name": "liulishuimu",
         "form": "琉璃水母",
         "main_type": {
@@ -22399,6 +22517,7 @@
     },
     {
         "id": 3121,
+        "species_id": 142,
         "name": "daermaodou",
         "form": "大耳帽兜",
         "main_type": {
@@ -22685,6 +22804,7 @@
     },
     {
         "id": 3122,
+        "species_id": 143,
         "name": "maodouwawa",
         "form": "帽兜娃娃",
         "main_type": {
@@ -22738,6 +22858,7 @@
     },
     {
         "id": 3123,
+        "species_id": 144,
         "name": "xueyingwawa",
         "form": "雪影娃娃",
         "main_type": {
@@ -22791,6 +22912,7 @@
     },
     {
         "id": 3124,
+        "species_id": 234,
         "name": "dingding",
         "form": "脆筒甜甜",
         "main_type": {
@@ -23237,6 +23359,7 @@
     },
     {
         "id": 3125,
+        "species_id": 235,
         "name": "yingtaodingding",
         "form": "香草甜甜",
         "main_type": {
@@ -23284,6 +23407,7 @@
     },
     {
         "id": 3126,
+        "species_id": 236,
         "name": "shuangqiudingding",
         "form": "圣代甜甜",
         "main_type": {
@@ -23408,6 +23532,7 @@
     },
     {
         "id": 3127,
+        "species_id": 165,
         "name": "xiaoshijiu",
         "form": "小狮鹫",
         "main_type": {
@@ -23748,6 +23873,7 @@
     },
     {
         "id": 3128,
+        "species_id": 166,
         "name": "shenshengshijiu",
         "form": "神圣狮鹫",
         "main_type": {
@@ -23795,6 +23921,7 @@
     },
     {
         "id": 3129,
+        "species_id": 167,
         "name": "huangjiashijiu",
         "form": "皇家狮鹫",
         "main_type": {
@@ -23842,6 +23969,7 @@
     },
     {
         "id": 3130,
+        "species_id": 168,
         "name": "yuanyanzhizhu",
         "form": "圆眼蜘蛛",
         "main_type": {
@@ -24099,6 +24227,7 @@
     },
     {
         "id": 3131,
+        "species_id": 169,
         "name": "jianjiaozhizhu",
         "form": "尖角蜘蛛",
         "main_type": {
@@ -24151,6 +24280,7 @@
     },
     {
         "id": 3132,
+        "species_id": 170,
         "name": "fengcizhizhu",
         "form": "芋香巨角蛛",
         "main_type": {
@@ -24203,6 +24333,7 @@
     },
     {
         "id": 3133,
+        "species_id": 3133,
         "name": "xiaolang",
         "form": "default",
         "main_type": {
@@ -24394,6 +24525,7 @@
     },
     {
         "id": 3134,
+        "species_id": 3134,
         "name": "binglang",
         "form": "default",
         "main_type": {
@@ -24444,6 +24576,7 @@
     },
     {
         "id": 3135,
+        "species_id": 3135,
         "name": "feitiandaolang",
         "form": "default",
         "main_type": {
@@ -24494,6 +24627,7 @@
     },
     {
         "id": 3136,
+        "species_id": 32,
         "name": "maomao",
         "form": "毛毛",
         "main_type": {
@@ -24790,6 +24924,7 @@
     },
     {
         "id": 3137,
+        "species_id": 33,
         "name": "papa",
         "form": "爬爬",
         "main_type": {
@@ -24843,6 +24978,7 @@
     },
     {
         "id": 3138,
+        "species_id": 34,
         "name": "huadie",
         "form": "化蝶",
         "main_type": {
@@ -24896,6 +25032,7 @@
     },
     {
         "id": 3139,
+        "species_id": 99,
         "name": "xiaocaochong",
         "form": "小草虫",
         "main_type": {
@@ -25296,6 +25433,7 @@
     },
     {
         "id": 3140,
+        "species_id": 100,
         "name": "caoyichong",
         "form": "草衣虫",
         "main_type": {
@@ -25544,6 +25682,7 @@
     },
     {
         "id": 3141,
+        "species_id": 101,
         "name": "huayidie",
         "form": "花衣蝶",
         "main_type": {
@@ -25597,6 +25736,7 @@
     },
     {
         "id": 3142,
+        "species_id": 85,
         "name": "xiaoye",
         "form": "小夜",
         "main_type": {
@@ -26097,6 +26237,7 @@
     },
     {
         "id": 3143,
+        "species_id": 86,
         "name": "ziye",
         "form": "紫夜",
         "main_type": {
@@ -26144,6 +26285,7 @@
     },
     {
         "id": 3144,
+        "species_id": 87,
         "name": "ziyemeiying",
         "form": "朔夜伊芙",
         "main_type": {
@@ -26191,6 +26333,7 @@
     },
     {
         "id": 3145,
+        "species_id": 21,
         "name": "xiaolinggu",
         "form": "default",
         "main_type": {
@@ -26649,6 +26792,7 @@
     },
     {
         "id": 3146,
+        "species_id": 22,
         "name": "youlinggu",
         "form": "default",
         "main_type": {
@@ -26702,6 +26846,7 @@
     },
     {
         "id": 3147,
+        "species_id": 23,
         "name": "lunhuilinggu",
         "form": "幻影灵菇",
         "main_type": {
@@ -26755,6 +26900,7 @@
     },
     {
         "id": 3148,
+        "species_id": 327,
         "name": "anyekulou",
         "form": "空空颅",
         "main_type": {
@@ -27047,6 +27193,7 @@
     },
     {
         "id": 3149,
+        "species_id": 328,
         "name": "yejumo",
         "form": "夜宿颅",
         "main_type": {
@@ -27094,6 +27241,7 @@
     },
     {
         "id": 3150,
+        "species_id": 329,
         "name": "yexiao",
         "form": "夜枭",
         "main_type": {
@@ -27141,6 +27289,7 @@
     },
     {
         "id": 3151,
+        "species_id": 125,
         "name": "duoduo",
         "form": "多多",
         "main_type": {
@@ -27442,6 +27591,7 @@
     },
     {
         "id": 3152,
+        "species_id": 126,
         "name": "duoladuo",
         "form": "多啦多",
         "main_type": {
@@ -27494,6 +27644,7 @@
     },
     {
         "id": 3153,
+        "species_id": 127,
         "name": "guladuo",
         "form": "古啦多",
         "main_type": {
@@ -27546,6 +27697,7 @@
     },
     {
         "id": 3154,
+        "species_id": 246,
         "name": "qiuluo",
         "form": "裘洛",
         "main_type": {
@@ -28042,6 +28194,7 @@
     },
     {
         "id": 3155,
+        "species_id": 247,
         "name": "qiuli",
         "form": "裘力",
         "main_type": {
@@ -28089,6 +28242,7 @@
     },
     {
         "id": 3156,
+        "species_id": 248,
         "name": "qiuka",
         "form": "裘卡",
         "main_type": {
@@ -28181,6 +28335,7 @@
     },
     {
         "id": 3157,
+        "species_id": 84,
         "name": "huakuifenghou",
         "form": "花魁蜂后",
         "main_type": {
@@ -28234,6 +28389,7 @@
     },
     {
         "id": 3158,
+        "species_id": 3158,
         "name": "kudouwumao",
         "form": "default",
         "main_type": {
@@ -28278,6 +28434,7 @@
     },
     {
         "id": 3159,
+        "species_id": 3159,
         "name": "zimanbaobao",
         "form": "default",
         "main_type": {
@@ -28387,6 +28544,7 @@
     },
     {
         "id": 3160,
+        "species_id": 3160,
         "name": "zimanjisi",
         "form": "default",
         "main_type": {
@@ -28431,6 +28589,7 @@
     },
     {
         "id": 3161,
+        "species_id": 342,
         "name": "xiaoxiaoyutu",
         "form": "春团",
         "main_type": {
@@ -28797,6 +28956,7 @@
     },
     {
         "id": 3162,
+        "species_id": 343,
         "name": "chuntuxiaozi",
         "form": "春兔",
         "main_type": {
@@ -28844,6 +29004,7 @@
     },
     {
         "id": 3165,
+        "species_id": 60,
         "name": "fudishou",
         "form": "伏地兽",
         "main_type": {
@@ -29033,6 +29194,7 @@
     },
     {
         "id": 3166,
+        "species_id": 61,
         "name": "shiyishou",
         "form": "贪食鼹",
         "main_type": {
@@ -29079,6 +29241,7 @@
     },
     {
         "id": 3167,
+        "species_id": 62,
         "name": "wanzuishou",
         "form": "巨噬针鼹",
         "main_type": {
@@ -29125,6 +29288,7 @@
     },
     {
         "id": 3168,
+        "species_id": 3168,
         "name": "abu",
         "form": "default",
         "main_type": {
@@ -29384,6 +29548,7 @@
     },
     {
         "id": 3169,
+        "species_id": 3169,
         "name": "chaonengabu",
         "form": "default",
         "main_type": {
@@ -29430,6 +29595,7 @@
     },
     {
         "id": 3170,
+        "species_id": 111,
         "name": "xiaoshitou",
         "form": "石石",
         "main_type": {
@@ -29846,6 +30012,7 @@
     },
     {
         "id": 3171,
+        "species_id": 112,
         "name": "julingshi",
         "form": "巨灵石",
         "main_type": {
@@ -29966,6 +30133,7 @@
     },
     {
         "id": 3172,
+        "species_id": 134,
         "name": "xuedouding",
         "form": "雪豆丁",
         "main_type": {
@@ -30268,6 +30436,7 @@
     },
     {
         "id": 3173,
+        "species_id": 135,
         "name": "xuemanren",
         "form": "雪蛮人",
         "main_type": {
@@ -30315,6 +30484,7 @@
     },
     {
         "id": 3174,
+        "species_id": 136,
         "name": "xuejuren",
         "form": "雪巨人",
         "main_type": {
@@ -30362,6 +30532,7 @@
     },
     {
         "id": 3175,
+        "species_id": 96,
         "name": "kakayumao",
         "form": "咔咔羽毛",
         "main_type": {
@@ -30529,6 +30700,7 @@
     },
     {
         "id": 3176,
+        "species_id": 97,
         "name": "kakaque",
         "form": "咔咔雀",
         "main_type": {
@@ -30581,6 +30753,7 @@
     },
     {
         "id": 3177,
+        "species_id": 98,
         "name": "kakaniao",
         "form": "咔咔鸟",
         "main_type": {
@@ -30666,6 +30839,7 @@
     },
     {
         "id": 3178,
+        "species_id": 214,
         "name": "judulangzhu",
         "form": "矮脚爬爬",
         "main_type": {
@@ -31006,6 +31180,7 @@
     },
     {
         "id": 3179,
+        "species_id": 215,
         "name": "emolangzhu",
         "form": "恶魔红钻",
         "main_type": {
@@ -31059,6 +31234,7 @@
     },
     {
         "id": 3180,
+        "species_id": 293,
         "name": "xiaopaersasi",
         "form": "小帕尔",
         "main_type": {
@@ -31278,6 +31454,7 @@
     },
     {
         "id": 3181,
+        "species_id": 294,
         "name": "paersasi2",
         "form": "帕尔萨斯",
         "main_type": {
@@ -31324,6 +31501,7 @@
     },
     {
         "id": 3182,
+        "species_id": 295,
         "name": "longxipaer",
         "form": "龙息帕尔",
         "main_type": {
@@ -31370,6 +31548,7 @@
     },
     {
         "id": 3183,
+        "species_id": 3183,
         "name": "guiyankungchong",
         "form": "default",
         "main_type": {
@@ -31528,6 +31707,7 @@
     },
     {
         "id": 3184,
+        "species_id": 3184,
         "name": "erlingguimei",
         "form": "default",
         "main_type": {
@@ -31581,6 +31761,7 @@
     },
     {
         "id": 3185,
+        "species_id": 3185,
         "name": "jumoxiechong",
         "form": "default",
         "main_type": {
@@ -31634,6 +31815,7 @@
     },
     {
         "id": 3186,
+        "species_id": 3186,
         "name": "xiaoguang",
         "form": "default",
         "main_type": {
@@ -31777,6 +31959,7 @@
     },
     {
         "id": 3187,
+        "species_id": 3187,
         "name": "mimiyan",
         "form": "default",
         "main_type": {
@@ -32060,6 +32243,7 @@
     },
     {
         "id": 3188,
+        "species_id": 205,
         "name": "late",
         "form": "拉特",
         "main_type": {
@@ -32355,6 +32539,7 @@
     },
     {
         "id": 3189,
+        "species_id": 206,
         "name": "kula",
         "form": "酷拉",
         "main_type": {
@@ -32401,6 +32586,7 @@
     },
     {
         "id": 3190,
+        "species_id": 66,
         "name": "dianmiemie",
         "form": "电咩咩",
         "main_type": {
@@ -32756,6 +32942,7 @@
     },
     {
         "id": 3191,
+        "species_id": 67,
         "name": "fenmiemie",
         "form": "粉咩咩",
         "main_type": {
@@ -32802,6 +32989,7 @@
     },
     {
         "id": 3192,
+        "species_id": 68,
         "name": "dianqiumiemie",
         "form": "电球咩咩",
         "main_type": {
@@ -32848,6 +33036,7 @@
     },
     {
         "id": 3193,
+        "species_id": 80,
         "name": "xiaoxingguang",
         "form": "小星光",
         "main_type": {
@@ -33159,6 +33348,7 @@
     },
     {
         "id": 3194,
+        "species_id": 81,
         "name": "xingguangsh",
         "form": "星光狮",
         "main_type": {
@@ -33205,6 +33395,7 @@
     },
     {
         "id": 3195,
+        "species_id": 207,
         "name": "shandianhuan",
         "form": "闪电环",
         "main_type": {
@@ -33484,6 +33675,7 @@
     },
     {
         "id": 3196,
+        "species_id": 208,
         "name": "beishangdianhuan",
         "form": "刺电环",
         "main_type": {
@@ -33530,6 +33722,7 @@
     },
     {
         "id": 3197,
+        "species_id": 209,
         "name": "tongkudianhuan",
         "form": "荆棘电环",
         "main_type": {
@@ -33576,6 +33769,7 @@
     },
     {
         "id": 3198,
+        "species_id": 330,
         "name": "fenfenxing",
         "form": "粉粉星",
         "main_type": {
@@ -33992,6 +34186,7 @@
     },
     {
         "id": 3199,
+        "species_id": 331,
         "name": "xiaopiqiu",
         "form": "小皮球",
         "main_type": {
@@ -34045,6 +34240,7 @@
     },
     {
         "id": 3200,
+        "species_id": 263,
         "name": "jixiefangfang",
         "form": "机械方方",
         "main_type": {
@@ -34305,6 +34501,7 @@
     },
     {
         "id": 3201,
+        "species_id": 264,
         "name": "duocaifangfang",
         "form": "多彩方方",
         "main_type": {
@@ -34352,6 +34549,7 @@
     },
     {
         "id": 3202,
+        "species_id": 265,
         "name": "lifangren",
         "form": "立方人",
         "main_type": {
@@ -34399,6 +34597,7 @@
     },
     {
         "id": 3203,
+        "species_id": 332,
         "name": "beise",
         "form": "贝瑟",
         "main_type": {
@@ -34746,6 +34945,7 @@
     },
     {
         "id": 3204,
+        "species_id": 333,
         "name": "beijiaer",
         "form": "贝加尔",
         "main_type": {
@@ -34798,6 +34998,7 @@
     },
     {
         "id": 3205,
+        "species_id": 334,
         "name": "beigusi",
         "form": "贝古斯",
         "main_type": {
@@ -34850,6 +35051,7 @@
     },
     {
         "id": 3206,
+        "species_id": 221,
         "name": "duoxi",
         "form": "多西",
         "main_type": {
@@ -35180,6 +35382,7 @@
     },
     {
         "id": 3207,
+        "species_id": 222,
         "name": "kuduoxi",
         "form": "库多西",
         "main_type": {
@@ -35233,6 +35436,7 @@
     },
     {
         "id": 3208,
+        "species_id": 223,
         "name": "boduoxi",
         "form": "波多西",
         "main_type": {
@@ -35286,6 +35490,7 @@
     },
     {
         "id": 3209,
+        "species_id": 224,
         "name": "xiaoyilong",
         "form": "小翼龙",
         "main_type": {
@@ -35438,6 +35643,7 @@
     },
     {
         "id": 3210,
+        "species_id": 225,
         "name": "yilong",
         "form": "翼龙",
         "main_type": {
@@ -35524,6 +35730,7 @@
     },
     {
         "id": 3211,
+        "species_id": 203,
         "name": "yileilong",
         "form": "伊雷龙",
         "main_type": {
@@ -35939,6 +36146,7 @@
     },
     {
         "id": 3213,
+        "species_id": 3213,
         "name": "heiyanbaobao",
         "form": "default",
         "main_type": {
@@ -36222,6 +36430,7 @@
     },
     {
         "id": 3214,
+        "species_id": 3214,
         "name": "heiyan",
         "form": "default",
         "main_type": {
@@ -36272,6 +36481,7 @@
     },
     {
         "id": 3215,
+        "species_id": 181,
         "name": "haibaozhanshi",
         "form": "海豹战士",
         "main_type": {
@@ -36552,6 +36762,7 @@
     },
     {
         "id": 3216,
+        "species_id": 182,
         "name": "haibaochuangzhang",
         "form": "海豹船长",
         "main_type": {
@@ -36605,6 +36816,7 @@
     },
     {
         "id": 3217,
+        "species_id": 3217,
         "name": "jianfeimao",
         "form": "default",
         "main_type": {
@@ -37528,6 +37740,7 @@
     },
     {
         "id": 3218,
+        "species_id": 3218,
         "name": "jiroumao",
         "form": "default",
         "main_type": {
@@ -37574,6 +37787,7 @@
     },
     {
         "id": 3219,
+        "species_id": 3219,
         "name": "baolizhanmao",
         "form": "default",
         "main_type": {
@@ -37620,6 +37834,7 @@
     },
     {
         "id": 3225,
+        "species_id": 212,
         "name": "guzhongshe",
         "form": "古钟蛇",
         "main_type": {
@@ -37912,6 +38127,7 @@
     },
     {
         "id": 3226,
+        "species_id": 213,
         "name": "hanyinshe",
         "form": "寒音蛇",
         "main_type": {
@@ -37965,6 +38181,7 @@
     },
     {
         "id": 3227,
+        "species_id": 79,
         "name": "juhuali",
         "form": "菊花梨",
         "main_type": {
@@ -38598,6 +38815,7 @@
     },
     {
         "id": 3228,
+        "species_id": 3228,
         "name": "feiman",
         "form": "default",
         "main_type": {
@@ -38703,6 +38921,7 @@
     },
     {
         "id": 3229,
+        "species_id": 3229,
         "name": "feigeer",
         "form": "default",
         "main_type": {
@@ -38747,6 +38966,7 @@
     },
     {
         "id": 3230,
+        "species_id": 3230,
         "name": "jialing",
         "form": "default",
         "main_type": {
@@ -38840,6 +39060,7 @@
     },
     {
         "id": 3231,
+        "species_id": 3231,
         "name": "jiayi",
         "form": "default",
         "main_type": {
@@ -38884,6 +39105,7 @@
     },
     {
         "id": 3232,
+        "species_id": 3232,
         "name": "jiaer",
         "form": "default",
         "main_type": {
@@ -38928,6 +39150,7 @@
     },
     {
         "id": 3233,
+        "species_id": 3233,
         "name": "heihuajiaer",
         "form": "default",
         "main_type": {
@@ -38972,6 +39195,7 @@
     },
     {
         "id": 3234,
+        "species_id": 373,
         "name": "qianxianmuou",
         "form": "default",
         "main_type": {
@@ -39096,6 +39320,7 @@
     },
     {
         "id": 3235,
+        "species_id": 374,
         "name": "shuaishuaimoou",
         "form": "default",
         "main_type": {
@@ -39143,6 +39368,7 @@
     },
     {
         "id": 3236,
+        "species_id": 3236,
         "name": "chaonengqiuqiu",
         "form": "default",
         "main_type": {
@@ -39298,6 +39524,7 @@
     },
     {
         "id": 3237,
+        "species_id": 163,
         "name": "xiaosongmao",
         "form": "小怂猫",
         "main_type": {
@@ -39600,6 +39827,7 @@
     },
     {
         "id": 3238,
+        "species_id": 164,
         "name": "numusongmao",
         "form": "怒目怂猫",
         "main_type": {
@@ -39647,6 +39875,7 @@
     },
     {
         "id": 3239,
+        "species_id": 128,
         "name": "kukugu",
         "form": "哭哭菇",
         "main_type": {
@@ -39964,6 +40193,7 @@
     },
     {
         "id": 3240,
+        "species_id": 129,
         "name": "buxugu",
         "form": "怖须菇",
         "main_type": {
@@ -40010,6 +40240,7 @@
     },
     {
         "id": 3241,
+        "species_id": 130,
         "name": "bukugu",
         "form": "怖哭菇",
         "main_type": {
@@ -40056,6 +40287,7 @@
     },
     {
         "id": 3242,
+        "species_id": 3242,
         "name": "3242",
         "form": "default",
         "main_type": {
@@ -40171,6 +40403,7 @@
     },
     {
         "id": 3243,
+        "species_id": 3243,
         "name": "3243",
         "form": "default",
         "main_type": {
@@ -40221,6 +40454,7 @@
     },
     {
         "id": 3244,
+        "species_id": 307,
         "name": "rongrong",
         "form": "绒绒",
         "main_type": {
@@ -40474,6 +40708,7 @@
     },
     {
         "id": 3245,
+        "species_id": 308,
         "name": "xiaorongjian",
         "form": "小绒茧",
         "main_type": {
@@ -40526,6 +40761,7 @@
     },
     {
         "id": 3246,
+        "species_id": 309,
         "name": "rongxianzi",
         "form": "绒仙子",
         "main_type": {
@@ -40578,6 +40814,7 @@
     },
     {
         "id": 3248,
+        "species_id": 3248,
         "name": "lvzhoumengmaxiang",
         "form": "default",
         "main_type": {
@@ -40705,6 +40942,7 @@
     },
     {
         "id": 3249,
+        "species_id": 3249,
         "name": "liuxiangmengmaxiang",
         "form": "default",
         "main_type": {
@@ -40749,6 +40987,7 @@
     },
     {
         "id": 3250,
+        "species_id": 231,
         "name": "xiaoyu",
         "form": "小鹬",
         "main_type": {
@@ -41194,6 +41433,7 @@
     },
     {
         "id": 3251,
+        "species_id": 232,
         "name": "bimuyu",
         "form": "鄙目鹬",
         "main_type": {
@@ -41240,6 +41480,7 @@
     },
     {
         "id": 3252,
+        "species_id": 233,
         "name": "gaojiaoyu",
         "form": "高脚鹬",
         "main_type": {
@@ -41286,6 +41527,7 @@
     },
     {
         "id": 3253,
+        "species_id": 3253,
         "name": "sulixiaozi",
         "form": "default",
         "main_type": {
@@ -41413,6 +41655,7 @@
     },
     {
         "id": 3254,
+        "species_id": 3254,
         "name": "3254",
         "form": "default",
         "main_type": {
@@ -41463,6 +41706,7 @@
     },
     {
         "id": 3255,
+        "species_id": 193,
         "name": "benboshu",
         "form": "奔波鼠",
         "main_type": {
@@ -41721,6 +41965,7 @@
     },
     {
         "id": 3256,
+        "species_id": 194,
         "name": "liulangshu",
         "form": "流浪鼠",
         "main_type": {
@@ -41833,6 +42078,7 @@
     },
     {
         "id": 3257,
+        "species_id": 252,
         "name": "bulusi",
         "form": "布鲁斯",
         "main_type": {
@@ -42045,6 +42291,7 @@
     },
     {
         "id": 3258,
+        "species_id": 253,
         "name": "xuedingbulusi",
         "form": "雪顶布鲁斯",
         "main_type": {
@@ -42092,6 +42339,7 @@
     },
     {
         "id": 3259,
+        "species_id": 254,
         "name": "bingzuanbulusi",
         "form": "冰钻布鲁斯",
         "main_type": {
@@ -42139,6 +42387,7 @@
     },
     {
         "id": 3260,
+        "species_id": 3260,
         "name": "gulahaixiang",
         "form": "default",
         "main_type": {
@@ -42416,6 +42665,7 @@
     },
     {
         "id": 3261,
+        "species_id": 3261,
         "name": "dagulahaixiang",
         "form": "default",
         "main_type": {
@@ -42460,6 +42710,7 @@
     },
     {
         "id": 3262,
+        "species_id": 137,
         "name": "huhuzhu",
         "form": "呼呼猪",
         "main_type": {
@@ -42805,6 +43056,7 @@
     },
     {
         "id": 3263,
+        "species_id": 138,
         "name": "liaoyazhu",
         "form": "獠牙猪",
         "main_type": {
@@ -42857,6 +43109,7 @@
     },
     {
         "id": 3264,
+        "species_id": 3264,
         "name": "xieefangchui",
         "form": "default",
         "main_type": {
@@ -42996,6 +43249,7 @@
     },
     {
         "id": 3265,
+        "species_id": 3265,
         "name": "hunshuifangchui",
         "form": "default",
         "main_type": {
@@ -43042,6 +43296,7 @@
     },
     {
         "id": 3266,
+        "species_id": 242,
         "name": "danxiaomanyu",
         "form": "胆小鳗鱼",
         "main_type": {
@@ -43505,6 +43760,7 @@
     },
     {
         "id": 3267,
+        "species_id": 243,
         "name": "shandianmanyu",
         "form": "闪电鳗鱼",
         "main_type": {
@@ -43902,6 +44158,7 @@
     },
     {
         "id": 3268,
+        "species_id": 289,
         "name": "datougulong",
         "form": "大头骨龙",
         "main_type": {
@@ -44238,6 +44495,7 @@
     },
     {
         "id": 3269,
+        "species_id": 290,
         "name": "jimiegulong",
         "form": "寂灭骨龙",
         "main_type": {
@@ -44291,6 +44549,7 @@
     },
     {
         "id": 3276,
+        "species_id": 102,
         "name": "lvyiniao",
         "form": "绿翼鸟",
         "main_type": {
@@ -44825,6 +45084,7 @@
     },
     {
         "id": 3277,
+        "species_id": 103,
         "name": "moyiniao",
         "form": "魔翼鸟",
         "main_type": {
@@ -44878,6 +45138,7 @@
     },
     {
         "id": 3278,
+        "species_id": 104,
         "name": "mojuanniao",
         "form": "魔眷鸟",
         "main_type": {
@@ -44931,6 +45192,7 @@
     },
     {
         "id": 3279,
+        "species_id": 18,
         "name": "xuerongniao_chun",
         "form": "雪绒鸟",
         "main_type": {
@@ -45368,6 +45630,7 @@
     },
     {
         "id": 3280,
+        "species_id": 18,
         "name": "xuerongniao_xia",
         "form": "雪绒鸟",
         "main_type": {
@@ -45805,6 +46068,7 @@
     },
     {
         "id": 3281,
+        "species_id": 18,
         "name": "xuerongniao_qiu",
         "form": "雪绒鸟",
         "main_type": {
@@ -46242,6 +46506,7 @@
     },
     {
         "id": 3282,
+        "species_id": 19,
         "name": "dongyuque_chun",
         "form": "default",
         "main_type": {
@@ -46288,6 +46553,7 @@
     },
     {
         "id": 3283,
+        "species_id": 19,
         "name": "dongyuque_xia",
         "form": "default",
         "main_type": {
@@ -46334,6 +46600,7 @@
     },
     {
         "id": 3284,
+        "species_id": 19,
         "name": "dongyuque_qiu",
         "form": "default",
         "main_type": {
@@ -46380,6 +46647,7 @@
     },
     {
         "id": 3285,
+        "species_id": 20,
         "name": "lanniao_chun",
         "form": "default",
         "main_type": {
@@ -46426,6 +46694,7 @@
     },
     {
         "id": 3286,
+        "species_id": 20,
         "name": "lanniao_xia",
         "form": "default",
         "main_type": {
@@ -46472,6 +46741,7 @@
     },
     {
         "id": 3287,
+        "species_id": 20,
         "name": "lanniao_qiu",
         "form": "default",
         "main_type": {
@@ -46518,6 +46788,7 @@
     },
     {
         "id": 3288,
+        "species_id": 3288,
         "name": "diudiu_huoshan",
         "form": "default",
         "main_type": {
@@ -46745,6 +47016,7 @@
     },
     {
         "id": 3289,
+        "species_id": 44,
         "name": "diudiu_shamo",
         "form": "丢丢",
         "main_type": {
@@ -47134,6 +47406,7 @@
     },
     {
         "id": 3290,
+        "species_id": 44,
         "name": "diudiu_xueshan",
         "form": "丢丢",
         "main_type": {
@@ -47523,6 +47796,7 @@
     },
     {
         "id": 3291,
+        "species_id": 3291,
         "name": "kakachong_huoshan",
         "form": "default",
         "main_type": {
@@ -47575,6 +47849,7 @@
     },
     {
         "id": 3292,
+        "species_id": 45,
         "name": "kakachong_shamo",
         "form": "卡卡虫",
         "main_type": {
@@ -47764,6 +48039,7 @@
     },
     {
         "id": 3293,
+        "species_id": 45,
         "name": "kakachong_xueshan",
         "form": "卡卡虫",
         "main_type": {
@@ -47953,6 +48229,7 @@
     },
     {
         "id": 3294,
+        "species_id": 3294,
         "name": "kawachong_huoshan",
         "form": "default",
         "main_type": {
@@ -48005,6 +48282,7 @@
     },
     {
         "id": 3295,
+        "species_id": 46,
         "name": "kawachong_shamo",
         "form": "卡瓦重",
         "main_type": {
@@ -48057,6 +48335,7 @@
     },
     {
         "id": 3296,
+        "species_id": 46,
         "name": "kawachong_xueshan",
         "form": "卡瓦重",
         "main_type": {
@@ -48109,6 +48388,7 @@
     },
     {
         "id": 3297,
+        "species_id": 63,
         "name": "bengbengzhongzi_caiyuqiu",
         "form": "蹦蹦种子",
         "main_type": {
@@ -49256,6 +49536,7 @@
     },
     {
         "id": 3298,
+        "species_id": 63,
         "name": "bengbengzhongzi_duanmaoqiu",
         "form": "蹦蹦种子",
         "main_type": {
@@ -50403,6 +50684,7 @@
     },
     {
         "id": 3299,
+        "species_id": 63,
         "name": "bengbengzhongzi_xiangyaqiu",
         "form": "蹦蹦种子",
         "main_type": {
@@ -51550,6 +51832,7 @@
     },
     {
         "id": 3300,
+        "species_id": 64,
         "name": "bengbengcao_caiyuqiu",
         "form": "蹦蹦草",
         "main_type": {
@@ -51602,6 +51885,7 @@
     },
     {
         "id": 3301,
+        "species_id": 64,
         "name": "bengbengcao_duanmaoqiu",
         "form": "蹦蹦草",
         "main_type": {
@@ -51654,6 +51938,7 @@
     },
     {
         "id": 3302,
+        "species_id": 64,
         "name": "bengbengcao_xiangyaqiu",
         "form": "蹦蹦草",
         "main_type": {
@@ -51706,6 +51991,7 @@
     },
     {
         "id": 3303,
+        "species_id": 65,
         "name": "bengbenghua_caiyuqiu",
         "form": "蹦蹦花",
         "main_type": {
@@ -52603,6 +52889,7 @@
     },
     {
         "id": 3304,
+        "species_id": 65,
         "name": "bengbenghua_duanmaoqiu",
         "form": "蹦蹦花",
         "main_type": {
@@ -53500,6 +53787,7 @@
     },
     {
         "id": 3305,
+        "species_id": 65,
         "name": "bengbenghua_xiangyaqiu",
         "form": "蹦蹦花",
         "main_type": {
@@ -54397,6 +54685,7 @@
     },
     {
         "id": 3307,
+        "species_id": 39,
         "name": "kuangjingchong",
         "form": "矿晶虫",
         "main_type": {
@@ -54721,6 +55010,7 @@
     },
     {
         "id": 3308,
+        "species_id": 40,
         "name": "jingshiwo",
         "form": "晶石蜗",
         "main_type": {
@@ -54774,6 +55064,7 @@
     },
     {
         "id": 3309,
+        "species_id": 310,
         "name": "xijiaoniao",
         "form": "犀角鸟",
         "main_type": {
@@ -54913,6 +55204,7 @@
     },
     {
         "id": 3310,
+        "species_id": 311,
         "name": "guangjiaoshou",
         "form": "光纤兽",
         "main_type": {
@@ -54959,6 +55251,7 @@
     },
     {
         "id": 3311,
+        "species_id": 312,
         "name": "jiguangqianshou",
         "form": "疾光千兽",
         "main_type": {
@@ -55005,6 +55298,7 @@
     },
     {
         "id": 3312,
+        "species_id": 3312,
         "name": "ruoyexi",
         "form": "default",
         "main_type": {
@@ -55110,6 +55404,7 @@
     },
     {
         "id": 3313,
+        "species_id": 3313,
         "name": "liyexi",
         "form": "default",
         "main_type": {
@@ -55154,6 +55449,7 @@
     },
     {
         "id": 3314,
+        "species_id": 3314,
         "name": "dieyejuxi",
         "form": "default",
         "main_type": {
@@ -55198,6 +55494,7 @@
     },
     {
         "id": 3315,
+        "species_id": 36,
         "name": "xiaoshulan",
         "form": "小鼠獭",
         "main_type": {
@@ -55446,6 +55743,7 @@
     },
     {
         "id": 3316,
+        "species_id": 37,
         "name": "dashulan",
         "form": "燕尾獭",
         "main_type": {
@@ -55499,6 +55797,7 @@
     },
     {
         "id": 3317,
+        "species_id": 38,
         "name": "jushulan",
         "form": "卷胡巨獭",
         "main_type": {
@@ -55552,6 +55851,7 @@
     },
     {
         "id": 3319,
+        "species_id": 335,
         "name": "fenxingzai",
         "form": "粉星仔",
         "main_type": {
@@ -55822,6 +56122,7 @@
     },
     {
         "id": 3320,
+        "species_id": 336,
         "name": "fenerxingtu",
         "form": "粉耳星兔",
         "main_type": {
@@ -55869,6 +56170,7 @@
     },
     {
         "id": 3321,
+        "species_id": 3321,
         "name": "mimifu",
         "form": "default",
         "main_type": {
@@ -56000,6 +56302,7 @@
     },
     {
         "id": 3322,
+        "species_id": 3322,
         "name": "fanfanfu",
         "form": "default",
         "main_type": {
@@ -56044,6 +56347,7 @@
     },
     {
         "id": 3323,
+        "species_id": 3323,
         "name": "yeyoumo",
         "form": "default",
         "main_type": {
@@ -56094,6 +56398,7 @@
     },
     {
         "id": 3327,
+        "species_id": 3327,
         "name": "dujiaolong",
         "form": "default",
         "main_type": {
@@ -56138,6 +56443,7 @@
     },
     {
         "id": 3328,
+        "species_id": 3328,
         "name": "jianjiaolong",
         "form": "default",
         "main_type": {
@@ -56182,6 +56488,7 @@
     },
     {
         "id": 3329,
+        "species_id": 3329,
         "name": "baojiaolong",
         "form": "default",
         "main_type": {
@@ -56226,6 +56533,7 @@
     },
     {
         "id": 3330,
+        "species_id": 76,
         "name": "haikuichong",
         "form": "海盔虫",
         "main_type": {
@@ -56766,6 +57074,7 @@
     },
     {
         "id": 3331,
+        "species_id": 77,
         "name": "cikuichong",
         "form": "刺盔虫",
         "main_type": {
@@ -56819,6 +57128,7 @@
     },
     {
         "id": 3332,
+        "species_id": 78,
         "name": "qianjikui",
         "form": "千棘盔",
         "main_type": {
@@ -56872,6 +57182,7 @@
     },
     {
         "id": 3333,
+        "species_id": 139,
         "name": "xuewawa",
         "form": "雪娃娃",
         "main_type": {
@@ -57317,6 +57628,7 @@
     },
     {
         "id": 3334,
+        "species_id": 140,
         "name": "bingfengyuanling",
         "form": "冰封怨灵",
         "main_type": {
@@ -57363,6 +57675,7 @@
     },
     {
         "id": 3335,
+        "species_id": 141,
         "name": "xueling",
         "form": "雪灵",
         "main_type": {
@@ -57409,6 +57722,7 @@
     },
     {
         "id": 3336,
+        "species_id": 3336,
         "name": "gegebu",
         "form": "default",
         "main_type": {
@@ -57453,6 +57767,7 @@
     },
     {
         "id": 3337,
+        "species_id": 3337,
         "name": "gebubu",
         "form": "default",
         "main_type": {
@@ -57497,6 +57812,7 @@
     },
     {
         "id": 3338,
+        "species_id": 3338,
         "name": "binghubao",
         "form": "default",
         "main_type": {
@@ -57541,6 +57857,7 @@
     },
     {
         "id": 3339,
+        "species_id": 3339,
         "name": "bingjinghu",
         "form": "default",
         "main_type": {
@@ -57585,6 +57902,7 @@
     },
     {
         "id": 3340,
+        "species_id": 3340,
         "name": "bingjingguchihu",
         "form": "default",
         "main_type": {
@@ -57629,6 +57947,7 @@
     },
     {
         "id": 3341,
+        "species_id": 3341,
         "name": "xuelingshou",
         "form": "default",
         "main_type": {
@@ -57673,6 +57992,7 @@
     },
     {
         "id": 3342,
+        "species_id": 3342,
         "name": "huanxueshou",
         "form": "default",
         "main_type": {
@@ -57717,6 +58037,7 @@
     },
     {
         "id": 3343,
+        "species_id": 3343,
         "name": "yinxuekuangshou",
         "form": "default",
         "main_type": {
@@ -57761,6 +58082,7 @@
     },
     {
         "id": 3344,
+        "species_id": 88,
         "name": "huaguitianer",
         "form": "乖乖鹄",
         "main_type": {
@@ -58009,6 +58331,7 @@
     },
     {
         "id": 3345,
+        "species_id": 89,
         "name": "lanzhutianer",
         "form": "蓝珠天鹅",
         "main_type": {
@@ -58301,6 +58624,7 @@
     },
     {
         "id": 3346,
+        "species_id": 90,
         "name": "cuidingfuren",
         "form": "翠顶夫人",
         "main_type": {
@@ -58354,6 +58678,7 @@
     },
     {
         "id": 3347,
+        "species_id": 3347,
         "name": "yayanmo",
         "form": "default",
         "main_type": {
@@ -58637,6 +58962,7 @@
     },
     {
         "id": 3348,
+        "species_id": 3348,
         "name": "yeyanmo",
         "form": "default",
         "main_type": {
@@ -58687,6 +59013,7 @@
     },
     {
         "id": 3349,
+        "species_id": 3349,
         "name": "zhangyanmo",
         "form": "default",
         "main_type": {
@@ -58737,6 +59064,7 @@
     },
     {
         "id": 3350,
+        "species_id": 257,
         "name": "huoguangxiunv",
         "form": "红绒十字",
         "main_type": {
@@ -59011,6 +59339,7 @@
     },
     {
         "id": 3351,
+        "species_id": 3351,
         "name": "pilibaobao",
         "form": "default",
         "main_type": {
@@ -59120,6 +59449,7 @@
     },
     {
         "id": 3352,
+        "species_id": 3352,
         "name": "leimingwang",
         "form": "default",
         "main_type": {
@@ -59164,6 +59494,7 @@
     },
     {
         "id": 3353,
+        "species_id": 3353,
         "name": "leibaobenben",
         "form": "default",
         "main_type": {
@@ -59208,6 +59539,7 @@
     },
     {
         "id": 3354,
+        "species_id": 3354,
         "name": "zuandixiaozi",
         "form": "default",
         "main_type": {
@@ -59258,6 +59590,7 @@
     },
     {
         "id": 3355,
+        "species_id": 3355,
         "name": "shandianxiaozi",
         "form": "default",
         "main_type": {
@@ -59308,6 +59641,7 @@
     },
     {
         "id": 3356,
+        "species_id": 3356,
         "name": "monengtuoluo",
         "form": "default",
         "main_type": {
@@ -59358,6 +59692,7 @@
     },
     {
         "id": 3357,
+        "species_id": 226,
         "name": "diandongchangjinglu",
         "form": "电动长颈鹿",
         "main_type": {
@@ -59703,6 +60038,7 @@
     },
     {
         "id": 3358,
+        "species_id": 227,
         "name": "benlelu",
         "form": "奔乐鹿",
         "main_type": {
@@ -59749,6 +60085,7 @@
     },
     {
         "id": 3359,
+        "species_id": 228,
         "name": "jueshilu",
         "form": "爵士鹿",
         "main_type": {
@@ -59795,6 +60132,7 @@
     },
     {
         "id": 3360,
+        "species_id": 3360,
         "name": "hudietaotao",
         "form": "default",
         "main_type": {
@@ -59839,6 +60177,7 @@
     },
     {
         "id": 3361,
+        "species_id": 3361,
         "name": "maodingmaomao",
         "form": "default",
         "main_type": {
@@ -59889,6 +60228,7 @@
     },
     {
         "id": 3362,
+        "species_id": 3362,
         "name": "paihuaizhuazhua",
         "form": "default",
         "main_type": {
@@ -59939,6 +60279,7 @@
     },
     {
         "id": 3363,
+        "species_id": 3363,
         "name": "lulu",
         "form": "default",
         "main_type": {
@@ -59983,6 +60324,7 @@
     },
     {
         "id": 3364,
+        "species_id": 3364,
         "name": "luluni",
         "form": "default",
         "main_type": {
@@ -60104,6 +60446,7 @@
     },
     {
         "id": 3365,
+        "species_id": 3365,
         "name": "guluni",
         "form": "default",
         "main_type": {
@@ -60154,6 +60497,7 @@
     },
     {
         "id": 3367,
+        "species_id": 52,
         "name": "duudbao",
         "form": "嘟嘟煲",
         "main_type": {
@@ -60768,6 +61112,7 @@
     },
     {
         "id": 3368,
+        "species_id": 53,
         "name": "duudguo",
         "form": "嘟嘟锅",
         "main_type": {
@@ -60815,6 +61160,7 @@
     },
     {
         "id": 3369,
+        "species_id": 345,
         "name": "youxingguang",
         "form": "幽星光",
         "main_type": {
@@ -61235,6 +61581,7 @@
     },
     {
         "id": 3370,
+        "species_id": 346,
         "name": "yaoxingguang",
         "form": "曜星光",
         "main_type": {
@@ -61288,6 +61635,7 @@
     },
     {
         "id": 3371,
+        "species_id": 347,
         "name": "muxingchen",
         "form": "暮星辰",
         "main_type": {
@@ -61341,6 +61689,7 @@
     },
     {
         "id": 3372,
+        "species_id": 344,
         "name": "chuntudalao",
         "form": "春花兔",
         "main_type": {
@@ -61388,6 +61737,7 @@
     },
     {
         "id": 3373,
+        "species_id": 198,
         "name": "doudou",
         "form": "逗逗",
         "main_type": {
@@ -61766,6 +62116,7 @@
     },
     {
         "id": 3374,
+        "species_id": 199,
         "name": "qiqiumao",
         "form": "气球猫",
         "main_type": {
@@ -61813,6 +62164,7 @@
     },
     {
         "id": 3375,
+        "species_id": 200,
         "name": "qimengmi",
         "form": "梦想三三",
         "main_type": {
@@ -61860,6 +62212,7 @@
     },
     {
         "id": 3376,
+        "species_id": 118,
         "name": "xuanyanchong",
         "form": "旋叶虫",
         "main_type": {
@@ -62124,6 +62477,7 @@
     },
     {
         "id": 3377,
+        "species_id": 120,
         "name": "fenggunmuchong",
         "form": "风滚暮虫",
         "main_type": {
@@ -62177,6 +62531,7 @@
     },
     {
         "id": 3378,
+        "species_id": 174,
         "name": "guguding",
         "form": "菇菇丁",
         "main_type": {
@@ -62940,6 +63295,7 @@
     },
     {
         "id": 3379,
+        "species_id": 175,
         "name": "duoguding",
         "form": "多菇丁",
         "main_type": {
@@ -62992,6 +63348,7 @@
     },
     {
         "id": 3380,
+        "species_id": 176,
         "name": "jiuyougu",
         "form": "九幽菇",
         "main_type": {
@@ -63044,6 +63401,7 @@
     },
     {
         "id": 3381,
+        "species_id": 273,
         "name": "shenlanjing",
         "form": "深蓝鲸",
         "main_type": {
@@ -63168,6 +63526,7 @@
     },
     {
         "id": 3382,
+        "species_id": 320,
         "name": "shungdengyu",
         "form": "双灯鱼",
         "main_type": {
@@ -63395,6 +63754,7 @@
     },
     {
         "id": 3383,
+        "species_id": 321,
         "name": "lidengyu",
         "form": "利灯鱼",
         "main_type": {
@@ -63447,6 +63807,7 @@
     },
     {
         "id": 3384,
+        "species_id": 239,
         "name": "doudingyu",
         "form": "豆丁鱼",
         "main_type": {
@@ -63755,6 +64116,7 @@
     },
     {
         "id": 3385,
+        "species_id": 240,
         "name": "kuaiqiyu",
         "form": "快鳍鱼",
         "main_type": {
@@ -63808,6 +64170,7 @@
     },
     {
         "id": 3386,
+        "species_id": 241,
         "name": "yulong",
         "form": "龙鱼",
         "main_type": {
@@ -63861,6 +64224,7 @@
     },
     {
         "id": 3387,
+        "species_id": 3387,
         "name": "keduoduo",
         "form": "default",
         "main_type": {
@@ -64060,6 +64424,7 @@
     },
     {
         "id": 3388,
+        "species_id": 3388,
         "name": "keduosuo",
         "form": "default",
         "main_type": {
@@ -64110,6 +64475,7 @@
     },
     {
         "id": 3392,
+        "species_id": 351,
         "name": "fanque",
         "form": "default",
         "main_type": {
@@ -64205,6 +64571,7 @@
     },
     {
         "id": 3393,
+        "species_id": 352,
         "name": "zilingying",
         "form": "default",
         "main_type": {
@@ -64251,6 +64618,7 @@
     },
     {
         "id": 3394,
+        "species_id": 353,
         "name": "fanying",
         "form": "default",
         "main_type": {
@@ -64297,6 +64665,7 @@
     },
     {
         "id": 3395,
+        "species_id": 150,
         "name": "liao",
         "form": "里奥",
         "main_type": {
@@ -64442,6 +64811,7 @@
     },
     {
         "id": 3396,
+        "species_id": 151,
         "name": "lingyuyongshi",
         "form": "灵羽勇士",
         "main_type": {
@@ -64488,6 +64858,7 @@
     },
     {
         "id": 3397,
+        "species_id": 152,
         "name": "shengyuyiwang",
         "form": "圣羽翼王",
         "main_type": {
@@ -64534,6 +64905,7 @@
     },
     {
         "id": 3398,
+        "species_id": 317,
         "name": "xingchenchong",
         "form": "星尘虫",
         "main_type": {
@@ -64711,6 +65083,7 @@
     },
     {
         "id": 3399,
+        "species_id": 318,
         "name": "luoxingchong",
         "form": "落星虫",
         "main_type": {
@@ -64757,6 +65130,7 @@
     },
     {
         "id": 3400,
+        "species_id": 319,
         "name": "yunxingchong",
         "form": "陨星虫",
         "main_type": {
@@ -64803,6 +65177,7 @@
     },
     {
         "id": 3401,
+        "species_id": 3401,
         "name": "yilisi",
         "form": "default",
         "main_type": {
@@ -64962,6 +65337,7 @@
     },
     {
         "id": 3402,
+        "species_id": 3402,
         "name": "suijingxie",
         "form": "default",
         "main_type": {
@@ -65012,6 +65388,7 @@
     },
     {
         "id": 3403,
+        "species_id": 3403,
         "name": "jingweixie",
         "form": "default",
         "main_type": {
@@ -65127,6 +65504,7 @@
     },
     {
         "id": 3404,
+        "species_id": 3404,
         "name": "xieziwang",
         "form": "default",
         "main_type": {
@@ -65177,6 +65555,7 @@
     },
     {
         "id": 3405,
+        "species_id": 56,
         "name": "youmingzhiyan",
         "form": "幽冥眼",
         "main_type": {
@@ -65223,6 +65602,7 @@
     },
     {
         "id": 3406,
+        "species_id": 229,
         "name": "tita",
         "form": "缇塔",
         "main_type": {
@@ -65480,6 +65860,7 @@
     },
     {
         "id": 3407,
+        "species_id": 230,
         "name": "shengbotita",
         "form": "声波缇塔",
         "main_type": {
@@ -65526,6 +65907,7 @@
     },
     {
         "id": 3408,
+        "species_id": 3408,
         "name": "chilunxiaozi",
         "form": "default",
         "main_type": {
@@ -65671,6 +66053,7 @@
     },
     {
         "id": 3409,
+        "species_id": 3409,
         "name": "jijiaxiaozi",
         "form": "default",
         "main_type": {
@@ -65717,6 +66100,7 @@
     },
     {
         "id": 3410,
+        "species_id": 145,
         "name": "quanzhagn1",
         "form": "权杖-Ⅱ",
         "main_type": {
@@ -65958,6 +66342,7 @@
     },
     {
         "id": 3411,
+        "species_id": 146,
         "name": "quanzhagn2",
         "form": "权杖-V",
         "main_type": {
@@ -66004,6 +66389,7 @@
     },
     {
         "id": 3412,
+        "species_id": 204,
         "name": "yinlanyalong",
         "form": "伊兰亚龙",
         "main_type": {
@@ -66050,6 +66436,7 @@
     },
     {
         "id": 3416,
+        "species_id": 3416,
         "name": "gedouxiaowu",
         "form": "default",
         "main_type": {
@@ -66189,6 +66576,7 @@
     },
     {
         "id": 3417,
+        "species_id": 3417,
         "name": "gedouxiaoliu",
         "form": "default",
         "main_type": {
@@ -66296,6 +66684,7 @@
     },
     {
         "id": 3418,
+        "species_id": 3418,
         "name": "gedouxiaoba",
         "form": "default",
         "main_type": {
@@ -66419,6 +66808,7 @@
     },
     {
         "id": 3419,
+        "species_id": 291,
         "name": "lihaixiaoluo",
         "form": "厉毒小萝",
         "main_type": {
@@ -66603,6 +66993,7 @@
     },
     {
         "id": 3420,
+        "species_id": 292,
         "name": "lihaixiuluo",
         "form": "厉毒修萝",
         "main_type": {
@@ -66656,6 +67047,7 @@
     },
     {
         "id": 3421,
+        "species_id": 3421,
         "name": "pomengzhe",
         "form": "default",
         "main_type": {
@@ -66799,6 +67191,7 @@
     },
     {
         "id": 3422,
+        "species_id": 3422,
         "name": "shimengzhe",
         "form": "default",
         "main_type": {
@@ -66843,6 +67236,7 @@
     },
     {
         "id": 3423,
+        "species_id": 3423,
         "name": "konglingshou",
         "form": "default",
         "main_type": {
@@ -66990,6 +67384,7 @@
     },
     {
         "id": 3424,
+        "species_id": 3424,
         "name": "konglingdoushi",
         "form": "default",
         "main_type": {
@@ -67034,6 +67429,7 @@
     },
     {
         "id": 3425,
+        "species_id": 3425,
         "name": "sanyecaolong",
         "form": "default",
         "main_type": {
@@ -67231,6 +67627,7 @@
     },
     {
         "id": 3426,
+        "species_id": 3426,
         "name": "huayelong",
         "form": "default",
         "main_type": {
@@ -67281,6 +67678,7 @@
     },
     {
         "id": 3427,
+        "species_id": 3427,
         "name": "maixiangtuo",
         "form": "default",
         "main_type": {
@@ -67484,6 +67882,7 @@
     },
     {
         "id": 3428,
+        "species_id": 3428,
         "name": "chouchouzhui",
         "form": "default",
         "main_type": {
@@ -67665,6 +68064,7 @@
     },
     {
         "id": 3429,
+        "species_id": 3429,
         "name": "aiourongzhui",
         "form": "default",
         "main_type": {
@@ -67715,6 +68115,7 @@
     },
     {
         "id": 3430,
+        "species_id": 220,
         "name": "haizhizhi_bilanshanhu",
         "form": "海枝枝",
         "main_type": {
@@ -68307,6 +68708,7 @@
     },
     {
         "id": 3431,
+        "species_id": 220,
         "name": "haizhizhi_xinghuangbaihe",
         "form": "海枝枝",
         "main_type": {
@@ -68883,6 +69285,7 @@
     },
     {
         "id": 3432,
+        "species_id": 220,
         "name": "haizhizhi_yanghongshading",
         "form": "海枝枝",
         "main_type": {
@@ -69443,6 +69846,7 @@
     },
     {
         "id": 3433,
+        "species_id": 220,
         "name": "haizhizhi_cuilvlunbu",
         "form": "海枝枝",
         "main_type": {
@@ -70003,6 +70407,7 @@
     },
     {
         "id": 3434,
+        "species_id": 132,
         "name": "xiaodianqie",
         "form": "小电企鹅",
         "main_type": {
@@ -70390,6 +70795,7 @@
     },
     {
         "id": 3435,
+        "species_id": 133,
         "name": "dianqie",
         "form": "电企鹅",
         "main_type": {
@@ -70442,6 +70848,7 @@
     },
     {
         "id": 3436,
+        "species_id": 325,
         "name": "chaizhachong",
         "form": "柴渣虫",
         "main_type": {
@@ -70648,6 +71055,7 @@
     },
     {
         "id": 3437,
+        "species_id": 326,
         "name": "ranxinchong",
         "form": "燃薪虫",
         "main_type": {
@@ -70762,6 +71170,7 @@
     },
     {
         "id": 3438,
+        "species_id": 57,
         "name": "menhyou",
         "form": "梦游",
         "main_type": {
@@ -71020,6 +71429,7 @@
     },
     {
         "id": 3439,
+        "species_id": 58,
         "name": "mengyouyou",
         "form": "梦悠悠",
         "main_type": {
@@ -71067,6 +71477,7 @@
     },
     {
         "id": 3440,
+        "species_id": 3440,
         "name": "mengyou_pink",
         "form": "default",
         "main_type": {
@@ -71331,6 +71742,7 @@
     },
     {
         "id": 3441,
+        "species_id": 3441,
         "name": "mengyouyou_pink",
         "form": "default",
         "main_type": {
@@ -71384,6 +71796,7 @@
     },
     {
         "id": 3442,
+        "species_id": 80,
         "name": "xiaoxingguang_yueguang",
         "form": "小星光",
         "main_type": {
@@ -71669,6 +72082,7 @@
     },
     {
         "id": 3443,
+        "species_id": 81,
         "name": "xingguangshi_yueguang",
         "form": "星光狮",
         "main_type": {
@@ -71721,6 +72135,7 @@
     },
     {
         "id": 3444,
+        "species_id": 272,
         "name": "pipaniao",
         "form": "噼啪鸟",
         "main_type": {
@@ -72515,6 +72930,7 @@
     },
     {
         "id": 3445,
+        "species_id": 3445,
         "name": "xuemaojiaolinyang",
         "form": "default",
         "main_type": {
@@ -72642,6 +73058,7 @@
     },
     {
         "id": 3446,
+        "species_id": 3446,
         "name": "xuemaojiaolinyang_wanjiao",
         "form": "default",
         "main_type": {
@@ -72769,6 +73186,7 @@
     },
     {
         "id": 3447,
+        "species_id": 3447,
         "name": "xuemaojiaolinyang_huanjiao",
         "form": "default",
         "main_type": {
@@ -72852,6 +73270,7 @@
     },
     {
         "id": 3448,
+        "species_id": 40,
         "name": "jingshiwo_yidi3",
         "form": "晶石蜗",
         "main_type": {
@@ -72905,6 +73324,7 @@
     },
     {
         "id": 3449,
+        "species_id": 40,
         "name": "jingshiwo_yidi5",
         "form": "晶石蜗",
         "main_type": {
@@ -72958,6 +73378,7 @@
     },
     {
         "id": 3450,
+        "species_id": 40,
         "name": "jingshiwo_yidi1",
         "form": "晶石蜗",
         "main_type": {
@@ -73011,6 +73432,7 @@
     },
     {
         "id": 3451,
+        "species_id": 40,
         "name": "jingshiwo_yidi2",
         "form": "晶石蜗",
         "main_type": {
@@ -73064,6 +73486,7 @@
     },
     {
         "id": 3452,
+        "species_id": 11,
         "name": "yajiji_jijiya",
         "form": "鸭吉吉",
         "main_type": {
@@ -73171,6 +73594,7 @@
     },
     {
         "id": 3453,
+        "species_id": 11,
         "name": "dengyidengya",
         "form": "鸭吉吉",
         "main_type": {
@@ -73278,6 +73702,7 @@
     },
     {
         "id": 3454,
+        "species_id": 277,
         "name": "dishu_xushui",
         "form": "地鼠",
         "main_type": {
@@ -73503,6 +73928,7 @@
     },
     {
         "id": 3455,
+        "species_id": 278,
         "name": "dunshu_xushui",
         "form": "遁鼠",
         "main_type": {
@@ -73549,6 +73975,7 @@
     },
     {
         "id": 3456,
+        "species_id": 279,
         "name": "dundishu_xushui",
         "form": "遁地鼠",
         "main_type": {
@@ -73595,6 +74022,7 @@
     },
     {
         "id": 3457,
+        "species_id": 322,
         "name": "yueyaxuexiong",
         "form": "月牙雪熊",
         "main_type": {
@@ -73763,6 +74191,7 @@
     },
     {
         "id": 3458,
+        "species_id": 236,
         "name": "shuangqiudingding_yingtaocaomei",
         "form": "圣代甜甜",
         "main_type": {
@@ -73887,6 +74316,7 @@
     },
     {
         "id": 3459,
+        "species_id": 236,
         "name": "shuangqiudingding_yingtaomocha",
         "form": "圣代甜甜",
         "main_type": {
@@ -74011,6 +74441,7 @@
     },
     {
         "id": 3460,
+        "species_id": 236,
         "name": "shuangqiudingding_lanmeiqiaokeli",
         "form": "圣代甜甜",
         "main_type": {
@@ -74135,6 +74566,7 @@
     },
     {
         "id": 3461,
+        "species_id": 236,
         "name": "shuangqiudingding_lanmeicaomei",
         "form": "圣代甜甜",
         "main_type": {
@@ -74259,6 +74691,7 @@
     },
     {
         "id": 3462,
+        "species_id": 236,
         "name": "shuangqiudingding_lanmeimocha",
         "form": "圣代甜甜",
         "main_type": {
@@ -74383,6 +74816,7 @@
     },
     {
         "id": 3463,
+        "species_id": 236,
         "name": "shuangqiudingding_yangtaoqiaokeli",
         "form": "圣代甜甜",
         "main_type": {
@@ -74507,6 +74941,7 @@
     },
     {
         "id": 3464,
+        "species_id": 236,
         "name": "shuangqiudingding_yangtaocaomei",
         "form": "圣代甜甜",
         "main_type": {
@@ -74631,6 +75066,7 @@
     },
     {
         "id": 3465,
+        "species_id": 236,
         "name": "shuangqiudingding_yangtaomocha",
         "form": "圣代甜甜",
         "main_type": {
@@ -74755,6 +75191,7 @@
     },
     {
         "id": 3466,
+        "species_id": 3466,
         "name": "xingyunlvzhe",
         "form": "default",
         "main_type": {
@@ -74869,6 +75306,7 @@
     },
     {
         "id": 3467,
+        "species_id": 165,
         "name": "xiaoshijiu_gaoshan",
         "form": "小狮鹫",
         "main_type": {
@@ -75161,6 +75599,7 @@
     },
     {
         "id": 3468,
+        "species_id": 166,
         "name": "shenshengshijiu_gaoshan",
         "form": "神圣狮鹫",
         "main_type": {
@@ -75208,6 +75647,7 @@
     },
     {
         "id": 3469,
+        "species_id": 167,
         "name": "huangjiashijiu_gaoshan",
         "form": "皇家狮鹫",
         "main_type": {
@@ -75255,6 +75695,7 @@
     },
     {
         "id": 3470,
+        "species_id": 34,
         "name": "huadie_youmingzhiyan",
         "form": "化蝶",
         "main_type": {
@@ -75308,6 +75749,7 @@
     },
     {
         "id": 3471,
+        "species_id": 34,
         "name": "huadie_miaomiao",
         "form": "化蝶",
         "main_type": {
@@ -75361,6 +75803,7 @@
     },
     {
         "id": 3472,
+        "species_id": 34,
         "name": "huadie_qilihua",
         "form": "化蝶",
         "main_type": {
@@ -75414,6 +75857,7 @@
     },
     {
         "id": 3473,
+        "species_id": 338,
         "name": "buguake",
         "form": "布瓜蝌",
         "main_type": {
@@ -75521,6 +75965,7 @@
     },
     {
         "id": 3474,
+        "species_id": 339,
         "name": "shanganwa",
         "form": "上岸蛙",
         "main_type": {
@@ -75567,6 +76012,7 @@
     },
     {
         "id": 3475,
+        "species_id": 76,
         "name": "haikuichong_yidi",
         "form": "海盔虫",
         "main_type": {
@@ -75859,6 +76305,7 @@
     },
     {
         "id": 3476,
+        "species_id": 77,
         "name": "cikuichong_yidi",
         "form": "刺盔虫",
         "main_type": {
@@ -75912,6 +76359,7 @@
     },
     {
         "id": 3477,
+        "species_id": 78,
         "name": "qianjikui_yidi",
         "form": "千棘盔",
         "main_type": {
@@ -75965,6 +76413,7 @@
     },
     {
         "id": 3478,
+        "species_id": 235,
         "name": "dingding_yangtao",
         "form": "香草甜甜",
         "main_type": {
@@ -76012,6 +76461,7 @@
     },
     {
         "id": 3479,
+        "species_id": 235,
         "name": "dingding_lanmei",
         "form": "香草甜甜",
         "main_type": {
@@ -76059,6 +76509,7 @@
     },
     {
         "id": 3480,
+        "species_id": 3480,
         "name": "shengyuyiwang",
         "form": "default",
         "main_type": {
@@ -76105,6 +76556,7 @@
     },
     {
         "id": 3481,
+        "species_id": 55,
         "name": "youlinglian_biyan",
         "form": "暗影灵面",
         "main_type": {
@@ -76151,6 +76603,7 @@
     },
     {
         "id": 3482,
+        "species_id": 56,
         "name": "youmingzhiyan_biyan",
         "form": "幽冥眼",
         "main_type": {
@@ -76197,6 +76650,7 @@
     },
     {
         "id": 3483,
+        "species_id": 119,
         "name": "pengyechong",
         "form": "蓬叶虫",
         "main_type": {
@@ -76387,6 +76841,7 @@
     },
     {
         "id": 3484,
+        "species_id": 261,
         "name": "luoxuanpapa",
         "form": "螺旋帕帕",
         "main_type": {
@@ -76711,6 +77166,7 @@
     },
     {
         "id": 3485,
+        "species_id": 337,
         "name": "luoyunxingtu",
         "form": "落陨星兔",
         "main_type": {
@@ -76764,6 +77220,7 @@
     },
     {
         "id": 3486,
+        "species_id": 40,
         "name": "jingshiwo_yidi4",
         "form": "晶石蜗",
         "main_type": {
@@ -76817,6 +77274,7 @@
     },
     {
         "id": 3487,
+        "species_id": 362,
         "name": "xiaochoudoudou",
         "form": "default",
         "main_type": {
@@ -76913,6 +77371,7 @@
     },
     {
         "id": 3488,
+        "species_id": 363,
         "name": "xiaochoutu",
         "form": "default",
         "main_type": {
@@ -76960,6 +77419,7 @@
     },
     {
         "id": 3489,
+        "species_id": 364,
         "name": "xiaochougongjue",
         "form": "default",
         "main_type": {
@@ -77007,6 +77467,7 @@
     },
     {
         "id": 3490,
+        "species_id": 287,
         "name": "xiniou",
         "form": "吸泥鸥",
         "main_type": {
@@ -77255,6 +77716,7 @@
     },
     {
         "id": 3491,
+        "species_id": 288,
         "name": "nihouya",
         "form": "泥吼牙",
         "main_type": {
@@ -77308,6 +77770,7 @@
     },
     {
         "id": 3492,
+        "species_id": 59,
         "name": "shouhualei",
         "form": "兽花蕾",
         "main_type": {
@@ -77555,6 +78018,7 @@
     },
     {
         "id": 3493,
+        "species_id": 3493,
         "name": "feicaoqiu",
         "form": "default",
         "main_type": {
@@ -77599,6 +78063,7 @@
     },
     {
         "id": 3494,
+        "species_id": 3494,
         "name": "hela",
         "form": "default",
         "main_type": {
@@ -77643,6 +78108,7 @@
     },
     {
         "id": 3495,
+        "species_id": 11,
         "name": "yajiji_ranleya",
         "form": "鸭吉吉",
         "main_type": {
@@ -77750,6 +78216,7 @@
     },
     {
         "id": 3496,
+        "species_id": 118,
         "name": "xuanyechong_yidi",
         "form": "旋叶虫",
         "main_type": {
@@ -77998,6 +78465,7 @@
     },
     {
         "id": 3497,
+        "species_id": 119,
         "name": "pengyechong_yidi",
         "form": "蓬叶虫",
         "main_type": {
@@ -78188,6 +78656,7 @@
     },
     {
         "id": 3498,
+        "species_id": 120,
         "name": "fengguanmuchong_yidi",
         "form": "风滚暮虫",
         "main_type": {
@@ -78241,6 +78710,7 @@
     },
     {
         "id": 3499,
+        "species_id": 162,
         "name": "gongpingge",
         "form": "公平鸽",
         "main_type": {
@@ -78498,6 +78968,7 @@
     },
     {
         "id": 3500,
+        "species_id": 24,
         "name": "shifuxi_yidi",
         "form": "石肤蜥",
         "main_type": {
@@ -78594,6 +79065,7 @@
     },
     {
         "id": 3501,
+        "species_id": 25,
         "name": "shicixi_yidi",
         "form": "default",
         "main_type": {
@@ -78641,6 +79113,7 @@
     },
     {
         "id": 3502,
+        "species_id": 26,
         "name": "shiguanwangxi_yidi",
         "form": "default",
         "main_type": {
@@ -78688,6 +79161,7 @@
     },
     {
         "id": 3503,
+        "species_id": 3503,
         "name": "xianqiushu",
         "form": "default",
         "main_type": {
@@ -78732,6 +79206,7 @@
     },
     {
         "id": 3504,
+        "species_id": 3504,
         "name": "cimushu",
         "form": "default",
         "main_type": {
@@ -78776,6 +79251,7 @@
     },
     {
         "id": 3505,
+        "species_id": 3505,
         "name": "yehuixiniu",
         "form": "default",
         "main_type": {
@@ -78820,6 +79296,7 @@
     },
     {
         "id": 3506,
+        "species_id": 201,
         "name": "huayuanman",
         "form": "花怨鳗",
         "main_type": {
@@ -79144,6 +79621,7 @@
     },
     {
         "id": 3507,
+        "species_id": 202,
         "name": "manweishou",
         "form": "鳗尾兽",
         "main_type": {
@@ -79197,6 +79675,7 @@
     },
     {
         "id": 3508,
+        "species_id": 171,
         "name": "boboluo",
         "form": "波波螺",
         "main_type": {
@@ -79505,6 +79984,7 @@
     },
     {
         "id": 3509,
+        "species_id": 172,
         "name": "xiaoboluo",
         "form": "消波螺",
         "main_type": {
@@ -79558,6 +80038,7 @@
     },
     {
         "id": 3510,
+        "species_id": 173,
         "name": "shiboluo",
         "form": "嗜波螺",
         "main_type": {
@@ -79611,6 +80092,7 @@
     },
     {
         "id": 3511,
+        "species_id": 171,
         "name": "boboluo_yidi",
         "form": "波波螺",
         "main_type": {
@@ -79843,6 +80325,7 @@
     },
     {
         "id": 3512,
+        "species_id": 172,
         "name": "xiaoboluo_yidi",
         "form": "消波螺",
         "main_type": {
@@ -79896,6 +80379,7 @@
     },
     {
         "id": 3513,
+        "species_id": 173,
         "name": "shiboluo_yidi",
         "form": "嗜波螺",
         "main_type": {
@@ -79949,6 +80433,7 @@
     },
     {
         "id": 3514,
+        "species_id": 3514,
         "name": "3514",
         "form": "default",
         "main_type": {
@@ -79993,6 +80478,7 @@
     },
     {
         "id": 3515,
+        "species_id": 3515,
         "name": "3515",
         "form": "default",
         "main_type": {
@@ -80037,6 +80523,7 @@
     },
     {
         "id": 3516,
+        "species_id": 12,
         "name": "banbanke_tuipi",
         "form": "板板壳",
         "main_type": {
@@ -80278,6 +80765,7 @@
     },
     {
         "id": 3517,
+        "species_id": 13,
         "name": "kakake_tuipi",
         "form": "default",
         "main_type": {
@@ -80324,6 +80812,7 @@
     },
     {
         "id": 3518,
+        "species_id": 14,
         "name": "shuipaoke_tuipi",
         "form": "default",
         "main_type": {
@@ -80370,6 +80859,7 @@
     },
     {
         "id": 3519,
+        "species_id": 3519,
         "name": "haishanxing",
         "form": "default",
         "main_type": {
@@ -80414,6 +80904,7 @@
     },
     {
         "id": 3520,
+        "species_id": 3520,
         "name": "haimoxing",
         "form": "default",
         "main_type": {
@@ -80458,6 +80949,7 @@
     },
     {
         "id": 3521,
+        "species_id": 219,
         "name": "lilayao",
         "form": "里拉鳐",
         "main_type": {
@@ -80716,6 +81208,7 @@
     },
     {
         "id": 3522,
+        "species_id": 3522,
         "name": "shuixingwei",
         "form": "default",
         "main_type": {
@@ -80809,6 +81302,7 @@
     },
     {
         "id": 3523,
+        "species_id": 3523,
         "name": "shuixinglongdan",
         "form": "default",
         "main_type": {
@@ -80853,6 +81347,7 @@
     },
     {
         "id": 3524,
+        "species_id": 3524,
         "name": "awasha",
         "form": "default",
         "main_type": {
@@ -80897,6 +81392,7 @@
     },
     {
         "id": 3525,
+        "species_id": 3525,
         "name": "awasha",
         "form": "default",
         "main_type": {
@@ -80941,6 +81437,7 @@
     },
     {
         "id": 3526,
+        "species_id": 314,
         "name": "mochabuding",
         "form": "抹茶布丁",
         "main_type": {
@@ -80994,6 +81491,7 @@
     },
     {
         "id": 3527,
+        "species_id": 315,
         "name": "yejiangbuding",
         "form": "椰浆布丁",
         "main_type": {
@@ -81046,6 +81544,7 @@
     },
     {
         "id": 3528,
+        "species_id": 316,
         "name": "rongyanbuding",
         "form": "熔岩布丁",
         "main_type": {
@@ -81098,6 +81597,7 @@
     },
     {
         "id": 3529,
+        "species_id": 183,
         "name": "haoeryu",
         "form": "号儿鱼",
         "main_type": {
@@ -81382,6 +81882,7 @@
     },
     {
         "id": 3530,
+        "species_id": 184,
         "name": "diyinhaoyu",
         "form": "圆号鱼",
         "main_type": {
@@ -81429,6 +81930,7 @@
     },
     {
         "id": 3531,
+        "species_id": 354,
         "name": "xiaoxueren",
         "form": "default",
         "main_type": {
@@ -81524,6 +82026,7 @@
     },
     {
         "id": 3532,
+        "species_id": 355,
         "name": "xueguai",
         "form": "default",
         "main_type": {
@@ -81570,6 +82073,7 @@
     },
     {
         "id": 3533,
+        "species_id": 18,
         "name": "xuerongniao_dong",
         "form": "雪绒鸟",
         "main_type": {
@@ -82017,6 +82521,7 @@
     },
     {
         "id": 3534,
+        "species_id": 177,
         "name": "banban",
         "form": "斑斑",
         "main_type": {
@@ -82274,6 +82779,7 @@
     },
     {
         "id": 3535,
+        "species_id": 178,
         "name": "banxiao",
         "form": "斑枭",
         "main_type": {
@@ -82353,6 +82859,7 @@
     },
     {
         "id": 3536,
+        "species_id": 258,
         "name": "wuda",
         "form": "乌达",
         "main_type": {
@@ -82600,6 +83107,7 @@
     },
     {
         "id": 3537,
+        "species_id": 259,
         "name": "miniwu",
         "form": "迷你乌",
         "main_type": {
@@ -82652,6 +83160,7 @@
     },
     {
         "id": 3538,
+        "species_id": 260,
         "name": "wulata",
         "form": "乌拉塔",
         "main_type": {
@@ -82899,6 +83408,7 @@
     },
     {
         "id": 3539,
+        "species_id": 258,
         "name": "wuda_yidi",
         "form": "乌达",
         "main_type": {
@@ -83130,6 +83640,7 @@
     },
     {
         "id": 3540,
+        "species_id": 259,
         "name": "miniwu_yidi",
         "form": "迷你乌",
         "main_type": {
@@ -83182,6 +83693,7 @@
     },
     {
         "id": 3541,
+        "species_id": 260,
         "name": "wulata_yidi",
         "form": "乌拉塔",
         "main_type": {
@@ -83429,6 +83941,7 @@
     },
     {
         "id": 3542,
+        "species_id": 3542,
         "name": "weiwanchong",
         "form": "default",
         "main_type": {
@@ -83479,6 +83992,7 @@
     },
     {
         "id": 3543,
+        "species_id": 3543,
         "name": "duoling",
         "form": "default",
         "main_type": {
@@ -83587,6 +84101,7 @@
     },
     {
         "id": 3544,
+        "species_id": 3544,
         "name": "duolingzhu",
         "form": "default",
         "main_type": {
@@ -83634,6 +84149,7 @@
     },
     {
         "id": 3545,
+        "species_id": 285,
         "name": "shengjianshicong",
         "form": "圣剑侍从",
         "main_type": {
@@ -83846,6 +84362,7 @@
     },
     {
         "id": 3546,
+        "species_id": 286,
         "name": "shengjianX",
         "form": "圣剑-X",
         "main_type": {
@@ -83893,6 +84410,7 @@
     },
     {
         "id": 3547,
+        "species_id": 262,
         "name": "papasika",
         "form": "帕帕斯卡",
         "main_type": {
@@ -83946,6 +84464,7 @@
     },
     {
         "id": 3548,
+        "species_id": 3548,
         "name": "xiaoyinyilong",
         "form": "default",
         "main_type": {
@@ -83990,6 +84509,7 @@
     },
     {
         "id": 3549,
+        "species_id": 3549,
         "name": "3549",
         "form": "default",
         "main_type": {
@@ -84034,6 +84554,7 @@
     },
     {
         "id": 3550,
+        "species_id": 188,
         "name": "qiqi",
         "form": "棋棋",
         "main_type": {
@@ -84341,6 +84862,7 @@
     },
     {
         "id": 3551,
+        "species_id": 189,
         "name": "qiqishi",
         "form": "棋骑士",
         "main_type": {
@@ -84916,6 +85438,7 @@
     },
     {
         "id": 3552,
+        "species_id": 192,
         "name": "qiqihou",
         "form": "棋绮后",
         "main_type": {
@@ -84968,6 +85491,7 @@
     },
     {
         "id": 3553,
+        "species_id": 190,
         "name": "qiqilei",
         "form": "棋齐垒",
         "main_type": {
@@ -85020,6 +85544,7 @@
     },
     {
         "id": 3554,
+        "species_id": 191,
         "name": "qiqidu",
         "form": "棋祈督",
         "main_type": {
@@ -85072,6 +85597,7 @@
     },
     {
         "id": 3555,
+        "species_id": 188,
         "name": "qiqi_yidi",
         "form": "棋棋",
         "main_type": {
@@ -85347,6 +85873,7 @@
     },
     {
         "id": 3556,
+        "species_id": 189,
         "name": "qiqishi_yidi",
         "form": "棋骑士",
         "main_type": {
@@ -85922,6 +86449,7 @@
     },
     {
         "id": 3557,
+        "species_id": 192,
         "name": "qiqihou_yidi",
         "form": "棋绮后",
         "main_type": {
@@ -85974,6 +86502,7 @@
     },
     {
         "id": 3558,
+        "species_id": 190,
         "name": "qiqilei_yidi",
         "form": "棋齐垒",
         "main_type": {
@@ -86026,6 +86555,7 @@
     },
     {
         "id": 3559,
+        "species_id": 191,
         "name": "qiqidu_yidi",
         "form": "棋祈督",
         "main_type": {
@@ -86078,6 +86608,7 @@
     },
     {
         "id": 3560,
+        "species_id": 3560,
         "name": "wumie",
         "form": "default",
         "main_type": {
@@ -86122,6 +86653,7 @@
     },
     {
         "id": 3561,
+        "species_id": 3561,
         "name": "wujiaotuotuo",
         "form": "default",
         "main_type": {
@@ -86166,6 +86698,7 @@
     },
     {
         "id": 3562,
+        "species_id": 3562,
         "name": "jinyingbao",
         "form": "default",
         "main_type": {
@@ -86210,6 +86743,7 @@
     },
     {
         "id": 3563,
+        "species_id": 3563,
         "name": "manyushou",
         "form": "default",
         "main_type": {
@@ -86254,6 +86788,7 @@
     },
     {
         "id": 3564,
+        "species_id": 3564,
         "name": "3564",
         "form": "default",
         "main_type": {
@@ -86298,6 +86833,7 @@
     },
     {
         "id": 3565,
+        "species_id": 3565,
         "name": "lishu",
         "form": "default",
         "main_type": {
@@ -86406,6 +86942,7 @@
     },
     {
         "id": 3566,
+        "species_id": 3566,
         "name": "kelisishu",
         "form": "default",
         "main_type": {
@@ -86453,6 +86990,7 @@
     },
     {
         "id": 3567,
+        "species_id": 3567,
         "name": "3567",
         "form": "default",
         "main_type": {
@@ -86500,6 +87038,7 @@
     },
     {
         "id": 3568,
+        "species_id": 121,
         "name": "xiaoheimao",
         "form": "小黑猫",
         "main_type": {
@@ -86694,6 +87233,7 @@
     },
     {
         "id": 3569,
+        "species_id": 122,
         "name": "heimaowushi",
         "form": "黑猫巫师",
         "main_type": {
@@ -86741,6 +87281,7 @@
     },
     {
         "id": 3570,
+        "species_id": 3570,
         "name": "hemabasi",
         "form": "default",
         "main_type": {
@@ -86785,6 +87326,7 @@
     },
     {
         "id": 3571,
+        "species_id": 91,
         "name": "heiyufuren",
         "form": "黑羽夫人",
         "main_type": {
@@ -86838,6 +87380,7 @@
     },
     {
         "id": 3572,
+        "species_id": 356,
         "name": "baoyanzai",
         "form": "default",
         "main_type": {
@@ -86939,6 +87482,7 @@
     },
     {
         "id": 3573,
+        "species_id": 357,
         "name": "baoyanpengpeng",
         "form": "default",
         "main_type": {
@@ -86991,6 +87535,7 @@
     },
     {
         "id": 3574,
+        "species_id": 3574,
         "name": "retuantuan",
         "form": "default",
         "main_type": {
@@ -87035,6 +87580,7 @@
     },
     {
         "id": 3575,
+        "species_id": 3575,
         "name": "3575",
         "form": "default",
         "main_type": {
@@ -87079,6 +87625,7 @@
     },
     {
         "id": 3576,
+        "species_id": 3576,
         "name": "shengkaibumilong",
         "form": "default",
         "main_type": {
@@ -87123,6 +87670,7 @@
     },
     {
         "id": 3577,
+        "species_id": 280,
         "name": "moyoushi",
         "form": "墨鱿士",
         "main_type": {
@@ -87291,6 +87839,7 @@
     },
     {
         "id": 3578,
+        "species_id": 281,
         "name": "hunluanyoucai",
         "form": "混乱鱿彩",
         "main_type": {
@@ -87344,6 +87893,7 @@
     },
     {
         "id": 3579,
+        "species_id": 282,
         "name": "zhixumoyu",
         "form": "秩序鱿墨",
         "main_type": {
@@ -87397,6 +87947,7 @@
     },
     {
         "id": 3580,
+        "species_id": 3580,
         "name": "liciduxie",
         "form": "default",
         "main_type": {
@@ -87441,6 +87992,7 @@
     },
     {
         "id": 3581,
+        "species_id": 3581,
         "name": "judumoxie",
         "form": "default",
         "main_type": {
@@ -87485,6 +88037,7 @@
     },
     {
         "id": 3582,
+        "species_id": 237,
         "name": "ciluntuo_yidi",
         "form": "刺轮砣",
         "main_type": {
@@ -87792,6 +88345,7 @@
     },
     {
         "id": 3583,
+        "species_id": 238,
         "name": "yueliangtuo_yidi",
         "form": "月亮砣",
         "main_type": {
@@ -87877,6 +88431,7 @@
     },
     {
         "id": 3584,
+        "species_id": 237,
         "name": "ciluntuo",
         "form": "刺轮砣",
         "main_type": {
@@ -88168,6 +88723,7 @@
     },
     {
         "id": 3585,
+        "species_id": 238,
         "name": "yueliangtuo",
         "form": "月亮砣",
         "main_type": {
@@ -88253,6 +88809,7 @@
     },
     {
         "id": 3586,
+        "species_id": 3586,
         "name": "mengcanjuan",
         "form": "default",
         "main_type": {
@@ -88297,6 +88854,7 @@
     },
     {
         "id": 3587,
+        "species_id": 3587,
         "name": "qulvlongjuan",
         "form": "default",
         "main_type": {
@@ -88341,6 +88899,7 @@
     },
     {
         "id": 3588,
+        "species_id": 3588,
         "name": "3588",
         "form": "default",
         "main_type": {
@@ -88385,6 +88944,7 @@
     },
     {
         "id": 3589,
+        "species_id": 3589,
         "name": "daigui",
         "form": "default",
         "main_type": {
@@ -88429,6 +88989,7 @@
     },
     {
         "id": 3590,
+        "species_id": 3590,
         "name": "3590",
         "form": "default",
         "main_type": {
@@ -88473,6 +89034,7 @@
     },
     {
         "id": 3591,
+        "species_id": 3591,
         "name": "shizikedou",
         "form": "default",
         "main_type": {
@@ -88566,6 +89128,7 @@
     },
     {
         "id": 3592,
+        "species_id": 3592,
         "name": "shiziwa",
         "form": "default",
         "main_type": {
@@ -88610,6 +89173,7 @@
     },
     {
         "id": 3593,
+        "species_id": 3593,
         "name": "shenyuanwa",
         "form": "default",
         "main_type": {
@@ -88660,6 +89224,7 @@
     },
     {
         "id": 3594,
+        "species_id": 153,
         "name": "songzai",
         "form": "松仔",
         "main_type": {
@@ -88773,6 +89338,7 @@
     },
     {
         "id": 3595,
+        "species_id": 154,
         "name": "yesongyang",
         "form": "松叶羊",
         "main_type": {
@@ -88825,6 +89391,7 @@
     },
     {
         "id": 3596,
+        "species_id": 155,
         "name": "zhenyexunlin",
         "form": "针叶巡林",
         "main_type": {
@@ -88942,6 +89509,7 @@
     },
     {
         "id": 3597,
+        "species_id": 159,
         "name": "shuidishe",
         "form": "水滴蛇",
         "main_type": {
@@ -89056,6 +89624,7 @@
     },
     {
         "id": 3598,
+        "species_id": 160,
         "name": "shuishesuo",
         "form": "水蛇锁",
         "main_type": {
@@ -89109,6 +89678,7 @@
     },
     {
         "id": 3599,
+        "species_id": 161,
         "name": "youshemoshi",
         "form": "游蛇魔使",
         "main_type": {
@@ -89162,6 +89732,7 @@
     },
     {
         "id": 3600,
+        "species_id": 156,
         "name": "xiaoyongshi",
         "form": "小勇狮",
         "main_type": {
@@ -89275,6 +89846,7 @@
     },
     {
         "id": 3601,
+        "species_id": 157,
         "name": "chiyanshi",
         "form": "炽焰狮",
         "main_type": {
@@ -89327,6 +89899,7 @@
     },
     {
         "id": 3602,
+        "species_id": 158,
         "name": "chixinyongshi",
         "form": "炽心勇狮",
         "main_type": {
@@ -89379,6 +89952,7 @@
     },
     {
         "id": 3603,
+        "species_id": 296,
         "name": "maotouxiaozhu",
         "form": "毛头小蛛",
         "main_type": {
@@ -89509,6 +90083,7 @@
     },
     {
         "id": 3604,
+        "species_id": 297,
         "name": "buchenchangrong",
         "form": "捕尘长绒",
         "main_type": {
@@ -89562,6 +90137,7 @@
     },
     {
         "id": 3605,
+        "species_id": 298,
         "name": "shichenduanrong",
         "form": "食尘短绒",
         "main_type": {
@@ -89615,6 +90191,7 @@
     },
     {
         "id": 3606,
+        "species_id": 299,
         "name": "huajingling",
         "form": "画精灵",
         "main_type": {
@@ -89783,6 +90360,7 @@
     },
     {
         "id": 3607,
+        "species_id": 300,
         "name": "huaxiangshouhu",
         "form": "画像守护",
         "main_type": {
@@ -89830,6 +90408,7 @@
     },
     {
         "id": 3608,
+        "species_id": 301,
         "name": "huajianfashishou",
         "form": "画间法师手",
         "main_type": {
@@ -89883,6 +90462,7 @@
     },
     {
         "id": 3609,
+        "species_id": 302,
         "name": "huajianchentieshou",
         "form": "画间沉铁兽",
         "main_type": {
@@ -89936,6 +90516,7 @@
     },
     {
         "id": 3610,
+        "species_id": 303,
         "name": "shumochong",
         "form": "书魔虫",
         "main_type": {
@@ -90136,6 +90717,7 @@
     },
     {
         "id": 3611,
+        "species_id": 304,
         "name": "shujuanshouhu",
         "form": "书卷守护",
         "main_type": {
@@ -90183,6 +90765,7 @@
     },
     {
         "id": 3612,
+        "species_id": 305,
         "name": "gujuanzhizhengguan",
         "form": "古卷执政官",
         "main_type": {
@@ -90236,6 +90819,7 @@
     },
     {
         "id": 3613,
+        "species_id": 306,
         "name": "gujuanxiamoxiang",
         "form": "古卷匣魔像",
         "main_type": {
@@ -90289,6 +90873,7 @@
     },
     {
         "id": 3614,
+        "species_id": 323,
         "name": "shiguangwengweng",
         "form": "嗜光嗡嗡",
         "main_type": {
@@ -90472,6 +91057,7 @@
     },
     {
         "id": 3615,
+        "species_id": 324,
         "name": "qieguangwen",
         "form": "窃光蚊",
         "main_type": {
@@ -90524,6 +91110,7 @@
     },
     {
         "id": 3616,
+        "species_id": 3616,
         "name": "buguzhong",
         "form": "default",
         "main_type": {
@@ -90626,6 +91213,7 @@
     },
     {
         "id": 3617,
+        "species_id": 3617,
         "name": "suyuanzhong",
         "form": "default",
         "main_type": {
@@ -90679,6 +91267,7 @@
     },
     {
         "id": 3618,
+        "species_id": 210,
         "name": "xiaoxiangguai",
         "form": "小箱怪",
         "main_type": {
@@ -90959,6 +91548,7 @@
     },
     {
         "id": 3619,
+        "species_id": 211,
         "name": "mimixiangguai",
         "form": "迷迷箱怪",
         "main_type": {
@@ -91045,6 +91635,7 @@
     },
     {
         "id": 3620,
+        "species_id": 375,
         "name": "xueyuanguagua",
         "form": "default",
         "main_type": {
@@ -91168,6 +91759,7 @@
     },
     {
         "id": 3621,
+        "species_id": 3621,
         "name": "guzhongshe_yidi",
         "form": "default",
         "main_type": {
@@ -91298,6 +91890,7 @@
     },
     {
         "id": 3622,
+        "species_id": 3622,
         "name": "hanyinshe_yidi",
         "form": "default",
         "main_type": {
@@ -91351,6 +91944,7 @@
     },
     {
         "id": 3623,
+        "species_id": 3623,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -91401,6 +91995,7 @@
     },
     {
         "id": 3624,
+        "species_id": 3624,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -91451,6 +92046,7 @@
     },
     {
         "id": 3625,
+        "species_id": 3625,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -91501,6 +92097,7 @@
     },
     {
         "id": 3626,
+        "species_id": 3626,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -91551,6 +92148,7 @@
     },
     {
         "id": 3627,
+        "species_id": 3627,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -91595,6 +92193,7 @@
     },
     {
         "id": 3628,
+        "species_id": 3628,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -91639,6 +92238,7 @@
     },
     {
         "id": 3629,
+        "species_id": 3629,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -91683,6 +92283,7 @@
     },
     {
         "id": 3630,
+        "species_id": 3630,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -91727,6 +92328,7 @@
     },
     {
         "id": 3631,
+        "species_id": 3631,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -91771,6 +92373,7 @@
     },
     {
         "id": 3632,
+        "species_id": 3632,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -91815,6 +92418,7 @@
     },
     {
         "id": 3633,
+        "species_id": 3633,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -91865,6 +92469,7 @@
     },
     {
         "id": 3634,
+        "species_id": 3634,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -91915,6 +92520,7 @@
     },
     {
         "id": 3635,
+        "species_id": 3635,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -91965,6 +92571,7 @@
     },
     {
         "id": 3636,
+        "species_id": 3636,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92015,6 +92622,7 @@
     },
     {
         "id": 3637,
+        "species_id": 3637,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92059,6 +92667,7 @@
     },
     {
         "id": 3638,
+        "species_id": 3638,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92103,6 +92712,7 @@
     },
     {
         "id": 3639,
+        "species_id": 3639,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92147,6 +92757,7 @@
     },
     {
         "id": 3640,
+        "species_id": 3640,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92191,6 +92802,7 @@
     },
     {
         "id": 3641,
+        "species_id": 3641,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92235,6 +92847,7 @@
     },
     {
         "id": 3642,
+        "species_id": 3642,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92279,6 +92892,7 @@
     },
     {
         "id": 3643,
+        "species_id": 3643,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92323,6 +92937,7 @@
     },
     {
         "id": 3644,
+        "species_id": 3644,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92367,6 +92982,7 @@
     },
     {
         "id": 3645,
+        "species_id": 3645,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92411,6 +93027,7 @@
     },
     {
         "id": 3646,
+        "species_id": 3646,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92455,6 +93072,7 @@
     },
     {
         "id": 3647,
+        "species_id": 3647,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92499,6 +93117,7 @@
     },
     {
         "id": 3648,
+        "species_id": 3648,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92543,6 +93162,7 @@
     },
     {
         "id": 3649,
+        "species_id": 3649,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92587,6 +93207,7 @@
     },
     {
         "id": 3650,
+        "species_id": 3650,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92631,6 +93252,7 @@
     },
     {
         "id": 3651,
+        "species_id": 3651,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92675,6 +93297,7 @@
     },
     {
         "id": 3652,
+        "species_id": 3652,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92719,6 +93342,7 @@
     },
     {
         "id": 3653,
+        "species_id": 3653,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92763,6 +93387,7 @@
     },
     {
         "id": 3654,
+        "species_id": 3654,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92813,6 +93438,7 @@
     },
     {
         "id": 3655,
+        "species_id": 3655,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92863,6 +93489,7 @@
     },
     {
         "id": 3656,
+        "species_id": 3656,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92907,6 +93534,7 @@
     },
     {
         "id": 3657,
+        "species_id": 3657,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92951,6 +93579,7 @@
     },
     {
         "id": 3658,
+        "species_id": 3658,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -92995,6 +93624,7 @@
     },
     {
         "id": 3659,
+        "species_id": 360,
         "name": "jiayouhaikui",
         "form": "default",
         "main_type": {
@@ -93048,6 +93678,7 @@
     },
     {
         "id": 3660,
+        "species_id": 361,
         "name": "jiayouxie",
         "form": "default",
         "main_type": {
@@ -93101,6 +93732,7 @@
     },
     {
         "id": 3661,
+        "species_id": 3661,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -93145,6 +93777,7 @@
     },
     {
         "id": 3662,
+        "species_id": 3662,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -93189,6 +93822,7 @@
     },
     {
         "id": 3663,
+        "species_id": 3663,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -93239,6 +93873,7 @@
     },
     {
         "id": 3664,
+        "species_id": 3664,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -93289,6 +93924,7 @@
     },
     {
         "id": 3665,
+        "species_id": 3665,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -93339,6 +93975,7 @@
     },
     {
         "id": 3666,
+        "species_id": 3666,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -93389,6 +94026,7 @@
     },
     {
         "id": 3667,
+        "species_id": 3667,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -93433,6 +94071,7 @@
     },
     {
         "id": 3668,
+        "species_id": 3668,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -93477,6 +94116,7 @@
     },
     {
         "id": 3669,
+        "species_id": 3669,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -93521,6 +94161,7 @@
     },
     {
         "id": 3670,
+        "species_id": 3670,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -93565,6 +94206,7 @@
     },
     {
         "id": 3671,
+        "species_id": 3671,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -93615,6 +94257,7 @@
     },
     {
         "id": 3672,
+        "species_id": 3672,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -93665,6 +94308,7 @@
     },
     {
         "id": 3673,
+        "species_id": 3673,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -93709,6 +94353,7 @@
     },
     {
         "id": 3674,
+        "species_id": 3674,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -93753,6 +94398,7 @@
     },
     {
         "id": 3675,
+        "species_id": 3675,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -93803,6 +94449,7 @@
     },
     {
         "id": 3676,
+        "species_id": 3676,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -93853,6 +94500,7 @@
     },
     {
         "id": 3677,
+        "species_id": 365,
         "name": "yanhuatuan",
         "form": "default",
         "main_type": {
@@ -93955,6 +94603,7 @@
     },
     {
         "id": 3678,
+        "species_id": 366,
         "name": "yanhuabojue",
         "form": "default",
         "main_type": {
@@ -94008,6 +94657,7 @@
     },
     {
         "id": 3679,
+        "species_id": 3679,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -94058,6 +94708,7 @@
     },
     {
         "id": 3680,
+        "species_id": 3680,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -94108,6 +94759,7 @@
     },
     {
         "id": 3681,
+        "species_id": 3681,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -94152,6 +94804,7 @@
     },
     {
         "id": 3682,
+        "species_id": 3682,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -94196,6 +94849,7 @@
     },
     {
         "id": 3683,
+        "species_id": 367,
         "name": "gugumao",
         "form": "default",
         "main_type": {
@@ -94242,6 +94896,7 @@
     },
     {
         "id": 3684,
+        "species_id": 368,
         "name": "gudemaomao",
         "form": "default",
         "main_type": {
@@ -94288,6 +94943,7 @@
     },
     {
         "id": 3685,
+        "species_id": 3685,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -94332,6 +94988,7 @@
     },
     {
         "id": 3686,
+        "species_id": 3686,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -94376,6 +95033,7 @@
     },
     {
         "id": 3687,
+        "species_id": 3687,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -94420,6 +95078,7 @@
     },
     {
         "id": 3688,
+        "species_id": 3688,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -94464,6 +95123,7 @@
     },
     {
         "id": 3689,
+        "species_id": 3689,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -94508,6 +95168,7 @@
     },
     {
         "id": 3690,
+        "species_id": 3690,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -94552,6 +95213,7 @@
     },
     {
         "id": 3691,
+        "species_id": 3691,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -94596,6 +95258,7 @@
     },
     {
         "id": 3692,
+        "species_id": 3692,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -94640,6 +95303,7 @@
     },
     {
         "id": 3693,
+        "species_id": 3693,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -94684,6 +95348,7 @@
     },
     {
         "id": 3694,
+        "species_id": 3694,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -94728,6 +95393,7 @@
     },
     {
         "id": 3695,
+        "species_id": 3695,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -94778,6 +95444,7 @@
     },
     {
         "id": 3696,
+        "species_id": 3696,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -94828,6 +95495,7 @@
     },
     {
         "id": 3697,
+        "species_id": 3697,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -94878,6 +95546,7 @@
     },
     {
         "id": 3698,
+        "species_id": 3698,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -94928,6 +95597,7 @@
     },
     {
         "id": 3699,
+        "species_id": 3699,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -94978,6 +95648,7 @@
     },
     {
         "id": 3700,
+        "species_id": 3700,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -95028,6 +95699,7 @@
     },
     {
         "id": 3701,
+        "species_id": 3701,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -95078,6 +95750,7 @@
     },
     {
         "id": 3702,
+        "species_id": 3702,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -95128,6 +95801,7 @@
     },
     {
         "id": 3703,
+        "species_id": 3703,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -95178,6 +95852,7 @@
     },
     {
         "id": 3704,
+        "species_id": 270,
         "name": "youyou",
         "form": "优优",
         "main_type": {
@@ -95425,6 +96100,7 @@
     },
     {
         "id": 3705,
+        "species_id": 271,
         "name": "rongguangyouyou",
         "form": "绒光优优",
         "main_type": {
@@ -95477,6 +96153,7 @@
     },
     {
         "id": 3706,
+        "species_id": 3706,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -95576,6 +96253,7 @@
     },
     {
         "id": 3707,
+        "species_id": 3707,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -95626,6 +96304,7 @@
     },
     {
         "id": 3708,
+        "species_id": 371,
         "name": "xiaoguxiang",
         "form": "default",
         "main_type": {
@@ -95673,6 +96352,7 @@
     },
     {
         "id": 3709,
+        "species_id": 372,
         "name": "juguxiang",
         "form": "default",
         "main_type": {
@@ -95720,6 +96400,7 @@
     },
     {
         "id": 3710,
+        "species_id": 3710,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -95764,6 +96445,7 @@
     },
     {
         "id": 3711,
+        "species_id": 3711,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -95808,6 +96490,7 @@
     },
     {
         "id": 3712,
+        "species_id": 3712,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -95852,6 +96535,7 @@
     },
     {
         "id": 3713,
+        "species_id": 3713,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -95896,6 +96580,7 @@
     },
     {
         "id": 3714,
+        "species_id": 3714,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -95940,6 +96625,7 @@
     },
     {
         "id": 3715,
+        "species_id": 3715,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -95984,6 +96670,7 @@
     },
     {
         "id": 3716,
+        "species_id": 3716,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -96028,6 +96715,7 @@
     },
     {
         "id": 3717,
+        "species_id": 3717,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -96072,6 +96760,7 @@
     },
     {
         "id": 3718,
+        "species_id": 3718,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -96122,6 +96811,7 @@
     },
     {
         "id": 3719,
+        "species_id": 3719,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -96172,6 +96862,7 @@
     },
     {
         "id": 3720,
+        "species_id": 3720,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -96224,6 +96915,7 @@
     },
     {
         "id": 3721,
+        "species_id": 3721,
         "name": "yesongyang",
         "form": "default",
         "main_type": {
@@ -96276,6 +96968,7 @@
     },
     {
         "id": 3722,
+        "species_id": 3722,
         "name": "zhenyexunlin",
         "form": "default",
         "main_type": {
@@ -96328,6 +97021,7 @@
     },
     {
         "id": 3723,
+        "species_id": 3723,
         "name": "shuidishe",
         "form": "default",
         "main_type": {
@@ -96381,6 +97075,7 @@
     },
     {
         "id": 3724,
+        "species_id": 3724,
         "name": "shuishesuo",
         "form": "default",
         "main_type": {
@@ -96434,6 +97129,7 @@
     },
     {
         "id": 3725,
+        "species_id": 3725,
         "name": "youshemoshi",
         "form": "default",
         "main_type": {
@@ -96487,6 +97183,7 @@
     },
     {
         "id": 3726,
+        "species_id": 3726,
         "name": "xiaoyongshi",
         "form": "default",
         "main_type": {
@@ -96539,6 +97236,7 @@
     },
     {
         "id": 3727,
+        "species_id": 3727,
         "name": "chiyanshi",
         "form": "default",
         "main_type": {
@@ -96591,6 +97289,7 @@
     },
     {
         "id": 3728,
+        "species_id": 3728,
         "name": "chixinyongshi",
         "form": "default",
         "main_type": {
@@ -96643,6 +97342,7 @@
     },
     {
         "id": 3729,
+        "species_id": 358,
         "name": "houmaizai",
         "form": "default",
         "main_type": {
@@ -96696,6 +97396,7 @@
     },
     {
         "id": 3730,
+        "species_id": 359,
         "name": "yindiehou",
         "form": "default",
         "main_type": {
@@ -96749,6 +97450,7 @@
     },
     {
         "id": 3731,
+        "species_id": 3731,
         "name": "chixinyongshi",
         "form": "default",
         "main_type": {
@@ -96799,6 +97501,7 @@
     },
     {
         "id": 3732,
+        "species_id": 3732,
         "name": "chixinyongshi",
         "form": "default",
         "main_type": {
@@ -96849,6 +97552,7 @@
     },
     {
         "id": 3733,
+        "species_id": 348,
         "name": "wusibeibei",
         "form": "default",
         "main_type": {
@@ -96895,6 +97599,7 @@
     },
     {
         "id": 3734,
+        "species_id": 349,
         "name": "huiguangmuji",
         "form": "default",
         "main_type": {
@@ -96941,6 +97646,7 @@
     },
     {
         "id": 3735,
+        "species_id": 350,
         "name": "jimufangzhou",
         "form": "default",
         "main_type": {
@@ -96987,6 +97693,7 @@
     },
     {
         "id": 3736,
+        "species_id": 369,
         "name": "xuanguangdidi",
         "form": "default",
         "main_type": {
@@ -97040,6 +97747,7 @@
     },
     {
         "id": 3737,
+        "species_id": 370,
         "name": "pilididi",
         "form": "default",
         "main_type": {
@@ -97093,6 +97801,7 @@
     },
     {
         "id": 3738,
+        "species_id": 3738,
         "name": "xiaosongmao_yidi",
         "form": "default",
         "main_type": {
@@ -97329,6 +98038,7 @@
     },
     {
         "id": 3739,
+        "species_id": 3739,
         "name": "numusongmao_yidi",
         "form": "default",
         "main_type": {
@@ -97376,6 +98086,7 @@
     },
     {
         "id": 3740,
+        "species_id": 3740,
         "name": "fangfanghu",
         "form": "default",
         "main_type": {
@@ -97422,6 +98133,7 @@
     },
     {
         "id": 3741,
+        "species_id": 3741,
         "name": "hulianchacha",
         "form": "default",
         "main_type": {
@@ -97468,6 +98180,7 @@
     },
     {
         "id": 3742,
+        "species_id": 11,
         "name": "yajiji_qilaiya",
         "form": "鸭吉吉",
         "main_type": {
@@ -97575,6 +98288,7 @@
     },
     {
         "id": 3743,
+        "species_id": 361,
         "name": "jiayouxiedanzhi",
         "form": "default",
         "main_type": {
@@ -97628,6 +98342,7 @@
     },
     {
         "id": 3744,
+        "species_id": 340,
         "name": "huohongwei",
         "form": "火红尾",
         "main_type": {
@@ -97773,6 +98488,7 @@
     },
     {
         "id": 3745,
+        "species_id": 341,
         "name": "yadanbin",
         "form": "雅丹鬃",
         "main_type": {
@@ -97819,6 +98535,7 @@
     },
     {
         "id": 3746,
+        "species_id": 3746,
         "name": "xueyingwawa",
         "form": "default",
         "main_type": {
@@ -97872,6 +98589,7 @@
     },
     {
         "id": 3747,
+        "species_id": 3747,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -97924,6 +98642,7 @@
     },
     {
         "id": 3748,
+        "species_id": 3748,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -97976,6 +98695,7 @@
     },
     {
         "id": 3749,
+        "species_id": 3749,
         "name": "huohongwei",
         "form": "default",
         "main_type": {
@@ -98022,6 +98742,7 @@
     },
     {
         "id": 3750,
+        "species_id": 3750,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -98068,6 +98789,7 @@
     },
     {
         "id": 3751,
+        "species_id": 3751,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -98114,6 +98836,7 @@
     },
     {
         "id": 3752,
+        "species_id": 3752,
         "name": "huohongwei",
         "form": "default",
         "main_type": {
@@ -98166,6 +98889,7 @@
     },
     {
         "id": 3753,
+        "species_id": 3753,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -98218,6 +98942,7 @@
     },
     {
         "id": 3754,
+        "species_id": 3754,
         "name": "huohongwei",
         "form": "default",
         "main_type": {
@@ -98264,6 +98989,7 @@
     },
     {
         "id": 3755,
+        "species_id": 3755,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -98310,6 +99036,7 @@
     },
     {
         "id": 3756,
+        "species_id": 3756,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -98356,6 +99083,7 @@
     },
     {
         "id": 3757,
+        "species_id": 3757,
         "name": "huohongwei",
         "form": "default",
         "main_type": {
@@ -98402,6 +99130,7 @@
     },
     {
         "id": 3758,
+        "species_id": 3758,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -98448,6 +99177,7 @@
     },
     {
         "id": 3759,
+        "species_id": 3759,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -98494,6 +99224,7 @@
     },
     {
         "id": 3760,
+        "species_id": 3760,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -98540,6 +99271,7 @@
     },
     {
         "id": 3761,
+        "species_id": 3761,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -98586,6 +99318,7 @@
     },
     {
         "id": 3762,
+        "species_id": 3762,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -98632,6 +99365,7 @@
     },
     {
         "id": 3763,
+        "species_id": 3763,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -98678,6 +99412,7 @@
     },
     {
         "id": 3764,
+        "species_id": 3764,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -98724,6 +99459,7 @@
     },
     {
         "id": 3765,
+        "species_id": 3765,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -98770,6 +99506,7 @@
     },
     {
         "id": 3766,
+        "species_id": 3766,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -98816,6 +99553,7 @@
     },
     {
         "id": 3767,
+        "species_id": 3767,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -98862,6 +99600,7 @@
     },
     {
         "id": 3768,
+        "species_id": 3768,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -98908,6 +99647,7 @@
     },
     {
         "id": 3769,
+        "species_id": 3769,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -98954,6 +99694,7 @@
     },
     {
         "id": 3770,
+        "species_id": 3770,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -99000,6 +99741,7 @@
     },
     {
         "id": 3771,
+        "species_id": 3771,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -99046,6 +99788,7 @@
     },
     {
         "id": 3772,
+        "species_id": 3772,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -99092,6 +99835,7 @@
     },
     {
         "id": 3773,
+        "species_id": 3773,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -99138,6 +99882,7 @@
     },
     {
         "id": 3774,
+        "species_id": 3774,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -99184,6 +99929,7 @@
     },
     {
         "id": 3775,
+        "species_id": 3775,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -99230,6 +99976,7 @@
     },
     {
         "id": 3776,
+        "species_id": 3776,
         "name": "yadanbin",
         "form": "default",
         "main_type": {
@@ -99276,6 +100023,7 @@
     },
     {
         "id": 3777,
+        "species_id": 35,
         "name": "youlingshu",
         "form": "幽影树",
         "main_type": {
@@ -99396,6 +100144,7 @@
     },
     {
         "id": 4005,
+        "species_id": 10,
         "name": "shuiling_shouling",
         "form": "圣水守护",
         "main_type": {
@@ -99440,6 +100189,7 @@
     },
     {
         "id": 4006,
+        "species_id": 7,
         "name": "huoshen_shouling",
         "form": "烈火战神",
         "main_type": {
@@ -99484,6 +100234,7 @@
     },
     {
         "id": 4007,
+        "species_id": 4,
         "name": "molimiao_shouling",
         "form": "叶冕魔力猫",
         "main_type": {
@@ -99528,6 +100279,7 @@
     },
     {
         "id": 4011,
+        "species_id": 131,
         "name": "emolang_shouling",
         "form": "恶魔狼王",
         "main_type": {
@@ -99572,6 +100324,7 @@
     },
     {
         "id": 4012,
+        "species_id": 11,
         "name": "yajiji_shouling",
         "form": "鸭吉吉国王",
         "main_type": {
@@ -99616,6 +100369,7 @@
     },
     {
         "id": 4019,
+        "species_id": 65,
         "name": "bengbenghua_shouling",
         "form": "蹦蹦果",
         "main_type": {
@@ -100511,6 +101265,7 @@
     },
     {
         "id": 4020,
+        "species_id": 78,
         "name": "qianjikui_shouling",
         "form": "千棘海针",
         "main_type": {
@@ -100561,6 +101316,7 @@
     },
     {
         "id": 4021,
+        "species_id": 84,
         "name": "huakuifenghou_shouling",
         "form": "女王蜂",
         "main_type": {
@@ -100611,6 +101367,7 @@
     },
     {
         "id": 4022,
+        "species_id": 43,
         "name": "qilihua_boss",
         "form": "奇丽果",
         "main_type": {
@@ -100655,6 +101412,7 @@
     },
     {
         "id": 4050,
+        "species_id": 4050,
         "name": "4050",
         "form": "default",
         "main_type": {
@@ -100699,6 +101457,7 @@
     },
     {
         "id": 4064,
+        "species_id": 35,
         "name": "youyingshu_shouling",
         "form": "幻影荆棘",
         "main_type": {
@@ -100749,6 +101508,7 @@
     },
     {
         "id": 4069,
+        "species_id": 4069,
         "name": "4069",
         "form": "default",
         "main_type": {
@@ -100799,6 +101559,7 @@
     },
     {
         "id": 4070,
+        "species_id": 4070,
         "name": "4070",
         "form": "default",
         "main_type": {
@@ -100849,6 +101610,7 @@
     },
     {
         "id": 4071,
+        "species_id": 4071,
         "name": "4071",
         "form": "default",
         "main_type": {
@@ -100899,6 +101661,7 @@
     },
     {
         "id": 4072,
+        "species_id": 29,
         "name": "bulaikeyan_shouling",
         "form": "迷嶂布莱克",
         "main_type": {
@@ -100943,6 +101706,7 @@
     },
     {
         "id": 4073,
+        "species_id": 110,
         "name": "caidiesha_shouling",
         "form": "神谕鲨",
         "main_type": {
@@ -100993,6 +101757,7 @@
     },
     {
         "id": 4074,
+        "species_id": 20,
         "name": "lanniao_shouling",
         "form": "霜翼领主",
         "main_type": {
@@ -101037,6 +101802,7 @@
     },
     {
         "id": 4075,
+        "species_id": 4075,
         "name": "4075",
         "form": "default",
         "main_type": {
@@ -101087,6 +101853,7 @@
     },
     {
         "id": 4076,
+        "species_id": 117,
         "name": "yilisi",
         "form": "伊里斯",
         "main_type": {
@@ -101204,6 +101971,7 @@
     },
     {
         "id": 4077,
+        "species_id": 4077,
         "name": "4077",
         "form": "default",
         "main_type": {
@@ -101248,6 +102016,7 @@
     },
     {
         "id": 4078,
+        "species_id": 48,
         "name": "yinsuquan_shouling",
         "form": "风暴战犬",
         "main_type": {
@@ -101337,6 +102106,7 @@
     },
     {
         "id": 4079,
+        "species_id": 40,
         "name": "jingshiwo_shouling",
         "form": "钻石蜗",
         "main_type": {
@@ -101387,6 +102157,7 @@
     },
     {
         "id": 4080,
+        "species_id": 4080,
         "name": "4080",
         "form": "default",
         "main_type": {
@@ -101437,6 +102208,7 @@
     },
     {
         "id": 4081,
+        "species_id": 4081,
         "name": "4081",
         "form": "default",
         "main_type": {
@@ -101487,6 +102259,7 @@
     },
     {
         "id": 4082,
+        "species_id": 4082,
         "name": "4082",
         "form": "default",
         "main_type": {
@@ -101537,6 +102310,7 @@
     },
     {
         "id": 4083,
+        "species_id": 122,
         "name": "heimaowushi_shouling",
         "form": "黑猫密探",
         "main_type": {
@@ -101581,6 +102355,7 @@
     },
     {
         "id": 4084,
+        "species_id": 115,
         "name": "yishijuxiang_shouling",
         "form": "祭礼巨像",
         "main_type": {
@@ -101631,6 +102406,7 @@
     },
     {
         "id": 4085,
+        "species_id": 144,
         "name": "xueyingwawa_shouling",
         "form": "雪影冰灵",
         "main_type": {
@@ -101681,6 +102457,7 @@
     },
     {
         "id": 4086,
+        "species_id": 189,
         "name": "qiqibixia",
         "form": "棋契陛下",
         "main_type": {
@@ -102254,6 +103031,7 @@
     },
     {
         "id": 4087,
+        "species_id": 200,
         "name": "qimengmi_shouling",
         "form": "奇梦咪",
         "main_type": {
@@ -102298,6 +103076,7 @@
     },
     {
         "id": 4088,
+        "species_id": 228,
         "name": "jueshilu_shouling",
         "form": "波普鹿",
         "main_type": {
@@ -102342,6 +103121,7 @@
     },
     {
         "id": 4089,
+        "species_id": 286,
         "name": "shengjianX_shouling",
         "form": "圣剑骑士",
         "main_type": {
@@ -102386,6 +103166,7 @@
     },
     {
         "id": 4090,
+        "species_id": 204,
         "name": "yilanyalong_shouling",
         "form": "伊兰龙",
         "main_type": {
@@ -102430,6 +103211,7 @@
     },
     {
         "id": 4091,
+        "species_id": 4091,
         "name": "4091",
         "form": "default",
         "main_type": {
@@ -102474,6 +103256,7 @@
     },
     {
         "id": 4092,
+        "species_id": 4092,
         "name": "lihaixiuluo",
         "form": "default",
         "main_type": {
@@ -102524,6 +103307,7 @@
     },
     {
         "id": 4093,
+        "species_id": 4093,
         "name": "gongpingge",
         "form": "default",
         "main_type": {
@@ -102568,6 +103352,7 @@
     },
     {
         "id": 4094,
+        "species_id": 4094,
         "name": "liulishuimu",
         "form": "default",
         "main_type": {
@@ -102618,6 +103403,7 @@
     },
     {
         "id": 4095,
+        "species_id": 4095,
         "name": "4095",
         "form": "default",
         "main_type": {
@@ -102662,6 +103448,7 @@
     },
     {
         "id": 4096,
+        "species_id": 200,
         "name": "qimengmi_shouling",
         "form": "奇梦咪",
         "main_type": {
@@ -102706,6 +103493,7 @@
     },
     {
         "id": 4097,
+        "species_id": 200,
         "name": "qimengmi_shouling",
         "form": "奇梦咪",
         "main_type": {
@@ -102750,6 +103538,7 @@
     },
     {
         "id": 4098,
+        "species_id": 144,
         "name": "xueyingwawa_shouling",
         "form": "雪影冰灵",
         "main_type": {
@@ -102800,6 +103589,7 @@
     },
     {
         "id": 4099,
+        "species_id": 144,
         "name": "xueyingwawa_shouling",
         "form": "雪影冰灵",
         "main_type": {
@@ -102850,6 +103640,7 @@
     },
     {
         "id": 4100,
+        "species_id": 4100,
         "name": "xueyingwawa_shouling",
         "form": "default",
         "main_type": {
@@ -102900,6 +103691,7 @@
     },
     {
         "id": 4101,
+        "species_id": 4101,
         "name": "xueyingwawa_shouling",
         "form": "default",
         "main_type": {
@@ -102950,6 +103742,7 @@
     },
     {
         "id": 4102,
+        "species_id": 4102,
         "name": "xueyingwawa_shouling",
         "form": "default",
         "main_type": {
@@ -103000,6 +103793,7 @@
     },
     {
         "id": 4103,
+        "species_id": 4103,
         "name": "xueyingwawa_shouling",
         "form": "default",
         "main_type": {
@@ -103050,6 +103844,7 @@
     },
     {
         "id": 5001,
+        "species_id": 40,
         "name": "jingshiwo_shouling",
         "form": "钻石蜗",
         "main_type": {
@@ -103100,6 +103895,7 @@
     },
     {
         "id": 5002,
+        "species_id": 117,
         "name": "yilisi",
         "form": "彩虹独角兽",
         "main_type": {
@@ -103144,6 +103940,7 @@
     },
     {
         "id": 5003,
+        "species_id": 4,
         "name": "molimiao_shouling",
         "form": "叶冕魔力猫",
         "main_type": {
@@ -103188,6 +103985,7 @@
     },
     {
         "id": 5004,
+        "species_id": 65,
         "name": "bengbenghua_shouling",
         "form": "蹦蹦果",
         "main_type": {
@@ -104083,6 +104881,7 @@
     },
     {
         "id": 5005,
+        "species_id": 43,
         "name": "qilihua_boss",
         "form": "奇丽果",
         "main_type": {
@@ -104127,6 +104926,7 @@
     },
     {
         "id": 5006,
+        "species_id": 11,
         "name": "yajiji_shouling",
         "form": "鸭吉吉国王",
         "main_type": {
@@ -104171,6 +104971,7 @@
     },
     {
         "id": 5007,
+        "species_id": 122,
         "name": "heimaowushi_shouling",
         "form": "黑猫密探",
         "main_type": {
@@ -104215,6 +105016,7 @@
     },
     {
         "id": 5008,
+        "species_id": 29,
         "name": "bulaikeyan_shouling",
         "form": "迷嶂布莱克",
         "main_type": {
@@ -104259,6 +105061,7 @@
     },
     {
         "id": 5009,
+        "species_id": 115,
         "name": "yishijuxiang_shouling",
         "form": "祭礼巨像",
         "main_type": {
@@ -104309,6 +105112,7 @@
     },
     {
         "id": 5010,
+        "species_id": 10,
         "name": "shuiling_shouling",
         "form": "圣水守护",
         "main_type": {
@@ -104353,6 +105157,7 @@
     },
     {
         "id": 5011,
+        "species_id": 110,
         "name": "caidiesha_shouling",
         "form": "神谕鲨",
         "main_type": {
@@ -104403,6 +105208,7 @@
     },
     {
         "id": 5012,
+        "species_id": 78,
         "name": "qianjikui_shouling",
         "form": "千棘海针",
         "main_type": {
@@ -104453,6 +105259,7 @@
     },
     {
         "id": 5013,
+        "species_id": 144,
         "name": "xueyingwawa_shouling",
         "form": "雪影冰灵",
         "main_type": {
@@ -104503,6 +105310,7 @@
     },
     {
         "id": 5014,
+        "species_id": 20,
         "name": "lanniao_shouling",
         "form": "霜翼领主",
         "main_type": {
@@ -104547,6 +105355,7 @@
     },
     {
         "id": 5015,
+        "species_id": 84,
         "name": "huakuifenghou_shouling",
         "form": "女王蜂",
         "main_type": {
@@ -104597,6 +105406,7 @@
     },
     {
         "id": 5016,
+        "species_id": 131,
         "name": "emolang_shouling",
         "form": "恶魔狼王",
         "main_type": {
@@ -104641,6 +105451,7 @@
     },
     {
         "id": 5017,
+        "species_id": 7,
         "name": "huoshen_shouling",
         "form": "烈火战神",
         "main_type": {
@@ -104685,6 +105496,7 @@
     },
     {
         "id": 5018,
+        "species_id": 48,
         "name": "yinsuquan_shouling",
         "form": "风暴战犬",
         "main_type": {
@@ -104774,6 +105586,7 @@
     },
     {
         "id": 5019,
+        "species_id": 35,
         "name": "youyingshu_shouling",
         "form": "幻影荆棘",
         "main_type": {
@@ -104824,6 +105637,7 @@
     },
     {
         "id": 5020,
+        "species_id": 228,
         "name": "jueshilu_shouling",
         "form": "波普鹿",
         "main_type": {
@@ -104868,6 +105682,7 @@
     },
     {
         "id": 5021,
+        "species_id": 286,
         "name": "shengjianX_shouling",
         "form": "圣剑骑士",
         "main_type": {
@@ -104912,6 +105727,7 @@
     },
     {
         "id": 5022,
+        "species_id": 204,
         "name": "yilanyalong_shouling",
         "form": "伊兰龙",
         "main_type": {
@@ -104956,6 +105772,7 @@
     },
     {
         "id": 5023,
+        "species_id": 189,
         "name": "qiqibixia",
         "form": "棋契陛下",
         "main_type": {
@@ -105529,6 +106346,7 @@
     },
     {
         "id": 5024,
+        "species_id": 200,
         "name": "qimengmi_shouling",
         "form": "奇梦咪",
         "main_type": {
@@ -105573,6 +106391,7 @@
     },
     {
         "id": 5025,
+        "species_id": 1,
         "name": "shengguangdimo",
         "form": "圣光",
         "main_type": {
@@ -105678,6 +106497,7 @@
     },
     {
         "id": 5026,
+        "species_id": 1,
         "name": "shengcaodimo",
         "form": "圣草",
         "main_type": {
@@ -105789,6 +106609,7 @@
     },
     {
         "id": 5027,
+        "species_id": 1,
         "name": "shenghuodimo",
         "form": "圣火",
         "main_type": {
@@ -105894,6 +106715,7 @@
     },
     {
         "id": 5028,
+        "species_id": 1,
         "name": "shengshuidimo",
         "form": "圣水",
         "main_type": {
@@ -105999,6 +106821,7 @@
     },
     {
         "id": 5029,
+        "species_id": 78,
         "name": "qianjikui_shouling",
         "form": "千棘海针",
         "main_type": {
@@ -106049,6 +106872,7 @@
     },
     {
         "id": 5030,
+        "species_id": 20,
         "name": "lanniao_shouling",
         "form": "霜翼领主",
         "main_type": {
@@ -106093,6 +106917,7 @@
     },
     {
         "id": 5031,
+        "species_id": 20,
         "name": "lanniao_shouling",
         "form": "霜翼领主",
         "main_type": {
@@ -106137,6 +106962,7 @@
     },
     {
         "id": 5032,
+        "species_id": 20,
         "name": "lanniao_shouling",
         "form": "霜翼领主",
         "main_type": {
@@ -106181,6 +107007,7 @@
     },
     {
         "id": 5033,
+        "species_id": 65,
         "name": "bengbenghua_shouling",
         "form": "蹦蹦果",
         "main_type": {
@@ -107076,6 +107903,7 @@
     },
     {
         "id": 5034,
+        "species_id": 65,
         "name": "bengbenghua_shouling",
         "form": "蹦蹦果",
         "main_type": {
@@ -107971,6 +108799,7 @@
     },
     {
         "id": 5035,
+        "species_id": 65,
         "name": "bengbenghua_shouling",
         "form": "蹦蹦果",
         "main_type": {
@@ -108866,6 +109695,7 @@
     },
     {
         "id": 5036,
+        "species_id": 11,
         "name": "yajiji_shouling",
         "form": "鸭吉吉国王",
         "main_type": {
@@ -108910,6 +109740,7 @@
     },
     {
         "id": 5037,
+        "species_id": 11,
         "name": "yajiji_shouling",
         "form": "鸭吉吉国王",
         "main_type": {
@@ -108954,6 +109785,7 @@
     },
     {
         "id": 5038,
+        "species_id": 11,
         "name": "yajiji_shouling",
         "form": "鸭吉吉国王",
         "main_type": {
@@ -108998,6 +109830,7 @@
     },
     {
         "id": 5039,
+        "species_id": 11,
         "name": "yajiji_shouling",
         "form": "鸭吉吉国王",
         "main_type": {
@@ -109042,6 +109875,7 @@
     },
     {
         "id": 5040,
+        "species_id": 192,
         "name": "qiqibixia",
         "form": "棋契陛下",
         "main_type": {
@@ -109092,6 +109926,7 @@
     },
     {
         "id": 5041,
+        "species_id": 190,
         "name": "qiqibixia",
         "form": "棋契陛下",
         "main_type": {
@@ -109142,6 +109977,7 @@
     },
     {
         "id": 5042,
+        "species_id": 191,
         "name": "qiqibixia",
         "form": "棋契陛下",
         "main_type": {
@@ -109192,6 +110028,7 @@
     },
     {
         "id": 5043,
+        "species_id": 189,
         "name": "qiqibixia",
         "form": "棋契陛下",
         "main_type": {
@@ -109765,6 +110602,7 @@
     },
     {
         "id": 5044,
+        "species_id": 192,
         "name": "qiqibixia",
         "form": "棋契陛下",
         "main_type": {
@@ -109815,6 +110653,7 @@
     },
     {
         "id": 5045,
+        "species_id": 190,
         "name": "qiqibixia",
         "form": "棋契陛下",
         "main_type": {
@@ -109865,6 +110704,7 @@
     },
     {
         "id": 5046,
+        "species_id": 191,
         "name": "qiqibixia",
         "form": "棋契陛下",
         "main_type": {
@@ -109915,6 +110755,7 @@
     },
     {
         "id": 5047,
+        "species_id": 40,
         "name": "jingshiwo_shouling",
         "form": "钻石蜗",
         "main_type": {
@@ -109965,6 +110806,7 @@
     },
     {
         "id": 5048,
+        "species_id": 40,
         "name": "jingshiwo_shouling",
         "form": "钻石蜗",
         "main_type": {
@@ -110015,6 +110857,7 @@
     },
     {
         "id": 5049,
+        "species_id": 40,
         "name": "jingshiwo_shouling",
         "form": "钻石蜗",
         "main_type": {
@@ -110065,6 +110908,7 @@
     },
     {
         "id": 5050,
+        "species_id": 40,
         "name": "jingshiwo_shouling",
         "form": "钻石蜗",
         "main_type": {
@@ -110115,6 +110959,7 @@
     },
     {
         "id": 5051,
+        "species_id": 40,
         "name": "jingshiwo_shouling",
         "form": "钻石蜗",
         "main_type": {
@@ -110165,6 +111010,7 @@
     },
     {
         "id": 5052,
+        "species_id": 11,
         "name": "yajiji_shouling",
         "form": "鸭吉吉国王",
         "main_type": {
@@ -110209,6 +111055,7 @@
     },
     {
         "id": 5053,
+        "species_id": 107,
         "name": "shenyuanluoyin",
         "form": "深渊罗隐",
         "main_type": {
@@ -110259,6 +111106,7 @@
     },
     {
         "id": 5054,
+        "species_id": 233,
         "name": "gaomaoyuzhe",
         "form": "高帽鹬者",
         "main_type": {
@@ -110303,6 +111151,7 @@
     },
     {
         "id": 6001,
+        "species_id": 6001,
         "name": "yinsuquan_shouling",
         "form": "default",
         "main_type": {
@@ -110347,6 +111196,7 @@
     },
     {
         "id": 6002,
+        "species_id": 6002,
         "name": "bengbenghua_shouling",
         "form": "初级",
         "main_type": {
@@ -110397,6 +111247,7 @@
     },
     {
         "id": 6003,
+        "species_id": 6003,
         "name": "bengbenghua_shouling",
         "form": "中级",
         "main_type": {
@@ -110447,6 +111298,7 @@
     },
     {
         "id": 6004,
+        "species_id": 6004,
         "name": "bengbenghua_shouling",
         "form": "高级",
         "main_type": {
@@ -110497,6 +111349,7 @@
     },
     {
         "id": 6005,
+        "species_id": 6005,
         "name": "jingshiwo_shouling",
         "form": "初级",
         "main_type": {
@@ -110547,6 +111400,7 @@
     },
     {
         "id": 6006,
+        "species_id": 6006,
         "name": "jingshiwo_shouling",
         "form": "中级",
         "main_type": {
@@ -110597,6 +111451,7 @@
     },
     {
         "id": 6007,
+        "species_id": 6007,
         "name": "jingshiwo_shouling",
         "form": "高级",
         "main_type": {
@@ -110647,6 +111502,7 @@
     },
     {
         "id": 6008,
+        "species_id": 6008,
         "name": "6008",
         "form": "初级",
         "main_type": {
@@ -110697,6 +111553,7 @@
     },
     {
         "id": 6009,
+        "species_id": 6009,
         "name": "6009",
         "form": "中级",
         "main_type": {
@@ -110747,6 +111604,7 @@
     },
     {
         "id": 6010,
+        "species_id": 6010,
         "name": "6010",
         "form": "高级",
         "main_type": {
@@ -110797,6 +111655,7 @@
     },
     {
         "id": 6011,
+        "species_id": 6011,
         "name": "6011",
         "form": "初级",
         "main_type": {
@@ -110841,6 +111700,7 @@
     },
     {
         "id": 6012,
+        "species_id": 6012,
         "name": "6012",
         "form": "中级",
         "main_type": {
@@ -110885,6 +111745,7 @@
     },
     {
         "id": 6013,
+        "species_id": 6013,
         "name": "6013",
         "form": "高级",
         "main_type": {
@@ -110929,6 +111790,7 @@
     },
     {
         "id": 6014,
+        "species_id": 6014,
         "name": "6014",
         "form": "初级",
         "main_type": {
@@ -110973,6 +111835,7 @@
     },
     {
         "id": 6015,
+        "species_id": 6015,
         "name": "6015",
         "form": "中级",
         "main_type": {
@@ -111017,6 +111880,7 @@
     },
     {
         "id": 6016,
+        "species_id": 6016,
         "name": "6016",
         "form": "高级",
         "main_type": {
@@ -111061,6 +111925,7 @@
     },
     {
         "id": 6017,
+        "species_id": 6017,
         "name": "yishijuxiang_shouling",
         "form": "初级",
         "main_type": {
@@ -111105,6 +111970,7 @@
     },
     {
         "id": 6018,
+        "species_id": 6018,
         "name": "yishijuxiang_shouling",
         "form": "中级",
         "main_type": {
@@ -111149,6 +112015,7 @@
     },
     {
         "id": 6019,
+        "species_id": 6019,
         "name": "yishijuxiang_shouling",
         "form": "高级",
         "main_type": {
@@ -111193,6 +112060,7 @@
     },
     {
         "id": 6020,
+        "species_id": 6020,
         "name": "heimaowushi_shouling",
         "form": "初级",
         "main_type": {
@@ -111237,6 +112105,7 @@
     },
     {
         "id": 6021,
+        "species_id": 6021,
         "name": "heimaowushi_shouling",
         "form": "中级",
         "main_type": {
@@ -111281,6 +112150,7 @@
     },
     {
         "id": 6022,
+        "species_id": 6022,
         "name": "heimaowushi_shouling",
         "form": "高级",
         "main_type": {
@@ -111325,6 +112195,7 @@
     },
     {
         "id": 6023,
+        "species_id": 6023,
         "name": "yinsuquan_shouling",
         "form": "初级",
         "main_type": {
@@ -111369,6 +112240,7 @@
     },
     {
         "id": 6024,
+        "species_id": 6024,
         "name": "yinsuquan_shouling",
         "form": "中级",
         "main_type": {
@@ -111413,6 +112285,7 @@
     },
     {
         "id": 6025,
+        "species_id": 6025,
         "name": "yinsuquan_shouling",
         "form": "高级",
         "main_type": {
@@ -111457,6 +112330,7 @@
     },
     {
         "id": 6026,
+        "species_id": 6026,
         "name": "bulaikeyan_shouling",
         "form": "初级",
         "main_type": {
@@ -111501,6 +112375,7 @@
     },
     {
         "id": 6027,
+        "species_id": 6027,
         "name": "bulaikeyan_shouling",
         "form": "中级",
         "main_type": {
@@ -111545,6 +112420,7 @@
     },
     {
         "id": 6028,
+        "species_id": 6028,
         "name": "bulaikeyan_shouling",
         "form": "高级",
         "main_type": {
@@ -111589,6 +112465,7 @@
     },
     {
         "id": 7001,
+        "species_id": 7001,
         "name": "emolang_shouling",
         "form": "default",
         "main_type": {
@@ -111633,6 +112510,7 @@
     },
     {
         "id": 7002,
+        "species_id": 7002,
         "name": "emolang_shouling",
         "form": "default",
         "main_type": {
@@ -111677,6 +112555,7 @@
     },
     {
         "id": 7003,
+        "species_id": 7003,
         "name": "emolang_shouling",
         "form": "default",
         "main_type": {
@@ -111721,6 +112600,7 @@
     },
     {
         "id": 7004,
+        "species_id": 7004,
         "name": "emolang_shouling",
         "form": "default",
         "main_type": {
@@ -111765,6 +112645,7 @@
     },
     {
         "id": 7005,
+        "species_id": 7005,
         "name": "shengjianX_shouling",
         "form": "default",
         "main_type": {
@@ -111809,6 +112690,7 @@
     },
     {
         "id": 7006,
+        "species_id": 7006,
         "name": "shengjianX_shouling",
         "form": "default",
         "main_type": {
@@ -111853,6 +112735,7 @@
     },
     {
         "id": 7007,
+        "species_id": 7007,
         "name": "shengjianX_shouling",
         "form": "default",
         "main_type": {
@@ -111897,6 +112780,7 @@
     },
     {
         "id": 7008,
+        "species_id": 7008,
         "name": "shengjianX_shouling",
         "form": "default",
         "main_type": {
@@ -111941,6 +112825,7 @@
     },
     {
         "id": 8001,
+        "species_id": 8001,
         "name": "8001",
         "form": "default",
         "main_type": {
@@ -111985,6 +112870,7 @@
     },
     {
         "id": 8002,
+        "species_id": 8002,
         "name": "8002",
         "form": "default",
         "main_type": {
@@ -112035,6 +112921,7 @@
     },
     {
         "id": 8003,
+        "species_id": 8003,
         "name": "8003",
         "form": "default",
         "main_type": {
@@ -112085,6 +112972,7 @@
     },
     {
         "id": 8004,
+        "species_id": 8004,
         "name": "8004",
         "form": "default",
         "main_type": {
@@ -112129,6 +113017,7 @@
     },
     {
         "id": 8005,
+        "species_id": 8005,
         "name": "8005",
         "form": "default",
         "main_type": {
@@ -112173,6 +113062,7 @@
     },
     {
         "id": 8006,
+        "species_id": 8006,
         "name": "8006",
         "form": "default",
         "main_type": {
@@ -112223,6 +113113,7 @@
     },
     {
         "id": 8007,
+        "species_id": 8007,
         "name": "8007",
         "form": "default",
         "main_type": {
@@ -112328,6 +113219,7 @@
     },
     {
         "id": 8008,
+        "species_id": 8008,
         "name": "8008",
         "form": "default",
         "main_type": {
@@ -112378,6 +113270,7 @@
     },
     {
         "id": 8009,
+        "species_id": 8009,
         "name": "8009",
         "form": "default",
         "main_type": {
@@ -112422,6 +113315,7 @@
     },
     {
         "id": 8010,
+        "species_id": 8010,
         "name": "8010",
         "form": "default",
         "main_type": {
@@ -112466,6 +113360,7 @@
     },
     {
         "id": 8011,
+        "species_id": 8011,
         "name": "yilong",
         "form": "default",
         "main_type": {
@@ -112516,6 +113411,7 @@
     },
     {
         "id": 8012,
+        "species_id": 8012,
         "name": "jiyishi",
         "form": "default",
         "main_type": {
@@ -112755,6 +113651,7 @@
     },
     {
         "id": 8013,
+        "species_id": 8013,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -112805,6 +113702,7 @@
     },
     {
         "id": 8014,
+        "species_id": 8014,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -112849,6 +113747,7 @@
     },
     {
         "id": 8015,
+        "species_id": 8015,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -112893,6 +113792,7 @@
     },
     {
         "id": 8016,
+        "species_id": 8016,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -112937,6 +113837,7 @@
     },
     {
         "id": 8017,
+        "species_id": 8017,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -112987,6 +113888,7 @@
     },
     {
         "id": 8018,
+        "species_id": 8018,
         "name": "qiuka",
         "form": "default",
         "main_type": {
@@ -113034,6 +113936,7 @@
     },
     {
         "id": 8019,
+        "species_id": 8019,
         "name": "lihaixiuluo",
         "form": "default",
         "main_type": {
@@ -113087,6 +113990,7 @@
     },
     {
         "id": 8020,
+        "species_id": 8020,
         "name": "gongpingge",
         "form": "default",
         "main_type": {
@@ -113133,6 +114037,7 @@
     },
     {
         "id": 8021,
+        "species_id": 8021,
         "name": "xuejuren",
         "form": "default",
         "main_type": {
@@ -113180,6 +114085,7 @@
     },
     {
         "id": 8022,
+        "species_id": 8022,
         "name": "8022",
         "form": "default",
         "main_type": {
@@ -113224,6 +114130,7 @@
     },
     {
         "id": 8023,
+        "species_id": 8023,
         "name": "liuxiangmengmaxiang",
         "form": "default",
         "main_type": {
@@ -113268,6 +114175,7 @@
     },
     {
         "id": 8024,
+        "species_id": 8024,
         "name": "8024",
         "form": "default",
         "main_type": {
@@ -113318,6 +114226,7 @@
     },
     {
         "id": 8701,
+        "species_id": 8701,
         "name": "huoyu",
         "form": "default",
         "main_type": {
@@ -113371,6 +114280,7 @@
     },
     {
         "id": 9001,
+        "species_id": 9001,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -113415,6 +114325,7 @@
     },
     {
         "id": 9002,
+        "species_id": 9002,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -113459,6 +114370,7 @@
     },
     {
         "id": 9003,
+        "species_id": 9003,
         "name": "songzai",
         "form": "default",
         "main_type": {
@@ -113503,6 +114415,7 @@
     },
     {
         "id": 9801,
+        "species_id": 9801,
         "name": "9801",
         "form": "default",
         "main_type": {
@@ -113547,6 +114460,7 @@
     },
     {
         "id": 9802,
+        "species_id": 9802,
         "name": "9802",
         "form": "default",
         "main_type": {
@@ -113591,6 +114505,7 @@
     },
     {
         "id": 9803,
+        "species_id": 9803,
         "name": "9803",
         "form": "default",
         "main_type": {
@@ -113635,6 +114550,7 @@
     },
     {
         "id": 9804,
+        "species_id": 9804,
         "name": "9804",
         "form": "default",
         "main_type": {
@@ -113679,6 +114595,7 @@
     },
     {
         "id": 9805,
+        "species_id": 9805,
         "name": "9805",
         "form": "default",
         "main_type": {
@@ -113723,6 +114640,7 @@
     },
     {
         "id": 9806,
+        "species_id": 9806,
         "name": "9806",
         "form": "default",
         "main_type": {
@@ -113767,6 +114685,7 @@
     },
     {
         "id": 9807,
+        "species_id": 9807,
         "name": "9807",
         "form": "default",
         "main_type": {
@@ -113811,6 +114730,7 @@
     },
     {
         "id": 9808,
+        "species_id": 9808,
         "name": "9808",
         "form": "default",
         "main_type": {
@@ -113855,6 +114775,7 @@
     },
     {
         "id": 9809,
+        "species_id": 9809,
         "name": "9809",
         "form": "default",
         "main_type": {
@@ -113899,6 +114820,7 @@
     },
     {
         "id": 9810,
+        "species_id": 9810,
         "name": "9810",
         "form": "default",
         "main_type": {
@@ -113943,6 +114865,7 @@
     },
     {
         "id": 9811,
+        "species_id": 9811,
         "name": "9811",
         "form": "default",
         "main_type": {
@@ -113987,6 +114910,7 @@
     },
     {
         "id": 9812,
+        "species_id": 9812,
         "name": "9812",
         "form": "default",
         "main_type": {
@@ -114031,6 +114955,7 @@
     },
     {
         "id": 9813,
+        "species_id": 9813,
         "name": "9813",
         "form": "default",
         "main_type": {
@@ -114075,6 +115000,7 @@
     },
     {
         "id": 9814,
+        "species_id": 9814,
         "name": "9814",
         "form": "default",
         "main_type": {
@@ -114119,6 +115045,7 @@
     },
     {
         "id": 9815,
+        "species_id": 9815,
         "name": "9815",
         "form": "default",
         "main_type": {
@@ -114163,6 +115090,7 @@
     },
     {
         "id": 9816,
+        "species_id": 9816,
         "name": "9816",
         "form": "default",
         "main_type": {
@@ -114207,6 +115135,7 @@
     },
     {
         "id": 9817,
+        "species_id": 9817,
         "name": "9817",
         "form": "default",
         "main_type": {
@@ -114251,6 +115180,7 @@
     },
     {
         "id": 9818,
+        "species_id": 9818,
         "name": "9818",
         "form": "default",
         "main_type": {
@@ -114295,6 +115225,7 @@
     },
     {
         "id": 9819,
+        "species_id": 9819,
         "name": "mocaowuling",
         "form": "default",
         "main_type": {
@@ -114339,6 +115270,7 @@
     },
     {
         "id": 9901,
+        "species_id": 9901,
         "name": "9901",
         "form": "default",
         "main_type": {
@@ -114383,6 +115315,7 @@
     },
     {
         "id": 9902,
+        "species_id": 9902,
         "name": "9902",
         "form": "default",
         "main_type": {
@@ -114427,6 +115360,7 @@
     },
     {
         "id": 9903,
+        "species_id": 9903,
         "name": "9903",
         "form": "default",
         "main_type": {
@@ -114471,6 +115405,7 @@
     },
     {
         "id": 9904,
+        "species_id": 9904,
         "name": "9904",
         "form": "default",
         "main_type": {
@@ -114515,6 +115450,7 @@
     },
     {
         "id": 9905,
+        "species_id": 9905,
         "name": "9905",
         "form": "default",
         "main_type": {
@@ -114559,6 +115495,7 @@
     },
     {
         "id": 9906,
+        "species_id": 9906,
         "name": "9906",
         "form": "百分百闪避",
         "main_type": {
@@ -114603,6 +115540,7 @@
     },
     {
         "id": 9907,
+        "species_id": 9907,
         "name": "9907",
         "form": "default",
         "main_type": {
@@ -114647,6 +115585,7 @@
     },
     {
         "id": 9908,
+        "species_id": 9908,
         "name": "9908",
         "form": "default",
         "main_type": {
@@ -114691,6 +115630,7 @@
     },
     {
         "id": 9909,
+        "species_id": 9909,
         "name": "9909",
         "form": "default",
         "main_type": {
@@ -114735,6 +115675,7 @@
     },
     {
         "id": 9910,
+        "species_id": 9910,
         "name": "9910",
         "form": "default",
         "main_type": {
@@ -114785,6 +115726,7 @@
     },
     {
         "id": 9911,
+        "species_id": 9911,
         "name": "9911",
         "form": "default",
         "main_type": {
@@ -114835,6 +115777,7 @@
     },
     {
         "id": 9912,
+        "species_id": 9912,
         "name": "9912",
         "form": "default",
         "main_type": {
@@ -114879,6 +115822,7 @@
     },
     {
         "id": 9913,
+        "species_id": 9913,
         "name": "9913",
         "form": "default",
         "main_type": {
@@ -114923,6 +115867,7 @@
     },
     {
         "id": 9914,
+        "species_id": 9914,
         "name": "9914",
         "form": "default",
         "main_type": {
@@ -114967,6 +115912,7 @@
     },
     {
         "id": 9919,
+        "species_id": 9919,
         "name": "9919",
         "form": "default",
         "main_type": {
@@ -115011,6 +115957,7 @@
     },
     {
         "id": 9920,
+        "species_id": 9920,
         "name": "9920",
         "form": "default",
         "main_type": {
@@ -115055,6 +116002,7 @@
     },
     {
         "id": 9940,
+        "species_id": 9940,
         "name": "9940",
         "form": "default",
         "main_type": {
@@ -115099,6 +116047,7 @@
     },
     {
         "id": 9941,
+        "species_id": 9941,
         "name": "9941",
         "form": "default",
         "main_type": {
@@ -115143,6 +116092,7 @@
     },
     {
         "id": 9987,
+        "species_id": 9987,
         "name": "9987",
         "form": "布石",
         "main_type": {
@@ -115187,6 +116137,7 @@
     },
     {
         "id": 9988,
+        "species_id": 9988,
         "name": "9988",
         "form": "default",
         "main_type": {
@@ -115231,6 +116182,7 @@
     },
     {
         "id": 9989,
+        "species_id": 9989,
         "name": "9989",
         "form": "default",
         "main_type": {
@@ -115275,6 +116227,7 @@
     },
     {
         "id": 9990,
+        "species_id": 9990,
         "name": "9990",
         "form": "default",
         "main_type": {
@@ -115319,6 +116272,7 @@
     },
     {
         "id": 9991,
+        "species_id": 9991,
         "name": "9991",
         "form": "default",
         "main_type": {
@@ -115363,6 +116317,7 @@
     },
     {
         "id": 9992,
+        "species_id": 9992,
         "name": "9992",
         "form": "default",
         "main_type": {
@@ -115407,6 +116362,7 @@
     },
     {
         "id": 9993,
+        "species_id": 9993,
         "name": "9993",
         "form": "default",
         "main_type": {
@@ -115451,6 +116407,7 @@
     },
     {
         "id": 9994,
+        "species_id": 9994,
         "name": "9994",
         "form": "default",
         "main_type": {
@@ -115495,6 +116452,7 @@
     },
     {
         "id": 9995,
+        "species_id": 9995,
         "name": "9995",
         "form": "default",
         "main_type": {
@@ -115539,6 +116497,7 @@
     },
     {
         "id": 9996,
+        "species_id": 9996,
         "name": "9996",
         "form": "default",
         "main_type": {
@@ -115589,6 +116548,7 @@
     },
     {
         "id": 9997,
+        "species_id": 9997,
         "name": "9997",
         "form": "贪吃",
         "main_type": {
@@ -115633,6 +116593,7 @@
     },
     {
         "id": 9998,
+        "species_id": 9998,
         "name": "9998",
         "form": "default",
         "main_type": {
@@ -115677,6 +116638,7 @@
     },
     {
         "id": 9999,
+        "species_id": 9999,
         "name": "9999",
         "form": "测试用",
         "main_type": {
@@ -115721,6 +116683,7 @@
     },
     {
         "id": 10000,
+        "species_id": 10000,
         "name": "10000",
         "form": "default",
         "main_type": {
@@ -115765,6 +116728,7 @@
     },
     {
         "id": 10001,
+        "species_id": 10001,
         "name": "10001",
         "form": "default",
         "main_type": {
@@ -115809,6 +116773,7 @@
     },
     {
         "id": 10002,
+        "species_id": 10002,
         "name": "10002",
         "form": "default",
         "main_type": {
@@ -115853,6 +116818,7 @@
     },
     {
         "id": 10003,
+        "species_id": 10003,
         "name": "10003",
         "form": "default",
         "main_type": {
@@ -115897,6 +116863,7 @@
     },
     {
         "id": 10004,
+        "species_id": 10004,
         "name": "10004",
         "form": "default",
         "main_type": {
@@ -115941,6 +116908,7 @@
     },
     {
         "id": 10005,
+        "species_id": 10005,
         "name": "10005",
         "form": "default",
         "main_type": {
@@ -115985,6 +116953,7 @@
     },
     {
         "id": 10006,
+        "species_id": 10006,
         "name": "10006",
         "form": "default",
         "main_type": {
@@ -116029,6 +116998,7 @@
     },
     {
         "id": 10007,
+        "species_id": 10007,
         "name": "10007",
         "form": "default",
         "main_type": {
@@ -116073,6 +117043,7 @@
     },
     {
         "id": 10008,
+        "species_id": 10008,
         "name": "10008",
         "form": "default",
         "main_type": {
@@ -116117,6 +117088,7 @@
     },
     {
         "id": 10009,
+        "species_id": 10009,
         "name": "10009",
         "form": "default",
         "main_type": {
@@ -116161,6 +117133,7 @@
     },
     {
         "id": 10010,
+        "species_id": 10010,
         "name": "10010",
         "form": "default",
         "main_type": {
@@ -116205,6 +117178,7 @@
     },
     {
         "id": 10011,
+        "species_id": 10011,
         "name": "10011",
         "form": "default",
         "main_type": {
@@ -116249,6 +117223,7 @@
     },
     {
         "id": 10012,
+        "species_id": 10012,
         "name": "10012",
         "form": "default",
         "main_type": {
@@ -116293,6 +117268,7 @@
     },
     {
         "id": 10013,
+        "species_id": 10013,
         "name": "10013",
         "form": "default",
         "main_type": {
@@ -116337,6 +117313,7 @@
     },
     {
         "id": 10014,
+        "species_id": 10014,
         "name": "10014",
         "form": "default",
         "main_type": {
@@ -116381,6 +117358,7 @@
     },
     {
         "id": 10015,
+        "species_id": 10015,
         "name": "10015",
         "form": "default",
         "main_type": {
@@ -116425,6 +117403,7 @@
     },
     {
         "id": 10016,
+        "species_id": 10016,
         "name": "10016",
         "form": "default",
         "main_type": {
@@ -116469,6 +117448,7 @@
     },
     {
         "id": 10017,
+        "species_id": 10017,
         "name": "10017",
         "form": "default",
         "main_type": {
@@ -116513,6 +117493,7 @@
     },
     {
         "id": 10018,
+        "species_id": 10018,
         "name": "10018",
         "form": "default",
         "main_type": {
@@ -116557,6 +117538,7 @@
     },
     {
         "id": 10019,
+        "species_id": 10019,
         "name": "10019",
         "form": "default",
         "main_type": {
@@ -116601,6 +117583,7 @@
     },
     {
         "id": 10020,
+        "species_id": 10020,
         "name": "10020",
         "form": "default",
         "main_type": {
@@ -116645,6 +117628,7 @@
     },
     {
         "id": 10021,
+        "species_id": 10021,
         "name": "10021",
         "form": "default",
         "main_type": {
@@ -116689,6 +117673,7 @@
     },
     {
         "id": 10022,
+        "species_id": 10022,
         "name": "10022",
         "form": "default",
         "main_type": {
@@ -116733,6 +117718,7 @@
     },
     {
         "id": 103004,
+        "species_id": 103004,
         "name": "103004",
         "form": "default",
         "main_type": {
@@ -116838,6 +117824,7 @@
     },
     {
         "id": 103005,
+        "species_id": 103005,
         "name": "103005",
         "form": "default",
         "main_type": {
@@ -116882,6 +117869,7 @@
     },
     {
         "id": 103011,
+        "species_id": 103011,
         "name": "103011",
         "form": "default",
         "main_type": {
@@ -116975,6 +117963,7 @@
     },
     {
         "id": 103012,
+        "species_id": 103012,
         "name": "103012",
         "form": "default",
         "main_type": {
@@ -117068,6 +118057,7 @@
     },
     {
         "id": 103061,
+        "species_id": 103061,
         "name": "103061",
         "form": "default",
         "main_type": {
@@ -117611,6 +118601,7 @@
     },
     {
         "id": 103142,
+        "species_id": 103142,
         "name": "103142",
         "form": "default",
         "main_type": {
@@ -117894,6 +118885,7 @@
     },
     {
         "id": 103143,
+        "species_id": 103143,
         "name": "103143",
         "form": "default",
         "main_type": {
@@ -117938,6 +118930,7 @@
     },
     {
         "id": 103149,
+        "species_id": 103149,
         "name": "103149",
         "form": "default",
         "main_type": {
@@ -118069,6 +119062,7 @@
     },
     {
         "id": 103154,
+        "species_id": 103154,
         "name": "103154",
         "form": "default",
         "main_type": {
@@ -118464,6 +119458,7 @@
     },
     {
         "id": 140001,
+        "species_id": 140001,
         "name": "140001",
         "form": "default",
         "main_type": {
@@ -118508,6 +119503,7 @@
     },
     {
         "id": 140002,
+        "species_id": 140002,
         "name": "140002",
         "form": "default",
         "main_type": {
@@ -118552,6 +119548,7 @@
     },
     {
         "id": 140003,
+        "species_id": 140003,
         "name": "140003",
         "form": "default",
         "main_type": {
@@ -118596,6 +119593,7 @@
     },
     {
         "id": 140004,
+        "species_id": 140004,
         "name": "140004",
         "form": "default",
         "main_type": {
@@ -118640,6 +119638,7 @@
     },
     {
         "id": 140005,
+        "species_id": 140005,
         "name": "140005",
         "form": "default",
         "main_type": {
@@ -118684,6 +119683,7 @@
     },
     {
         "id": 140006,
+        "species_id": 140006,
         "name": "140006",
         "form": "default",
         "main_type": {
@@ -118728,6 +119728,7 @@
     },
     {
         "id": 140007,
+        "species_id": 140007,
         "name": "140007",
         "form": "default",
         "main_type": {
@@ -118772,6 +119773,7 @@
     },
     {
         "id": 140008,
+        "species_id": 140008,
         "name": "140008",
         "form": "default",
         "main_type": {
@@ -118816,6 +119818,7 @@
     },
     {
         "id": 440302,
+        "species_id": 440302,
         "name": "440302",
         "form": "default",
         "main_type": {
@@ -118866,6 +119869,7 @@
     },
     {
         "id": 440303,
+        "species_id": 440303,
         "name": "440303",
         "form": "default",
         "main_type": {
@@ -118910,6 +119914,7 @@
     },
     {
         "id": 440304,
+        "species_id": 440304,
         "name": "440304",
         "form": "default",
         "main_type": {
@@ -118960,6 +119965,7 @@
     },
     {
         "id": 440305,
+        "species_id": 440305,
         "name": "440305",
         "form": "default",
         "main_type": {
@@ -119010,6 +120016,7 @@
     },
     {
         "id": 440306,
+        "species_id": 440306,
         "name": "440306",
         "form": "default",
         "main_type": {
@@ -119060,6 +120067,7 @@
     },
     {
         "id": 440307,
+        "species_id": 440307,
         "name": "440307",
         "form": "default",
         "main_type": {
@@ -119104,6 +120112,7 @@
     },
     {
         "id": 440308,
+        "species_id": 440308,
         "name": "440308",
         "form": "default",
         "main_type": {
@@ -119215,6 +120224,7 @@
     },
     {
         "id": 440309,
+        "species_id": 440309,
         "name": "440309",
         "form": "default",
         "main_type": {
@@ -119265,6 +120275,7 @@
     },
     {
         "id": 440310,
+        "species_id": 440310,
         "name": "440310",
         "form": "default",
         "main_type": {
@@ -119315,6 +120326,7 @@
     },
     {
         "id": 440311,
+        "species_id": 440311,
         "name": "440311",
         "form": "default",
         "main_type": {
@@ -119365,6 +120377,7 @@
     },
     {
         "id": 440312,
+        "species_id": 440312,
         "name": "440312",
         "form": "default",
         "main_type": {
@@ -119409,6 +120422,7 @@
     },
     {
         "id": 440313,
+        "species_id": 440313,
         "name": "lanniao_shouling",
         "form": "default",
         "main_type": {
@@ -119453,6 +120467,7 @@
     },
     {
         "id": 440314,
+        "species_id": 440314,
         "name": "440314",
         "form": "default",
         "main_type": {
@@ -119503,6 +120518,7 @@
     },
     {
         "id": 440315,
+        "species_id": 440315,
         "name": "440315",
         "form": "default",
         "main_type": {
@@ -119547,6 +120563,7 @@
     },
     {
         "id": 440316,
+        "species_id": 440316,
         "name": "440316",
         "form": "default",
         "main_type": {
@@ -119591,6 +120608,7 @@
     },
     {
         "id": 440317,
+        "species_id": 440317,
         "name": "440317",
         "form": "default",
         "main_type": {
@@ -119635,6 +120653,7 @@
     },
     {
         "id": 440318,
+        "species_id": 440318,
         "name": "440318",
         "form": "default",
         "main_type": {
@@ -119679,6 +120698,7 @@
     },
     {
         "id": 13000150,
+        "species_id": 13000150,
         "name": "13000150",
         "form": "水灵",
         "main_type": {
@@ -119723,6 +120743,7 @@
     },
     {
         "id": 13000151,
+        "species_id": 13000151,
         "name": "molimiao_shouling",
         "form": "default",
         "main_type": {
@@ -119767,6 +120788,7 @@
     },
     {
         "id": 13000152,
+        "species_id": 13000152,
         "name": "emolang_shouling",
         "form": "default",
         "main_type": {
@@ -119811,6 +120833,7 @@
     },
     {
         "id": 13000153,
+        "species_id": 13000153,
         "name": "qilihua_boss",
         "form": "default",
         "main_type": {
@@ -119855,6 +120878,7 @@
     },
     {
         "id": 13000154,
+        "species_id": 13000154,
         "name": "bulaikeyan_shouling",
         "form": "default",
         "main_type": {
@@ -119899,6 +120923,7 @@
     },
     {
         "id": 13000155,
+        "species_id": 13000155,
         "name": "lanniao_shouling",
         "form": "default",
         "main_type": {
@@ -119943,6 +120968,7 @@
     },
     {
         "id": 13000156,
+        "species_id": 13000156,
         "name": "qianjikui_shouling",
         "form": "default",
         "main_type": {
@@ -119993,6 +121019,7 @@
     },
     {
         "id": 13000157,
+        "species_id": 13000157,
         "name": "huakuifenghou_shouling",
         "form": "default",
         "main_type": {
@@ -120037,6 +121064,7 @@
     },
     {
         "id": 13000158,
+        "species_id": 13000158,
         "name": "yilisi",
         "form": "default",
         "main_type": {
@@ -120087,6 +121115,7 @@
     },
     {
         "id": 13000159,
+        "species_id": 13000159,
         "name": "emolang_shouling",
         "form": "default",
         "main_type": {
@@ -120131,6 +121160,7 @@
     },
     {
         "id": 13000160,
+        "species_id": 13000160,
         "name": "yinsuquan_shouling",
         "form": "default",
         "main_type": {
@@ -120175,6 +121205,7 @@
     },
     {
         "id": 13000161,
+        "species_id": 13000161,
         "name": "bengbenghua_shouling",
         "form": "default",
         "main_type": {
@@ -120225,6 +121256,7 @@
     },
     {
         "id": 13000162,
+        "species_id": 13000162,
         "name": "jingshiwo_shouling",
         "form": "default",
         "main_type": {
@@ -120275,6 +121307,7 @@
     },
     {
         "id": 13000163,
+        "species_id": 13000163,
         "name": "13000163",
         "form": "default",
         "main_type": {
@@ -120325,6 +121358,7 @@
     },
     {
         "id": 13000164,
+        "species_id": 13000164,
         "name": "13000164",
         "form": "default",
         "main_type": {
@@ -120375,6 +121409,7 @@
     },
     {
         "id": 13000165,
+        "species_id": 13000165,
         "name": "13000165",
         "form": "default",
         "main_type": {
@@ -120425,6 +121460,7 @@
     },
     {
         "id": 13000166,
+        "species_id": 13000166,
         "name": "yishijuxiang_shouling",
         "form": "default",
         "main_type": {
@@ -120475,6 +121511,7 @@
     },
     {
         "id": 13000167,
+        "species_id": 13000167,
         "name": "caidiesha_shouling",
         "form": "default",
         "main_type": {
@@ -120525,6 +121562,7 @@
     },
     {
         "id": 13000168,
+        "species_id": 13000168,
         "name": "13000168",
         "form": "default",
         "main_type": {
@@ -120569,6 +121607,7 @@
     },
     {
         "id": 13000169,
+        "species_id": 107,
         "name": "shenyuanluoyin",
         "form": "深渊罗隐",
         "main_type": {
@@ -120619,6 +121658,7 @@
     },
     {
         "id": 13000170,
+        "species_id": 233,
         "name": "gaomaoyuzhe",
         "form": "高帽鹬者",
         "main_type": {
@@ -120663,6 +121703,7 @@
     },
     {
         "id": 14000001,
+        "species_id": 14000001,
         "name": "guodong",
         "form": "default",
         "main_type": {
@@ -120707,6 +121748,7 @@
     },
     {
         "id": 14000002,
+        "species_id": 14000002,
         "name": "banban",
         "form": "default",
         "main_type": {
@@ -120753,6 +121795,7 @@
     },
     {
         "id": 14000003,
+        "species_id": 14000003,
         "name": "yayanmo",
         "form": "default",
         "main_type": {
@@ -120803,6 +121846,7 @@
     },
     {
         "id": 15000001,
+        "species_id": 15000001,
         "name": "banban",
         "form": "玩法用",
         "main_type": {
@@ -120847,6 +121891,7 @@
     },
     {
         "id": 16000001,
+        "species_id": 16000001,
         "name": "xiaoxiaoyutu",
         "form": "default",
         "main_type": {
@@ -120891,6 +121936,7 @@
     },
     {
         "id": 16000002,
+        "species_id": 16000002,
         "name": "lihaixiuluo",
         "form": "default",
         "main_type": {
@@ -120941,6 +121987,7 @@
     },
     {
         "id": 16000003,
+        "species_id": 16000003,
         "name": "dishu",
         "form": "default",
         "main_type": {
@@ -120987,6 +122034,7 @@
     },
     {
         "id": 16000004,
+        "species_id": 1,
         "name": "dimo",
         "form": "default",
         "main_type": {
@@ -121094,6 +122142,7 @@
     },
     {
         "id": 16000007,
+        "species_id": 1,
         "name": "dimo",
         "form": "default",
         "main_type": {
@@ -121201,6 +122250,7 @@
     },
     {
         "id": 17000001,
+        "species_id": 17000001,
         "name": "xiaopaersasi",
         "form": "default",
         "main_type": {
@@ -121247,6 +122297,7 @@
     },
     {
         "id": 17000002,
+        "species_id": 17000002,
         "name": "paersasi",
         "form": "default",
         "main_type": {
@@ -121299,6 +122350,7 @@
     },
     {
         "id": 17000003,
+        "species_id": 17000003,
         "name": "dapaersasi",
         "form": "default",
         "main_type": {
@@ -121345,6 +122397,7 @@
     },
     {
         "id": 17000004,
+        "species_id": 17000004,
         "name": "shifuxi_yidi",
         "form": "default",
         "main_type": {
@@ -121392,6 +122445,7 @@
     },
     {
         "id": 18000001,
+        "species_id": 18000001,
         "name": "huadie_miaomiao",
         "form": "default",
         "main_type": {
@@ -121445,6 +122499,7 @@
     },
     {
         "id": 18000002,
+        "species_id": 18000002,
         "name": "hanyinshe",
         "form": "default",
         "main_type": {
@@ -121498,6 +122553,7 @@
     },
     {
         "id": 18000003,
+        "species_id": 18000003,
         "name": "wuzheji",
         "form": "default",
         "main_type": {
@@ -121551,6 +122607,7 @@
     },
     {
         "id": 18000004,
+        "species_id": 18000004,
         "name": "duudbao",
         "form": "default",
         "main_type": {
@@ -121993,6 +123050,7 @@
     },
     {
         "id": 19000001,
+        "species_id": 266,
         "name": "keliji",
         "form": "可立鸡-变形测试用",
         "main_type": {
@@ -122073,6 +123131,7 @@
     },
     {
         "id": 19000002,
+        "species_id": 19000002,
         "name": "zilingying",
         "form": "default",
         "main_type": {
@@ -122119,6 +123178,7 @@
     },
     {
         "id": 19000003,
+        "species_id": 313,
         "name": "guodong",
         "form": "果冻-变形测试用",
         "main_type": {
@@ -122166,6 +123226,7 @@
     },
     {
         "id": 19000004,
+        "species_id": 19000004,
         "name": "zilingying",
         "form": "default",
         "main_type": {
@@ -122212,6 +123273,7 @@
     },
     {
         "id": 19000005,
+        "species_id": 266,
         "name": "keliji",
         "form": "可立鸡",
         "main_type": {
@@ -122470,6 +123532,7 @@
     },
     {
         "id": 19000006,
+        "species_id": 313,
         "name": "guodong",
         "form": "果冻",
         "main_type": {
@@ -122594,6 +123657,7 @@
     },
     {
         "id": 19000008,
+        "species_id": 348,
         "name": "wusibeibei",
         "form": "S2剧情骑乘专用",
         "main_type": {
@@ -122640,6 +123704,7 @@
     },
     {
         "id": 19000009,
+        "species_id": 350,
         "name": "jimufangzhou",
         "form": "S2剧情战斗专用",
         "main_type": {

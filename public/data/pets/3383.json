@@ -1151,6 +1151,7 @@
                 "monsters": [
                     {
                         "id": 3382,
+                        "species_id": 320,
                         "name": "shungdengyu",
                         "form": "双灯鱼",
                         "localized": {
@@ -1183,6 +1184,7 @@
                 "monsters": [
                     {
                         "id": 3383,
+                        "species_id": 321,
                         "name": "lidengyu",
                         "form": "利灯鱼",
                         "localized": {

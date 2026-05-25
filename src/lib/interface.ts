@@ -157,6 +157,7 @@ export interface IPetsLegacyMove {
 
 export interface IPetsEvolutionNode {
     id: number;
+    species_id: number;
     name: string;
     form: string;
     localized: ILocalizedPetsName;
@@ -182,6 +183,7 @@ export interface IPetsEvolutionTree {
 
 export interface IPets {
     id: number;
+    species_id: number;
     name: string;
     form: string;
     main_type: IPetsType;

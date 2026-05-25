@@ -62,6 +62,7 @@
                 "monsters": [
                     {
                         "id": 3009,
+                        "species_id": 3009,
                         "name": "chimaojizai",
                         "form": "default",
                         "localized": {
@@ -88,6 +89,7 @@
                 "monsters": [
                     {
                         "id": 3023,
+                        "species_id": 3023,
                         "name": "huoyundouji",
                         "form": "default",
                         "localized": {

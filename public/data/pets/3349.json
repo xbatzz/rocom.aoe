@@ -68,6 +68,7 @@
                 "monsters": [
                     {
                         "id": 3349,
+                        "species_id": 3349,
                         "name": "zhangyanmo",
                         "form": "default",
                         "localized": {

@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3336,
+                        "species_id": 3336,
                         "name": "gegebu",
                         "form": "default",
                         "localized": {

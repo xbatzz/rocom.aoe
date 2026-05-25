@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3337,
+                        "species_id": 3337,
                         "name": "gebubu",
                         "form": "default",
                         "localized": {

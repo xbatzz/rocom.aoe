@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3248,
+                        "species_id": 3248,
                         "name": "lvzhoumengmaxiang",
                         "form": "default",
                         "localized": {
@@ -71,6 +72,7 @@
                     },
                     {
                         "id": 8023,
+                        "species_id": 8023,
                         "name": "liuxiangmengmaxiang",
                         "form": "default",
                         "localized": {
@@ -99,6 +101,7 @@
                 "monsters": [
                     {
                         "id": 3249,
+                        "species_id": 3249,
                         "name": "liuxiangmengmaxiang",
                         "form": "default",
                         "localized": {

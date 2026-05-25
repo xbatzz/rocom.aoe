@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3327,
+                        "species_id": 3327,
                         "name": "dujiaolong",
                         "form": "default",
                         "localized": {

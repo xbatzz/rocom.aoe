@@ -57,6 +57,7 @@
                 "monsters": [
                     {
                         "id": 3542,
+                        "species_id": 3542,
                         "name": "weiwanchong",
                         "form": "default",
                         "localized": {

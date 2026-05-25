@@ -1299,6 +1299,7 @@
                 "monsters": [
                     {
                         "id": 3521,
+                        "species_id": 219,
                         "name": "lilayao",
                         "form": "里拉鳐",
                         "localized": {

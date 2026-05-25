@@ -1167,6 +1167,7 @@
                 "monsters": [
                     {
                         "id": 3180,
+                        "species_id": 293,
                         "name": "xiaopaersasi",
                         "form": "小帕尔",
                         "localized": {
@@ -1193,6 +1194,7 @@
                 "monsters": [
                     {
                         "id": 3181,
+                        "species_id": 294,
                         "name": "paersasi2",
                         "form": "帕尔萨斯",
                         "localized": {
@@ -1222,6 +1224,7 @@
                 "monsters": [
                     {
                         "id": 3182,
+                        "species_id": 295,
                         "name": "longxipaer",
                         "form": "龙息帕尔",
                         "localized": {

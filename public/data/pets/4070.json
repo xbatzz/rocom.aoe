@@ -1239,6 +1239,7 @@
                 "monsters": [
                     {
                         "id": 4070,
+                        "species_id": 4070,
                         "name": "4070",
                         "form": "default",
                         "localized": {
@@ -1272,6 +1273,7 @@
                 "monsters": [
                     {
                         "id": 4070,
+                        "species_id": 4070,
                         "name": "4070",
                         "form": "default",
                         "localized": {

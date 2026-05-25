@@ -1123,6 +1123,7 @@
                 "monsters": [
                     {
                         "id": 3418,
+                        "species_id": 3418,
                         "name": "gedouxiaoba",
                         "form": "default",
                         "localized": {

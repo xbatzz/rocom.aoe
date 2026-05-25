@@ -1140,6 +1140,7 @@
                 "monsters": [
                     {
                         "id": 3419,
+                        "species_id": 291,
                         "name": "lihaixiaoluo",
                         "form": "厉毒小萝",
                         "localized": {
@@ -1166,6 +1167,7 @@
                     },
                     {
                         "id": 8019,
+                        "species_id": 8019,
                         "name": "lihaixiuluo",
                         "form": "default",
                         "localized": {
@@ -1200,6 +1202,7 @@
                 "monsters": [
                     {
                         "id": 3420,
+                        "species_id": 292,
                         "name": "lihaixiuluo",
                         "form": "厉毒修萝",
                         "localized": {

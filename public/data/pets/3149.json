@@ -1167,6 +1167,7 @@
                 "monsters": [
                     {
                         "id": 3148,
+                        "species_id": 327,
                         "name": "anyekulou",
                         "form": "空空颅",
                         "localized": {
@@ -1193,6 +1194,7 @@
                 "monsters": [
                     {
                         "id": 3149,
+                        "species_id": 328,
                         "name": "yejumo",
                         "form": "夜宿颅",
                         "localized": {
@@ -1222,6 +1224,7 @@
                 "monsters": [
                     {
                         "id": 3150,
+                        "species_id": 329,
                         "name": "yexiao",
                         "form": "夜枭",
                         "localized": {

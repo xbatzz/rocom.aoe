@@ -1299,6 +1299,7 @@
                 "monsters": [
                     {
                         "id": 3048,
+                        "species_id": 3048,
                         "name": "shengguangdimo",
                         "form": "default",
                         "localized": {

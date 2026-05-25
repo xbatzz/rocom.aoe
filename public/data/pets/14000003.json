@@ -68,6 +68,7 @@
                 "monsters": [
                     {
                         "id": 14000003,
+                        "species_id": 14000003,
                         "name": "yayanmo",
                         "form": "default",
                         "localized": {

@@ -1173,6 +1173,7 @@
                 "monsters": [
                     {
                         "id": 3729,
+                        "species_id": 358,
                         "name": "houmaizai",
                         "form": "default",
                         "localized": {
@@ -1205,6 +1206,7 @@
                 "monsters": [
                     {
                         "id": 3730,
+                        "species_id": 359,
                         "name": "yindiehou",
                         "form": "default",
                         "localized": {

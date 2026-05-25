@@ -1173,6 +1173,7 @@
                 "monsters": [
                     {
                         "id": 3536,
+                        "species_id": 258,
                         "name": "wuda",
                         "form": "乌达",
                         "localized": {
@@ -1199,6 +1200,7 @@
                     },
                     {
                         "id": 3539,
+                        "species_id": 258,
                         "name": "wuda_yidi",
                         "form": "乌达",
                         "localized": {
@@ -1231,6 +1233,7 @@
                 "monsters": [
                     {
                         "id": 3537,
+                        "species_id": 259,
                         "name": "miniwu",
                         "form": "迷你乌",
                         "localized": {
@@ -1260,6 +1263,7 @@
                     },
                     {
                         "id": 3540,
+                        "species_id": 259,
                         "name": "miniwu_yidi",
                         "form": "迷你乌",
                         "localized": {
@@ -1295,6 +1299,7 @@
                 "monsters": [
                     {
                         "id": 3538,
+                        "species_id": 260,
                         "name": "wulata",
                         "form": "乌拉塔",
                         "localized": {
@@ -1324,6 +1329,7 @@
                     },
                     {
                         "id": 3541,
+                        "species_id": 260,
                         "name": "wulata_yidi",
                         "form": "乌拉塔",
                         "localized": {

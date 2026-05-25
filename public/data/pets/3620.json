@@ -5831,6 +5831,7 @@
                 "monsters": [
                     {
                         "id": 3620,
+                        "species_id": 375,
                         "name": "xueyuanguagua",
                         "form": "default",
                         "localized": {

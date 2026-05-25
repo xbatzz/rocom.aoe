@@ -1255,6 +1255,7 @@
                 "monsters": [
                     {
                         "id": 3392,
+                        "species_id": 351,
                         "name": "fanque",
                         "form": "default",
                         "localized": {
@@ -1275,6 +1276,7 @@
                     },
                     {
                         "id": 19000004,
+                        "species_id": 19000004,
                         "name": "zilingying",
                         "form": "default",
                         "localized": {
@@ -1304,6 +1306,7 @@
                 "monsters": [
                     {
                         "id": 3393,
+                        "species_id": 352,
                         "name": "zilingying",
                         "form": "default",
                         "localized": {
@@ -1333,6 +1336,7 @@
                 "monsters": [
                     {
                         "id": 3394,
+                        "species_id": 353,
                         "name": "fanying",
                         "form": "default",
                         "localized": {

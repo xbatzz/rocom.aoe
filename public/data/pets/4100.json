@@ -1151,6 +1151,7 @@
                 "monsters": [
                     {
                         "id": 4100,
+                        "species_id": 4100,
                         "name": "xueyingwawa_shouling",
                         "form": "default",
                         "localized": {
@@ -1184,6 +1185,7 @@
                 "monsters": [
                     {
                         "id": 4100,
+                        "species_id": 4100,
                         "name": "xueyingwawa_shouling",
                         "form": "default",
                         "localized": {

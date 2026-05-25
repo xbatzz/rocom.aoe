@@ -1255,6 +1255,7 @@
                 "monsters": [
                     {
                         "id": 13000150,
+                        "species_id": 13000150,
                         "name": "13000150",
                         "form": "水灵",
                         "localized": {

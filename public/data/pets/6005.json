@@ -1261,6 +1261,7 @@
                 "monsters": [
                     {
                         "id": 6005,
+                        "species_id": 6005,
                         "name": "jingshiwo_shouling",
                         "form": "初级",
                         "localized": {
@@ -1294,6 +1295,7 @@
                 "monsters": [
                     {
                         "id": 6005,
+                        "species_id": 6005,
                         "name": "jingshiwo_shouling",
                         "form": "初级",
                         "localized": {

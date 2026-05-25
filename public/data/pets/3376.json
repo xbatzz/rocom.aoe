@@ -1173,6 +1173,7 @@
                 "monsters": [
                     {
                         "id": 3376,
+                        "species_id": 118,
                         "name": "xuanyanchong",
                         "form": "旋叶虫",
                         "localized": {
@@ -1199,6 +1200,7 @@
                     },
                     {
                         "id": 3496,
+                        "species_id": 118,
                         "name": "xuanyechong_yidi",
                         "form": "旋叶虫",
                         "localized": {
@@ -1231,6 +1233,7 @@
                 "monsters": [
                     {
                         "id": 3483,
+                        "species_id": 119,
                         "name": "pengyechong",
                         "form": "蓬叶虫",
                         "localized": {
@@ -1259,6 +1262,7 @@
                     },
                     {
                         "id": 3497,
+                        "species_id": 119,
                         "name": "pengyechong_yidi",
                         "form": "蓬叶虫",
                         "localized": {
@@ -1293,6 +1297,7 @@
                 "monsters": [
                     {
                         "id": 3377,
+                        "species_id": 120,
                         "name": "fenggunmuchong",
                         "form": "风滚暮虫",
                         "localized": {
@@ -1321,6 +1326,7 @@
                     },
                     {
                         "id": 3498,
+                        "species_id": 120,
                         "name": "fengguanmuchong_yidi",
                         "form": "风滚暮虫",
                         "localized": {

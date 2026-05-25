@@ -1239,6 +1239,7 @@
                 "monsters": [
                     {
                         "id": 3093,
+                        "species_id": 195,
                         "name": "daixiaolu",
                         "form": "呆小路",
                         "localized": {
@@ -1271,6 +1272,7 @@
                 "monsters": [
                     {
                         "id": 3094,
+                        "species_id": 196,
                         "name": "wudonglulu",
                         "form": "舞动路路",
                         "localized": {
@@ -1305,6 +1307,7 @@
                 "monsters": [
                     {
                         "id": 3095,
+                        "species_id": 197,
                         "name": "baifalulu",
                         "form": "白发路路",
                         "localized": {

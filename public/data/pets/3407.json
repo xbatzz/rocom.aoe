@@ -1167,6 +1167,7 @@
                 "monsters": [
                     {
                         "id": 3406,
+                        "species_id": 229,
                         "name": "tita",
                         "form": "缇塔",
                         "localized": {
@@ -1193,6 +1194,7 @@
                 "monsters": [
                     {
                         "id": 3407,
+                        "species_id": 230,
                         "name": "shengbotita",
                         "form": "声波缇塔",
                         "localized": {

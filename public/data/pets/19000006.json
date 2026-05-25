@@ -1013,6 +1013,7 @@
                 "monsters": [
                     {
                         "id": 3118,
+                        "species_id": 313,
                         "name": "guodong",
                         "form": "果冻",
                         "localized": {
@@ -1033,6 +1034,7 @@
                     },
                     {
                         "id": 19000003,
+                        "species_id": 313,
                         "name": "guodong",
                         "form": "果冻-变形测试用",
                         "localized": {
@@ -1053,6 +1055,7 @@
                     },
                     {
                         "id": 19000006,
+                        "species_id": 313,
                         "name": "guodong",
                         "form": "果冻",
                         "localized": {
@@ -1079,6 +1082,7 @@
                 "monsters": [
                     {
                         "id": 3526,
+                        "species_id": 314,
                         "name": "mochabuding",
                         "form": "抹茶布丁",
                         "localized": {
@@ -1108,6 +1112,7 @@
                     },
                     {
                         "id": 3527,
+                        "species_id": 315,
                         "name": "yejiangbuding",
                         "form": "椰浆布丁",
                         "localized": {
@@ -1137,6 +1142,7 @@
                     },
                     {
                         "id": 3528,
+                        "species_id": 316,
                         "name": "rongyanbuding",
                         "form": "熔岩布丁",
                         "localized": {

@@ -1261,6 +1261,7 @@
                 "monsters": [
                     {
                         "id": 3244,
+                        "species_id": 307,
                         "name": "rongrong",
                         "form": "绒绒",
                         "localized": {
@@ -1293,6 +1294,7 @@
                 "monsters": [
                     {
                         "id": 3245,
+                        "species_id": 308,
                         "name": "xiaorongjian",
                         "form": "小绒茧",
                         "localized": {
@@ -1328,6 +1330,7 @@
                 "monsters": [
                     {
                         "id": 3246,
+                        "species_id": 309,
                         "name": "rongxianzi",
                         "form": "绒仙子",
                         "localized": {

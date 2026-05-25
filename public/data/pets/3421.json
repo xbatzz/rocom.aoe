@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3421,
+                        "species_id": 3421,
                         "name": "pomengzhe",
                         "form": "default",
                         "localized": {
@@ -77,6 +78,7 @@
                 "monsters": [
                     {
                         "id": 3422,
+                        "species_id": 3422,
                         "name": "shimengzhe",
                         "form": "default",
                         "localized": {

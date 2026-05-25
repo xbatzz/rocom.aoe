@@ -59,6 +59,14 @@ import {
     formatPetEggGroupSummary,
     isPetImplemented,
 } from "@/lib/petImplementation";
+import {
+    getSpeciesTopicCompletionMap,
+    isSpeciesCollected,
+    useHandbookProgress,
+    ensureHandbookTopicSkillNames,
+    formatHandbookTopicRequirementSync,
+} from "@/lib/handbookProgress";
+import { formatPetHandbookNo } from "@/lib/petHandbook";
 
 use([RadarChart, RadarComponent, TooltipComponent, CanvasRenderer]);
 
@@ -94,7 +102,6 @@ interface IHandbookRewardItem {
 }
 
 type HandbookRewardsMap = Record<number, IHandbookRewardItem[]>;
-type PetTopicCompletionMap = Record<number, string>;
 
 let petHandbookTopicMapPromise: Promise<
     Record<string, IPetHandbookTopic[]>
@@ -103,6 +110,8 @@ let handbookRewardsPromise: Promise<HandbookRewardsMap> | null = null;
 let itemLookupPromise: Promise<Record<number, IItem>> | null = null;
 
 const route = useRoute();
+const { state: handbookProgressState, init: initHandbookProgress } =
+    useHandbookProgress();
 
 const routeId = computed(() => {
     const params = route.params as { id?: string | string[] };
@@ -115,8 +124,6 @@ const errorMessage = ref("");
 const petTopics = ref<IPetHandbookTopic[]>([]);
 const isPetTopicLoading = ref(false);
 const petTopicErrorMessage = ref("");
-const petTopicCompletionMap = ref<PetTopicCompletionMap>({});
-const petTopicLookupKey = ref("");
 const petTopicDialogOpen = ref(false);
 const typeNameMap = ref<Record<number, string>>({});
 const implementedPetIds = ref<Set<number>>(new Set());
@@ -134,8 +141,6 @@ let statChart: ECharts | null = null;
 let statChartResizeObserver: ResizeObserver | null = null;
 let statChartObservedElement: HTMLDivElement | null = null;
 
-const PET_TOPIC_COOKIE_PREFIX = "rocom_pet_topics";
-const PET_TOPIC_COOKIE_MAX_AGE = 60 * 60 * 24 * 180;
 const STAT_CHART_SPLIT_NUMBER = 4;
 const STAT_CHART_STEP = 40;
 
@@ -688,6 +693,17 @@ const eggGroupSummaryLabel = computed(() => {
     return formatPetEggGroupSummary(friend.value);
 });
 
+const petTopicCompletionMap = computed(() => {
+    if (!friend.value?.species?.id) {
+        return {};
+    }
+
+    return getSpeciesTopicCompletionMap(
+        handbookProgressState.value,
+        friend.value.species.id,
+    );
+});
+
 const completedPetTopicCount = computed(() => {
     return petTopics.value.filter((topic) => {
         return Boolean(petTopicCompletionMap.value[topic.topic_Id]);
@@ -893,109 +909,6 @@ function getPetTopicLookupKeys(pet: IPetsDetail) {
     );
 }
 
-function getPetTopicCookieName(lookupKey: string) {
-    return `${PET_TOPIC_COOKIE_PREFIX}_${lookupKey}`;
-}
-
-function readCookie(name: string) {
-    if (typeof document === "undefined") {
-        return null;
-    }
-
-    const encodedName = encodeURIComponent(name);
-    const entry = document.cookie
-        .split("; ")
-        .find((item) => item.startsWith(`${encodedName}=`));
-
-    if (!entry) {
-        return null;
-    }
-
-    return decodeURIComponent(entry.slice(encodedName.length + 1));
-}
-
-function writeCookie(name: string, value: string) {
-    if (typeof document === "undefined") {
-        return;
-    }
-
-    document.cookie = [
-        `${encodeURIComponent(name)}=${encodeURIComponent(value)}`,
-        "path=/",
-        `max-age=${PET_TOPIC_COOKIE_MAX_AGE}`,
-        "SameSite=Lax",
-    ].join("; ");
-}
-
-function normalizePetTopicCompletionMap(
-    value: unknown,
-    topics: IPetHandbookTopic[],
-) {
-    if (!value || typeof value !== "object" || Array.isArray(value)) {
-        return {};
-    }
-
-    const topicIds = new Set(topics.map((topic) => topic.topic_Id));
-    const entries = Object.entries(value as Record<string, unknown>).filter(
-        ([topicId, recordedAt]) => {
-            return (
-                topicIds.has(Number(topicId)) &&
-                typeof recordedAt === "string" &&
-                !Number.isNaN(new Date(recordedAt).getTime())
-            );
-        },
-    );
-
-    return Object.fromEntries(
-        entries.map(([topicId, recordedAt]) => [Number(topicId), recordedAt]),
-    ) as PetTopicCompletionMap;
-}
-
-function readPetTopicCompletionMap(
-    lookupKeys: string[],
-    topics: IPetHandbookTopic[],
-) {
-    for (const lookupKey of lookupKeys) {
-        const rawValue = readCookie(getPetTopicCookieName(lookupKey));
-
-        if (!rawValue) {
-            continue;
-        }
-
-        try {
-            return normalizePetTopicCompletionMap(JSON.parse(rawValue), topics);
-        } catch {
-            continue;
-        }
-    }
-
-    return {};
-}
-
-function persistPetTopicCompletionMap() {
-    if (!petTopicLookupKey.value) {
-        return;
-    }
-
-    const payload = petTopics.value.reduce<PetTopicCompletionMap>(
-        (record, topic) => {
-            const recordedAt = petTopicCompletionMap.value[topic.topic_Id];
-
-            if (recordedAt) {
-                record[topic.topic_Id] = recordedAt;
-            }
-
-            return record;
-        },
-        {},
-    );
-
-    writeCookie(
-        getPetTopicCookieName(petTopicLookupKey.value),
-        JSON.stringify(payload),
-    );
-}
-
 function isPetTopicCompleted(topicId: number) {
     return Boolean(petTopicCompletionMap.value[topicId]);
 }
@@ -1004,24 +917,6 @@ function getPetTopicRecordedLabel(topicId: number) {
     const recordedAt = petTopicCompletionMap.value[topicId];
 
     return recordedAt ? formatRecordDate(recordedAt) : "";
-}
-
-function handlePetTopicChange(topicId: number, event: Event) {
-    if (!petTopicLookupKey.value) {
-        return;
-    }
-
-    const isCompleted = (event.target as HTMLInputElement).checked;
-    const nextState = { ...petTopicCompletionMap.value };
-
-    if (isCompleted) {
-        nextState[topicId] = new Date().toISOString();
-    } else {
-        delete nextState[topicId];
-    }
-
-    petTopicCompletionMap.value = nextState;
-    persistPetTopicCompletionMap();
 }
 
 async function ensurePetHandbookTopicMap() {
@@ -1087,6 +982,15 @@ function getTopicRewards(topic: IPetHandbookTopic): IHandbookRewardItem[] {
     return handbookRewards.value[topic.topic_reward] ?? [];
 }
 
+function getTopicRequirementText(topic: IPetHandbookTopic): string {
+    const speciesName =
+        friend.value?.localized?.zh?.name ??
+        friend.value?.species?.localized?.zh ??
+        friend.value?.name;
+
+    return formatHandbookTopicRequirementSync(topic, speciesName);
+}
+
 function getRewardIconSrc(item: IHandbookRewardItem): string | null {
     if (!item.icon_id) {
         return null;
@@ -1150,23 +1054,24 @@ function getQualityColor(quality: number): string {
 function resetPetTopics() {
     petTopicRequestKey += 1;
     petTopics.value = [];
-    petTopicCompletionMap.value = {};
-    petTopicLookupKey.value = "";
     petTopicDialogOpen.value = false;
     petTopicErrorMessage.value = "";
     isPetTopicLoading.value = false;
 }
 
-async function getPetTopics(pet: IPetsDetail, legacyPetId: number) {
+async function getPetTopics(pet: IPetsDetail) {
     const requestKey = ++petTopicRequestKey;
     isPetTopicLoading.value = true;
     petTopicErrorMessage.value = "";
 
     try {
+        await initHandbookProgress();
+
         const [topicMap] = await Promise.all([
             ensurePetHandbookTopicMap(),
             ensureHandbookRewards(),
             ensureItemLookup(),
+            ensureHandbookTopicSkillNames(),
         ]);
         const lookupKeys = getPetTopicLookupKeys(pet);
 
@@ -1177,16 +1082,9 @@ async function getPetTopics(pet: IPetsDetail, legacyPetId: number) {
         const matchedLookupKey =
             lookupKeys.find((lookupKey) => lookupKey in topicMap) ?? "";
 
-        petTopicLookupKey.value = matchedLookupKey;
         petTopics.value = matchedLookupKey
             ? (topicMap[matchedLookupKey] ?? [])
             : [];
-        petTopicCompletionMap.value = readPetTopicCompletionMap(
-            matchedLookupKey
-                ? [matchedLookupKey, String(legacyPetId)]
-                : [String(legacyPetId)],
-            petTopics.value,
-        );
     } catch {
         if (requestKey !== petTopicRequestKey) {
             return;
@@ -1458,7 +1356,7 @@ async function getFriendDetail(idParam: string | string[]) {
 
         const nextFriend = (await response.json()) as IPetsDetail;
         friend.value = nextFriend;
-        void getPetTopics(nextFriend, id);
+        void getPetTopics(nextFriend);
     } catch (error) {
         if (error instanceof DOMException && error.name === "AbortError") {
             return;
@@ -1516,6 +1414,18 @@ async function getFriendDetail(idParam: string | string[]) {
                             >
                                 <ListTodo class="h-3.5 w-3.5 text-foreground" />
                                 图鉴任务
+                                <Badge
+                                    v-if="
+                                        isSpeciesCollected(
+                                            handbookProgressState,
+                                            friend.species.id,
+                                        )
+                                    "
+                                    variant="outline"
+                                    class="rounded-[10px] border-emerald-400/25 bg-emerald-400/10 px-2 py-0.5 normal-case tracking-normal text-emerald-100"
+                                >
+                                    已收集
+                                </Badge>
                             </p>
 
                             <div
@@ -1605,10 +1515,22 @@ async function getFriendDetail(idParam: string | string[]) {
                                     查看图鉴任务
                                 </Button>
 
+                                <Button
+                                    variant="outline"
+                                    class="mt-3 w-full rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
+                                    as-child
+                                >
+                                    <RouterLink
+                                        :to="`/handbook-progress?species=${friend.species.id}`"
+                                    >
+                                        前往图鉴进度管理
+                                    </RouterLink>
+                                </Button>
+
                                 <p
                                     class="mt-3 text-xs leading-5 text-foreground text-center"
                                 >
-                                    任务完成状态不会同步到其他设备!
+                                    任务进度请在图鉴进度页管理，不会同步到其他设备。
                                 </p>
                             </template>
 
@@ -1631,7 +1553,7 @@ async function getFriendDetail(idParam: string | string[]) {
                                         variant="outline"
                                         class="rounded-[10px] border-border bg-white/5 px-2.5 py-0.5 text-foreground"
                                     >
-                                        No.{{ friend.id }}
+                                        No.{{ formatPetHandbookNo(friend) }}
                                     </Badge>
                                     <Badge
                                         class="rounded-[10px] bg-white/10 text-foreground"
@@ -2399,7 +2321,9 @@ async function getFriendDetail(idParam: string | string[]) {
                                                                     class="text-[11px] tracking-[0.14em] text-foreground uppercase"
                                                                 >
                                                                     No.{{
-                                                                        monster.id
+                                                                        formatPetHandbookNo(
+                                                                            monster,
+                                                                        )
                                                                     }}
                                                                 </p>
                                                                 <Badge
@@ -3223,7 +3147,7 @@ async function getFriendDetail(idParam: string | string[]) {
                             {{ friend.localized.zh.name }} 图鉴任务
                         </DialogTitle>
                         <DialogDescription class="text-foreground">
-                            在这里记录当前精灵的图鉴任务完成状态。任务完成状态不会同步到其他设备。
+                            任务进度请在图鉴进度页管理，不会同步到其他设备。
                         </DialogDescription>
                     </DialogHeader>
 
@@ -3294,24 +3218,19 @@ async function getFriendDetail(idParam: string | string[]) {
                             <label
                                 v-for="topic in petTopics"
                                 :key="topic.topic_Id"
-                                class="group flex cursor-pointer items-start gap-3 rounded-[10px] border px-3 py-3 transition-colors"
+                                class="group flex items-start gap-3 rounded-[10px] border px-3 py-3"
                                 :class="
                                     isPetTopicCompleted(topic.topic_Id)
-                                        ? 'border-emerald-400/25 bg-card hover:bg-accent/8'
-                                        : 'border-border bg-white/5 hover:border-white/15 hover:bg-muted'
+                                        ? 'border-emerald-400/25 bg-card'
+                                        : 'border-border bg-white/5'
                                 "
                             >
                                 <input
                                     class="sr-only"
                                     type="checkbox"
+                                    disabled
                                     :checked="
                                         isPetTopicCompleted(topic.topic_Id)
-                                    "
-                                    @change="
-                                        handlePetTopicChange(
-                                            topic.topic_Id,
-                                            $event,
-                                        )
                                     "
                                 />
 
@@ -3335,7 +3254,7 @@ async function getFriendDetail(idParam: string | string[]) {
                                                 : 'text-foreground'
                                         "
                                     >
-                                        {{ topic.topic_desc }}
+                                        {{ getTopicRequirementText(topic) }}
                                     </span>
                                     <span
                                         v-if="getTopicRewards(topic).length > 0"
@@ -3638,8 +3557,22 @@ async function getFriendDetail(idParam: string | string[]) {
                             </label>
                         </div>
 
+                        <div class="flex flex-col gap-3 sm:flex-row">
+                            <Button
+                                variant="outline"
+                                class="flex-1 rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
+                                as-child
+                            >
+                                <RouterLink
+                                    :to="`/handbook-progress?species=${friend.species.id}`"
+                                >
+                                    前往图鉴进度管理
+                                </RouterLink>
+                            </Button>
+                        </div>
+
                         <p class="text-xs leading-5 text-foreground">
-                            任务完成状态不会同步到其他设备!
+                            任务进度请在图鉴进度页管理，不会同步到其他设备。
                         </p>
                     </template>
 

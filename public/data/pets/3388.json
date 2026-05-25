@@ -57,6 +57,7 @@
                 "monsters": [
                     {
                         "id": 3387,
+                        "species_id": 3387,
                         "name": "keduoduo",
                         "form": "default",
                         "localized": {
@@ -89,6 +90,7 @@
                 "monsters": [
                     {
                         "id": 3388,
+                        "species_id": 3388,
                         "name": "keduosuo",
                         "form": "default",
                         "localized": {

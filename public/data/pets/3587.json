@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3587,
+                        "species_id": 3587,
                         "name": "qulvlongjuan",
                         "form": "default",
                         "localized": {

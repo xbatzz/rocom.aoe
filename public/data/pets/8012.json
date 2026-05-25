@@ -1211,6 +1211,7 @@
                 "monsters": [
                     {
                         "id": 3050,
+                        "species_id": 95,
                         "name": "jiyishi",
                         "form": "记忆石",
                         "localized": {
@@ -1231,6 +1232,7 @@
                     },
                     {
                         "id": 8012,
+                        "species_id": 8012,
                         "name": "jiyishi",
                         "form": "default",
                         "localized": {

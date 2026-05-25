@@ -1255,6 +1255,7 @@
                 "monsters": [
                     {
                         "id": 3398,
+                        "species_id": 317,
                         "name": "xingchenchong",
                         "form": "星尘虫",
                         "localized": {
@@ -1281,6 +1282,7 @@
                 "monsters": [
                     {
                         "id": 3399,
+                        "species_id": 318,
                         "name": "luoxingchong",
                         "form": "落星虫",
                         "localized": {
@@ -1309,6 +1311,7 @@
                 "monsters": [
                     {
                         "id": 3400,
+                        "species_id": 319,
                         "name": "yunxingchong",
                         "form": "陨星虫",
                         "localized": {

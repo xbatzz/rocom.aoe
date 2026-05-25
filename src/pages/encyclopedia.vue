@@ -23,6 +23,12 @@ import {
     matchesPetImplementationFilter,
     type PetImplementationFilter,
 } from "@/lib/petImplementation";
+import {
+    formatPetHandbookNo,
+    getPetHandbookId,
+    isHandbookNumberQuery,
+    matchesPetKeyword,
+} from "@/lib/petHandbook";
 
 type SortKey = "id" | "power" | "speed" | "name";
 
@@ -244,16 +250,11 @@ const filteredPets = computed(() => {
     return pets.value.filter((pet) => {
         const matchesKeyword =
             keyword.length === 0 ||
-            [
-                pet.localized.zh.name,
-                pet.name,
-                String(pet.id),
-                pet.main_type.localized.zh,
-                pet.sub_type?.localized.zh ?? "",
-                pet.default_legacy_type.localized.zh,
+            matchesPetKeyword(pet, keyword, [
                 getPetImplementationLabel(pet),
-            ].some((field) => field.toLowerCase().includes(keyword)) ||
-            bloodlineMatchMap.value.has(pet.id);
+            ]) ||
+            (!isHandbookNumberQuery(keyword) &&
+                bloodlineMatchMap.value.has(pet.id));
 
         const matchesType =
             encyclopediaState.type === "all" ||
@@ -311,7 +312,7 @@ const sortedPets = computed(() => {
                 );
                 break;
             default:
-                comparison = left.id - right.id;
+                comparison = getPetHandbookId(left) - getPetHandbookId(right);
                 break;
         }
 
@@ -977,7 +978,7 @@ document.title = "图鉴 - 洛克王国工具箱";
                                         <p
                                             class="text-xs tracking-[0.22em] text-foreground uppercase"
                                         >
-                                            No.{{ pet.id }}
+                                            No.{{ formatPetHandbookNo(pet) }}
                                         </p>
                                         <h3
                                             class="truncate text-xl font-semibold tracking-tight text-foreground"

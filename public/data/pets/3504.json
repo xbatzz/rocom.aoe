@@ -62,6 +62,7 @@
                 "monsters": [
                     {
                         "id": 3504,
+                        "species_id": 3504,
                         "name": "cimushu",
                         "form": "default",
                         "localized": {

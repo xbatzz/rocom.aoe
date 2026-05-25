@@ -1151,6 +1151,7 @@
                 "monsters": [
                     {
                         "id": 13000167,
+                        "species_id": 13000167,
                         "name": "caidiesha_shouling",
                         "form": "default",
                         "localized": {
@@ -1184,6 +1185,7 @@
                 "monsters": [
                     {
                         "id": 13000167,
+                        "species_id": 13000167,
                         "name": "caidiesha_shouling",
                         "form": "default",
                         "localized": {

@@ -14,6 +14,10 @@ const bloodlineIndexPath = path.join(publicDataDir, "bloodline_index.json");
 const petSkillIndexPath = path.join(publicDataDir, "PetSkillIndex.json");
 const itemsIndexPath = path.join(publicDataDir, "items.json");
 const handbookRewardsPath = path.join(publicDataDir, "handbook-rewards.json");
+const handbookTopicSkillNamesPath = path.join(
+    publicDataDir,
+    "handbook-topic-skill-names.json",
+);
 
 const UNKNOWN_TYPE_ID = 20;
 const CANONICAL_PETBASE_ID_RANGE = {
@@ -329,6 +333,7 @@ async function main() {
 
     const indexEntries = details.map((detail) => ({
         id: detail.id,
+        species_id: detail.species.id,
         name: detail.name,
         form: detail.form,
         main_type: detail.main_type,
@@ -405,6 +410,10 @@ async function main() {
         visualItemTable,
         itemById,
     );
+    const handbookTopicSkillNames = buildHandbookTopicSkillNames(
+        handbookRows,
+        skillById,
+    );
 
     await syncMirroredTables();
     await fs.mkdir(petsDetailDir, { recursive: true });
@@ -424,6 +433,7 @@ async function main() {
         }),
         writeJson(itemsIndexPath, itemEntries),
         writeJson(handbookRewardsPath, handbookRewards),
+        writeJson(handbookTopicSkillNamesPath, handbookTopicSkillNames),
     ]);
 
     console.log(
@@ -1087,6 +1097,33 @@ function buildHandbookRewards(
     return result;
 }
 
+function buildHandbookTopicSkillNames(handbookRows, skillById) {
+    const skillIds = new Set();
+
+    for (const row of handbookRows) {
+        for (const topic of normalizeArray(row.pet_topic)) {
+            if (topic?.topic_type !== 4) {
+                continue;
+            }
+
+            for (const skillId of normalizeArray(topic.topic_data_1)) {
+                if (Number.isFinite(skillId)) {
+                    skillIds.add(skillId);
+                }
+            }
+        }
+    }
+
+    const result = {};
+
+    for (const skillId of skillIds) {
+        const skill = skillById.get(skillId);
+        result[skillId] = cleanText(skill?.name) ?? `技能 ${skillId}`;
+    }
+
+    return result;
+}
+
 const MOVE_EFFECT_TEXT_PATTERN =
     /(造成|对敌方|敌方|自己|回复|恢复|获得|减伤|连击|本技能|魔法伤害|物理伤害|物伤|魔伤|消耗|能量|速度|物攻|魔攻|物防|魔防|威力|命中|应对|印记|萌化|睡眠|中毒|烧伤|暴击|先手|后手|生命|回合|下次|本次|永久|打断|蓄力|吸血|脱离|交换|失去|赋予|翻倍|冷却|眩晕|冻结|变成|无法更换)/;
 
@@ -1567,6 +1604,10 @@ function buildEvolutionNode(
 
     return {
         id: context.id,
+        species_id:
+            context.handbookRow?.id ??
+            context.petBase.pictorial_book_id ??
+            context.id,
         name: context.portraitKey,
         form: extractForm(context),
         localized: {

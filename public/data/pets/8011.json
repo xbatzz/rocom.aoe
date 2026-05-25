@@ -1151,6 +1151,7 @@
                 "monsters": [
                     {
                         "id": 3209,
+                        "species_id": 224,
                         "name": "xiaoyilong",
                         "form": "小翼龙",
                         "localized": {
@@ -1177,6 +1178,7 @@
                     },
                     {
                         "id": 8011,
+                        "species_id": 8011,
                         "name": "yilong",
                         "form": "default",
                         "localized": {
@@ -1211,6 +1213,7 @@
                 "monsters": [
                     {
                         "id": 3210,
+                        "species_id": 225,
                         "name": "yilong",
                         "form": "翼龙",
                         "localized": {

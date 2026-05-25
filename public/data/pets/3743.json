@@ -1217,6 +1217,7 @@
                 "monsters": [
                     {
                         "id": 3660,
+                        "species_id": 361,
                         "name": "jiayouxie",
                         "form": "default",
                         "localized": {
@@ -1246,6 +1247,7 @@
                     },
                     {
                         "id": 3743,
+                        "species_id": 361,
                         "name": "jiayouxiedanzhi",
                         "form": "default",
                         "localized": {

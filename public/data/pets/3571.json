@@ -1305,6 +1305,7 @@
                 "monsters": [
                     {
                         "id": 3344,
+                        "species_id": 88,
                         "name": "huaguitianer",
                         "form": "乖乖鹄",
                         "localized": {
@@ -1337,6 +1338,7 @@
                 "monsters": [
                     {
                         "id": 3345,
+                        "species_id": 89,
                         "name": "lanzhutianer",
                         "form": "蓝珠天鹅",
                         "localized": {
@@ -1371,6 +1373,7 @@
                 "monsters": [
                     {
                         "id": 3346,
+                        "species_id": 90,
                         "name": "cuidingfuren",
                         "form": "翠顶夫人",
                         "localized": {
@@ -1399,6 +1402,7 @@
                     },
                     {
                         "id": 3571,
+                        "species_id": 91,
                         "name": "heiyufuren",
                         "form": "黑羽夫人",
                         "localized": {

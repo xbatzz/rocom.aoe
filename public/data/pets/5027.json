@@ -1299,6 +1299,7 @@
                 "monsters": [
                     {
                         "id": 3004,
+                        "species_id": 1,
                         "name": "dimo",
                         "form": "default",
                         "localized": {
@@ -1319,6 +1320,7 @@
                     },
                     {
                         "id": 16000004,
+                        "species_id": 1,
                         "name": "dimo",
                         "form": "default",
                         "localized": {
@@ -1339,6 +1341,7 @@
                     },
                     {
                         "id": 16000007,
+                        "species_id": 1,
                         "name": "dimo",
                         "form": "default",
                         "localized": {
@@ -1366,6 +1369,7 @@
                 "monsters": [
                     {
                         "id": 5025,
+                        "species_id": 1,
                         "name": "shengguangdimo",
                         "form": "圣光",
                         "localized": {
@@ -1386,6 +1390,7 @@
                     },
                     {
                         "id": 5026,
+                        "species_id": 1,
                         "name": "shengcaodimo",
                         "form": "圣草",
                         "localized": {
@@ -1412,6 +1417,7 @@
                     },
                     {
                         "id": 5027,
+                        "species_id": 1,
                         "name": "shenghuodimo",
                         "form": "圣火",
                         "localized": {
@@ -1432,6 +1438,7 @@
                     },
                     {
                         "id": 5028,
+                        "species_id": 1,
                         "name": "shengshuidimo",
                         "form": "圣水",
                         "localized": {

@@ -1123,6 +1123,7 @@
                 "monsters": [
                     {
                         "id": 3589,
+                        "species_id": 3589,
                         "name": "daigui",
                         "form": "default",
                         "localized": {
@@ -1145,6 +1146,7 @@
                     },
                     {
                         "id": 3726,
+                        "species_id": 3726,
                         "name": "xiaoyongshi",
                         "form": "default",
                         "localized": {
@@ -1177,6 +1179,7 @@
                 "monsters": [
                     {
                         "id": 3590,
+                        "species_id": 3590,
                         "name": "3590",
                         "form": "default",
                         "localized": {
@@ -1199,6 +1202,7 @@
                     },
                     {
                         "id": 3727,
+                        "species_id": 3727,
                         "name": "chiyanshi",
                         "form": "default",
                         "localized": {
@@ -1233,6 +1237,7 @@
                 "monsters": [
                     {
                         "id": 3728,
+                        "species_id": 3728,
                         "name": "chixinyongshi",
                         "form": "default",
                         "localized": {

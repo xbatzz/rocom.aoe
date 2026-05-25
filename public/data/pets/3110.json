@@ -1283,6 +1283,7 @@
                 "monsters": [
                     {
                         "id": 3109,
+                        "species_id": 113,
                         "name": "maya",
                         "form": "仪使者",
                         "localized": {
@@ -1315,6 +1316,7 @@
                 "monsters": [
                     {
                         "id": 3110,
+                        "species_id": 114,
                         "name": "mayazhixing",
                         "form": "仪式之星",
                         "localized": {
@@ -1349,6 +1351,7 @@
                 "monsters": [
                     {
                         "id": 3111,
+                        "species_id": 115,
                         "name": "mayashixianggui",
                         "form": "仪式巨像",
                         "localized": {

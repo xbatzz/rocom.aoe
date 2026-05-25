@@ -1211,6 +1211,7 @@
                 "monsters": [
                     {
                         "id": 3083,
+                        "species_id": 249,
                         "name": "keaiyuan",
                         "form": "可爱猿",
                         "localized": {
@@ -1237,6 +1238,7 @@
                 "monsters": [
                     {
                         "id": 3084,
+                        "species_id": 250,
                         "name": "zhireyuan",
                         "form": "炽热猿",
                         "localized": {
@@ -1265,6 +1267,7 @@
                 "monsters": [
                     {
                         "id": 3085,
+                        "species_id": 251,
                         "name": "huoyanyuan",
                         "form": "火焰猿",
                         "localized": {

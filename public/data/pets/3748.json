@@ -1151,6 +1151,7 @@
                 "monsters": [
                     {
                         "id": 3748,
+                        "species_id": 3748,
                         "name": "yadanbin",
                         "form": "default",
                         "localized": {

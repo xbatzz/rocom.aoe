@@ -1123,6 +1123,7 @@
                 "monsters": [
                     {
                         "id": 3741,
+                        "species_id": 3741,
                         "name": "hulianchacha",
                         "form": "default",
                         "localized": {

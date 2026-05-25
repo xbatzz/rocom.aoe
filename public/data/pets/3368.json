@@ -1145,6 +1145,7 @@
                 "monsters": [
                     {
                         "id": 3367,
+                        "species_id": 52,
                         "name": "duudbao",
                         "form": "嘟嘟煲",
                         "localized": {
@@ -1171,6 +1172,7 @@
                 "monsters": [
                     {
                         "id": 3368,
+                        "species_id": 53,
                         "name": "duudguo",
                         "form": "嘟嘟锅",
                         "localized": {

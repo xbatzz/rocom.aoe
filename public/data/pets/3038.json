@@ -1123,6 +1123,7 @@
                 "monsters": [
                     {
                         "id": 3038,
+                        "species_id": 283,
                         "name": "xiaojiachong",
                         "form": "小甲虫",
                         "localized": {
@@ -1149,6 +1150,7 @@
                 "monsters": [
                     {
                         "id": 3013,
+                        "species_id": 284,
                         "name": "kaijiachong",
                         "form": "铠甲虫",
                         "localized": {

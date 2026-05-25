@@ -1167,6 +1167,7 @@
                 "monsters": [
                     {
                         "id": 3178,
+                        "species_id": 214,
                         "name": "judulangzhu",
                         "form": "矮脚爬爬",
                         "localized": {
@@ -1193,6 +1194,7 @@
                 "monsters": [
                     {
                         "id": 3179,
+                        "species_id": 215,
                         "name": "emolangzhu",
                         "form": "恶魔红钻",
                         "localized": {

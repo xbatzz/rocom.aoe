@@ -1261,6 +1261,7 @@
                 "monsters": [
                     {
                         "id": 3577,
+                        "species_id": 280,
                         "name": "moyoushi",
                         "form": "墨鱿士",
                         "localized": {
@@ -1287,6 +1288,7 @@
                 "monsters": [
                     {
                         "id": 3578,
+                        "species_id": 281,
                         "name": "hunluanyoucai",
                         "form": "混乱鱿彩",
                         "localized": {
@@ -1316,6 +1318,7 @@
                     },
                     {
                         "id": 3579,
+                        "species_id": 282,
                         "name": "zhixumoyu",
                         "form": "秩序鱿墨",
                         "localized": {

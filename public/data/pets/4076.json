@@ -68,6 +68,7 @@
                 "monsters": [
                     {
                         "id": 3062,
+                        "species_id": 116,
                         "name": "xiaodujiaoshou",
                         "form": "小独角兽",
                         "localized": {
@@ -94,6 +95,7 @@
                 "monsters": [
                     {
                         "id": 3063,
+                        "species_id": 117,
                         "name": "baijindujiaoshou",
                         "form": "白金独角兽",
                         "localized": {
@@ -126,6 +128,7 @@
                 "monsters": [
                     {
                         "id": 4076,
+                        "species_id": 117,
                         "name": "yilisi",
                         "form": "伊里斯",
                         "localized": {
@@ -152,6 +155,7 @@
                     },
                     {
                         "id": 5002,
+                        "species_id": 117,
                         "name": "yilisi",
                         "form": "彩虹独角兽",
                         "localized": {

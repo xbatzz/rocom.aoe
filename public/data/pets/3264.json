@@ -1145,6 +1145,7 @@
                 "monsters": [
                     {
                         "id": 3264,
+                        "species_id": 3264,
                         "name": "xieefangchui",
                         "form": "default",
                         "localized": {
@@ -1171,6 +1172,7 @@
                 "monsters": [
                     {
                         "id": 3265,
+                        "species_id": 3265,
                         "name": "hunshuifangchui",
                         "form": "default",
                         "localized": {

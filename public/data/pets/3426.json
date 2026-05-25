@@ -57,6 +57,7 @@
                 "monsters": [
                     {
                         "id": 3425,
+                        "species_id": 3425,
                         "name": "sanyecaolong",
                         "form": "default",
                         "localized": {
@@ -89,6 +90,7 @@
                 "monsters": [
                     {
                         "id": 3426,
+                        "species_id": 3426,
                         "name": "huayelong",
                         "form": "default",
                         "localized": {

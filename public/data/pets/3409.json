@@ -1123,6 +1123,7 @@
                 "monsters": [
                     {
                         "id": 3408,
+                        "species_id": 3408,
                         "name": "chilunxiaozi",
                         "form": "default",
                         "localized": {
@@ -1149,6 +1150,7 @@
                 "monsters": [
                     {
                         "id": 3409,
+                        "species_id": 3409,
                         "name": "jijiaxiaozi",
                         "form": "default",
                         "localized": {

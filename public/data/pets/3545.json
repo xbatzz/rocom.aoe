@@ -1277,6 +1277,7 @@
                 "monsters": [
                     {
                         "id": 3545,
+                        "species_id": 285,
                         "name": "shengjianshicong",
                         "form": "圣剑侍从",
                         "localized": {
@@ -1303,6 +1304,7 @@
                 "monsters": [
                     {
                         "id": 3546,
+                        "species_id": 286,
                         "name": "shengjianX",
                         "form": "圣剑-X",
                         "localized": {

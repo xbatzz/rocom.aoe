@@ -1129,6 +1129,7 @@
                 "monsters": [
                     {
                         "id": 3440,
+                        "species_id": 3440,
                         "name": "mengyou_pink",
                         "form": "default",
                         "localized": {
@@ -1155,6 +1156,7 @@
                     },
                     {
                         "id": 3656,
+                        "species_id": 3656,
                         "name": "songzai",
                         "form": "default",
                         "localized": {
@@ -1181,6 +1183,7 @@
                 "monsters": [
                     {
                         "id": 3441,
+                        "species_id": 3441,
                         "name": "mengyouyou_pink",
                         "form": "default",
                         "localized": {
@@ -1209,6 +1212,7 @@
                     },
                     {
                         "id": 3657,
+                        "species_id": 3657,
                         "name": "songzai",
                         "form": "default",
                         "localized": {
@@ -1235,6 +1239,7 @@
                 "monsters": [
                     {
                         "id": 3658,
+                        "species_id": 3658,
                         "name": "songzai",
                         "form": "default",
                         "localized": {

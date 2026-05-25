@@ -1233,6 +1233,7 @@
                 "monsters": [
                     {
                         "id": 3373,
+                        "species_id": 198,
                         "name": "doudou",
                         "form": "逗逗",
                         "localized": {
@@ -1259,6 +1260,7 @@
                 "monsters": [
                     {
                         "id": 3374,
+                        "species_id": 199,
                         "name": "qiqiumao",
                         "form": "气球猫",
                         "localized": {
@@ -1287,6 +1289,7 @@
                 "monsters": [
                     {
                         "id": 3375,
+                        "species_id": 200,
                         "name": "qimengmi",
                         "form": "梦想三三",
                         "localized": {

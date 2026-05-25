@@ -1145,6 +1145,7 @@
                 "monsters": [
                     {
                         "id": 3012,
+                        "species_id": 11,
                         "name": "yajiji",
                         "form": "鸭吉吉",
                         "localized": {
@@ -1165,6 +1166,7 @@
                     },
                     {
                         "id": 3036,
+                        "species_id": 11,
                         "name": "yaji",
                         "form": "鸭吉吉",
                         "localized": {
@@ -1185,6 +1187,7 @@
                     },
                     {
                         "id": 3452,
+                        "species_id": 11,
                         "name": "yajiji_jijiya",
                         "form": "鸭吉吉",
                         "localized": {
@@ -1205,6 +1208,7 @@
                     },
                     {
                         "id": 3453,
+                        "species_id": 11,
                         "name": "dengyidengya",
                         "form": "鸭吉吉",
                         "localized": {
@@ -1225,6 +1229,7 @@
                     },
                     {
                         "id": 3495,
+                        "species_id": 11,
                         "name": "yajiji_ranleya",
                         "form": "鸭吉吉",
                         "localized": {
@@ -1245,6 +1250,7 @@
                     },
                     {
                         "id": 3742,
+                        "species_id": 11,
                         "name": "yajiji_qilaiya",
                         "form": "鸭吉吉",
                         "localized": {
@@ -1272,6 +1278,7 @@
                 "monsters": [
                     {
                         "id": 4012,
+                        "species_id": 11,
                         "name": "yajiji_shouling",
                         "form": "鸭吉吉国王",
                         "localized": {
@@ -1292,6 +1299,7 @@
                     },
                     {
                         "id": 5006,
+                        "species_id": 11,
                         "name": "yajiji_shouling",
                         "form": "鸭吉吉国王",
                         "localized": {
@@ -1312,6 +1320,7 @@
                     },
                     {
                         "id": 5036,
+                        "species_id": 11,
                         "name": "yajiji_shouling",
                         "form": "鸭吉吉国王",
                         "localized": {
@@ -1332,6 +1341,7 @@
                     },
                     {
                         "id": 5037,
+                        "species_id": 11,
                         "name": "yajiji_shouling",
                         "form": "鸭吉吉国王",
                         "localized": {
@@ -1352,6 +1362,7 @@
                     },
                     {
                         "id": 5038,
+                        "species_id": 11,
                         "name": "yajiji_shouling",
                         "form": "鸭吉吉国王",
                         "localized": {
@@ -1372,6 +1383,7 @@
                     },
                     {
                         "id": 5039,
+                        "species_id": 11,
                         "name": "yajiji_shouling",
                         "form": "鸭吉吉国王",
                         "localized": {
@@ -1392,6 +1404,7 @@
                     },
                     {
                         "id": 5052,
+                        "species_id": 11,
                         "name": "yajiji_shouling",
                         "form": "鸭吉吉国王",
                         "localized": {

@@ -1283,6 +1283,7 @@
                 "monsters": [
                     {
                         "id": 3151,
+                        "species_id": 125,
                         "name": "duoduo",
                         "form": "多多",
                         "localized": {
@@ -1315,6 +1316,7 @@
                 "monsters": [
                     {
                         "id": 3152,
+                        "species_id": 126,
                         "name": "duoladuo",
                         "form": "多啦多",
                         "localized": {
@@ -1349,6 +1351,7 @@
                 "monsters": [
                     {
                         "id": 3153,
+                        "species_id": 127,
                         "name": "guladuo",
                         "form": "古啦多",
                         "localized": {

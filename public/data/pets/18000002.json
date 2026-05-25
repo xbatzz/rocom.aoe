@@ -1327,6 +1327,7 @@
                 "monsters": [
                     {
                         "id": 3225,
+                        "species_id": 212,
                         "name": "guzhongshe",
                         "form": "古钟蛇",
                         "localized": {
@@ -1353,6 +1354,7 @@
                     },
                     {
                         "id": 18000002,
+                        "species_id": 18000002,
                         "name": "hanyinshe",
                         "form": "default",
                         "localized": {
@@ -1387,6 +1389,7 @@
                 "monsters": [
                     {
                         "id": 3226,
+                        "species_id": 213,
                         "name": "hanyinshe",
                         "form": "寒音蛇",
                         "localized": {

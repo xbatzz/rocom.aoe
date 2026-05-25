@@ -1195,6 +1195,7 @@
                 "monsters": [
                     {
                         "id": 3600,
+                        "species_id": 156,
                         "name": "xiaoyongshi",
                         "form": "小勇狮",
                         "localized": {
@@ -1227,6 +1228,7 @@
                 "monsters": [
                     {
                         "id": 3601,
+                        "species_id": 157,
                         "name": "chiyanshi",
                         "form": "炽焰狮",
                         "localized": {
@@ -1261,6 +1263,7 @@
                 "monsters": [
                     {
                         "id": 3602,
+                        "species_id": 158,
                         "name": "chixinyongshi",
                         "form": "炽心勇狮",
                         "localized": {

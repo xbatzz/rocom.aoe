@@ -1167,6 +1167,7 @@
                 "monsters": [
                     {
                         "id": 3011,
+                        "species_id": 131,
                         "name": "emolang",
                         "form": "恶魔狼",
                         "localized": {
@@ -1194,6 +1195,7 @@
                 "monsters": [
                     {
                         "id": 4011,
+                        "species_id": 131,
                         "name": "emolang_shouling",
                         "form": "恶魔狼王",
                         "localized": {
@@ -1214,6 +1216,7 @@
                     },
                     {
                         "id": 5016,
+                        "species_id": 131,
                         "name": "emolang_shouling",
                         "form": "恶魔狼王",
                         "localized": {

@@ -1167,6 +1167,7 @@
                 "monsters": [
                     {
                         "id": 3090,
+                        "species_id": 216,
                         "name": "huoweiwate",
                         "form": "火尾瓦特",
                         "localized": {
@@ -1193,6 +1194,7 @@
                 "monsters": [
                     {
                         "id": 3091,
+                        "species_id": 217,
                         "name": "huoweizhanshi",
                         "form": "火尾战士",
                         "localized": {
@@ -1221,6 +1223,7 @@
                 "monsters": [
                     {
                         "id": 3092,
+                        "species_id": 218,
                         "name": "liehuoshouhu",
                         "form": "烈火守护",
                         "localized": {

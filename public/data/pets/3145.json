@@ -1277,6 +1277,7 @@
                 "monsters": [
                     {
                         "id": 3145,
+                        "species_id": 21,
                         "name": "xiaolinggu",
                         "form": "default",
                         "localized": {
@@ -1303,6 +1304,7 @@
                 "monsters": [
                     {
                         "id": 3146,
+                        "species_id": 22,
                         "name": "youlinggu",
                         "form": "default",
                         "localized": {
@@ -1337,6 +1339,7 @@
                 "monsters": [
                     {
                         "id": 3147,
+                        "species_id": 23,
                         "name": "lunhuilinggu",
                         "form": "幻影灵菇",
                         "localized": {

@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3314,
+                        "species_id": 3314,
                         "name": "dieyejuxi",
                         "form": "default",
                         "localized": {

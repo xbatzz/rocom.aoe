@@ -1145,6 +1145,7 @@
                 "monsters": [
                     {
                         "id": 3165,
+                        "species_id": 60,
                         "name": "fudishou",
                         "form": "伏地兽",
                         "localized": {
@@ -1171,6 +1172,7 @@
                 "monsters": [
                     {
                         "id": 3166,
+                        "species_id": 61,
                         "name": "shiyishou",
                         "form": "贪食鼹",
                         "localized": {
@@ -1200,6 +1202,7 @@
                 "monsters": [
                     {
                         "id": 3167,
+                        "species_id": 62,
                         "name": "wanzuishou",
                         "form": "巨噬针鼹",
                         "localized": {

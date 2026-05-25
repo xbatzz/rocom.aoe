@@ -68,6 +68,7 @@
                 "monsters": [
                     {
                         "id": 3052,
+                        "species_id": 3052,
                         "name": "meiqiuhanhan",
                         "form": "default",
                         "localized": {
@@ -100,6 +101,7 @@
                 "monsters": [
                     {
                         "id": 3053,
+                        "species_id": 3053,
                         "name": "haixiuqiuqiu",
                         "form": "default",
                         "localized": {
@@ -137,6 +139,7 @@
                 "monsters": [
                     {
                         "id": 3054,
+                        "species_id": 3054,
                         "name": "lanyiyeling",
                         "form": "default",
                         "localized": {

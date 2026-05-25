@@ -1239,6 +1239,7 @@
                 "monsters": [
                     {
                         "id": 3616,
+                        "species_id": 3616,
                         "name": "buguzhong",
                         "form": "default",
                         "localized": {
@@ -1271,6 +1272,7 @@
                 "monsters": [
                     {
                         "id": 3617,
+                        "species_id": 3617,
                         "name": "suyuanzhong",
                         "form": "default",
                         "localized": {

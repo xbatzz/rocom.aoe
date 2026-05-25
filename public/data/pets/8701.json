@@ -1239,6 +1239,7 @@
                 "monsters": [
                     {
                         "id": 3078,
+                        "species_id": 3078,
                         "name": "liezuanniao",
                         "form": "default",
                         "localized": {
@@ -1265,6 +1266,7 @@
                     },
                     {
                         "id": 8701,
+                        "species_id": 8701,
                         "name": "huoyu",
                         "form": "default",
                         "localized": {
@@ -1299,6 +1301,7 @@
                 "monsters": [
                     {
                         "id": 3079,
+                        "species_id": 3079,
                         "name": "changweihuoniao",
                         "form": "default",
                         "localized": {
@@ -1333,6 +1336,7 @@
                 "monsters": [
                     {
                         "id": 3080,
+                        "species_id": 3080,
                         "name": "huoyu",
                         "form": "default",
                         "localized": {

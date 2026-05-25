@@ -1195,6 +1195,7 @@
                 "monsters": [
                     {
                         "id": 3049,
+                        "species_id": 73,
                         "name": "baifalanren",
                         "form": "白发懒人",
                         "localized": {
@@ -1221,6 +1222,7 @@
                 "monsters": [
                     {
                         "id": 3101,
+                        "species_id": 74,
                         "name": "dongliyuan",
                         "form": "动力猿",
                         "localized": {
@@ -1255,6 +1257,7 @@
                 "monsters": [
                     {
                         "id": 3102,
+                        "species_id": 75,
                         "name": "keshuiwang",
                         "form": "瞌睡王",
                         "localized": {

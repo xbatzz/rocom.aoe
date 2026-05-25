@@ -62,6 +62,7 @@
                 "monsters": [
                     {
                         "id": 3260,
+                        "species_id": 3260,
                         "name": "gulahaixiang",
                         "form": "default",
                         "localized": {
@@ -88,6 +89,7 @@
                 "monsters": [
                     {
                         "id": 3261,
+                        "species_id": 3261,
                         "name": "dagulahaixiang",
                         "form": "default",
                         "localized": {

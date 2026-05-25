@@ -1239,6 +1239,7 @@
                 "monsters": [
                     {
                         "id": 3266,
+                        "species_id": 242,
                         "name": "danxiaomanyu",
                         "form": "胆小鳗鱼",
                         "localized": {
@@ -1271,6 +1272,7 @@
                 "monsters": [
                     {
                         "id": 3267,
+                        "species_id": 243,
                         "name": "shandianmanyu",
                         "form": "闪电鳗鱼",
                         "localized": {

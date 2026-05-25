@@ -1167,6 +1167,7 @@
                 "monsters": [
                     {
                         "id": 6027,
+                        "species_id": 6027,
                         "name": "bulaikeyan_shouling",
                         "form": "中级",
                         "localized": {
@@ -1194,6 +1195,7 @@
                 "monsters": [
                     {
                         "id": 6027,
+                        "species_id": 6027,
                         "name": "bulaikeyan_shouling",
                         "form": "中级",
                         "localized": {

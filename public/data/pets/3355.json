@@ -57,6 +57,7 @@
                 "monsters": [
                     {
                         "id": 3354,
+                        "species_id": 3354,
                         "name": "zuandixiaozi",
                         "form": "default",
                         "localized": {
@@ -89,6 +90,7 @@
                 "monsters": [
                     {
                         "id": 3355,
+                        "species_id": 3355,
                         "name": "shandianxiaozi",
                         "form": "default",
                         "localized": {
@@ -123,6 +125,7 @@
                 "monsters": [
                     {
                         "id": 3356,
+                        "species_id": 3356,
                         "name": "monengtuoluo",
                         "form": "default",
                         "localized": {

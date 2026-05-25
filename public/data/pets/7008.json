@@ -1277,6 +1277,7 @@
                 "monsters": [
                     {
                         "id": 7008,
+                        "species_id": 7008,
                         "name": "shengjianX_shouling",
                         "form": "default",
                         "localized": {
@@ -1306,6 +1307,7 @@
                 "monsters": [
                     {
                         "id": 7008,
+                        "species_id": 7008,
                         "name": "shengjianX_shouling",
                         "form": "default",
                         "localized": {

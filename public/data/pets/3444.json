@@ -1261,6 +1261,7 @@
                 "monsters": [
                     {
                         "id": 3444,
+                        "species_id": 272,
                         "name": "pipaniao",
                         "form": "噼啪鸟",
                         "localized": {

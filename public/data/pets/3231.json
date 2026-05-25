@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3230,
+                        "species_id": 3230,
                         "name": "jialing",
                         "form": "default",
                         "localized": {
@@ -77,6 +78,7 @@
                 "monsters": [
                     {
                         "id": 3231,
+                        "species_id": 3231,
                         "name": "jiayi",
                         "form": "default",
                         "localized": {
@@ -105,6 +107,7 @@
                 "monsters": [
                     {
                         "id": 3232,
+                        "species_id": 3232,
                         "name": "jiaer",
                         "form": "default",
                         "localized": {
@@ -127,6 +130,7 @@
                     },
                     {
                         "id": 3233,
+                        "species_id": 3233,
                         "name": "heihuajiaer",
                         "form": "default",
                         "localized": {

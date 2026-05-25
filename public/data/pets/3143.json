@@ -1233,6 +1233,7 @@
                 "monsters": [
                     {
                         "id": 3142,
+                        "species_id": 85,
                         "name": "xiaoye",
                         "form": "小夜",
                         "localized": {
@@ -1259,6 +1260,7 @@
                 "monsters": [
                     {
                         "id": 3143,
+                        "species_id": 86,
                         "name": "ziye",
                         "form": "紫夜",
                         "localized": {
@@ -1288,6 +1290,7 @@
                 "monsters": [
                     {
                         "id": 3144,
+                        "species_id": 87,
                         "name": "ziyemeiying",
                         "form": "朔夜伊芙",
                         "localized": {

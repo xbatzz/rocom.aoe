@@ -1305,6 +1305,7 @@
                 "monsters": [
                     {
                         "id": 3582,
+                        "species_id": 237,
                         "name": "ciluntuo_yidi",
                         "form": "刺轮砣",
                         "localized": {
@@ -1331,6 +1332,7 @@
                     },
                     {
                         "id": 3584,
+                        "species_id": 237,
                         "name": "ciluntuo",
                         "form": "刺轮砣",
                         "localized": {
@@ -1363,6 +1365,7 @@
                 "monsters": [
                     {
                         "id": 3583,
+                        "species_id": 238,
                         "name": "yueliangtuo_yidi",
                         "form": "月亮砣",
                         "localized": {
@@ -1392,6 +1395,7 @@
                     },
                     {
                         "id": 3585,
+                        "species_id": 238,
                         "name": "yueliangtuo",
                         "form": "月亮砣",
                         "localized": {

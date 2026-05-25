@@ -1371,6 +1371,7 @@
                 "monsters": [
                     {
                         "id": 3550,
+                        "species_id": 188,
                         "name": "qiqi",
                         "form": "棋棋",
                         "localized": {
@@ -1397,6 +1398,7 @@
                     },
                     {
                         "id": 3555,
+                        "species_id": 188,
                         "name": "qiqi_yidi",
                         "form": "棋棋",
                         "localized": {
@@ -1429,6 +1431,7 @@
                 "monsters": [
                     {
                         "id": 3551,
+                        "species_id": 189,
                         "name": "qiqishi",
                         "form": "棋骑士",
                         "localized": {
@@ -1459,6 +1462,7 @@
                     },
                     {
                         "id": 3552,
+                        "species_id": 192,
                         "name": "qiqihou",
                         "form": "棋绮后",
                         "localized": {
@@ -1489,6 +1493,7 @@
                     },
                     {
                         "id": 3553,
+                        "species_id": 190,
                         "name": "qiqilei",
                         "form": "棋齐垒",
                         "localized": {
@@ -1519,6 +1524,7 @@
                     },
                     {
                         "id": 3554,
+                        "species_id": 191,
                         "name": "qiqidu",
                         "form": "棋祈督",
                         "localized": {
@@ -1549,6 +1555,7 @@
                     },
                     {
                         "id": 3556,
+                        "species_id": 189,
                         "name": "qiqishi_yidi",
                         "form": "棋骑士",
                         "localized": {
@@ -1579,6 +1586,7 @@
                     },
                     {
                         "id": 3557,
+                        "species_id": 192,
                         "name": "qiqihou_yidi",
                         "form": "棋绮后",
                         "localized": {
@@ -1609,6 +1617,7 @@
                     },
                     {
                         "id": 3558,
+                        "species_id": 190,
                         "name": "qiqilei_yidi",
                         "form": "棋齐垒",
                         "localized": {
@@ -1639,6 +1648,7 @@
                     },
                     {
                         "id": 3559,
+                        "species_id": 191,
                         "name": "qiqidu_yidi",
                         "form": "棋祈督",
                         "localized": {
@@ -1676,6 +1686,7 @@
                 "monsters": [
                     {
                         "id": 5042,
+                        "species_id": 191,
                         "name": "qiqibixia",
                         "form": "棋契陛下",
                         "localized": {
@@ -1702,6 +1713,7 @@
                     },
                     {
                         "id": 5046,
+                        "species_id": 191,
                         "name": "qiqibixia",
                         "form": "棋契陛下",
                         "localized": {

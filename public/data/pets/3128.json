@@ -1145,6 +1145,7 @@
                 "monsters": [
                     {
                         "id": 3127,
+                        "species_id": 165,
                         "name": "xiaoshijiu",
                         "form": "小狮鹫",
                         "localized": {
@@ -1165,6 +1166,7 @@
                     },
                     {
                         "id": 3467,
+                        "species_id": 165,
                         "name": "xiaoshijiu_gaoshan",
                         "form": "小狮鹫",
                         "localized": {
@@ -1191,6 +1193,7 @@
                 "monsters": [
                     {
                         "id": 3128,
+                        "species_id": 166,
                         "name": "shenshengshijiu",
                         "form": "神圣狮鹫",
                         "localized": {
@@ -1213,6 +1216,7 @@
                     },
                     {
                         "id": 3468,
+                        "species_id": 166,
                         "name": "shenshengshijiu_gaoshan",
                         "form": "神圣狮鹫",
                         "localized": {
@@ -1241,6 +1245,7 @@
                 "monsters": [
                     {
                         "id": 3129,
+                        "species_id": 167,
                         "name": "huangjiashijiu",
                         "form": "皇家狮鹫",
                         "localized": {
@@ -1263,6 +1268,7 @@
                     },
                     {
                         "id": 3469,
+                        "species_id": 167,
                         "name": "huangjiashijiu_gaoshan",
                         "form": "皇家狮鹫",
                         "localized": {

@@ -1189,6 +1189,7 @@
                 "monsters": [
                     {
                         "id": 3020,
+                        "species_id": 277,
                         "name": "dishu",
                         "form": "地鼠",
                         "localized": {
@@ -1209,6 +1210,7 @@
                     },
                     {
                         "id": 3454,
+                        "species_id": 277,
                         "name": "dishu_xushui",
                         "form": "地鼠",
                         "localized": {
@@ -1235,6 +1237,7 @@
                 "monsters": [
                     {
                         "id": 3021,
+                        "species_id": 278,
                         "name": "dunshu",
                         "form": "遁鼠",
                         "localized": {
@@ -1257,6 +1260,7 @@
                     },
                     {
                         "id": 3455,
+                        "species_id": 278,
                         "name": "dunshu_xushui",
                         "form": "遁鼠",
                         "localized": {
@@ -1285,6 +1289,7 @@
                 "monsters": [
                     {
                         "id": 3022,
+                        "species_id": 279,
                         "name": "dundishu",
                         "form": "遁地鼠",
                         "localized": {
@@ -1307,6 +1312,7 @@
                     },
                     {
                         "id": 3456,
+                        "species_id": 279,
                         "name": "dundishu_xushui",
                         "form": "遁地鼠",
                         "localized": {

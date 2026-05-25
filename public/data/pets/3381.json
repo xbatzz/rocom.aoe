@@ -1145,6 +1145,7 @@
                 "monsters": [
                     {
                         "id": 3381,
+                        "species_id": 273,
                         "name": "shenlanjing",
                         "form": "深蓝鲸",
                         "localized": {

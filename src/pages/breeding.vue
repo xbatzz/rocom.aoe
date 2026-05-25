@@ -22,6 +22,7 @@ import {
     matchesPetImplementationFilter,
     type PetImplementationFilter,
 } from "@/lib/petImplementation";
+import { formatPetHandbookNo, matchesPetKeyword } from "@/lib/petHandbook";
 
 type SlotRole = "mother" | "father";
 
@@ -95,14 +96,6 @@ const motherOptions = computed(() => {
 
 const fatherOptions = computed(() => {
     return buildCandidateOptions("father", selectedMother.value);
-});
-
-const petSearchTextById = computed(() => {
-    return new Map(
-        pets.value.map((pet) => {
-            return [pet.id, buildPetSearchText(pet)] as const;
-        }),
-    );
 });
 
 const filteredMotherOptions = computed(() => {
@@ -383,24 +376,6 @@ function getSharedEggGroups(mother: IPets | null, father: IPets | null) {
     return motherEggGroups.filter((groupId) => fatherEggGroupSet.has(groupId));
 }
 
-function buildPetSearchText(pet: IPets) {
-    return [
-        String(pet.id),
-        pet.name,
-        pet.form,
-        pet.localized.zh.name,
-        pet.main_type.localized.zh,
-        pet.sub_type?.localized.zh,
-        getPetImplementationLabel(pet),
-        ...(pet.breeding_profile?.egg_groups ?? []).map((groupId) =>
-            formatEggGroup(groupId),
-        ),
-    ]
-        .filter((value): value is string => Boolean(value))
-        .join(" ")
-        .toLocaleLowerCase("zh-CN");
-}
-
 function filterCandidateOptions(options: ICandidateOption[], query: string) {
     const normalizedQuery = query.trim().toLocaleLowerCase("zh-CN");
 
@@ -409,11 +384,12 @@ function filterCandidateOptions(options: ICandidateOption[], query: string) {
     }
 
     return options.filter((option) => {
-        return (
-            petSearchTextById.value
-                .get(option.pet.id)
-                ?.includes(normalizedQuery) ?? false
-        );
+        return matchesPetKeyword(option.pet, normalizedQuery, [
+            getPetImplementationLabel(option.pet),
+            ...(option.pet.breeding_profile?.egg_groups ?? []).map((groupId) =>
+                formatEggGroup(groupId),
+            ),
+        ]);
     });
 }
 
@@ -848,9 +824,11 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                                                     class="text-xs text-foreground"
                                                                 >
                                                                     #{{
-                                                                        row.data
-                                                                            .pet
-                                                                            .id
+                                                                        formatPetHandbookNo(
+                                                                            row
+                                                                                .data
+                                                                                .pet,
+                                                                        )
                                                                     }}
                                                                 </p>
                                                             </div>
@@ -1171,9 +1149,11 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                                                     class="text-xs text-foreground"
                                                                 >
                                                                     #{{
-                                                                        row.data
-                                                                            .pet
-                                                                            .id
+                                                                        formatPetHandbookNo(
+                                                                            row
+                                                                                .data
+                                                                                .pet,
+                                                                        )
                                                                     }}
                                                                 </p>
                                                             </div>

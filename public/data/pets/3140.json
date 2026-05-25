@@ -1239,6 +1239,7 @@
                 "monsters": [
                     {
                         "id": 3139,
+                        "species_id": 99,
                         "name": "xiaocaochong",
                         "form": "小草虫",
                         "localized": {
@@ -1271,6 +1272,7 @@
                 "monsters": [
                     {
                         "id": 3140,
+                        "species_id": 100,
                         "name": "caoyichong",
                         "form": "草衣虫",
                         "localized": {
@@ -1305,6 +1307,7 @@
                 "monsters": [
                     {
                         "id": 3141,
+                        "species_id": 101,
                         "name": "huayidie",
                         "form": "花衣蝶",
                         "localized": {

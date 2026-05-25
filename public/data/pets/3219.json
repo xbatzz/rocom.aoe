@@ -1123,6 +1123,7 @@
                 "monsters": [
                     {
                         "id": 3217,
+                        "species_id": 3217,
                         "name": "jianfeimao",
                         "form": "default",
                         "localized": {
@@ -1149,6 +1150,7 @@
                 "monsters": [
                     {
                         "id": 3218,
+                        "species_id": 3218,
                         "name": "jiroumao",
                         "form": "default",
                         "localized": {
@@ -1178,6 +1180,7 @@
                 "monsters": [
                     {
                         "id": 3219,
+                        "species_id": 3219,
                         "name": "baolizhanmao",
                         "form": "default",
                         "localized": {

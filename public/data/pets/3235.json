@@ -1409,6 +1409,7 @@
                 "monsters": [
                     {
                         "id": 3234,
+                        "species_id": 373,
                         "name": "qianxianmuou",
                         "form": "default",
                         "localized": {
@@ -1435,6 +1436,7 @@
                 "monsters": [
                     {
                         "id": 3235,
+                        "species_id": 374,
                         "name": "shuaishuaimoou",
                         "form": "default",
                         "localized": {
