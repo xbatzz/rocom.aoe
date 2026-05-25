@@ -1233,6 +1233,7 @@
                 "monsters": [
                     {
                         "id": 3531,
+                        "species_id": 354,
                         "name": "xiaoxueren",
                         "form": "default",
                         "localized": {
@@ -1259,6 +1260,7 @@
                 "monsters": [
                     {
                         "id": 3532,
+                        "species_id": 355,
                         "name": "xueguai",
                         "form": "default",
                         "localized": {

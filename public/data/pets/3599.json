@@ -1239,6 +1239,7 @@
                 "monsters": [
                     {
                         "id": 3597,
+                        "species_id": 159,
                         "name": "shuidishe",
                         "form": "水滴蛇",
                         "localized": {
@@ -1271,6 +1272,7 @@
                 "monsters": [
                     {
                         "id": 3598,
+                        "species_id": 160,
                         "name": "shuishesuo",
                         "form": "水蛇锁",
                         "localized": {
@@ -1305,6 +1307,7 @@
                 "monsters": [
                     {
                         "id": 3599,
+                        "species_id": 161,
                         "name": "youshemoshi",
                         "form": "游蛇魔使",
                         "localized": {

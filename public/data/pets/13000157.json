@@ -62,6 +62,7 @@
                 "monsters": [
                     {
                         "id": 13000157,
+                        "species_id": 13000157,
                         "name": "huakuifenghou_shouling",
                         "form": "default",
                         "localized": {
@@ -89,6 +90,7 @@
                 "monsters": [
                     {
                         "id": 13000157,
+                        "species_id": 13000157,
                         "name": "huakuifenghou_shouling",
                         "form": "default",
                         "localized": {

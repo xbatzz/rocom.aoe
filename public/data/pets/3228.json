@@ -62,6 +62,7 @@
                 "monsters": [
                     {
                         "id": 3228,
+                        "species_id": 3228,
                         "name": "feiman",
                         "form": "default",
                         "localized": {
@@ -88,6 +89,7 @@
                 "monsters": [
                     {
                         "id": 3229,
+                        "species_id": 3229,
                         "name": "feigeer",
                         "form": "default",
                         "localized": {

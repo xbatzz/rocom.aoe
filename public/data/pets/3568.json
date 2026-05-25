@@ -1123,6 +1123,7 @@
                 "monsters": [
                     {
                         "id": 3568,
+                        "species_id": 121,
                         "name": "xiaoheimao",
                         "form": "小黑猫",
                         "localized": {
@@ -1149,6 +1150,7 @@
                 "monsters": [
                     {
                         "id": 3569,
+                        "species_id": 122,
                         "name": "heimaowushi",
                         "form": "黑猫巫师",
                         "localized": {

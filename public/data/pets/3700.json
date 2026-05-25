@@ -57,6 +57,7 @@
                 "monsters": [
                     {
                         "id": 3699,
+                        "species_id": 3699,
                         "name": "songzai",
                         "form": "default",
                         "localized": {
@@ -89,6 +90,7 @@
                 "monsters": [
                     {
                         "id": 3700,
+                        "species_id": 3700,
                         "name": "songzai",
                         "form": "default",
                         "localized": {
@@ -115,6 +117,7 @@
                     },
                     {
                         "id": 3701,
+                        "species_id": 3701,
                         "name": "songzai",
                         "form": "default",
                         "localized": {

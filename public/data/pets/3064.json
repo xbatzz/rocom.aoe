@@ -1261,6 +1261,7 @@
                 "monsters": [
                     {
                         "id": 3064,
+                        "species_id": 35,
                         "name": "youlingshu",
                         "form": "幽影树",
                         "localized": {
@@ -1287,6 +1288,7 @@
                     },
                     {
                         "id": 3777,
+                        "species_id": 35,
                         "name": "youlingshu",
                         "form": "幽影树",
                         "localized": {
@@ -1320,6 +1322,7 @@
                 "monsters": [
                     {
                         "id": 4064,
+                        "species_id": 35,
                         "name": "youyingshu_shouling",
                         "form": "幻影荆棘",
                         "localized": {
@@ -1346,6 +1349,7 @@
                     },
                     {
                         "id": 5019,
+                        "species_id": 35,
                         "name": "youyingshu_shouling",
                         "form": "幻影荆棘",
                         "localized": {

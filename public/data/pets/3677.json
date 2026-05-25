@@ -1129,6 +1129,7 @@
                 "monsters": [
                     {
                         "id": 3677,
+                        "species_id": 365,
                         "name": "yanhuatuan",
                         "form": "default",
                         "localized": {
@@ -1161,6 +1162,7 @@
                 "monsters": [
                     {
                         "id": 3678,
+                        "species_id": 366,
                         "name": "yanhuabojue",
                         "form": "default",
                         "localized": {

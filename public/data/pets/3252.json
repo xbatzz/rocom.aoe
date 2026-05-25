@@ -1299,6 +1299,7 @@
                 "monsters": [
                     {
                         "id": 3250,
+                        "species_id": 231,
                         "name": "xiaoyu",
                         "form": "小鹬",
                         "localized": {
@@ -1325,6 +1326,7 @@
                 "monsters": [
                     {
                         "id": 3251,
+                        "species_id": 232,
                         "name": "bimuyu",
                         "form": "鄙目鹬",
                         "localized": {
@@ -1353,6 +1355,7 @@
                 "monsters": [
                     {
                         "id": 3252,
+                        "species_id": 233,
                         "name": "gaojiaoyu",
                         "form": "高脚鹬",
                         "localized": {
@@ -1382,6 +1385,7 @@
                 "monsters": [
                     {
                         "id": 5054,
+                        "species_id": 233,
                         "name": "gaomaoyuzhe",
                         "form": "高帽鹬者",
                         "localized": {
@@ -1402,6 +1406,7 @@
                     },
                     {
                         "id": 13000170,
+                        "species_id": 233,
                         "name": "gaomaoyuzhe",
                         "form": "高帽鹬者",
                         "localized": {

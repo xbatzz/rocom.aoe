@@ -62,6 +62,7 @@
                 "monsters": [
                     {
                         "id": 9906,
+                        "species_id": 9906,
                         "name": "9906",
                         "form": "百分百闪避",
                         "localized": {

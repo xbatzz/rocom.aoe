@@ -1145,6 +1145,7 @@
                 "monsters": [
                     {
                         "id": 3257,
+                        "species_id": 252,
                         "name": "bulusi",
                         "form": "布鲁斯",
                         "localized": {
@@ -1171,6 +1172,7 @@
                 "monsters": [
                     {
                         "id": 3258,
+                        "species_id": 253,
                         "name": "xuedingbulusi",
                         "form": "雪顶布鲁斯",
                         "localized": {
@@ -1199,6 +1201,7 @@
                 "monsters": [
                     {
                         "id": 3259,
+                        "species_id": 254,
                         "name": "bingzuanbulusi",
                         "form": "冰钻布鲁斯",
                         "localized": {

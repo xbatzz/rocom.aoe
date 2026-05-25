@@ -1277,6 +1277,7 @@
                 "monsters": [
                     {
                         "id": 3195,
+                        "species_id": 207,
                         "name": "shandianhuan",
                         "form": "闪电环",
                         "localized": {
@@ -1303,6 +1304,7 @@
                 "monsters": [
                     {
                         "id": 3196,
+                        "species_id": 208,
                         "name": "beishangdianhuan",
                         "form": "刺电环",
                         "localized": {
@@ -1331,6 +1333,7 @@
                 "monsters": [
                     {
                         "id": 3197,
+                        "species_id": 209,
                         "name": "tongkudianhuan",
                         "form": "荆棘电环",
                         "localized": {

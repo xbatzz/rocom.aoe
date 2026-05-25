@@ -1167,6 +1167,7 @@
                 "monsters": [
                     {
                         "id": 3103,
+                        "species_id": 27,
                         "name": "xiaobushi",
                         "form": "default",
                         "localized": {
@@ -1193,6 +1194,7 @@
                 "monsters": [
                     {
                         "id": 3104,
+                        "species_id": 28,
                         "name": "bulaishi",
                         "form": "default",
                         "localized": {
@@ -1221,6 +1223,7 @@
                 "monsters": [
                     {
                         "id": 3105,
+                        "species_id": 29,
                         "name": "bulaikeyan",
                         "form": "布克棱岩",
                         "localized": {
@@ -1250,6 +1253,7 @@
                 "monsters": [
                     {
                         "id": 4072,
+                        "species_id": 29,
                         "name": "bulaikeyan_shouling",
                         "form": "迷嶂布莱克",
                         "localized": {
@@ -1270,6 +1274,7 @@
                     },
                     {
                         "id": 5008,
+                        "species_id": 29,
                         "name": "bulaikeyan_shouling",
                         "form": "迷嶂布莱克",
                         "localized": {

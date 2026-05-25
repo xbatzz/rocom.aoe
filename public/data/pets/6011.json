@@ -1167,6 +1167,7 @@
                 "monsters": [
                     {
                         "id": 6011,
+                        "species_id": 6011,
                         "name": "6011",
                         "form": "初级",
                         "localized": {
@@ -1194,6 +1195,7 @@
                 "monsters": [
                     {
                         "id": 6011,
+                        "species_id": 6011,
                         "name": "6011",
                         "form": "初级",
                         "localized": {

@@ -1239,6 +1239,7 @@
                 "monsters": [
                     {
                         "id": 3183,
+                        "species_id": 3183,
                         "name": "guiyankungchong",
                         "form": "default",
                         "localized": {
@@ -1271,6 +1272,7 @@
                 "monsters": [
                     {
                         "id": 3184,
+                        "species_id": 3184,
                         "name": "erlingguimei",
                         "form": "default",
                         "localized": {
@@ -1305,6 +1307,7 @@
                 "monsters": [
                     {
                         "id": 3185,
+                        "species_id": 3185,
                         "name": "jumoxiechong",
                         "form": "default",
                         "localized": {

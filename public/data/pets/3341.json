@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3341,
+                        "species_id": 3341,
                         "name": "xuelingshou",
                         "form": "default",
                         "localized": {

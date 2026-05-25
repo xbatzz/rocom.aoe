@@ -57,6 +57,7 @@
                 "monsters": [
                     {
                         "id": 3403,
+                        "species_id": 3403,
                         "name": "jingweixie",
                         "form": "default",
                         "localized": {
@@ -89,6 +90,7 @@
                 "monsters": [
                     {
                         "id": 3404,
+                        "species_id": 3404,
                         "name": "xieziwang",
                         "form": "default",
                         "localized": {

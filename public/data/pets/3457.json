@@ -1151,6 +1151,7 @@
                 "monsters": [
                     {
                         "id": 3457,
+                        "species_id": 322,
                         "name": "yueyaxuexiong",
                         "form": "月牙雪熊",
                         "localized": {

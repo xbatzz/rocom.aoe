@@ -1233,6 +1233,7 @@
                 "monsters": [
                     {
                         "id": 3130,
+                        "species_id": 168,
                         "name": "yuanyanzhizhu",
                         "form": "圆眼蜘蛛",
                         "localized": {
@@ -1259,6 +1260,7 @@
                 "monsters": [
                     {
                         "id": 3131,
+                        "species_id": 169,
                         "name": "jianjiaozhizhu",
                         "form": "尖角蜘蛛",
                         "localized": {
@@ -1293,6 +1295,7 @@
                 "monsters": [
                     {
                         "id": 3132,
+                        "species_id": 170,
                         "name": "fengcizhizhu",
                         "form": "芋香巨角蛛",
                         "localized": {

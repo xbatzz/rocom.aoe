@@ -1145,6 +1145,7 @@
                 "monsters": [
                     {
                         "id": 3375,
+                        "species_id": 200,
                         "name": "qimengmi",
                         "form": "梦想三三",
                         "localized": {
@@ -1167,6 +1168,7 @@
                     },
                     {
                         "id": 4096,
+                        "species_id": 200,
                         "name": "qimengmi_shouling",
                         "form": "奇梦咪",
                         "localized": {
@@ -1193,6 +1195,7 @@
                 "monsters": [
                     {
                         "id": 4097,
+                        "species_id": 200,
                         "name": "qimengmi_shouling",
                         "form": "奇梦咪",
                         "localized": {
@@ -1219,6 +1222,7 @@
                 "monsters": [
                     {
                         "id": 4087,
+                        "species_id": 200,
                         "name": "qimengmi_shouling",
                         "form": "奇梦咪",
                         "localized": {
@@ -1246,6 +1250,7 @@
                 "monsters": [
                     {
                         "id": 5024,
+                        "species_id": 200,
                         "name": "qimengmi_shouling",
                         "form": "奇梦咪",
                         "localized": {

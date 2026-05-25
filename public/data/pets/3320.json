@@ -1123,6 +1123,7 @@
                 "monsters": [
                     {
                         "id": 3319,
+                        "species_id": 335,
                         "name": "fenxingzai",
                         "form": "粉星仔",
                         "localized": {
@@ -1149,6 +1150,7 @@
                 "monsters": [
                     {
                         "id": 3320,
+                        "species_id": 336,
                         "name": "fenerxingtu",
                         "form": "粉耳星兔",
                         "localized": {
@@ -1171,6 +1173,7 @@
                     },
                     {
                         "id": 3485,
+                        "species_id": 337,
                         "name": "luoyunxingtu",
                         "form": "落陨星兔",
                         "localized": {

@@ -68,6 +68,7 @@
                 "monsters": [
                     {
                         "id": 3445,
+                        "species_id": 3445,
                         "name": "xuemaojiaolinyang",
                         "form": "default",
                         "localized": {
@@ -94,6 +95,7 @@
                     },
                     {
                         "id": 3446,
+                        "species_id": 3446,
                         "name": "xuemaojiaolinyang_wanjiao",
                         "form": "default",
                         "localized": {
@@ -120,6 +122,7 @@
                     },
                     {
                         "id": 3447,
+                        "species_id": 3447,
                         "name": "xuemaojiaolinyang_huanjiao",
                         "form": "default",
                         "localized": {

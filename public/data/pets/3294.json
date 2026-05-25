@@ -68,6 +68,7 @@
                 "monsters": [
                     {
                         "id": 3058,
+                        "species_id": 82,
                         "name": "xiaomifeng",
                         "form": "一窝蜂",
                         "localized": {
@@ -94,6 +95,7 @@
                     },
                     {
                         "id": 3288,
+                        "species_id": 3288,
                         "name": "diudiu_huoshan",
                         "form": "default",
                         "localized": {
@@ -126,6 +128,7 @@
                 "monsters": [
                     {
                         "id": 3059,
+                        "species_id": 83,
                         "name": "huangfenghou",
                         "form": "黄蜂后",
                         "localized": {
@@ -158,6 +161,7 @@
                     },
                     {
                         "id": 3291,
+                        "species_id": 3291,
                         "name": "kakachong_huoshan",
                         "form": "default",
                         "localized": {
@@ -195,6 +199,7 @@
                 "monsters": [
                     {
                         "id": 3157,
+                        "species_id": 84,
                         "name": "huakuifenghou",
                         "form": "花魁蜂后",
                         "localized": {
@@ -224,6 +229,7 @@
                     },
                     {
                         "id": 3294,
+                        "species_id": 3294,
                         "name": "kawachong_huoshan",
                         "form": "default",
                         "localized": {

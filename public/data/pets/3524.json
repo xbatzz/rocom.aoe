@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3524,
+                        "species_id": 3524,
                         "name": "awasha",
                         "form": "default",
                         "localized": {

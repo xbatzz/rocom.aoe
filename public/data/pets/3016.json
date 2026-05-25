@@ -1195,6 +1195,7 @@
                 "monsters": [
                     {
                         "id": 3014,
+                        "species_id": 105,
                         "name": "amiyate",
                         "form": "阿米亚特",
                         "localized": {
@@ -1221,6 +1222,7 @@
                 "monsters": [
                     {
                         "id": 3015,
+                        "species_id": 106,
                         "name": "amiying",
                         "form": "阿米樱",
                         "localized": {
@@ -1252,6 +1254,7 @@
                 "monsters": [
                     {
                         "id": 3016,
+                        "species_id": 107,
                         "name": "luoyin",
                         "form": "罗隐",
                         "localized": {
@@ -1290,6 +1293,7 @@
                 "monsters": [
                     {
                         "id": 5053,
+                        "species_id": 107,
                         "name": "shenyuanluoyin",
                         "form": "深渊罗隐",
                         "localized": {
@@ -1316,6 +1320,7 @@
                     },
                     {
                         "id": 13000169,
+                        "species_id": 107,
                         "name": "shenyuanluoyin",
                         "form": "深渊罗隐",
                         "localized": {

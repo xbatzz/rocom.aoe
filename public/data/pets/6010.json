@@ -1195,6 +1195,7 @@
                 "monsters": [
                     {
                         "id": 6010,
+                        "species_id": 6010,
                         "name": "6010",
                         "form": "高级",
                         "localized": {
@@ -1228,6 +1229,7 @@
                 "monsters": [
                     {
                         "id": 6010,
+                        "species_id": 6010,
                         "name": "6010",
                         "form": "高级",
                         "localized": {

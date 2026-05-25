@@ -68,6 +68,7 @@
                 "monsters": [
                     {
                         "id": 3321,
+                        "species_id": 3321,
                         "name": "mimifu",
                         "form": "default",
                         "localized": {
@@ -88,6 +89,7 @@
                     },
                     {
                         "id": 3323,
+                        "species_id": 3323,
                         "name": "yeyoumo",
                         "form": "default",
                         "localized": {

@@ -1277,6 +1277,7 @@
                 "monsters": [
                     {
                         "id": 3333,
+                        "species_id": 139,
                         "name": "xuewawa",
                         "form": "雪娃娃",
                         "localized": {
@@ -1303,6 +1304,7 @@
                 "monsters": [
                     {
                         "id": 3334,
+                        "species_id": 140,
                         "name": "bingfengyuanling",
                         "form": "冰封怨灵",
                         "localized": {
@@ -1331,6 +1333,7 @@
                 "monsters": [
                     {
                         "id": 3335,
+                        "species_id": 141,
                         "name": "xueling",
                         "form": "雪灵",
                         "localized": {

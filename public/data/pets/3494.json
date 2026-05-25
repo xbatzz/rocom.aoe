@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3494,
+                        "species_id": 3494,
                         "name": "hela",
                         "form": "default",
                         "localized": {

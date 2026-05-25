@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3360,
+                        "species_id": 3360,
                         "name": "hudietaotao",
                         "form": "default",
                         "localized": {
@@ -71,6 +72,7 @@
                     },
                     {
                         "id": 3723,
+                        "species_id": 3723,
                         "name": "shuidishe",
                         "form": "default",
                         "localized": {
@@ -103,6 +105,7 @@
                 "monsters": [
                     {
                         "id": 3361,
+                        "species_id": 3361,
                         "name": "maodingmaomao",
                         "form": "default",
                         "localized": {
@@ -129,6 +132,7 @@
                     },
                     {
                         "id": 3724,
+                        "species_id": 3724,
                         "name": "shuishesuo",
                         "form": "default",
                         "localized": {
@@ -163,6 +167,7 @@
                 "monsters": [
                     {
                         "id": 3362,
+                        "species_id": 3362,
                         "name": "paihuaizhuazhua",
                         "form": "default",
                         "localized": {
@@ -189,6 +194,7 @@
                     },
                     {
                         "id": 3725,
+                        "species_id": 3725,
                         "name": "youshemoshi",
                         "form": "default",
                         "localized": {

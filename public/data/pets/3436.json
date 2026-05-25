@@ -1151,6 +1151,7 @@
                 "monsters": [
                     {
                         "id": 3436,
+                        "species_id": 325,
                         "name": "chaizhachong",
                         "form": "柴渣虫",
                         "localized": {
@@ -1183,6 +1184,7 @@
                 "monsters": [
                     {
                         "id": 3437,
+                        "species_id": 326,
                         "name": "ranxinchong",
                         "form": "燃薪虫",
                         "localized": {

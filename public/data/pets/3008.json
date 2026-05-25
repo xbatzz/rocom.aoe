@@ -1189,6 +1189,7 @@
                 "monsters": [
                     {
                         "id": 3008,
+                        "species_id": 179,
                         "name": "caotouya",
                         "form": "草头鸭",
                         "localized": {
@@ -1215,6 +1216,7 @@
                 "monsters": [
                     {
                         "id": 3067,
+                        "species_id": 180,
                         "name": "zhuangzhuangya",
                         "form": "卷毛鸭",
                         "localized": {

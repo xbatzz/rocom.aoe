@@ -1437,6 +1437,7 @@
                 "monsters": [
                     {
                         "id": 3606,
+                        "species_id": 299,
                         "name": "huajingling",
                         "form": "画精灵",
                         "localized": {
@@ -1463,6 +1464,7 @@
                 "monsters": [
                     {
                         "id": 3607,
+                        "species_id": 300,
                         "name": "huaxiangshouhu",
                         "form": "画像守护",
                         "localized": {
@@ -1491,6 +1493,7 @@
                 "monsters": [
                     {
                         "id": 3608,
+                        "species_id": 301,
                         "name": "huajianfashishou",
                         "form": "画间法师手",
                         "localized": {
@@ -1520,6 +1523,7 @@
                     },
                     {
                         "id": 3609,
+                        "species_id": 302,
                         "name": "huajianchentieshou",
                         "form": "画间沉铁兽",
                         "localized": {

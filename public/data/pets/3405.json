@@ -1189,6 +1189,7 @@
                 "monsters": [
                     {
                         "id": 3060,
+                        "species_id": 54,
                         "name": "xiaoyoulinglian",
                         "form": "小灵面",
                         "localized": {
@@ -1215,6 +1216,7 @@
                 "monsters": [
                     {
                         "id": 3061,
+                        "species_id": 55,
                         "name": "youlinglian",
                         "form": "暗影灵面",
                         "localized": {
@@ -1241,6 +1243,7 @@
                     },
                     {
                         "id": 3481,
+                        "species_id": 55,
                         "name": "youlinglian_biyan",
                         "form": "暗影灵面",
                         "localized": {
@@ -1273,6 +1276,7 @@
                 "monsters": [
                     {
                         "id": 3405,
+                        "species_id": 56,
                         "name": "youmingzhiyan",
                         "form": "幽冥眼",
                         "localized": {
@@ -1296,6 +1300,7 @@
                     },
                     {
                         "id": 3482,
+                        "species_id": 56,
                         "name": "youmingzhiyan_biyan",
                         "form": "幽冥眼",
                         "localized": {

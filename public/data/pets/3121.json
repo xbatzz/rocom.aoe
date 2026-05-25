@@ -1261,6 +1261,7 @@
                 "monsters": [
                     {
                         "id": 3121,
+                        "species_id": 142,
                         "name": "daermaodou",
                         "form": "大耳帽兜",
                         "localized": {
@@ -1293,6 +1294,7 @@
                 "monsters": [
                     {
                         "id": 3122,
+                        "species_id": 143,
                         "name": "maodouwawa",
                         "form": "帽兜娃娃",
                         "localized": {
@@ -1327,6 +1329,7 @@
                 "monsters": [
                     {
                         "id": 3123,
+                        "species_id": 144,
                         "name": "xueyingwawa",
                         "form": "雪影娃娃",
                         "localized": {

@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3312,
+                        "species_id": 3312,
                         "name": "ruoyexi",
                         "form": "default",
                         "localized": {

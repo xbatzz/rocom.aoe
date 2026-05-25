@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3586,
+                        "species_id": 3586,
                         "name": "mengcanjuan",
                         "form": "default",
                         "localized": {

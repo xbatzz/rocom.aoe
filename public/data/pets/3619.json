@@ -1283,6 +1283,7 @@
                 "monsters": [
                     {
                         "id": 3618,
+                        "species_id": 210,
                         "name": "xiaoxiangguai",
                         "form": "小箱怪",
                         "localized": {
@@ -1315,6 +1316,7 @@
                 "monsters": [
                     {
                         "id": 3619,
+                        "species_id": 211,
                         "name": "mimixiangguai",
                         "form": "迷迷箱怪",
                         "localized": {

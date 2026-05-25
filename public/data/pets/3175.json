@@ -1261,6 +1261,7 @@
                 "monsters": [
                     {
                         "id": 3175,
+                        "species_id": 96,
                         "name": "kakayumao",
                         "form": "咔咔羽毛",
                         "localized": {
@@ -1293,6 +1294,7 @@
                 "monsters": [
                     {
                         "id": 3176,
+                        "species_id": 97,
                         "name": "kakaque",
                         "form": "咔咔雀",
                         "localized": {
@@ -1327,6 +1329,7 @@
                 "monsters": [
                     {
                         "id": 3177,
+                        "species_id": 98,
                         "name": "kakaniao",
                         "form": "咔咔鸟",
                         "localized": {

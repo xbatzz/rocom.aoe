@@ -1305,6 +1305,7 @@
                 "monsters": [
                     {
                         "id": 3086,
+                        "species_id": 266,
                         "name": "keliji",
                         "form": "可立鸡",
                         "localized": {
@@ -1331,6 +1332,7 @@
                 "monsters": [
                     {
                         "id": 3087,
+                        "species_id": 267,
                         "name": "yunyunji",
                         "form": "晕晕鸡",
                         "localized": {
@@ -1359,6 +1361,7 @@
                 "monsters": [
                     {
                         "id": 3088,
+                        "species_id": 268,
                         "name": "shenshiji",
                         "form": "绅士鸡",
                         "localized": {
@@ -1387,6 +1390,7 @@
                     },
                     {
                         "id": 3089,
+                        "species_id": 269,
                         "name": "wuzheji",
                         "form": "武者鸡",
                         "localized": {

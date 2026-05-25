@@ -1173,6 +1173,7 @@
                 "monsters": [
                     {
                         "id": 3603,
+                        "species_id": 296,
                         "name": "maotouxiaozhu",
                         "form": "毛头小蛛",
                         "localized": {
@@ -1205,6 +1206,7 @@
                 "monsters": [
                     {
                         "id": 3604,
+                        "species_id": 297,
                         "name": "buchenchangrong",
                         "form": "捕尘长绒",
                         "localized": {
@@ -1234,6 +1236,7 @@
                     },
                     {
                         "id": 3605,
+                        "species_id": 298,
                         "name": "shichenduanrong",
                         "form": "食尘短绒",
                         "localized": {

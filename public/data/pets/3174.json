@@ -1145,6 +1145,7 @@
                 "monsters": [
                     {
                         "id": 3172,
+                        "species_id": 134,
                         "name": "xuedouding",
                         "form": "雪豆丁",
                         "localized": {
@@ -1171,6 +1172,7 @@
                 "monsters": [
                     {
                         "id": 3173,
+                        "species_id": 135,
                         "name": "xuemanren",
                         "form": "雪蛮人",
                         "localized": {
@@ -1199,6 +1201,7 @@
                 "monsters": [
                     {
                         "id": 3174,
+                        "species_id": 136,
                         "name": "xuejuren",
                         "form": "雪巨人",
                         "localized": {

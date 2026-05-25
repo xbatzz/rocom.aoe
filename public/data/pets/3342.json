@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3342,
+                        "species_id": 3342,
                         "name": "huanxueshou",
                         "form": "default",
                         "localized": {

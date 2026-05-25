@@ -1233,6 +1233,7 @@
                 "monsters": [
                     {
                         "id": 3543,
+                        "species_id": 3543,
                         "name": "duoling",
                         "form": "default",
                         "localized": {
@@ -1259,6 +1260,7 @@
                 "monsters": [
                     {
                         "id": 3544,
+                        "species_id": 3544,
                         "name": "duolingzhu",
                         "form": "default",
                         "localized": {

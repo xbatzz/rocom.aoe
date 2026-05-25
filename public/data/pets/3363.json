@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3363,
+                        "species_id": 3363,
                         "name": "lulu",
                         "form": "default",
                         "localized": {

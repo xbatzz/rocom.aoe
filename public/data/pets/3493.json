@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3493,
+                        "species_id": 3493,
                         "name": "feicaoqiu",
                         "form": "default",
                         "localized": {

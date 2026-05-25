@@ -1189,6 +1189,7 @@
                 "monsters": [
                     {
                         "id": 3683,
+                        "species_id": 367,
                         "name": "gugumao",
                         "form": "default",
                         "localized": {
@@ -1215,6 +1216,7 @@
                 "monsters": [
                     {
                         "id": 3684,
+                        "species_id": 368,
                         "name": "gudemaomao",
                         "form": "default",
                         "localized": {

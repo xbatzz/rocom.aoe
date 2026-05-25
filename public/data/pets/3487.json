@@ -1233,6 +1233,7 @@
                 "monsters": [
                     {
                         "id": 3487,
+                        "species_id": 362,
                         "name": "xiaochoudoudou",
                         "form": "default",
                         "localized": {
@@ -1259,6 +1260,7 @@
                 "monsters": [
                     {
                         "id": 3488,
+                        "species_id": 363,
                         "name": "xiaochoutu",
                         "form": "default",
                         "localized": {
@@ -1288,6 +1290,7 @@
                 "monsters": [
                     {
                         "id": 3489,
+                        "species_id": 364,
                         "name": "xiaochougongjue",
                         "form": "default",
                         "localized": {

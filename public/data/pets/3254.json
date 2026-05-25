@@ -57,6 +57,7 @@
                 "monsters": [
                     {
                         "id": 3253,
+                        "species_id": 3253,
                         "name": "sulixiaozi",
                         "form": "default",
                         "localized": {
@@ -89,6 +90,7 @@
                 "monsters": [
                     {
                         "id": 3254,
+                        "species_id": 3254,
                         "name": "3254",
                         "form": "default",
                         "localized": {

@@ -1283,6 +1283,7 @@
                 "monsters": [
                     {
                         "id": 6004,
+                        "species_id": 6004,
                         "name": "bengbenghua_shouling",
                         "form": "高级",
                         "localized": {
@@ -1316,6 +1317,7 @@
                 "monsters": [
                     {
                         "id": 6004,
+                        "species_id": 6004,
                         "name": "bengbenghua_shouling",
                         "form": "高级",
                         "localized": {

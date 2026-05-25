@@ -1151,6 +1151,7 @@
                 "monsters": [
                     {
                         "id": 3040,
+                        "species_id": 44,
                         "name": "diudiu",
                         "form": "丢丢",
                         "localized": {
@@ -1171,6 +1172,7 @@
                     },
                     {
                         "id": 3289,
+                        "species_id": 44,
                         "name": "diudiu_shamo",
                         "form": "丢丢",
                         "localized": {
@@ -1197,6 +1199,7 @@
                     },
                     {
                         "id": 3290,
+                        "species_id": 44,
                         "name": "diudiu_xueshan",
                         "form": "丢丢",
                         "localized": {
@@ -1229,6 +1232,7 @@
                 "monsters": [
                     {
                         "id": 3041,
+                        "species_id": 45,
                         "name": "kakachong",
                         "form": "卡卡虫",
                         "localized": {
@@ -1254,6 +1258,7 @@
                     },
                     {
                         "id": 3292,
+                        "species_id": 45,
                         "name": "kakachong_shamo",
                         "form": "卡卡虫",
                         "localized": {
@@ -1285,6 +1290,7 @@
                     },
                     {
                         "id": 3293,
+                        "species_id": 45,
                         "name": "kakachong_xueshan",
                         "form": "卡卡虫",
                         "localized": {
@@ -1322,6 +1328,7 @@
                 "monsters": [
                     {
                         "id": 3042,
+                        "species_id": 46,
                         "name": "kawachong",
                         "form": "卡瓦重",
                         "localized": {
@@ -1347,6 +1354,7 @@
                     },
                     {
                         "id": 3295,
+                        "species_id": 46,
                         "name": "kawachong_shamo",
                         "form": "卡瓦重",
                         "localized": {
@@ -1378,6 +1386,7 @@
                     },
                     {
                         "id": 3296,
+                        "species_id": 46,
                         "name": "kawachong_xueshan",
                         "form": "卡瓦重",
                         "localized": {

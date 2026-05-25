@@ -1299,6 +1299,7 @@
                 "monsters": [
                     {
                         "id": 3004,
+                        "species_id": 1,
                         "name": "dimo",
                         "form": "default",
                         "localized": {
@@ -1319,6 +1320,7 @@
                     },
                     {
                         "id": 8007,
+                        "species_id": 8007,
                         "name": "8007",
                         "form": "default",
                         "localized": {

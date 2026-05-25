@@ -57,6 +57,7 @@
                 "monsters": [
                     {
                         "id": 3365,
+                        "species_id": 3365,
                         "name": "guluni",
                         "form": "default",
                         "localized": {

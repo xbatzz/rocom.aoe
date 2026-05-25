@@ -1349,6 +1349,7 @@
                 "monsters": [
                     {
                         "id": 3610,
+                        "species_id": 303,
                         "name": "shumochong",
                         "form": "书魔虫",
                         "localized": {
@@ -1375,6 +1376,7 @@
                 "monsters": [
                     {
                         "id": 3611,
+                        "species_id": 304,
                         "name": "shujuanshouhu",
                         "form": "书卷守护",
                         "localized": {
@@ -1403,6 +1405,7 @@
                 "monsters": [
                     {
                         "id": 3612,
+                        "species_id": 305,
                         "name": "gujuanzhizhengguan",
                         "form": "古卷执政官",
                         "localized": {
@@ -1432,6 +1435,7 @@
                     },
                     {
                         "id": 3613,
+                        "species_id": 306,
                         "name": "gujuanxiamoxiang",
                         "form": "古卷匣魔像",
                         "localized": {

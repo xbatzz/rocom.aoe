@@ -1129,6 +1129,7 @@
                 "monsters": [
                     {
                         "id": 3198,
+                        "species_id": 330,
                         "name": "fenfenxing",
                         "form": "粉粉星",
                         "localized": {
@@ -1161,6 +1162,7 @@
                 "monsters": [
                     {
                         "id": 3199,
+                        "species_id": 331,
                         "name": "xiaopiqiu",
                         "form": "小皮球",
                         "localized": {

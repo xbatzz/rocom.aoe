@@ -1255,6 +1255,7 @@
                 "monsters": [
                     {
                         "id": 3098,
+                        "species_id": 49,
                         "name": "lversongshu",
                         "form": "绿耳松鼠",
                         "localized": {
@@ -1281,6 +1282,7 @@
                 "monsters": [
                     {
                         "id": 3099,
+                        "species_id": 50,
                         "name": "baozhensongshu",
                         "form": "抱枕松鼠",
                         "localized": {
@@ -1309,6 +1311,7 @@
                 "monsters": [
                     {
                         "id": 3100,
+                        "species_id": 51,
                         "name": "bengchuangsongshu",
                         "form": "蹦床松鼠",
                         "localized": {

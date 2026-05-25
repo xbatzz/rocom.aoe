@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3591,
+                        "species_id": 3591,
                         "name": "shizikedou",
                         "form": "default",
                         "localized": {
@@ -77,6 +78,7 @@
                 "monsters": [
                     {
                         "id": 3592,
+                        "species_id": 3592,
                         "name": "shiziwa",
                         "form": "default",
                         "localized": {
@@ -105,6 +107,7 @@
                 "monsters": [
                     {
                         "id": 3593,
+                        "species_id": 3593,
                         "name": "shenyuanwa",
                         "form": "default",
                         "localized": {

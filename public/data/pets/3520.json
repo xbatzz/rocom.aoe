@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3520,
+                        "species_id": 3520,
                         "name": "haimoxing",
                         "form": "default",
                         "localized": {

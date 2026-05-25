@@ -1255,6 +1255,7 @@
                 "monsters": [
                     {
                         "id": 3237,
+                        "species_id": 163,
                         "name": "xiaosongmao",
                         "form": "小怂猫",
                         "localized": {
@@ -1281,6 +1282,7 @@
                 "monsters": [
                     {
                         "id": 3238,
+                        "species_id": 164,
                         "name": "numusongmao",
                         "form": "怒目怂猫",
                         "localized": {

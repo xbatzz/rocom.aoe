@@ -1123,6 +1123,7 @@
                 "monsters": [
                     {
                         "id": 3072,
+                        "species_id": 274,
                         "name": "gelanzhongzi",
                         "form": "格兰种子",
                         "localized": {
@@ -1149,6 +1150,7 @@
                 "monsters": [
                     {
                         "id": 3073,
+                        "species_id": 275,
                         "name": "gelanhua",
                         "form": "格兰花",
                         "localized": {
@@ -1180,6 +1182,7 @@
                 "monsters": [
                     {
                         "id": 3074,
+                        "species_id": 276,
                         "name": "gelanqiu",
                         "form": "格兰球",
                         "localized": {

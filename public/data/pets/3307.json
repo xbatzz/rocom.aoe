@@ -1129,6 +1129,7 @@
                 "monsters": [
                     {
                         "id": 3307,
+                        "species_id": 39,
                         "name": "kuangjingchong",
                         "form": "矿晶虫",
                         "localized": {
@@ -1161,6 +1162,7 @@
                 "monsters": [
                     {
                         "id": 3308,
+                        "species_id": 40,
                         "name": "jingshiwo",
                         "form": "晶石蜗",
                         "localized": {
@@ -1190,6 +1192,7 @@
                     },
                     {
                         "id": 3448,
+                        "species_id": 40,
                         "name": "jingshiwo_yidi3",
                         "form": "晶石蜗",
                         "localized": {
@@ -1219,6 +1222,7 @@
                     },
                     {
                         "id": 3449,
+                        "species_id": 40,
                         "name": "jingshiwo_yidi5",
                         "form": "晶石蜗",
                         "localized": {
@@ -1248,6 +1252,7 @@
                     },
                     {
                         "id": 3450,
+                        "species_id": 40,
                         "name": "jingshiwo_yidi1",
                         "form": "晶石蜗",
                         "localized": {
@@ -1277,6 +1282,7 @@
                     },
                     {
                         "id": 3451,
+                        "species_id": 40,
                         "name": "jingshiwo_yidi2",
                         "form": "晶石蜗",
                         "localized": {
@@ -1306,6 +1312,7 @@
                     },
                     {
                         "id": 3486,
+                        "species_id": 40,
                         "name": "jingshiwo_yidi4",
                         "form": "晶石蜗",
                         "localized": {

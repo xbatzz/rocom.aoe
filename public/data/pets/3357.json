@@ -1211,6 +1211,7 @@
                 "monsters": [
                     {
                         "id": 3357,
+                        "species_id": 226,
                         "name": "diandongchangjinglu",
                         "form": "电动长颈鹿",
                         "localized": {
@@ -1237,6 +1238,7 @@
                 "monsters": [
                     {
                         "id": 3358,
+                        "species_id": 227,
                         "name": "benlelu",
                         "form": "奔乐鹿",
                         "localized": {
@@ -1265,6 +1267,7 @@
                 "monsters": [
                     {
                         "id": 3359,
+                        "species_id": 228,
                         "name": "jueshilu",
                         "form": "爵士鹿",
                         "localized": {

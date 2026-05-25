@@ -1255,6 +1255,7 @@
                 "monsters": [
                     {
                         "id": 13000154,
+                        "species_id": 13000154,
                         "name": "bulaikeyan_shouling",
                         "form": "default",
                         "localized": {
@@ -1282,6 +1283,7 @@
                 "monsters": [
                     {
                         "id": 13000154,
+                        "species_id": 13000154,
                         "name": "bulaikeyan_shouling",
                         "form": "default",
                         "localized": {

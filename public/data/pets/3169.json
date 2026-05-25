@@ -1233,6 +1233,7 @@
                 "monsters": [
                     {
                         "id": 3168,
+                        "species_id": 3168,
                         "name": "abu",
                         "form": "default",
                         "localized": {
@@ -1253,6 +1254,7 @@
                     },
                     {
                         "id": 4098,
+                        "species_id": 144,
                         "name": "xueyingwawa_shouling",
                         "form": "雪影冰灵",
                         "localized": {
@@ -1285,6 +1287,7 @@
                 "monsters": [
                     {
                         "id": 3169,
+                        "species_id": 3169,
                         "name": "chaonengabu",
                         "form": "default",
                         "localized": {
@@ -1308,6 +1311,7 @@
                     },
                     {
                         "id": 4099,
+                        "species_id": 144,
                         "name": "xueyingwawa_shouling",
                         "form": "雪影冰灵",
                         "localized": {
@@ -1340,6 +1344,7 @@
                 "monsters": [
                     {
                         "id": 4085,
+                        "species_id": 144,
                         "name": "xueyingwawa_shouling",
                         "form": "雪影冰灵",
                         "localized": {

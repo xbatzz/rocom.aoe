@@ -68,6 +68,7 @@
                 "monsters": [
                     {
                         "id": 3213,
+                        "species_id": 3213,
                         "name": "heiyanbaobao",
                         "form": "default",
                         "localized": {
@@ -100,6 +101,7 @@
                 "monsters": [
                     {
                         "id": 3214,
+                        "species_id": 3214,
                         "name": "heiyan",
                         "form": "default",
                         "localized": {

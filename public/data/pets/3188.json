@@ -1233,6 +1233,7 @@
                 "monsters": [
                     {
                         "id": 3188,
+                        "species_id": 205,
                         "name": "late",
                         "form": "拉特",
                         "localized": {
@@ -1259,6 +1260,7 @@
                 "monsters": [
                     {
                         "id": 3189,
+                        "species_id": 206,
                         "name": "kula",
                         "form": "酷拉",
                         "localized": {

@@ -1239,6 +1239,7 @@
                 "monsters": [
                     {
                         "id": 3215,
+                        "species_id": 181,
                         "name": "haibaozhanshi",
                         "form": "海豹战士",
                         "localized": {
@@ -1271,6 +1272,7 @@
                 "monsters": [
                     {
                         "id": 3216,
+                        "species_id": 182,
                         "name": "haibaochuangzhang",
                         "form": "海豹船长",
                         "localized": {

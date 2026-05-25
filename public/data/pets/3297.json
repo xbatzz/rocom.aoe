@@ -1305,6 +1305,7 @@
                 "monsters": [
                     {
                         "id": 3017,
+                        "species_id": 63,
                         "name": "bengbengzhongzi",
                         "form": "蹦蹦种子",
                         "localized": {
@@ -1331,6 +1332,7 @@
                     },
                     {
                         "id": 3297,
+                        "species_id": 63,
                         "name": "bengbengzhongzi_caiyuqiu",
                         "form": "蹦蹦种子",
                         "localized": {
@@ -1357,6 +1359,7 @@
                     },
                     {
                         "id": 3298,
+                        "species_id": 63,
                         "name": "bengbengzhongzi_duanmaoqiu",
                         "form": "蹦蹦种子",
                         "localized": {
@@ -1383,6 +1386,7 @@
                     },
                     {
                         "id": 3299,
+                        "species_id": 63,
                         "name": "bengbengzhongzi_xiangyaqiu",
                         "form": "蹦蹦种子",
                         "localized": {
@@ -1415,6 +1419,7 @@
                 "monsters": [
                     {
                         "id": 3018,
+                        "species_id": 64,
                         "name": "bengbengcao",
                         "form": "蹦蹦草",
                         "localized": {
@@ -1446,6 +1451,7 @@
                     },
                     {
                         "id": 3300,
+                        "species_id": 64,
                         "name": "bengbengcao_caiyuqiu",
                         "form": "蹦蹦草",
                         "localized": {
@@ -1477,6 +1483,7 @@
                     },
                     {
                         "id": 3301,
+                        "species_id": 64,
                         "name": "bengbengcao_duanmaoqiu",
                         "form": "蹦蹦草",
                         "localized": {
@@ -1508,6 +1515,7 @@
                     },
                     {
                         "id": 3302,
+                        "species_id": 64,
                         "name": "bengbengcao_xiangyaqiu",
                         "form": "蹦蹦草",
                         "localized": {
@@ -1545,6 +1553,7 @@
                 "monsters": [
                     {
                         "id": 3019,
+                        "species_id": 65,
                         "name": "bengbenghua",
                         "form": "蹦蹦花",
                         "localized": {
@@ -1575,6 +1584,7 @@
                     },
                     {
                         "id": 3303,
+                        "species_id": 65,
                         "name": "bengbenghua_caiyuqiu",
                         "form": "蹦蹦花",
                         "localized": {
@@ -1605,6 +1615,7 @@
                     },
                     {
                         "id": 3304,
+                        "species_id": 65,
                         "name": "bengbenghua_duanmaoqiu",
                         "form": "蹦蹦花",
                         "localized": {
@@ -1635,6 +1646,7 @@
                     },
                     {
                         "id": 3305,
+                        "species_id": 65,
                         "name": "bengbenghua_xiangyaqiu",
                         "form": "蹦蹦花",
                         "localized": {

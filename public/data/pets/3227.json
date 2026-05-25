@@ -1167,6 +1167,7 @@
                 "monsters": [
                     {
                         "id": 3227,
+                        "species_id": 79,
                         "name": "juhuali",
                         "form": "菊花梨",
                         "localized": {

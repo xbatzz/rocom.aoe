@@ -1261,6 +1261,7 @@
                 "monsters": [
                     {
                         "id": 3065,
+                        "species_id": 123,
                         "name": "huyouli",
                         "form": "忽幽狸",
                         "localized": {
@@ -1293,6 +1294,7 @@
                 "monsters": [
                     {
                         "id": 3066,
+                        "species_id": 124,
                         "name": "youlingli",
                         "form": "影狸",
                         "localized": {

@@ -1277,6 +1277,7 @@
                 "monsters": [
                     {
                         "id": 3395,
+                        "species_id": 150,
                         "name": "liao",
                         "form": "里奥",
                         "localized": {
@@ -1303,6 +1304,7 @@
                 "monsters": [
                     {
                         "id": 3396,
+                        "species_id": 151,
                         "name": "lingyuyongshi",
                         "form": "灵羽勇士",
                         "localized": {
@@ -1332,6 +1334,7 @@
                 "monsters": [
                     {
                         "id": 3397,
+                        "species_id": 152,
                         "name": "shengyuyiwang",
                         "form": "圣羽翼王",
                         "localized": {

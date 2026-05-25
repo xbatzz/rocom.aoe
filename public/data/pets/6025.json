@@ -1123,6 +1123,7 @@
                 "monsters": [
                     {
                         "id": 6025,
+                        "species_id": 6025,
                         "name": "yinsuquan_shouling",
                         "form": "高级",
                         "localized": {
@@ -1150,6 +1151,7 @@
                 "monsters": [
                     {
                         "id": 6025,
+                        "species_id": 6025,
                         "name": "yinsuquan_shouling",
                         "form": "高级",
                         "localized": {

@@ -14,6 +14,12 @@ import {
 } from "@/lib/eggGroups";
 import type { IPets } from "@/lib/interface";
 import {
+    formatPetHandbookNo,
+    isHandbookNumberQuery,
+    matchesPetHandbookNumber,
+    matchesPetKeyword,
+} from "@/lib/petHandbook";
+import {
     isPetImplemented,
     type PetImplementationFilter,
 } from "@/lib/petImplementation";
@@ -1352,15 +1358,19 @@ function getPetNodeId(petId: number) {
 }
 
 function matchesPetSearch(pet: IPets, keyword: string) {
-    return [pet.localized.zh.name, pet.name, formatPetForm(pet.form)]
-        .map((value) => normalizeSearchKeyword(value))
-        .some((value) => value.includes(keyword));
+    return matchesPetKeyword(pet, keyword);
 }
 
 function isExactPetSearchMatch(pet: IPets, keyword: string) {
+    const normalizedKeyword = normalizeSearchKeyword(keyword);
+
+    if (isHandbookNumberQuery(normalizedKeyword)) {
+        return matchesPetHandbookNumber(pet, normalizedKeyword);
+    }
+
     return [pet.localized.zh.name, pet.name, formatPetForm(pet.form)]
         .map((value) => normalizeSearchKeyword(value))
-        .some((value) => value === keyword);
+        .some((value) => value === normalizedKeyword);
 }
 
 function normalizeSearchKeyword(value: string) {
@@ -1568,7 +1578,7 @@ function escapeXml(value: string) {
                         >
                             <span>{{ pet.localized.zh.name }}</span>
                             <span class="text-xs text-foreground/70"
-                                >#{{ pet.id }}</span
+                                >#{{ formatPetHandbookNo(pet) }}</span
                             >
                             <span
                                 class="rounded-[10px] bg-card hover:bg-accent/60 px-2 py-0.5 text-[11px] text-foreground"

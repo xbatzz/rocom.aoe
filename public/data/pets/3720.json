@@ -68,6 +68,7 @@
                 "monsters": [
                     {
                         "id": 3572,
+                        "species_id": 356,
                         "name": "baoyanzai",
                         "form": "default",
                         "localized": {
@@ -94,6 +95,7 @@
                     },
                     {
                         "id": 3720,
+                        "species_id": 3720,
                         "name": "songzai",
                         "form": "default",
                         "localized": {
@@ -126,6 +128,7 @@
                 "monsters": [
                     {
                         "id": 3573,
+                        "species_id": 357,
                         "name": "baoyanpengpeng",
                         "form": "default",
                         "localized": {
@@ -155,6 +158,7 @@
                     },
                     {
                         "id": 3721,
+                        "species_id": 3721,
                         "name": "yesongyang",
                         "form": "default",
                         "localized": {
@@ -189,6 +193,7 @@
                 "monsters": [
                     {
                         "id": 3722,
+                        "species_id": 3722,
                         "name": "zhenyexunlin",
                         "form": "default",
                         "localized": {

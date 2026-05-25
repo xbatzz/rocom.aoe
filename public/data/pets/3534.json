@@ -1255,6 +1255,7 @@
                 "monsters": [
                     {
                         "id": 3534,
+                        "species_id": 177,
                         "name": "banban",
                         "form": "斑斑",
                         "localized": {
@@ -1281,6 +1282,7 @@
                 "monsters": [
                     {
                         "id": 3535,
+                        "species_id": 178,
                         "name": "banxiao",
                         "form": "斑枭",
                         "localized": {

@@ -1255,6 +1255,7 @@
                 "monsters": [
                     {
                         "id": 3733,
+                        "species_id": 348,
                         "name": "wusibeibei",
                         "form": "default",
                         "localized": {
@@ -1281,6 +1282,7 @@
                 "monsters": [
                     {
                         "id": 3734,
+                        "species_id": 349,
                         "name": "huiguangmuji",
                         "form": "default",
                         "localized": {
@@ -1310,6 +1312,7 @@
                 "monsters": [
                     {
                         "id": 3735,
+                        "species_id": 350,
                         "name": "jimufangzhou",
                         "form": "default",
                         "localized": {

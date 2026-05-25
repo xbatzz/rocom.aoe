@@ -1239,6 +1239,7 @@
                 "monsters": [
                     {
                         "id": 3136,
+                        "species_id": 32,
                         "name": "maomao",
                         "form": "毛毛",
                         "localized": {
@@ -1271,6 +1272,7 @@
                 "monsters": [
                     {
                         "id": 3137,
+                        "species_id": 33,
                         "name": "papa",
                         "form": "爬爬",
                         "localized": {
@@ -1305,6 +1307,7 @@
                 "monsters": [
                     {
                         "id": 3138,
+                        "species_id": 34,
                         "name": "huadie",
                         "form": "化蝶",
                         "localized": {
@@ -1334,6 +1337,7 @@
                     },
                     {
                         "id": 3470,
+                        "species_id": 34,
                         "name": "huadie_youmingzhiyan",
                         "form": "化蝶",
                         "localized": {
@@ -1363,6 +1367,7 @@
                     },
                     {
                         "id": 3471,
+                        "species_id": 34,
                         "name": "huadie_miaomiao",
                         "form": "化蝶",
                         "localized": {
@@ -1392,6 +1397,7 @@
                     },
                     {
                         "id": 3472,
+                        "species_id": 34,
                         "name": "huadie_qilihua",
                         "form": "化蝶",
                         "localized": {

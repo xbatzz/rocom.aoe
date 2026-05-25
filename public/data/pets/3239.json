@@ -1233,6 +1233,7 @@
                 "monsters": [
                     {
                         "id": 3239,
+                        "species_id": 128,
                         "name": "kukugu",
                         "form": "哭哭菇",
                         "localized": {
@@ -1259,6 +1260,7 @@
                 "monsters": [
                     {
                         "id": 3240,
+                        "species_id": 129,
                         "name": "buxugu",
                         "form": "怖须菇",
                         "localized": {
@@ -1287,6 +1289,7 @@
                 "monsters": [
                     {
                         "id": 3241,
+                        "species_id": 130,
                         "name": "bukugu",
                         "form": "怖哭菇",
                         "localized": {

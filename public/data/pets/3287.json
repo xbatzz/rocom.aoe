@@ -1167,6 +1167,7 @@
                 "monsters": [
                     {
                         "id": 3279,
+                        "species_id": 18,
                         "name": "xuerongniao_chun",
                         "form": "雪绒鸟",
                         "localized": {
@@ -1187,6 +1188,7 @@
                     },
                     {
                         "id": 3280,
+                        "species_id": 18,
                         "name": "xuerongniao_xia",
                         "form": "雪绒鸟",
                         "localized": {
@@ -1207,6 +1209,7 @@
                     },
                     {
                         "id": 3281,
+                        "species_id": 18,
                         "name": "xuerongniao_qiu",
                         "form": "雪绒鸟",
                         "localized": {
@@ -1227,6 +1230,7 @@
                     },
                     {
                         "id": 3533,
+                        "species_id": 18,
                         "name": "xuerongniao_dong",
                         "form": "雪绒鸟",
                         "localized": {
@@ -1253,6 +1257,7 @@
                 "monsters": [
                     {
                         "id": 3028,
+                        "species_id": 19,
                         "name": "dongyuque",
                         "form": "default",
                         "localized": {
@@ -1275,6 +1280,7 @@
                     },
                     {
                         "id": 3282,
+                        "species_id": 19,
                         "name": "dongyuque_chun",
                         "form": "default",
                         "localized": {
@@ -1297,6 +1303,7 @@
                     },
                     {
                         "id": 3283,
+                        "species_id": 19,
                         "name": "dongyuque_xia",
                         "form": "default",
                         "localized": {
@@ -1319,6 +1326,7 @@
                     },
                     {
                         "id": 3284,
+                        "species_id": 19,
                         "name": "dongyuque_qiu",
                         "form": "default",
                         "localized": {
@@ -1347,6 +1355,7 @@
                 "monsters": [
                     {
                         "id": 3037,
+                        "species_id": 20,
                         "name": "lanniao",
                         "form": "default",
                         "localized": {
@@ -1372,6 +1381,7 @@
                     },
                     {
                         "id": 3285,
+                        "species_id": 20,
                         "name": "lanniao_chun",
                         "form": "default",
                         "localized": {
@@ -1397,6 +1407,7 @@
                     },
                     {
                         "id": 3286,
+                        "species_id": 20,
                         "name": "lanniao_xia",
                         "form": "default",
                         "localized": {
@@ -1422,6 +1433,7 @@
                     },
                     {
                         "id": 3287,
+                        "species_id": 20,
                         "name": "lanniao_qiu",
                         "form": "default",
                         "localized": {
@@ -1454,6 +1466,7 @@
                 "monsters": [
                     {
                         "id": 4074,
+                        "species_id": 20,
                         "name": "lanniao_shouling",
                         "form": "霜翼领主",
                         "localized": {
@@ -1474,6 +1487,7 @@
                     },
                     {
                         "id": 5014,
+                        "species_id": 20,
                         "name": "lanniao_shouling",
                         "form": "霜翼领主",
                         "localized": {
@@ -1494,6 +1508,7 @@
                     },
                     {
                         "id": 5030,
+                        "species_id": 20,
                         "name": "lanniao_shouling",
                         "form": "霜翼领主",
                         "localized": {
@@ -1514,6 +1529,7 @@
                     },
                     {
                         "id": 5031,
+                        "species_id": 20,
                         "name": "lanniao_shouling",
                         "form": "霜翼领主",
                         "localized": {
@@ -1534,6 +1550,7 @@
                     },
                     {
                         "id": 5032,
+                        "species_id": 20,
                         "name": "lanniao_shouling",
                         "form": "霜翼领主",
                         "localized": {

@@ -1217,6 +1217,7 @@
                 "monsters": [
                     {
                         "id": 3430,
+                        "species_id": 220,
                         "name": "haizhizhi_bilanshanhu",
                         "form": "海枝枝",
                         "localized": {
@@ -1243,6 +1244,7 @@
                     },
                     {
                         "id": 3431,
+                        "species_id": 220,
                         "name": "haizhizhi_xinghuangbaihe",
                         "form": "海枝枝",
                         "localized": {
@@ -1269,6 +1271,7 @@
                     },
                     {
                         "id": 3432,
+                        "species_id": 220,
                         "name": "haizhizhi_yanghongshading",
                         "form": "海枝枝",
                         "localized": {
@@ -1295,6 +1298,7 @@
                     },
                     {
                         "id": 3433,
+                        "species_id": 220,
                         "name": "haizhizhi_cuilvlunbu",
                         "form": "海枝枝",
                         "localized": {

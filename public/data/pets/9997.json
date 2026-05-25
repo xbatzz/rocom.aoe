@@ -129,6 +129,7 @@
                 "monsters": [
                     {
                         "id": 9997,
+                        "species_id": 9997,
                         "name": "9997",
                         "form": "贪吃",
                         "localized": {

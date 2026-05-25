@@ -68,6 +68,7 @@
                 "monsters": [
                     {
                         "id": 3731,
+                        "species_id": 3731,
                         "name": "chixinyongshi",
                         "form": "default",
                         "localized": {
@@ -100,6 +101,7 @@
                 "monsters": [
                     {
                         "id": 3732,
+                        "species_id": 3732,
                         "name": "chixinyongshi",
                         "form": "default",
                         "localized": {

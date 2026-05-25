@@ -1222,6 +1222,7 @@
                 "monsters": [
                     {
                         "id": 3154,
+                        "species_id": 246,
                         "name": "qiuluo",
                         "form": "裘洛",
                         "localized": {
@@ -1242,6 +1243,7 @@
                     },
                     {
                         "id": 8018,
+                        "species_id": 8018,
                         "name": "qiuka",
                         "form": "default",
                         "localized": {
@@ -1270,6 +1272,7 @@
                 "monsters": [
                     {
                         "id": 3155,
+                        "species_id": 247,
                         "name": "qiuli",
                         "form": "裘力",
                         "localized": {
@@ -1298,6 +1301,7 @@
                 "monsters": [
                     {
                         "id": 3156,
+                        "species_id": 248,
                         "name": "qiuka",
                         "form": "裘卡",
                         "localized": {

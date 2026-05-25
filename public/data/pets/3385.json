@@ -1283,6 +1283,7 @@
                 "monsters": [
                     {
                         "id": 3384,
+                        "species_id": 239,
                         "name": "doudingyu",
                         "form": "豆丁鱼",
                         "localized": {
@@ -1315,6 +1316,7 @@
                 "monsters": [
                     {
                         "id": 3385,
+                        "species_id": 240,
                         "name": "kuaiqiyu",
                         "form": "快鳍鱼",
                         "localized": {
@@ -1349,6 +1351,7 @@
                 "monsters": [
                     {
                         "id": 3386,
+                        "species_id": 241,
                         "name": "yulong",
                         "form": "龙鱼",
                         "localized": {

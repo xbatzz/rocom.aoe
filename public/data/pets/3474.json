@@ -1123,6 +1123,7 @@
                 "monsters": [
                     {
                         "id": 3473,
+                        "species_id": 338,
                         "name": "buguake",
                         "form": "布瓜蝌",
                         "localized": {
@@ -1143,6 +1144,7 @@
                     },
                     {
                         "id": 3474,
+                        "species_id": 339,
                         "name": "shanganwa",
                         "form": "上岸蛙",
                         "localized": {

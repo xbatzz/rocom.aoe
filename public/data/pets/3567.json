@@ -1123,6 +1123,7 @@
                 "monsters": [
                     {
                         "id": 3567,
+                        "species_id": 3567,
                         "name": "3567",
                         "form": "default",
                         "localized": {

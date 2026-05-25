@@ -1156,6 +1156,7 @@
                 "monsters": [
                     {
                         "id": 440313,
+                        "species_id": 440313,
                         "name": "lanniao_shouling",
                         "form": "default",
                         "localized": {
@@ -1183,6 +1184,7 @@
                 "monsters": [
                     {
                         "id": 440313,
+                        "species_id": 440313,
                         "name": "lanniao_shouling",
                         "form": "default",
                         "localized": {

@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import {
     Command,
-    CommandEmpty,
     CommandGroup,
-    CommandInput,
     CommandItem,
     CommandList,
 } from "@/components/ui/command";
@@ -32,6 +30,10 @@ import {
     type TeamRole,
 } from "@/lib/teamAnalysis";
 import { isPetImplemented } from "@/lib/petImplementation";
+import {
+    formatPetHandbookNo,
+    matchesPetKeyword,
+} from "@/lib/petHandbook";
 import {
     Crown,
     FlaskConical,
@@ -131,6 +133,7 @@ const activePanelTab = ref<PanelTab>("friends");
 const selectedTypeFilter = ref("all");
 const selectedAttackStyleFilter = ref("all");
 const selectedSpecialFilter = ref("all");
+const friendPickerQuery = ref("");
 const autoBossId = ref<number | null>(null);
 const autoThemeTypeId = ref<number | null>(null);
 const autoPreferenceTypeId = ref<number | null>(null);
@@ -453,6 +456,22 @@ const filteredCandidates = computed(() => {
         });
 });
 
+const searchedCandidates = computed(() => {
+    const keyword = friendPickerQuery.value.trim();
+
+    if (!keyword) {
+        return filteredCandidates.value;
+    }
+
+    return filteredCandidates.value.filter((friend) =>
+        matchesPetKeyword(friend, keyword, [
+            getAttackStyleLabel(friend.preferred_attack_style),
+            friend.main_type.localized.zh,
+            friend.sub_type?.localized.zh ?? "",
+        ]),
+    );
+});
+
 const teamEntries = computed<ITeamEntry[]>(() => {
     return teamState.value.slots
         .map((slot) => {
@@ -653,15 +672,11 @@ const damageTargetMatches = computed(() => {
     }
 
     return environmentPets.value
-        .filter((friend) => {
-            return [
-                friend.localized.zh.name,
-                friend.name,
-                String(friend.id),
-                friend.main_type.localized.zh,
-                friend.sub_type?.localized.zh ?? "",
-            ].some((field) => field.toLowerCase().includes(keyword));
-        })
+        .filter((friend) =>
+            matchesPetKeyword(friend, keyword, [
+                getAttackStyleLabel(friend.preferred_attack_style),
+            ]),
+        )
         .slice(0, 8);
 });
 
@@ -3224,17 +3239,23 @@ document.title = "配队工具 - 洛克王国工具箱";
                         <Command
                             :filter-function="undefined"
                             class="rounded-[10px] border border-border bg-card">
-                            <CommandInput
-                                placeholder="搜索名称、编号、属性或定位"
-                                class="text-foreground placeholder:text-foreground" />
+                            <div class="border-b border-border p-3">
+                                <Input
+                                    v-model="friendPickerQuery"
+                                    placeholder="搜索名称、编号、属性或定位"
+                                    class="h-10 rounded-[10px] border-border bg-card text-foreground placeholder:text-foreground" />
+                            </div>
                             <CommandList class="max-h-[60vh] px-1 pb-1">
-                                <CommandEmpty
+                                <div
+                                    v-if="!searchedCandidates.length"
                                     class="px-3 py-4 text-sm text-foreground">
                                     没有符合条件的精灵。
-                                </CommandEmpty>
-                                <CommandGroup heading="候选精灵">
+                                </div>
+                                <CommandGroup
+                                    v-else
+                                    heading="候选精灵">
                                     <CommandItem
-                                        v-for="friend in filteredCandidates"
+                                        v-for="friend in searchedCandidates"
                                         :key="friend.id"
                                         :value="String(friend.id)"
                                         class="rounded-[10px] px-3 py-3 text-foreground"
@@ -3262,7 +3283,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                     </p>
                                                     <p
                                                         class="text-xs text-foreground">
-                                                        #{{ friend.id }} ·
+                                                        #{{ formatPetHandbookNo(friend) }} ·
                                                         {{
                                                             getAttackStyleLabel(
                                                                 friend.preferred_attack_style,
@@ -3337,7 +3358,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                 </p>
                                                 <p
                                                     class="text-xs text-foreground">
-                                                    #{{ activeFriend.id }} ·
+                                                    #{{ formatPetHandbookNo(activeFriend) }} ·
                                                     {{
                                                         getAttackStyleLabel(
                                                             activeFriend.preferred_attack_style,

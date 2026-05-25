@@ -62,6 +62,7 @@
                 "monsters": [
                     {
                         "id": 3353,
+                        "species_id": 3353,
                         "name": "leibaobenben",
                         "form": "default",
                         "localized": {

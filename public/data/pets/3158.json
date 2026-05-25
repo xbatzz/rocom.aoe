@@ -2377,6 +2377,7 @@
                 "monsters": [
                     {
                         "id": 3158,
+                        "species_id": 3158,
                         "name": "kudouwumao",
                         "form": "default",
                         "localized": {

@@ -1277,6 +1277,7 @@
                 "monsters": [
                     {
                         "id": 3410,
+                        "species_id": 145,
                         "name": "quanzhagn1",
                         "form": "权杖-Ⅱ",
                         "localized": {
@@ -1303,6 +1304,7 @@
                 "monsters": [
                     {
                         "id": 3411,
+                        "species_id": 146,
                         "name": "quanzhagn2",
                         "form": "权杖-V",
                         "localized": {

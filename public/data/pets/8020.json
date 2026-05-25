@@ -1222,6 +1222,7 @@
                 "monsters": [
                     {
                         "id": 3499,
+                        "species_id": 162,
                         "name": "gongpingge",
                         "form": "公平鸽",
                         "localized": {
@@ -1242,6 +1243,7 @@
                     },
                     {
                         "id": 8020,
+                        "species_id": 8020,
                         "name": "gongpingge",
                         "form": "default",
                         "localized": {

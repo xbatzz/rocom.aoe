@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3401,
+                        "species_id": 3401,
                         "name": "yilisi",
                         "form": "default",
                         "localized": {

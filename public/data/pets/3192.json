@@ -1255,6 +1255,7 @@
                 "monsters": [
                     {
                         "id": 3190,
+                        "species_id": 66,
                         "name": "dianmiemie",
                         "form": "电咩咩",
                         "localized": {
@@ -1281,6 +1282,7 @@
                 "monsters": [
                     {
                         "id": 3191,
+                        "species_id": 67,
                         "name": "fenmiemie",
                         "form": "粉咩咩",
                         "localized": {
@@ -1309,6 +1311,7 @@
                 "monsters": [
                     {
                         "id": 3192,
+                        "species_id": 68,
                         "name": "dianqiumiemie",
                         "form": "电球咩咩",
                         "localized": {

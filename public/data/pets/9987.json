@@ -1255,6 +1255,7 @@
                 "monsters": [
                     {
                         "id": 9987,
+                        "species_id": 9987,
                         "name": "9987",
                         "form": "布石",
                         "localized": {

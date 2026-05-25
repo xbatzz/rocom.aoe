@@ -1261,6 +1261,7 @@
                 "monsters": [
                     {
                         "id": 3193,
+                        "species_id": 80,
                         "name": "xiaoxingguang",
                         "form": "小星光",
                         "localized": {
@@ -1281,6 +1282,7 @@
                     },
                     {
                         "id": 3442,
+                        "species_id": 80,
                         "name": "xiaoxingguang_yueguang",
                         "form": "小星光",
                         "localized": {
@@ -1313,6 +1315,7 @@
                 "monsters": [
                     {
                         "id": 3194,
+                        "species_id": 81,
                         "name": "xingguangsh",
                         "form": "星光狮",
                         "localized": {
@@ -1335,6 +1338,7 @@
                     },
                     {
                         "id": 3443,
+                        "species_id": 81,
                         "name": "xingguangshi_yueguang",
                         "form": "星光狮",
                         "localized": {

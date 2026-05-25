@@ -1145,6 +1145,7 @@
                 "monsters": [
                     {
                         "id": 6020,
+                        "species_id": 6020,
                         "name": "heimaowushi_shouling",
                         "form": "初级",
                         "localized": {
@@ -1172,6 +1173,7 @@
                 "monsters": [
                     {
                         "id": 6020,
+                        "species_id": 6020,
                         "name": "heimaowushi_shouling",
                         "form": "初级",
                         "localized": {

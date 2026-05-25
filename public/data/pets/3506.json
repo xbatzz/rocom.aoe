@@ -1239,6 +1239,7 @@
                 "monsters": [
                     {
                         "id": 3506,
+                        "species_id": 201,
                         "name": "huayuanman",
                         "form": "花怨鳗",
                         "localized": {
@@ -1271,6 +1272,7 @@
                 "monsters": [
                     {
                         "id": 3507,
+                        "species_id": 202,
                         "name": "manweishou",
                         "form": "鳗尾兽",
                         "localized": {

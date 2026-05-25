@@ -1261,6 +1261,7 @@
                 "monsters": [
                     {
                         "id": 3034,
+                        "species_id": 69,
                         "name": "pugongying",
                         "form": "蒲公英",
                         "localized": {
@@ -1293,6 +1294,7 @@
                 "monsters": [
                     {
                         "id": 3027,
+                        "species_id": 70,
                         "name": "pugongyingwawa",
                         "form": "蒲公英娃娃",
                         "localized": {

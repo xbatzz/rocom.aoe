@@ -1261,6 +1261,7 @@
                 "monsters": [
                     {
                         "id": 3508,
+                        "species_id": 171,
                         "name": "boboluo",
                         "form": "波波螺",
                         "localized": {
@@ -1287,6 +1288,7 @@
                     },
                     {
                         "id": 3511,
+                        "species_id": 171,
                         "name": "boboluo_yidi",
                         "form": "波波螺",
                         "localized": {
@@ -1319,6 +1321,7 @@
                 "monsters": [
                     {
                         "id": 3509,
+                        "species_id": 172,
                         "name": "xiaoboluo",
                         "form": "消波螺",
                         "localized": {
@@ -1347,6 +1350,7 @@
                     },
                     {
                         "id": 3512,
+                        "species_id": 172,
                         "name": "xiaoboluo_yidi",
                         "form": "消波螺",
                         "localized": {
@@ -1381,6 +1385,7 @@
                 "monsters": [
                     {
                         "id": 3510,
+                        "species_id": 173,
                         "name": "shiboluo",
                         "form": "嗜波螺",
                         "localized": {
@@ -1409,6 +1414,7 @@
                     },
                     {
                         "id": 3513,
+                        "species_id": 173,
                         "name": "shiboluo_yidi",
                         "form": "嗜波螺",
                         "localized": {

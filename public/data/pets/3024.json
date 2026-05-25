@@ -62,6 +62,7 @@
                 "monsters": [
                     {
                         "id": 3024,
+                        "species_id": 3024,
                         "name": "yilishabai",
                         "form": "default",
                         "localized": {

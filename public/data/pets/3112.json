@@ -1261,6 +1261,7 @@
                 "monsters": [
                     {
                         "id": 3112,
+                        "species_id": 185,
                         "name": "xiaotiantian",
                         "form": "甜田螺",
                         "localized": {
@@ -1293,6 +1294,7 @@
                 "monsters": [
                     {
                         "id": 3113,
+                        "species_id": 186,
                         "name": "hailuoguniang",
                         "form": "壳乙螺",
                         "localized": {
@@ -1327,6 +1329,7 @@
                 "monsters": [
                     {
                         "id": 3114,
+                        "species_id": 187,
                         "name": "kaluoer",
                         "form": "卡洛儿",
                         "localized": {

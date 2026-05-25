@@ -1151,6 +1151,7 @@
                 "monsters": [
                     {
                         "id": 4092,
+                        "species_id": 4092,
                         "name": "lihaixiuluo",
                         "form": "default",
                         "localized": {
@@ -1186,6 +1187,7 @@
                 "monsters": [
                     {
                         "id": 4092,
+                        "species_id": 4092,
                         "name": "lihaixiuluo",
                         "form": "default",
                         "localized": {

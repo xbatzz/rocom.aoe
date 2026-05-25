@@ -1134,6 +1134,7 @@
                 "monsters": [
                     {
                         "id": 3200,
+                        "species_id": 263,
                         "name": "jixiefangfang",
                         "form": "机械方方",
                         "localized": {
@@ -1154,6 +1155,7 @@
                     },
                     {
                         "id": 440318,
+                        "species_id": 440318,
                         "name": "440318",
                         "form": "default",
                         "localized": {
@@ -1183,6 +1185,7 @@
                 "monsters": [
                     {
                         "id": 3201,
+                        "species_id": 264,
                         "name": "duocaifangfang",
                         "form": "多彩方方",
                         "localized": {
@@ -1212,6 +1215,7 @@
                 "monsters": [
                     {
                         "id": 3202,
+                        "species_id": 265,
                         "name": "lifangren",
                         "form": "立方人",
                         "localized": {

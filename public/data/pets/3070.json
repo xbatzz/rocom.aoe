@@ -1123,6 +1123,7 @@
                 "monsters": [
                     {
                         "id": 3070,
+                        "species_id": 47,
                         "name": "huzhuquan",
                         "form": "护主犬",
                         "localized": {
@@ -1149,6 +1150,7 @@
                 "monsters": [
                     {
                         "id": 3071,
+                        "species_id": 48,
                         "name": "yinsuquan",
                         "form": "音速犬",
                         "localized": {

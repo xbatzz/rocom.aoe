@@ -1277,6 +1277,7 @@
                 "monsters": [
                     {
                         "id": 3480,
+                        "species_id": 3480,
                         "name": "shengyuyiwang",
                         "form": "default",
                         "localized": {

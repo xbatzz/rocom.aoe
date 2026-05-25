@@ -1123,6 +1123,7 @@
                 "monsters": [
                     {
                         "id": 3003,
+                        "species_id": 5,
                         "name": "huohua",
                         "form": "火花",
                         "localized": {
@@ -1149,6 +1150,7 @@
                 "monsters": [
                     {
                         "id": 3032,
+                        "species_id": 6,
                         "name": "yanhuo",
                         "form": "default",
                         "localized": {
@@ -1180,6 +1182,7 @@
                 "monsters": [
                     {
                         "id": 3006,
+                        "species_id": 7,
                         "name": "huoshen",
                         "form": "火神",
                         "localized": {

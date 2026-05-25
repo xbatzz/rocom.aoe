@@ -1151,6 +1151,7 @@
                 "monsters": [
                     {
                         "id": 3115,
+                        "species_id": 108,
                         "name": "fuzhousha",
                         "form": "风铃鲨",
                         "localized": {
@@ -1183,6 +1184,7 @@
                 "monsters": [
                     {
                         "id": 3116,
+                        "species_id": 109,
                         "name": "landiesha",
                         "form": "蓝蝶鲨",
                         "localized": {
@@ -1217,6 +1219,7 @@
                 "monsters": [
                     {
                         "id": 3117,
+                        "species_id": 110,
                         "name": "caidiesha",
                         "form": "彩蝶鲨",
                         "localized": {
@@ -1252,6 +1255,7 @@
                 "monsters": [
                     {
                         "id": 4073,
+                        "species_id": 110,
                         "name": "caidiesha_shouling",
                         "form": "神谕鲨",
                         "localized": {
@@ -1278,6 +1282,7 @@
                     },
                     {
                         "id": 5011,
+                        "species_id": 110,
                         "name": "caidiesha_shouling",
                         "form": "神谕鲨",
                         "localized": {

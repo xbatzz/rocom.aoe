@@ -68,6 +68,7 @@
                 "monsters": [
                     {
                         "id": 3187,
+                        "species_id": 3187,
                         "name": "mimiyan",
                         "form": "default",
                         "localized": {

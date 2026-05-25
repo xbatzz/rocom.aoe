@@ -33,6 +33,11 @@ import {
     matchesPetImplementationFilter,
     type PetImplementationFilter,
 } from "@/lib/petImplementation";
+import {
+    formatPetHandbookNo,
+    getPetHandbookId,
+    matchesPetKeyword,
+} from "@/lib/petHandbook";
 
 type SortKey =
     | "id"
@@ -404,16 +409,10 @@ const filteredPets = computed(() => {
     return pets.value.filter((pet) => {
         const matchesKeyword =
             keyword.length === 0 ||
-            [
-                pet.localized.zh.name,
-                pet.name,
-                String(pet.id),
-                pet.main_type.localized.zh,
-                pet.sub_type?.localized.zh ?? "",
-                pet.default_legacy_type.localized.zh,
+            matchesPetKeyword(pet, keyword, [
                 formatEggGroupSummary(pet),
                 getPetImplementationLabel(pet),
-            ].some((field) => field.toLowerCase().includes(keyword));
+            ]);
 
         const matchesType =
             tableState.type === "all" ||
@@ -515,7 +514,7 @@ const sortedPets = computed(() => {
                 comparison = left.base_spd - right.base_spd;
                 break;
             default:
-                comparison = left.id - right.id;
+                comparison = getPetHandbookId(left) - getPetHandbookId(right);
                 break;
         }
 
@@ -1658,7 +1657,7 @@ document.title = "表格 - 洛克王国工具箱";
                                 <TableCell class="font-medium text-foreground">
                                     <div class="leading-tight">
                                         <div class="text-sm text-foreground">
-                                            #{{ pet.id }}
+                                            #{{ formatPetHandbookNo(pet) }}
                                         </div>
                                         <div
                                             class="mt-1 text-[11px] text-foreground"

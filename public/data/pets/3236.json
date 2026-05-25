@@ -2383,6 +2383,7 @@
                 "monsters": [
                     {
                         "id": 3236,
+                        "species_id": 3236,
                         "name": "chaonengqiuqiu",
                         "form": "default",
                         "localized": {

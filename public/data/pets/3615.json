@@ -1305,6 +1305,7 @@
                 "monsters": [
                     {
                         "id": 3614,
+                        "species_id": 323,
                         "name": "shiguangwengweng",
                         "form": "嗜光嗡嗡",
                         "localized": {
@@ -1337,6 +1338,7 @@
                 "monsters": [
                     {
                         "id": 3615,
+                        "species_id": 324,
                         "name": "qieguangwen",
                         "form": "窃光蚊",
                         "localized": {

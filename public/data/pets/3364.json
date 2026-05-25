@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3364,
+                        "species_id": 3364,
                         "name": "luluni",
                         "form": "default",
                         "localized": {

@@ -1233,6 +1233,7 @@
                 "monsters": [
                     {
                         "id": 3106,
+                        "species_id": 24,
                         "name": "huociyanxiyi",
                         "form": "石肤蜥",
                         "localized": {
@@ -1253,6 +1254,7 @@
                     },
                     {
                         "id": 3500,
+                        "species_id": 24,
                         "name": "shifuxi_yidi",
                         "form": "石肤蜥",
                         "localized": {
@@ -1273,6 +1275,7 @@
                     },
                     {
                         "id": 17000004,
+                        "species_id": 17000004,
                         "name": "shifuxi_yidi",
                         "form": "default",
                         "localized": {
@@ -1299,6 +1302,7 @@
                 "monsters": [
                     {
                         "id": 3107,
+                        "species_id": 25,
                         "name": "conglinluxiyi",
                         "form": "default",
                         "localized": {
@@ -1321,6 +1325,7 @@
                     },
                     {
                         "id": 3501,
+                        "species_id": 25,
                         "name": "shicixi_yidi",
                         "form": "default",
                         "localized": {
@@ -1349,6 +1354,7 @@
                 "monsters": [
                     {
                         "id": 3108,
+                        "species_id": 26,
                         "name": "shihuacixiyi",
                         "form": "default",
                         "localized": {
@@ -1371,6 +1377,7 @@
                     },
                     {
                         "id": 3502,
+                        "species_id": 26,
                         "name": "shiguanwangxi_yidi",
                         "form": "default",
                         "localized": {

@@ -2377,6 +2377,7 @@
                 "monsters": [
                     {
                         "id": 3522,
+                        "species_id": 3522,
                         "name": "shuixingwei",
                         "form": "default",
                         "localized": {
@@ -2405,6 +2406,7 @@
                 "monsters": [
                     {
                         "id": 3523,
+                        "species_id": 3523,
                         "name": "shuixinglongdan",
                         "form": "default",
                         "localized": {

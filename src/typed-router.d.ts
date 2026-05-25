@@ -62,6 +62,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/handbook-progress': RouteRecordInfo<
+      '/handbook-progress',
+      '/handbook-progress',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/incubate': RouteRecordInfo<
       '/incubate',
       '/incubate',
@@ -137,6 +144,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/encyclopedia.vue': {
       routes:
         | '/encyclopedia'
+      views:
+        | never
+    }
+    'src/pages/handbook-progress.vue': {
+      routes:
+        | '/handbook-progress'
       views:
         | never
     }

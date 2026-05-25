@@ -1261,6 +1261,7 @@
                 "monsters": [
                     {
                         "id": 3069,
+                        "species_id": 92,
                         "name": "chuitouguan",
                         "form": "锤头鹳",
                         "localized": {

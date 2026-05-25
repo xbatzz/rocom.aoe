@@ -62,6 +62,7 @@
                 "monsters": [
                     {
                         "id": 3133,
+                        "species_id": 3133,
                         "name": "xiaolang",
                         "form": "default",
                         "localized": {
@@ -88,6 +89,7 @@
                 "monsters": [
                     {
                         "id": 3134,
+                        "species_id": 3134,
                         "name": "binglang",
                         "form": "default",
                         "localized": {
@@ -122,6 +124,7 @@
                 "monsters": [
                     {
                         "id": 3135,
+                        "species_id": 3135,
                         "name": "feitiandaolang",
                         "form": "default",
                         "localized": {

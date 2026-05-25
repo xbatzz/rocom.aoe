@@ -51,6 +51,7 @@
                 "monsters": [
                     {
                         "id": 3313,
+                        "species_id": 3313,
                         "name": "liyexi",
                         "form": "default",
                         "localized": {

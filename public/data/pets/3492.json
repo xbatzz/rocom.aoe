@@ -1261,6 +1261,7 @@
                 "monsters": [
                     {
                         "id": 3492,
+                        "species_id": 59,
                         "name": "shouhualei",
                         "form": "兽花蕾",
                         "localized": {

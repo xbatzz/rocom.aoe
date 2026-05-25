@@ -1151,6 +1151,7 @@
                 "monsters": [
                     {
                         "id": 3369,
+                        "species_id": 345,
                         "name": "youxingguang",
                         "form": "幽星光",
                         "localized": {
@@ -1177,6 +1178,7 @@
                 "monsters": [
                     {
                         "id": 3370,
+                        "species_id": 346,
                         "name": "yaoxingguang",
                         "form": "曜星光",
                         "localized": {
@@ -1211,6 +1213,7 @@
                 "monsters": [
                     {
                         "id": 3371,
+                        "species_id": 347,
                         "name": "muxingchen",
                         "form": "暮星辰",
                         "localized": {

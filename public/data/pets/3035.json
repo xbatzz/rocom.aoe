@@ -1151,6 +1151,7 @@
                 "monsters": [
                     {
                         "id": 3026,
+                        "species_id": 93,
                         "name": "lvcaojingling",
                         "form": "绿草精灵",
                         "localized": {
@@ -1183,6 +1184,7 @@
                 "monsters": [
                     {
                         "id": 3035,
+                        "species_id": 94,
                         "name": "mocaowuling",
                         "form": "魔草巫灵",
                         "localized": {

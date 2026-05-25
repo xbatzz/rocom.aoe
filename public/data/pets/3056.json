@@ -1123,6 +1123,7 @@
                 "monsters": [
                     {
                         "id": 3055,
+                        "species_id": 12,
                         "name": "banbanke",
                         "form": "板板壳",
                         "localized": {
@@ -1143,6 +1144,7 @@
                     },
                     {
                         "id": 3516,
+                        "species_id": 12,
                         "name": "banbanke_tuipi",
                         "form": "板板壳",
                         "localized": {
@@ -1169,6 +1171,7 @@
                 "monsters": [
                     {
                         "id": 3056,
+                        "species_id": 13,
                         "name": "kakake",
                         "form": "default",
                         "localized": {
@@ -1194,6 +1197,7 @@
                     },
                     {
                         "id": 3517,
+                        "species_id": 13,
                         "name": "kakake_tuipi",
                         "form": "default",
                         "localized": {
@@ -1222,6 +1226,7 @@
                 "monsters": [
                     {
                         "id": 3057,
+                        "species_id": 14,
                         "name": "shuipaoke",
                         "form": "default",
                         "localized": {
@@ -1247,6 +1252,7 @@
                     },
                     {
                         "id": 3518,
+                        "species_id": 14,
                         "name": "shuipaoke_tuipi",
                         "form": "default",
                         "localized": {

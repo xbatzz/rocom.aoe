@@ -1233,6 +1233,7 @@
                 "monsters": [
                     {
                         "id": 3161,
+                        "species_id": 342,
                         "name": "xiaoxiaoyutu",
                         "form": "春团",
                         "localized": {
@@ -1259,6 +1260,7 @@
                 "monsters": [
                     {
                         "id": 3162,
+                        "species_id": 343,
                         "name": "chuntuxiaozi",
                         "form": "春兔",
                         "localized": {
@@ -1287,6 +1289,7 @@
                 "monsters": [
                     {
                         "id": 3372,
+                        "species_id": 344,
                         "name": "chuntudalao",
                         "form": "春花兔",
                         "localized": {

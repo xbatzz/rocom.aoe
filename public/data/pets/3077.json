@@ -1261,6 +1261,7 @@
                 "monsters": [
                     {
                         "id": 3075,
+                        "species_id": 147,
                         "name": "linghu",
                         "form": "灵狐",
                         "localized": {
@@ -1293,6 +1294,7 @@
                 "monsters": [
                     {
                         "id": 3076,
+                        "species_id": 148,
                         "name": "jiuweihu",
                         "form": "九尾狐",
                         "localized": {
@@ -1327,6 +1329,7 @@
                 "monsters": [
                     {
                         "id": 3077,
+                        "species_id": 149,
                         "name": "jianzuihuxian",
                         "form": "尖嘴狐仙",
                         "localized": {
