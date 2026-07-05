@@ -15,7 +15,17 @@
 
 在线访问: https://rocom.aoe.top
 
-本地重建精灵数据: `npm run sync:pet-data`
+本项目统一使用 Yarn。请不要提交 `package-lock.json`。
+
+本地运行:
+
+```bash
+yarn install
+yarn dev
+yarn build
+```
+
+本地重建精灵数据: `yarn sync:pet-data`
 
 ### 结构
 
@@ -23,4 +33,3 @@
 - 相关脚本在 `scripts` 
 - 前端使用 Vue 3 + Vite 构建，组件库使用 Shadcn UI，样式使用 Tailwind CSS.
 - 主要页面在 `src\pages`
-
