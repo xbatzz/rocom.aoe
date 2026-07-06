@@ -2,6 +2,7 @@
 
 ## 2026-07-06
 
+- 修复 PWA app-shell 未明确缓存 `/index.html` 导致的离线启动白屏，升级缓存版本到 `rocom-pwa-v2-*`，并补充 Vercel SPA fallback 配置。
 - 新增离线优先 PWA 第一版：补充 manifest、主屏幕图标、service worker 注册、核心路由和核心 JSON 缓存策略。
 - 新增 `docs/PWA.md`，记录 iPhone/iPad 添加到主屏幕、离线范围、预缓存数据、runtime cache 和更新策略。
 - 新增 `docs/DESIGN_SYSTEM.md`，沉淀个人版 UI 风格、首页入口、卡片、标签、查询页、移动端、PVP 页面和开发约束。

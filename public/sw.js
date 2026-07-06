@@ -1,4 +1,4 @@
-const CACHE_VERSION = "rocom-pwa-v1";
+const CACHE_VERSION = "rocom-pwa-v2";
 const APP_SHELL_CACHE = `${CACHE_VERSION}-app-shell`;
 const CORE_DATA_CACHE = `${CACHE_VERSION}-core-data`;
 const PET_DETAIL_CACHE = `${CACHE_VERSION}-pet-details`;
@@ -7,9 +7,7 @@ const STATIC_ASSET_CACHE = `${CACHE_VERSION}-static-assets`;
 
 const APP_SHELL_URLS = [
     "/",
-    "/attributes",
-    "/encyclopedia",
-    "/skills",
+    "/index.html",
     "/manifest.webmanifest",
     "/favicon.ico",
     "/icons/apple-touch-icon.png",
@@ -33,7 +31,7 @@ const MAX_STATIC_ASSET_ENTRIES = 80;
 self.addEventListener("install", (event) => {
     event.waitUntil(
         Promise.all([
-            cacheUrls(APP_SHELL_CACHE, APP_SHELL_URLS),
+            cacheAppShell(),
             cacheUrls(CORE_DATA_CACHE, CORE_DATA_URLS),
         ]).then(() => self.skipWaiting()),
     );
@@ -117,6 +115,11 @@ self.addEventListener("fetch", (event) => {
     }
 });
 
+async function cacheAppShell() {
+    const cache = await caches.open(APP_SHELL_CACHE);
+    await cache.addAll(APP_SHELL_URLS);
+}
+
 async function cacheUrls(cacheName, urls) {
     const cache = await caches.open(cacheName);
     await Promise.allSettled(
@@ -145,9 +148,9 @@ async function networkFirstNavigation(request) {
     }
 
     return (
-        (await cache.match(request)) ??
+        (await cache.match("/index.html")) ??
         (await cache.match("/")) ??
-        Response.error()
+        offlineHtmlResponse()
     );
 }
 
@@ -210,7 +213,9 @@ async function trimCache(cacheName, maxEntries) {
         return;
     }
 
-    await Promise.all(keys.slice(0, keys.length - maxEntries).map((key) => cache.delete(key)));
+    await Promise.all(
+        keys.slice(0, keys.length - maxEntries).map((key) => cache.delete(key)),
+    );
 }
 
 function isStaticBuildAsset(pathname) {
@@ -219,4 +224,55 @@ function isStaticBuildAsset(pathname) {
 
 function isImageAsset(pathname) {
     return /\.(?:png|jpg|jpeg|webp|gif|svg|ico)$/.test(pathname);
+}
+
+function offlineHtmlResponse() {
+    return new Response(
+        `<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>离线 - 洛克王国战斗资料助手</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: #020617;
+            color: #e2e8f0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+        main {
+            width: min(28rem, calc(100vw - 2rem));
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            border-radius: 10px;
+            padding: 1.25rem;
+            background: rgba(15, 23, 42, 0.92);
+        }
+        h1 {
+            margin: 0 0 0.5rem;
+            font-size: 1.25rem;
+        }
+        p {
+            margin: 0;
+            color: #94a3b8;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>当前处于离线状态</h1>
+        <p>应用入口暂未缓存成功。请恢复网络后重新打开一次，等待离线资源更新完成。</p>
+    </main>
+</body>
+</html>`,
+        {
+            headers: {
+                "Content-Type": "text/html; charset=utf-8",
+            },
+        },
+    );
 }
