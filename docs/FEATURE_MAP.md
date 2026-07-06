@@ -6,7 +6,7 @@
 
 | 功能 | 页面路径 | 主要文件 | 使用的数据文件 | 首页核心入口 | 更多工具 | 修改风险 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 首页 | `/` | `src/pages/index.vue`、`src/components/FriendlyLinks.vue`、`src/features/my-home/MyHomeDashboard.vue` | 友情链接接口 `https://api.aoe.top/api/friendly/links` | 是 | 否 | 中 |
+| 首页 | `/` | `src/pages/index.vue`、`src/features/my-home/MyHomeDashboard.vue` | 无 | 是 | 否 | 中 |
 | 图鉴 | `/encyclopedia` | `src/pages/encyclopedia.vue`、`src/components/FriendPortrait.vue`、`src/lib/petHandbook.ts`、`src/lib/bloodline.ts`、`src/lib/petImplementation.ts` | `public/data/Pets.json`、`public/data/bloodline_index.json`、`public/assets/webp/friends/` | 是 | 否 | 高 |
 | 宠物详情 | `/pets/:id` | `src/pages/pets/[id].vue`、`src/components/FriendPortrait.vue`、`src/components/SkillIcon.vue`、`src/lib/handbookProgress/*` | `public/data/pets/{id}.json`、`Pets.json`、`types.json`、`moves.json`、`items.json`、`handbook-rewards.json`、`handbook-topic-skill-names.json`、`tables/PET_HANDBOOK.json` | 否，作为图鉴详情页 | 否 | 高 |
 | 属性关系/属性克制 | `/attributes` | `src/pages/attributes.vue`、`src/features/battle-query/TypeRelationCards.vue`、`src/features/battle-query/DualDefenseMatchupCards.vue`、`src/features/battle-query/DualOffensiveCoverageCards.vue`、`src/features/battle-query/typeDefenseMatchup.ts` | `public/data/types.json`、`public/data/BinData/TYPE_DICTIONARY.json` | 是，高频战斗查询 | 可保留入口 | 中 |
