@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import {
+    ChevronLeft,
+    ChevronRight,
+    ChevronsLeft,
+    ChevronsRight,
     RotateCcw,
     Search,
     SlidersHorizontal,
@@ -17,9 +21,19 @@ import {
 } from "@/features/skills/skillAdapter";
 import type { IPetsDetail, IPetSkillIndexPayload } from "@/lib/interface";
 
+interface PageItem {
+    key: string;
+    kind: "page" | "ellipsis";
+    value?: number;
+}
+
+const PAGE_SIZE_OPTIONS = [24, 48, 72] as const;
+
 const searchQuery = ref("");
 const selectedType = ref("all");
 const selectedCategory = ref("all");
+const currentPage = ref(1);
+const pageSize = ref<(typeof PAGE_SIZE_OPTIONS)[number]>(24);
 const moves = ref<SkillMoveSource[]>([]);
 const petSkillIndex = ref<IPetSkillIndexPayload | null>(null);
 const skillIconMap = ref<SkillIconMap>(new Map());
@@ -71,6 +85,105 @@ const filteredSkills = computed(() =>
     }),
 );
 
+const totalFilteredSkills = computed(() => filteredSkills.value.length);
+
+const totalPages = computed(() =>
+    Math.max(1, Math.ceil(totalFilteredSkills.value / pageSize.value)),
+);
+
+const paginatedSkills = computed(() => {
+    const start = (currentPage.value - 1) * pageSize.value;
+    return filteredSkills.value.slice(start, start + pageSize.value);
+});
+
+const currentRangeStart = computed(() => {
+    if (totalFilteredSkills.value === 0) {
+        return 0;
+    }
+
+    return (currentPage.value - 1) * pageSize.value + 1;
+});
+
+const currentRangeEnd = computed(() => {
+    if (totalFilteredSkills.value === 0) {
+        return 0;
+    }
+
+    return Math.min(currentPage.value * pageSize.value, totalFilteredSkills.value);
+});
+
+const pageItems = computed<PageItem[]>(() => {
+    const total = totalPages.value;
+    const current = currentPage.value;
+
+    if (total <= 7) {
+        return Array.from({ length: total }, (_, index) => ({
+            key: `page-${index + 1}`,
+            kind: "page",
+            value: index + 1,
+        }));
+    }
+
+    const pages = new Set<number>([
+        1,
+        total,
+        current - 1,
+        current,
+        current + 1,
+    ]);
+
+    if (current <= 3) {
+        pages.add(2);
+        pages.add(3);
+        pages.add(4);
+    }
+
+    if (current >= total - 2) {
+        pages.add(total - 1);
+        pages.add(total - 2);
+        pages.add(total - 3);
+    }
+
+    const orderedPages = [...pages]
+        .filter((page) => page >= 1 && page <= total)
+        .sort((left, right) => left - right);
+
+    const items: PageItem[] = [];
+    let previousPage = 0;
+
+    for (const page of orderedPages) {
+        if (previousPage !== 0 && page - previousPage > 1) {
+            items.push({
+                key: `ellipsis-${previousPage}-${page}`,
+                kind: "ellipsis",
+            });
+        }
+
+        items.push({
+            key: `page-${page}`,
+            kind: "page",
+            value: page,
+        });
+        previousPage = page;
+    }
+
+    return items;
+});
+
+const pageSizeModel = computed({
+    get: () => String(pageSize.value),
+    set: (value: string) => {
+        const parsed = Number(value);
+
+        pageSize.value = PAGE_SIZE_OPTIONS.includes(
+            parsed as (typeof PAGE_SIZE_OPTIONS)[number],
+        )
+            ? (parsed as (typeof PAGE_SIZE_OPTIONS)[number])
+            : 24;
+        currentPage.value = 1;
+    },
+});
+
 const summaryItems = computed(() => [
     {
         label: "技能总数",
@@ -78,7 +191,7 @@ const summaryItems = computed(() => [
     },
     {
         label: "当前筛选",
-        value: filteredSkills.value.length,
+        value: totalFilteredSkills.value,
     },
     {
         label: "属性类型",
@@ -99,6 +212,17 @@ const hasActiveFilters = computed(
 
 watch([searchQuery, selectedType, selectedCategory], () => {
     errorMessage.value = "";
+    currentPage.value = 1;
+});
+
+watch(totalPages, (nextTotalPages) => {
+    if (currentPage.value > nextTotalPages) {
+        currentPage.value = nextTotalPages;
+    }
+
+    if (currentPage.value < 1) {
+        currentPage.value = 1;
+    }
 });
 
 onMounted(() => {
@@ -113,6 +237,11 @@ function resetFilters() {
     searchQuery.value = "";
     selectedType.value = "all";
     selectedCategory.value = "all";
+    currentPage.value = 1;
+}
+
+function setPage(page: number) {
+    currentPage.value = Math.max(1, Math.min(page, totalPages.value));
 }
 
 async function loadSkillData() {
@@ -307,40 +436,63 @@ document.title = "技能 - 洛克王国工具箱";
                     </Button>
                 </div>
 
-                <div class="flex flex-wrap items-center gap-2 text-sm">
-                    <Badge
-                        variant="outline"
-                        class="rounded-[10px] border-border bg-muted text-foreground"
-                    >
-                        <SlidersHorizontal class="h-3.5 w-3.5" />
-                        {{ filteredSkills.length }} / {{ skillItems.length }}
-                    </Badge>
-                    <Badge
-                        v-if="searchQuery"
-                        variant="outline"
-                        class="rounded-[10px] border-primary/20 bg-primary/10 text-primary"
-                    >
-                        关键词 {{ searchQuery }}
-                    </Badge>
-                    <Badge
-                        v-if="selectedType !== 'all'"
-                        variant="outline"
-                        class="rounded-[10px] border-border bg-muted text-foreground"
-                    >
-                        属性 {{ selectedType }}
-                    </Badge>
-                    <Badge
-                        v-if="selectedCategory !== 'all'"
-                        variant="outline"
-                        class="rounded-[10px] border-border bg-muted text-foreground"
-                    >
-                        分类
-                        {{
-                            categoryOptions.find(
-                                (item) => item.value === selectedCategory,
-                            )?.label ?? selectedCategory
-                        }}
-                    </Badge>
+                <div
+                    class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between"
+                >
+                    <div class="flex flex-wrap items-center gap-2 text-sm">
+                        <Badge
+                            variant="outline"
+                            class="rounded-[10px] border-border bg-muted text-foreground"
+                        >
+                            <SlidersHorizontal class="h-3.5 w-3.5" />
+                            {{ totalFilteredSkills }} / {{ skillItems.length }}
+                        </Badge>
+                        <Badge
+                            v-if="searchQuery"
+                            variant="outline"
+                            class="rounded-[10px] border-primary/20 bg-primary/10 text-primary"
+                        >
+                            关键词 {{ searchQuery }}
+                        </Badge>
+                        <Badge
+                            v-if="selectedType !== 'all'"
+                            variant="outline"
+                            class="rounded-[10px] border-border bg-muted text-foreground"
+                        >
+                            属性 {{ selectedType }}
+                        </Badge>
+                        <Badge
+                            v-if="selectedCategory !== 'all'"
+                            variant="outline"
+                            class="rounded-[10px] border-border bg-muted text-foreground"
+                        >
+                            分类
+                            {{
+                                categoryOptions.find(
+                                    (item) => item.value === selectedCategory,
+                                )?.label ?? selectedCategory
+                            }}
+                        </Badge>
+                    </div>
+
+                    <Select v-model="pageSizeModel">
+                        <SelectTrigger
+                            class="h-10 w-34.5 rounded-[10px] border-border bg-card text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
+                        >
+                            <SelectValue placeholder="每页显示" />
+                        </SelectTrigger>
+                        <SelectContent
+                            class="border-border bg-slate-950/95 text-foreground"
+                        >
+                            <SelectItem
+                                v-for="option in PAGE_SIZE_OPTIONS"
+                                :key="option"
+                                :value="String(option)"
+                            >
+                                每页 {{ option }} 条
+                            </SelectItem>
+                        </SelectContent>
+                    </Select>
                 </div>
             </CardContent>
         </Card>
@@ -364,7 +516,7 @@ document.title = "技能 - 洛克王国工具箱";
         </div>
 
         <div
-            v-else-if="filteredSkills.length === 0"
+            v-else-if="totalFilteredSkills === 0"
             class="rounded-[10px] border border-dashed border-border bg-card px-4 py-10 text-center text-sm text-muted-foreground"
         >
             当前条件下没有找到技能，请尝试更换关键词或放宽筛选。
@@ -375,10 +527,78 @@ document.title = "技能 - 洛克王国工具箱";
             class="grid gap-3 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
         >
             <SkillResultCard
-                v-for="skill in filteredSkills"
+                v-for="skill in paginatedSkills"
                 :key="skill.id"
                 :skill="skill"
             />
+        </div>
+
+        <div
+            v-if="!isLoading && !errorMessage && totalFilteredSkills > 0"
+            class="flex flex-col gap-3 rounded-[10px] border border-border bg-card px-4 py-4 md:flex-row md:items-center md:justify-between"
+        >
+            <p class="text-sm text-foreground">
+                当前第 {{ currentPage }} / {{ totalPages }} 页，显示
+                {{ currentRangeStart }}-{{ currentRangeEnd }} /
+                {{ totalFilteredSkills }} 条结果。
+            </p>
+
+            <div class="flex flex-wrap items-center gap-2">
+                <Button
+                    variant="outline"
+                    size="icon"
+                    class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
+                    :disabled="currentPage === 1"
+                    @click="setPage(1)"
+                >
+                    <ChevronsLeft class="h-4 w-4" />
+                </Button>
+
+                <Button
+                    variant="outline"
+                    size="icon"
+                    class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
+                    :disabled="currentPage === 1"
+                    @click="setPage(currentPage - 1)"
+                >
+                    <ChevronLeft class="h-4 w-4" />
+                </Button>
+
+                <template v-for="item in pageItems" :key="item.key">
+                    <Button
+                        v-if="item.kind === 'page'"
+                        :variant="
+                            item.value === currentPage ? 'default' : 'outline'
+                        "
+                        class="min-w-10 rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
+                        @click="setPage(item.value ?? 1)"
+                    >
+                        {{ item.value }}
+                    </Button>
+
+                    <span v-else class="px-1 text-foreground">...</span>
+                </template>
+
+                <Button
+                    variant="outline"
+                    size="icon"
+                    class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
+                    :disabled="currentPage === totalPages"
+                    @click="setPage(currentPage + 1)"
+                >
+                    <ChevronRight class="h-4 w-4" />
+                </Button>
+
+                <Button
+                    variant="outline"
+                    size="icon"
+                    class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
+                    :disabled="currentPage === totalPages"
+                    @click="setPage(totalPages)"
+                >
+                    <ChevronsRight class="h-4 w-4" />
+                </Button>
+            </div>
         </div>
     </section>
 </template>
