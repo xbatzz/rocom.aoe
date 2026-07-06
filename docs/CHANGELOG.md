@@ -2,6 +2,7 @@
 
 ## 2026-07-05
 
+- 新增 `docs/CURRENT_STATUS.md`，记录当前个人版项目状态、核心页面、暂不做事项和后续建议。
 - 合并 `/skills` 中同名但不同 ID 的重复技能，保留 `moves.json` 详情并从 `PetSkillIndex` / 宠物详情补充图标与补充来源 ID 搜索。
 - 修正 `/skills` 技能数据合并策略，以 `PetSkillIndex.json.skills` 为技能目录基础，再用 `moves.json` 补充详情，并从宠物详情技能对象补齐图标。
 - 修复 `/skills` 技能卡片图标显示，复用宠物详情页同一套 `SkillIcon.vue` 与 `public/assets/webp/items/{icon_id}.webp` 图标来源。
