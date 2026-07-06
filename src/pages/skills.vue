@@ -7,7 +7,6 @@ import {
     RotateCcw,
     Search,
     SlidersHorizontal,
-    Sparkles,
 } from "lucide-vue-next";
 import SkillResultCard from "@/features/skills/SkillResultCard.vue";
 import {
@@ -330,42 +329,30 @@ document.title = "技能 - 洛克王国工具箱";
 </script>
 
 <template>
-    <section class="space-y-4">
+    <section class="space-y-3">
         <Card class="overflow-hidden border-border bg-card py-0 shadow-lg">
-            <CardHeader class="gap-4 px-4 py-5 md:px-5">
+            <CardHeader class="gap-3 px-4 py-4">
                 <div
-                    class="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between"
+                    class="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between"
                 >
-                    <div class="max-w-2xl space-y-2">
-                        <Badge
-                            variant="outline"
-                            class="w-fit rounded-[10px] border-border bg-muted text-foreground"
-                        >
-                            <Sparkles class="h-3.5 w-3.5" />
-                            技能百科
-                        </Badge>
-                        <CardTitle
-                            class="text-2xl tracking-tight text-foreground md:text-3xl"
-                        >
-                            技能查询
-                        </CardTitle>
-                        <CardDescription class="text-muted-foreground">
-                            查询技能名称、属性、分类、能耗、威力和描述。第一版只展示技能本身，不展示拥有该技能的宠物完整列表。
-                        </CardDescription>
-                    </div>
+                    <CardTitle
+                        class="text-2xl tracking-tight text-foreground md:text-3xl"
+                    >
+                        技能
+                    </CardTitle>
 
-                    <div class="grid grid-cols-2 gap-2 md:grid-cols-4">
+                    <div class="grid grid-cols-2 gap-3 md:grid-cols-4">
                         <div
                             v-for="item in summaryItems"
                             :key="item.label"
-                            class="rounded-[10px] border border-border bg-muted px-3 py-2"
+                            class="rounded-[10px] border border-border bg-muted px-4 py-3 shadow-sm"
                         >
                             <p
-                                class="text-[11px] tracking-[0.16em] text-muted-foreground uppercase"
+                                class="text-xs tracking-[0.2em] text-foreground uppercase"
                             >
                                 {{ item.label }}
                             </p>
-                            <p class="mt-1 text-sm font-semibold text-foreground">
+                            <p class="mt-2 text-2xl font-semibold text-foreground">
                                 {{ item.value }}
                             </p>
                         </div>
@@ -373,29 +360,31 @@ document.title = "技能 - 洛克王国工具箱";
                 </div>
             </CardHeader>
 
-            <CardContent class="space-y-4 px-4 pb-5 md:px-5">
-                <Separator />
+            <CardContent class="space-y-4 px-4 pb-6">
+                <Separator class="bg-white/10" />
 
-                <div class="grid gap-2 lg:grid-cols-[minmax(0,1.8fr)_1fr_1fr_auto]">
-                    <div class="relative">
+                <div class="grid gap-3 xl:grid-cols-[2fr_1fr_1fr_auto]">
+                    <div class="relative xl:col-span-1">
                         <Search
-                            class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
+                            class="pointer-events-none absolute left-4 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-foreground"
                         />
                         <Input
                             v-model="searchQuery"
                             type="search"
                             placeholder="搜索技能中文名、ID、内部名、描述、属性或分类"
-                            class="h-10 rounded-[10px] border-border bg-muted pl-9 text-sm text-foreground placeholder:text-muted-foreground"
+                            class="h-10 rounded-[10px] border-border bg-card pl-11 text-sm text-foreground placeholder:text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
                         />
                     </div>
 
                     <Select v-model="selectedType">
                         <SelectTrigger
-                            class="h-10 rounded-[10px] border-border bg-muted text-sm text-foreground"
+                            class="h-10 w-full rounded-[10px] border-border bg-card text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
                         >
                             <SelectValue placeholder="全部属性" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent
+                            class="border-border bg-slate-950/95 text-foreground"
+                        >
                             <SelectItem value="all">全部属性</SelectItem>
                             <SelectItem
                                 v-for="type in typeOptions"
@@ -409,11 +398,13 @@ document.title = "技能 - 洛克王国工具箱";
 
                     <Select v-model="selectedCategory">
                         <SelectTrigger
-                            class="h-10 rounded-[10px] border-border bg-muted text-sm text-foreground"
+                            class="h-10 w-full rounded-[10px] border-border bg-card text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
                         >
                             <SelectValue placeholder="全部分类" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent
+                            class="border-border bg-slate-950/95 text-foreground"
+                        >
                             <SelectItem value="all">全部分类</SelectItem>
                             <SelectItem
                                 v-for="category in categoryOptions"
@@ -426,45 +417,49 @@ document.title = "技能 - 洛克王国工具箱";
                     </Select>
 
                     <Button
+                        v-if="hasActiveFilters"
                         variant="outline"
-                        class="h-10 rounded-[10px] border-border bg-muted text-foreground hover:bg-accent"
-                        :disabled="!hasActiveFilters"
+                        class="h-10 rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
                         @click="resetFilters"
                     >
-                        <RotateCcw class="h-4 w-4" />
-                        重置
+                        <RotateCcw class="h-3.5 w-3.5" />
+                        重置条件
                     </Button>
                 </div>
 
                 <div
-                    class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between"
+                    class="flex flex-wrap items-center justify-between gap-3 text-sm text-foreground"
                 >
-                    <div class="flex flex-wrap items-center gap-2 text-sm">
+                    <div class="flex flex-wrap items-center gap-2">
                         <Badge
                             variant="outline"
-                            class="rounded-[10px] border-border bg-muted text-foreground"
+                            class="rounded-[10px] border-border bg-white/5 px-3 py-1 text-foreground"
                         >
-                            <SlidersHorizontal class="h-3.5 w-3.5" />
-                            {{ totalFilteredSkills }} / {{ skillItems.length }}
+                            <SlidersHorizontal
+                                class="h-3.5 w-3.5 text-foreground"
+                            />
+                            第 {{ currentPage }} / {{ totalPages }} 页 ·
+                            {{ currentRangeStart }}-{{ currentRangeEnd }} /
+                            {{ totalFilteredSkills }}
                         </Badge>
                         <Badge
                             v-if="searchQuery"
                             variant="outline"
-                            class="rounded-[10px] border-primary/20 bg-primary/10 text-primary"
+                            class="rounded-[10px] border-primary/20 bg-primary/10 px-3 py-1 text-primary"
                         >
                             关键词 {{ searchQuery }}
                         </Badge>
                         <Badge
                             v-if="selectedType !== 'all'"
                             variant="outline"
-                            class="rounded-[10px] border-border bg-muted text-foreground"
+                            class="rounded-[10px] border-border bg-white/5 px-3 py-1 text-foreground"
                         >
                             属性 {{ selectedType }}
                         </Badge>
                         <Badge
                             v-if="selectedCategory !== 'all'"
                             variant="outline"
-                            class="rounded-[10px] border-border bg-muted text-foreground"
+                            class="rounded-[10px] border-border bg-white/5 px-3 py-1 text-foreground"
                         >
                             分类
                             {{
