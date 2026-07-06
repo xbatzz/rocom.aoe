@@ -7,6 +7,14 @@ import {
 } from "echarts/components";
 import { init, use, type ComposeOption, type ECharts } from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
+import DualDefenseMatchupCards from "@/features/battle-query/DualDefenseMatchupCards.vue";
+import DualOffensiveCoverageCards from "@/features/battle-query/DualOffensiveCoverageCards.vue";
+import TypeRelationCards from "@/features/battle-query/TypeRelationCards.vue";
+import {
+    getCombinedOffensiveCoverage,
+    getOffensiveCoverage,
+    groupDualDefenseMatchups,
+} from "@/features/battle-query/typeDefenseMatchup";
 import type { IMonsterTypeDetail } from "@/lib/interface";
 
 use([TooltipComponent, GraphChart, CanvasRenderer]);
@@ -50,6 +58,16 @@ interface IRelationBuckets {
     defenseWeakness: ITypeEntry[];
     defenseResistance: ITypeEntry[];
     neutral: ITypeEntry[];
+}
+
+interface IRelationSummarySection {
+    key: RelationKind;
+    title: string;
+    description: string;
+    multiplier: string;
+    perspective: string;
+    tone: string;
+    items: ITypeEntry[];
 }
 
 interface IChartViewport {
@@ -111,6 +129,9 @@ interface IChartScene {
 }
 
 const DEFAULT_TYPE_NAME = "Grass";
+
+// “首领”属于血脉/机制概念，不作为普通战斗属性参与属性克制查询。
+const EXCLUDED_BATTLE_TYPE_NAMES = new Set(["Leader"]);
 
 const FALLBACK_TYPE_COLORS: Record<string, string> = {
     Normal: "#6ca3b8",
@@ -181,6 +202,7 @@ const isLoading = ref(false);
 const errorMessage = ref("");
 const typeEntries = ref<ITypeEntry[]>([]);
 const lockedTypeId = ref<number | null>(null);
+const secondaryTypeId = ref<number | null>(null);
 const hoveredTypeId = ref<number | null>(null);
 const chartRef = ref<HTMLDivElement | null>(null);
 const chartViewport = ref<IChartViewport>({
@@ -219,6 +241,22 @@ const currentType = computed(() => {
     return typeEntriesById.value.get(typeId) ?? null;
 });
 
+const secondaryType = computed(() => {
+    if (secondaryTypeId.value === null) {
+        return null;
+    }
+
+    return typeEntriesById.value.get(secondaryTypeId.value) ?? null;
+});
+
+const isDualDefenseMode = computed(() => {
+    return (
+        currentType.value !== null &&
+        secondaryType.value !== null &&
+        currentType.value.id !== secondaryType.value.id
+    );
+});
+
 const pairRelationLookup = computed(() => {
     return buildPairRelationLookup(currentType.value, typeEntries.value);
 });
@@ -227,33 +265,41 @@ const relationBuckets = computed(() => {
     return buildRelationBuckets(typeEntries.value, pairRelationLookup.value);
 });
 
-const relationSections = computed(() => {
+const relationSections = computed<IRelationSummarySection[]>(() => {
     return [
         {
             key: "attackAdvantage",
-            title: "攻击时克制",
-            description: "你用这个属性进攻时，能稳定压制这些属性。",
+            title: "克制",
+            description: "我方该属性技能造成更高伤害。",
+            multiplier: "伤害 x2",
+            perspective: "进攻",
             tone: RELATION_META.attackAdvantage.edgeColor,
             items: relationBuckets.value.attackAdvantage,
         },
         {
             key: "attackResisted",
-            title: "攻击时受阻",
-            description: "你用这个属性进攻时，会被这些属性天然吃掉伤害。",
+            title: "被抵抗",
+            description: "我方该属性技能造成较低伤害。",
+            multiplier: "伤害 x0.5",
+            perspective: "进攻",
             tone: RELATION_META.attackResisted.edgeColor,
             items: relationBuckets.value.attackResisted,
         },
         {
             key: "defenseWeakness",
-            title: "防守时怕谁",
-            description: "这些属性来打你时，伤害会明显放大。",
+            title: "被克制",
+            description: "敌方这些属性技能会造成更高伤害。",
+            multiplier: "受伤 x2",
+            perspective: "防守",
             tone: RELATION_META.defenseWeakness.edgeColor,
             items: relationBuckets.value.defenseWeakness,
         },
         {
             key: "defenseResistance",
-            title: "防守时抗谁",
-            description: "这些属性来打你时，伤害会被压低。",
+            title: "抵抗",
+            description: "敌方这些属性技能会造成较低伤害。",
+            multiplier: "受伤 x0.5",
+            perspective: "防守",
             tone: RELATION_META.defenseResistance.edgeColor,
             items: relationBuckets.value.defenseResistance,
         },
@@ -269,6 +315,77 @@ const currentTypeSummary = computed(() => {
 });
 
 const neutralTypes = computed(() => relationBuckets.value.neutral);
+
+const selectedRelationTypes = computed(() => {
+    if (!currentType.value) {
+        return [];
+    }
+
+    if (isDualDefenseMode.value && secondaryType.value) {
+        return [currentType.value, secondaryType.value];
+    }
+
+    return [currentType.value];
+});
+
+const dualDefenseMatchups = computed(() => {
+    if (
+        !isDualDefenseMode.value ||
+        !currentType.value ||
+        !secondaryType.value
+    ) {
+        return groupDualDefenseMatchups<ITypeEntry>([], typeEntries.value);
+    }
+
+    return groupDualDefenseMatchups(
+        [currentType.value.id, secondaryType.value.id],
+        typeEntries.value,
+    );
+});
+
+const dualDefensePriorityGroups = computed(() => [
+    dualDefenseMatchups.value.heavyWeakness,
+    dualDefenseMatchups.value.weakness,
+    dualDefenseMatchups.value.resistance,
+    dualDefenseMatchups.value.strongResistance,
+]);
+
+const dualDefenseSummary = computed(() => {
+    if (!currentType.value || !secondaryType.value) {
+        return "";
+    }
+
+    return `${currentType.value.label} + ${secondaryType.value.label} 的组合防守：重度弱点 ${dualDefenseMatchups.value.heavyWeakness.items.length} 项，弱点 ${dualDefenseMatchups.value.weakness.items.length} 项，抵抗 ${dualDefenseMatchups.value.resistance.items.length} 项，强抵抗 ${dualDefenseMatchups.value.strongResistance.items.length} 项。`;
+});
+
+const dualOffensiveCoverages = computed(() => {
+    if (
+        !isDualDefenseMode.value ||
+        !currentType.value ||
+        !secondaryType.value
+    ) {
+        return [];
+    }
+
+    return [currentType.value.id, secondaryType.value.id]
+        .map((typeId) => getOffensiveCoverage(typeId, typeEntries.value))
+        .filter((coverage) => coverage !== null);
+});
+
+const dualCombinedOffensiveCoverage = computed(() => {
+    if (
+        !isDualDefenseMode.value ||
+        !currentType.value ||
+        !secondaryType.value
+    ) {
+        return [];
+    }
+
+    return getCombinedOffensiveCoverage(
+        [currentType.value.id, secondaryType.value.id],
+        typeEntries.value,
+    );
+});
 
 const chartScene = computed(() => {
     return buildChartScene(
@@ -365,6 +482,7 @@ function buildTypeEntries(
     }
 
     return [...types]
+        .filter((type) => !EXCLUDED_BATTLE_TYPE_NAMES.has(type.name))
         .sort((left, right) => left.id - right.id)
         .map((type) => {
             const dictionaryRow = dictionaryLookup.get(type.localized.zh);
@@ -882,6 +1000,10 @@ function selectType(typeId: number) {
     }
 }
 
+function selectSecondaryType(typeId: number | null) {
+    secondaryTypeId.value = typeId;
+}
+
 function previewType(typeId: number) {
     if (!supportsHover.value) {
         return;
@@ -1052,8 +1174,8 @@ onBeforeUnmount(() => {
                 >
                     {{
                         supportsHover
-                            ? "把鼠标停在下方属性字徽上，就能即时查看该属性与其他各系的单属性克制关系。"
-                            : "点击下方属性字徽，就能查看该属性与其他各系的单属性克制关系。"
+                            ? "把鼠标停在主属性字徽上，可查看单属性四面；选择副属性后，会切换为双属性组合防守查询。"
+                            : "点击主属性字徽可查看单属性四面；选择副属性后，会切换为双属性组合防守查询。"
                     }}
                 </p>
                 <div
@@ -1064,18 +1186,41 @@ onBeforeUnmount(() => {
                         class="inline-flex items-center rounded-[10px] border px-4 py-2 font-semibold"
                         :style="getBadgeStyle(currentType, true)"
                     >
-                        当前选择 · {{ currentType.label }}
+                        当前选择 ·
+                        {{
+                            isDualDefenseMode && secondaryType
+                                ? `${currentType.label} + ${secondaryType.label}`
+                                : currentType.label
+                        }}
+                    </span>
+                    <span
+                        class="inline-flex items-center rounded-[10px] border border-border px-4 py-2 font-semibold"
+                    >
+                        {{ isDualDefenseMode ? "双属性防守" : "单属性四面" }}
                     </span>
                     <span
                         class="inline-flex items-center rounded-[10px] border border-border px-4 py-2"
                     >
-                        克制 {{ relationBuckets.attackAdvantage.length }} 项
+                        {{
+                            isDualDefenseMode
+                                ? `弱点 ${dualDefenseMatchups.weakness.items.length + dualDefenseMatchups.heavyWeakness.items.length} 项`
+                                : `克制 ${relationBuckets.attackAdvantage.length} 项`
+                        }}
                     </span>
-                    <span
-                        class="inline-flex items-center rounded-[10px] border border-border px-4 py-2"
+                </div>
+                <div class="mt-6">
+                    <div
+                        class="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between"
                     >
-                        被克制 {{ relationBuckets.defenseWeakness.length }} 项
-                    </span>
+                        <div>
+                            <h2 class="text-base font-black text-foreground">
+                                主属性
+                            </h2>
+                            <p class="text-xs leading-6 text-foreground">
+                                用于单属性进攻/防守查询，也是图谱中心属性。
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div class="mt-5 flex flex-wrap gap-3">
                     <div
@@ -1094,48 +1239,139 @@ onBeforeUnmount(() => {
                         </span>
                     </div>
                 </div>
-            </CardHeader>
-            <CardContent>
-                <div class="mt-2 text-sm leading-6 text-foreground">
-                    中心节点始终是
-                    {{
-                        currentType.label
-                    }}，其余节点按属性编号环绕排列，方便同时看清进攻与防守两种关系。
-                </div>
-                <div class="flex flex-col xl:flex-row">
+                <div class="mt-6">
                     <div
-                        ref="chartRef"
-                        class="mt-5 h-130 w-full overflow-hidden rounded-[28px]"
-                    />
-                    <div class="mt-5 grid gap-3 sm:grid-cols-2">
-                        <div
-                            v-for="kind in relationLegendKinds"
-                            :key="kind"
-                            class="rounded-[20px] border px-4 py-3"
-                            :style="
-                                getLegendStyle(RELATION_META[kind].edgeColor)
-                            "
+                        class="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between"
+                    >
+                        <div>
+                            <h2 class="text-base font-black text-foreground">
+                                副属性
+                            </h2>
+                            <p class="text-xs leading-6 text-foreground">
+                                可选。选择不同副属性后，只计算组合防守面；相同属性会按单属性处理。
+                            </p>
+                        </div>
+                        <button
+                            type="button"
+                            class="mt-2 inline-flex w-fit items-center rounded-[10px] border border-border bg-muted px-3 py-2 text-sm font-semibold text-foreground transition hover:bg-accent sm:mt-0"
+                            @click="selectSecondaryType(null)"
                         >
-                            <div
-                                class="flex items-center justify-between gap-3 text-sm font-semibold"
-                            >
-                                <span class="inline-flex items-center gap-3">
-                                    <span
-                                        class="w-8"
-                                        :style="getLegendLineStyle(kind)"
-                                    />
-                                    {{ RELATION_META[kind].title }}
-                                </span>
-                                <span>{{
-                                    RELATION_META[kind].multiplier
-                                }}</span>
-                            </div>
-                            <p class="mt-2 text-xs leading-6 text-foreground">
-                                {{ RELATION_META[kind].description }}
+                            清除副属性
+                        </button>
+                    </div>
+                    <div class="mt-4 flex flex-wrap gap-3">
+                        <button
+                            type="button"
+                            class="type-badge rounded-[10px] border border-border bg-muted px-4 py-3 text-sm font-black text-foreground transition hover:bg-accent"
+                            :class="
+                                secondaryTypeId === null
+                                    ? 'ring-2 ring-foreground/20'
+                                    : ''
+                            "
+                            @click="selectSecondaryType(null)"
+                        >
+                            无
+                        </button>
+                        <button
+                            v-for="type in typeEntries"
+                            :key="type.id"
+                            type="button"
+                            class="type-badge flex flex-col items-center rounded-[10px] p-3 text-left"
+                            :style="
+                                getBadgeStyle(type, secondaryTypeId === type.id)
+                            "
+                            @click="selectSecondaryType(type.id)"
+                        >
+                            <span class="text-lg font-black leading-none">
+                                {{ type.shortLabel }}
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </CardHeader>
+            <CardContent class="space-y-5">
+                <TypeRelationCards
+                    v-if="!isDualDefenseMode"
+                    :selected-types="selectedRelationTypes"
+                    :sections="relationSections"
+                    :neutral-types="neutralTypes"
+                    :summary="currentTypeSummary"
+                    mode-label="单属性模式"
+                />
+                <DualDefenseMatchupCards
+                    v-else
+                    :selected-types="selectedRelationTypes"
+                    :priority-groups="dualDefensePriorityGroups"
+                    :neutral-group="dualDefenseMatchups.neutral"
+                    :summary="dualDefenseSummary"
+                />
+                <DualOffensiveCoverageCards
+                    v-if="isDualDefenseMode"
+                    :coverages="dualOffensiveCoverages"
+                    :combined-targets="dualCombinedOffensiveCoverage"
+                />
+
+                <section
+                    class="rounded-[16px] border border-border bg-muted/30 p-4 sm:p-5"
+                >
+                    <div
+                        class="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between"
+                    >
+                        <div>
+                            <h2 class="text-xl font-black text-foreground">
+                                关系图谱
+                            </h2>
+                            <p class="mt-2 text-sm leading-6 text-foreground">
+                                {{
+                                    isDualDefenseMode
+                                        ? "图谱以主属性为中心展示；双属性综合防守结果请以上方列表为准。"
+                                        : "用于辅助理解箭头关系；上方卡片是主要查询结果。"
+                                }}
+                                中心节点始终是 {{ currentType.label }}，其余节点按属性编号环绕排列。
                             </p>
                         </div>
                     </div>
-                </div>
+                    <div class="flex flex-col xl:flex-row">
+                        <div
+                            ref="chartRef"
+                            class="mt-5 h-96 w-full overflow-hidden rounded-[16px] md:h-130"
+                        />
+                        <div class="mt-5 grid gap-3 sm:grid-cols-2">
+                            <div
+                                v-for="kind in relationLegendKinds"
+                                :key="kind"
+                                class="rounded-[14px] border px-4 py-3"
+                                :style="
+                                    getLegendStyle(
+                                        RELATION_META[kind].edgeColor,
+                                    )
+                                "
+                            >
+                                <div
+                                    class="flex items-center justify-between gap-3 text-sm font-semibold"
+                                >
+                                    <span
+                                        class="inline-flex items-center gap-3"
+                                    >
+                                        <span
+                                            class="w-8"
+                                            :style="getLegendLineStyle(kind)"
+                                        />
+                                        {{ RELATION_META[kind].title }}
+                                    </span>
+                                    <span>{{
+                                        RELATION_META[kind].multiplier
+                                    }}</span>
+                                </div>
+                                <p
+                                    class="mt-2 text-xs leading-6 text-foreground"
+                                >
+                                    {{ RELATION_META[kind].description }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </CardContent>
         </Card>
     </section>

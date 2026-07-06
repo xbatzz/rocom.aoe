@@ -54,12 +54,12 @@ const coreActions: CoreAction[] = [
     },
     {
         title: "技能搜索",
-        description: "先接入现有表格筛选能力，后续再独立成战斗技能查询。",
-        to: "/table",
+        description: "直接查询技能名称、属性、分类、能耗、威力和描述。",
+        to: "/skills",
         status: "技能入口",
         icon: Sparkles,
         tone: "border-amber-300/30 bg-amber-300/10 text-amber-100",
-        points: ["技能来源", "技能筛选", "覆盖查询"],
+        points: ["名称描述", "属性分类", "能耗威力"],
     },
     {
         title: "PVP 工具",
