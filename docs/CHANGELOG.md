@@ -2,6 +2,7 @@
 
 ## 2026-07-06
 
+- 移除原项目 Google AdSense 广告脚本、广告组件和首页/孵蛋/配种/表格页广告引用，改善个人版加载与 PWA 离线体验。
 - 修复 PWA app-shell 未明确缓存 `/index.html` 导致的离线启动白屏，升级缓存版本到 `rocom-pwa-v2-*`，并补充 Vercel SPA fallback 配置。
 - 新增离线优先 PWA 第一版：补充 manifest、主屏幕图标、service worker 注册、核心路由和核心 JSON 缓存策略。
 - 新增 `docs/PWA.md`，记录 iPhone/iPad 添加到主屏幕、离线范围、预缓存数据、runtime cache 和更新策略。

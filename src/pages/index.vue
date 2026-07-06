@@ -7,7 +7,6 @@ document.title = "洛克王国世界战斗资料助手";
 <template>
     <section class="space-y-4">
         <MyHomeDashboard />
-        <Income />
         <FriendlyLinks />
     </section>
 </template>

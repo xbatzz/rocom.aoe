@@ -1347,7 +1347,6 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                     </Tabs>
                 </template>
             </div>
-            <Income />
         </div>
     </section>
 </template>

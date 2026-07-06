@@ -1365,7 +1365,6 @@ document.title = "表格 - 洛克王国工具箱";
                 </div>
             </CardHeader>
         </Card>
-        <Income />
         <div v-if="isLoading" class="space-y-2">
             <Skeleton
                 v-for="index in 8"

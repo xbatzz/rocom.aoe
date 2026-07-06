@@ -1280,7 +1280,6 @@ document.title = "精灵配种 - 洛克王国工具箱";
                 </div>
             </CardContent>
         </Card>
-        <Income />
         <Card
             class="overflow-hidden border-border bg-card py-0 shadow-md"
         >
