@@ -35,7 +35,7 @@ interface ToolLink {
 
 const coreActions: CoreAction[] = [
     {
-        title: "属性克制",
+        title: "属性查询",
         description: "先看进攻、防守与倍率关系，战斗前快速确认优势面。",
         to: "/attributes",
         status: "高频查询",
@@ -44,7 +44,7 @@ const coreActions: CoreAction[] = [
         points: ["单属性关系", "进攻/防守", "倍率判断"],
     },
     {
-        title: "图鉴搜索",
+        title: "图鉴",
         description: "按名称、编号、属性和血脉技能定位宠物，再进入详情页。",
         to: "/encyclopedia",
         status: "资料核心",
@@ -53,7 +53,7 @@ const coreActions: CoreAction[] = [
         points: ["名称编号", "属性筛选", "宠物详情"],
     },
     {
-        title: "技能搜索",
+        title: "技能查询",
         description: "直接查询技能名称、属性、分类、能耗、威力和描述。",
         to: "/skills",
         status: "技能入口",

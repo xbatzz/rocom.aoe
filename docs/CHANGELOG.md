@@ -2,6 +2,8 @@
 
 ## 2026-07-05
 
+- 统一首页核心入口标题为属性查询、图鉴、技能查询与 PVP 工具 Coming Soon。
+- 侧边栏新增正式“技能”入口，指向 `/skills`，并保留原有功能入口。
 - 新增 `docs/CURRENT_STATUS.md`，记录当前个人版项目状态、核心页面、暂不做事项和后续建议。
 - 合并 `/skills` 中同名但不同 ID 的重复技能，保留 `moves.json` 详情并从 `PetSkillIndex` / 宠物详情补充图标与补充来源 ID 搜索。
 - 修正 `/skills` 技能数据合并策略，以 `PetSkillIndex.json.skills` 为技能目录基础，再用 `moves.json` 补充详情，并从宠物详情技能对象补齐图标。

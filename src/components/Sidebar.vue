@@ -16,6 +16,7 @@ import {
     LifeBuoy,
     Package,
     ListTodo,
+    Sparkles,
 } from "lucide-vue-next";
 import { cn } from "@/lib/utils";
 
@@ -32,6 +33,7 @@ watch(
 const navItems = [
     { name: "首页", path: "/", icon: Gamepad2 },
     { name: "图鉴", path: "/encyclopedia", icon: TableProperties },
+    { name: "技能", path: "/skills", icon: Sparkles },
     { name: "图鉴进度", path: "/handbook-progress", icon: ListTodo },
     { name: "表格", path: "/table", icon: Table },
     { name: "配队", path: "/team", icon: Gamepad2 },

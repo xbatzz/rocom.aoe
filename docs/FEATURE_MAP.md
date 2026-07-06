@@ -22,7 +22,7 @@
 
 ## 首页与导航现状
 
-首页 `src/pages/index.vue` 当前突出三个入口：图鉴检索、配种模拟、配队规划；按钮区提供图鉴、表格、精灵配种和 GitHub。侧边栏 `src/components/Sidebar.vue` 暴露全部站内页面：首页、图鉴、图鉴进度、表格、配队、配种、孵蛋、星图、属性、道具。
+首页 `src/pages/index.vue` 当前通过 `src/features/my-home/MyHomeDashboard.vue` 突出四个核心入口：属性查询、图鉴、技能查询、PVP 工具 Coming Soon；“更多工具”区域保留配队、配种、孵蛋/查蛋、星图、宠物表格、道具、图鉴进度。侧边栏 `src/components/Sidebar.vue` 暴露全部站内页面：首页、图鉴、技能、图鉴进度、表格、配队、配种、孵蛋、星图、属性、道具。
 
 按 `docs/MY_ROADMAP.md` 的个人版方向，首页更适合优先放“属性克制、图鉴搜索、技能搜索”。配队/PVP 可以作为核心或 Coming Soon 入口；配种、孵蛋、查蛋、星图、表格、道具、图鉴进度更适合收进“更多工具”。
 
