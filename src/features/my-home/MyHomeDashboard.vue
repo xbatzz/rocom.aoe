@@ -63,11 +63,12 @@ const coreActions: CoreAction[] = [
     },
     {
         title: "PVP 工具",
-        description: "未来支持队伍导入、对位记录与属性倍率可能性分析。",
-        status: "Coming Soon",
+        description: "选择我方与对方宠物，查看属性倍率、速度和种族值对比。",
+        to: "/pvp",
+        status: "v0.1",
         icon: Target,
         tone: "border-rose-300/30 bg-rose-300/10 text-rose-100",
-        points: ["队伍导入", "对位助手", "可能性分析"],
+        points: ["配队选择", "属性倍率", "速度对比"],
     },
 ];
 

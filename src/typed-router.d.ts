@@ -90,6 +90,13 @@ declare module 'vue-router/auto-routes' {
       { id: ParamValue<false> },
       | never
     >,
+    '/pvp': RouteRecordInfo<
+      '/pvp',
+      '/pvp',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/skills': RouteRecordInfo<
       '/skills',
       '/skills',
@@ -175,6 +182,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/pets/[id].vue': {
       routes:
         | '/pets/[id]'
+      views:
+        | never
+    }
+    'src/pages/pvp.vue': {
+      routes:
+        | '/pvp'
       views:
         | never
     }
