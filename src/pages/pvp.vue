@@ -20,6 +20,11 @@ import {
     getTypeRelationNet,
 } from "@/lib/teamAnalysis";
 import { getSavedTeamPetIds } from "@/lib/teamStorage";
+import {
+    calculateBattleStat,
+    normalizeIndividualValue,
+    type NatureModifier,
+} from "@/lib/statCalculator";
 
 interface TypeMatchup {
     key: string;
@@ -41,7 +46,23 @@ interface StatItem {
     label: string;
 }
 
+type SpeedNatureMode = "none" | "up" | "down";
+
+interface SpeedConfig {
+    individual: number;
+    nature: SpeedNatureMode;
+}
+
 const EXCLUDED_BATTLE_TYPE_NAMES = new Set(["Leader"]);
+const DEFAULT_SPEED_CONFIG: SpeedConfig = {
+    individual: 0,
+    nature: "none",
+};
+const speedNatureOptions: { label: string; value: SpeedNatureMode }[] = [
+    { label: "无修正", value: "none" },
+    { label: "加速 +20%", value: "up" },
+    { label: "减速 -10%", value: "down" },
+];
 const statItems: StatItem[] = [
     { key: "base_hp", label: "生命" },
     { key: "base_phy_atk", label: "物攻" },
@@ -56,6 +77,8 @@ const types = ref<IMonsterTypeDetail[]>([]);
 const savedTeamPetIds = ref<number[]>([]);
 const allyPetId = ref<number | null>(null);
 const opponentPetId = ref<number | null>(null);
+const allySpeedConfig = ref<SpeedConfig>({ ...DEFAULT_SPEED_CONFIG });
+const opponentSpeedConfig = ref<SpeedConfig>({ ...DEFAULT_SPEED_CONFIG });
 const allySearchQuery = ref("");
 const opponentSearchQuery = ref("");
 const isLoading = ref(false);
@@ -128,12 +151,36 @@ const opponentSearchResults = computed(() =>
 
 const hasBothPets = computed(() => Boolean(allyPet.value && opponentPet.value));
 
+const allyBattleSpeed = computed(() => {
+    if (!allyPet.value) {
+        return 0;
+    }
+
+    return calculateBattleStat(
+        allyPet.value.base_spd,
+        allySpeedConfig.value.individual,
+        getSpeedNatureModifier(allySpeedConfig.value.nature),
+    );
+});
+
+const opponentBattleSpeed = computed(() => {
+    if (!opponentPet.value) {
+        return 0;
+    }
+
+    return calculateBattleStat(
+        opponentPet.value.base_spd,
+        opponentSpeedConfig.value.individual,
+        getSpeedNatureModifier(opponentSpeedConfig.value.nature),
+    );
+});
+
 const speedDiff = computed(() => {
     if (!allyPet.value || !opponentPet.value) {
         return 0;
     }
 
-    return allyPet.value.base_spd - opponentPet.value.base_spd;
+    return allyBattleSpeed.value - opponentBattleSpeed.value;
 });
 
 const speedSummary = computed(() => {
@@ -142,14 +189,14 @@ const speedSummary = computed(() => {
     }
 
     if (speedDiff.value > 0) {
-        return "速度优势";
+        return "速度参考领先";
     }
 
     if (speedDiff.value < 0) {
-        return "速度劣势";
+        return "速度参考落后";
     }
 
-    return "速度相同";
+    return "速度参考相同";
 });
 
 const allyAttackMatchups = computed(() => {
@@ -192,11 +239,13 @@ const matchupHints = computed(() => {
     }
 
     if (speedDiff.value > 0) {
-        hints.push(`速度优势：我方速度高 ${speedDiff.value} 点。`);
+        hints.push(`速度参考领先：我方实战速度高 ${speedDiff.value} 点。`);
     } else if (speedDiff.value < 0) {
-        hints.push(`速度劣势：我方速度低 ${Math.abs(speedDiff.value)} 点。`);
+        hints.push(
+            `速度参考落后：我方实战速度低 ${Math.abs(speedDiff.value)} 点。`,
+        );
     } else {
-        hints.push("速度相同：先手关系需要看额外机制。");
+        hints.push("速度参考相同：先手关系需要看额外机制。");
     }
 
     if (
@@ -252,13 +301,19 @@ function selectOpponentPet(petId: number) {
 
 function swapPets() {
     const nextAllyPetId = opponentPetId.value;
+    const nextAllySpeedConfig = { ...opponentSpeedConfig.value };
+
     opponentPetId.value = allyPetId.value;
+    opponentSpeedConfig.value = { ...allySpeedConfig.value };
     allyPetId.value = nextAllyPetId;
+    allySpeedConfig.value = nextAllySpeedConfig;
 }
 
 function resetSelection() {
     allyPetId.value = null;
     opponentPetId.value = null;
+    allySpeedConfig.value = { ...DEFAULT_SPEED_CONFIG };
+    opponentSpeedConfig.value = { ...DEFAULT_SPEED_CONFIG };
     allySearchQuery.value = "";
     opponentSearchQuery.value = "";
 }
@@ -351,6 +406,63 @@ function getTotalStats(pet: IPets) {
     return statItems.reduce((total, item) => total + pet[item.key], 0);
 }
 
+function updateSpeedIndividual(side: "ally" | "opponent", value: unknown) {
+    const nextValue = normalizeIndividualValue(value);
+
+    if (side === "ally") {
+        allySpeedConfig.value = {
+            ...allySpeedConfig.value,
+            individual: nextValue,
+        };
+        return;
+    }
+
+    opponentSpeedConfig.value = {
+        ...opponentSpeedConfig.value,
+        individual: nextValue,
+    };
+}
+
+function updateSpeedNature(side: "ally" | "opponent", value: string) {
+    const nextNature = isSpeedNatureMode(value) ? value : "none";
+
+    if (side === "ally") {
+        allySpeedConfig.value = {
+            ...allySpeedConfig.value,
+            nature: nextNature,
+        };
+        return;
+    }
+
+    opponentSpeedConfig.value = {
+        ...opponentSpeedConfig.value,
+        nature: nextNature,
+    };
+}
+
+function isSpeedNatureMode(value: string): value is SpeedNatureMode {
+    return speedNatureOptions.some((option) => option.value === value);
+}
+
+function getSpeedNatureModifier(mode: SpeedNatureMode): NatureModifier {
+    if (mode === "up") {
+        return 0.2;
+    }
+
+    if (mode === "down") {
+        return -0.1;
+    }
+
+    return 0;
+}
+
+function formatSpeedNature(mode: SpeedNatureMode) {
+    return (
+        speedNatureOptions.find((option) => option.value === mode)?.label ??
+        "无修正"
+    );
+}
+
 function formatSignedNumber(value: number) {
     if (value > 0) {
         return `+${value}`;
@@ -400,7 +512,7 @@ document.title = "PVP 对位助手 - 洛克王国工具箱";
                             PVP 对位助手
                         </CardTitle>
                         <CardDescription class="max-w-3xl text-sm leading-6">
-                            基于属性、速度和种族值的轻量对位参考，不包含伤害与胜率预测。
+                            基于属性、实战速度和种族值的轻量对位参考，不包含伤害与胜率预测。
                         </CardDescription>
                     </div>
 
@@ -640,6 +752,204 @@ document.title = "PVP 对位助手 - 洛克王国工具箱";
                 </p>
             </div>
 
+            <div class="grid gap-3 xl:grid-cols-2">
+                <Card class="border-border bg-card shadow-sm">
+                    <CardHeader>
+                        <CardTitle class="text-lg">我方速度线</CardTitle>
+                        <CardDescription>
+                            实战速度基于种族值、速度个体值和性格修正计算。
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent class="space-y-4">
+                        <div class="grid gap-3 sm:grid-cols-2">
+                            <label class="space-y-2">
+                                <span class="text-sm font-medium text-foreground">
+                                    速度个体值
+                                </span>
+                                <Input
+                                    :model-value="allySpeedConfig.individual"
+                                    type="number"
+                                    min="0"
+                                    max="10"
+                                    step="1"
+                                    class="h-10 rounded-[10px] border-border bg-card text-sm text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
+                                    @update:model-value="
+                                        updateSpeedIndividual('ally', $event)
+                                    "
+                                />
+                            </label>
+
+                            <label class="space-y-2">
+                                <span class="text-sm font-medium text-foreground">
+                                    性格速度修正
+                                </span>
+                                <select
+                                    :value="allySpeedConfig.nature"
+                                    class="h-10 w-full rounded-[10px] border border-border bg-card px-3 text-sm text-foreground outline-none focus:border-primary/60"
+                                    @change="
+                                        updateSpeedNature(
+                                            'ally',
+                                            ($event.target as HTMLSelectElement).value,
+                                        )
+                                    "
+                                >
+                                    <option
+                                        v-for="option in speedNatureOptions"
+                                        :key="`ally-speed-${option.value}`"
+                                        :value="option.value"
+                                    >
+                                        {{ option.label }}
+                                    </option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                            <div
+                                class="rounded-[10px] border border-border bg-muted/40 px-3 py-2"
+                            >
+                                <p class="text-xs text-muted-foreground">
+                                    基础速度
+                                </p>
+                                <p class="text-sm font-semibold text-foreground">
+                                    {{ allyPet?.base_spd ?? "-" }}
+                                </p>
+                            </div>
+                            <div
+                                class="rounded-[10px] border border-border bg-muted/40 px-3 py-2"
+                            >
+                                <p class="text-xs text-muted-foreground">
+                                    个体值
+                                </p>
+                                <p class="text-sm font-semibold text-foreground">
+                                    {{ allySpeedConfig.individual }}
+                                </p>
+                            </div>
+                            <div
+                                class="rounded-[10px] border border-border bg-muted/40 px-3 py-2"
+                            >
+                                <p class="text-xs text-muted-foreground">
+                                    性格修正
+                                </p>
+                                <p class="text-sm font-semibold text-foreground">
+                                    {{ formatSpeedNature(allySpeedConfig.nature) }}
+                                </p>
+                            </div>
+                            <div
+                                class="rounded-[10px] border border-primary/30 bg-primary/10 px-3 py-2"
+                            >
+                                <p class="text-xs text-muted-foreground">
+                                    实战速度
+                                </p>
+                                <p class="text-sm font-semibold text-foreground">
+                                    {{ allyPet ? allyBattleSpeed : "-" }}
+                                </p>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+
+                <Card class="border-border bg-card shadow-sm">
+                    <CardHeader>
+                        <CardTitle class="text-lg">对方速度线</CardTitle>
+                        <CardDescription>
+                            结果为速度线参考，不代表完整实战先手规则。
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent class="space-y-4">
+                        <div class="grid gap-3 sm:grid-cols-2">
+                            <label class="space-y-2">
+                                <span class="text-sm font-medium text-foreground">
+                                    速度个体值
+                                </span>
+                                <Input
+                                    :model-value="opponentSpeedConfig.individual"
+                                    type="number"
+                                    min="0"
+                                    max="10"
+                                    step="1"
+                                    class="h-10 rounded-[10px] border-border bg-card text-sm text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
+                                    @update:model-value="
+                                        updateSpeedIndividual('opponent', $event)
+                                    "
+                                />
+                            </label>
+
+                            <label class="space-y-2">
+                                <span class="text-sm font-medium text-foreground">
+                                    性格速度修正
+                                </span>
+                                <select
+                                    :value="opponentSpeedConfig.nature"
+                                    class="h-10 w-full rounded-[10px] border border-border bg-card px-3 text-sm text-foreground outline-none focus:border-primary/60"
+                                    @change="
+                                        updateSpeedNature(
+                                            'opponent',
+                                            ($event.target as HTMLSelectElement).value,
+                                        )
+                                    "
+                                >
+                                    <option
+                                        v-for="option in speedNatureOptions"
+                                        :key="`opponent-speed-${option.value}`"
+                                        :value="option.value"
+                                    >
+                                        {{ option.label }}
+                                    </option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                            <div
+                                class="rounded-[10px] border border-border bg-muted/40 px-3 py-2"
+                            >
+                                <p class="text-xs text-muted-foreground">
+                                    基础速度
+                                </p>
+                                <p class="text-sm font-semibold text-foreground">
+                                    {{ opponentPet?.base_spd ?? "-" }}
+                                </p>
+                            </div>
+                            <div
+                                class="rounded-[10px] border border-border bg-muted/40 px-3 py-2"
+                            >
+                                <p class="text-xs text-muted-foreground">
+                                    个体值
+                                </p>
+                                <p class="text-sm font-semibold text-foreground">
+                                    {{ opponentSpeedConfig.individual }}
+                                </p>
+                            </div>
+                            <div
+                                class="rounded-[10px] border border-border bg-muted/40 px-3 py-2"
+                            >
+                                <p class="text-xs text-muted-foreground">
+                                    性格修正
+                                </p>
+                                <p class="text-sm font-semibold text-foreground">
+                                    {{
+                                        formatSpeedNature(
+                                            opponentSpeedConfig.nature,
+                                        )
+                                    }}
+                                </p>
+                            </div>
+                            <div
+                                class="rounded-[10px] border border-primary/30 bg-primary/10 px-3 py-2"
+                            >
+                                <p class="text-xs text-muted-foreground">
+                                    实战速度
+                                </p>
+                                <p class="text-sm font-semibold text-foreground">
+                                    {{ opponentPet ? opponentBattleSpeed : "-" }}
+                                </p>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+
             <div
                 v-if="hasBothPets"
                 class="grid gap-3 xl:grid-cols-[1fr_1fr_0.9fr]"
@@ -781,9 +1091,13 @@ document.title = "PVP 对位助手 - 洛克王国工具箱";
                                 {{ speedSummary }}
                             </p>
                             <p class="mt-1 text-sm text-muted-foreground">
-                                我方 {{ allyPet?.base_spd }} / 对方
-                                {{ opponentPet?.base_spd }} · 差值
+                                我方 {{ allyBattleSpeed }} / 对方
+                                {{ opponentBattleSpeed }} · 差值
                                 {{ formatSignedNumber(speedDiff) }}
+                            </p>
+                            <p class="mt-1 text-xs leading-5 text-muted-foreground">
+                                基础速度：我方 {{ allyPet?.base_spd }} / 对方
+                                {{ opponentPet?.base_spd }}。结果为速度线参考，不代表完整实战先手规则。
                             </p>
                         </div>
 
