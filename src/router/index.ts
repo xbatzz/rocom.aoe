@@ -26,15 +26,22 @@ function scrollMainContainer(position: ScrollToOptions) {
         const scrollContainer = document.querySelector<HTMLElement>(
             "[data-scroll-container]",
         );
+        const left = position.left ?? 0;
+        const top = position.top ?? 0;
 
+        if (scrollContainer) {
+            scrollContainer.scrollLeft = left;
+            scrollContainer.scrollTop = top;
+        }
         scrollContainer?.scrollTo({
-            left: position.left ?? 0,
-            top: position.top ?? 0,
+            left,
+            top,
             behavior: "auto",
         });
+        window.scrollTo(left, top);
         window.scrollTo({
-            left: position.left ?? 0,
-            top: position.top ?? 0,
+            left,
+            top,
             behavior: "auto",
         });
     };
