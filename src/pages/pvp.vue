@@ -25,6 +25,7 @@ import {
     getTypeRelationNet,
 } from "@/lib/teamAnalysis";
 import {
+    getActiveTeam,
     getSavedTeamBuildSlots,
     type SavedTeamBuildSlot,
 } from "@/lib/teamStorage";
@@ -68,6 +69,13 @@ interface SpeedPreviewConfig {
     nature: SpeedNatureMode;
 }
 
+interface ResistanceCandidate {
+    key: string;
+    slotIndex: number;
+    pet: IPets;
+    multiplier: number;
+}
+
 const EXCLUDED_BATTLE_TYPE_NAMES = new Set(["Leader"]);
 const PET_PICKER_RESULT_LIMIT = 50;
 const DEFAULT_SPEED_CONFIG: SpeedConfig = {
@@ -98,6 +106,7 @@ const pets = ref<IPets[]>([]);
 const types = ref<IMonsterTypeDetail[]>([]);
 const personalities = ref<IPersonality[]>([]);
 const savedTeamSlots = ref<SavedTeamBuildSlot[]>([]);
+const activeTeamName = ref("当前激活队伍");
 const allyPetId = ref<number | null>(null);
 const opponentPetId = ref<number | null>(null);
 const allySpeedConfig = ref<SpeedConfig>({ ...DEFAULT_SPEED_CONFIG });
@@ -106,6 +115,7 @@ const allySpeedConfigSource = ref("");
 const opponentSpeedConfigSource = ref("");
 const allySearchQuery = ref("");
 const opponentSearchQuery = ref("");
+const selectedOpponentAttackTypeName = ref("");
 const isLoading = ref(false);
 const errorMessage = ref("");
 
@@ -273,6 +283,52 @@ const opponentAttackMatchups = computed(() => {
     return buildAttackMatchups(opponentPet.value, allyPet.value);
 });
 
+const opponentBattleTypes = computed(() => formatTypes(opponentPet.value));
+
+const selectedOpponentAttackType = computed(() => {
+    if (!selectedOpponentAttackTypeName.value) {
+        return null;
+    }
+
+    return (
+        opponentBattleTypes.value.find(
+            (type) => type.name === selectedOpponentAttackTypeName.value,
+        ) ?? null
+    );
+});
+
+const resistanceCandidates = computed<ResistanceCandidate[]>(() => {
+    const attackType = selectedOpponentAttackType.value;
+
+    if (!attackType) {
+        return [];
+    }
+
+    return savedTeamPets.value
+        .map(({ slot, pet }) => {
+            const net = getTypeRelationNet(pet, attackType.name, typeMap.value);
+            const multiplier = getTypeMultiplier(net);
+
+            return {
+                key: `${slot.slotIndex}-${pet.id}`,
+                slotIndex: slot.slotIndex,
+                pet,
+                multiplier,
+            };
+        })
+        .filter(
+            (candidate) =>
+                candidate.multiplier === 0.25 ||
+                candidate.multiplier === 0.5,
+        )
+        .sort((left, right) => {
+            return (
+                left.multiplier - right.multiplier ||
+                left.slotIndex - right.slotIndex
+            );
+        });
+});
+
 const allyBestMultiplier = computed(() =>
     getBestMultiplier(allyAttackMatchups.value),
 );
@@ -339,13 +395,29 @@ const summaryCards = computed(() => [
 ]);
 
 onMounted(() => {
-    savedTeamSlots.value = getSavedTeamBuildSlots();
+    refreshSavedTeam();
     void loadPvpData();
 });
 
 onBeforeUnmount(() => {
     controller?.abort();
 });
+
+watch(opponentBattleTypes, (types) => {
+    if (
+        selectedOpponentAttackTypeName.value &&
+        !types.some((type) => type.name === selectedOpponentAttackTypeName.value)
+    ) {
+        selectedOpponentAttackTypeName.value = "";
+    }
+});
+
+function refreshSavedTeam() {
+    const activeTeam = getActiveTeam();
+
+    activeTeamName.value = activeTeam.name || "当前激活队伍";
+    savedTeamSlots.value = getSavedTeamBuildSlots();
+}
 
 function selectAllyPet(petId: number) {
     allyPetId.value = petId;
@@ -365,6 +437,10 @@ function selectAllyTeamSlot(slot: SavedTeamBuildSlot) {
 
 function selectOpponentPet(petId: number) {
     opponentPetId.value = petId;
+}
+
+function selectOpponentAttackType(type: IPetsType) {
+    selectedOpponentAttackTypeName.value = type.name;
 }
 
 function swapPets() {
@@ -389,6 +465,7 @@ function resetSelection() {
     opponentSpeedConfigSource.value = "";
     allySearchQuery.value = "";
     opponentSearchQuery.value = "";
+    selectedOpponentAttackTypeName.value = "";
 }
 
 async function loadPvpData() {
@@ -1313,6 +1390,31 @@ document.title = "PVP 对位助手 - 洛克王国工具箱";
                     </CardHeader>
                     <CardContent class="space-y-4">
                         <div class="space-y-2">
+                            <p class="text-sm font-medium text-foreground">
+                                对方属性
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <button
+                                    v-for="type in opponentBattleTypes"
+                                    :key="type.id"
+                                    type="button"
+                                    class="rounded-[10px] border px-3 py-1 text-sm transition-colors"
+                                    :class="
+                                        selectedOpponentAttackTypeName ===
+                                        type.name
+                                            ? 'border-primary/50 bg-primary/15 text-primary'
+                                            : 'border-border bg-muted/40 text-foreground hover:border-primary/40 hover:bg-accent/50'
+                                    "
+                                    @click="selectOpponentAttackType(type)"
+                                >
+                                    {{ type.localized.zh }}
+                                </button>
+                            </div>
+                        </div>
+
+                        <Separator class="bg-white/10" />
+
+                        <div class="space-y-2">
                             <div class="flex items-center gap-2 text-sm font-medium">
                                 <Swords class="h-4 w-4 text-primary" />
                                 我方打对方
@@ -1356,6 +1458,114 @@ document.title = "PVP 对位助手 - 洛克王国工具箱";
                                     </p>
                                 </div>
                             </div>
+                        </div>
+
+                        <Separator class="bg-white/10" />
+
+                        <div class="space-y-3">
+                            <div>
+                                <p class="text-sm font-medium text-foreground">
+                                    我方抗性候选
+                                </p>
+                                <p
+                                    class="mt-1 text-xs leading-5 text-muted-foreground"
+                                >
+                                    <template v-if="selectedOpponentAttackType">
+                                        对「{{
+                                            selectedOpponentAttackType.localized.zh
+                                        }}」属性的抗性候选 · 当前队伍：{{
+                                            activeTeamName || "当前激活队伍"
+                                        }}
+                                    </template>
+                                    <template v-else>
+                                        点击对方属性后查看当前队伍联防候选。
+                                    </template>
+                                </p>
+                            </div>
+
+                            <div
+                                v-if="
+                                    selectedOpponentAttackType &&
+                                    resistanceCandidates.length
+                                "
+                                class="space-y-2"
+                            >
+                                <div
+                                    v-for="candidate in resistanceCandidates"
+                                    :key="candidate.key"
+                                    class="rounded-[10px] border border-border bg-muted/40 px-3 py-3"
+                                >
+                                    <div
+                                        class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+                                    >
+                                        <div class="min-w-0">
+                                            <p
+                                                class="truncate text-sm font-semibold text-foreground"
+                                            >
+                                                {{ candidate.slotIndex }}号位 ·
+                                                {{
+                                                    getPetDisplayName(
+                                                        candidate.pet,
+                                                    )
+                                                }}
+                                            </p>
+                                            <div
+                                                class="mt-2 flex flex-wrap items-center gap-1.5"
+                                            >
+                                                <span
+                                                    class="text-xs text-muted-foreground"
+                                                >
+                                                    No.
+                                                    {{
+                                                        formatPetHandbookNo(
+                                                            candidate.pet,
+                                                        )
+                                                    }}
+                                                </span>
+                                                <Badge
+                                                    v-for="type in formatTypes(
+                                                        candidate.pet,
+                                                    )"
+                                                    :key="`${candidate.key}-${type.id}`"
+                                                    variant="outline"
+                                                    class="border-border bg-white/5 text-xs text-foreground"
+                                                >
+                                                    {{ type.localized.zh }}
+                                                </Badge>
+                                            </div>
+                                        </div>
+                                        <Badge
+                                            variant="outline"
+                                            class="w-fit border-emerald-300/35 bg-emerald-300/10 text-emerald-100"
+                                        >
+                                            承受 {{ candidate.multiplier }}x
+                                        </Badge>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p
+                                v-else-if="
+                                    selectedOpponentAttackType &&
+                                    savedTeamPets.length === 0
+                                "
+                                class="rounded-[10px] border border-dashed border-border bg-muted/40 px-3 py-4 text-sm text-muted-foreground"
+                            >
+                                暂无当前队伍宠物，去配队页添加宠物后可查看联防候选。
+                            </p>
+
+                            <p
+                                v-else-if="selectedOpponentAttackType"
+                                class="rounded-[10px] border border-dashed border-border bg-muted/40 px-3 py-4 text-sm text-muted-foreground"
+                            >
+                                当前队伍没有明显抵抗「{{
+                                    selectedOpponentAttackType.localized.zh
+                                }}」属性的宠物。
+                            </p>
+
+                            <p class="text-xs leading-5 text-muted-foreground">
+                                仅按所选攻击属性计算当前队伍抗性，不代表完整技能覆盖或实战安全换人。
+                            </p>
                         </div>
                     </CardContent>
                 </Card>
