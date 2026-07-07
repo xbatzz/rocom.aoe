@@ -3,6 +3,7 @@ import {
     ArrowRight,
     BadgeInfo,
     BookOpen,
+    Calculator,
     Compass,
     Egg,
     GitBranch,
@@ -73,6 +74,12 @@ const coreActions: CoreAction[] = [
 ];
 
 const moreTools: ToolLink[] = [
+    {
+        title: "实战属性",
+        description: "种族值、个体值与性格修正计算。",
+        to: "/stats",
+        icon: Calculator,
+    },
     {
         title: "配队",
         description: "围绕技能、性格与定位构建六人阵容。",

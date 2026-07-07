@@ -12,6 +12,7 @@
 | 属性关系/属性克制 | `/attributes` | `src/pages/attributes.vue`、`src/features/battle-query/TypeRelationCards.vue`、`src/features/battle-query/DualDefenseMatchupCards.vue`、`src/features/battle-query/DualOffensiveCoverageCards.vue`、`src/features/battle-query/typeDefenseMatchup.ts` | `public/data/types.json`、`public/data/BinData/TYPE_DICTIONARY.json` | 是，高频战斗查询 | 可保留入口 | 中 |
 | 技能 | `/skills`；相关能力也分布在 `/table`、`/pets/:id`、`/team` | `src/pages/skills.vue`、`src/features/skills/SkillResultCard.vue`、`src/features/skills/skillAdapter.ts`、`src/pages/table.vue`、`src/pages/pets/[id].vue`、`src/pages/team.vue`、`src/components/SkillIcon.vue` | `public/data/moves.json`、`public/data/PetSkillIndex.json`、`public/data/pets/{id}.json` | 是 | 可同时归入更多工具 | 中 |
 | PVP 对位助手 | `/pvp` | `src/pages/pvp.vue`、`src/lib/teamStorage.ts`、`src/lib/teamAnalysis.ts`、`src/lib/petHandbook.ts` | `public/data/Pets.json`、`public/data/types.json`、`localStorage: rocom.team-builder.v1` | 是，轻量对位参考 | 否 | 中 |
+| 实战属性计算器 | `/stats` | `src/pages/stats.vue`、`src/lib/statCalculator.ts`、`src/lib/petHandbook.ts` | `public/data/Pets.json` | 否，作为 PVP 辅助工具 | 是 | 低 |
 | 配队/配对规划 | `/team` | `src/pages/team.vue`、`src/lib/teamAnalysis.ts` | `Pets.json`、`personalities.json`、`magic_items.json`、`types.json`、`moves.json`、`pets/{id}.json`、`localStorage: rocom.team-builder.v1` | 可作为核心入口 | 否 | 高 |
 | 配种 | `/breeding` | `src/pages/breeding.vue`、`src/lib/eggGroups.ts`、`src/lib/petImplementation.ts` | `Pets.json`、`tables/HOME_PET_LAY_EGG_RATE_CONF.json` | 可保留 | 否 | 中 |
 | 查蛋 | 当前无独立路由；能力集中在 `/incubate` | `src/pages/incubate.vue` | `Pets.json` 中的 `breeding`、`evolves_from_id`、身高体重与孵化数据 | 否，建议并入孵蛋/更多工具 | 是 | 低 |
@@ -23,7 +24,7 @@
 
 ## 首页与导航现状
 
-首页 `src/pages/index.vue` 当前通过 `src/features/my-home/MyHomeDashboard.vue` 突出四个核心入口：属性查询、图鉴、技能查询、PVP 对位助手；“更多工具”区域保留配队、配种、孵蛋/查蛋、星图、宠物表格、道具、图鉴进度。侧边栏 `src/components/Sidebar.vue` 暴露全部站内页面：首页、图鉴、技能、PVP、图鉴进度、表格、配队、配种、孵蛋、星图、属性、道具。
+首页 `src/pages/index.vue` 当前通过 `src/features/my-home/MyHomeDashboard.vue` 突出四个核心入口：属性查询、图鉴、技能查询、PVP 对位助手；“更多工具”区域保留实战属性、配队、配种、孵蛋/查蛋、星图、宠物表格、道具、图鉴进度。侧边栏 `src/components/Sidebar.vue` 暴露全部站内页面：首页、图鉴、技能、PVP、实战属性、图鉴进度、表格、配队、配种、孵蛋、星图、属性、道具。
 
 按 `docs/MY_ROADMAP.md` 的个人版方向，首页更适合优先放“属性克制、图鉴搜索、技能搜索”。配队/PVP 可以作为核心或 Coming Soon 入口；配种、孵蛋、查蛋、星图、表格、道具、图鉴进度更适合收进“更多工具”。
 
@@ -43,11 +44,19 @@
 
 `/pvp` v0.1 展示双方属性、编号、总种族值、六项种族值、速度差、我方打对方与对方打我方的属性倍率，并给出进攻优势、防守风险、速度优势/劣势和属性对位接近等轻量提示。该页面明确不包含真实伤害计算、胜率预测、配招推荐、完整战斗模拟和队伍导入导出。
 
+## 实战属性计算器现状
+
+项目当前已有第一版独立 `/stats` 页面，用于将宠物基础种族值换算为 PVP 实战属性。页面读取 `Pets.json`，支持按名称、图鉴编号和属性选择已实装宠物，展示生命、物攻、魔攻、物防、魔防、速度与种族值总和。
+
+`/stats` v0.1 支持六项个体值输入，每项范围为 0-10，最多 3 项个体值可以大于 0；性格增强属性按 +20% 计算，性格削弱属性按 -10% 计算，增强和削弱属性不能相同。计算由 `src/lib/statCalculator.ts` 提供，生命和其他属性均按“每次乘法产生小数后立即四舍五入”的规则分步计算。
+
+该页面暂不支持伤害计算、胜率预测、技能、血脉、装备和特性综合计算，也暂不接入 `/pvp` 或 `/team`。
+
 ## 数据与脚本地图
 
 基础数据入口：
 
-- `public/data/Pets.json`：图鉴、表格、配队、PVP、配种、孵蛋、星图等页面的核心宠物索引。
+- `public/data/Pets.json`：图鉴、表格、配队、PVP、实战属性、配种、孵蛋、星图等页面的核心宠物索引。
 - `public/data/pets/{id}.json`：宠物详情和配队按需加载的详情。
 - `public/data/types.json`：属性基础数据。
 - `public/data/moves.json`：技能列表。
