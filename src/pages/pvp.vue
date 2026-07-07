@@ -8,7 +8,12 @@ import {
     Zap,
 } from "lucide-vue-next";
 import FriendPortrait from "@/components/FriendPortrait.vue";
-import type { IMonsterTypeDetail, IPets, IPetsType } from "@/lib/interface";
+import type {
+    IMonsterTypeDetail,
+    IPersonality,
+    IPets,
+    IPetsType,
+} from "@/lib/interface";
 import { isPetImplemented } from "@/lib/petImplementation";
 import {
     formatPetHandbookNo,
@@ -19,7 +24,10 @@ import {
     getTypeMultiplier,
     getTypeRelationNet,
 } from "@/lib/teamAnalysis";
-import { getSavedTeamPetIds } from "@/lib/teamStorage";
+import {
+    getSavedTeamBuildSlots,
+    type SavedTeamBuildSlot,
+} from "@/lib/teamStorage";
 import {
     calculateBattleStat,
     normalizeIndividualValue,
@@ -74,11 +82,14 @@ const statItems: StatItem[] = [
 
 const pets = ref<IPets[]>([]);
 const types = ref<IMonsterTypeDetail[]>([]);
-const savedTeamPetIds = ref<number[]>([]);
+const personalities = ref<IPersonality[]>([]);
+const savedTeamSlots = ref<SavedTeamBuildSlot[]>([]);
 const allyPetId = ref<number | null>(null);
 const opponentPetId = ref<number | null>(null);
 const allySpeedConfig = ref<SpeedConfig>({ ...DEFAULT_SPEED_CONFIG });
 const opponentSpeedConfig = ref<SpeedConfig>({ ...DEFAULT_SPEED_CONFIG });
+const allySpeedConfigSource = ref("");
+const opponentSpeedConfigSource = ref("");
 const allySearchQuery = ref("");
 const opponentSearchQuery = ref("");
 const isLoading = ref(false);
@@ -109,23 +120,29 @@ const petMap = computed(() => {
     return new Map(implementedPets.value.map((pet) => [pet.id, pet]));
 });
 
+const personalityMap = computed(() => {
+    return new Map(
+        personalities.value.map((personality) => [
+            personality.id,
+            personality,
+        ]),
+    );
+});
+
 const savedTeamPets = computed(() => {
-    const seen = new Set<number>();
-    const teamPets: IPets[] = [];
+    const teamPets: { slot: SavedTeamBuildSlot; pet: IPets }[] = [];
 
-    for (const petId of savedTeamPetIds.value) {
-        if (seen.has(petId)) {
-            continue;
-        }
-
-        const pet = petMap.value.get(petId);
+    for (const slot of savedTeamSlots.value) {
+        const pet = petMap.value.get(slot.friendId);
 
         if (!pet) {
             continue;
         }
 
-        seen.add(petId);
-        teamPets.push(pet);
+        teamPets.push({
+            slot,
+            pet,
+        });
     }
 
     return teamPets;
@@ -281,7 +298,7 @@ const summaryCards = computed(() => [
 ]);
 
 onMounted(() => {
-    savedTeamPetIds.value = getSavedTeamPetIds();
+    savedTeamSlots.value = getSavedTeamBuildSlots();
     void loadPvpData();
 });
 
@@ -291,6 +308,18 @@ onBeforeUnmount(() => {
 
 function selectAllyPet(petId: number) {
     allyPetId.value = petId;
+    allySpeedConfig.value = { ...DEFAULT_SPEED_CONFIG };
+    allySpeedConfigSource.value = "";
+    allySearchQuery.value = "";
+}
+
+function selectAllyTeamSlot(slot: SavedTeamBuildSlot) {
+    allyPetId.value = slot.friendId;
+    allySpeedConfig.value = {
+        individual: slot.individualValues.speed,
+        nature: getSpeedNatureModeFromPersonalityId(slot.personalityId),
+    };
+    allySpeedConfigSource.value = `已读取配队构筑：${slot.slotIndex} 号槽`;
     allySearchQuery.value = "";
 }
 
@@ -302,11 +331,14 @@ function selectOpponentPet(petId: number) {
 function swapPets() {
     const nextAllyPetId = opponentPetId.value;
     const nextAllySpeedConfig = { ...opponentSpeedConfig.value };
+    const nextAllySpeedConfigSource = opponentSpeedConfigSource.value;
 
     opponentPetId.value = allyPetId.value;
     opponentSpeedConfig.value = { ...allySpeedConfig.value };
+    opponentSpeedConfigSource.value = allySpeedConfigSource.value;
     allyPetId.value = nextAllyPetId;
     allySpeedConfig.value = nextAllySpeedConfig;
+    allySpeedConfigSource.value = nextAllySpeedConfigSource;
 }
 
 function resetSelection() {
@@ -314,6 +346,8 @@ function resetSelection() {
     opponentPetId.value = null;
     allySpeedConfig.value = { ...DEFAULT_SPEED_CONFIG };
     opponentSpeedConfig.value = { ...DEFAULT_SPEED_CONFIG };
+    allySpeedConfigSource.value = "";
+    opponentSpeedConfigSource.value = "";
     allySearchQuery.value = "";
     opponentSearchQuery.value = "";
 }
@@ -325,21 +359,27 @@ async function loadPvpData() {
     errorMessage.value = "";
 
     try {
-        const [petsResponse, typesResponse] = await Promise.all([
-            fetch("/data/Pets.json", {
-                signal: controller.signal,
-            }),
-            fetch("/data/types.json", {
-                signal: controller.signal,
-            }),
-        ]);
+        const [petsResponse, typesResponse, personalitiesResponse] =
+            await Promise.all([
+                fetch("/data/Pets.json", {
+                    signal: controller.signal,
+                }),
+                fetch("/data/types.json", {
+                    signal: controller.signal,
+                }),
+                fetch("/data/personalities.json", {
+                    signal: controller.signal,
+                }),
+            ]);
 
-        if (!petsResponse.ok || !typesResponse.ok) {
+        if (!petsResponse.ok || !typesResponse.ok || !personalitiesResponse.ok) {
             throw new Error("PVP 基础数据请求失败");
         }
 
         pets.value = (await petsResponse.json()) as IPets[];
         types.value = (await typesResponse.json()) as IMonsterTypeDetail[];
+        personalities.value =
+            (await personalitiesResponse.json()) as IPersonality[];
     } catch (error) {
         if (error instanceof DOMException && error.name === "AbortError") {
             return;
@@ -347,6 +387,7 @@ async function loadPvpData() {
 
         pets.value = [];
         types.value = [];
+        personalities.value = [];
         errorMessage.value = "PVP 对位数据加载失败，请稍后重试。";
     } finally {
         isLoading.value = false;
@@ -414,6 +455,7 @@ function updateSpeedIndividual(side: "ally" | "opponent", value: unknown) {
             ...allySpeedConfig.value,
             individual: nextValue,
         };
+        allySpeedConfigSource.value = "";
         return;
     }
 
@@ -421,6 +463,7 @@ function updateSpeedIndividual(side: "ally" | "opponent", value: unknown) {
         ...opponentSpeedConfig.value,
         individual: nextValue,
     };
+    opponentSpeedConfigSource.value = "";
 }
 
 function updateSpeedNature(side: "ally" | "opponent", value: string) {
@@ -431,6 +474,7 @@ function updateSpeedNature(side: "ally" | "opponent", value: string) {
             ...allySpeedConfig.value,
             nature: nextNature,
         };
+        allySpeedConfigSource.value = "";
         return;
     }
 
@@ -438,6 +482,7 @@ function updateSpeedNature(side: "ally" | "opponent", value: string) {
         ...opponentSpeedConfig.value,
         nature: nextNature,
     };
+    opponentSpeedConfigSource.value = "";
 }
 
 function isSpeedNatureMode(value: string): value is SpeedNatureMode {
@@ -454,6 +499,26 @@ function getSpeedNatureModifier(mode: SpeedNatureMode): NatureModifier {
     }
 
     return 0;
+}
+
+function getSpeedNatureModeFromPersonalityId(personalityId: number | null) {
+    if (personalityId === null) {
+        return "none";
+    }
+
+    const speedModifier = Number(
+        personalityMap.value.get(personalityId)?.spd_mod_pct ?? 0,
+    );
+
+    if (speedModifier > 0) {
+        return "up";
+    }
+
+    if (speedModifier < 0) {
+        return "down";
+    }
+
+    return "none";
 }
 
 function formatSpeedNature(mode: SpeedNatureMode) {
@@ -574,28 +639,29 @@ document.title = "PVP 对位助手 - 洛克王国工具箱";
                             class="grid gap-2 sm:grid-cols-2"
                         >
                             <button
-                                v-for="pet in savedTeamPets"
-                                :key="pet.id"
+                                v-for="entry in savedTeamPets"
+                                :key="entry.slot.slotIndex"
                                 type="button"
                                 class="flex items-center gap-3 rounded-[10px] border p-3 text-left transition-colors hover:border-primary/50 hover:bg-accent/50"
                                 :class="
-                                    allyPetId === pet.id
+                                    allyPetId === entry.pet.id
                                         ? 'border-primary bg-primary/10'
                                         : 'border-border bg-muted/40'
                                 "
-                                @click="selectAllyPet(pet.id)"
+                                @click="selectAllyTeamSlot(entry.slot)"
                             >
                                 <FriendPortrait
-                                    :name="pet.name"
-                                    :alt="getPetDisplayName(pet)"
+                                    :name="entry.pet.name"
+                                    :alt="getPetDisplayName(entry.pet)"
                                     class="h-12 w-12 shrink-0"
                                 />
                                 <div class="min-w-0">
                                     <p class="truncate text-sm font-semibold text-foreground">
-                                        {{ getPetDisplayName(pet) }}
+                                        {{ getPetDisplayName(entry.pet) }}
                                     </p>
                                     <p class="text-xs text-muted-foreground">
-                                        No. {{ formatPetHandbookNo(pet) }}
+                                        {{ entry.slot.slotIndex }} 号槽 · No.
+                                        {{ formatPetHandbookNo(entry.pet) }}
                                     </p>
                                 </div>
                             </button>
@@ -755,7 +821,16 @@ document.title = "PVP 对位助手 - 洛克王国工具箱";
             <div class="grid gap-3 xl:grid-cols-2">
                 <Card class="border-border bg-card shadow-sm">
                     <CardHeader>
-                        <CardTitle class="text-lg">我方速度线</CardTitle>
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <CardTitle class="text-lg">我方速度线</CardTitle>
+                            <Badge
+                                v-if="allySpeedConfigSource"
+                                variant="outline"
+                                class="border-primary/30 bg-primary/10 text-primary"
+                            >
+                                {{ allySpeedConfigSource }}
+                            </Badge>
+                        </div>
                         <CardDescription>
                             实战速度基于种族值、速度个体值和性格修正计算。
                         </CardDescription>
@@ -851,7 +926,16 @@ document.title = "PVP 对位助手 - 洛克王国工具箱";
 
                 <Card class="border-border bg-card shadow-sm">
                     <CardHeader>
-                        <CardTitle class="text-lg">对方速度线</CardTitle>
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <CardTitle class="text-lg">对方速度线</CardTitle>
+                            <Badge
+                                v-if="opponentSpeedConfigSource"
+                                variant="outline"
+                                class="border-primary/30 bg-primary/10 text-primary"
+                            >
+                                {{ opponentSpeedConfigSource }}
+                            </Badge>
+                        </div>
                         <CardDescription>
                             结果为速度线参考，不代表完整实战先手规则。
                         </CardDescription>

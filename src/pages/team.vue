@@ -35,6 +35,13 @@ import {
     matchesPetKeyword,
 } from "@/lib/petHandbook";
 import {
+    EMPTY_INDIVIDUAL_VALUES,
+    normalizeIndividualValue,
+    validateIndividualValues,
+    type BattleIndividualValues,
+    type BattleStatKey,
+} from "@/lib/statCalculator";
+import {
     Crown,
     FlaskConical,
     RotateCcw,
@@ -87,6 +94,7 @@ interface ITeamSlot {
     friendId: number | null;
     personalityId: number | null;
     legacyTypeId: number | null;
+    individualValues: BattleIndividualValues;
     moveIds: number[];
     roles: TeamRole[];
 }
@@ -185,6 +193,15 @@ const statLabels: Record<StatKey, string> = {
     base_phy_def: "物防",
     base_spd: "速度",
 };
+
+const individualStatItems: { key: BattleStatKey; label: string }[] = [
+    { key: "hp", label: "生命" },
+    { key: "phyAtk", label: "物攻" },
+    { key: "magAtk", label: "魔攻" },
+    { key: "phyDef", label: "物防" },
+    { key: "magDef", label: "魔防" },
+    { key: "speed", label: "速度" },
+];
 
 const personalityModKeyMap: Record<StatKey, keyof IPersonality> = {
     base_hp: "hp_mod_pct",
@@ -967,6 +984,7 @@ function createEmptySlot(slotId: number): ITeamSlot {
         friendId: null,
         personalityId: null,
         legacyTypeId: null,
+        individualValues: { ...EMPTY_INDIVIDUAL_VALUES },
         moveIds: [],
         roles: [],
     };
@@ -978,6 +996,7 @@ function serializeTeamState(state: ITeamState) {
         magicItemId: state.magicItemId,
         slots: state.slots.map((slot) => ({
             friendId: slot.friendId,
+            individualValues: slot.individualValues,
             legacyTypeId: slot.legacyTypeId,
             moveIds: slot.moveIds,
             personalityId: slot.personalityId,
@@ -1023,6 +1042,7 @@ function normalizeTeamSlot(input: unknown, slotId: number): ITeamSlot {
 
     const maybeSlot = input as {
         friendId?: unknown;
+        individualValues?: unknown;
         legacyTypeId?: unknown;
         moveIds?: unknown;
         personalityId?: unknown;
@@ -1034,6 +1054,9 @@ function normalizeTeamSlot(input: unknown, slotId: number): ITeamSlot {
         friendId: toNullableNumber(maybeSlot.friendId),
         personalityId: toNullableNumber(maybeSlot.personalityId),
         legacyTypeId: toNullableNumber(maybeSlot.legacyTypeId),
+        individualValues: normalizeSlotIndividualValues(
+            maybeSlot.individualValues,
+        ),
         moveIds: Array.isArray(maybeSlot.moveIds)
             ? maybeSlot.moveIds
                   .map((value) => toNullableNumber(value))
@@ -1042,6 +1065,27 @@ function normalizeTeamSlot(input: unknown, slotId: number): ITeamSlot {
                   .slice(0, MAX_MOVES_PER_SLOT)
             : [],
             roles: normalizeTeamRoles(maybeSlot.roles),
+    };
+}
+
+function normalizeSlotIndividualValues(value: unknown): BattleIndividualValues {
+    if (!value || typeof value !== "object") {
+        return {
+            ...EMPTY_INDIVIDUAL_VALUES,
+        };
+    }
+
+    const maybeValues = value as Partial<
+        Record<keyof BattleIndividualValues, unknown>
+    >;
+
+    return {
+        hp: normalizeIndividualValue(maybeValues.hp),
+        phyAtk: normalizeIndividualValue(maybeValues.phyAtk),
+        magAtk: normalizeIndividualValue(maybeValues.magAtk),
+        phyDef: normalizeIndividualValue(maybeValues.phyDef),
+        magDef: normalizeIndividualValue(maybeValues.magDef),
+        speed: normalizeIndividualValue(maybeValues.speed),
     };
 }
 
@@ -1751,6 +1795,7 @@ async function assignFriendToSlot(
         friendId,
         personalityId: getDefaultPersonalityId(friend),
         legacyTypeId: friend.default_legacy_type.id,
+        individualValues: { ...EMPTY_INDIVIDUAL_VALUES },
         moveIds: [],
         roles: [],
     };
@@ -1793,6 +1838,32 @@ function updateSlotLegacyType(slotId: number, value: unknown) {
         };
 
         return finalizeSlot(nextSlot);
+    });
+}
+
+function updateSlotIndividualValue(
+    slotId: number,
+    statKey: BattleStatKey,
+    value: unknown,
+) {
+    patchSlot(slotId, (slot) => {
+        const nextValues = {
+            ...slot.individualValues,
+            [statKey]: normalizeIndividualValue(value),
+        };
+        const validation = validateIndividualValues(nextValues);
+
+        if (!validation.valid && validation.activeCount > 3) {
+            shareFeedback.value = "个体值最多只能设置 3 项大于 0。";
+            return slot;
+        }
+
+        shareFeedback.value = validation.message ?? "";
+
+        return {
+            ...slot,
+            individualValues: nextValues,
+        };
     });
 }
 
@@ -1882,6 +1953,7 @@ async function fillTeamWithFriendIds(
             friendId,
             personalityId: getDefaultPersonalityId(friend),
             legacyTypeId: friend.default_legacy_type.id,
+            individualValues: { ...EMPTY_INDIVIDUAL_VALUES },
             moveIds: [],
             roles: [],
         });
@@ -2350,6 +2422,10 @@ function getSlotChecklist(slot: ITeamSlot) {
                 : "选择技能后识别定位",
         },
     ];
+}
+
+function getSlotIndividualValidation(slot: ITeamSlot) {
+    return validateIndividualValues(slot.individualValues);
 }
 
 // 配置标题
@@ -3463,6 +3539,64 @@ document.title = "配队工具 - 洛克王国工具箱";
                                             </SelectItem>
                                         </SelectContent>
                                     </Select>
+                                </div>
+                            </div>
+
+                            <div
+                                class="rounded-[10px] border border-border bg-card p-4">
+                                <div
+                                    class="flex flex-wrap items-center justify-between gap-2">
+                                    <div>
+                                        <p
+                                            class="text-sm font-medium text-foreground">
+                                            个体值
+                                        </p>
+                                        <p class="text-xs text-foreground">
+                                            每项 0-10，最多 3 项大于 0。
+                                        </p>
+                                    </div>
+                                    <Badge
+                                        variant="outline"
+                                        class="border-border bg-white/5 text-foreground">
+                                        个体值
+                                        {{
+                                            getSlotIndividualValidation(
+                                                activeSlot,
+                                            ).activeCount
+                                        }}
+                                        / 3
+                                    </Badge>
+                                </div>
+
+                                <div class="mt-3 grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
+                                    <label
+                                        v-for="item in individualStatItems"
+                                        :key="item.key"
+                                        class="space-y-1 rounded-[10px] border border-border bg-white/4 p-2">
+                                        <span
+                                            class="text-xs font-medium text-foreground">
+                                            {{ item.label }}
+                                        </span>
+                                        <Input
+                                            :model-value="
+                                                activeSlot.individualValues[
+                                                    item.key
+                                                ]
+                                            "
+                                            type="number"
+                                            min="0"
+                                            max="10"
+                                            step="1"
+                                            class="h-9 rounded-[10px] border-border bg-card text-sm text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
+                                            @update:model-value="
+                                                (value) =>
+                                                    updateSlotIndividualValue(
+                                                        activeSlot.slotId,
+                                                        item.key,
+                                                        value,
+                                                    )
+                                            " />
+                                    </label>
                                 </div>
                             </div>
 
