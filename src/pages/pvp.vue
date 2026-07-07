@@ -69,6 +69,7 @@ interface SpeedPreviewConfig {
 }
 
 const EXCLUDED_BATTLE_TYPE_NAMES = new Set(["Leader"]);
+const PET_PICKER_RESULT_LIMIT = 50;
 const DEFAULT_SPEED_CONFIG: SpeedConfig = {
     individual: 0,
     nature: "none",
@@ -171,12 +172,21 @@ const opponentPet = computed(() =>
         : petMap.value.get(opponentPetId.value) ?? null,
 );
 
-const allySearchResults = computed(() =>
-    filterPetOptions(allySearchQuery.value, allyPetId.value),
-);
+const allySearchResults = computed(() => filterPetOptions(allySearchQuery.value));
 
 const opponentSearchResults = computed(() =>
-    filterPetOptions(opponentSearchQuery.value, opponentPetId.value),
+    filterPetOptions(opponentSearchQuery.value),
+);
+
+const hasAllySearchQuery = computed(() => allySearchQuery.value.trim() !== "");
+const hasOpponentSearchQuery = computed(
+    () => opponentSearchQuery.value.trim() !== "",
+);
+const hasMoreAllySearchResults = computed(
+    () => countPetMatches(allySearchQuery.value) > PET_PICKER_RESULT_LIMIT,
+);
+const hasMoreOpponentSearchResults = computed(
+    () => countPetMatches(opponentSearchQuery.value) > PET_PICKER_RESULT_LIMIT,
 );
 
 const hasBothPets = computed(() => Boolean(allyPet.value && opponentPet.value));
@@ -341,7 +351,6 @@ function selectAllyPet(petId: number) {
     allyPetId.value = petId;
     allySpeedConfig.value = { ...DEFAULT_SPEED_CONFIG };
     allySpeedConfigSource.value = "";
-    allySearchQuery.value = "";
 }
 
 function selectAllyTeamSlot(slot: SavedTeamBuildSlot) {
@@ -356,7 +365,6 @@ function selectAllyTeamSlot(slot: SavedTeamBuildSlot) {
 
 function selectOpponentPet(petId: number) {
     opponentPetId.value = petId;
-    opponentSearchQuery.value = "";
 }
 
 function swapPets() {
@@ -425,21 +433,30 @@ async function loadPvpData() {
     }
 }
 
-function filterPetOptions(keyword: string, selectedPetId: number | null) {
+function filterPetOptions(keyword: string) {
     const normalizedKeyword = keyword.trim();
+
+    if (!normalizedKeyword) {
+        return [];
+    }
+
     const results = implementedPets.value.filter((pet) =>
         matchesPetKeyword(pet, normalizedKeyword),
     );
 
-    if (selectedPetId !== null && !results.some((pet) => pet.id === selectedPetId)) {
-        const selectedPet = petMap.value.get(selectedPetId);
+    return results.slice(0, PET_PICKER_RESULT_LIMIT);
+}
 
-        if (selectedPet) {
-            results.unshift(selectedPet);
-        }
+function countPetMatches(keyword: string) {
+    const normalizedKeyword = keyword.trim();
+
+    if (!normalizedKeyword) {
+        return 0;
     }
 
-    return results.slice(0, 12);
+    return implementedPets.value.filter((pet) =>
+        matchesPetKeyword(pet, normalizedKeyword),
+    ).length;
 }
 
 function buildAttackMatchups(attacker: IPets, defender: IPets): TypeMatchup[] {
@@ -706,6 +723,31 @@ document.title = "PVP 对位助手 - 洛克王国工具箱";
                         </div>
 
                         <div class="space-y-3">
+                            <div
+                                v-if="allyPet"
+                                class="rounded-[10px] border border-primary/30 bg-primary/10 p-3"
+                            >
+                                <div class="flex items-center gap-3">
+                                    <FriendPortrait
+                                        :name="allyPet.name"
+                                        :alt="getPetDisplayName(allyPet)"
+                                        class="h-12 w-12 shrink-0"
+                                    />
+                                    <div class="min-w-0">
+                                        <p
+                                            class="truncate text-sm font-semibold text-foreground"
+                                        >
+                                            当前已选：{{ getPetDisplayName(allyPet) }}
+                                        </p>
+                                        <p class="text-xs text-muted-foreground">
+                                            No. {{ formatPetHandbookNo(allyPet) }}
+                                            · 速度 {{ allyPet.base_spd }} · 总和
+                                            {{ getTotalStats(allyPet) }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="relative">
                                 <Search
                                     class="pointer-events-none absolute left-4 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-foreground"
@@ -719,39 +761,62 @@ document.title = "PVP 对位助手 - 洛克王国工具箱";
                             </div>
 
                             <div class="max-h-80 space-y-2 overflow-y-auto pr-1">
-                                <button
-                                    v-for="pet in allySearchResults"
-                                    :key="pet.id"
-                                    type="button"
-                                    class="flex w-full items-center justify-between gap-3 rounded-[10px] border px-3 py-2 text-left transition-colors hover:border-primary/50 hover:bg-accent/50"
-                                    :class="
-                                        allyPetId === pet.id
-                                            ? 'border-primary bg-primary/10'
-                                            : 'border-border bg-muted/30'
-                                    "
-                                    @click="selectAllyPet(pet.id)"
+                                <template v-if="hasAllySearchQuery">
+                                    <button
+                                        v-for="pet in allySearchResults"
+                                        :key="pet.id"
+                                        type="button"
+                                        class="flex w-full items-center justify-between gap-3 rounded-[10px] border px-3 py-2 text-left transition-colors hover:border-primary/50 hover:bg-accent/50"
+                                        :class="
+                                            allyPetId === pet.id
+                                                ? 'border-primary bg-primary/10'
+                                                : 'border-border bg-muted/30'
+                                        "
+                                        @click="selectAllyPet(pet.id)"
+                                    >
+                                        <span class="min-w-0">
+                                            <span
+                                                class="block truncate text-sm font-medium text-foreground"
+                                            >
+                                                {{ getPetDisplayName(pet) }}
+                                            </span>
+                                            <span class="text-xs text-muted-foreground">
+                                                No. {{ formatPetHandbookNo(pet) }}
+                                            </span>
+                                        </span>
+                                        <span class="flex shrink-0 gap-1">
+                                            <Badge
+                                                v-for="type in formatTypes(pet)"
+                                                :key="type.id"
+                                                variant="outline"
+                                                class="border-border bg-white/5 text-xs text-foreground"
+                                            >
+                                                {{ type.localized.zh }}
+                                            </Badge>
+                                        </span>
+                                    </button>
+
+                                    <p
+                                        v-if="hasMoreAllySearchResults"
+                                        class="rounded-[10px] border border-border bg-muted/40 px-3 py-3 text-sm text-muted-foreground"
+                                    >
+                                        结果较多，请输入更精确关键词。
+                                    </p>
+
+                                    <p
+                                        v-if="allySearchResults.length === 0"
+                                        class="rounded-[10px] border border-dashed border-border bg-muted/40 px-3 py-4 text-sm text-muted-foreground"
+                                    >
+                                        没有找到匹配宠物。
+                                    </p>
+                                </template>
+
+                                <p
+                                    v-else
+                                    class="rounded-[10px] border border-dashed border-border bg-muted/40 px-3 py-4 text-sm text-muted-foreground"
                                 >
-                                    <span class="min-w-0">
-                                        <span
-                                            class="block truncate text-sm font-medium text-foreground"
-                                        >
-                                            {{ getPetDisplayName(pet) }}
-                                        </span>
-                                        <span class="text-xs text-muted-foreground">
-                                            No. {{ formatPetHandbookNo(pet) }}
-                                        </span>
-                                    </span>
-                                    <span class="flex shrink-0 gap-1">
-                                        <Badge
-                                            v-for="type in formatTypes(pet)"
-                                            :key="type.id"
-                                            variant="outline"
-                                            class="border-border bg-white/5 text-xs text-foreground"
-                                        >
-                                            {{ type.localized.zh }}
-                                        </Badge>
-                                    </span>
-                                </button>
+                                    输入名称、编号或属性搜索宠物。
+                                </p>
                             </div>
                         </div>
                     </CardContent>
@@ -774,6 +839,31 @@ document.title = "PVP 对位助手 - 洛克王国工具箱";
                     </CardHeader>
 
                     <CardContent class="space-y-3">
+                        <div
+                            v-if="opponentPet"
+                            class="rounded-[10px] border border-primary/30 bg-primary/10 p-3"
+                        >
+                            <div class="flex items-center gap-3">
+                                <FriendPortrait
+                                    :name="opponentPet.name"
+                                    :alt="getPetDisplayName(opponentPet)"
+                                    class="h-12 w-12 shrink-0"
+                                />
+                                <div class="min-w-0">
+                                    <p
+                                        class="truncate text-sm font-semibold text-foreground"
+                                    >
+                                        当前已选：{{ getPetDisplayName(opponentPet) }}
+                                    </p>
+                                    <p class="text-xs text-muted-foreground">
+                                        No. {{ formatPetHandbookNo(opponentPet) }}
+                                        · 速度 {{ opponentPet.base_spd }} · 总和
+                                        {{ getTotalStats(opponentPet) }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="relative">
                             <Search
                                 class="pointer-events-none absolute left-4 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-foreground"
@@ -787,39 +877,62 @@ document.title = "PVP 对位助手 - 洛克王国工具箱";
                         </div>
 
                         <div class="max-h-96 space-y-2 overflow-y-auto pr-1">
-                            <button
-                                v-for="pet in opponentSearchResults"
-                                :key="pet.id"
-                                type="button"
-                                class="flex w-full items-center justify-between gap-3 rounded-[10px] border px-3 py-2 text-left transition-colors hover:border-primary/50 hover:bg-accent/50"
-                                :class="
-                                    opponentPetId === pet.id
-                                        ? 'border-primary bg-primary/10'
-                                        : 'border-border bg-muted/30'
-                                "
-                                @click="selectOpponentPet(pet.id)"
+                            <template v-if="hasOpponentSearchQuery">
+                                <button
+                                    v-for="pet in opponentSearchResults"
+                                    :key="pet.id"
+                                    type="button"
+                                    class="flex w-full items-center justify-between gap-3 rounded-[10px] border px-3 py-2 text-left transition-colors hover:border-primary/50 hover:bg-accent/50"
+                                    :class="
+                                        opponentPetId === pet.id
+                                            ? 'border-primary bg-primary/10'
+                                            : 'border-border bg-muted/30'
+                                    "
+                                    @click="selectOpponentPet(pet.id)"
+                                >
+                                    <span class="min-w-0">
+                                        <span
+                                            class="block truncate text-sm font-medium text-foreground"
+                                        >
+                                            {{ getPetDisplayName(pet) }}
+                                        </span>
+                                        <span class="text-xs text-muted-foreground">
+                                            No. {{ formatPetHandbookNo(pet) }}
+                                        </span>
+                                    </span>
+                                    <span class="flex shrink-0 gap-1">
+                                        <Badge
+                                            v-for="type in formatTypes(pet)"
+                                            :key="type.id"
+                                            variant="outline"
+                                            class="border-border bg-white/5 text-xs text-foreground"
+                                        >
+                                            {{ type.localized.zh }}
+                                        </Badge>
+                                    </span>
+                                </button>
+
+                                <p
+                                    v-if="hasMoreOpponentSearchResults"
+                                    class="rounded-[10px] border border-border bg-muted/40 px-3 py-3 text-sm text-muted-foreground"
+                                >
+                                    结果较多，请输入更精确关键词。
+                                </p>
+
+                                <p
+                                    v-if="opponentSearchResults.length === 0"
+                                    class="rounded-[10px] border border-dashed border-border bg-muted/40 px-3 py-4 text-sm text-muted-foreground"
+                                >
+                                    没有找到匹配宠物。
+                                </p>
+                            </template>
+
+                            <p
+                                v-else
+                                class="rounded-[10px] border border-dashed border-border bg-muted/40 px-3 py-4 text-sm text-muted-foreground"
                             >
-                                <span class="min-w-0">
-                                    <span
-                                        class="block truncate text-sm font-medium text-foreground"
-                                    >
-                                        {{ getPetDisplayName(pet) }}
-                                    </span>
-                                    <span class="text-xs text-muted-foreground">
-                                        No. {{ formatPetHandbookNo(pet) }}
-                                    </span>
-                                </span>
-                                <span class="flex shrink-0 gap-1">
-                                    <Badge
-                                        v-for="type in formatTypes(pet)"
-                                        :key="type.id"
-                                        variant="outline"
-                                        class="border-border bg-white/5 text-xs text-foreground"
-                                    >
-                                        {{ type.localized.zh }}
-                                    </Badge>
-                                </span>
-                            </button>
+                                搜索对方宠物以查看对位。
+                            </p>
                         </div>
                     </CardContent>
                 </Card>

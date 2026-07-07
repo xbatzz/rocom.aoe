@@ -48,6 +48,8 @@ const natureOptions = [
     })),
 ] as const;
 
+const PET_PICKER_RESULT_LIMIT = 50;
+
 const pets = ref<IPets[]>([]);
 const selectedPetId = ref<number | null>(null);
 const searchQuery = ref("");
@@ -84,23 +86,23 @@ const selectedPet = computed(() =>
 );
 
 const searchResults = computed(() => {
-    const results = implementedPets.value.filter((pet) =>
-        matchesPetKeyword(pet, searchQuery.value),
-    );
+    const normalizedKeyword = searchQuery.value.trim();
 
-    if (
-        selectedPetId.value !== null &&
-        !results.some((pet) => pet.id === selectedPetId.value)
-    ) {
-        const currentPet = petMap.value.get(selectedPetId.value);
-
-        if (currentPet) {
-            results.unshift(currentPet);
-        }
+    if (!normalizedKeyword) {
+        return [];
     }
 
-    return results.slice(0, 16);
+    const results = implementedPets.value.filter((pet) =>
+        matchesPetKeyword(pet, normalizedKeyword),
+    );
+
+    return results.slice(0, PET_PICKER_RESULT_LIMIT);
 });
+
+const hasSearchQuery = computed(() => searchQuery.value.trim() !== "");
+const hasMoreSearchResults = computed(
+    () => countPetMatches(searchQuery.value) > PET_PICKER_RESULT_LIMIT,
+);
 
 const totalBaseStats = computed(() => {
     if (!selectedPet.value) {
@@ -196,7 +198,18 @@ async function loadPets() {
 
 function selectPet(petId: number) {
     selectedPetId.value = petId;
-    searchQuery.value = "";
+}
+
+function countPetMatches(keyword: string) {
+    const normalizedKeyword = keyword.trim();
+
+    if (!normalizedKeyword) {
+        return 0;
+    }
+
+    return implementedPets.value.filter((pet) =>
+        matchesPetKeyword(pet, normalizedKeyword),
+    ).length;
 }
 
 function updateIndividualValue(statKey: BattleStatKey, value: unknown) {
@@ -365,6 +378,31 @@ document.title = "实战属性计算器 - 洛克王国工具箱";
                         </CardDescription>
                     </CardHeader>
                     <CardContent class="space-y-3">
+                        <div
+                            v-if="selectedPet"
+                            class="rounded-[10px] border border-primary/30 bg-primary/10 p-3"
+                        >
+                            <div class="flex items-center gap-3">
+                                <FriendPortrait
+                                    :name="selectedPet.name"
+                                    :alt="getPetDisplayName(selectedPet)"
+                                    class="h-12 w-12 shrink-0"
+                                />
+                                <div class="min-w-0">
+                                    <p
+                                        class="truncate text-sm font-semibold text-foreground"
+                                    >
+                                        当前已选：{{ getPetDisplayName(selectedPet) }}
+                                    </p>
+                                    <p class="text-xs text-muted-foreground">
+                                        No. {{ formatPetHandbookNo(selectedPet) }}
+                                        · 速度 {{ selectedPet.base_spd }} · 总和
+                                        {{ totalBaseStats }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="relative">
                             <Search
                                 class="pointer-events-none absolute left-4 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-foreground"
@@ -378,49 +416,72 @@ document.title = "实战属性计算器 - 洛克王国工具箱";
                         </div>
 
                         <div class="max-h-110 space-y-2 overflow-y-auto pr-1">
-                            <button
-                                v-for="pet in searchResults"
-                                :key="pet.id"
-                                type="button"
-                                class="flex w-full items-center justify-between gap-3 rounded-[10px] border px-3 py-2 text-left transition-colors hover:border-primary/50 hover:bg-accent/50"
-                                :class="
-                                    selectedPetId === pet.id
-                                        ? 'border-primary bg-primary/10'
-                                        : 'border-border bg-muted/30'
-                                "
-                                @click="selectPet(pet.id)"
-                            >
-                                <span class="flex min-w-0 items-center gap-3">
-                                    <FriendPortrait
-                                        :name="pet.name"
-                                        :alt="getPetDisplayName(pet)"
-                                        class="h-11 w-11 shrink-0"
-                                    />
-                                    <span class="min-w-0">
-                                        <span class="block truncate text-sm font-medium text-foreground">
-                                            {{ getPetDisplayName(pet) }}
-                                        </span>
-                                        <span class="text-xs text-muted-foreground">
-                                            No. {{ formatPetHandbookNo(pet) }}
+                            <template v-if="hasSearchQuery">
+                                <button
+                                    v-for="pet in searchResults"
+                                    :key="pet.id"
+                                    type="button"
+                                    class="flex w-full items-center justify-between gap-3 rounded-[10px] border px-3 py-2 text-left transition-colors hover:border-primary/50 hover:bg-accent/50"
+                                    :class="
+                                        selectedPetId === pet.id
+                                            ? 'border-primary bg-primary/10'
+                                            : 'border-border bg-muted/30'
+                                    "
+                                    @click="selectPet(pet.id)"
+                                >
+                                    <span class="flex min-w-0 items-center gap-3">
+                                        <FriendPortrait
+                                            :name="pet.name"
+                                            :alt="getPetDisplayName(pet)"
+                                            class="h-11 w-11 shrink-0"
+                                        />
+                                        <span class="min-w-0">
+                                            <span class="block truncate text-sm font-medium text-foreground">
+                                                {{ getPetDisplayName(pet) }}
+                                            </span>
+                                            <span class="text-xs text-muted-foreground">
+                                                No. {{ formatPetHandbookNo(pet) }}
+                                            </span>
                                         </span>
                                     </span>
-                                </span>
-                                <span class="flex shrink-0 gap-1">
-                                    <Badge
-                                        variant="outline"
-                                        class="border-border bg-white/5 text-xs text-foreground"
-                                    >
-                                        {{ pet.main_type.localized.zh }}
-                                    </Badge>
-                                    <Badge
-                                        v-if="pet.sub_type"
-                                        variant="outline"
-                                        class="border-border bg-white/5 text-xs text-foreground"
-                                    >
-                                        {{ pet.sub_type.localized.zh }}
-                                    </Badge>
-                                </span>
-                            </button>
+                                    <span class="flex shrink-0 gap-1">
+                                        <Badge
+                                            variant="outline"
+                                            class="border-border bg-white/5 text-xs text-foreground"
+                                        >
+                                            {{ pet.main_type.localized.zh }}
+                                        </Badge>
+                                        <Badge
+                                            v-if="pet.sub_type"
+                                            variant="outline"
+                                            class="border-border bg-white/5 text-xs text-foreground"
+                                        >
+                                            {{ pet.sub_type.localized.zh }}
+                                        </Badge>
+                                    </span>
+                                </button>
+
+                                <p
+                                    v-if="hasMoreSearchResults"
+                                    class="rounded-[10px] border border-border bg-muted/40 px-3 py-3 text-sm text-muted-foreground"
+                                >
+                                    结果较多，请输入更精确关键词。
+                                </p>
+
+                                <p
+                                    v-if="searchResults.length === 0"
+                                    class="rounded-[10px] border border-dashed border-border bg-muted/40 px-3 py-4 text-sm text-muted-foreground"
+                                >
+                                    没有找到匹配宠物。
+                                </p>
+                            </template>
+
+                            <p
+                                v-else
+                                class="rounded-[10px] border border-dashed border-border bg-muted/40 px-3 py-4 text-sm text-muted-foreground"
+                            >
+                                搜索宠物开始计算实战属性。
+                            </p>
                         </div>
                     </CardContent>
                 </Card>

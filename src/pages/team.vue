@@ -42,6 +42,17 @@ import {
     type BattleStatKey,
 } from "@/lib/statCalculator";
 import {
+    createTeam as createStoredTeam,
+    deleteTeam as deleteStoredTeam,
+    duplicateTeam as duplicateStoredTeam,
+    getActiveTeam,
+    getTeamStorageState,
+    renameTeam as renameStoredTeam,
+    setActiveTeamId as setStoredActiveTeamId,
+    updateActiveTeamState,
+    type TeamStorageState,
+} from "@/lib/teamStorage";
+import {
     Crown,
     FlaskConical,
     RotateCcw,
@@ -122,8 +133,8 @@ interface IMoveOption {
 }
 
 const TEAM_SLOT_COUNT = 6;
+const MAX_TEAM_COUNT = 10;
 const MAX_MOVES_PER_SLOT = 4;
-const STORAGE_KEY = "rocom.team-builder.v1";
 const DEFAULT_TEAM_NAME = "未命名配队";
 
 const route = useRoute();
@@ -151,7 +162,9 @@ const errorMessage = ref("");
 const shareDialogOpen = ref(false);
 const shareFeedback = ref("");
 const isHydrated = ref(false);
+const isSwitchingTeam = ref(false);
 const currentPageUrl = ref("");
+const teamStorageState = ref<TeamStorageState | null>(null);
 const loadingSlotIds = ref<number[]>([]);
 const draggedFriendId = ref<number | null>(null);
 const draggedSlotId = ref<number | null>(null);
@@ -291,6 +304,20 @@ const typeNameMap = computed(() => {
         typeDetails.value.map((type) => [type.name, type.localized.zh]),
     );
 });
+
+const storedTeams = computed(() => teamStorageState.value?.teams ?? []);
+
+const activeStoredTeamId = computed(() => teamStorageState.value?.activeTeamId ?? "");
+
+const activeStoredTeam = computed(() => {
+    return (
+        storedTeams.value.find(
+            (team) => team.id === activeStoredTeamId.value,
+        ) ?? storedTeams.value[0] ?? null
+    );
+});
+
+const canDeleteStoredTeam = computed(() => storedTeams.value.length > 1);
 
 const selectedFriendUsageMap = computed(() => {
     const usage = new Map<number, number[]>();
@@ -914,14 +941,15 @@ const shareLink = computed(() => {
 watch(
     teamState,
     (state) => {
-        if (!isHydrated.value || typeof window === "undefined") {
+        if (
+            !isHydrated.value ||
+            isSwitchingTeam.value ||
+            typeof window === "undefined"
+        ) {
             return;
         }
 
-        window.localStorage.setItem(
-            STORAGE_KEY,
-            JSON.stringify(serializeTeamState(state)),
-        );
+        saveCurrentTeamToStorage(state);
     },
     { deep: true },
 );
@@ -1003,6 +1031,14 @@ function serializeTeamState(state: ITeamState) {
             roles: slot.roles,
         })),
     };
+}
+
+function refreshTeamStorageState() {
+    teamStorageState.value = getTeamStorageState();
+}
+
+function saveCurrentTeamToStorage(state: ITeamState = teamState.value) {
+    teamStorageState.value = updateActiveTeamState(serializeTeamState(state));
 }
 
 function normalizeTeamState(input: unknown): ITeamState {
@@ -1126,9 +1162,11 @@ async function loadBootstrapData() {
             moveData.map((move) => [move.id, move]),
         );
 
+        refreshTeamStorageState();
         const initialState = await resolveInitialTeamState();
         teamState.value = initialState;
         isHydrated.value = true;
+        saveCurrentTeamToStorage();
     } catch (error) {
         errorMessage.value = "配队数据加载失败，请稍后重试。";
         teamState.value = createDefaultTeamState();
@@ -1149,19 +1187,11 @@ async function resolveInitialTeamState() {
         }
     }
 
-    if (typeof window !== "undefined") {
-        const cached = window.localStorage.getItem(STORAGE_KEY);
-
-        if (cached) {
-            try {
-                return await hydrateTeamState(JSON.parse(cached));
-            } catch {
-                window.localStorage.removeItem(STORAGE_KEY);
-            }
-        }
+    if (typeof window === "undefined") {
+        return createDefaultTeamState();
     }
 
-    return createDefaultTeamState();
+    return await hydrateTeamState(getActiveTeam());
 }
 
 async function hydrateTeamState(input: unknown) {
@@ -2324,20 +2354,122 @@ function resetFilters() {
     selectedSpecialFilter.value = "all";
 }
 
+async function applyActiveStoredTeam() {
+    isSwitchingTeam.value = true;
+    isHydrated.value = false;
+
+    try {
+        refreshTeamStorageState();
+        teamState.value = await hydrateTeamState(getActiveTeam());
+        activeSlotId.value = 1;
+        activePanelTab.value = "friends";
+        resetFilters();
+    } finally {
+        isHydrated.value = true;
+        isSwitchingTeam.value = false;
+    }
+}
+
+async function switchStoredTeam(value: unknown) {
+    const teamId = String(normalizeSelectValue(value) ?? "");
+
+    if (!teamId || teamId === activeStoredTeamId.value) {
+        return;
+    }
+
+    saveCurrentTeamToStorage();
+    teamStorageState.value = setStoredActiveTeamId(teamId);
+    await applyActiveStoredTeam();
+    shareFeedback.value = `已切换到 ${activeStoredTeam.value?.name ?? "队伍"}。`;
+}
+
+async function createNewStoredTeam() {
+    if (storedTeams.value.length >= MAX_TEAM_COUNT) {
+        shareFeedback.value = `最多保存 ${MAX_TEAM_COUNT} 支队伍。`;
+        return;
+    }
+
+    saveCurrentTeamToStorage();
+    createStoredTeam(`新队伍 ${storedTeams.value.length + 1}`);
+    await applyActiveStoredTeam();
+    shareFeedback.value = `已创建 ${activeStoredTeam.value?.name ?? "新队伍"}。`;
+}
+
+function renameCurrentStoredTeam() {
+    if (typeof window === "undefined" || !activeStoredTeam.value) {
+        return;
+    }
+
+    const nextName = window.prompt("输入新的队伍名称", teamState.value.name);
+
+    if (!nextName || nextName.trim().length === 0) {
+        return;
+    }
+
+    teamStorageState.value = renameStoredTeam(
+        activeStoredTeam.value.id,
+        nextName,
+    );
+    teamState.value = {
+        ...teamState.value,
+        name: nextName.trim().slice(0, 32),
+    };
+    shareFeedback.value = "队伍已重命名。";
+}
+
+async function duplicateCurrentStoredTeam() {
+    if (!activeStoredTeam.value) {
+        return;
+    }
+
+    if (storedTeams.value.length >= MAX_TEAM_COUNT) {
+        shareFeedback.value = `最多保存 ${MAX_TEAM_COUNT} 支队伍。`;
+        return;
+    }
+
+    saveCurrentTeamToStorage();
+    duplicateStoredTeam(activeStoredTeam.value.id);
+    await applyActiveStoredTeam();
+    shareFeedback.value = `已复制为 ${activeStoredTeam.value?.name ?? "队伍副本"}。`;
+}
+
+async function deleteCurrentStoredTeam() {
+    if (!activeStoredTeam.value) {
+        return;
+    }
+
+    if (!canDeleteStoredTeam.value) {
+        shareFeedback.value = "至少需要保留 1 支队伍。";
+        return;
+    }
+
+    if (
+        typeof window !== "undefined" &&
+        !window.confirm(`删除「${activeStoredTeam.value.name}」？`)
+    ) {
+        return;
+    }
+
+    teamStorageState.value = deleteStoredTeam(activeStoredTeam.value.id);
+    await applyActiveStoredTeam();
+    shareFeedback.value = `已切换到 ${activeStoredTeam.value?.name ?? "剩余队伍"}。`;
+}
+
 async function resetTeam() {
-    teamState.value = createDefaultTeamState();
+    teamState.value = {
+        ...createDefaultTeamState(),
+        name: activeStoredTeam.value?.name ?? DEFAULT_TEAM_NAME,
+    };
     activeSlotId.value = 1;
     activePanelTab.value = "friends";
     shareFeedback.value = "";
     resetFilters();
 
-    if (typeof window !== "undefined") {
-        window.localStorage.removeItem(STORAGE_KEY);
-    }
-
     if (route.query.team) {
         await router.replace({ path: route.path, query: {} });
     }
+
+    saveCurrentTeamToStorage();
 }
 
 async function copyShareLink() {
@@ -2489,6 +2621,84 @@ document.title = "配队工具 - 洛克王国工具箱";
                 class="rounded-[10px] border border-red-400/20 bg-red-400/10 px-4 py-3 text-sm text-red-100">
                 {{ errorMessage }}
             </div>
+
+            <Card class="border-border bg-card shadow-sm">
+                <CardContent class="space-y-3 p-4">
+                    <div
+                        class="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+                        <div class="min-w-0 flex-1 space-y-2">
+                            <div
+                                class="flex flex-wrap items-center justify-between gap-2">
+                                <div>
+                                    <p
+                                        class="text-xs tracking-[0.18em] text-foreground uppercase">
+                                        队伍管理
+                                    </p>
+                                    <p class="mt-1 text-sm text-foreground">
+                                        当前队伍：{{
+                                            activeStoredTeam?.name ??
+                                            teamState.name
+                                        }}
+                                    </p>
+                                </div>
+                                <Badge
+                                    variant="secondary"
+                                    class="rounded-[10px] border border-border bg-muted px-3 py-1 text-foreground">
+                                    {{ storedTeams.length }}/{{
+                                        MAX_TEAM_COUNT
+                                    }}
+                                </Badge>
+                            </div>
+
+                            <Select
+                                :model-value="activeStoredTeamId"
+                                @update:model-value="switchStoredTeam">
+                                <SelectTrigger
+                                    class="h-11 rounded-[10px] border-border bg-card text-foreground">
+                                    <SelectValue placeholder="选择队伍" />
+                                </SelectTrigger>
+                                <SelectContent
+                                    class="border-border bg-slate-950/95 text-foreground">
+                                    <SelectItem
+                                        v-for="team in storedTeams"
+                                        :key="team.id"
+                                        :value="team.id">
+                                        {{ team.name }}
+                                    </SelectItem>
+                                </SelectContent>
+                            </Select>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2">
+                            <Button
+                                variant="outline"
+                                class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
+                                @click="createNewStoredTeam">
+                                新建
+                            </Button>
+                            <Button
+                                variant="outline"
+                                class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
+                                @click="renameCurrentStoredTeam">
+                                重命名
+                            </Button>
+                            <Button
+                                variant="outline"
+                                class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
+                                @click="duplicateCurrentStoredTeam">
+                                复制
+                            </Button>
+                            <Button
+                                variant="ghost"
+                                class="rounded-[10px] text-foreground hover:bg-muted hover:text-foreground"
+                                :disabled="!canDeleteStoredTeam"
+                                @click="deleteCurrentStoredTeam">
+                                删除
+                            </Button>
+                        </div>
+                    </div>
+                </CardContent>
+            </Card>
 
             <div class="grid gap-3 md:grid-cols-2 2xl:grid-cols-3">
                 <button
