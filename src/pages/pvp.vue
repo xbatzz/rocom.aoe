@@ -61,6 +61,13 @@ interface SpeedConfig {
     nature: SpeedNatureMode;
 }
 
+interface SpeedPreviewConfig {
+    key: string;
+    label: string;
+    individual: number;
+    nature: SpeedNatureMode;
+}
+
 const EXCLUDED_BATTLE_TYPE_NAMES = new Set(["Leader"]);
 const DEFAULT_SPEED_CONFIG: SpeedConfig = {
     individual: 0,
@@ -70,6 +77,12 @@ const speedNatureOptions: { label: string; value: SpeedNatureMode }[] = [
     { label: "无修正", value: "none" },
     { label: "加速 +20%", value: "up" },
     { label: "减速 -10%", value: "down" },
+];
+const opponentSpeedPreviewConfigs: SpeedPreviewConfig[] = [
+    { key: "max-speed", label: "满速", individual: 10, nature: "up" },
+    { key: "max-individual", label: "满个体", individual: 10, nature: "none" },
+    { key: "no-speed", label: "无速", individual: 0, nature: "none" },
+    { key: "slow", label: "减速", individual: 0, nature: "down" },
 ];
 const statItems: StatItem[] = [
     { key: "base_hp", label: "生命" },
@@ -190,6 +203,24 @@ const opponentBattleSpeed = computed(() => {
         opponentSpeedConfig.value.individual,
         getSpeedNatureModifier(opponentSpeedConfig.value.nature),
     );
+});
+
+const opponentSpeedPreviewItems = computed(() => {
+    if (!opponentPet.value) {
+        return [];
+    }
+
+    return opponentSpeedPreviewConfigs.map((config) => ({
+        ...config,
+        speed: calculateBattleStat(
+            opponentPet.value!.base_spd,
+            config.individual,
+            getSpeedNatureModifier(config.nature),
+        ),
+        active:
+            opponentSpeedConfig.value.individual === config.individual &&
+            opponentSpeedConfig.value.nature === config.nature,
+    }));
 });
 
 const speedDiff = computed(() => {
@@ -1029,6 +1060,66 @@ document.title = "PVP 对位助手 - 洛克王国工具箱";
                                     {{ opponentPet ? opponentBattleSpeed : "-" }}
                                 </p>
                             </div>
+                        </div>
+
+                        <Separator class="bg-white/10" />
+
+                        <div class="space-y-3">
+                            <div>
+                                <p class="text-sm font-medium text-foreground">
+                                    对方速度速览
+                                </p>
+                                <p class="text-xs leading-5 text-muted-foreground">
+                                    用于估算对方常见速度线，实际配置可能不同。
+                                </p>
+                            </div>
+
+                            <div
+                                v-if="opponentSpeedPreviewItems.length"
+                                class="grid gap-2 sm:grid-cols-2"
+                            >
+                                <div
+                                    v-for="item in opponentSpeedPreviewItems"
+                                    :key="item.key"
+                                    class="rounded-[10px] border px-3 py-3"
+                                    :class="
+                                        item.active
+                                            ? 'border-primary/40 bg-primary/10'
+                                            : 'border-border bg-muted/40'
+                                    "
+                                >
+                                    <div
+                                        class="flex items-start justify-between gap-3"
+                                    >
+                                        <div>
+                                            <p
+                                                class="text-sm font-semibold text-foreground"
+                                            >
+                                                {{ item.label }}
+                                            </p>
+                                            <p
+                                                class="mt-1 text-xs leading-5 text-muted-foreground"
+                                            >
+                                                速度个体 {{ item.individual }} /
+                                                {{ formatSpeedNature(item.nature) }}
+                                            </p>
+                                        </div>
+                                        <Badge
+                                            variant="outline"
+                                            class="border-border bg-white/5 text-foreground"
+                                        >
+                                            {{ item.speed }}
+                                        </Badge>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p
+                                v-else
+                                class="rounded-[10px] border border-dashed border-border bg-muted/40 px-3 py-4 text-sm text-muted-foreground"
+                            >
+                                选择对方宠物后查看常见速度线。
+                            </p>
                         </div>
                     </CardContent>
                 </Card>
