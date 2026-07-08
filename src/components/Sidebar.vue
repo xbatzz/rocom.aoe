@@ -14,6 +14,7 @@ import {
     Package,
     ListTodo,
     Sparkles,
+    Swords,
     Target,
     Calculator,
 } from "lucide-vue-next";
@@ -33,7 +34,8 @@ const navItems = [
     { name: "首页", path: "/", icon: Gamepad2 },
     { name: "图鉴", path: "/encyclopedia", icon: TableProperties },
     { name: "技能", path: "/skills", icon: Sparkles },
-    { name: "PVP", path: "/pvp", icon: Target },
+    { name: "对战助手", path: "/pvp-lite", icon: Swords },
+    { name: "PVP 详细版", path: "/pvp", icon: Target },
     { name: "实战属性", path: "/stats", icon: Calculator },
     { name: "图鉴进度", path: "/handbook-progress", icon: ListTodo },
     { name: "表格", path: "/table", icon: Table },

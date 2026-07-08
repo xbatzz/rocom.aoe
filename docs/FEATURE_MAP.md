@@ -11,7 +11,8 @@
 | 宠物详情 | `/pets/:id` | `src/pages/pets/[id].vue`、`src/components/FriendPortrait.vue`、`src/components/SkillIcon.vue`、`src/lib/handbookProgress/*` | `public/data/pets/{id}.json`、`Pets.json`、`types.json`、`moves.json`、`items.json`、`handbook-rewards.json`、`handbook-topic-skill-names.json`、`tables/PET_HANDBOOK.json` | 否，作为图鉴详情页 | 否 | 高 |
 | 属性关系/属性克制 | `/attributes` | `src/pages/attributes.vue`、`src/features/battle-query/TypeRelationCards.vue`、`src/features/battle-query/DualDefenseMatchupCards.vue`、`src/features/battle-query/DualOffensiveCoverageCards.vue`、`src/features/battle-query/typeDefenseMatchup.ts` | `public/data/types.json`、`public/data/BinData/TYPE_DICTIONARY.json` | 是，高频战斗查询 | 可保留入口 | 中 |
 | 技能 | `/skills`；相关能力也分布在 `/table`、`/pets/:id`、`/team` | `src/pages/skills.vue`、`src/features/skills/SkillResultCard.vue`、`src/features/skills/skillAdapter.ts`、`src/pages/table.vue`、`src/pages/pets/[id].vue`、`src/pages/team.vue`、`src/components/SkillIcon.vue` | `public/data/moves.json`、`public/data/PetSkillIndex.json`、`public/data/pets/{id}.json` | 是 | 可同时归入更多工具 | 中 |
-| PVP 对位助手 | `/pvp` | `src/pages/pvp.vue`、`src/lib/teamStorage.ts`、`src/lib/teamAnalysis.ts`、`src/lib/petHandbook.ts`、`src/lib/statCalculator.ts` | `public/data/Pets.json`、`public/data/types.json`、`public/data/personalities.json`、`localStorage: rocom.team-builder.v2` | 是，轻量对位参考 | 否 | 中 |
+| 对战助手 | `/pvp-lite` | `src/pages/pvp-lite.vue`、`src/lib/teamStorage.ts`、`src/lib/teamAnalysis.ts`、`src/lib/statCalculator.ts`、`src/lib/damageCalculator.ts` | `public/data/Pets.json`、`public/data/types.json`、`public/data/personalities.json`、`public/data/moves.json`、`public/data/PetSkillIndex.json`、`localStorage: rocom.team-builder.v2` | 是，移动端轻量入口 | 否 | 中 |
+| PVP 详细版 | `/pvp` | `src/pages/pvp.vue`、`src/lib/teamStorage.ts`、`src/lib/teamAnalysis.ts`、`src/lib/petHandbook.ts`、`src/lib/statCalculator.ts`、`src/lib/damageCalculator.ts` | `public/data/Pets.json`、`public/data/types.json`、`public/data/personalities.json`、`public/data/moves.json`、`public/data/PetSkillIndex.json`、`localStorage: rocom.team-builder.v2` | 否，作为详细参数页 | 是 | 中 |
 | 实战属性计算器 | `/stats` | `src/pages/stats.vue`、`src/lib/statCalculator.ts`、`src/lib/petHandbook.ts` | `public/data/Pets.json` | 否，作为 PVP 辅助工具 | 是 | 低 |
 | 配队/配对规划 | `/team` | `src/pages/team.vue`、`src/lib/teamAnalysis.ts`、`src/lib/statCalculator.ts`、`src/lib/teamStorage.ts` | `Pets.json`、`personalities.json`、`magic_items.json`、`types.json`、`moves.json`、`pets/{id}.json`、`localStorage: rocom.team-builder.v2` | 可作为核心入口 | 否 | 高 |
 | 配种 | `/breeding` | `src/pages/breeding.vue`、`src/lib/eggGroups.ts`、`src/lib/petImplementation.ts` | `Pets.json`、`tables/HOME_PET_LAY_EGG_RATE_CONF.json` | 可保留 | 否 | 中 |
@@ -24,7 +25,7 @@
 
 ## 首页与导航现状
 
-首页 `src/pages/index.vue` 当前通过 `src/features/my-home/MyHomeDashboard.vue` 突出四个核心入口：属性查询、图鉴、技能查询、PVP 对位助手；“更多工具”区域保留实战属性、配队、配种、孵蛋/查蛋、星图、宠物表格、道具、图鉴进度。侧边栏 `src/components/Sidebar.vue` 暴露全部站内页面：首页、图鉴、技能、PVP、实战属性、图鉴进度、表格、配队、配种、孵蛋、星图、属性、道具。
+首页 `src/pages/index.vue` 当前通过 `src/features/my-home/MyHomeDashboard.vue` 突出四个核心入口：属性查询、图鉴、技能查询、对战助手；“更多工具”区域保留 PVP 详细版、实战属性、配队、配种、孵蛋/查蛋、星图、宠物表格、道具、图鉴进度。侧边栏 `src/components/Sidebar.vue` 暴露全部站内页面：首页、图鉴、技能、对战助手、PVP 详细版、实战属性、图鉴进度、表格、配队、配种、孵蛋、星图、属性、道具。
 
 按 `docs/MY_ROADMAP.md` 的个人版方向，首页更适合优先放“属性克制、图鉴搜索、技能搜索”。配队/PVP 可以作为核心或 Coming Soon 入口；配种、孵蛋、查蛋、星图、表格、道具、图鉴进度更适合收进“更多工具”。
 
@@ -40,7 +41,9 @@
 
 ## PVP 对位助手现状
 
-项目当前已有独立 `/pvp` 页面，用于轻量单宠对位参考。页面读取 `Pets.json` 与 `types.json`，并通过 `src/lib/teamStorage.ts` 安全读取配队页当前激活队伍的槽位宠物 ID，让我方宠物可以优先从已保存配队中选择；双方也都支持按名称、图鉴编号和属性手动搜索。手动选择器在无搜索词时显示引导，搜索结果最多展示 50 条，选择后保留搜索结果，并通过当前已选卡片和列表高亮明确反馈。
+项目当前已有移动端优先的 `/pvp-lite` 对战助手和参数更完整的 `/pvp` 详细版。`/pvp-lite` 保持结果优先，默认读取当前激活队伍，一屏内突出双方选择、速度结论、属性对位、推荐技能纸面伤害、对方速度速览和联防候选；详细公式、倍率和不可计算技能说明放在折叠区，适合作为手机实战前快速查看入口。`/pvp` 保留原详细版页面，用于查看完整参数面板和更细的计算说明。
+
+两个页面均读取 `Pets.json` 与 `types.json`，并通过 `src/lib/teamStorage.ts` 安全读取配队页当前激活队伍的槽位宠物 ID，让我方宠物可以优先从已保存配队中选择；双方也都支持按名称、图鉴编号和属性手动搜索。手动选择器在无搜索词时显示引导，搜索结果最多展示 50 条，选择后保留搜索结果，并通过当前已选卡片和列表高亮明确反馈。
 
 `/pvp` v0.2 展示双方属性、编号、总种族值、六项种族值、我方打对方与对方打我方的属性倍率，并接入实战速度线参考。速度线仅支持速度个体值 0-10 与速度性格修正：无修正、加速 +20%、减速 -10%，计算复用 `src/lib/statCalculator.ts` 的分步四舍五入规则。从“我的配队”选择我方宠物时，页面会读取该槽位保存的 `individualValues.speed` 和 `personalityId`，自动填入我方速度线；该读取只用于当前 PVP 速度参考，不反写队伍构筑。对方速度区域提供满速、满个体、无速、减速 4 种常见速度线速览，用于估算而不代表对方真实配置。
 

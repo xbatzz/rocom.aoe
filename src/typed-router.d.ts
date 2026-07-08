@@ -97,6 +97,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/pvp-lite': RouteRecordInfo<
+      '/pvp-lite',
+      '/pvp-lite',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/skills': RouteRecordInfo<
       '/skills',
       '/skills',
@@ -195,6 +202,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/pvp.vue': {
       routes:
         | '/pvp'
+      views:
+        | never
+    }
+    'src/pages/pvp-lite.vue': {
+      routes:
+        | '/pvp-lite'
       views:
         | never
     }

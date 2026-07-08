@@ -63,17 +63,23 @@ const coreActions: CoreAction[] = [
         points: ["名称描述", "属性分类", "能耗威力"],
     },
     {
-        title: "PVP 工具",
-        description: "选择我方与对方宠物，查看属性倍率、速度和种族值对比。",
-        to: "/pvp",
-        status: "v0.1",
+        title: "对战助手",
+        description: "手机优先，一眼看速度、克制、推荐技能和纸面伤害。",
+        to: "/pvp-lite",
+        status: "轻量版",
         icon: Target,
         tone: "border-rose-300/30 bg-rose-300/10 text-rose-100",
-        points: ["配队选择", "属性倍率", "速度对比"],
+        points: ["当前队伍", "推荐技能", "联防候选"],
     },
 ];
 
 const moreTools: ToolLink[] = [
+    {
+        title: "PVP 详细版",
+        description: "完整参数面板，查看速度线、属性倍率、纸面伤害和详细计算。",
+        to: "/pvp",
+        icon: Target,
+    },
     {
         title: "实战属性",
         description: "种族值、个体值与性格修正计算。",
