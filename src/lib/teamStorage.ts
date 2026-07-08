@@ -13,7 +13,12 @@ const DEFAULT_TEAM_NAME = "默认队伍";
 interface StoredTeamSlot {
     friendId?: unknown;
     individualValues?: unknown;
+    moveIds?: unknown;
+    moves?: unknown;
     personalityId?: unknown;
+    selectedMoves?: unknown;
+    skillIds?: unknown;
+    skills?: unknown;
 }
 
 interface StoredTeamState {
@@ -42,6 +47,7 @@ export interface SavedTeamBuildSlot {
     friendId: number;
     personalityId: number | null;
     individualValues: BattleIndividualValues;
+    moveIds: number[];
 }
 
 export function getTeamStorageState(): TeamStorageState {
@@ -456,6 +462,13 @@ function getStoredTeamBuildSlot(
         individualValues: normalizeStoredIndividualValues(
             maybeSlot.individualValues,
         ),
+        moveIds: normalizeStoredMoveIds(
+            maybeSlot.moveIds ??
+                maybeSlot.skillIds ??
+                maybeSlot.selectedMoves ??
+                maybeSlot.skills ??
+                maybeSlot.moves,
+        ),
     };
 }
 
@@ -490,6 +503,44 @@ function normalizeStoredIndividualValues(value: unknown): BattleIndividualValues
         magDef: normalizeIndividualValue(values.magDef),
         speed: normalizeIndividualValue(values.speed),
     };
+}
+
+function normalizeStoredMoveIds(value: unknown) {
+    if (!Array.isArray(value)) {
+        return [];
+    }
+
+    return value
+        .map((move) => toNullablePositiveNumber(getStoredMoveId(move)))
+        .filter((moveId): moveId is number => moveId !== null)
+        .filter((moveId, index, list) => list.indexOf(moveId) === index);
+}
+
+function getStoredMoveId(value: unknown) {
+    if (typeof value === "number" || typeof value === "string") {
+        return value;
+    }
+
+    if (!value || typeof value !== "object") {
+        return null;
+    }
+
+    const maybeMove = value as {
+        id?: unknown;
+        move_id?: unknown;
+        moveId?: unknown;
+        skill_id?: unknown;
+        skillId?: unknown;
+    };
+
+    return (
+        maybeMove.id ??
+        maybeMove.moveId ??
+        maybeMove.move_id ??
+        maybeMove.skillId ??
+        maybeMove.skill_id ??
+        null
+    );
 }
 
 function normalizeTeamName(value: unknown, fallback: string) {

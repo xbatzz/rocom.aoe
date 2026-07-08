@@ -11,7 +11,10 @@ import FriendPortrait from "@/components/FriendPortrait.vue";
 import type {
     IMonsterTypeDetail,
     IPersonality,
+    IPetSkillCatalogEntry,
+    IPetSkillIndexPayload,
     IPets,
+    IPetsMove,
     IPetsType,
 } from "@/lib/interface";
 import { isPetImplemented } from "@/lib/petImplementation";
@@ -31,9 +34,17 @@ import {
 } from "@/lib/teamStorage";
 import {
     calculateBattleStat,
+    EMPTY_INDIVIDUAL_VALUES,
     normalizeIndividualValue,
+    type BattleIndividualValues,
+    type BattleNatureSelection,
     type NatureModifier,
 } from "@/lib/statCalculator";
+import {
+    calculatePaperDamage,
+    isDamageCalculableMove,
+    type DamageMove,
+} from "@/lib/damageCalculator";
 
 interface TypeMatchup {
     key: string;
@@ -78,6 +89,7 @@ interface ResistanceCandidate {
 
 const EXCLUDED_BATTLE_TYPE_NAMES = new Set(["Leader"]);
 const PET_PICKER_RESULT_LIMIT = 50;
+const DAMAGE_SKILL_RESULT_LIMIT = 40;
 const DEFAULT_SPEED_CONFIG: SpeedConfig = {
     individual: 0,
     nature: "none",
@@ -105,10 +117,13 @@ const statItems: StatItem[] = [
 const pets = ref<IPets[]>([]);
 const types = ref<IMonsterTypeDetail[]>([]);
 const personalities = ref<IPersonality[]>([]);
+const moves = ref<DamageMove[]>([]);
+const petSkillIndex = ref<IPetSkillIndexPayload | null>(null);
 const savedTeamSlots = ref<SavedTeamBuildSlot[]>([]);
 const activeTeamName = ref("当前激活队伍");
 const allyPetId = ref<number | null>(null);
 const opponentPetId = ref<number | null>(null);
+const selectedAllyTeamSlot = ref<SavedTeamBuildSlot | null>(null);
 const allySpeedConfig = ref<SpeedConfig>({ ...DEFAULT_SPEED_CONFIG });
 const opponentSpeedConfig = ref<SpeedConfig>({ ...DEFAULT_SPEED_CONFIG });
 const allySpeedConfigSource = ref("");
@@ -116,6 +131,8 @@ const opponentSpeedConfigSource = ref("");
 const allySearchQuery = ref("");
 const opponentSearchQuery = ref("");
 const selectedOpponentAttackTypeName = ref("");
+const damageSearchQuery = ref("");
+const selectedDamageMoveId = ref<number | null>(null);
 const isLoading = ref(false);
 const errorMessage = ref("");
 
@@ -151,6 +168,33 @@ const personalityMap = computed(() => {
             personality,
         ]),
     );
+});
+
+const moveMap = computed(() => {
+    return new Map(moves.value.map((move) => [move.id, move]));
+});
+
+const moveAliasMap = computed(() => {
+    const aliases = new Map<number, DamageMove>();
+    const exactMoveMap = new Map<string, DamageMove>();
+    const nameMoveMap = new Map<string, DamageMove>();
+
+    for (const move of moves.value) {
+        exactMoveMap.set(getMoveExactKey(move), move);
+        nameMoveMap.set(getMoveNameKey(move.localized.zh.name || move.name), move);
+    }
+
+    for (const skill of petSkillIndex.value?.skills ?? []) {
+        const exactMatch = exactMoveMap.get(getCatalogSkillExactKey(skill));
+        const nameMatch = nameMoveMap.get(getMoveNameKey(skill.name));
+        const matchedMove = exactMatch ?? nameMatch;
+
+        if (matchedMove) {
+            aliases.set(skill.id, matchedMove);
+        }
+    }
+
+    return aliases;
 });
 
 const savedTeamPets = computed(() => {
@@ -200,6 +244,99 @@ const hasMoreOpponentSearchResults = computed(
 );
 
 const hasBothPets = computed(() => Boolean(allyPet.value && opponentPet.value));
+
+const allyDamageBuildSlot = computed(() => {
+    if (
+        !selectedAllyTeamSlot.value ||
+        selectedAllyTeamSlot.value.friendId !== allyPetId.value
+    ) {
+        return null;
+    }
+
+    return selectedAllyTeamSlot.value;
+});
+
+const allyDamageIndividualValues = computed<BattleIndividualValues>(() => {
+    return allyDamageBuildSlot.value?.individualValues ?? EMPTY_INDIVIDUAL_VALUES;
+});
+
+const allyDamageNature = computed<BattleNatureSelection>(() => {
+    return personalityToBattleNature(
+        allyDamageBuildSlot.value?.personalityId
+            ? (personalityMap.value.get(allyDamageBuildSlot.value.personalityId) ??
+                  null)
+            : null,
+    );
+});
+
+const configuredDamageMoves = computed(() => {
+    const slot = allyDamageBuildSlot.value;
+
+    if (!slot) {
+        return [] as DamageMove[];
+    }
+
+    return slot.moveIds
+        .map((moveId) => getDamageMoveById(moveId))
+        .filter((move): move is DamageMove => move !== null)
+        .filter(isDamageCalculableMove);
+});
+
+const configuredDamageMoveCount = computed(() => {
+    return allyDamageBuildSlot.value?.moveIds.length ?? 0;
+});
+
+const unsupportedConfiguredDamageMoveCount = computed(() => {
+    return Math.max(
+        0,
+        configuredDamageMoveCount.value - configuredDamageMoves.value.length,
+    );
+});
+
+const damageSearchResults = computed(() => {
+    const keyword = damageSearchQuery.value.trim().toLowerCase();
+
+    if (!keyword) {
+        return [] as DamageMove[];
+    }
+
+    return moves.value
+        .filter(isDamageCalculableMove)
+        .filter((move) => matchesDamageMoveKeyword(move, keyword))
+        .slice(0, DAMAGE_SKILL_RESULT_LIMIT);
+});
+
+const selectedDamageMove = computed(() => {
+    if (selectedDamageMoveId.value === null) {
+        return null;
+    }
+
+    const move = getDamageMoveById(selectedDamageMoveId.value);
+    return isDamageCalculableMove(move) ? move : null;
+});
+
+const paperDamageResult = computed(() => {
+    if (!allyPet.value || !opponentPet.value || !selectedDamageMove.value) {
+        return null;
+    }
+
+    return calculatePaperDamage({
+        attackerPet: allyPet.value,
+        defenderPet: opponentPet.value,
+        move: selectedDamageMove.value,
+        typeMap: typeMap.value,
+        attackerIndividualValues: allyDamageIndividualValues.value,
+        defenderIndividualValues: {
+            ...EMPTY_INDIVIDUAL_VALUES,
+            speed: opponentSpeedConfig.value.individual,
+        },
+        attackerNature: allyDamageNature.value,
+        defenderNature: {
+            upStat: null,
+            downStat: null,
+        },
+    });
+});
 
 const allyBattleSpeed = computed(() => {
     if (!allyPet.value) {
@@ -412,6 +549,40 @@ watch(opponentBattleTypes, (types) => {
     }
 });
 
+watch([allyPetId, opponentPetId], () => {
+    if (
+        selectedAllyTeamSlot.value &&
+        selectedAllyTeamSlot.value.friendId !== allyPetId.value
+    ) {
+        selectedAllyTeamSlot.value = null;
+    }
+
+    if (
+        selectedDamageMoveId.value !== null &&
+        !isDamageCalculableMove(getDamageMoveById(selectedDamageMoveId.value))
+    ) {
+        selectedDamageMoveId.value = null;
+    }
+});
+
+watch(configuredDamageMoves, (configuredMoves) => {
+    if (!allyDamageBuildSlot.value) {
+        return;
+    }
+
+    if (!configuredMoves.length) {
+        selectedDamageMoveId.value = null;
+        return;
+    }
+
+    if (
+        selectedDamageMoveId.value === null ||
+        !configuredMoves.some((move) => move.id === selectedDamageMoveId.value)
+    ) {
+        selectedDamageMoveId.value = configuredMoves[0]?.id ?? null;
+    }
+});
+
 function refreshSavedTeam() {
     const activeTeam = getActiveTeam();
 
@@ -421,18 +592,22 @@ function refreshSavedTeam() {
 
 function selectAllyPet(petId: number) {
     allyPetId.value = petId;
+    selectedAllyTeamSlot.value = null;
     allySpeedConfig.value = { ...DEFAULT_SPEED_CONFIG };
     allySpeedConfigSource.value = "";
+    selectedDamageMoveId.value = null;
 }
 
 function selectAllyTeamSlot(slot: SavedTeamBuildSlot) {
     allyPetId.value = slot.friendId;
+    selectedAllyTeamSlot.value = slot;
     allySpeedConfig.value = {
         individual: slot.individualValues.speed,
         nature: getSpeedNatureModeFromPersonalityId(slot.personalityId),
     };
     allySpeedConfigSource.value = `已读取配队构筑：${slot.slotIndex} 号槽`;
     allySearchQuery.value = "";
+    selectedDamageMoveId.value = slot.moveIds[0] ?? null;
 }
 
 function selectOpponentPet(petId: number) {
@@ -452,13 +627,16 @@ function swapPets() {
     opponentSpeedConfig.value = { ...allySpeedConfig.value };
     opponentSpeedConfigSource.value = allySpeedConfigSource.value;
     allyPetId.value = nextAllyPetId;
+    selectedAllyTeamSlot.value = null;
     allySpeedConfig.value = nextAllySpeedConfig;
     allySpeedConfigSource.value = nextAllySpeedConfigSource;
+    selectedDamageMoveId.value = null;
 }
 
 function resetSelection() {
     allyPetId.value = null;
     opponentPetId.value = null;
+    selectedAllyTeamSlot.value = null;
     allySpeedConfig.value = { ...DEFAULT_SPEED_CONFIG };
     opponentSpeedConfig.value = { ...DEFAULT_SPEED_CONFIG };
     allySpeedConfigSource.value = "";
@@ -466,6 +644,8 @@ function resetSelection() {
     allySearchQuery.value = "";
     opponentSearchQuery.value = "";
     selectedOpponentAttackTypeName.value = "";
+    damageSearchQuery.value = "";
+    selectedDamageMoveId.value = null;
 }
 
 async function loadPvpData() {
@@ -475,20 +655,37 @@ async function loadPvpData() {
     errorMessage.value = "";
 
     try {
-        const [petsResponse, typesResponse, personalitiesResponse] =
-            await Promise.all([
-                fetch("/data/Pets.json", {
-                    signal: controller.signal,
-                }),
-                fetch("/data/types.json", {
-                    signal: controller.signal,
-                }),
-                fetch("/data/personalities.json", {
-                    signal: controller.signal,
-                }),
-            ]);
+        const [
+            petsResponse,
+            typesResponse,
+            personalitiesResponse,
+            movesResponse,
+            petSkillIndexResponse,
+        ] = await Promise.all([
+            fetch("/data/Pets.json", {
+                signal: controller.signal,
+            }),
+            fetch("/data/types.json", {
+                signal: controller.signal,
+            }),
+            fetch("/data/personalities.json", {
+                signal: controller.signal,
+            }),
+            fetch("/data/moves.json", {
+                signal: controller.signal,
+            }),
+            fetch("/data/PetSkillIndex.json", {
+                signal: controller.signal,
+            }),
+        ]);
 
-        if (!petsResponse.ok || !typesResponse.ok || !personalitiesResponse.ok) {
+        if (
+            !petsResponse.ok ||
+            !typesResponse.ok ||
+            !personalitiesResponse.ok ||
+            !movesResponse.ok ||
+            !petSkillIndexResponse.ok
+        ) {
             throw new Error("PVP 基础数据请求失败");
         }
 
@@ -496,6 +693,9 @@ async function loadPvpData() {
         types.value = (await typesResponse.json()) as IMonsterTypeDetail[];
         personalities.value =
             (await personalitiesResponse.json()) as IPersonality[];
+        moves.value = (await movesResponse.json()) as DamageMove[];
+        petSkillIndex.value =
+            (await petSkillIndexResponse.json()) as IPetSkillIndexPayload;
     } catch (error) {
         if (error instanceof DOMException && error.name === "AbortError") {
             return;
@@ -504,10 +704,20 @@ async function loadPvpData() {
         pets.value = [];
         types.value = [];
         personalities.value = [];
+        moves.value = [];
+        petSkillIndex.value = null;
         errorMessage.value = "PVP 对位数据加载失败，请稍后重试。";
     } finally {
         isLoading.value = false;
     }
+}
+
+function selectDamageMove(moveId: number) {
+    selectedDamageMoveId.value = moveId;
+}
+
+function getDamageMoveById(moveId: number) {
+    return moveMap.value.get(moveId) ?? moveAliasMap.value.get(moveId) ?? null;
 }
 
 function filterPetOptions(keyword: string) {
@@ -653,6 +863,34 @@ function formatSpeedNature(mode: SpeedNatureMode) {
     );
 }
 
+function personalityToBattleNature(
+    personality: IPersonality | null,
+): BattleNatureSelection {
+    if (!personality) {
+        return {
+            upStat: null,
+            downStat: null,
+        };
+    }
+
+    const entries: Array<{
+        key: keyof BattleIndividualValues;
+        modifier: number;
+    }> = [
+        { key: "hp", modifier: Number(personality.hp_mod_pct) },
+        { key: "phyAtk", modifier: Number(personality.phy_atk_mod_pct) },
+        { key: "magAtk", modifier: Number(personality.mag_atk_mod_pct) },
+        { key: "phyDef", modifier: Number(personality.phy_def_mod_pct) },
+        { key: "magDef", modifier: Number(personality.mag_def_mod_pct) },
+        { key: "speed", modifier: Number(personality.spd_mod_pct) },
+    ];
+
+    return {
+        upStat: entries.find((entry) => entry.modifier > 0)?.key ?? null,
+        downStat: entries.find((entry) => entry.modifier < 0)?.key ?? null,
+    };
+}
+
 function formatSignedNumber(value: number) {
     if (value > 0) {
         return `+${value}`;
@@ -671,6 +909,60 @@ function formatTypes(pet: IPets | null) {
 
 function getPetDisplayName(pet: IPets) {
     return pet.localized.zh.name;
+}
+
+function getMoveDisplayName(move: DamageMove) {
+    return move.localized.zh.name || move.name;
+}
+
+function getMoveCategoryLabel(category: string) {
+    if (category === "Physical Attack") {
+        return "物理";
+    }
+
+    if (category === "Magic Attack") {
+        return "魔法";
+    }
+
+    return category;
+}
+
+function matchesDamageMoveKeyword(move: DamageMove, keyword: string) {
+    const searchText = [
+        String(move.id),
+        move.name,
+        move.localized.zh.name,
+        move.localized.zh.description,
+        move.description,
+        move.move_type?.name ?? "",
+        move.move_type?.localized.zh ?? "",
+        move.move_category,
+        getMoveCategoryLabel(move.move_category),
+    ]
+        .join(" ")
+        .toLowerCase();
+
+    return searchText.includes(keyword);
+}
+
+function getMoveExactKey(move: DamageMove) {
+    return [
+        getMoveNameKey(move.localized.zh.name || move.name),
+        move.move_category,
+        move.move_type?.localized.zh ?? "",
+    ].join("|");
+}
+
+function getCatalogSkillExactKey(skill: IPetSkillCatalogEntry) {
+    return [
+        getMoveNameKey(skill.name),
+        skill.move_category,
+        skill.type_label,
+    ].join("|");
+}
+
+function getMoveNameKey(value: string) {
+    return value.trim().toLowerCase().replace(/\s+/g, "");
 }
 
 function getMultiplierTone(multiplier: number) {
@@ -1612,8 +1904,372 @@ document.title = "PVP 对位助手 - 洛克王国工具箱";
                 </Card>
             </div>
 
+            <Card
+                v-if="hasBothPets"
+                class="border-border bg-card shadow-sm"
+            >
+                <CardHeader>
+                    <CardTitle class="text-lg">纸面伤害计算</CardTitle>
+                    <CardDescription>
+                        按满级 60、本系 1.25、属性倍率和实战攻防面板估算，不代表完整实战伤害。
+                    </CardDescription>
+                </CardHeader>
+                <CardContent class="space-y-4">
+                    <div
+                        class="rounded-[10px] border border-border bg-muted/40 px-3 py-3 text-sm text-foreground"
+                    >
+                        攻击方：{{ allyPet ? getPetDisplayName(allyPet) : "-" }}
+                        · 防守方：{{
+                            opponentPet ? getPetDisplayName(opponentPet) : "-"
+                        }}
+                        <p
+                            v-if="!allyDamageBuildSlot"
+                            class="mt-1 text-xs leading-5 text-muted-foreground"
+                        >
+                            手动选择的我方宠物未绑定配队构筑，伤害按默认个体和无性格估算。
+                        </p>
+                        <p
+                            v-else
+                            class="mt-1 text-xs leading-5 text-muted-foreground"
+                        >
+                            已读取当前队伍 {{ allyDamageBuildSlot.slotIndex }}
+                            号槽构筑：个体值、性格和已配置技能。
+                        </p>
+                    </div>
+
+                    <div
+                        v-if="configuredDamageMoves.length"
+                        class="space-y-2"
+                    >
+                        <p class="text-sm font-medium text-foreground">
+                            已配置技能
+                        </p>
+                        <div class="grid gap-2 md:grid-cols-2">
+                            <button
+                                v-for="move in configuredDamageMoves"
+                                :key="`configured-${move.id}`"
+                                type="button"
+                                class="rounded-[10px] border px-3 py-2 text-left transition-colors"
+                                :class="
+                                    selectedDamageMoveId === move.id
+                                        ? 'border-primary/50 bg-primary/15'
+                                        : 'border-border bg-muted/40 hover:border-primary/40 hover:bg-accent/50'
+                                "
+                                @click="selectDamageMove(move.id)"
+                            >
+                                <div
+                                    class="flex items-start justify-between gap-3"
+                                >
+                                    <div class="min-w-0">
+                                        <p
+                                            class="truncate text-sm font-semibold text-foreground"
+                                        >
+                                            {{ getMoveDisplayName(move) }}
+                                        </p>
+                                        <p class="mt-1 text-xs text-muted-foreground">
+                                            {{ move.move_type?.localized.zh }} ·
+                                            {{ getMoveCategoryLabel(move.move_category) }}
+                                            · 威力 {{ move.power }}
+                                        </p>
+                                    </div>
+                                    <Badge
+                                        variant="outline"
+                                        class="shrink-0 border-border bg-white/5 text-xs text-foreground"
+                                    >
+                                        {{ move.id }}
+                                    </Badge>
+                                </div>
+                            </button>
+                        </div>
+                        <p
+                            v-if="unsupportedConfiguredDamageMoveCount > 0"
+                            class="text-xs leading-5 text-muted-foreground"
+                        >
+                            当前构筑中有
+                            {{ unsupportedConfiguredDamageMoveCount }}
+                            个技能因状态 / 防御、无固定属性或无固定威力，未纳入纸面伤害计算。
+                        </p>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="relative">
+                            <Search
+                                class="pointer-events-none absolute left-4 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-foreground"
+                            />
+                            <Input
+                                v-model="damageSearchQuery"
+                                type="search"
+                                placeholder="搜索可计算攻击技能名称、ID、属性或分类"
+                                class="h-10 rounded-[10px] border-border bg-card pl-11 text-sm text-foreground placeholder:text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
+                            />
+                        </div>
+
+                        <div
+                            v-if="damageSearchQuery.trim()"
+                            class="max-h-72 space-y-2 overflow-y-auto pr-1"
+                        >
+                            <button
+                                v-for="move in damageSearchResults"
+                                :key="`search-${move.id}`"
+                                type="button"
+                                class="flex w-full items-center justify-between gap-3 rounded-[10px] border px-3 py-2 text-left transition-colors hover:border-primary/50 hover:bg-accent/50"
+                                :class="
+                                    selectedDamageMoveId === move.id
+                                        ? 'border-primary bg-primary/10'
+                                        : 'border-border bg-muted/30'
+                                "
+                                @click="selectDamageMove(move.id)"
+                            >
+                                <span class="min-w-0">
+                                    <span
+                                        class="block truncate text-sm font-medium text-foreground"
+                                    >
+                                        {{ getMoveDisplayName(move) }}
+                                    </span>
+                                    <span class="text-xs text-muted-foreground">
+                                        {{ move.move_type?.localized.zh }} ·
+                                        {{ getMoveCategoryLabel(move.move_category) }}
+                                        · 威力 {{ move.power }}
+                                    </span>
+                                </span>
+                                <Badge
+                                    variant="outline"
+                                    class="shrink-0 border-border bg-white/5 text-xs text-foreground"
+                                >
+                                    {{ move.id }}
+                                </Badge>
+                            </button>
+
+                            <p
+                                v-if="damageSearchResults.length === 0"
+                                class="rounded-[10px] border border-dashed border-border bg-muted/40 px-3 py-4 text-sm text-muted-foreground"
+                            >
+                                没有找到可计算攻击技能。
+                            </p>
+                        </div>
+
+                        <p
+                            v-else-if="!configuredDamageMoves.length"
+                            class="rounded-[10px] border border-dashed border-border bg-muted/40 px-3 py-4 text-sm text-muted-foreground"
+                        >
+                            {{
+                                allyDamageBuildSlot && configuredDamageMoveCount > 0
+                                    ? "当前构筑技能暂不支持纸面伤害计算，可手动搜索固定威力技能。"
+                                    : allyDamageBuildSlot
+                                      ? "当前配队槽位没有配置技能，可手动搜索固定威力技能。"
+                                    : "搜索固定威力的物理或魔法攻击技能开始估算。"
+                            }}
+                        </p>
+                    </div>
+
+                    <div
+                        v-if="selectedDamageMove"
+                        class="rounded-[10px] border border-border bg-muted/40 p-3"
+                    >
+                        <div
+                            class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between"
+                        >
+                            <div>
+                                <p class="text-sm font-semibold text-foreground">
+                                    {{ getMoveDisplayName(selectedDamageMove) }}
+                                </p>
+                                <p class="mt-1 text-xs text-muted-foreground">
+                                    {{ selectedDamageMove.move_type?.localized.zh }}
+                                    ·
+                                    {{
+                                        getMoveCategoryLabel(
+                                            selectedDamageMove.move_category,
+                                        )
+                                    }}
+                                    · 威力 {{ selectedDamageMove.power }}
+                                </p>
+                            </div>
+                            <Badge
+                                variant="outline"
+                                class="w-fit border-border bg-white/5 text-foreground"
+                            >
+                                {{
+                                    paperDamageResult?.valid
+                                        ? `${paperDamageResult.attackStatName} vs ${paperDamageResult.defenseStatName}`
+                                        : "不可计算"
+                                }}
+                            </Badge>
+                        </div>
+
+                        <template v-if="paperDamageResult?.valid">
+                            <div class="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+                                <div
+                                    class="rounded-[10px] border border-border bg-card px-3 py-2"
+                                >
+                                    <p class="text-xs text-muted-foreground">
+                                        单段伤害
+                                    </p>
+                                    <p class="text-lg font-semibold text-foreground">
+                                        {{ paperDamageResult.singleHitDamage }}
+                                    </p>
+                                </div>
+                                <div
+                                    class="rounded-[10px] border border-border bg-card px-3 py-2"
+                                >
+                                    <p class="text-xs text-muted-foreground">
+                                        总伤害
+                                    </p>
+                                    <p class="text-lg font-semibold text-foreground">
+                                        {{ paperDamageResult.totalDamage }}
+                                    </p>
+                                </div>
+                                <div
+                                    class="rounded-[10px] border border-border bg-card px-3 py-2"
+                                >
+                                    <p class="text-xs text-muted-foreground">
+                                        约占 HP
+                                    </p>
+                                    <p class="text-lg font-semibold text-foreground">
+                                        {{ paperDamageResult.damagePercent }}%
+                                    </p>
+                                </div>
+                                <div
+                                    class="rounded-[10px] border border-border bg-card px-3 py-2"
+                                >
+                                    <p class="text-xs text-muted-foreground">
+                                        估算击倒段数
+                                    </p>
+                                    <p class="text-lg font-semibold text-foreground">
+                                        {{
+                                            paperDamageResult.estimatedHitsToKo ??
+                                            "-"
+                                        }}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+                                <div
+                                    class="rounded-[10px] border border-border bg-card px-3 py-2"
+                                >
+                                    <p class="text-xs text-muted-foreground">
+                                        攻击方实战{{ paperDamageResult.attackStatName }}
+                                    </p>
+                                    <p class="text-sm font-semibold text-foreground">
+                                        {{ paperDamageResult.attackStatValue }}
+                                    </p>
+                                </div>
+                                <div
+                                    class="rounded-[10px] border border-border bg-card px-3 py-2"
+                                >
+                                    <p class="text-xs text-muted-foreground">
+                                        防守方实战{{ paperDamageResult.defenseStatName }}
+                                    </p>
+                                    <p class="text-sm font-semibold text-foreground">
+                                        {{ paperDamageResult.defenseStatValue }}
+                                    </p>
+                                </div>
+                                <div
+                                    class="rounded-[10px] border border-border bg-card px-3 py-2"
+                                >
+                                    <p class="text-xs text-muted-foreground">
+                                        防守方实战 HP
+                                    </p>
+                                    <p class="text-sm font-semibold text-foreground">
+                                        {{ paperDamageResult.defenderHp }}
+                                    </p>
+                                </div>
+                                <div
+                                    class="rounded-[10px] border border-border bg-card px-3 py-2"
+                                >
+                                    <p class="text-xs text-muted-foreground">
+                                        显示威力
+                                    </p>
+                                    <p class="text-sm font-semibold text-foreground">
+                                        {{ paperDamageResult.displayPower }}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="mt-3 grid gap-2 sm:grid-cols-3">
+                                <div
+                                    class="rounded-[10px] border border-border bg-card px-3 py-2"
+                                >
+                                    <p class="text-xs text-muted-foreground">
+                                        本系加成
+                                    </p>
+                                    <p class="text-sm font-semibold text-foreground">
+                                        {{
+                                            paperDamageResult.isStab
+                                                ? `是 · ${paperDamageResult.stabMultiplier}x`
+                                                : "否 · 1x"
+                                        }}
+                                    </p>
+                                </div>
+                                <div
+                                    class="rounded-[10px] border border-border bg-card px-3 py-2"
+                                >
+                                    <p class="text-xs text-muted-foreground">
+                                        属性倍率
+                                    </p>
+                                    <p class="text-sm font-semibold text-foreground">
+                                        {{ paperDamageResult.typeMultiplier }}x
+                                    </p>
+                                </div>
+                                <div
+                                    class="rounded-[10px] border border-border bg-card px-3 py-2"
+                                >
+                                    <p class="text-xs text-muted-foreground">
+                                        技能属性
+                                    </p>
+                                    <p class="text-sm font-semibold text-foreground">
+                                        {{
+                                            paperDamageResult.moveType?.localized
+                                                .zh
+                                        }}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="mt-3 grid gap-2 sm:grid-cols-2">
+                                <div
+                                    class="rounded-[10px] border border-border bg-card px-3 py-2"
+                                >
+                                    <p class="text-xs text-muted-foreground">
+                                        有效威力
+                                    </p>
+                                    <p class="text-sm font-semibold text-foreground">
+                                        {{ paperDamageResult.effectivePower }}
+                                    </p>
+                                </div>
+                                <div
+                                    class="rounded-[10px] border border-border bg-card px-3 py-2"
+                                >
+                                    <p class="text-xs text-muted-foreground">
+                                        等级系数
+                                    </p>
+                                    <p class="text-sm font-semibold text-foreground">
+                                        {{
+                                            paperDamageResult.levelCoefficient?.toFixed(
+                                                4,
+                                            )
+                                        }}
+                                    </p>
+                                </div>
+                            </div>
+                        </template>
+
+                        <p
+                            v-else
+                            class="mt-3 rounded-[10px] border border-dashed border-border bg-card px-3 py-3 text-sm text-muted-foreground"
+                        >
+                            {{ paperDamageResult?.reason ?? "该技能暂不支持估算。" }}
+                        </p>
+                    </div>
+
+                    <p class="text-xs leading-5 text-muted-foreground">
+                        纸面伤害按满级 60、本系 1.25、固定威力、属性倍率和实战攻防面板估算；显示威力先四舍五入，预计伤害按等级系数和防御取整。暂不包含技能特殊效果、天气、场地、特性、血脉、护盾、强化、随机浮动等因素。结果不代表真实实战伤害或胜率。
+                    </p>
+                </CardContent>
+            </Card>
+
             <div
-                v-else
+                v-if="!hasBothPets"
                 class="rounded-[10px] border border-dashed border-border bg-card px-4 py-10 text-center text-sm text-muted-foreground"
             >
                 请选择我方和对方宠物，开始查看属性倍率、速度差和种族值对比。
