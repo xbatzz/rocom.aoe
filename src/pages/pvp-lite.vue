@@ -1359,132 +1359,209 @@ document.title = "对战助手 - 洛克王国工具箱";
                 </CardContent>
             </Card>
 
-            <div class="grid gap-3 md:grid-cols-2">
-                <Card class="rounded-[28px] border-sky-100 bg-white/90 shadow-md">
-                    <CardContent class="space-y-3 p-4">
-                        <div class="flex items-center gap-2">
-                            <Zap class="h-5 w-5 text-sky-600" />
-                            <div>
-                                <p class="text-sm font-black text-slate-950">
-                                    速度
-                                </p>
-                                <p class="text-xs text-slate-500">
-                                    速度线参考，不代表完整先手规则
-                                </p>
-                            </div>
-                        </div>
+            <div class="grid gap-2 sm:grid-cols-3">
+                <div class="rounded-[22px] border border-sky-100 bg-white/90 p-3 shadow-sm">
+                    <div class="flex items-center gap-2">
+                        <Zap class="h-4 w-4 text-sky-600" />
+                        <p class="text-xs font-black text-slate-950">
+                            速度摘要
+                        </p>
+                    </div>
+                    <p class="mt-2 text-lg font-black text-slate-950">
+                        {{ getSpeedLabel() }}
+                    </p>
+                    <p class="text-xs text-slate-500">
+                        我方 {{ allyBattleSpeed }} / 对方 {{ opponentBattleSpeed }}
+                    </p>
+                </div>
 
-                        <div class="rounded-[22px] bg-sky-50 p-4">
-                            <p class="text-2xl font-black text-slate-950">
-                                {{ getSpeedLabel() }}
-                            </p>
-                            <p class="mt-1 text-sm text-slate-600">
-                                我方 {{ allyBattleSpeed }} / 对方 {{ opponentBattleSpeed }}
-                                · 差值 {{ speedDiff > 0 ? `+${speedDiff}` : speedDiff }}
-                            </p>
-                        </div>
+                <div class="rounded-[22px] border border-amber-100 bg-white/90 p-3 shadow-sm">
+                    <div class="flex items-center gap-2">
+                        <Target class="h-4 w-4 text-amber-600" />
+                        <p class="text-xs font-black text-slate-950">
+                            属性摘要
+                        </p>
+                    </div>
+                    <p class="mt-2 text-sm font-bold text-slate-950">
+                        我方最高打点：{{ bestAllyMultiplier }}x
+                    </p>
+                    <p class="text-xs text-slate-500">
+                        对方最高风险：{{ bestOpponentMultiplier }}x
+                    </p>
+                </div>
 
+                <div class="rounded-[22px] border border-emerald-100 bg-white/90 p-3 shadow-sm">
+                    <div class="flex items-center gap-2">
+                        <ShieldCheck class="h-4 w-4 text-emerald-600" />
+                        <p class="text-xs font-black text-slate-950">
+                            联防摘要
+                        </p>
+                    </div>
+                    <p class="mt-2 text-lg font-black text-slate-950">
+                        联防候选：{{ resistanceCandidates.length }} 个
+                    </p>
+                    <p class="text-xs text-slate-500">
+                        {{
+                            resistanceCandidates.length
+                                ? "仅按当前属性计算"
+                                : "暂无明显抗性候选"
+                        }}
+                    </p>
+                </div>
+            </div>
+
+            <details
+                class="rounded-[24px] border border-sky-100 bg-white/80 p-4 shadow-sm"
+            >
+                <summary class="cursor-pointer text-sm font-bold text-slate-950">
+                    查看速度线
+                </summary>
+                <div class="mt-3 space-y-3">
+                    <div class="rounded-[18px] bg-sky-50 px-3 py-2 text-sm text-slate-700">
+                        我方 {{ allyBattleSpeed }} / 对方 {{ opponentBattleSpeed }}
+                        · 差值 {{ speedDiff > 0 ? `+${speedDiff}` : speedDiff }}
+                    </div>
+                    <div
+                        v-if="opponentSpeedPreviewItems.length"
+                        class="grid grid-cols-2 gap-2"
+                    >
                         <div
-                            v-if="opponentSpeedPreviewItems.length"
-                            class="grid grid-cols-2 gap-2"
+                            v-for="item in opponentSpeedPreviewItems"
+                            :key="item.label"
+                            class="rounded-[18px] bg-slate-50 px-3 py-2"
                         >
+                            <p class="text-xs text-slate-500">{{ item.label }}</p>
+                            <p class="text-lg font-bold text-slate-950">
+                                {{ item.speed }}
+                            </p>
+                        </div>
+                    </div>
+                    <p class="text-xs leading-5 text-slate-500">
+                        速度参考未考虑技能特效、先制、天气、异常、护盾和换人博弈。
+                    </p>
+                </div>
+            </details>
+
+            <details
+                class="rounded-[24px] border border-amber-100 bg-white/80 p-4 shadow-sm"
+            >
+                <summary class="cursor-pointer text-sm font-bold text-slate-950">
+                    查看属性细节
+                </summary>
+                <div class="mt-3 grid gap-3 md:grid-cols-2">
+                    <div class="rounded-[18px] bg-amber-50 px-3 py-3">
+                        <p class="text-xs font-bold text-amber-700">
+                            我方打对方
+                        </p>
+                        <div class="mt-2 space-y-2">
                             <div
-                                v-for="item in opponentSpeedPreviewItems"
-                                :key="item.label"
-                                class="rounded-[18px] bg-slate-50 px-3 py-2"
+                                v-for="item in allyAttackMatchups"
+                                :key="`ally-${item.type.id}`"
+                                class="flex items-center justify-between rounded-[14px] bg-white px-3 py-2 text-sm"
                             >
-                                <p class="text-xs text-slate-500">{{ item.label }}</p>
-                                <p class="text-lg font-bold text-slate-950">
-                                    {{ item.speed }}
-                                </p>
+                                <span class="font-semibold text-slate-700">
+                                    {{ item.type.localized.zh }}
+                                </span>
+                                <span class="font-black text-slate-950">
+                                    {{ item.multiplier }}x
+                                </span>
                             </div>
                         </div>
-                    </CardContent>
-                </Card>
-
-                <Card class="rounded-[28px] border-emerald-100 bg-white/90 shadow-md">
-                    <CardContent class="space-y-3 p-4">
-                        <div class="flex flex-wrap items-center justify-between gap-3">
-                            <div class="flex items-center gap-2">
-                                <ShieldCheck class="h-5 w-5 text-emerald-600" />
-                                <div>
-                                    <p class="text-sm font-black text-slate-950">
-                                        联防候选
-                                    </p>
-                                    <p class="text-xs text-slate-500">
-                                        针对{{
-                                            selectedDefenseType
-                                                ? `「${selectedDefenseType.localized.zh}」`
-                                                : "对方属性"
-                                        }}攻击
-                                    </p>
-                                </div>
+                    </div>
+                    <div class="rounded-[18px] bg-rose-50 px-3 py-3">
+                        <p class="text-xs font-bold text-rose-700">
+                            对方打我方
+                        </p>
+                        <div class="mt-2 space-y-2">
+                            <div
+                                v-for="item in opponentAttackMatchups"
+                                :key="`opponent-${item.type.id}`"
+                                class="flex items-center justify-between rounded-[14px] bg-white px-3 py-2 text-sm"
+                            >
+                                <span class="font-semibold text-slate-700">
+                                    {{ item.type.localized.zh }}
+                                </span>
+                                <span class="font-black text-slate-950">
+                                    {{ item.multiplier }}x
+                                </span>
                             </div>
+                        </div>
+                    </div>
+                    <p class="text-xs leading-5 text-slate-500 md:col-span-2">
+                        属性参考未考虑技能特效、天气、异常、护盾和换人博弈。
+                    </p>
+                </div>
+            </details>
 
-                            <div class="flex flex-wrap gap-2">
-                                <button
-                                    v-for="type in opponentBattleTypes"
+            <details
+                class="rounded-[24px] border border-emerald-100 bg-white/80 p-4 shadow-sm"
+            >
+                <summary class="cursor-pointer text-sm font-bold text-slate-950">
+                    查看联防候选
+                </summary>
+                <div class="mt-3 space-y-3">
+                    <div class="flex flex-wrap gap-2">
+                        <button
+                            v-for="type in opponentBattleTypes"
+                            :key="type.id"
+                            type="button"
+                            class="rounded-full px-3 py-1 text-xs font-semibold"
+                            :class="
+                                selectedDefenseType?.name === type.name
+                                    ? 'bg-emerald-600 text-white'
+                                    : 'bg-emerald-50 text-emerald-700'
+                            "
+                            @click="selectedDefenseTypeName = type.name"
+                        >
+                            {{ type.localized.zh }}
+                        </button>
+                    </div>
+
+                    <div
+                        v-if="resistanceCandidates.length"
+                        class="grid gap-2 sm:grid-cols-2"
+                    >
+                        <div
+                            v-for="candidate in resistanceCandidates"
+                            :key="`${candidate.slotIndex}-${candidate.pet.id}`"
+                            class="rounded-[20px] border border-emerald-100 bg-emerald-50 px-3 py-3"
+                        >
+                            <div class="flex items-center justify-between gap-2">
+                                <p class="truncate text-sm font-bold text-slate-950">
+                                    {{ getPetDisplayName(candidate.pet) }}
+                                </p>
+                                <p class="shrink-0 text-sm font-black text-emerald-700">
+                                    {{ candidate.multiplier }}x
+                                </p>
+                            </div>
+                            <div class="mt-1 flex flex-wrap gap-1">
+                                <span
+                                    v-for="type in formatTypes(candidate.pet)"
                                     :key="type.id"
-                                    type="button"
-                                    class="rounded-full px-3 py-1 text-xs font-semibold"
-                                    :class="
-                                        selectedDefenseType?.name === type.name
-                                            ? 'bg-emerald-600 text-white'
-                                            : 'bg-emerald-50 text-emerald-700'
-                                    "
-                                    @click="selectedDefenseTypeName = type.name"
+                                    class="rounded-full bg-white px-2 py-0.5 text-xs text-slate-600"
                                 >
                                     {{ type.localized.zh }}
-                                </button>
+                                </span>
                             </div>
                         </div>
+                    </div>
 
-                        <div
-                            v-if="resistanceCandidates.length"
-                            class="grid gap-2 sm:grid-cols-2"
-                        >
-                            <div
-                                v-for="candidate in resistanceCandidates.slice(0, 4)"
-                                :key="`${candidate.slotIndex}-${candidate.pet.id}`"
-                                class="rounded-[20px] border border-emerald-100 bg-emerald-50 px-3 py-3"
-                            >
-                                <div class="flex items-center justify-between gap-2">
-                                    <p class="truncate text-sm font-bold text-slate-950">
-                                        {{ getPetDisplayName(candidate.pet) }}
-                                    </p>
-                                    <p class="shrink-0 text-sm font-black text-emerald-700">
-                                        {{ candidate.multiplier }}x
-                                    </p>
-                                </div>
-                                <div class="mt-1 flex flex-wrap gap-1">
-                                    <span
-                                        v-for="type in formatTypes(candidate.pet)"
-                                        :key="type.id"
-                                        class="rounded-full bg-white px-2 py-0.5 text-xs text-slate-600"
-                                    >
-                                        {{ type.localized.zh }}
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                    <p
+                        v-else
+                        class="rounded-[18px] border border-dashed border-emerald-200 bg-emerald-50 px-4 py-4 text-sm text-emerald-800"
+                    >
+                        {{
+                            teamPets.length
+                                ? "当前队伍没有明显抗性候选。"
+                                : "暂无当前队伍宠物。"
+                        }}
+                    </p>
 
-                        <p
-                            v-else
-                            class="rounded-[20px] border border-dashed border-emerald-200 bg-emerald-50 px-4 py-4 text-sm text-emerald-800"
-                        >
-                            {{
-                                teamPets.length
-                                    ? "当前队伍没有明显抗性候选。"
-                                    : "暂无当前队伍宠物。"
-                            }}
-                        </p>
-
-                        <p class="text-xs leading-5 text-slate-500">
-                            仅按属性抗性参考，不代表完整换人判断。
-                        </p>
-                    </CardContent>
-                </Card>
-            </div>
+                    <p class="text-xs leading-5 text-slate-500">
+                        仅按当前属性计算，不代表完整换人判断。
+                    </p>
+                </div>
+            </details>
 
             <details
                 v-if="recommendedDamageOption?.result.valid"
