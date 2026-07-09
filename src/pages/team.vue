@@ -69,6 +69,11 @@ import {
 type PanelTab = "friends" | "build";
 type BuildPresetKey = "maxAttack" | "maxSpeed" | "maxHp" | "clearIndividual";
 type PreferredAttackStat = "phyAtk" | "magAtk";
+type PersonalityModKey =
+    | "hp_mod_pct"
+    | "phy_atk_mod_pct"
+    | "mag_atk_mod_pct"
+    | "spd_mod_pct";
 type StatKey =
     | "base_hp"
     | "base_phy_atk"
@@ -1981,30 +1986,43 @@ function getPresetPersonalityId(
     presetKey: BuildPresetKey,
     attackStat: PreferredAttackStat,
 ) {
+    const attackPositiveKey =
+        attackStat === "phyAtk" ? "phy_atk_mod_pct" : "mag_atk_mod_pct";
+    const attackDumpKey =
+        attackStat === "phyAtk" ? "mag_atk_mod_pct" : "phy_atk_mod_pct";
+
     if (presetKey === "maxAttack") {
-        return findPositivePersonalityId(
-            attackStat === "phyAtk" ? "phy_atk_mod_pct" : "mag_atk_mod_pct",
-        );
+        return findPersonalityIdByMods(attackPositiveKey, attackDumpKey);
     }
 
     if (presetKey === "maxSpeed") {
-        return findPositivePersonalityId("spd_mod_pct");
+        return findPersonalityIdByMods("spd_mod_pct", attackDumpKey);
     }
 
     if (presetKey === "maxHp") {
-        return findPositivePersonalityId("hp_mod_pct");
+        return (
+            findPersonalityIdByMods("hp_mod_pct", attackDumpKey) ??
+            findPositivePersonalityId("hp_mod_pct")
+        );
     }
 
     return null;
 }
 
-function findPositivePersonalityId(
-    modKey:
-        | "hp_mod_pct"
-        | "phy_atk_mod_pct"
-        | "mag_atk_mod_pct"
-        | "spd_mod_pct",
+function findPersonalityIdByMods(
+    positiveKey: PersonalityModKey,
+    negativeKey: PersonalityModKey,
 ) {
+    return (
+        personalities.value.find(
+            (personality) =>
+                Number(personality[positiveKey]) > 0 &&
+                Number(personality[negativeKey]) < 0,
+        )?.id ?? null
+    );
+}
+
+function findPositivePersonalityId(modKey: PersonalityModKey) {
     return (
         personalities.value.find((personality) => Number(personality[modKey]) > 0)
             ?.id ?? null
