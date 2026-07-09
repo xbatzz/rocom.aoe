@@ -67,6 +67,8 @@ import {
 } from "lucide-vue-next";
 
 type PanelTab = "friends" | "build";
+type BuildPresetKey = "maxAttack" | "maxSpeed" | "maxHp" | "clearIndividual";
+type PreferredAttackStat = "phyAtk" | "magAtk";
 type StatKey =
     | "base_hp"
     | "base_phy_atk"
@@ -214,6 +216,13 @@ const individualStatItems: { key: BattleStatKey; label: string }[] = [
     { key: "phyDef", label: "物防" },
     { key: "magDef", label: "魔防" },
     { key: "speed", label: "速度" },
+];
+
+const buildPresetItems: { key: BuildPresetKey; label: string }[] = [
+    { key: "maxAttack", label: "极限攻击" },
+    { key: "maxSpeed", label: "极速" },
+    { key: "maxHp", label: "极限生命" },
+    { key: "clearIndividual", label: "清空个体" },
 ];
 
 const personalityModKeyMap: Record<StatKey, keyof IPersonality> = {
@@ -1895,6 +1904,130 @@ function updateSlotIndividualValue(
             individualValues: nextValues,
         };
     });
+}
+
+function applyBuildPreset(presetKey: BuildPresetKey) {
+    const friend = activeFriend.value;
+
+    if (!friend) {
+        shareFeedback.value = "请先选择宠物。";
+        return;
+    }
+
+    const attackStat = getPreferredAttackStat(friend);
+    const nextValues = createPresetIndividualValues(presetKey, attackStat);
+    const validation = validateIndividualValues(nextValues);
+
+    if (!validation.valid) {
+        shareFeedback.value = validation.message ?? "构筑预设配置无效。";
+        return;
+    }
+
+    const nextPersonalityId =
+        presetKey === "clearIndividual"
+            ? activeSlot.value.personalityId
+            : getPresetPersonalityId(presetKey, attackStat) ??
+              activeSlot.value.personalityId;
+
+    patchSlot(activeSlot.value.slotId, (slot) => ({
+        ...slot,
+        personalityId: nextPersonalityId,
+        individualValues: nextValues,
+    }));
+
+    shareFeedback.value = `已套用：${getBuildPresetFeedback(presetKey, attackStat)}`;
+}
+
+function createPresetIndividualValues(
+    presetKey: BuildPresetKey,
+    attackStat: PreferredAttackStat,
+): BattleIndividualValues {
+    const values = { ...EMPTY_INDIVIDUAL_VALUES };
+
+    if (presetKey === "clearIndividual") {
+        return values;
+    }
+
+    if (presetKey === "maxHp") {
+        values.hp = normalizeIndividualValue(10);
+        values.phyDef = normalizeIndividualValue(10);
+        values.magDef = normalizeIndividualValue(10);
+        return values;
+    }
+
+    values.hp = normalizeIndividualValue(10);
+    values.speed = normalizeIndividualValue(10);
+    values[attackStat] = normalizeIndividualValue(10);
+
+    return values;
+}
+
+function getPreferredAttackStat(friend: IPets): PreferredAttackStat {
+    if (friend.preferred_attack_style === "Physical") {
+        return "phyAtk";
+    }
+
+    if (
+        friend.preferred_attack_style === "Magic" ||
+        friend.preferred_attack_style === "Magical"
+    ) {
+        return "magAtk";
+    }
+
+    return friend.base_phy_atk >= friend.base_mag_atk ? "phyAtk" : "magAtk";
+}
+
+function getPresetPersonalityId(
+    presetKey: BuildPresetKey,
+    attackStat: PreferredAttackStat,
+) {
+    if (presetKey === "maxAttack") {
+        return findPositivePersonalityId(
+            attackStat === "phyAtk" ? "phy_atk_mod_pct" : "mag_atk_mod_pct",
+        );
+    }
+
+    if (presetKey === "maxSpeed") {
+        return findPositivePersonalityId("spd_mod_pct");
+    }
+
+    if (presetKey === "maxHp") {
+        return findPositivePersonalityId("hp_mod_pct");
+    }
+
+    return null;
+}
+
+function findPositivePersonalityId(
+    modKey:
+        | "hp_mod_pct"
+        | "phy_atk_mod_pct"
+        | "mag_atk_mod_pct"
+        | "spd_mod_pct",
+) {
+    return (
+        personalities.value.find((personality) => Number(personality[modKey]) > 0)
+            ?.id ?? null
+    );
+}
+
+function getBuildPresetFeedback(
+    presetKey: BuildPresetKey,
+    attackStat: PreferredAttackStat,
+) {
+    if (presetKey === "maxAttack") {
+        return `极限攻击（${attackStat === "phyAtk" ? "物攻" : "魔攻"}）`;
+    }
+
+    if (presetKey === "maxSpeed") {
+        return "极速";
+    }
+
+    if (presetKey === "maxHp") {
+        return "极限生命";
+    }
+
+    return "清空个体";
 }
 
 function toggleMoveSelection(moveId: number) {
@@ -3754,6 +3887,35 @@ document.title = "配队工具 - 洛克王国工具箱";
 
                             <div
                                 class="rounded-[10px] border border-border bg-card p-4">
+                                <div
+                                    class="mb-4 rounded-[10px] border border-border bg-white/4 p-3">
+                                    <div
+                                        class="flex flex-wrap items-center justify-between gap-2">
+                                        <div>
+                                            <p
+                                                class="text-sm font-medium text-foreground">
+                                                构筑预设
+                                            </p>
+                                            <p class="text-xs text-foreground">
+                                                快速设置性格和 3 项个体值。
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3 grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
+                                        <Button
+                                            v-for="preset in buildPresetItems"
+                                            :key="preset.key"
+                                            type="button"
+                                            variant="outline"
+                                            class="h-9 rounded-[10px] border-border bg-card text-xs text-foreground hover:bg-accent"
+                                            @click="
+                                                applyBuildPreset(preset.key)
+                                            ">
+                                            {{ preset.label }}
+                                        </Button>
+                                    </div>
+                                </div>
+
                                 <div
                                     class="flex flex-wrap items-center justify-between gap-2">
                                     <div>
