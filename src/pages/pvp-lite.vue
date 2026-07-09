@@ -533,10 +533,23 @@ function selectTeamAlly(slot: SavedTeamBuildSlot) {
 function selectManualAlly(petId: number) {
     allyPetId.value = petId;
     selectedAllyTeamSlot.value = null;
+    allySearchQuery.value = "";
+    showManualAllySearch.value = false;
+    blurActiveElement();
 }
 
 function selectOpponent(petId: number) {
     opponentPetId.value = petId;
+    opponentSearchQuery.value = "";
+    blurActiveElement();
+}
+
+function blurActiveElement() {
+    const activeElement = document.activeElement;
+
+    if (activeElement instanceof HTMLElement) {
+        activeElement.blur();
+    }
 }
 
 function swapSides() {
