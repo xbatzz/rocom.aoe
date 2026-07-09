@@ -35,7 +35,9 @@ import {
 import {
     calculateBattleStat,
     EMPTY_INDIVIDUAL_VALUES,
+    getNatureModifier,
     type BattleIndividualValues,
+    type BattleStatKey,
     type BattleNatureSelection,
     type NatureModifier,
 } from "@/lib/statCalculator";
@@ -57,8 +59,55 @@ interface ResistanceCandidate {
     multiplier: number;
 }
 
+type BattleProfilePreset =
+    | "saved"
+    | "none"
+    | "maxAttack"
+    | "maxSpeed"
+    | "maxHp";
+type PreferredAttackStat = "phyAtk" | "magAtk";
+
+interface BattleProfile {
+    preset: BattleProfilePreset;
+    label: string;
+    individualValues: BattleIndividualValues;
+    nature: BattleNatureSelection;
+}
+
 const EXCLUDED_BATTLE_TYPE_NAMES = new Set(["Leader"]);
 const SEARCH_LIMIT = 8;
+const NEUTRAL_BATTLE_NATURE: BattleNatureSelection = {
+    upStat: null,
+    downStat: null,
+};
+
+const ALLY_PROFILE_PRESETS: Array<{
+    key: BattleProfilePreset;
+    label: string;
+}> = [
+    { key: "saved", label: "当前构筑" },
+    { key: "maxAttack", label: "极限攻击" },
+    { key: "maxSpeed", label: "极速" },
+    { key: "maxHp", label: "极限生命" },
+];
+
+const OPPONENT_PROFILE_PRESETS: Array<{
+    key: BattleProfilePreset;
+    label: string;
+}> = [
+    { key: "none", label: "无配置" },
+    { key: "maxAttack", label: "极限攻击" },
+    { key: "maxSpeed", label: "极速" },
+    { key: "maxHp", label: "极限生命" },
+];
+
+const BATTLE_PROFILE_LABELS: Record<BattleProfilePreset, string> = {
+    saved: "当前构筑",
+    none: "无配置",
+    maxAttack: "极限攻击",
+    maxSpeed: "极速",
+    maxHp: "极限生命",
+};
 
 const pets = ref<IPets[]>([]);
 const types = ref<IMonsterTypeDetail[]>([]);
@@ -70,6 +119,8 @@ const activeTeamName = ref("当前激活队伍");
 const allyPetId = ref<number | null>(null);
 const opponentPetId = ref<number | null>(null);
 const selectedAllyTeamSlot = ref<SavedTeamBuildSlot | null>(null);
+const allyProfilePreset = ref<BattleProfilePreset>("saved");
+const opponentProfilePreset = ref<BattleProfilePreset>("none");
 const opponentSearchQuery = ref("");
 const allySearchQuery = ref("");
 const damageSearchQuery = ref("");
@@ -167,12 +218,14 @@ const allyBattleSpeed = computed(() => {
         return 0;
     }
 
-    const slot = allyDamageBuildSlot.value;
-
     return calculateBattleStat(
         allyPet.value.base_spd,
-        slot?.individualValues.speed ?? 0,
-        getSpeedNatureModifier(slot?.personalityId ?? null),
+        allyBattleProfile.value.individualValues.speed,
+        getNatureModifier(
+            "speed",
+            allyBattleProfile.value.nature.upStat,
+            allyBattleProfile.value.nature.downStat,
+        ),
     );
 });
 
@@ -181,7 +234,15 @@ const opponentBattleSpeed = computed(() => {
         return 0;
     }
 
-    return calculateBattleStat(opponentPet.value.base_spd, 0, 0);
+    return calculateBattleStat(
+        opponentPet.value.base_spd,
+        opponentBattleProfile.value.individualValues.speed,
+        getNatureModifier(
+            "speed",
+            opponentBattleProfile.value.nature.upStat,
+            opponentBattleProfile.value.nature.downStat,
+        ),
+    );
 });
 
 const opponentSpeedPreviewItems = computed(() => {
@@ -217,15 +278,22 @@ const allyDamageBuildSlot = computed(() => {
     return null;
 });
 
-const allyDamageIndividualValues = computed<BattleIndividualValues>(() => {
-    return allyDamageBuildSlot.value?.individualValues ?? EMPTY_INDIVIDUAL_VALUES;
-});
+const allyBattleProfile = computed<BattleProfile>(() =>
+    createBattleProfile(
+        allyPet.value,
+        allyProfilePreset.value,
+        allyDamageBuildSlot.value,
+    ),
+);
 
-const allyDamageNature = computed<BattleNatureSelection>(() => {
-    const personalityId = allyDamageBuildSlot.value?.personalityId ?? null;
-    return personalityToBattleNature(
-        personalityId ? (personalityMap.value.get(personalityId) ?? null) : null,
-    );
+const opponentBattleProfile = computed<BattleProfile>(() =>
+    createBattleProfile(opponentPet.value, opponentProfilePreset.value),
+);
+
+const allyProfilePresetItems = computed(() => {
+    return allyDamageBuildSlot.value
+        ? ALLY_PROFILE_PRESETS
+        : ALLY_PROFILE_PRESETS.filter((item) => item.key !== "saved");
 });
 
 const configuredDamageMoves = computed(() => {
@@ -528,11 +596,13 @@ async function loadData() {
 function selectTeamAlly(slot: SavedTeamBuildSlot) {
     allyPetId.value = slot.friendId;
     selectedAllyTeamSlot.value = slot;
+    allyProfilePreset.value = "saved";
 }
 
 function selectManualAlly(petId: number) {
     allyPetId.value = petId;
     selectedAllyTeamSlot.value = null;
+    allyProfilePreset.value = "none";
     allySearchQuery.value = "";
     showManualAllySearch.value = false;
     blurActiveElement();
@@ -540,6 +610,7 @@ function selectManualAlly(petId: number) {
 
 function selectOpponent(petId: number) {
     opponentPetId.value = petId;
+    opponentProfilePreset.value = "none";
     opponentSearchQuery.value = "";
     blurActiveElement();
 }
@@ -554,8 +625,15 @@ function blurActiveElement() {
 
 function swapSides() {
     const nextAllyPetId = opponentPetId.value;
+    const nextAllyPreset = opponentProfilePreset.value;
+    const nextOpponentPreset = normalizeOpponentProfilePreset(
+        allyProfilePreset.value,
+    );
+
     opponentPetId.value = allyPetId.value;
     allyPetId.value = nextAllyPetId;
+    allyProfilePreset.value = nextAllyPreset;
+    opponentProfilePreset.value = nextOpponentPreset;
     selectedAllyTeamSlot.value = null;
 }
 
@@ -563,10 +641,17 @@ function resetAll() {
     allyPetId.value = null;
     opponentPetId.value = null;
     selectedAllyTeamSlot.value = null;
+    allyProfilePreset.value = "saved";
+    opponentProfilePreset.value = "none";
     opponentSearchQuery.value = "";
     allySearchQuery.value = "";
     damageSearchQuery.value = "";
     selectedDefenseTypeName.value = "";
+    showManualAllySearch.value = false;
+}
+
+function normalizeOpponentProfilePreset(preset: BattleProfilePreset) {
+    return preset === "saved" ? "none" : preset;
 }
 
 function calculateDamage(move: DamageMove) {
@@ -575,16 +660,124 @@ function calculateDamage(move: DamageMove) {
         defenderPet: opponentPet.value!,
         move,
         typeMap: typeMap.value,
-        attackerIndividualValues:
-            allyDamageBuildSlot.value?.individualValues ??
-            EMPTY_INDIVIDUAL_VALUES,
-        defenderIndividualValues: EMPTY_INDIVIDUAL_VALUES,
-        attackerNature: allyDamageNature.value,
-        defenderNature: {
-            upStat: null,
-            downStat: null,
-        },
+        attackerIndividualValues: allyBattleProfile.value.individualValues,
+        defenderIndividualValues: opponentBattleProfile.value.individualValues,
+        attackerNature: allyBattleProfile.value.nature,
+        defenderNature: opponentBattleProfile.value.nature,
     });
+}
+
+function createBattleProfile(
+    pet: IPets | null,
+    preset: BattleProfilePreset,
+    savedSlot: SavedTeamBuildSlot | null = null,
+): BattleProfile {
+    if (preset === "saved" && savedSlot) {
+        const personality = savedSlot.personalityId
+            ? (personalityMap.value.get(savedSlot.personalityId) ?? null)
+            : null;
+
+        return {
+            preset,
+            label: BATTLE_PROFILE_LABELS.saved,
+            individualValues: { ...savedSlot.individualValues },
+            nature: personalityToBattleNature(personality),
+        };
+    }
+
+    if (!pet || preset === "none" || preset === "saved") {
+        return createNoneBattleProfile();
+    }
+
+    const attackStat = getPreferredAttackStat(pet);
+    const individualValues = createPresetIndividualValues(preset, attackStat);
+
+    return {
+        preset,
+        label: BATTLE_PROFILE_LABELS[preset],
+        individualValues,
+        nature: createPresetNature(preset, attackStat),
+    };
+}
+
+function createNoneBattleProfile(): BattleProfile {
+    return {
+        preset: "none",
+        label: BATTLE_PROFILE_LABELS.none,
+        individualValues: { ...EMPTY_INDIVIDUAL_VALUES },
+        nature: { ...NEUTRAL_BATTLE_NATURE },
+    };
+}
+
+function createPresetIndividualValues(
+    preset: BattleProfilePreset,
+    attackStat: PreferredAttackStat,
+): BattleIndividualValues {
+    const values = { ...EMPTY_INDIVIDUAL_VALUES };
+
+    if (preset === "maxHp") {
+        values.hp = 10;
+        values.phyDef = 10;
+        values.magDef = 10;
+        return values;
+    }
+
+    if (preset === "maxAttack" || preset === "maxSpeed") {
+        values.hp = 10;
+        values.speed = 10;
+        values[attackStat] = 10;
+    }
+
+    return values;
+}
+
+function createPresetNature(
+    preset: BattleProfilePreset,
+    attackStat: PreferredAttackStat,
+): BattleNatureSelection {
+    const attackDumpStat = getAttackDumpStat(attackStat);
+
+    if (preset === "maxAttack") {
+        return {
+            upStat: attackStat,
+            downStat: attackDumpStat,
+        };
+    }
+
+    if (preset === "maxSpeed") {
+        return {
+            upStat: "speed",
+            downStat: attackDumpStat,
+        };
+    }
+
+    if (preset === "maxHp") {
+        return {
+            upStat: "hp",
+            downStat: attackDumpStat,
+        };
+    }
+
+    return { ...NEUTRAL_BATTLE_NATURE };
+}
+
+function getPreferredAttackStat(pet: IPets): PreferredAttackStat {
+    if (pet.preferred_attack_style === "Physical") {
+        return "phyAtk";
+    }
+
+    if (
+        pet.preferred_attack_style === "Magic" ||
+        pet.preferred_attack_style === "Magical"
+    ) {
+        return "magAtk";
+    }
+
+    return pet.base_phy_atk >= pet.base_mag_atk ? "phyAtk" : "magAtk";
+}
+
+function getAttackDumpStat(attackStat: PreferredAttackStat): BattleStatKey {
+    return attackStat === "phyAtk" ? "magAtk" : "phyAtk";
 }
 
 function personalityToBattleNature(
@@ -613,26 +806,6 @@ function personalityToBattleNature(
         upStat: entries.find((entry) => entry.modifier > 0)?.key ?? null,
         downStat: entries.find((entry) => entry.modifier < 0)?.key ?? null,
     };
-}
-
-function getSpeedNatureModifier(personalityId: number | null): NatureModifier {
-    if (personalityId === null) {
-        return 0;
-    }
-
-    const modifier = Number(
-        personalityMap.value.get(personalityId)?.spd_mod_pct ?? 0,
-    );
-
-    if (modifier > 0) {
-        return 0.2;
-    }
-
-    if (modifier < 0) {
-        return -0.1;
-    }
-
-    return 0;
 }
 
 function getDamageMoveById(moveId: number) {
@@ -732,6 +905,22 @@ function getDamageKoText(result: PaperDamageResult | null | undefined) {
     return result.estimatedHitsToKo
         ? `约 ${result.estimatedHitsToKo} 次击倒`
         : "暂无法估算";
+}
+
+function getBattleProfileSummary(profile: BattleProfile) {
+    const activeValues = [
+        ["hp", "血", profile.individualValues.hp],
+        ["phyAtk", "物攻", profile.individualValues.phyAtk],
+        ["magAtk", "魔攻", profile.individualValues.magAtk],
+        ["phyDef", "物防", profile.individualValues.phyDef],
+        ["magDef", "魔防", profile.individualValues.magDef],
+        ["speed", "速", profile.individualValues.speed],
+    ]
+        .filter(([, , value]) => Number(value) > 0)
+        .map(([, label, value]) => `${label}${value}`);
+    const valuesText = activeValues.length ? activeValues.join(" / ") : "无个体";
+
+    return `当前：${profile.label} · ${valuesText}`;
 }
 
 function getTeamSlotForPet(petId: number) {
@@ -898,6 +1087,30 @@ document.title = "对战助手 - 洛克王国工具箱";
                                     <p class="mt-2 text-xs font-semibold text-slate-600">
                                         实战速度 {{ allyBattleSpeed }}
                                     </p>
+                                    <div class="mt-3 grid grid-cols-2 gap-1.5">
+                                        <button
+                                            v-for="preset in allyProfilePresetItems"
+                                            :key="preset.key"
+                                            type="button"
+                                            class="rounded-full px-2 py-1 text-[11px] font-bold transition"
+                                            :class="
+                                                allyProfilePreset === preset.key
+                                                    ? 'bg-emerald-700 text-white shadow-sm'
+                                                    : 'bg-white text-emerald-700'
+                                            "
+                                            @click="
+                                                allyProfilePreset = preset.key
+                                            ">
+                                            {{ preset.label }}
+                                        </button>
+                                    </div>
+                                    <p class="mt-2 text-xs leading-5 text-slate-500">
+                                        {{
+                                            getBattleProfileSummary(
+                                                allyBattleProfile,
+                                            )
+                                        }}
+                                    </p>
                                 </div>
                             </div>
                             <div
@@ -945,7 +1158,31 @@ document.title = "对战助手 - 洛克王国工具箱";
                                         </span>
                                     </div>
                                     <p class="mt-2 text-xs font-semibold text-slate-600">
-                                        默认速度 {{ opponentBattleSpeed }}
+                                        实战速度 {{ opponentBattleSpeed }}
+                                    </p>
+                                    <div class="mt-3 grid grid-cols-2 gap-1.5">
+                                        <button
+                                            v-for="preset in OPPONENT_PROFILE_PRESETS"
+                                            :key="preset.key"
+                                            type="button"
+                                            class="rounded-full px-2 py-1 text-[11px] font-bold transition"
+                                            :class="
+                                                opponentProfilePreset === preset.key
+                                                    ? 'bg-rose-700 text-white shadow-sm'
+                                                    : 'bg-white text-rose-700'
+                                            "
+                                            @click="
+                                                opponentProfilePreset = preset.key
+                                            ">
+                                            {{ preset.label }}
+                                        </button>
+                                    </div>
+                                    <p class="mt-2 text-xs leading-5 text-slate-500">
+                                        {{
+                                            getBattleProfileSummary(
+                                                opponentBattleProfile,
+                                            )
+                                        }}
                                     </p>
                                 </div>
                             </div>
