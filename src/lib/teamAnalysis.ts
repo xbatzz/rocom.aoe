@@ -219,7 +219,23 @@ export function getRelationLabel(net: number) {
 }
 
 export function getTypeMultiplier(net: number) {
-    return Number((2 ** net).toFixed(2));
+    if (net >= 2) {
+        return 3;
+    }
+
+    if (net === 1) {
+        return 2;
+    }
+
+    if (net === 0) {
+        return 1;
+    }
+
+    if (net === -1) {
+        return 0.5;
+    }
+
+    return 0.25;
 }
 
 export function buildSpeedReferenceEntries(pets: IPets[], speedModifier = 0) {
