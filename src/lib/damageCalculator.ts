@@ -31,10 +31,12 @@ export type DamageMove = Omit<IPetsMove, "move_type" | "power"> & {
     power: number | null;
 };
 
+export type DamageMoveCategory = "Physical Attack" | "Magic Attack";
+
 export type CalculableDamageMove = DamageMove & {
     move_type: IPetsType;
     power: number;
-    move_category: "Physical Attack" | "Magic Attack";
+    move_category: DamageMoveCategory;
 };
 
 export interface PaperDamageInput {
@@ -62,7 +64,7 @@ export interface PaperDamageResult {
     reason?: string;
     movePower?: number;
     moveType?: IPetsType;
-    moveCategory?: "Physical Attack" | "Magic Attack";
+    moveCategory?: DamageMoveCategory;
     attackStatName?: string;
     defenseStatName?: string;
     attackStatValue?: number;
@@ -79,6 +81,13 @@ export interface PaperDamageResult {
     damagePercent?: number;
     estimatedHitsToKo?: number | null;
 }
+
+export type MinimumOneHitPowerInput = Omit<PaperDamageInput, "move"> & {
+    moveType: IPetsType;
+    moveCategory: DamageMoveCategory;
+    maxPower?: number;
+    targetHpPercent?: number;
+};
 
 const NEUTRAL_NATURE: BattleNatureSelection = {
     upStat: null,
@@ -245,6 +254,80 @@ export function calculatePaperDamage(
         estimatedHitsToKo:
             totalDamage > 0 ? Math.ceil(defenderHp / totalDamage) : null,
     };
+}
+
+export function calculateMinimumOneHitPower(
+    input: MinimumOneHitPowerInput,
+): number | null {
+    const targetHpPercent = normalizePercent(input.targetHpPercent, 100);
+
+    if (targetHpPercent === 0) {
+        return 0;
+    }
+
+    const maxPower = Math.max(1, Math.round(input.maxPower ?? 5000));
+
+    if (!doesPowerOneHit(maxPower, targetHpPercent, input)) {
+        return null;
+    }
+
+    let low = 1;
+    let high = maxPower;
+
+    while (low < high) {
+        const middle = Math.floor((low + high) / 2);
+
+        if (doesPowerOneHit(middle, targetHpPercent, input)) {
+            high = middle;
+        } else {
+            low = middle + 1;
+        }
+    }
+
+    return low;
+}
+
+function doesPowerOneHit(
+    power: number,
+    targetHpPercent: number,
+    input: MinimumOneHitPowerInput,
+) {
+    const move: DamageMove = {
+        id: -1,
+        name: "MinimumOneHitPower",
+        icon_id: null,
+        move_type: input.moveType,
+        localized: {
+            zh: {
+                name: "一击威力线",
+                description: "",
+            },
+        },
+        move_category: input.moveCategory,
+        energy_cost: 0,
+        power,
+        description: "",
+    };
+    const result = calculatePaperDamage({
+        ...input,
+        move,
+    });
+    const targetHp = Math.ceil(
+        (result.defenderHp ?? Number.POSITIVE_INFINITY) *
+            (targetHpPercent / 100),
+    );
+
+    return result.valid && (result.totalDamage ?? 0) >= targetHp;
+}
+
+function normalizePercent(value: unknown, fallback: number) {
+    const numericValue = Number(value);
+
+    if (!Number.isFinite(numericValue)) {
+        return fallback;
+    }
+
+    return Math.min(100, Math.max(0, Math.round(numericValue)));
 }
 
 function sanitizePositiveNumber(value: unknown, fallback: number) {

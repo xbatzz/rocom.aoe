@@ -42,8 +42,10 @@ import {
     type NatureModifier,
 } from "@/lib/statCalculator";
 import {
+    calculateMinimumOneHitPower,
     calculatePaperDamage,
     isDamageCalculableMove,
+    type DamageMoveCategory,
     type DamageMove,
     type PaperDamageResult,
 } from "@/lib/damageCalculator";
@@ -51,6 +53,20 @@ import {
 interface DamageOption {
     move: DamageMove;
     result: PaperDamageResult;
+}
+
+interface OneHitPowerLine {
+    label: "本系" | "非本系";
+    requiredPower: number | null;
+    moveCategory: DamageMoveCategory;
+    moveType: IPetsType | null;
+    typeMultiplier: number;
+}
+
+interface SideOneHitPowerLines {
+    attackerLabel: string;
+    defenderLabel: string;
+    lines: OneHitPowerLine[];
 }
 
 interface ResistanceCandidate {
@@ -121,6 +137,8 @@ const opponentPetId = ref<number | null>(null);
 const selectedAllyTeamSlot = ref<SavedTeamBuildSlot | null>(null);
 const allyProfilePreset = ref<BattleProfilePreset>("saved");
 const opponentProfilePreset = ref<BattleProfilePreset>("none");
+const allyHpPercent = ref(100);
+const opponentHpPercent = ref(100);
 const opponentSearchQuery = ref("");
 const allySearchQuery = ref("");
 const damageSearchQuery = ref("");
@@ -347,6 +365,38 @@ const damageOptions = computed<DamageOption[]>(() => {
 });
 
 const recommendedDamageOption = computed(() => damageOptions.value[0] ?? null);
+
+const allyOneHitPowerLines = computed<SideOneHitPowerLines | null>(() => {
+    if (!allyPet.value || !opponentPet.value) {
+        return null;
+    }
+
+    return createOneHitPowerLines(
+        allyPet.value,
+        opponentPet.value,
+        allyBattleProfile.value,
+        opponentBattleProfile.value,
+        opponentHpPercent.value,
+        "我方",
+        "对方",
+    );
+});
+
+const opponentOneHitPowerLines = computed<SideOneHitPowerLines | null>(() => {
+    if (!allyPet.value || !opponentPet.value) {
+        return null;
+    }
+
+    return createOneHitPowerLines(
+        opponentPet.value,
+        allyPet.value,
+        opponentBattleProfile.value,
+        allyBattleProfile.value,
+        allyHpPercent.value,
+        "对方",
+        "我方",
+    );
+});
 
 const allyAttackMatchups = computed(() => {
     if (!allyPet.value || !opponentPet.value) {
@@ -597,12 +647,14 @@ function selectTeamAlly(slot: SavedTeamBuildSlot) {
     allyPetId.value = slot.friendId;
     selectedAllyTeamSlot.value = slot;
     allyProfilePreset.value = "saved";
+    allyHpPercent.value = 100;
 }
 
 function selectManualAlly(petId: number) {
     allyPetId.value = petId;
     selectedAllyTeamSlot.value = null;
     allyProfilePreset.value = "none";
+    allyHpPercent.value = 100;
     allySearchQuery.value = "";
     showManualAllySearch.value = false;
     blurActiveElement();
@@ -611,6 +663,7 @@ function selectManualAlly(petId: number) {
 function selectOpponent(petId: number) {
     opponentPetId.value = petId;
     opponentProfilePreset.value = "none";
+    opponentHpPercent.value = 100;
     opponentSearchQuery.value = "";
     blurActiveElement();
 }
@@ -629,11 +682,14 @@ function swapSides() {
     const nextOpponentPreset = normalizeOpponentProfilePreset(
         allyProfilePreset.value,
     );
+    const nextAllyHpPercent = opponentHpPercent.value;
 
     opponentPetId.value = allyPetId.value;
     allyPetId.value = nextAllyPetId;
     allyProfilePreset.value = nextAllyPreset;
     opponentProfilePreset.value = nextOpponentPreset;
+    opponentHpPercent.value = allyHpPercent.value;
+    allyHpPercent.value = nextAllyHpPercent;
     selectedAllyTeamSlot.value = null;
 }
 
@@ -643,6 +699,8 @@ function resetAll() {
     selectedAllyTeamSlot.value = null;
     allyProfilePreset.value = "saved";
     opponentProfilePreset.value = "none";
+    allyHpPercent.value = 100;
+    opponentHpPercent.value = 100;
     opponentSearchQuery.value = "";
     allySearchQuery.value = "";
     damageSearchQuery.value = "";
@@ -665,6 +723,135 @@ function calculateDamage(move: DamageMove) {
         attackerNature: allyBattleProfile.value.nature,
         defenderNature: opponentBattleProfile.value.nature,
     });
+}
+
+function createOneHitPowerLines(
+    attackerPet: IPets,
+    defenderPet: IPets,
+    attackerProfile: BattleProfile,
+    defenderProfile: BattleProfile,
+    defenderHpPercent: number,
+    attackerLabel: string,
+    defenderLabel: string,
+): SideOneHitPowerLines {
+    const moveCategory =
+        getPreferredAttackStat(attackerPet) === "phyAtk"
+            ? "Physical Attack"
+            : "Magic Attack";
+    const stabCandidates = getBattlePetTypes(attackerPet)
+        .map((moveType) =>
+            createOneHitPowerLine(
+                "本系",
+                attackerPet,
+                defenderPet,
+                attackerProfile,
+                defenderProfile,
+                defenderHpPercent,
+                moveCategory,
+                moveType,
+            ),
+        )
+        .sort(compareOneHitPowerLines);
+    const neutralNonStabType =
+        Array.from(typeMap.value.values()).find((moveType) => {
+            if (
+                isExcludedBattleType(moveType) ||
+                getBattlePetTypes(attackerPet).some(
+                    (petType) => petType.id === moveType.id,
+                )
+            ) {
+                return false;
+            }
+
+            const net = getTypeRelationNet(
+                defenderPet,
+                moveType.name,
+                typeMap.value,
+            );
+            return getTypeMultiplier(net) === 1;
+        }) ?? null;
+
+    return {
+        attackerLabel,
+        defenderLabel,
+        lines: [
+            stabCandidates[0] ??
+                createUnavailableOneHitPowerLine("本系", moveCategory),
+            neutralNonStabType
+                ? createOneHitPowerLine(
+                      "非本系",
+                      attackerPet,
+                      defenderPet,
+                      attackerProfile,
+                      defenderProfile,
+                      defenderHpPercent,
+                      moveCategory,
+                      neutralNonStabType,
+                  )
+                : createUnavailableOneHitPowerLine("非本系", moveCategory),
+        ],
+    };
+}
+
+function createOneHitPowerLine(
+    label: OneHitPowerLine["label"],
+    attackerPet: IPets,
+    defenderPet: IPets,
+    attackerProfile: BattleProfile,
+    defenderProfile: BattleProfile,
+    defenderHpPercent: number,
+    moveCategory: OneHitPowerLine["moveCategory"],
+    moveType: IPetsType,
+): OneHitPowerLine {
+    const result = calculateMinimumOneHitPower({
+        attackerPet,
+        defenderPet,
+        moveType,
+        moveCategory,
+        typeMap: typeMap.value,
+        attackerIndividualValues: attackerProfile.individualValues,
+        defenderIndividualValues: defenderProfile.individualValues,
+        attackerNature: attackerProfile.nature,
+        defenderNature: defenderProfile.nature,
+        targetHpPercent: defenderHpPercent,
+    });
+    const typeNet = getTypeRelationNet(
+        defenderPet,
+        moveType.name,
+        typeMap.value,
+    );
+
+    return {
+        label,
+        requiredPower: result,
+        moveCategory,
+        moveType,
+        typeMultiplier: getTypeMultiplier(typeNet),
+    };
+}
+
+function createUnavailableOneHitPowerLine(
+    label: OneHitPowerLine["label"],
+    moveCategory: OneHitPowerLine["moveCategory"],
+): OneHitPowerLine {
+    return {
+        label,
+        requiredPower: null,
+        moveCategory,
+        moveType: null,
+        typeMultiplier: 1,
+    };
+}
+
+function compareOneHitPowerLines(
+    left: OneHitPowerLine,
+    right: OneHitPowerLine,
+) {
+    return (
+        (left.requiredPower ?? Number.POSITIVE_INFINITY) -
+            (right.requiredPower ?? Number.POSITIVE_INFINITY) ||
+        right.typeMultiplier - left.typeMultiplier
+    );
 }
 
 function createBattleProfile(
@@ -905,6 +1092,13 @@ function getDamageKoText(result: PaperDamageResult | null | undefined) {
     return result.estimatedHitsToKo
         ? `约 ${result.estimatedHitsToKo} 次击倒`
         : "暂无法估算";
+}
+
+function getOneHitPowerLineMeta(line: OneHitPowerLine) {
+    const category = getMoveCategoryLabel(line.moveCategory);
+    const typeLabel = line.moveType?.localized.zh ?? "无可用属性";
+
+    return `${category} · ${typeLabel} · ${line.typeMultiplier}x`;
 }
 
 function getBattleProfileSummary(profile: BattleProfile) {
@@ -1356,6 +1550,120 @@ document.title = "对战助手 - 洛克王国工具箱";
                             没有找到可计算技能。
                         </p>
                     </div>
+                </CardContent>
+            </Card>
+
+            <Card class="rounded-[28px] border-violet-100 bg-white/90 shadow-md shadow-violet-100/50">
+                <CardContent class="space-y-3 p-4 md:p-5">
+                    <div class="flex items-start justify-between gap-3">
+                        <div>
+                            <p class="text-sm font-black text-slate-950">
+                                一击威力线
+                            </p>
+                            <p class="text-xs leading-5 text-slate-500">
+                                按双方当前临时构筑的主攻项，反推一击所需最低基础威力
+                            </p>
+                        </div>
+                        <Badge class="shrink-0 rounded-full bg-violet-100 text-violet-700 hover:bg-violet-100">
+                            理论参考
+                        </Badge>
+                    </div>
+
+                    <div
+                        v-if="allyOneHitPowerLines && opponentOneHitPowerLines"
+                        class="space-y-3"
+                    >
+                        <div class="grid gap-2 sm:grid-cols-2">
+                            <label
+                                class="rounded-[20px] border border-cyan-100 bg-cyan-50/70 px-3 py-3"
+                            >
+                                <span class="flex items-center justify-between gap-3">
+                                    <span class="text-xs font-black text-cyan-800">
+                                        我方当前生命
+                                    </span>
+                                    <span class="text-sm font-black text-slate-950">
+                                        {{ allyHpPercent }}%
+                                    </span>
+                                </span>
+                                <input
+                                    v-model.number="allyHpPercent"
+                                    type="range"
+                                    min="0"
+                                    max="100"
+                                    step="1"
+                                    class="mt-2 h-2 w-full cursor-pointer accent-cyan-600"
+                                />
+                            </label>
+                            <label
+                                class="rounded-[20px] border border-rose-100 bg-rose-50/70 px-3 py-3"
+                            >
+                                <span class="flex items-center justify-between gap-3">
+                                    <span class="text-xs font-black text-rose-800">
+                                        对方当前生命
+                                    </span>
+                                    <span class="text-sm font-black text-slate-950">
+                                        {{ opponentHpPercent }}%
+                                    </span>
+                                </span>
+                                <input
+                                    v-model.number="opponentHpPercent"
+                                    type="range"
+                                    min="0"
+                                    max="100"
+                                    step="1"
+                                    class="mt-2 h-2 w-full cursor-pointer accent-rose-600"
+                                />
+                            </label>
+                        </div>
+
+                        <div class="grid gap-2 sm:grid-cols-2">
+                            <div
+                                v-for="side in [
+                                    allyOneHitPowerLines,
+                                    opponentOneHitPowerLines,
+                                ]"
+                                :key="side.attackerLabel"
+                                class="rounded-[22px] border border-violet-100 bg-violet-50/70 p-3"
+                            >
+                                <p class="text-xs font-black text-violet-700">
+                                    {{ side.attackerLabel }} →
+                                    {{ side.defenderLabel }}
+                                </p>
+                                <div class="mt-2 grid grid-cols-2 gap-2">
+                                    <div
+                                        v-for="line in side.lines"
+                                        :key="line.label"
+                                        class="rounded-[16px] bg-white px-3 py-2"
+                                    >
+                                        <p class="text-xs font-semibold text-slate-500">
+                                            {{ line.label }}
+                                        </p>
+                                        <p class="mt-1 text-xl font-black text-slate-950">
+                                            {{
+                                                line.requiredPower === null
+                                                    ? "-"
+                                                    : `≥ ${line.requiredPower}`
+                                            }}
+                                        </p>
+                                        <p class="mt-1 text-[11px] leading-4 text-slate-500">
+                                            {{ getOneHitPowerLineMeta(line) }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        v-else
+                        class="rounded-[20px] border border-dashed border-violet-200 bg-violet-50 px-4 py-4 text-sm font-semibold text-violet-800"
+                    >
+                        选择双方宠物后查看一击所需技能威力。
+                    </div>
+
+                    <p class="text-xs leading-5 text-slate-500">
+                        生命滑块只调整当前剩余生命；本系取自身属性中对目标倍率更高的一项，非本系按等倍覆盖属性估算。未考虑技能特效、先制、天气、异常、护盾和多段技能。
+                    </p>
                 </CardContent>
             </Card>
 
