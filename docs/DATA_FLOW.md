@@ -2,6 +2,9 @@
 
 本文基于 `package.json`、`scripts/`、`public/data/` 以及页面中的实际 `fetch` 调用整理。结论先行：项目把游戏原始表放在 `public/data/BinData/`，再通过脚本生成适合前端读取的索引、详情和少量表镜像。个人收藏、备注等用户数据不应写进这些原始/生成数据文件。
 
+完整的 FModel 解包、补丁层、本地化、赛季识别和图片导入流程见
+[`SEASON_DATA_UPDATE.md`](./SEASON_DATA_UPDATE.md)。
+
 ## 1. `yarn sync:pet-data` 实际执行了哪个脚本？
 
 `package.json` 中的命令是：

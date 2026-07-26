@@ -2,6 +2,9 @@
 
 本文面向当前 fork 项目，目标是在继续同步 `aoe-top/rocom.aoe.top` 上游更新时，尽量减少冲突，并把个人收藏、备注、每日任务、常用队伍等私有功能和上游基础游戏数据隔离开。
 
+赛季游戏数据的解包与导入属于单独流程，详见
+[`SEASON_DATA_UPDATE.md`](./SEASON_DATA_UPDATE.md)。
+
 ## 1. `public/data` 下哪些文件是基础游戏数据
 
 `public/data` 里有三层数据，需要分开看：
