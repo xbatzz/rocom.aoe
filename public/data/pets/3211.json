@@ -1,7 +1,7 @@
 {
     "id": 3211,
     "name": "yileilong",
-    "form": "伊雷龙",
+    "form": "default",
     "main_type": {
         "id": 8,
         "name": "Dragon",
@@ -37,7 +37,7 @@
         "id": 203,
         "name": "yileilong",
         "localized": {
-            "zh": "常见于湖面"
+            "zh": "伊雷龙"
         }
     },
     "trait": {
@@ -670,6 +670,50 @@
             "energy_cost": 1,
             "power": null,
             "description": "减​伤90%，​应对攻击。​​​巧变：龙系​状态技能。"
+        },
+        {
+            "id": 7030580,
+            "name": "撒花",
+            "icon_id": "202043",
+            "move_type": {
+                "id": 2,
+                "name": "Grass",
+                "localized": {
+                    "zh": "草"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "撒花",
+                    "description": "造成魔伤，选择：自己生命大于80%时威力+50或应对状态时自己回复35%生命。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 4,
+            "power": 95,
+            "description": "造成魔伤，选择：自己生命大于80%时威力+50或应对状态时自己回复35%生命。"
+        },
+        {
+            "id": 7100300,
+            "name": "龙守望",
+            "icon_id": "209020",
+            "move_type": {
+                "id": 8,
+                "name": "Dragon",
+                "localized": {
+                    "zh": "龙"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "龙守望",
+                    "description": "下次技能无需蓄力，本技能可在蓄力状态下使用。选择：本次能耗-1或应对防御时打断，敌方下回合获得眩晕。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 1,
+            "power": null,
+            "description": "下次技能无需蓄力，本技能可在蓄力状态下使用。选择：本次能耗-1或应对防御时打断，敌方下回合获得眩晕。"
         }
     ],
     "legacy_moves": [
@@ -1169,7 +1213,7 @@
                         "id": 3211,
                         "species_id": 203,
                         "name": "yileilong",
-                        "form": "伊雷龙",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "伊雷龙"
@@ -1196,7 +1240,7 @@
                         "id": 3412,
                         "species_id": 204,
                         "name": "yinlanyalong",
-                        "form": "伊兰亚龙",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "伊兰亚龙"
@@ -1225,8 +1269,8 @@
         "current_monster_id": 3211
     },
     "world_profile": {
-        "type_desc": "爆炸头精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "水龙精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "幼年的小龙喜欢在雨天调皮捣蛋，充满水分的环境令它们十分活跃，在水里游得飞快，小洛克抓也抓不住它们。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1241,13 +1285,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3211001,
         "pet_id": 3211001,
-        "name": "小帕尔",
+        "name": null,
         "model_id": 3211001,
         "hatch_data": 72000,
         "weight_low": 9520,
@@ -1255,21 +1299,15 @@
         "height_low": 31,
         "height_high": 39,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            400,
-            3125
-        ],
-        "egg_add_glass_prob_array": [
-            2,
-            113
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3211001,
                 "pet_id": 3211001,
-                "name": "小帕尔",
+                "name": null,
                 "model_id": 3211001,
                 "hatch_data": 72000,
                 "weight_low": 9520,
@@ -1277,21 +1315,15 @@
                 "height_low": 31,
                 "height_high": 39,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3211002,
                 "pet_id": 3211002,
-                "name": "瑰眼仔",
+                "name": null,
                 "model_id": 3211001,
                 "hatch_data": 300,
                 "weight_low": 9520,
@@ -1299,21 +1331,15 @@
                 "height_low": 31,
                 "height_high": 39,
                 "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3211003,
                 "pet_id": 3211003,
-                "name": "瑰眼仔",
+                "name": null,
                 "model_id": 3211001,
                 "hatch_data": 300,
                 "weight_low": 9520,
@@ -1321,21 +1347,15 @@
                 "height_low": 31,
                 "height_high": 39,
                 "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3211004,
                 "pet_id": 3211004,
-                "name": "小帕尔",
+                "name": null,
                 "model_id": 3211001,
                 "hatch_data": 72000,
                 "weight_low": 9520,
@@ -1346,50 +1366,12 @@
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3262003,
-                "pet_id": 3262003,
-                "name": "伊雷龙",
-                "model_id": 3262001,
-                "hatch_data": 300,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3268001,
-                "pet_id": 3268001,
-                "name": "伊雷龙",
-                "model_id": 3268001,
-                "hatch_data": 72000,
-                "weight_low": 6510,
-                "weight_high": 13400,
-                "height_low": 36,
-                "height_high": 42,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 32110001,
                 "pet_id": 32110001,
-                "name": "小帕尔",
+                "name": null,
                 "model_id": 3211001,
                 "hatch_data": 300,
                 "weight_low": 9520,
@@ -1397,200 +1379,6 @@
                 "height_low": 31,
                 "height_high": 39,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 32680001,
-                "pet_id": 32680001,
-                "name": "伊雷龙",
-                "model_id": 3268001,
-                "hatch_data": 300,
-                "weight_low": 6510,
-                "weight_high": 13400,
-                "height_low": 36,
-                "height_high": 42,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000012,
-                "pet_id": 91000012,
-                "name": "伊雷龙",
-                "model_id": 3268001,
-                "hatch_data": 72000,
-                "weight_low": 6510,
-                "weight_high": 13400,
-                "height_low": 36,
-                "height_high": 42,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000012,
-                "pet_id": 92000012,
-                "name": "伊雷龙",
-                "model_id": 3268001,
-                "hatch_data": 72000,
-                "weight_low": 6510,
-                "weight_high": 13400,
-                "height_low": 36,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000012,
-                "pet_id": 93000012,
-                "name": "伊雷龙",
-                "model_id": 3268001,
-                "hatch_data": 72000,
-                "weight_low": 6510,
-                "weight_high": 13400,
-                "height_low": 36,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000012,
-                "pet_id": 94000012,
-                "name": "伊雷龙",
-                "model_id": 3268001,
-                "hatch_data": 72000,
-                "weight_low": 6510,
-                "weight_high": 13400,
-                "height_low": 36,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000030,
-                "pet_id": 95000030,
-                "name": "伊雷龙",
-                "model_id": 3268001,
-                "hatch_data": 72000,
-                "weight_low": 6510,
-                "weight_high": 13400,
-                "height_low": 36,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000012,
-                "pet_id": 96000012,
-                "name": "伊雷龙",
-                "model_id": 3268001,
-                "hatch_data": 72000,
-                "weight_low": 6510,
-                "weight_high": 13400,
-                "height_low": 36,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000012,
-                "pet_id": 97000012,
-                "name": "伊雷龙",
-                "model_id": 3268001,
-                "hatch_data": 72000,
-                "weight_low": 6510,
-                "weight_high": 13400,
-                "height_low": 36,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000012,
-                "pet_id": 98000012,
-                "name": "伊雷龙",
-                "model_id": 3268001,
-                "hatch_data": 72000,
-                "weight_low": 6510,
-                "weight_high": 13400,
-                "height_low": 36,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000030,
-                "pet_id": 99000030,
-                "name": "伊雷龙",
-                "model_id": 3268001,
-                "hatch_data": 72000,
-                "weight_low": 6510,
-                "weight_high": 13400,
-                "height_low": 36,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000072,
-                "pet_id": 99000072,
-                "name": "伊雷龙",
-                "model_id": 3268001,
-                "hatch_data": 72000,
-                "weight_low": 6510,
-                "weight_high": 13400,
-                "height_low": 36,
-                "height_high": 42,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1599,7 +1387,7 @@
             {
                 "id": 99000083,
                 "pet_id": 99000083,
-                "name": "小帕尔",
+                "name": null,
                 "model_id": 3211001,
                 "hatch_data": 72000,
                 "weight_low": 9520,

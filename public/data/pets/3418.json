@@ -597,13 +597,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7021130,
@@ -1165,13 +1165,13 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 500,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3418001,
         "pet_id": 3418001,
-        "name": "丢丢",
+        "name": null,
         "model_id": 3418001,
         "hatch_data": 72000,
         "weight_low": 13475,
@@ -1179,49 +1179,21 @@
         "height_low": 55,
         "height_high": 58,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            400,
-            3125
-        ],
-        "egg_add_glass_prob_array": [
-            2,
-            113
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3418001,
                 "pet_id": 3418001,
-                "name": "丢丢",
+                "name": null,
                 "model_id": 3418001,
                 "hatch_data": 72000,
                 "weight_low": 13475,
                 "weight_high": 17400,
                 "height_low": 55,
                 "height_high": 58,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3591001,
-                "pet_id": 3591001,
-                "name": "格斗小八",
-                "model_id": 3591001,
-                "hatch_data": 1,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
                 "precious_egg_type": null,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
@@ -1231,7 +1203,7 @@
             {
                 "id": 34180001,
                 "pet_id": 34180001,
-                "name": "丢丢",
+                "name": null,
                 "model_id": 3418001,
                 "hatch_data": 300,
                 "weight_low": 13475,

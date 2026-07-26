@@ -1,7 +1,7 @@
 {
     "id": 3085,
     "name": "huoyanyuan",
-    "form": "火焰猿",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -37,7 +37,7 @@
         "id": 251,
         "name": "huoyanyuan",
         "localized": {
-            "zh": "长颈鹿精灵"
+            "zh": "火焰猿"
         }
     },
     "trait": {
@@ -1213,7 +1213,7 @@
                         "id": 3083,
                         "species_id": 249,
                         "name": "keaiyuan",
-                        "form": "可爱猿",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "可爱猿"
@@ -1240,7 +1240,7 @@
                         "id": 3084,
                         "species_id": 250,
                         "name": "zhireyuan",
-                        "form": "炽热猿",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "炽热猿"
@@ -1269,7 +1269,7 @@
                         "id": 3085,
                         "species_id": 251,
                         "name": "huoyanyuan",
-                        "form": "火焰猿",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "火焰猿"
@@ -1298,8 +1298,8 @@
         "current_monster_id": 3085
     },
     "world_profile": {
-        "type_desc": "蜂精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "火山精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "哪怕是休息的时候，也像沉睡的火山一样危险。岩浆涌动的身体需要经常添加燃料，偶尔会把吃不完的食物丢到头顶的火山口里燃尽。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1314,7 +1314,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 180,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

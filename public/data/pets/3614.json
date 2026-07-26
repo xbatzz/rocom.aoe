@@ -1,7 +1,7 @@
 {
     "id": 3614,
     "name": "shiguangwengweng",
-    "form": "嗜光嗡嗡",
+    "form": "default",
     "main_type": {
         "id": 5,
         "name": "Light",
@@ -43,7 +43,7 @@
         "id": 323,
         "name": "shiguangwengweng",
         "localized": {
-            "zh": "常见于河岸"
+            "zh": "嗜光嗡嗡"
         }
     },
     "trait": {
@@ -808,6 +808,28 @@
             "energy_cost": 3,
             "power": 115,
             "description": "造成魔伤，巧变：吸血相关技能。"
+        },
+        {
+            "id": 7120280,
+            "name": "过敏原",
+            "icon_id": "111030",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "过敏原",
+                    "description": "造成魔伤，1连击，若敌方有中毒效果，本次技能连击数+2。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 35,
+            "description": "造成魔伤，1连击，若敌方有中毒效果，本次技能连击数+2。"
         }
     ],
     "legacy_moves": [
@@ -1307,7 +1329,7 @@
                         "id": 3614,
                         "species_id": 323,
                         "name": "shiguangwengweng",
-                        "form": "嗜光嗡嗡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "嗜光嗡嗡"
@@ -1340,7 +1362,7 @@
                         "id": 3615,
                         "species_id": 324,
                         "name": "qieguangwen",
-                        "form": "窃光蚊",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "窃光蚊"
@@ -1376,8 +1398,8 @@
         "current_monster_id": 3614
     },
     "world_profile": {
-        "type_desc": "轻飘飘精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "偷窃精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "“经实验发现，其腹部含有特殊的器官，只对光系能量产生反应。因此，存放光水晶时需派遣光系精灵巡逻，混淆它们的感应。”“光系精灵一同发出抗议，要求王国打击嗜光嗡嗡的狂热跟踪和过分亲近行为。”",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1391,13 +1413,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 3000,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3614001,
         "pet_id": 3614001,
-        "name": "臭臭锥",
+        "name": null,
         "model_id": 3614001,
         "hatch_data": 28800,
         "weight_low": 511,
@@ -1405,21 +1427,15 @@
         "height_low": 10,
         "height_high": 13,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
-        "is_contact_add_shining_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
+        "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3614001,
                 "pet_id": 3614001,
-                "name": "臭臭锥",
+                "name": null,
                 "model_id": 3614001,
                 "hatch_data": 28800,
                 "weight_low": 511,
@@ -1427,21 +1443,15 @@
                 "height_low": 10,
                 "height_high": 13,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
             },
             {
                 "id": 3614002,
                 "pet_id": 3614002,
-                "name": "海枝枝",
+                "name": null,
                 "model_id": 3614001,
                 "hatch_data": 28800,
                 "weight_low": 511,
@@ -1457,7 +1467,7 @@
             {
                 "id": 3614003,
                 "pet_id": 3614003,
-                "name": "碧蓝珊瑚",
+                "name": null,
                 "model_id": 3614002,
                 "hatch_data": 28800,
                 "weight_low": 511,
@@ -1465,21 +1475,15 @@
                 "height_low": 10,
                 "height_high": 13,
                 "precious_egg_type": 2,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3614004,
                 "pet_id": 3614004,
-                "name": "臭臭锥",
+                "name": null,
                 "model_id": 3614001,
                 "hatch_data": 300,
                 "weight_low": 511,
@@ -1493,9 +1497,25 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3614005,
+                "pet_id": 3614005,
+                "name": null,
+                "model_id": 3614002,
+                "hatch_data": 28800,
+                "weight_low": 511,
+                "weight_high": 1220,
+                "height_low": 10,
+                "height_high": 13,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 36140001,
                 "pet_id": 36140001,
-                "name": "臭臭锥",
+                "name": null,
                 "model_id": 3614001,
                 "hatch_data": 300,
                 "weight_low": 511,
@@ -1511,7 +1531,7 @@
             {
                 "id": 99000071,
                 "pet_id": 99000071,
-                "name": "臭臭锥",
+                "name": null,
                 "model_id": 3614001,
                 "hatch_data": 72000,
                 "weight_low": 511,

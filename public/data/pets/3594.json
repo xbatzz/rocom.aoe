@@ -1,7 +1,7 @@
 {
     "id": 3594,
     "name": "songzai",
-    "form": "松仔",
+    "form": "default",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -43,7 +43,7 @@
         "id": 153,
         "name": "songzai",
         "localized": {
-            "zh": "守望精灵"
+            "zh": "松仔"
         }
     },
     "trait": {
@@ -676,6 +676,28 @@
             "energy_cost": 4,
             "power": null,
             "description": "自己获得1层光合印记。"
+        },
+        {
+            "id": 7140330,
+            "name": "马步",
+            "icon_id": "313037",
+            "move_type": {
+                "id": 12,
+                "name": "Fighting",
+                "localized": {
+                    "zh": "武"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "马步",
+                    "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 3,
+            "power": null,
+            "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
         }
     ],
     "legacy_moves": [
@@ -1175,7 +1197,7 @@
                         "id": 3594,
                         "species_id": 153,
                         "name": "songzai",
-                        "form": "松仔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "松仔"
@@ -1208,7 +1230,7 @@
                         "id": 3595,
                         "species_id": 154,
                         "name": "yesongyang",
-                        "form": "松叶羊",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "松叶羊"
@@ -1243,7 +1265,7 @@
                         "id": 3596,
                         "species_id": 155,
                         "name": "zhenyexunlin",
-                        "form": "针叶巡林",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "针叶巡林"
@@ -1278,8 +1300,8 @@
         "current_monster_id": 3594
     },
     "world_profile": {
-        "type_desc": "常见于树林",
-        "description_habitat": "喵喵",
+        "type_desc": "松羊精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "如果察觉到小洛克踏入森林，它们会把角塞在树杈中间伪装松果，诱使小洛克靠近观察。被林间露水打湿的话它们会结伴去晒太阳，晒太阳的时候会散发香香的味道。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1294,13 +1316,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3594001,
         "pet_id": 3594001,
-        "name": "厉毒小萝",
+        "name": null,
         "model_id": 3594001,
         "hatch_data": 43200,
         "weight_low": 2188,
@@ -1308,21 +1330,15 @@
         "height_low": 22,
         "height_high": 28,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3594001,
                 "pet_id": 3594001,
-                "name": "厉毒小萝",
+                "name": null,
                 "model_id": 3594001,
                 "hatch_data": 43200,
                 "weight_low": 2188,
@@ -1330,21 +1346,15 @@
                 "height_low": 22,
                 "height_high": 28,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 35940001,
                 "pet_id": 35940001,
-                "name": "厉毒小萝",
+                "name": null,
                 "model_id": 3594001,
                 "hatch_data": 300,
                 "weight_low": 2188,

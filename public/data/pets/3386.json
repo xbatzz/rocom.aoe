@@ -1,7 +1,7 @@
 {
     "id": 3386,
     "name": "yulong",
-    "form": "龙鱼",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -43,7 +43,7 @@
         "id": 241,
         "name": "yulong",
         "localized": {
-            "zh": "守护精灵"
+            "zh": "龙鱼"
         }
     },
     "trait": {
@@ -1285,7 +1285,7 @@
                         "id": 3384,
                         "species_id": 239,
                         "name": "doudingyu",
-                        "form": "豆丁鱼",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "豆丁鱼"
@@ -1318,7 +1318,7 @@
                         "id": 3385,
                         "species_id": 240,
                         "name": "kuaiqiyu",
-                        "form": "快鳍鱼",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "快鳍鱼"
@@ -1353,7 +1353,7 @@
                         "id": 3386,
                         "species_id": 241,
                         "name": "yulong",
-                        "form": "龙鱼",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "龙鱼"
@@ -1388,8 +1388,8 @@
         "current_monster_id": 3386
     },
     "world_profile": {
-        "type_desc": "星光狮",
-        "description_habitat": "猫老师精灵",
+        "type_desc": "龙血精灵",
+        "description_habitat": "常见于海面",
         "introduction": "长鳍长尾，身形纤细流畅，拥有强大的游泳能力和跳跃能力，身体的结构比起鱼更接近龙，证明其拥有少量龙系血脉，尾部的红珠中蕴含着些许龙系能量，可以在跃出水面时发出真正的龙吼。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1404,7 +1404,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

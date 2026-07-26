@@ -1,7 +1,7 @@
 {
     "id": 3266,
     "name": "danxiaomanyu",
-    "form": "胆小鳗鱼",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -43,7 +43,7 @@
         "id": 242,
         "name": "danxiaomanyu",
         "localized": {
-            "zh": "里拉琴精灵"
+            "zh": "胆小鳗鱼"
         }
     },
     "trait": {
@@ -161,13 +161,13 @@
             "localized": {
                 "zh": {
                     "name": "电离爆破",
-                    "description": "敌方获得速度-40，3连击。"
+                    "description": "敌方获得魔攻-20%，速度-20，2连击。"
                 }
             },
             "move_category": "Status",
-            "energy_cost": 3,
+            "energy_cost": 1,
             "power": null,
-            "description": "敌方获得速度-40，3连击。"
+            "description": "敌方获得魔攻-20%，速度-20，2连击。"
         },
         {
             "id": 7021010,
@@ -735,13 +735,57 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
+        },
+        {
+            "id": 7110440,
+            "name": "惊雷",
+            "icon_id": "110034",
+            "move_type": {
+                "id": 9,
+                "name": "Electric",
+                "localized": {
+                    "zh": "电"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "惊雷",
+                    "description": "将天气改为雷鸣，持续8回合。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 5,
+            "power": null,
+            "description": "将天气改为雷鸣，持续8回合。"
+        },
+        {
+            "id": 7050480,
+            "name": "叠浪",
+            "icon_id": "104035",
+            "move_type": {
+                "id": 4,
+                "name": "Water",
+                "localized": {
+                    "zh": "水"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "叠浪",
+                    "description": "造​成​物伤，​3连击，本技能能耗每-1，威力+10。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 10,
+            "description": "造​成​物伤，​3连击，本技能能耗每-1，威力+10。"
         }
     ],
     "legacy_moves": [
@@ -1241,7 +1285,7 @@
                         "id": 3266,
                         "species_id": 242,
                         "name": "danxiaomanyu",
-                        "form": "胆小鳗鱼",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "胆小鳗鱼"
@@ -1274,7 +1318,7 @@
                         "id": 3267,
                         "species_id": 243,
                         "name": "shandianmanyu",
-                        "form": "闪电鳗鱼",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "闪电鳗鱼"
@@ -1309,8 +1353,8 @@
         "current_monster_id": 3266
     },
     "world_profile": {
-        "type_desc": "狮精灵",
-        "description_habitat": "猫老师精灵",
+        "type_desc": "电鳗精灵",
+        "description_habitat": "常见于海面",
         "introduction": "以强力放电而闻名的精灵，种族中的鳗鱼们似乎对自己的知名度一无所知。常常畏首畏尾，即使是十分弱小的对手，也能令它们战战兢兢。曾有胆小鳗鱼假死晕倒在浅滩上，原因是一只爬爬路过。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1325,13 +1369,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3266001,
         "pet_id": 3266001,
-        "name": "伊雷龙（首领血脉）",
+        "name": null,
         "model_id": 3266001,
         "hatch_data": 57600,
         "weight_low": 6125,
@@ -1339,21 +1383,15 @@
         "height_low": 31,
         "height_high": 44,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3266001,
                 "pet_id": 3266001,
-                "name": "伊雷龙（首领血脉）",
+                "name": null,
                 "model_id": 3266001,
                 "hatch_data": 57600,
                 "weight_low": 6125,
@@ -1361,43 +1399,15 @@
                 "height_low": 31,
                 "height_high": 44,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3357001,
-                "pet_id": 3357001,
-                "name": "胆小鳗鱼",
-                "model_id": 3357001,
-                "hatch_data": 57600,
-                "weight_low": 10430,
-                "weight_high": 14720,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 32660001,
                 "pet_id": 32660001,
-                "name": "伊雷龙（首领血脉）",
+                "name": null,
                 "model_id": 3266001,
                 "hatch_data": 300,
                 "weight_low": 6125,
@@ -1405,318 +1415,6 @@
                 "height_low": 31,
                 "height_high": 44,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 33570001,
-                "pet_id": 33570001,
-                "name": "胆小鳗鱼",
-                "model_id": 3357001,
-                "hatch_data": 300,
-                "weight_low": 10430,
-                "weight_high": 14720,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000048,
-                "pet_id": 91000048,
-                "name": "胆小鳗鱼",
-                "model_id": 3357001,
-                "hatch_data": 57600,
-                "weight_low": 10430,
-                "weight_high": 14720,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000053,
-                "pet_id": 91000053,
-                "name": "伊雷龙（首领血脉）",
-                "model_id": 3266001,
-                "hatch_data": 57600,
-                "weight_low": 6125,
-                "weight_high": 10740,
-                "height_low": 31,
-                "height_high": 44,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000048,
-                "pet_id": 92000048,
-                "name": "胆小鳗鱼",
-                "model_id": 3357001,
-                "hatch_data": 57600,
-                "weight_low": 10430,
-                "weight_high": 14720,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000053,
-                "pet_id": 92000053,
-                "name": "伊雷龙（首领血脉）",
-                "model_id": 3266001,
-                "hatch_data": 57600,
-                "weight_low": 6125,
-                "weight_high": 10740,
-                "height_low": 31,
-                "height_high": 44,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000048,
-                "pet_id": 93000048,
-                "name": "胆小鳗鱼",
-                "model_id": 3357001,
-                "hatch_data": 57600,
-                "weight_low": 10430,
-                "weight_high": 14720,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000053,
-                "pet_id": 93000053,
-                "name": "伊雷龙（首领血脉）",
-                "model_id": 3266001,
-                "hatch_data": 57600,
-                "weight_low": 6125,
-                "weight_high": 10740,
-                "height_low": 31,
-                "height_high": 44,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000048,
-                "pet_id": 94000048,
-                "name": "胆小鳗鱼",
-                "model_id": 3357001,
-                "hatch_data": 57600,
-                "weight_low": 10430,
-                "weight_high": 14720,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000053,
-                "pet_id": 94000053,
-                "name": "伊雷龙（首领血脉）",
-                "model_id": 3266001,
-                "hatch_data": 57600,
-                "weight_low": 6125,
-                "weight_high": 10740,
-                "height_low": 31,
-                "height_high": 44,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000039,
-                "pet_id": 95000039,
-                "name": "胆小鳗鱼",
-                "model_id": 3357001,
-                "hatch_data": 57600,
-                "weight_low": 10430,
-                "weight_high": 14720,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000048,
-                "pet_id": 96000048,
-                "name": "胆小鳗鱼",
-                "model_id": 3357001,
-                "hatch_data": 57600,
-                "weight_low": 10430,
-                "weight_high": 14720,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000053,
-                "pet_id": 96000053,
-                "name": "伊雷龙（首领血脉）",
-                "model_id": 3266001,
-                "hatch_data": 57600,
-                "weight_low": 6125,
-                "weight_high": 10740,
-                "height_low": 31,
-                "height_high": 44,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000048,
-                "pet_id": 97000048,
-                "name": "胆小鳗鱼",
-                "model_id": 3357001,
-                "hatch_data": 57600,
-                "weight_low": 10430,
-                "weight_high": 14720,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000053,
-                "pet_id": 97000053,
-                "name": "伊雷龙（首领血脉）",
-                "model_id": 3266001,
-                "hatch_data": 57600,
-                "weight_low": 6125,
-                "weight_high": 10740,
-                "height_low": 31,
-                "height_high": 44,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000048,
-                "pet_id": 98000048,
-                "name": "胆小鳗鱼",
-                "model_id": 3357001,
-                "hatch_data": 57600,
-                "weight_low": 10430,
-                "weight_high": 14720,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000053,
-                "pet_id": 98000053,
-                "name": "伊雷龙（首领血脉）",
-                "model_id": 3266001,
-                "hatch_data": 57600,
-                "weight_low": 6125,
-                "weight_high": 10740,
-                "height_low": 31,
-                "height_high": 44,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000039,
-                "pet_id": 99000039,
-                "name": "胆小鳗鱼",
-                "model_id": 3357001,
-                "hatch_data": 57600,
-                "weight_low": 10430,
-                "weight_high": 14720,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000150,
-                "pet_id": 99000150,
-                "name": "胆小鳗鱼",
-                "model_id": 3357001,
-                "hatch_data": 72000,
-                "weight_low": 10430,
-                "weight_high": 14720,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1725,7 +1423,7 @@
             {
                 "id": 99000166,
                 "pet_id": 99000166,
-                "name": "伊雷龙（首领血脉）",
+                "name": null,
                 "model_id": 3266001,
                 "hatch_data": 72000,
                 "weight_low": 6125,

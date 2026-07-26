@@ -1,7 +1,7 @@
 {
     "id": 3193,
     "name": "xiaoxingguang",
-    "form": "小星光",
+    "form": "default",
     "main_type": {
         "id": 9,
         "name": "Electric",
@@ -37,7 +37,7 @@
         "id": 80,
         "name": "xiaoxingguang",
         "localized": {
-            "zh": "刺刺精灵"
+            "zh": "小星光"
         }
     },
     "trait": {
@@ -287,13 +287,13 @@
             "localized": {
                 "zh": {
                     "name": "电离爆破",
-                    "description": "敌方获得速度-40，3连击。"
+                    "description": "敌方获得魔攻-20%，速度-20，2连击。"
                 }
             },
             "move_category": "Status",
-            "energy_cost": 3,
+            "energy_cost": 1,
             "power": null,
-            "description": "敌方获得速度-40，3连击。"
+            "description": "敌方获得魔攻-20%，速度-20，2连击。"
         },
         {
             "id": 7110330,
@@ -736,6 +736,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "下一次攻击时，技能威力+70。"
+        },
+        {
+            "id": 7110460,
+            "name": "踏雷",
+            "icon_id": "210030",
+            "move_type": {
+                "id": 9,
+                "name": "Electric",
+                "localized": {
+                    "zh": "电"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "踏雷",
+                    "description": "自己回合结束时返场，​携带的攻击​技​能​​下回合获得1个已触发过的迸发效果，​应对防御：​改为​获得​所有​触​发过​的迸发​效果​。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己回合结束时返场，​携带的攻击​技​能​​下回合获得1个已触发过的迸发效果，​应对防御：​改为​获得​所有​触​发过​的迸发​效果​。"
         }
     ],
     "legacy_moves": [
@@ -1235,7 +1257,7 @@
                         "id": 3193,
                         "species_id": 80,
                         "name": "xiaoxingguang",
-                        "form": "小星光",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小星光"
@@ -1256,7 +1278,7 @@
                         "id": 3442,
                         "species_id": 80,
                         "name": "xiaoxingguang_yueguang",
-                        "form": "小星光",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小星光"
@@ -1289,7 +1311,7 @@
                         "id": 3194,
                         "species_id": 81,
                         "name": "xingguangsh",
-                        "form": "星光狮",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "星光狮"
@@ -1312,7 +1334,7 @@
                         "id": 3443,
                         "species_id": 81,
                         "name": "xingguangshi_yueguang",
-                        "form": "星光狮",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "星光狮"
@@ -1347,8 +1369,8 @@
         "current_monster_id": 3193
     },
     "world_profile": {
-        "type_desc": "石头精灵",
-        "description_habitat": "蜥蜴精灵",
+        "type_desc": "狮精灵",
+        "description_habitat": "常见于草地、山地",
         "introduction": "草原晴天的微风里，常传来细碎噼啪——那是小星光在甩鬃毛，它们似乎总是处于炸毛的状态，其实 是毛发里的电流导致的。它们从来不怕打雷，长长的尾巴能起到导电的作用，被雷劈中也不会受伤。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1363,13 +1385,13 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 525,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3193001,
         "pet_id": 3193001,
-        "name": "裘洛",
+        "name": null,
         "model_id": 3193001,
         "hatch_data": 57600,
         "weight_low": 9625,
@@ -1377,21 +1399,15 @@
         "height_low": 33,
         "height_high": 46,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3193001,
                 "pet_id": 3193001,
-                "name": "裘洛",
+                "name": null,
                 "model_id": 3193001,
                 "hatch_data": 57600,
                 "weight_low": 9625,
@@ -1399,21 +1415,15 @@
                 "height_low": 33,
                 "height_high": 46,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3193002,
                 "pet_id": 3193002,
-                "name": "紫蔓宝宝",
+                "name": null,
                 "model_id": 3193001,
                 "hatch_data": 57600,
                 "weight_low": 9625,
@@ -1424,34 +1434,12 @@
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3234001,
-                "pet_id": 3234001,
-                "name": "小星光",
-                "model_id": 3234001,
-                "hatch_data": 28800,
-                "weight_low": 2090,
-                "weight_high": 3480,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 31930001,
                 "pet_id": 31930001,
-                "name": "裘洛",
+                "name": null,
                 "model_id": 3193001,
                 "hatch_data": 300,
                 "weight_low": 9625,
@@ -1459,156 +1447,6 @@
                 "height_low": 33,
                 "height_high": 46,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 32340001,
-                "pet_id": 32340001,
-                "name": "小星光",
-                "model_id": 3234001,
-                "hatch_data": 300,
-                "weight_low": 2090,
-                "weight_high": 3480,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 35910001,
-                "pet_id": 35910001,
-                "name": "小星光",
-                "model_id": 3591001,
-                "hatch_data": 300,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000049,
-                "pet_id": 91000049,
-                "name": "裘洛",
-                "model_id": 3193001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000049,
-                "pet_id": 92000049,
-                "name": "裘洛",
-                "model_id": 3193001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000049,
-                "pet_id": 93000049,
-                "name": "裘洛",
-                "model_id": 3193001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000049,
-                "pet_id": 94000049,
-                "name": "裘洛",
-                "model_id": 3193001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000049,
-                "pet_id": 96000049,
-                "name": "裘洛",
-                "model_id": 3193001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000049,
-                "pet_id": 97000049,
-                "name": "裘洛",
-                "model_id": 3193001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000049,
-                "pet_id": 98000049,
-                "name": "裘洛",
-                "model_id": 3193001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1617,7 +1455,7 @@
             {
                 "id": 99000089,
                 "pet_id": 99000089,
-                "name": "裘洛",
+                "name": null,
                 "model_id": 3193001,
                 "hatch_data": 72000,
                 "weight_low": 9625,

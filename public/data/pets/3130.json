@@ -1,7 +1,7 @@
 {
     "id": 3130,
     "name": "yuanyanzhizhu",
-    "form": "圆眼蜘蛛",
+    "form": "default",
     "main_type": {
         "id": 11,
         "name": "Bug",
@@ -27,8 +27,8 @@
     },
     "implemented": true,
     "base_hp": 55,
-    "base_phy_atk": 37,
-    "base_mag_atk": 37,
+    "base_phy_atk": 53,
+    "base_mag_atk": 53,
     "base_phy_def": 55,
     "base_mag_def": 55,
     "base_spd": 66,
@@ -37,7 +37,7 @@
         "id": 168,
         "name": "yuanyanzhizhu",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "圆眼蜘蛛"
         }
     },
     "trait": {
@@ -269,7 +269,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 6,
+            "energy_cost": 4,
             "power": null,
             "description": "使敌方精灵减益的层数翻倍。"
         },
@@ -1235,7 +1235,7 @@
                         "id": 3130,
                         "species_id": 168,
                         "name": "yuanyanzhizhu",
-                        "form": "圆眼蜘蛛",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "圆眼蜘蛛"
@@ -1262,7 +1262,7 @@
                         "id": 3131,
                         "species_id": 169,
                         "name": "jianjiaozhizhu",
-                        "form": "尖角蜘蛛",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "尖角蜘蛛"
@@ -1297,7 +1297,7 @@
                         "id": 3132,
                         "species_id": 170,
                         "name": "fengcizhizhu",
-                        "form": "芋香巨角蛛",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "芋香巨角蛛"
@@ -1332,8 +1332,8 @@
         "current_monster_id": 3130
     },
     "world_profile": {
-        "type_desc": "常见于城镇周边",
-        "description_habitat": "松羊精灵",
+        "type_desc": "蜘蛛精灵",
+        "description_habitat": "常见于草地、树林、山洞",
         "introduction": "幼体的圆眼蜘蛛并不太能织网捕食，多以青草，树果为食。复眼获取信息范围极大，速度极快，即便是独眼，圆眼蜘蛛获取信息速度远超过洛克族100倍。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1348,13 +1348,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 10000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3130001,
         "pet_id": 3130001,
-        "name": "翡翠水母",
+        "name": null,
         "model_id": 3130001,
         "hatch_data": 28800,
         "weight_low": 1225,
@@ -1362,21 +1362,15 @@
         "height_low": 20,
         "height_high": 28,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3130001,
                 "pet_id": 3130001,
-                "name": "翡翠水母",
+                "name": null,
                 "model_id": 3130001,
                 "hatch_data": 28800,
                 "weight_low": 1225,
@@ -1384,28 +1378,6 @@
                 "height_low": 20,
                 "height_high": 28,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3151003,
-                "pet_id": 3151003,
-                "name": "圆眼蜘蛛",
-                "model_id": 3151001,
-                "hatch_data": 300,
-                "weight_low": 5110,
-                "weight_high": 7440,
-                "height_low": 19,
-                "height_high": 27,
-                "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1414,7 +1386,7 @@
             {
                 "id": 31300001,
                 "pet_id": 31300001,
-                "name": "翡翠水母",
+                "name": null,
                 "model_id": 3130001,
                 "hatch_data": 300,
                 "weight_low": 1225,
@@ -1428,127 +1400,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000036,
-                "pet_id": 91000036,
-                "name": "翡翠水母",
-                "model_id": 3130001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2000,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000036,
-                "pet_id": 92000036,
-                "name": "翡翠水母",
-                "model_id": 3130001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2000,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000036,
-                "pet_id": 93000036,
-                "name": "翡翠水母",
-                "model_id": 3130001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2000,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000036,
-                "pet_id": 94000036,
-                "name": "翡翠水母",
-                "model_id": 3130001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2000,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000036,
-                "pet_id": 96000036,
-                "name": "翡翠水母",
-                "model_id": 3130001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2000,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000036,
-                "pet_id": 97000036,
-                "name": "翡翠水母",
-                "model_id": 3130001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2000,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000036,
-                "pet_id": 98000036,
-                "name": "翡翠水母",
-                "model_id": 3130001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2000,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000094,
                 "pet_id": 99000094,
-                "name": "翡翠水母",
+                "name": null,
                 "model_id": 3130001,
                 "hatch_data": 72000,
                 "weight_low": 1225,

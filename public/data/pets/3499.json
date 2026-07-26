@@ -1,7 +1,7 @@
 {
     "id": 3499,
     "name": "gongpingge",
-    "form": "公平鸽",
+    "form": "default",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -37,7 +37,7 @@
         "id": 162,
         "name": "gongpingge",
         "localized": {
-            "zh": "偶见于雪山"
+            "zh": "公平鸽"
         }
     },
     "trait": {
@@ -399,13 +399,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7020690,
@@ -736,6 +736,28 @@
             "energy_cost": 2,
             "power": null,
             "description": "自己回复20%生命，下次技能无需蓄力。"
+        },
+        {
+            "id": 7021190,
+            "name": "吹散",
+            "icon_id": "101111",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "吹散",
+                    "description": "造成魔伤，选择：驱散敌方所有增益或驱散双方1层印记。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 65,
+            "description": "造成魔伤，选择：驱散敌方所有增益或驱散双方1层印记。"
         }
     ],
     "legacy_moves": [
@@ -1235,7 +1257,7 @@
                         "id": 3499,
                         "species_id": 162,
                         "name": "gongpingge",
-                        "form": "公平鸽",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "公平鸽"
@@ -1262,8 +1284,8 @@
         "current_monster_id": 3499
     },
     "world_profile": {
-        "type_desc": "常见于城镇周边",
-        "description_habitat": "常见于山林",
+        "type_desc": "公平精灵",
+        "description_habitat": "常见于山地",
         "introduction": "第一、绝对不放过任何争执！第二、绝对不能因为睡过头晚到现场！第三、绝对要公正裁判！第四、绝对要在被双方驱逐之前做出判决。——《公平鸽的守则》",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1278,13 +1300,13 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 310,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3499001,
         "pet_id": 3499001,
-        "name": "芽眼魔",
+        "name": null,
         "model_id": 3499001,
         "hatch_data": 43200,
         "weight_low": 875,
@@ -1292,21 +1314,15 @@
         "height_low": 19,
         "height_high": 25,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3499001,
                 "pet_id": 3499001,
-                "name": "芽眼魔",
+                "name": null,
                 "model_id": 3499001,
                 "hatch_data": 43200,
                 "weight_low": 875,
@@ -1314,21 +1330,15 @@
                 "height_low": 19,
                 "height_high": 25,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3499002,
                 "pet_id": 3499002,
-                "name": "霹雳宝宝",
+                "name": null,
                 "model_id": 3499001,
                 "hatch_data": 43200,
                 "weight_low": 875,
@@ -1342,9 +1352,41 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3499003,
+                "pet_id": 3499003,
+                "name": null,
+                "model_id": 3499002,
+                "hatch_data": 43200,
+                "weight_low": 875,
+                "weight_high": 1576,
+                "height_low": 19,
+                "height_high": 25,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3499004,
+                "pet_id": 3499004,
+                "name": null,
+                "model_id": 3499002,
+                "hatch_data": 43200,
+                "weight_low": 875,
+                "weight_high": 1576,
+                "height_low": 19,
+                "height_high": 25,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 34990001,
                 "pet_id": 34990001,
-                "name": "芽眼魔",
+                "name": null,
                 "model_id": 3499001,
                 "hatch_data": 300,
                 "weight_low": 875,
@@ -1358,127 +1400,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000003,
-                "pet_id": 91000003,
-                "name": "芽眼魔",
-                "model_id": 3499001,
-                "hatch_data": 43200,
-                "weight_low": 875,
-                "weight_high": 1576,
-                "height_low": 19,
-                "height_high": 25,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000003,
-                "pet_id": 92000003,
-                "name": "芽眼魔",
-                "model_id": 3499001,
-                "hatch_data": 43200,
-                "weight_low": 875,
-                "weight_high": 1576,
-                "height_low": 19,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000003,
-                "pet_id": 93000003,
-                "name": "芽眼魔",
-                "model_id": 3499001,
-                "hatch_data": 43200,
-                "weight_low": 875,
-                "weight_high": 1576,
-                "height_low": 19,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000003,
-                "pet_id": 94000003,
-                "name": "芽眼魔",
-                "model_id": 3499001,
-                "hatch_data": 43200,
-                "weight_low": 875,
-                "weight_high": 1576,
-                "height_low": 19,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000003,
-                "pet_id": 96000003,
-                "name": "芽眼魔",
-                "model_id": 3499001,
-                "hatch_data": 43200,
-                "weight_low": 875,
-                "weight_high": 1576,
-                "height_low": 19,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000003,
-                "pet_id": 97000003,
-                "name": "芽眼魔",
-                "model_id": 3499001,
-                "hatch_data": 43200,
-                "weight_low": 875,
-                "weight_high": 1576,
-                "height_low": 19,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000003,
-                "pet_id": 98000003,
-                "name": "芽眼魔",
-                "model_id": 3499001,
-                "hatch_data": 43200,
-                "weight_low": 875,
-                "weight_high": 1576,
-                "height_low": 19,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000145,
                 "pet_id": 99000145,
-                "name": "芽眼魔",
+                "name": null,
                 "model_id": 3499001,
                 "hatch_data": 72000,
                 "weight_low": 875,

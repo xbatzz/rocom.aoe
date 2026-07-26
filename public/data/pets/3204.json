@@ -1,7 +1,7 @@
 {
     "id": 3204,
     "name": "beijiaer",
-    "form": "贝加尔",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -43,7 +43,7 @@
         "id": 333,
         "name": "beijiaer",
         "localized": {
-            "zh": "常见于魔法学院"
+            "zh": "贝加尔"
         }
     },
     "trait": {
@@ -676,6 +676,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7070200,
+            "name": "六自由度",
+            "icon_id": "106024",
+            "move_type": {
+                "id": 17,
+                "name": "Mechanical",
+                "localized": {
+                    "zh": "机械"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "六自由度",
+                    "description": "造成魔伤，威力额外增加两侧技能威力差的二分之一，传动1。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 50,
+            "description": "造成魔伤，威力额外增加两侧技能威力差的二分之一，传动1。"
         }
     ],
     "legacy_moves": [
@@ -1175,7 +1197,7 @@
                         "id": 3203,
                         "species_id": 332,
                         "name": "beise",
-                        "form": "贝瑟",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "贝瑟"
@@ -1208,7 +1230,7 @@
                         "id": 3204,
                         "species_id": 333,
                         "name": "beijiaer",
-                        "form": "贝加尔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "贝加尔"
@@ -1243,7 +1265,7 @@
                         "id": 3205,
                         "species_id": 334,
                         "name": "beigusi",
-                        "form": "贝古斯",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "贝古斯"
@@ -1278,8 +1300,8 @@
         "current_monster_id": 3204
     },
     "world_profile": {
-        "type_desc": "常见于山地",
-        "description_habitat": "喵喵",
+        "type_desc": "蒸汽精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "身体结构十分精巧，能够最高效地利用能源，是某些发热供暖装置的设计原型。但在氧气不足的地方身体会逐渐冷下来进入睡眠状态。“经过了岁月的磨练和沉淀，透露出时光的浑厚。”",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1293,7 +1315,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 1200,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

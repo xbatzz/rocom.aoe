@@ -99,7 +99,7 @@
     "breeding": {
         "id": 3364001,
         "pet_id": 3364001,
-        "name": "绿翼鸟",
+        "name": null,
         "model_id": 3364001,
         "hatch_data": 72000,
         "weight_low": 13825,
@@ -107,21 +107,15 @@
         "height_low": 27,
         "height_high": 38,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            400,
-            3125
-        ],
-        "egg_add_glass_prob_array": [
-            2,
-            113
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3364001,
                 "pet_id": 3364001,
-                "name": "绿翼鸟",
+                "name": null,
                 "model_id": 3364001,
                 "hatch_data": 72000,
                 "weight_low": 13825,
@@ -129,28 +123,6 @@
                 "height_low": 27,
                 "height_high": 38,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3506003,
-                "pet_id": 3506003,
-                "name": "路路尼",
-                "model_id": 3506001,
-                "hatch_data": 300,
-                "weight_low": 1015,
-                "weight_high": 1600,
-                "height_low": 25,
-                "height_high": 28,
-                "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -159,7 +131,7 @@
             {
                 "id": 33640001,
                 "pet_id": 33640001,
-                "name": "绿翼鸟",
+                "name": null,
                 "model_id": 3364001,
                 "hatch_data": 300,
                 "weight_low": 13825,

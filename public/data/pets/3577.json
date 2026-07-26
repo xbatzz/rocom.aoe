@@ -1,7 +1,7 @@
 {
     "id": 3577,
     "name": "moyoushi",
-    "form": "墨鱿士",
+    "form": "default",
     "main_type": {
         "id": 15,
         "name": "Ghost",
@@ -27,8 +27,8 @@
     },
     "implemented": true,
     "base_hp": 103,
-    "base_phy_atk": 84,
-    "base_mag_atk": 34,
+    "base_phy_atk": 97,
+    "base_mag_atk": 42,
     "base_phy_def": 105,
     "base_mag_def": 79,
     "base_spd": 56,
@@ -37,7 +37,7 @@
         "id": 280,
         "name": "moyoushi",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "墨鱿士"
         }
     },
     "trait": {
@@ -1037,7 +1037,7 @@
                         "id": 3577,
                         "species_id": 280,
                         "name": "moyoushi",
-                        "form": "墨鱿士",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "墨鱿士"
@@ -1064,7 +1064,7 @@
                         "id": 3578,
                         "species_id": 281,
                         "name": "hunluanyoucai",
-                        "form": "混乱鱿彩",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "混乱鱿彩"
@@ -1094,7 +1094,7 @@
                         "id": 3579,
                         "species_id": 282,
                         "name": "zhixumoyu",
-                        "form": "秩序鱿墨",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "秩序鱿墨"
@@ -1130,8 +1130,8 @@
         "current_monster_id": 3577
     },
     "world_profile": {
-        "type_desc": "魔草巫灵",
-        "description_habitat": "喵喵",
+        "type_desc": "鱿鱼精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "不同于章鱼精灵，它们因为蕴含幽系能量，皮肤已经褪成苍白的颜色，头足里面藏着墨囊，装着它们收集来的颜料。经常藏在厚厚的画纸中间休息。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1146,13 +1146,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3577001,
         "pet_id": 3577001,
-        "name": "齿轮小子",
+        "name": null,
         "model_id": 3577001,
         "hatch_data": 28800,
         "weight_low": 1138,
@@ -1160,21 +1160,15 @@
         "height_low": 15,
         "height_high": 19,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3577001,
                 "pet_id": 3577001,
-                "name": "齿轮小子",
+                "name": null,
                 "model_id": 3577001,
                 "hatch_data": 28800,
                 "weight_low": 1138,
@@ -1182,21 +1176,15 @@
                 "height_low": 15,
                 "height_high": 19,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 35770001,
                 "pet_id": 35770001,
-                "name": "穿星星睡衣的样子",
+                "name": null,
                 "model_id": 3577001,
                 "hatch_data": 300,
                 "weight_low": 1138,
@@ -1210,53 +1198,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 95000050,
-                "pet_id": 95000050,
-                "name": "穿星星睡衣的样子",
-                "model_id": 3577001,
-                "hatch_data": 28800,
-                "weight_low": 1138,
-                "weight_high": 2008,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000050,
-                "pet_id": 99000050,
-                "name": "穿星星睡衣的样子",
-                "model_id": 3577001,
-                "hatch_data": 28800,
-                "weight_low": 1138,
-                "weight_high": 2008,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000158,
                 "pet_id": 99000158,
-                "name": "穿星星睡衣的样子",
+                "name": null,
                 "model_id": 3577001,
                 "hatch_data": 72000,
                 "weight_low": 1138,

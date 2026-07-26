@@ -227,13 +227,13 @@
             "localized": {
                 "zh": {
                     "name": "电离爆破",
-                    "description": "敌方获得速度-40，3连击。"
+                    "description": "敌方获得魔攻-20%，速度-20，2连击。"
                 }
             },
             "move_category": "Status",
-            "energy_cost": 3,
+            "energy_cost": 1,
             "power": null,
-            "description": "敌方获得速度-40，3连击。"
+            "description": "敌方获得魔攻-20%，速度-20，2连击。"
         },
         {
             "id": 7110350,
@@ -341,7 +341,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "光系技能威力永久+50%，应对防御：改为永久+100%。"
         }
@@ -449,13 +449,13 @@
             "localized": {
                 "zh": {
                     "name": "流沙",
-                    "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
+                    "description": "敌方获得3回合禁足，应对防御：敌方获得双防-60%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
+            "description": "敌方获得3回合禁足，应对防御：敌方获得双防-60%。"
         },
         {
             "id": 7020850,
@@ -1199,8 +1199,8 @@
         "current_monster_id": 3736
     },
     "world_profile": {
-        "type_desc": null,
-        "description_habitat": null,
+        "type_desc": "灯球精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "自己不能发光，但背部覆盖着镜面般的鳞片，蜷缩成球就可以把微小的光芒反射成绚烂的闪光。拥有很多的爱，常常兴奋地滚向最近的洛克！想在闪光中跳跃，想一起共舞一辈子！",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1208,14 +1208,113 @@
         "movement_type": "浮游",
         "classis_id": 6,
         "classis_name": "自然类精灵",
-        "handbook_area_ids": []
+        "handbook_area_ids": [
+            1
+        ]
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
-    "breeding": null,
+    "breeding": {
+        "id": 3736001,
+        "pet_id": 3736001,
+        "name": null,
+        "model_id": 3736001,
+        "hatch_data": 72000,
+        "weight_low": 9100,
+        "weight_high": 14840,
+        "height_low": 20,
+        "height_high": 28,
+        "precious_egg_type": null,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
+        "is_contact_add_shining_prob": null,
+        "variants": [
+            {
+                "id": 3736001,
+                "pet_id": 3736001,
+                "name": null,
+                "model_id": 3736001,
+                "hatch_data": 72000,
+                "weight_low": 9100,
+                "weight_high": 14840,
+                "height_low": 20,
+                "height_high": 28,
+                "precious_egg_type": null,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3736002,
+                "pet_id": 3736002,
+                "name": null,
+                "model_id": 3736002,
+                "hatch_data": 72000,
+                "weight_low": 9100,
+                "weight_high": 14840,
+                "height_low": 20,
+                "height_high": 28,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3736003,
+                "pet_id": 3736003,
+                "name": null,
+                "model_id": 3736001,
+                "hatch_data": 300,
+                "weight_low": 9100,
+                "weight_high": 14840,
+                "height_low": 20,
+                "height_high": 28,
+                "precious_egg_type": 1,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3736004,
+                "pet_id": 3736004,
+                "name": null,
+                "model_id": 3736002,
+                "hatch_data": 72000,
+                "weight_low": 9100,
+                "weight_high": 14840,
+                "height_low": 20,
+                "height_high": 28,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 37360001,
+                "pet_id": 37360001,
+                "name": null,
+                "model_id": 3736001,
+                "hatch_data": 100,
+                "weight_low": 9100,
+                "weight_high": 14840,
+                "height_low": 20,
+                "height_high": 28,
+                "precious_egg_type": 7,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            }
+        ]
+    },
     "breeding_profile": {
         "pet_base_id": 3736,
         "egg_groups": [

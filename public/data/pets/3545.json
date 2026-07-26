@@ -1,7 +1,7 @@
 {
     "id": 3545,
     "name": "shengjianshicong",
-    "form": "圣剑侍从",
+    "form": "default",
     "main_type": {
         "id": 17,
         "name": "Mechanical",
@@ -37,7 +37,7 @@
         "id": 285,
         "name": "shengjianshicong",
         "localized": {
-            "zh": "红丝绒"
+            "zh": "圣剑侍从"
         }
     },
     "trait": {
@@ -221,13 +221,13 @@
             "localized": {
                 "zh": {
                     "name": "齿轮扭矩",
-                    "description": "造成物伤，每回合位置发生变化时，本技能威力永久+20。"
+                    "description": "造成物伤，每回合位置发生变化时，本技能威力永久+15。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 80,
-            "description": "造成物伤，每回合位置发生变化时，本技能威力永久+20。"
+            "power": 70,
+            "description": "造成物伤，每回合位置发生变化时，本技能威力永久+15。"
         },
         {
             "id": 7020620,
@@ -780,6 +780,28 @@
             "energy_cost": 3,
             "power": 85,
             "description": "造成​魔伤，应对状态：​本​次​伤害翻倍。"
+        },
+        {
+            "id": 7080460,
+            "name": "沙石阵",
+            "icon_id": "107045",
+            "move_type": {
+                "id": 6,
+                "name": "Ground",
+                "localized": {
+                    "zh": "地"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "沙石阵",
+                    "description": "自己获得速度​-​20，​选择：且额外获得​物防+90%或​魔防​+90%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得速度​-​20，​选择：且额外获得​物防+90%或​魔防​+90%。"
         }
     ],
     "legacy_moves": [
@@ -1279,7 +1301,7 @@
                         "id": 3545,
                         "species_id": 285,
                         "name": "shengjianshicong",
-                        "form": "圣剑侍从",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "圣剑侍从"
@@ -1306,7 +1328,7 @@
                         "id": 3546,
                         "species_id": 286,
                         "name": "shengjianX",
-                        "form": "圣剑-X",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "圣剑-X"
@@ -1335,8 +1357,8 @@
         "current_monster_id": 3545
     },
     "world_profile": {
-        "type_desc": "行踪神秘",
-        "description_habitat": "喵喵",
+        "type_desc": "科技精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "黄金时代的工匠们曾将占星与炼金并列为同一门学问的两种语言。于是他们以风为芯，以力量和律法为骨，铸成了圣剑。现在只有极少量留存下来。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1351,13 +1373,13 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 525,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3545001,
         "pet_id": 3545001,
-        "name": "异色双灯鱼的蛋",
+        "name": null,
         "model_id": 3545001,
         "hatch_data": 72000,
         "weight_low": 40495,
@@ -1365,21 +1387,15 @@
         "height_low": 40,
         "height_high": 49,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            400,
-            3125
-        ],
-        "egg_add_glass_prob_array": [
-            2,
-            113
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3545001,
                 "pet_id": 3545001,
-                "name": "异色双灯鱼的蛋",
+                "name": null,
                 "model_id": 3545001,
                 "hatch_data": 72000,
                 "weight_low": 40495,
@@ -1387,21 +1403,15 @@
                 "height_low": 40,
                 "height_high": 49,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3545002,
                 "pet_id": 3545002,
-                "name": "双灯鱼",
+                "name": null,
                 "model_id": 3545001,
                 "hatch_data": 300,
                 "weight_low": 40495,
@@ -1409,21 +1419,15 @@
                 "height_low": 40,
                 "height_high": 49,
                 "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3545003,
                 "pet_id": 3545003,
-                "name": "双灯鱼",
+                "name": null,
                 "model_id": 3545001,
                 "hatch_data": 300,
                 "weight_low": 40495,
@@ -1431,21 +1435,15 @@
                 "height_low": 40,
                 "height_high": 49,
                 "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 35450001,
                 "pet_id": 35450001,
-                "name": "异色双灯鱼的蛋",
+                "name": null,
                 "model_id": 3545001,
                 "hatch_data": 300,
                 "weight_low": 40495,
@@ -1459,53 +1457,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 95000049,
-                "pet_id": 95000049,
-                "name": "异色双灯鱼的蛋",
-                "model_id": 3545001,
-                "hatch_data": 72000,
-                "weight_low": 40495,
-                "weight_high": 69440,
-                "height_low": 40,
-                "height_high": 49,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000049,
-                "pet_id": 99000049,
-                "name": "异色双灯鱼的蛋",
-                "model_id": 3545001,
-                "hatch_data": 72000,
-                "weight_low": 40495,
-                "weight_high": 69440,
-                "height_low": 40,
-                "height_high": 49,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000092,
                 "pet_id": 99000092,
-                "name": "异色双灯鱼的蛋",
+                "name": null,
                 "model_id": 3545001,
                 "hatch_data": 72000,
                 "weight_low": 40495,

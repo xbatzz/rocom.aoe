@@ -37,7 +37,7 @@
         "id": 43,
         "name": "qilihua",
         "localized": {
-            "zh": "常见于山地、草地"
+            "zh": "奇丽花"
         }
     },
     "trait": {
@@ -575,13 +575,13 @@
             "localized": {
                 "zh": {
                     "name": "流沙",
-                    "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
+                    "description": "敌方获得3回合禁足，应对防御：敌方获得双防-60%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
+            "description": "敌方获得3回合禁足，应对防御：敌方获得双防-60%。"
         },
         {
             "id": 7020940,
@@ -1279,7 +1279,7 @@
                         "id": 3029,
                         "species_id": 41,
                         "name": "qilicao",
-                        "form": "奇丽草",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "奇丽草"
@@ -1306,7 +1306,7 @@
                         "id": 3030,
                         "species_id": 42,
                         "name": "qiliye",
-                        "form": "奇丽叶",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "奇丽叶"
@@ -1338,7 +1338,7 @@
                         "id": 3031,
                         "species_id": 43,
                         "name": "qilihua",
-                        "form": "奇丽花",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "奇丽花"
@@ -1408,18 +1408,39 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": []
+                    },
+                    {
+                        "id": 8108,
+                        "species_id": 43,
+                        "name": "qilihua_boss",
+                        "form": "奇丽果",
+                        "localized": {
+                            "zh": {
+                                "name": "奇丽果"
+                            }
+                        },
+                        "is_leader_form": true,
+                        "main_type": {
+                            "id": 2,
+                            "name": "Grass",
+                            "localized": {
+                                "zh": "草"
+                            }
+                        },
+                        "sub_type": null,
+                        "evolution_conditions": []
                     }
                 ]
             }
         ],
         "max_depth": 3,
-        "total_unique_monsters": 5,
+        "total_unique_monsters": 6,
         "species_id": 43,
         "current_monster_id": 4022
     },
     "world_profile": {
-        "type_desc": "锥尾羊",
-        "description_habitat": "行踪神秘",
+        "type_desc": "芳香精灵",
+        "description_habitat": "常见于山地、草地",
         "introduction": "头顶结出了橙红色的果实，散发出甜腻的香味，小鸟精灵可能会被吸引。但贸然接近是得不到好果子吃的，它分泌的糖胶不仅黏还有毒，无声拒绝着每一个不速之客。",
         "refresh_locations": [
             "暂时找不到这只精灵的踪迹噢！"

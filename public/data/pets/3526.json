@@ -1,7 +1,7 @@
 {
     "id": 3526,
     "name": "mochabuding",
-    "form": "抹茶布丁",
+    "form": "default",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -43,7 +43,7 @@
         "id": 314,
         "name": "mochabuding",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "抹茶布丁"
         }
     },
     "trait": {
@@ -742,6 +742,50 @@
             "energy_cost": 3,
             "power": null,
             "description": "为场下每个精灵回复3能量。"
+        },
+        {
+            "id": 7030560,
+            "name": "养分回流",
+            "icon_id": "302042",
+            "move_type": {
+                "id": 2,
+                "name": "Grass",
+                "localized": {
+                    "zh": "草"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "养分回流",
+                    "description": "造成​魔伤，​为场​下​所有​精灵​回复1​能量​。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 75,
+            "description": "造成​魔伤，​为场​下​所有​精灵​回复1​能量​。"
+        },
+        {
+            "id": 7160350,
+            "name": "可爱",
+            "icon_id": "115029",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "可爱",
+                    "description": "对敌方精灵造成魔法伤害。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 100,
+            "description": "对敌方精灵造成魔法伤害。"
         }
     ],
     "legacy_moves": [
@@ -1241,7 +1285,7 @@
                         "id": 3118,
                         "species_id": 313,
                         "name": "guodong",
-                        "form": "果冻",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "果冻"
@@ -1268,7 +1312,7 @@
                         "id": 3526,
                         "species_id": 314,
                         "name": "mochabuding",
-                        "form": "抹茶布丁",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "抹茶布丁"
@@ -1298,7 +1342,7 @@
                         "id": 3527,
                         "species_id": 315,
                         "name": "yejiangbuding",
-                        "form": "椰浆布丁",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "椰浆布丁"
@@ -1328,7 +1372,7 @@
                         "id": 3528,
                         "species_id": 316,
                         "name": "rongyanbuding",
-                        "form": "熔岩布丁",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "熔岩布丁"
@@ -1364,8 +1408,8 @@
         "current_monster_id": 3526
     },
     "world_profile": {
-        "type_desc": "石头精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "布丁精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "抹茶布丁负责舒缓与修复，它会释放带草本气息的挥发物，闻到这种气味，周围的生物会更容易安定下来。它们对同伴与洛克都很亲近，会抱住洛克身上的细小伤口，通过触碰治愈创伤。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1380,7 +1424,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 310,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

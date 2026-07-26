@@ -139,7 +139,7 @@
     "breeding": {
         "id": 3248001,
         "pet_id": 3248001,
-        "name": "异色机械方方",
+        "name": null,
         "model_id": 3248001,
         "hatch_data": 72000,
         "weight_low": 33250,
@@ -147,21 +147,15 @@
         "height_low": 34,
         "height_high": 48,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            400,
-            3125
-        ],
-        "egg_add_glass_prob_array": [
-            2,
-            113
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3248001,
                 "pet_id": 3248001,
-                "name": "异色机械方方",
+                "name": null,
                 "model_id": 3248001,
                 "hatch_data": 72000,
                 "weight_low": 33250,
@@ -169,43 +163,15 @@
                 "height_low": 34,
                 "height_high": 48,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3319002,
-                "pet_id": 3319002,
-                "name": "绿洲象",
-                "model_id": 3319002,
-                "hatch_data": 57600,
-                "weight_low": 3430,
-                "weight_high": 5120,
-                "height_low": 17,
-                "height_high": 21,
-                "precious_egg_type": 2,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 32480001,
                 "pet_id": 32480001,
-                "name": "异色机械方方",
+                "name": null,
                 "model_id": 3248001,
                 "hatch_data": 300,
                 "weight_low": 33250,

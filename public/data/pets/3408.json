@@ -177,13 +177,13 @@
             "localized": {
                 "zh": {
                     "name": "齿轮扭矩",
-                    "description": "造成物伤，每回合位置发生变化时，本技能威力永久+20。"
+                    "description": "造成物伤，每回合位置发生变化时，本技能威力永久+15。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 80,
-            "description": "造成物伤，每回合位置发生变化时，本技能威力永久+20。"
+            "power": 70,
+            "description": "造成物伤，每回合位置发生变化时，本技能威力永久+15。"
         },
         {
             "id": 7070170,
@@ -1200,7 +1200,7 @@
     "breeding": {
         "id": 3408001,
         "pet_id": 3408001,
-        "name": "秋天的样子",
+        "name": null,
         "model_id": 3408001,
         "hatch_data": 57600,
         "weight_low": 11725,
@@ -1208,21 +1208,15 @@
         "height_low": 21,
         "height_high": 25,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3408001,
                 "pet_id": 3408001,
-                "name": "秋天的样子",
+                "name": null,
                 "model_id": 3408001,
                 "hatch_data": 57600,
                 "weight_low": 11725,
@@ -1230,21 +1224,15 @@
                 "height_low": 21,
                 "height_high": 25,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3408002,
                 "pet_id": 3408002,
-                "name": "丢丢",
+                "name": null,
                 "model_id": 3408001,
                 "hatch_data": 300,
                 "weight_low": 11725,
@@ -1258,31 +1246,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3577001,
-                "pet_id": 3577001,
-                "name": "齿轮小子",
-                "model_id": 3577001,
-                "hatch_data": 28800,
-                "weight_low": 1138,
-                "weight_high": 2008,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 34080001,
                 "pet_id": 34080001,
-                "name": "秋天的样子",
+                "name": null,
                 "model_id": 3408001,
                 "hatch_data": 300,
                 "weight_low": 11725,

@@ -1,7 +1,7 @@
 {
     "id": 3315,
     "name": "xiaoshulan",
-    "form": "小鼠獭",
+    "form": "default",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -43,7 +43,7 @@
         "id": 36,
         "name": "xiaoshulan",
         "localized": {
-            "zh": "树精灵"
+            "zh": "小鼠獭"
         }
     },
     "trait": {
@@ -427,13 +427,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7021130,
@@ -764,6 +764,28 @@
             "energy_cost": 3,
             "power": 125,
             "description": "造成​魔法​伤害，​巧变：魔攻技​能。"
+        },
+        {
+            "id": 7050490,
+            "name": "沉溺",
+            "icon_id": "104037",
+            "move_type": {
+                "id": 4,
+                "name": "Water",
+                "localized": {
+                    "zh": "水"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "沉溺",
+                    "description": "造成物伤，天气为雨天时，本技能能耗-2。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 4,
+            "power": 110,
+            "description": "造成物伤，天气为雨天时，本技能能耗-2。"
         }
     ],
     "legacy_moves": [
@@ -1263,7 +1285,7 @@
                         "id": 3315,
                         "species_id": 36,
                         "name": "xiaoshulan",
-                        "form": "小鼠獭",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小鼠獭"
@@ -1317,7 +1339,7 @@
                         "id": 3316,
                         "species_id": 37,
                         "name": "dashulan",
-                        "form": "燕尾獭",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "燕尾獭"
@@ -1375,7 +1397,7 @@
                         "id": 3317,
                         "species_id": 38,
                         "name": "jushulan",
-                        "form": "卷胡巨獭",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "卷胡巨獭"
@@ -1410,8 +1432,8 @@
         "current_monster_id": 3315
     },
     "world_profile": {
-        "type_desc": "常见于湖泊",
-        "description_habitat": "小鼠獭",
+        "type_desc": "啃啃精灵",
+        "description_habitat": "常见于沙地",
         "introduction": "总是在啃着什么，包括自己的手和尾巴。扒开小鼠獭的嘴巴仔细观察也找不到牙，牙床嫩嫩的，还没有牙的痕迹。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1427,13 +1449,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 3000,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3315001,
         "pet_id": 3315001,
-        "name": "异色绒绒",
+        "name": null,
         "model_id": 3315001,
         "hatch_data": 57600,
         "weight_low": 2345,
@@ -1441,21 +1463,15 @@
         "height_low": 16,
         "height_high": 22,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3315001,
                 "pet_id": 3315001,
-                "name": "异色绒绒",
+                "name": null,
                 "model_id": 3315001,
                 "hatch_data": 57600,
                 "weight_low": 2345,
@@ -1463,21 +1479,15 @@
                 "height_low": 16,
                 "height_high": 22,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 33150001,
                 "pet_id": 33150001,
-                "name": "异色绒绒",
+                "name": null,
                 "model_id": 3315001,
                 "hatch_data": 300,
                 "weight_low": 2345,
@@ -1491,127 +1501,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000074,
-                "pet_id": 91000074,
-                "name": "异色绒绒",
-                "model_id": 3315001,
-                "hatch_data": 57600,
-                "weight_low": 2345,
-                "weight_high": 3000,
-                "height_low": 16,
-                "height_high": 22,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000074,
-                "pet_id": 92000074,
-                "name": "异色绒绒",
-                "model_id": 3315001,
-                "hatch_data": 57600,
-                "weight_low": 2345,
-                "weight_high": 3000,
-                "height_low": 16,
-                "height_high": 22,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000074,
-                "pet_id": 93000074,
-                "name": "异色绒绒",
-                "model_id": 3315001,
-                "hatch_data": 57600,
-                "weight_low": 2345,
-                "weight_high": 3000,
-                "height_low": 16,
-                "height_high": 22,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000074,
-                "pet_id": 94000074,
-                "name": "异色绒绒",
-                "model_id": 3315001,
-                "hatch_data": 57600,
-                "weight_low": 2345,
-                "weight_high": 3000,
-                "height_low": 16,
-                "height_high": 22,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000074,
-                "pet_id": 96000074,
-                "name": "异色绒绒",
-                "model_id": 3315001,
-                "hatch_data": 57600,
-                "weight_low": 2345,
-                "weight_high": 3000,
-                "height_low": 16,
-                "height_high": 22,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000074,
-                "pet_id": 97000074,
-                "name": "异色绒绒",
-                "model_id": 3315001,
-                "hatch_data": 57600,
-                "weight_low": 2345,
-                "weight_high": 3000,
-                "height_low": 16,
-                "height_high": 22,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000074,
-                "pet_id": 98000074,
-                "name": "异色绒绒",
-                "model_id": 3315001,
-                "hatch_data": 57600,
-                "weight_low": 2345,
-                "weight_high": 3000,
-                "height_low": 16,
-                "height_high": 22,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000140,
                 "pet_id": 99000140,
-                "name": "异色绒绒",
+                "name": null,
                 "model_id": 3315001,
                 "hatch_data": 72000,
                 "weight_low": 2345,

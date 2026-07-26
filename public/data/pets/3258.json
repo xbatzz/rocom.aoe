@@ -1,7 +1,7 @@
 {
     "id": 3258,
     "name": "xuedingbulusi",
-    "form": "雪顶布鲁斯",
+    "form": "default",
     "main_type": {
         "id": 7,
         "name": "Ice",
@@ -37,7 +37,7 @@
         "id": 253,
         "name": "xuedingbulusi",
         "localized": {
-            "zh": "爵士鹿"
+            "zh": "雪顶布鲁斯"
         }
     },
     "trait": {
@@ -648,6 +648,50 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7090450,
+            "name": "冰裂",
+            "icon_id": "108042",
+            "move_type": {
+                "id": 7,
+                "name": "Ice",
+                "localized": {
+                    "zh": "冰"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "冰裂",
+                    "description": "造​成​物伤，​选择：​敌方​获得​物防-30%或​敌方获得速度​-20。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 70,
+            "description": "造​成​物伤，​选择：​敌方​获得​物防-30%或​敌方获得速度​-20。"
+        },
+        {
+            "id": 7090430,
+            "name": "冷凝",
+            "icon_id": "108039",
+            "move_type": {
+                "id": 7,
+                "name": "Ice",
+                "localized": {
+                    "zh": "冰"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "冷凝",
+                    "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 4,
+            "power": 95,
+            "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
         }
     ],
     "legacy_moves": [
@@ -1147,7 +1191,7 @@
                         "id": 3257,
                         "species_id": 252,
                         "name": "bulusi",
-                        "form": "布鲁斯",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "布鲁斯"
@@ -1174,7 +1218,7 @@
                         "id": 3258,
                         "species_id": 253,
                         "name": "xuedingbulusi",
-                        "form": "雪顶布鲁斯",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雪顶布鲁斯"
@@ -1203,7 +1247,7 @@
                         "id": 3259,
                         "species_id": 254,
                         "name": "bingzuanbulusi",
-                        "form": "冰钻布鲁斯",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "冰钻布鲁斯"
@@ -1232,8 +1276,8 @@
         "current_monster_id": 3258
     },
     "world_profile": {
-        "type_desc": "小夜",
-        "description_habitat": "喵喵",
+        "type_desc": "章鱼精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "晶体化结构更稳定，修长的腕足变得更灵活，能细致地打理身体、调整伪装姿态，白色绒球对温差的感知也更敏锐。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1248,7 +1292,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 310,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

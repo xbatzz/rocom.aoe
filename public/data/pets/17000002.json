@@ -161,13 +161,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7020970,
@@ -1175,7 +1175,7 @@
                         "id": 3180,
                         "species_id": 293,
                         "name": "xiaopaersasi",
-                        "form": "小帕尔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小帕尔"
@@ -1231,7 +1231,7 @@
                         "id": 3181,
                         "species_id": 294,
                         "name": "paersasi2",
-                        "form": "帕尔萨斯",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "帕尔萨斯"
@@ -1261,7 +1261,7 @@
                         "id": 3182,
                         "species_id": 295,
                         "name": "longxipaer",
-                        "form": "龙息帕尔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "龙息帕尔"

@@ -1,7 +1,7 @@
 {
     "id": 3210,
     "name": "yilong",
-    "form": "翼龙",
+    "form": "default",
     "main_type": {
         "id": 8,
         "name": "Dragon",
@@ -43,7 +43,7 @@
         "id": 225,
         "name": "yilong",
         "localized": {
-            "zh": "拉特"
+            "zh": "翼龙"
         }
     },
     "trait": {
@@ -654,6 +654,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "减​伤90%，​应对攻击。​​​巧变：龙系​状态技能。"
+        },
+        {
+            "id": 7100300,
+            "name": "龙守望",
+            "icon_id": "209020",
+            "move_type": {
+                "id": 8,
+                "name": "Dragon",
+                "localized": {
+                    "zh": "龙"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "龙守望",
+                    "description": "下次技能无需蓄力，本技能可在蓄力状态下使用。选择：本次能耗-1或应对防御时打断，敌方下回合获得眩晕。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 1,
+            "power": null,
+            "description": "下次技能无需蓄力，本技能可在蓄力状态下使用。选择：本次能耗-1或应对防御时打断，敌方下回合获得眩晕。"
         }
     ],
     "legacy_moves": [
@@ -1153,7 +1175,7 @@
                         "id": 3209,
                         "species_id": 224,
                         "name": "xiaoyilong",
-                        "form": "小翼龙",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小翼龙"
@@ -1186,7 +1208,7 @@
                         "id": 3210,
                         "species_id": 225,
                         "name": "yilong",
-                        "form": "翼龙",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "翼龙"
@@ -1221,8 +1243,8 @@
         "current_monster_id": 3210
     },
     "world_profile": {
-        "type_desc": "偶见于城镇周边、山地",
-        "description_habitat": "喵喵",
+        "type_desc": "翼龙精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "拥有庞大的身躯，肚子总是鼓鼓的，充满发酵的食物。它有力的双翼和坚韧的躯体仿佛为长途飞行而生，在疾飞时仍能自由呼吸。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1237,43 +1259,10 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
-    "breeding": {
-        "id": 3215002,
-        "pet_id": 3215002,
-        "name": "拉特",
-        "model_id": 3215001,
-        "hatch_data": 72000,
-        "weight_low": 24325,
-        "weight_high": 35040,
-        "height_low": 27,
-        "height_high": 38,
-        "precious_egg_type": 1,
-        "egg_base_glass_prob_array": null,
-        "egg_add_glass_prob_array": null,
-        "is_contact_add_glass_prob": null,
-        "is_contact_add_shining_prob": null,
-        "variants": [
-            {
-                "id": 3215002,
-                "pet_id": 3215002,
-                "name": "拉特",
-                "model_id": 3215001,
-                "hatch_data": 72000,
-                "weight_low": 24325,
-                "weight_high": 35040,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            }
-        ]
-    },
+    "breeding": null,
     "breeding_profile": {
         "pet_base_id": 3210,
         "egg_groups": [

@@ -1,7 +1,7 @@
 {
     "id": 3579,
     "name": "zhixumoyu",
-    "form": "秩序鱿墨",
+    "form": "default",
     "main_type": {
         "id": 14,
         "name": "Cute",
@@ -43,7 +43,7 @@
         "id": 282,
         "name": "zhixumoyu",
         "localized": {
-            "zh": "章鱼精灵"
+            "zh": "秩序鱿墨"
         }
     },
     "trait": {
@@ -625,13 +625,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7021130,
@@ -1241,7 +1241,7 @@
                         "id": 3577,
                         "species_id": 280,
                         "name": "moyoushi",
-                        "form": "墨鱿士",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "墨鱿士"
@@ -1268,7 +1268,7 @@
                         "id": 3578,
                         "species_id": 281,
                         "name": "hunluanyoucai",
-                        "form": "混乱鱿彩",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "混乱鱿彩"
@@ -1298,7 +1298,7 @@
                         "id": 3579,
                         "species_id": 282,
                         "name": "zhixumoyu",
-                        "form": "秩序鱿墨",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "秩序鱿墨"
@@ -1334,8 +1334,8 @@
         "current_monster_id": 3579
     },
     "world_profile": {
-        "type_desc": "行踪神秘",
-        "description_habitat": "喵喵",
+        "type_desc": "画笔精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "身体覆上整齐的黑白方格，触手末端变成细长的金属尺，能把漂浮的墨滴精确切割成等分方块。它从不越界，乐于将墨汁按深浅、冷暖、浓度排成矩阵，精准而冷静。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1350,7 +1350,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

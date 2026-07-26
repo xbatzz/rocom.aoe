@@ -9,7 +9,13 @@
             "zh": "水"
         }
     },
-    "sub_type": null,
+    "sub_type": {
+        "id": 5,
+        "name": "Light",
+        "localized": {
+            "zh": "光"
+        }
+    },
     "default_legacy_type": {
         "id": 4,
         "name": "Water",
@@ -401,7 +407,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "光系技能威力永久+50%，应对防御：改为永久+100%。"
         },
@@ -1315,7 +1321,13 @@
                                 "zh": "水"
                             }
                         },
-                        "sub_type": null,
+                        "sub_type": {
+                            "id": 5,
+                            "name": "Light",
+                            "localized": {
+                                "zh": "光"
+                            }
+                        },
                         "evolution_conditions": [
                             "等级达到 25 级"
                         ]
@@ -1332,7 +1344,7 @@
     "world_profile": {
         "type_desc": null,
         "description_habitat": null,
-        "introduction": "身体中蕴含着水之魔法的力量。有着水一样的澎拜，无论什么情况下都会守护同伴。",
+        "introduction": "身体中蕴含着水之魔法的力量。有着水一样的澎湃，无论什么情况下都会守护同伴。 “这一次，带着智慧回来”。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
         ],

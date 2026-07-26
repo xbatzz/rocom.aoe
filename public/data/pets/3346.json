@@ -1,7 +1,7 @@
 {
     "id": 3346,
     "name": "cuidingfuren",
-    "form": "翠顶夫人",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -43,7 +43,7 @@
         "id": 90,
         "name": "cuidingfuren",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "翠顶夫人"
         }
     },
     "trait": {
@@ -99,7 +99,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "迅捷，驱散敌方1种增益。"
         },
@@ -669,13 +669,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7020800,
@@ -786,6 +786,28 @@
             "energy_cost": 0,
             "power": 40,
             "description": "对敌方精灵造成魔法伤害。"
+        },
+        {
+            "id": 7021280,
+            "name": "缓一缓",
+            "icon_id": "101114",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "缓一缓",
+                    "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
         }
     ],
     "legacy_moves": [
@@ -1285,7 +1307,7 @@
                         "id": 3344,
                         "species_id": 88,
                         "name": "huaguitianer",
-                        "form": "乖乖鹄",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "乖乖鹄"
@@ -1318,7 +1340,7 @@
                         "id": 3345,
                         "species_id": 89,
                         "name": "lanzhutianer",
-                        "form": "蓝珠天鹅",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "蓝珠天鹅"
@@ -1353,7 +1375,7 @@
                         "id": 3346,
                         "species_id": 90,
                         "name": "cuidingfuren",
-                        "form": "翠顶夫人",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "翠顶夫人"
@@ -1382,7 +1404,7 @@
                         "id": 3571,
                         "species_id": 91,
                         "name": "heiyufuren",
-                        "form": "黑羽夫人",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "黑羽夫人"
@@ -1418,8 +1440,8 @@
         "current_monster_id": 3346
     },
     "world_profile": {
-        "type_desc": "常见于森林",
-        "description_habitat": "硬壳精灵",
+        "type_desc": "优雅精灵",
+        "description_habitat": "常见于湖泊",
         "introduction": "柔弱温顺，羽毛软而蓬松。过于专注梳理羽毛可能会迷路，意识到迷路的时候通常已经游到了完全不认识的环境里。不过总能保持优雅淡定，似乎永远不会慌张惊恐。这或许是夫人为自己制定的礼仪规范。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1435,7 +1457,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

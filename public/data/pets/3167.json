@@ -1,7 +1,7 @@
 {
     "id": 3167,
     "name": "wanzuishou",
-    "form": "巨噬针鼹",
+    "form": "default",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -37,7 +37,7 @@
         "id": 62,
         "name": "wanzuishou",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "巨噬针鼹"
         }
     },
     "trait": {
@@ -1147,7 +1147,7 @@
                         "id": 3165,
                         "species_id": 60,
                         "name": "fudishou",
-                        "form": "伏地兽",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "伏地兽"
@@ -1174,7 +1174,7 @@
                         "id": 3166,
                         "species_id": 61,
                         "name": "shiyishou",
-                        "form": "贪食鼹",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "贪食鼹"
@@ -1204,7 +1204,7 @@
                         "id": 3167,
                         "species_id": 62,
                         "name": "wanzuishou",
-                        "form": "巨噬针鼹",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "巨噬针鼹"
@@ -1233,8 +1233,8 @@
         "current_monster_id": 3167
     },
     "world_profile": {
-        "type_desc": "菇精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "食蚁兽精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "体表坚硬的鬃毛能够防御风吹日晒和敌人的攻击。长舌灵活而柔韧，能够绊倒猎物或者缠绕颈部使其窒息，吻部如同长矛一般刺穿猎物的要害，甚至可以击穿岩石。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1249,7 +1249,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

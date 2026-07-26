@@ -1,7 +1,7 @@
 {
     "id": 3584,
     "name": "ciluntuo",
-    "form": "刺轮砣",
+    "form": "default",
     "main_type": {
         "id": 10,
         "name": "Poison",
@@ -43,7 +43,7 @@
         "id": 237,
         "name": "ciluntuo_yidi",
         "localized": {
-            "zh": "恶魔红钻"
+            "zh": "刺轮砣"
         }
     },
     "trait": {
@@ -1307,7 +1307,7 @@
                         "id": 3582,
                         "species_id": 237,
                         "name": "ciluntuo_yidi",
-                        "form": "刺轮砣",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "刺轮砣"
@@ -1334,7 +1334,7 @@
                         "id": 3584,
                         "species_id": 237,
                         "name": "ciluntuo",
-                        "form": "刺轮砣",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "刺轮砣"
@@ -1367,7 +1367,7 @@
                         "id": 3583,
                         "species_id": 238,
                         "name": "yueliangtuo_yidi",
-                        "form": "月亮砣",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "月亮砣"
@@ -1390,14 +1390,14 @@
                         },
                         "evolution_conditions": [
                             "等级达到 36 级",
-                            "需满足特殊条件（类型 4，参数 12、0）"
+                            "需激活「上弦的样子」分支"
                         ]
                     },
                     {
                         "id": 3585,
                         "species_id": 238,
                         "name": "yueliangtuo",
-                        "form": "月亮砣",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "月亮砣"
@@ -1420,7 +1420,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 36 级",
-                            "需满足特殊条件（类型 4，参数 0、12）"
+                            "需激活「下弦的样子」分支"
                         ]
                     }
                 ],
@@ -1433,8 +1433,8 @@
         "current_monster_id": 3584
     },
     "world_profile": {
-        "type_desc": "常见于山林",
-        "description_habitat": "猫老师精灵",
+        "type_desc": "小鱼精灵",
+        "description_habitat": "常见于海面",
         "introduction": "皮肤柔软脆弱还有轻微黏性，表面有纤细的棘刺，一定程度上能够提供保护作用，小小的刺轮砣还没有足够的勇气和战斗力，只能依靠这些小刺来保护自己。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1449,13 +1449,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 3000,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3584001,
         "pet_id": 3584001,
-        "name": "齿轮小子（龙系血脉）",
+        "name": null,
         "model_id": 3584001,
         "hatch_data": 28800,
         "weight_low": 945,
@@ -1463,21 +1463,15 @@
         "height_low": 8,
         "height_high": 13,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3584001,
                 "pet_id": 3584001,
-                "name": "齿轮小子（龙系血脉）",
+                "name": null,
                 "model_id": 3584001,
                 "hatch_data": 28800,
                 "weight_low": 945,
@@ -1485,21 +1479,15 @@
                 "height_low": 8,
                 "height_high": 13,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3584002,
                 "pet_id": 3584002,
-                "name": "格斗小五",
+                "name": null,
                 "model_id": 3584001,
                 "hatch_data": 28800,
                 "weight_low": 945,
@@ -1515,7 +1503,7 @@
             {
                 "id": 35840001,
                 "pet_id": 35840001,
-                "name": "齿轮小子（龙系血脉）",
+                "name": null,
                 "model_id": 3584001,
                 "hatch_data": 300,
                 "weight_low": 945,
@@ -1526,168 +1514,6 @@
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000110,
-                "pet_id": 91000110,
-                "name": "齿轮小子（龙系血脉）",
-                "model_id": 3584001,
-                "hatch_data": 28800,
-                "weight_low": 945,
-                "weight_high": 1600,
-                "height_low": 8,
-                "height_high": 13,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000110,
-                "pet_id": 92000110,
-                "name": "齿轮小子（龙系血脉）",
-                "model_id": 3584001,
-                "hatch_data": 28800,
-                "weight_low": 945,
-                "weight_high": 1600,
-                "height_low": 8,
-                "height_high": 13,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000110,
-                "pet_id": 93000110,
-                "name": "齿轮小子（龙系血脉）",
-                "model_id": 3584001,
-                "hatch_data": 28800,
-                "weight_low": 945,
-                "weight_high": 1600,
-                "height_low": 8,
-                "height_high": 13,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000110,
-                "pet_id": 94000110,
-                "name": "齿轮小子（龙系血脉）",
-                "model_id": 3584001,
-                "hatch_data": 28800,
-                "weight_low": 945,
-                "weight_high": 1600,
-                "height_low": 8,
-                "height_high": 13,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000052,
-                "pet_id": 95000052,
-                "name": "齿轮小子（龙系血脉）",
-                "model_id": 3584001,
-                "hatch_data": 28800,
-                "weight_low": 945,
-                "weight_high": 1600,
-                "height_low": 8,
-                "height_high": 13,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000110,
-                "pet_id": 96000110,
-                "name": "齿轮小子（龙系血脉）",
-                "model_id": 3584001,
-                "hatch_data": 28800,
-                "weight_low": 945,
-                "weight_high": 1600,
-                "height_low": 8,
-                "height_high": 13,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000110,
-                "pet_id": 97000110,
-                "name": "齿轮小子（龙系血脉）",
-                "model_id": 3584001,
-                "hatch_data": 28800,
-                "weight_low": 945,
-                "weight_high": 1600,
-                "height_low": 8,
-                "height_high": 13,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000110,
-                "pet_id": 98000110,
-                "name": "齿轮小子（龙系血脉）",
-                "model_id": 3584001,
-                "hatch_data": 28800,
-                "weight_low": 945,
-                "weight_high": 1600,
-                "height_low": 8,
-                "height_high": 13,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000052,
-                "pet_id": 99000052,
-                "name": "齿轮小子（龙系血脉）",
-                "model_id": 3584001,
-                "hatch_data": 28800,
-                "weight_low": 945,
-                "weight_high": 1600,
-                "height_low": 8,
-                "height_high": 13,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
                 "is_contact_add_shining_prob": null
             }
         ]

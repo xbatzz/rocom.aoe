@@ -1304,13 +1304,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1000,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3543001,
         "pet_id": 3543001,
-        "name": "双灯鱼（翼系血脉）",
+        "name": null,
         "model_id": 3543001,
         "hatch_data": 57600,
         "weight_low": 4690,
@@ -1318,21 +1318,15 @@
         "height_low": 24,
         "height_high": 28,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3543001,
                 "pet_id": 3543001,
-                "name": "双灯鱼（翼系血脉）",
+                "name": null,
                 "model_id": 3543001,
                 "hatch_data": 57600,
                 "weight_low": 4690,
@@ -1340,21 +1334,15 @@
                 "height_low": 24,
                 "height_high": 28,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 35430001,
                 "pet_id": 35430001,
-                "name": "双灯鱼（翼系血脉）",
+                "name": null,
                 "model_id": 3543001,
                 "hatch_data": 300,
                 "weight_low": 4690,

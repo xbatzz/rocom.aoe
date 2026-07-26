@@ -1291,8 +1291,8 @@
         "current_monster_id": 3573
     },
     "world_profile": {
-        "type_desc": null,
-        "description_habitat": null,
+        "type_desc": "大火球精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "腹部的爆焰囊扩张了三倍，蓄能时会使整个躯体膨胀如热气球，火焰甚至会从鳞片间隙逸散。古代文献记载，曾有爆焰喷喷在火山口蓄能三天三夜，最终喷射的龙焰照亮了整个夜空。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1300,11 +1300,13 @@
         "movement_type": "步行",
         "classis_id": 6,
         "classis_name": "自然类精灵",
-        "handbook_area_ids": []
+        "handbook_area_ids": [
+            1
+        ]
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

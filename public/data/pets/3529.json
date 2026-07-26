@@ -1,7 +1,7 @@
 {
     "id": 3529,
     "name": "haoeryu",
-    "form": "号儿鱼",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -37,7 +37,7 @@
         "id": 183,
         "name": "haoeryu",
         "localized": {
-            "zh": "圆眼蜘蛛"
+            "zh": "号儿鱼"
         }
     },
     "trait": {
@@ -1125,7 +1125,7 @@
                         "id": 3529,
                         "species_id": 183,
                         "name": "haoeryu",
-                        "form": "号儿鱼",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "号儿鱼"
@@ -1152,7 +1152,7 @@
                         "id": 3530,
                         "species_id": 184,
                         "name": "diyinhaoyu",
-                        "form": "圆号鱼",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "圆号鱼"
@@ -1181,8 +1181,8 @@
         "current_monster_id": 3529
     },
     "world_profile": {
-        "type_desc": "行踪神秘",
-        "description_habitat": "常见于草地、树林、山洞",
+        "type_desc": "小号精灵",
+        "description_habitat": "常见于海面、河面",
         "introduction": "拥有中空结构的尾巴，空气和水流过的时候会发出小号一样响亮的声音。非常喜欢社交的生物，经常举办盛大的音乐会，不同的小号精灵会轮流展示自己的音乐才华，创造出令人惊叹的合奏。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1197,45 +1197,29 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
-        "id": 3151003,
-        "pet_id": 3151003,
-        "name": "圆眼蜘蛛",
-        "model_id": 3151001,
-        "hatch_data": 300,
-        "weight_low": 5110,
-        "weight_high": 7440,
-        "height_low": 19,
-        "height_high": 27,
-        "precious_egg_type": 1,
+        "id": 3529001,
+        "pet_id": 3529001,
+        "name": null,
+        "model_id": 3529001,
+        "hatch_data": 43200,
+        "weight_low": 1365,
+        "weight_high": 2100,
+        "height_low": 13,
+        "height_high": 17,
+        "precious_egg_type": null,
         "egg_base_glass_prob_array": null,
         "egg_add_glass_prob_array": null,
         "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
-                "id": 3151003,
-                "pet_id": 3151003,
-                "name": "圆眼蜘蛛",
-                "model_id": 3151001,
-                "hatch_data": 300,
-                "weight_low": 5110,
-                "weight_high": 7440,
-                "height_low": 19,
-                "height_high": 27,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 3529001,
                 "pet_id": 3529001,
-                "name": "逗逗（草系血脉）",
+                "name": null,
                 "model_id": 3529001,
                 "hatch_data": 43200,
                 "weight_low": 1365,
@@ -1243,21 +1227,15 @@
                 "height_low": 13,
                 "height_high": 17,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3529002,
                 "pet_id": 3529002,
-                "name": "逗逗（首领血脉）",
+                "name": null,
                 "model_id": 3529001,
                 "hatch_data": 43200,
                 "weight_low": 1365,
@@ -1273,7 +1251,7 @@
             {
                 "id": 3529003,
                 "pet_id": 3529003,
-                "name": "逗逗（首领血脉）",
+                "name": null,
                 "model_id": 3529001,
                 "hatch_data": 300,
                 "weight_low": 1365,
@@ -1289,7 +1267,7 @@
             {
                 "id": 35290001,
                 "pet_id": 35290001,
-                "name": "逗逗（草系血脉）",
+                "name": null,
                 "model_id": 3529001,
                 "hatch_data": 300,
                 "weight_low": 1365,
@@ -1303,127 +1281,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000029,
-                "pet_id": 91000029,
-                "name": "逗逗（草系血脉）",
-                "model_id": 3529001,
-                "hatch_data": 43200,
-                "weight_low": 1365,
-                "weight_high": 2100,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000029,
-                "pet_id": 92000029,
-                "name": "逗逗（草系血脉）",
-                "model_id": 3529001,
-                "hatch_data": 43200,
-                "weight_low": 1365,
-                "weight_high": 2100,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000029,
-                "pet_id": 93000029,
-                "name": "逗逗（草系血脉）",
-                "model_id": 3529001,
-                "hatch_data": 43200,
-                "weight_low": 1365,
-                "weight_high": 2100,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000029,
-                "pet_id": 94000029,
-                "name": "逗逗（草系血脉）",
-                "model_id": 3529001,
-                "hatch_data": 43200,
-                "weight_low": 1365,
-                "weight_high": 2100,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000029,
-                "pet_id": 96000029,
-                "name": "逗逗（草系血脉）",
-                "model_id": 3529001,
-                "hatch_data": 43200,
-                "weight_low": 1365,
-                "weight_high": 2100,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000029,
-                "pet_id": 97000029,
-                "name": "逗逗（草系血脉）",
-                "model_id": 3529001,
-                "hatch_data": 43200,
-                "weight_low": 1365,
-                "weight_high": 2100,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000029,
-                "pet_id": 98000029,
-                "name": "逗逗（草系血脉）",
-                "model_id": 3529001,
-                "hatch_data": 43200,
-                "weight_low": 1365,
-                "weight_high": 2100,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000173,
                 "pet_id": 99000173,
-                "name": "逗逗（草系血脉）",
+                "name": null,
                 "model_id": 3529001,
                 "hatch_data": 72000,
                 "weight_low": 1365,

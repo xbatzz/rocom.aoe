@@ -1,7 +1,7 @@
 {
     "id": 3047,
     "name": "guimeilingyang",
-    "form": "花影羚羊",
+    "form": "default",
     "main_type": {
         "id": 15,
         "name": "Ghost",
@@ -43,7 +43,7 @@
         "id": 17,
         "name": "guimeilingyang",
         "localized": {
-            "zh": "常见于山林、草地"
+            "zh": "花影羚羊"
         }
     },
     "trait": {
@@ -625,13 +625,35 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
+        },
+        {
+            "id": 7180390,
+            "name": "纺纱",
+            "icon_id": "117037",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "纺纱",
+                    "description": "敌方获得1层暗涌印记。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 4,
+            "power": null,
+            "description": "敌方获得1层暗涌印记。"
         }
     ],
     "legacy_moves": [
@@ -1190,7 +1212,7 @@
                         "id": 3047,
                         "species_id": 17,
                         "name": "guimeilingyang",
-                        "form": "花影羚羊",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "花影羚羊"
@@ -1228,7 +1250,7 @@
         "current_monster_id": 3047
     },
     "world_profile": {
-        "type_desc": "火元素精灵",
+        "type_desc": "羊精灵",
         "description_habitat": "常见于山林、草地",
         "introduction": "进化后，分叉的角更为锋利，中间盛开一朵蓝色花朵，花瓣能体现它们的身体状态，疲劳时，花瓣会略微下垂。花朵在夜晚能发出怪异的微光，能够迷惑对手。",
         "refresh_locations": [
@@ -1244,7 +1266,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

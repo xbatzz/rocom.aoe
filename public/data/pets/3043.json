@@ -1,7 +1,7 @@
 {
     "id": 3043,
     "name": "yibeier",
-    "form": "伊贝儿",
+    "form": "default",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -26,18 +26,18 @@
         }
     },
     "implemented": true,
-    "base_hp": 85,
+    "base_hp": 94,
     "base_phy_atk": 73,
-    "base_mag_atk": 71,
-    "base_phy_def": 76,
-    "base_mag_def": 76,
+    "base_mag_atk": 72,
+    "base_phy_def": 88,
+    "base_mag_def": 88,
     "base_spd": 72,
     "evolves_from_id": null,
     "species": {
         "id": 71,
         "name": "yibeier",
         "localized": {
-            "zh": "电球咩咩"
+            "zh": "伊贝儿"
         }
     },
     "trait": {
@@ -729,13 +729,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7030510,
@@ -758,6 +758,50 @@
             "energy_cost": 3,
             "power": null,
             "description": "为场下每个精灵回复3能量。"
+        },
+        {
+            "id": 7030560,
+            "name": "养分回流",
+            "icon_id": "302042",
+            "move_type": {
+                "id": 2,
+                "name": "Grass",
+                "localized": {
+                    "zh": "草"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "养分回流",
+                    "description": "造成​魔伤，​为场​下​所有​精灵​回复1​能量​。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 75,
+            "description": "造成​魔伤，​为场​下​所有​精灵​回复1​能量​。"
+        },
+        {
+            "id": 7030600,
+            "name": "补觉",
+            "icon_id": "102045",
+            "move_type": {
+                "id": 2,
+                "name": "Grass",
+                "localized": {
+                    "zh": "草"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "补觉",
+                    "description": "选择：自己回复25%生命或回复8能量。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "选择：自己回复25%生命或回复8能量。"
         }
     ],
     "legacy_moves": [
@@ -1257,7 +1301,7 @@
                         "id": 3043,
                         "species_id": 71,
                         "name": "yibeier",
-                        "form": "伊贝儿",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "伊贝儿"
@@ -1284,7 +1328,7 @@
                         "id": 3044,
                         "species_id": 72,
                         "name": "yibeifenfen",
-                        "form": "伊贝粉粉",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "伊贝粉粉"
@@ -1316,8 +1360,8 @@
         "current_monster_id": 3043
     },
     "world_profile": {
-        "type_desc": "蜥蜴精灵",
-        "description_habitat": "常见于草地",
+        "type_desc": "毛绒绒精灵",
+        "description_habitat": "常见于湖岸",
         "introduction": "它头顶长着一团蓬松的绿色苔藓，压低身体时能很好地融入草丛，几乎难以分辨。苔藓本身不疏水，一旦沾到水就会迅速吸收并变得沉重，让它行动迟缓甚至走不动，只能停在原地等待自然风干。它的身体像果冻一样具有弹性，可拉伸变形。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1332,13 +1376,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 3000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3043001,
         "pet_id": 3043001,
-        "name": "记忆石",
+        "name": null,
         "model_id": 3043001,
         "hatch_data": 28800,
         "weight_low": 1155,
@@ -1346,21 +1390,15 @@
         "height_low": 19,
         "height_high": 26,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3043001,
                 "pet_id": 3043001,
-                "name": "记忆石",
+                "name": null,
                 "model_id": 3043001,
                 "hatch_data": 28800,
                 "weight_low": 1155,
@@ -1368,21 +1406,47 @@
                 "height_low": 19,
                 "height_high": 26,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3043002,
+                "pet_id": 3043002,
+                "name": null,
+                "model_id": 3043002,
+                "hatch_data": 28800,
+                "weight_low": 1155,
+                "weight_high": 1680,
+                "height_low": 19,
+                "height_high": 26,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3043003,
+                "pet_id": 3043003,
+                "name": null,
+                "model_id": 3043002,
+                "hatch_data": 28800,
+                "weight_low": 1155,
+                "weight_high": 1680,
+                "height_low": 19,
+                "height_high": 26,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 30430001,
                 "pet_id": 30430001,
-                "name": "记忆石",
+                "name": null,
                 "model_id": 3043001,
                 "hatch_data": 300,
                 "weight_low": 1155,
@@ -1396,127 +1460,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000062,
-                "pet_id": 91000062,
-                "name": "记忆石",
-                "model_id": 3043001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 19,
-                "height_high": 26,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000062,
-                "pet_id": 92000062,
-                "name": "记忆石",
-                "model_id": 3043001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 19,
-                "height_high": 26,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000062,
-                "pet_id": 93000062,
-                "name": "记忆石",
-                "model_id": 3043001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 19,
-                "height_high": 26,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000062,
-                "pet_id": 94000062,
-                "name": "记忆石",
-                "model_id": 3043001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 19,
-                "height_high": 26,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000062,
-                "pet_id": 96000062,
-                "name": "记忆石",
-                "model_id": 3043001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 19,
-                "height_high": 26,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000062,
-                "pet_id": 97000062,
-                "name": "记忆石",
-                "model_id": 3043001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 19,
-                "height_high": 26,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000062,
-                "pet_id": 98000062,
-                "name": "记忆石",
-                "model_id": 3043001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 19,
-                "height_high": 26,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000095,
                 "pet_id": 99000095,
-                "name": "记忆石",
+                "name": null,
                 "model_id": 3043001,
                 "hatch_data": 72000,
                 "weight_low": 1155,

@@ -1,7 +1,7 @@
 {
     "id": 3609,
     "name": "huajianchentieshou",
-    "form": "画间沉铁兽",
+    "form": "default",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -32,29 +32,29 @@
         }
     },
     "implemented": true,
-    "base_hp": 100,
-    "base_phy_atk": 160,
-    "base_mag_atk": 67,
+    "base_hp": 126,
+    "base_phy_atk": 147,
+    "base_mag_atk": 63,
     "base_phy_def": 100,
     "base_mag_def": 76,
-    "base_spd": 105,
+    "base_spd": 92,
     "evolves_from_id": 3607,
     "species": {
         "id": 302,
         "name": "huajianchentieshou",
         "localized": {
-            "zh": "绒光优优"
+            "zh": "画间沉铁兽"
         }
     },
     "trait": {
         "id": 200243,
         "name": "变形活画",
-        "description": "攻击时，敌方每有1层增益，本次技能威力+10%。",
+        "description": "行动时，敌方每有1层增益，本次行动技能威力+10%，速度+5。",
         "icon_id": "200243",
         "localized": {
             "zh": {
                 "name": "变形活画",
-                "description": "攻击时，敌方每有1层增益，本次技能威力+10%。"
+                "description": "行动时，敌方每有1层增益，本次行动技能威力+10%，速度+5。"
             }
         }
     },
@@ -1439,7 +1439,7 @@
                         "id": 3606,
                         "species_id": 299,
                         "name": "huajingling",
-                        "form": "画精灵",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "画精灵"
@@ -1466,7 +1466,7 @@
                         "id": 3607,
                         "species_id": 300,
                         "name": "huaxiangshouhu",
-                        "form": "画像守护",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "画像守护"
@@ -1495,7 +1495,7 @@
                         "id": 3608,
                         "species_id": 301,
                         "name": "huajianfashishou",
-                        "form": "画间法师手",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "画间法师手"
@@ -1525,7 +1525,7 @@
                         "id": 3609,
                         "species_id": 302,
                         "name": "huajianchentieshou",
-                        "form": "画间沉铁兽",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "画间沉铁兽"
@@ -1561,8 +1561,8 @@
         "current_monster_id": 3609
     },
     "world_profile": {
-        "type_desc": "蝶精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "守望精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "一种沉默寡言的分支形态，稍微有些粗鲁，比起结识更多的朋友，对他来说更重要的是保护现在朋友们的安全，可能在实施保护中不小心磕到朋友的头。确定了需要保护的对象之后，就不会再四处穿梭。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1576,7 +1576,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

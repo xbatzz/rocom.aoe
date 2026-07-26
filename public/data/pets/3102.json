@@ -1,7 +1,7 @@
 {
     "id": 3102,
     "name": "keshuiwang",
-    "form": "瞌睡王",
+    "form": "default",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -32,18 +32,18 @@
         }
     },
     "implemented": true,
-    "base_hp": 144,
-    "base_phy_atk": 157,
-    "base_mag_atk": 64,
-    "base_phy_def": 135,
-    "base_mag_def": 110,
+    "base_hp": 156,
+    "base_phy_atk": 167,
+    "base_mag_atk": 70,
+    "base_phy_def": 143,
+    "base_mag_def": 117,
     "base_spd": 75,
     "evolves_from_id": 3101,
     "species": {
         "id": 75,
         "name": "keshuiwang",
         "localized": {
-            "zh": "常见于湖岸"
+            "zh": "瞌睡王"
         }
     },
     "trait": {
@@ -698,6 +698,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7140330,
+            "name": "马步",
+            "icon_id": "313037",
+            "move_type": {
+                "id": 12,
+                "name": "Fighting",
+                "localized": {
+                    "zh": "武"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "马步",
+                    "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 3,
+            "power": null,
+            "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
         }
     ],
     "legacy_moves": [
@@ -1197,7 +1219,7 @@
                         "id": 3049,
                         "species_id": 73,
                         "name": "baifalanren",
-                        "form": "白发懒人",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "白发懒人"
@@ -1224,7 +1246,7 @@
                         "id": 3101,
                         "species_id": 74,
                         "name": "dongliyuan",
-                        "form": "动力猿",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "动力猿"
@@ -1259,7 +1281,7 @@
                         "id": 3102,
                         "species_id": 75,
                         "name": "keshuiwang",
-                        "form": "瞌睡王",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "瞌睡王"
@@ -1294,8 +1316,8 @@
         "current_monster_id": 3102
     },
     "world_profile": {
-        "type_desc": "常见于草地、山地",
-        "description_habitat": "常见于草地",
+        "type_desc": "睡不醒精灵",
+        "description_habitat": "偶见于城镇周边、山地",
         "introduction": "比较难找到它的眼睛，主要靠鼾声来判断它是不是醒着。即使危险就在面前也能睡得香香的，或许是强大的体格给了它这样做的底气。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1310,7 +1332,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 180,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

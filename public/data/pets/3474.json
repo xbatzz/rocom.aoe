@@ -1,7 +1,7 @@
 {
     "id": 3474,
     "name": "shanganwa",
-    "form": "上岸蛙",
+    "form": "default",
     "main_type": {
         "id": 18,
         "name": "Illusion",
@@ -37,7 +37,7 @@
         "id": 339,
         "name": "shanganwa",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "上岸蛙"
         }
     },
     "trait": {
@@ -1125,7 +1125,7 @@
                         "id": 3473,
                         "species_id": 338,
                         "name": "buguake",
-                        "form": "布瓜蝌",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "布瓜蝌"
@@ -1141,12 +1141,18 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": []
-                    },
+                    }
+                ],
+                "is_leader_stage": false
+            },
+            {
+                "depth": 1,
+                "monsters": [
                     {
                         "id": 3474,
                         "species_id": 339,
                         "name": "shanganwa",
-                        "form": "上岸蛙",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "上岸蛙"
@@ -1169,14 +1175,14 @@
                 "is_leader_stage": false
             }
         ],
-        "max_depth": 0,
+        "max_depth": 1,
         "total_unique_monsters": 2,
         "species_id": 339,
         "current_monster_id": 3474
     },
     "world_profile": {
-        "type_desc": "行踪神秘",
-        "description_habitat": "喵喵",
+        "type_desc": "祈愿精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "布娃娃诞生了意识之后，因为想要快快奔向小洛克的身边为它们带来好运，所以演化出了擅长弹跳的双腿，跳跃着冲向魔法学院。有传闻说，如果小洛克在考试前听100遍上岸蛙们的“呱呱”声，就可以心想事成，逢考必过。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1190,7 +1196,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

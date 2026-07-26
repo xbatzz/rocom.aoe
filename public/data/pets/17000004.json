@@ -43,12 +43,12 @@
     "trait": {
         "id": 200103,
         "name": "刺肤",
-        "description": "每受到1次攻击，对攻击自己的精灵造成50威力物理伤害。",
+        "description": "每受到1次攻击伤害，对攻击自己的精灵造成50威力物理伤害。",
         "icon_id": "200103",
         "localized": {
             "zh": {
                 "name": "刺肤",
-                "description": "每受到1次攻击，对攻击自己的精灵造成50威力物理伤害。"
+                "description": "每受到1次攻击伤害，对攻击自己的精灵造成50威力物理伤害。"
             }
         }
     },
@@ -243,13 +243,13 @@
             "localized": {
                 "zh": {
                     "name": "石锁",
-                    "description": "造成物伤，敌方3回合无法更换精灵。"
+                    "description": "造成物伤，敌方获得3回合禁足。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 50,
-            "description": "造成物伤，敌方3回合无法更换精灵。"
+            "description": "造成物伤，敌方获得3回合禁足。"
         },
         {
             "id": 7080250,
@@ -663,13 +663,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7020810,
@@ -736,6 +736,28 @@
             "energy_cost": 2,
             "power": null,
             "description": "减伤70%，巧变：毒系状态技能，应对攻击。"
+        },
+        {
+            "id": 7120270,
+            "name": "溶解",
+            "icon_id": "111028",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "溶解",
+                    "description": "减伤90%，应对攻击：驱散敌方1种增益。"
+                }
+            },
+            "move_category": "Defense",
+            "energy_cost": 2,
+            "power": null,
+            "description": "减伤90%，应对攻击：驱散敌方1种增益。"
         }
     ],
     "legacy_moves": [
@@ -1235,7 +1257,7 @@
                         "id": 3106,
                         "species_id": 24,
                         "name": "huociyanxiyi",
-                        "form": "石肤蜥",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "石肤蜥"
@@ -1256,7 +1278,7 @@
                         "id": 3500,
                         "species_id": 24,
                         "name": "shifuxi_yidi",
-                        "form": "石肤蜥",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "石肤蜥"

@@ -1,7 +1,7 @@
 {
     "id": 3131,
     "name": "jianjiaozhizhu",
-    "form": "尖角蜘蛛",
+    "form": "default",
     "main_type": {
         "id": 10,
         "name": "Poison",
@@ -33,8 +33,8 @@
     },
     "implemented": true,
     "base_hp": 74,
-    "base_phy_atk": 49,
-    "base_mag_atk": 49,
+    "base_phy_atk": 70,
+    "base_mag_atk": 70,
     "base_phy_def": 73,
     "base_mag_def": 73,
     "base_spd": 88,
@@ -43,7 +43,7 @@
         "id": 169,
         "name": "jianjiaozhizhu",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "尖角蜘蛛"
         }
     },
     "trait": {
@@ -275,7 +275,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 6,
+            "energy_cost": 4,
             "power": null,
             "description": "使敌方精灵减益的层数翻倍。"
         },
@@ -1241,7 +1241,7 @@
                         "id": 3130,
                         "species_id": 168,
                         "name": "yuanyanzhizhu",
-                        "form": "圆眼蜘蛛",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "圆眼蜘蛛"
@@ -1268,7 +1268,7 @@
                         "id": 3131,
                         "species_id": 169,
                         "name": "jianjiaozhizhu",
-                        "form": "尖角蜘蛛",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "尖角蜘蛛"
@@ -1303,7 +1303,7 @@
                         "id": 3132,
                         "species_id": 170,
                         "name": "fengcizhizhu",
-                        "form": "芋香巨角蛛",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "芋香巨角蛛"
@@ -1338,8 +1338,8 @@
         "current_monster_id": 3131
     },
     "world_profile": {
-        "type_desc": "梦游",
-        "description_habitat": "松羊精灵",
+        "type_desc": "蜘蛛精灵",
+        "description_habitat": "常见于草地、树林、山洞",
         "introduction": "各关节都覆盖着绒毛，绒毛可以疏水和保暖。在湿滑的雨天也可以自由行走，世界的动态在它们眼里显得很慢，所以大部份尖角蜘蛛都是急性子。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1354,7 +1354,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 525,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

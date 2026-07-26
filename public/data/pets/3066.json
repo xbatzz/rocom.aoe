@@ -1,7 +1,7 @@
 {
     "id": 3066,
     "name": "youlingli",
-    "form": "影狸",
+    "form": "default",
     "main_type": {
         "id": 10,
         "name": "Poison",
@@ -43,7 +43,7 @@
         "id": 124,
         "name": "youlingli",
         "localized": {
-            "zh": "遗迹精灵"
+            "zh": "影狸"
         }
     },
     "trait": {
@@ -735,13 +735,13 @@
             "localized": {
                 "zh": {
                     "name": "鸩毒",
-                    "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+20。"
+                    "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+20。"
+            "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
         },
         {
             "id": 7170240,
@@ -764,6 +764,28 @@
             "energy_cost": 2,
             "power": null,
             "description": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。"
+        },
+        {
+            "id": 7120280,
+            "name": "过敏原",
+            "icon_id": "111030",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "过敏原",
+                    "description": "造成魔伤，1连击，若敌方有中毒效果，本次技能连击数+2。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 35,
+            "description": "造成魔伤，1连击，若敌方有中毒效果，本次技能连击数+2。"
         }
     ],
     "legacy_moves": [
@@ -1263,7 +1285,7 @@
                         "id": 3065,
                         "species_id": 123,
                         "name": "huyouli",
-                        "form": "忽幽狸",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "忽幽狸"
@@ -1296,7 +1318,7 @@
                         "id": 3066,
                         "species_id": 124,
                         "name": "youlingli",
-                        "form": "影狸",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "影狸"
@@ -1334,8 +1356,8 @@
         "current_monster_id": 3066
     },
     "world_profile": {
-        "type_desc": "奇丽叶",
-        "description_habitat": "喵喵",
+        "type_desc": "狸精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "总是弓着身子，脊椎特化为毒刺弹射装置，用来发射尾巴上的尖刺。体内另外储存了几十根可再生的空心毒刺，通过弹射加压能以每秒10发的速度喷射。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1351,7 +1373,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

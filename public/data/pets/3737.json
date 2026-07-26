@@ -227,13 +227,13 @@
             "localized": {
                 "zh": {
                     "name": "电离爆破",
-                    "description": "敌方获得速度-40，3连击。"
+                    "description": "敌方获得魔攻-20%，速度-20，2连击。"
                 }
             },
             "move_category": "Status",
-            "energy_cost": 3,
+            "energy_cost": 1,
             "power": null,
-            "description": "敌方获得速度-40，3连击。"
+            "description": "敌方获得魔攻-20%，速度-20，2连击。"
         },
         {
             "id": 7110350,
@@ -341,7 +341,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "光系技能威力永久+50%，应对防御：改为永久+100%。"
         }
@@ -449,13 +449,13 @@
             "localized": {
                 "zh": {
                     "name": "流沙",
-                    "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
+                    "description": "敌方获得3回合禁足，应对防御：敌方获得双防-60%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
+            "description": "敌方获得3回合禁足，应对防御：敌方获得双防-60%。"
         },
         {
             "id": 7020850,
@@ -1199,8 +1199,8 @@
         "current_monster_id": 3737
     },
     "world_profile": {
-        "type_desc": null,
-        "description_habitat": null,
+        "type_desc": "迪斯科精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "古老物种在漫长的时间里发生演化，曾经独自栖息在安静与黑暗里面，偶尔靠敲击山石的回音和其他个体沟通。这让它们对声音无比敏感和渴望，它们拥有坚定的心，一直等到可以在光里热烈地表达。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1208,11 +1208,13 @@
         "movement_type": "浮游",
         "classis_id": 6,
         "classis_name": "自然类精灵",
-        "handbook_area_ids": []
+        "handbook_area_ids": [
+            1
+        ]
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

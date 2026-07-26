@@ -1,7 +1,7 @@
 {
     "id": 3181,
     "name": "paersasi2",
-    "form": "帕尔萨斯",
+    "form": "default",
     "main_type": {
         "id": 16,
         "name": "Dark",
@@ -37,7 +37,7 @@
         "id": 294,
         "name": "paersasi2",
         "localized": {
-            "zh": "多彩方方"
+            "zh": "帕尔萨斯"
         }
     },
     "trait": {
@@ -155,13 +155,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7020970,
@@ -1169,7 +1169,7 @@
                         "id": 3180,
                         "species_id": 293,
                         "name": "xiaopaersasi",
-                        "form": "小帕尔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小帕尔"
@@ -1196,7 +1196,7 @@
                         "id": 3181,
                         "species_id": 294,
                         "name": "paersasi2",
-                        "form": "帕尔萨斯",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "帕尔萨斯"
@@ -1226,7 +1226,7 @@
                         "id": 3182,
                         "species_id": 295,
                         "name": "longxipaer",
-                        "form": "龙息帕尔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "龙息帕尔"
@@ -1256,8 +1256,8 @@
         "current_monster_id": 3181
     },
     "world_profile": {
-        "type_desc": "行踪神秘",
-        "description_habitat": "喵喵",
+        "type_desc": "尖尾精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "头顶的独角锋利又坚硬，但不蕴含魔法，脱落下来的独角最早被洛克用来制作匕首。“他眼中看到的都是黑白的，他的世界没有色彩，单一的世界却让他有了执著的信念和忠诚的心。”",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"

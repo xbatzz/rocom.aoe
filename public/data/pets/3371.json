@@ -1,7 +1,7 @@
 {
     "id": 3371,
     "name": "muxingchen",
-    "form": "暮星辰",
+    "form": "default",
     "main_type": {
         "id": 13,
         "name": "Flying",
@@ -43,7 +43,7 @@
         "id": 347,
         "name": "muxingchen",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "暮星辰"
         }
     },
     "trait": {
@@ -654,6 +654,28 @@
             "energy_cost": 3,
             "power": 40,
             "description": "造成​魔伤，​3连击。巧变：​翼系防御​技​能​。"
+        },
+        {
+            "id": 7150350,
+            "name": "远行",
+            "icon_id": "214036",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "远行",
+                    "description": "造成​魔伤，​自己​每​先​于​敌方行动1次，本技能威力永久+25。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 2,
+            "power": 50,
+            "description": "造成​魔伤，​自己​每​先​于​敌方行动1次，本技能威力永久+25。"
         }
     ],
     "legacy_moves": [
@@ -1153,7 +1175,7 @@
                         "id": 3369,
                         "species_id": 345,
                         "name": "youxingguang",
-                        "form": "幽星光",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "幽星光"
@@ -1180,7 +1202,7 @@
                         "id": 3370,
                         "species_id": 346,
                         "name": "yaoxingguang",
-                        "form": "曜星光",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "曜星光"
@@ -1215,7 +1237,7 @@
                         "id": 3371,
                         "species_id": 347,
                         "name": "muxingchen",
-                        "form": "暮星辰",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "暮星辰"
@@ -1250,8 +1272,8 @@
         "current_monster_id": 3371
     },
     "world_profile": {
-        "type_desc": "独角精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "观星精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "当知识积累到一定程度，曜星光便会和星辰共鸣，化身暮星辰。一颗星辰寂灭，一颗星辰升起。涌起的黑洞已然吞噬了它的心灵。无穷无尽的冰冷与空洞啊——但是它依然在等待，等待新的行星诞生。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1265,7 +1287,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

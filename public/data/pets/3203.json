@@ -1,7 +1,7 @@
 {
     "id": 3203,
     "name": "beise",
-    "form": "贝瑟",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -43,7 +43,7 @@
         "id": 332,
         "name": "beise",
         "localized": {
-            "zh": "毛头小蛛"
+            "zh": "贝瑟"
         }
     },
     "trait": {
@@ -676,6 +676,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7070200,
+            "name": "六自由度",
+            "icon_id": "106024",
+            "move_type": {
+                "id": 17,
+                "name": "Mechanical",
+                "localized": {
+                    "zh": "机械"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "六自由度",
+                    "description": "造成魔伤，威力额外增加两侧技能威力差的二分之一，传动1。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 50,
+            "description": "造成魔伤，威力额外增加两侧技能威力差的二分之一，传动1。"
         }
     ],
     "legacy_moves": [
@@ -1175,7 +1197,7 @@
                         "id": 3203,
                         "species_id": 332,
                         "name": "beise",
-                        "form": "贝瑟",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "贝瑟"
@@ -1208,7 +1230,7 @@
                         "id": 3204,
                         "species_id": 333,
                         "name": "beijiaer",
-                        "form": "贝加尔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "贝加尔"
@@ -1243,7 +1265,7 @@
                         "id": 3205,
                         "species_id": 334,
                         "name": "beigusi",
-                        "form": "贝古斯",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "贝古斯"
@@ -1278,8 +1300,8 @@
         "current_monster_id": 3203
     },
     "world_profile": {
-        "type_desc": "计重精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "蒸汽精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "拥有坚硬而沉重的外壳，靠石头和木头补充能量，在能量短缺的时候会靠睡觉度过。 “它是坚硬的，它永远不会破碎。可当你狠心地对待它，它终究会伤心地沉睡。”",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1293,13 +1315,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 3000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3203001,
         "pet_id": 3203001,
-        "name": "石石",
+        "name": null,
         "model_id": 3203001,
         "hatch_data": 57600,
         "weight_low": 8575,
@@ -1307,21 +1329,15 @@
         "height_low": 24,
         "height_high": 34,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
-        "is_contact_add_shining_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
+        "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3203001,
                 "pet_id": 3203001,
-                "name": "石石",
+                "name": null,
                 "model_id": 3203001,
                 "hatch_data": 57600,
                 "weight_low": 8575,
@@ -1329,21 +1345,15 @@
                 "height_low": 24,
                 "height_high": 34,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
             },
             {
                 "id": 3203002,
                 "pet_id": 3203002,
-                "name": "雪豆丁（水系血脉）",
+                "name": null,
                 "model_id": 3203002,
                 "hatch_data": 57600,
                 "weight_low": 8575,
@@ -1351,21 +1361,15 @@
                 "height_low": 24,
                 "height_high": 34,
                 "precious_egg_type": 2,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3203003,
                 "pet_id": 3203003,
-                "name": "石石",
+                "name": null,
                 "model_id": 3203001,
                 "hatch_data": 300,
                 "weight_low": 8575,
@@ -1379,53 +1383,25 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3253001,
-                "pet_id": 3253001,
-                "name": "贝瑟",
-                "model_id": 3253001,
+                "id": 3203004,
+                "pet_id": 3203004,
+                "name": null,
+                "model_id": 3203002,
                 "hatch_data": 57600,
-                "weight_low": 5355,
-                "weight_high": 8600,
-                "height_low": 32,
-                "height_high": 37,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3257001,
-                "pet_id": 3257001,
-                "name": "贝瑟",
-                "model_id": 3257001,
-                "hatch_data": 43200,
-                "weight_low": 840,
-                "weight_high": 1840,
-                "height_low": 23,
-                "height_high": 32,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
+                "weight_low": 8575,
+                "weight_high": 13840,
+                "height_low": 24,
+                "height_high": 34,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 32030001,
                 "pet_id": 32030001,
-                "name": "石石",
+                "name": null,
                 "model_id": 3203001,
                 "hatch_data": 300,
                 "weight_low": 8575,
@@ -1436,154 +1412,18 @@
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 32530001,
-                "pet_id": 32530001,
-                "name": "贝瑟",
-                "model_id": 3253001,
-                "hatch_data": 300,
-                "weight_low": 5355,
-                "weight_high": 8600,
-                "height_low": 32,
-                "height_high": 37,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 32570001,
-                "pet_id": 32570001,
-                "name": "贝瑟",
-                "model_id": 3257001,
-                "hatch_data": 300,
-                "weight_low": 840,
-                "weight_high": 1840,
-                "height_low": 23,
-                "height_high": 32,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000024,
-                "pet_id": 95000024,
-                "name": "石石",
-                "model_id": 3203001,
-                "hatch_data": 57600,
-                "weight_low": 8575,
-                "weight_high": 13840,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000028,
-                "pet_id": 95000028,
-                "name": "贝瑟",
-                "model_id": 3257001,
-                "hatch_data": 43200,
-                "weight_low": 840,
-                "weight_high": 1840,
-                "height_low": 23,
-                "height_high": 32,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000024,
-                "pet_id": 99000024,
-                "name": "石石",
-                "model_id": 3203001,
-                "hatch_data": 57600,
-                "weight_low": 8575,
-                "weight_high": 13840,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000028,
-                "pet_id": 99000028,
-                "name": "贝瑟",
-                "model_id": 3257001,
-                "hatch_data": 43200,
-                "weight_low": 840,
-                "weight_high": 1840,
-                "height_low": 23,
-                "height_high": 32,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 99000081,
                 "pet_id": 99000081,
-                "name": "石石",
+                "name": null,
                 "model_id": 3203001,
                 "hatch_data": 72000,
                 "weight_low": 8575,
                 "weight_high": 13840,
                 "height_low": 24,
                 "height_high": 34,
-                "precious_egg_type": 4,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000100,
-                "pet_id": 99000100,
-                "name": "贝瑟",
-                "model_id": 3257001,
-                "hatch_data": 72000,
-                "weight_low": 840,
-                "weight_high": 1840,
-                "height_low": 23,
-                "height_high": 32,
                 "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,

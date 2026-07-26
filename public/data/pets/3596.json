@@ -1,7 +1,7 @@
 {
     "id": 3596,
     "name": "zhenyexunlin",
-    "form": "针叶巡林",
+    "form": "default",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -43,7 +43,7 @@
         "id": 155,
         "name": "zhenyexunlin",
         "localized": {
-            "zh": "大耳帽兜"
+            "zh": "针叶巡林"
         }
     },
     "trait": {
@@ -676,6 +676,28 @@
             "energy_cost": 4,
             "power": null,
             "description": "自己获得1层光合印记。"
+        },
+        {
+            "id": 7140330,
+            "name": "马步",
+            "icon_id": "313037",
+            "move_type": {
+                "id": 12,
+                "name": "Fighting",
+                "localized": {
+                    "zh": "武"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "马步",
+                    "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 3,
+            "power": null,
+            "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
         }
     ],
     "legacy_moves": [
@@ -1175,7 +1197,7 @@
                         "id": 3594,
                         "species_id": 153,
                         "name": "songzai",
-                        "form": "松仔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "松仔"
@@ -1208,7 +1230,7 @@
                         "id": 3595,
                         "species_id": 154,
                         "name": "yesongyang",
-                        "form": "松叶羊",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "松叶羊"
@@ -1243,7 +1265,7 @@
                         "id": 3596,
                         "species_id": 155,
                         "name": "zhenyexunlin",
-                        "form": "针叶巡林",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "针叶巡林"
@@ -1278,8 +1300,8 @@
         "current_monster_id": 3596
     },
     "world_profile": {
-        "type_desc": "锅精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "松羊精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "丛林的向导，拥有修长的四肢与轻盈的骨骼结构，发育完全的角呈树枝状。“所谓的规则像是枝条，又好像荆棘。被缠上时使人烦躁，被刺伤时让人疼痛。但规则也有如树干，在支撑着森林的生命——所谓自由，亦是如此\"。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1294,75 +1316,10 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
-    "breeding": {
-        "id": 3133001,
-        "pet_id": 3133001,
-        "name": "大耳帽兜",
-        "model_id": 3133001,
-        "hatch_data": 1,
-        "weight_low": 1,
-        "weight_high": 10,
-        "height_low": 1,
-        "height_high": 10,
-        "precious_egg_type": null,
-        "egg_base_glass_prob_array": null,
-        "egg_add_glass_prob_array": null,
-        "is_contact_add_glass_prob": null,
-        "is_contact_add_shining_prob": null,
-        "variants": [
-            {
-                "id": 3133001,
-                "pet_id": 3133001,
-                "name": "大耳帽兜",
-                "model_id": 3133001,
-                "hatch_data": 1,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3142002,
-                "pet_id": 3142002,
-                "name": "大耳帽兜",
-                "model_id": 3142001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 3040,
-                "height_low": 22,
-                "height_high": 30,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31330001,
-                "pet_id": 31330001,
-                "name": "大耳帽兜",
-                "model_id": 3133001,
-                "hatch_data": 300,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            }
-        ]
-    },
+    "breeding": null,
     "breeding_profile": {
         "pet_base_id": 3596,
         "egg_groups": [

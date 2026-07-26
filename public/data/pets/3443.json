@@ -1,7 +1,7 @@
 {
     "id": 3443,
     "name": "xingguangshi_yueguang",
-    "form": "星光狮",
+    "form": "default",
     "main_type": {
         "id": 5,
         "name": "Light",
@@ -43,7 +43,7 @@
         "id": 81,
         "name": "xingguangsh",
         "localized": {
-            "zh": "刺刺精灵"
+            "zh": "星光狮"
         }
     },
     "trait": {
@@ -764,6 +764,28 @@
             "energy_cost": 3,
             "power": 80,
             "description": "造成魔伤，对​混血精灵造成​伤害​+50%。"
+        },
+        {
+            "id": 7060260,
+            "name": "透镜实验",
+            "icon_id": "205018",
+            "move_type": {
+                "id": 5,
+                "name": "Light",
+                "localized": {
+                    "zh": "光"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "透镜实验",
+                    "description": "造​成​物伤，​选择：​敌方携​带光​系​技​能​时​威力​+50或应对状态​时​被​应对​的​技能​变​为​透射​。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 4,
+            "power": 115,
+            "description": "造​成​物伤，​选择：​敌方携​带光​系​技​能​时​威力​+50或应对状态​时​被​应对​的​技能​变​为​透射​。"
         }
     ],
     "legacy_moves": [
@@ -1263,7 +1285,7 @@
                         "id": 3193,
                         "species_id": 80,
                         "name": "xiaoxingguang",
-                        "form": "小星光",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小星光"
@@ -1284,7 +1306,7 @@
                         "id": 3442,
                         "species_id": 80,
                         "name": "xiaoxingguang_yueguang",
-                        "form": "小星光",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小星光"
@@ -1317,7 +1339,7 @@
                         "id": 3194,
                         "species_id": 81,
                         "name": "xingguangsh",
-                        "form": "星光狮",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "星光狮"
@@ -1340,7 +1362,7 @@
                         "id": 3443,
                         "species_id": 81,
                         "name": "xingguangshi_yueguang",
-                        "form": "星光狮",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "星光狮"
@@ -1375,8 +1397,8 @@
         "current_monster_id": 3443
     },
     "world_profile": {
-        "type_desc": "常见于洞穴、山地",
-        "description_habitat": "蜥蜴精灵",
+        "type_desc": "狮精灵",
+        "description_habitat": "常见于草地、山地",
         "introduction": "它头部鬃毛由大量半透明、有导光能力的角蛋白丝构成，能高效传导月光中的能量，能量充沛时，尾巴的鬃毛呈持续流动的银雾状视觉效果。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1391,7 +1413,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

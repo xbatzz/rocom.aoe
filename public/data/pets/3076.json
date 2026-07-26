@@ -1,7 +1,7 @@
 {
     "id": 3076,
     "name": "jiuweihu",
-    "form": "九尾狐",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -43,7 +43,7 @@
         "id": 148,
         "name": "jiuweihu",
         "localized": {
-            "zh": "冰冰凉精灵"
+            "zh": "九尾狐"
         }
     },
     "trait": {
@@ -1263,7 +1263,7 @@
                         "id": 3075,
                         "species_id": 147,
                         "name": "linghu",
-                        "form": "灵狐",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "灵狐"
@@ -1296,7 +1296,7 @@
                         "id": 3076,
                         "species_id": 148,
                         "name": "jiuweihu",
-                        "form": "九尾狐",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "九尾狐"
@@ -1331,7 +1331,7 @@
                         "id": 3077,
                         "species_id": 149,
                         "name": "jianzuihuxian",
-                        "form": "尖嘴狐仙",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "尖嘴狐仙"
@@ -1366,8 +1366,8 @@
         "current_monster_id": 3076
     },
     "world_profile": {
-        "type_desc": "抱枕松鼠",
-        "description_habitat": "雪巨人",
+        "type_desc": "狐精灵",
+        "description_habitat": "偶见于雪山",
         "introduction": "尾巴里储存着强大的魔力，能够释放一种特殊的雪魔法，保护越冬作物免受冻害、消灭土壤中害虫，如果在冬天的农田里看到九尾狐出现，就知道明年一定会丰收。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1382,7 +1382,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 310,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

@@ -1,7 +1,7 @@
 {
     "id": 3209,
     "name": "xiaoyilong",
-    "form": "小翼龙",
+    "form": "default",
     "main_type": {
         "id": 8,
         "name": "Dragon",
@@ -43,7 +43,7 @@
         "id": 224,
         "name": "xiaoyilong",
         "localized": {
-            "zh": "水龙精灵"
+            "zh": "小翼龙"
         }
     },
     "trait": {
@@ -654,6 +654,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "减​伤90%，​应对攻击。​​​巧变：龙系​状态技能。"
+        },
+        {
+            "id": 7100300,
+            "name": "龙守望",
+            "icon_id": "209020",
+            "move_type": {
+                "id": 8,
+                "name": "Dragon",
+                "localized": {
+                    "zh": "龙"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "龙守望",
+                    "description": "下次技能无需蓄力，本技能可在蓄力状态下使用。选择：本次能耗-1或应对防御时打断，敌方下回合获得眩晕。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 1,
+            "power": null,
+            "description": "下次技能无需蓄力，本技能可在蓄力状态下使用。选择：本次能耗-1或应对防御时打断，敌方下回合获得眩晕。"
         }
     ],
     "legacy_moves": [
@@ -1153,7 +1175,7 @@
                         "id": 3209,
                         "species_id": 224,
                         "name": "xiaoyilong",
-                        "form": "小翼龙",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小翼龙"
@@ -1186,7 +1208,7 @@
                         "id": 3210,
                         "species_id": 225,
                         "name": "yilong",
-                        "form": "翼龙",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "翼龙"
@@ -1221,8 +1243,8 @@
         "current_monster_id": 3209
     },
     "world_profile": {
-        "type_desc": "睡不醒精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "翼龙精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "身形圆润可爱，翼膜十分柔软，只能在陆地上漂浮。植食性，最爱啃蕨类与低矮灌木，进食的时候总是呛到，猜测是因为呼吸系统还没有发育完全，需要用嘴巴呼吸。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1237,13 +1259,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3209001,
         "pet_id": 3209001,
-        "name": "矮脚爬爬",
+        "name": null,
         "model_id": 3209001,
         "hatch_data": 72000,
         "weight_low": 8785,
@@ -1251,21 +1273,15 @@
         "height_low": 26,
         "height_high": 36,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            400,
-            3125
-        ],
-        "egg_add_glass_prob_array": [
-            2,
-            113
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3209001,
                 "pet_id": 3209001,
-                "name": "矮脚爬爬",
+                "name": null,
                 "model_id": 3209001,
                 "hatch_data": 72000,
                 "weight_low": 8785,
@@ -1273,43 +1289,15 @@
                 "height_low": 26,
                 "height_high": 36,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3262002,
-                "pet_id": 3262002,
-                "name": "小翼龙",
-                "model_id": 3262002,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 2,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 32090001,
                 "pet_id": 32090001,
-                "name": "矮脚爬爬",
+                "name": null,
                 "model_id": 3209001,
                 "hatch_data": 300,
                 "weight_low": 8785,
@@ -1325,7 +1313,7 @@
             {
                 "id": 99000116,
                 "pet_id": 99000116,
-                "name": "矮脚爬爬",
+                "name": null,
                 "model_id": 3209001,
                 "hatch_data": 72000,
                 "weight_low": 8785,

@@ -146,7 +146,7 @@
     "breeding": {
         "id": 3242001,
         "pet_id": 3242001,
-        "name": "异色粉粉星的蛋",
+        "name": null,
         "model_id": 3242001,
         "hatch_data": 1,
         "weight_low": 1,
@@ -162,7 +162,7 @@
             {
                 "id": 3242001,
                 "pet_id": 3242001,
-                "name": "异色粉粉星的蛋",
+                "name": null,
                 "model_id": 3242001,
                 "hatch_data": 1,
                 "weight_low": 1,
@@ -176,25 +176,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3309002,
-                "pet_id": 3309002,
-                "name": "呆火鸟",
-                "model_id": 3309002,
-                "hatch_data": 57600,
-                "weight_low": 3360,
-                "weight_high": 4600,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": 2,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 32420001,
                 "pet_id": 32420001,
-                "name": "异色粉粉星的蛋",
+                "name": null,
                 "model_id": 3242001,
                 "hatch_data": 300,
                 "weight_low": 1,

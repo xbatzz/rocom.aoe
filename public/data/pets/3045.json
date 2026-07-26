@@ -619,13 +619,35 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
+        },
+        {
+            "id": 7180390,
+            "name": "纺纱",
+            "icon_id": "117037",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "纺纱",
+                    "description": "敌方获得1层暗涌印记。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 4,
+            "power": null,
+            "description": "敌方获得1层暗涌印记。"
         }
     ],
     "legacy_moves": [
@@ -1184,7 +1206,7 @@
                         "id": 3047,
                         "species_id": 17,
                         "name": "guimeilingyang",
-                        "form": "花影羚羊",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "花影羚羊"
@@ -1222,7 +1244,7 @@
         "current_monster_id": 3045
     },
     "world_profile": {
-        "type_desc": "行踪神秘",
+        "type_desc": "羊精灵",
         "description_habitat": "常见于山林、草地",
         "introduction": "白色的毛十分蓬松，脚掌柔软，移动时悄无声息，因此很擅长藏身草原与坡地。它性格安静，同类之间常用轻轻顶犄角的方式交流。",
         "refresh_locations": [
@@ -1238,57 +1260,29 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 10000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
-        "id": 3038001,
-        "pet_id": 3038001,
-        "name": "锥尾羊",
-        "model_id": 3038001,
-        "hatch_data": 57600,
-        "weight_low": 2275,
-        "weight_high": 3360,
-        "height_low": 20,
-        "height_high": 28,
+        "id": 3045001,
+        "pet_id": 3045001,
+        "name": null,
+        "model_id": 3045001,
+        "hatch_data": 43200,
+        "weight_low": 4655,
+        "weight_high": 6600,
+        "height_low": 24,
+        "height_high": 34,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
-                "id": 3038001,
-                "pet_id": 3038001,
-                "name": "锥尾羊",
-                "model_id": 3038001,
-                "hatch_data": 57600,
-                "weight_low": 2275,
-                "weight_high": 3360,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 3045001,
                 "pet_id": 3045001,
-                "name": "记忆石（草系血脉）",
+                "name": null,
                 "model_id": 3045001,
                 "hatch_data": 43200,
                 "weight_low": 4655,
@@ -1296,28 +1290,6 @@
                 "height_low": 24,
                 "height_high": 34,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 30380001,
-                "pet_id": 30380001,
-                "name": "锥尾羊",
-                "model_id": 3038001,
-                "hatch_data": 300,
-                "weight_low": 2275,
-                "weight_high": 3360,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 7,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1326,7 +1298,7 @@
             {
                 "id": 30450001,
                 "pet_id": 30450001,
-                "name": "记忆石（草系血脉）",
+                "name": null,
                 "model_id": 3045001,
                 "hatch_data": 300,
                 "weight_low": 4655,
@@ -1340,355 +1312,15 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000039,
-                "pet_id": 91000039,
-                "name": "锥尾羊",
-                "model_id": 3038001,
-                "hatch_data": 57600,
-                "weight_low": 2275,
-                "weight_high": 3360,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000101,
-                "pet_id": 91000101,
-                "name": "记忆石（草系血脉）",
-                "model_id": 3045001,
-                "hatch_data": 43200,
-                "weight_low": 4655,
-                "weight_high": 6600,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000039,
-                "pet_id": 92000039,
-                "name": "锥尾羊",
-                "model_id": 3038001,
-                "hatch_data": 57600,
-                "weight_low": 2275,
-                "weight_high": 3360,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000101,
-                "pet_id": 92000101,
-                "name": "记忆石（草系血脉）",
-                "model_id": 3045001,
-                "hatch_data": 43200,
-                "weight_low": 4655,
-                "weight_high": 6600,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000039,
-                "pet_id": 93000039,
-                "name": "锥尾羊",
-                "model_id": 3038001,
-                "hatch_data": 57600,
-                "weight_low": 2275,
-                "weight_high": 3360,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000101,
-                "pet_id": 93000101,
-                "name": "记忆石（草系血脉）",
-                "model_id": 3045001,
-                "hatch_data": 43200,
-                "weight_low": 4655,
-                "weight_high": 6600,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000039,
-                "pet_id": 94000039,
-                "name": "锥尾羊",
-                "model_id": 3038001,
-                "hatch_data": 57600,
-                "weight_low": 2275,
-                "weight_high": 3360,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000101,
-                "pet_id": 94000101,
-                "name": "记忆石（草系血脉）",
-                "model_id": 3045001,
-                "hatch_data": 43200,
-                "weight_low": 4655,
-                "weight_high": 6600,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000005,
-                "pet_id": 95000005,
-                "name": "锥尾羊",
-                "model_id": 3038001,
-                "hatch_data": 57600,
-                "weight_low": 2275,
-                "weight_high": 3360,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000007,
-                "pet_id": 95000007,
-                "name": "记忆石（草系血脉）",
-                "model_id": 3045001,
-                "hatch_data": 43200,
-                "weight_low": 4655,
-                "weight_high": 6600,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000039,
-                "pet_id": 96000039,
-                "name": "锥尾羊",
-                "model_id": 3038001,
-                "hatch_data": 57600,
-                "weight_low": 2275,
-                "weight_high": 3360,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000101,
-                "pet_id": 96000101,
-                "name": "记忆石（草系血脉）",
-                "model_id": 3045001,
-                "hatch_data": 43200,
-                "weight_low": 4655,
-                "weight_high": 6600,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000039,
-                "pet_id": 97000039,
-                "name": "锥尾羊",
-                "model_id": 3038001,
-                "hatch_data": 57600,
-                "weight_low": 2275,
-                "weight_high": 3360,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000101,
-                "pet_id": 97000101,
-                "name": "记忆石（草系血脉）",
-                "model_id": 3045001,
-                "hatch_data": 43200,
-                "weight_low": 4655,
-                "weight_high": 6600,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000039,
-                "pet_id": 98000039,
-                "name": "锥尾羊",
-                "model_id": 3038001,
-                "hatch_data": 57600,
-                "weight_low": 2275,
-                "weight_high": 3360,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000101,
-                "pet_id": 98000101,
-                "name": "记忆石（草系血脉）",
-                "model_id": 3045001,
-                "hatch_data": 43200,
-                "weight_low": 4655,
-                "weight_high": 6600,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000005,
-                "pet_id": 99000005,
-                "name": "锥尾羊",
-                "model_id": 3038001,
-                "hatch_data": 57600,
-                "weight_low": 2275,
-                "weight_high": 3360,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000007,
-                "pet_id": 99000007,
-                "name": "记忆石（草系血脉）",
-                "model_id": 3045001,
-                "hatch_data": 43200,
-                "weight_low": 4655,
-                "weight_high": 6600,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000149,
                 "pet_id": 99000149,
-                "name": "记忆石（草系血脉）",
+                "name": null,
                 "model_id": 3045001,
                 "hatch_data": 72000,
                 "weight_low": 4655,
                 "weight_high": 6600,
                 "height_low": 24,
                 "height_high": 34,
-                "precious_egg_type": 4,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000159,
-                "pet_id": 99000159,
-                "name": "锥尾羊",
-                "model_id": 3038001,
-                "hatch_data": 72000,
-                "weight_low": 2275,
-                "weight_high": 3360,
-                "height_low": 20,
-                "height_high": 28,
                 "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,

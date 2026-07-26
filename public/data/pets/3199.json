@@ -1,7 +1,7 @@
 {
     "id": 3199,
     "name": "xiaopiqiu",
-    "form": "小皮球",
+    "form": "default",
     "main_type": {
         "id": 9,
         "name": "Electric",
@@ -43,7 +43,7 @@
         "id": 331,
         "name": "xiaopiqiu",
         "localized": {
-            "zh": "龙息帕尔"
+            "zh": "小皮球"
         }
     },
     "trait": {
@@ -632,6 +632,50 @@
             "energy_cost": 3,
             "power": 85,
             "description": "造成魔伤，若击败敌方，自己获得魔攻+70%。"
+        },
+        {
+            "id": 7110440,
+            "name": "惊雷",
+            "icon_id": "110034",
+            "move_type": {
+                "id": 9,
+                "name": "Electric",
+                "localized": {
+                    "zh": "电"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "惊雷",
+                    "description": "将天气改为雷鸣，持续8回合。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 5,
+            "power": null,
+            "description": "将天气改为雷鸣，持续8回合。"
+        },
+        {
+            "id": 7110410,
+            "name": "电离爆破",
+            "icon_id": "110027",
+            "move_type": {
+                "id": 9,
+                "name": "Electric",
+                "localized": {
+                    "zh": "电"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "电离爆破",
+                    "description": "敌方获得魔攻-20%，速度-20，2连击。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 1,
+            "power": null,
+            "description": "敌方获得魔攻-20%，速度-20，2连击。"
         }
     ],
     "legacy_moves": [
@@ -1131,7 +1175,7 @@
                         "id": 3198,
                         "species_id": 330,
                         "name": "fenfenxing",
-                        "form": "粉粉星",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "粉粉星"
@@ -1164,7 +1208,7 @@
                         "id": 3199,
                         "species_id": 331,
                         "name": "xiaopiqiu",
-                        "form": "小皮球",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小皮球"
@@ -1199,8 +1243,8 @@
         "current_monster_id": 3199
     },
     "world_profile": {
-        "type_desc": "石石",
-        "description_habitat": "喵喵",
+        "type_desc": "果冻精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "浑身散发着紫色的微光，有时会在夜晚拿出珍藏的星星，为迷途的旅人照亮归途。得益于柔软的身体结构，能够将不稳定的星光能量储存在体内，据说星星的亮度代表着存储能量的强度。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1214,7 +1258,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 525,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

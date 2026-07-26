@@ -654,6 +654,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "减​伤90%，​应对攻击。​​​巧变：龙系​状态技能。"
+        },
+        {
+            "id": 7100300,
+            "name": "龙守望",
+            "icon_id": "209020",
+            "move_type": {
+                "id": 8,
+                "name": "Dragon",
+                "localized": {
+                    "zh": "龙"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "龙守望",
+                    "description": "下次技能无需蓄力，本技能可在蓄力状态下使用。选择：本次能耗-1或应对防御时打断，敌方下回合获得眩晕。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 1,
+            "power": null,
+            "description": "下次技能无需蓄力，本技能可在蓄力状态下使用。选择：本次能耗-1或应对防御时打断，敌方下回合获得眩晕。"
         }
     ],
     "legacy_moves": [
@@ -1153,7 +1175,7 @@
                         "id": 3209,
                         "species_id": 224,
                         "name": "xiaoyilong",
-                        "form": "小翼龙",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小翼龙"
@@ -1215,7 +1237,7 @@
                         "id": 3210,
                         "species_id": 225,
                         "name": "yilong",
-                        "form": "翼龙",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "翼龙"

@@ -1,7 +1,7 @@
 {
     "id": 3244,
     "name": "rongrong",
-    "form": "绒绒",
+    "form": "default",
     "main_type": {
         "id": 5,
         "name": "Light",
@@ -33,8 +33,8 @@
     },
     "implemented": true,
     "base_hp": 58,
-    "base_phy_atk": 42,
-    "base_mag_atk": 44,
+    "base_phy_atk": 61,
+    "base_mag_atk": 62,
     "base_phy_def": 49,
     "base_mag_def": 80,
     "base_spd": 69,
@@ -43,7 +43,7 @@
         "id": 307,
         "name": "rongrong",
         "localized": {
-            "zh": "花精灵"
+            "zh": "绒绒"
         }
     },
     "trait": {
@@ -363,7 +363,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "光系技能威力永久+50%，应对防御：改为永久+100%。"
         },
@@ -764,6 +764,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤70%，应对攻击。"
+        },
+        {
+            "id": 7060260,
+            "name": "透镜实验",
+            "icon_id": "205018",
+            "move_type": {
+                "id": 5,
+                "name": "Light",
+                "localized": {
+                    "zh": "光"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "透镜实验",
+                    "description": "造​成​物伤，​选择：​敌方携​带光​系​技​能​时​威力​+50或应对状态​时​被​应对​的​技能​变​为​透射​。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 4,
+            "power": 115,
+            "description": "造​成​物伤，​选择：​敌方携​带光​系​技​能​时​威力​+50或应对状态​时​被​应对​的​技能​变​为​透射​。"
         }
     ],
     "legacy_moves": [
@@ -1263,7 +1285,7 @@
                         "id": 3244,
                         "species_id": 307,
                         "name": "rongrong",
-                        "form": "绒绒",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "绒绒"
@@ -1296,7 +1318,7 @@
                         "id": 3245,
                         "species_id": 308,
                         "name": "xiaorongjian",
-                        "form": "小绒茧",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小绒茧"
@@ -1332,7 +1354,7 @@
                         "id": 3246,
                         "species_id": 309,
                         "name": "rongxianzi",
-                        "form": "绒仙子",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "绒仙子"
@@ -1367,8 +1389,8 @@
         "current_monster_id": 3244
     },
     "world_profile": {
-        "type_desc": "魔翼鸟",
-        "description_habitat": "喵喵",
+        "type_desc": "星光精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "绒绒多在夜间活动，触角能感知星光，体表覆盖着细密的短绒，能吸附少量蕴含星光的细微粉末。偶尔主动靠近洛克，以柔软的身体轻蹭对方，习性黏人，是温顺的小型毛绒精灵。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1382,13 +1404,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3244001,
         "pet_id": 3244001,
-        "name": "机械方方",
+        "name": null,
         "model_id": 3244001,
         "hatch_data": 28800,
         "weight_low": 350,
@@ -1396,21 +1418,15 @@
         "height_low": 12,
         "height_high": 15,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3244001,
                 "pet_id": 3244001,
-                "name": "机械方方",
+                "name": null,
                 "model_id": 3244001,
                 "hatch_data": 28800,
                 "weight_low": 350,
@@ -1418,21 +1434,15 @@
                 "height_low": 12,
                 "height_high": 15,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3244002,
                 "pet_id": 3244002,
-                "name": "异色机械方方",
+                "name": null,
                 "model_id": 3244002,
                 "hatch_data": 28800,
                 "weight_low": 350,
@@ -1448,7 +1458,7 @@
             {
                 "id": 3244003,
                 "pet_id": 3244003,
-                "name": "机械方方",
+                "name": null,
                 "model_id": 3244001,
                 "hatch_data": 28800,
                 "weight_low": 350,
@@ -1462,69 +1472,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3312001,
-                "pet_id": 3312001,
-                "name": "绒绒",
-                "model_id": 3312001,
-                "hatch_data": 43200,
-                "weight_low": 840,
-                "weight_high": 1808,
-                "height_low": 19,
-                "height_high": 23,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3319001,
-                "pet_id": 3319001,
-                "name": "绒绒",
-                "model_id": 3319001,
-                "hatch_data": 57600,
-                "weight_low": 3430,
-                "weight_high": 5120,
-                "height_low": 17,
-                "height_high": 21,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
-            },
-            {
-                "id": 3319003,
-                "pet_id": 3319003,
-                "name": "绒绒",
-                "model_id": 3319001,
-                "hatch_data": 300,
-                "weight_low": 3430,
-                "weight_high": 5120,
-                "height_low": 17,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 32440001,
                 "pet_id": 32440001,
-                "name": "机械方方",
+                "name": null,
                 "model_id": 3244001,
                 "hatch_data": 300,
                 "weight_low": 350,
@@ -1532,54 +1482,6 @@
                 "height_low": 12,
                 "height_high": 15,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 33120001,
-                "pet_id": 33120001,
-                "name": "绒绒",
-                "model_id": 3312001,
-                "hatch_data": 300,
-                "weight_low": 840,
-                "weight_high": 1808,
-                "height_low": 19,
-                "height_high": 23,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 33190001,
-                "pet_id": 33190001,
-                "name": "绒绒",
-                "model_id": 3319001,
-                "hatch_data": 300,
-                "weight_low": 3430,
-                "weight_high": 5120,
-                "height_low": 17,
-                "height_high": 21,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000075,
-                "pet_id": 99000075,
-                "name": "绒绒",
-                "model_id": 3319001,
-                "hatch_data": 72000,
-                "weight_low": 3430,
-                "weight_high": 5120,
-                "height_low": 17,
-                "height_high": 21,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,

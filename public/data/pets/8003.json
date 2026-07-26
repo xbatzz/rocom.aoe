@@ -427,13 +427,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7060220,
@@ -654,6 +654,50 @@
             "energy_cost": 4,
             "power": 15,
             "description": "造成魔伤，1连击，敌方每有1层星陨印记，本次技能连击数+1。"
+        },
+        {
+            "id": 7030560,
+            "name": "养分回流",
+            "icon_id": "302042",
+            "move_type": {
+                "id": 2,
+                "name": "Grass",
+                "localized": {
+                    "zh": "草"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "养分回流",
+                    "description": "造成​魔伤，​为场​下​所有​精灵​回复1​能量​。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 75,
+            "description": "造成​魔伤，​为场​下​所有​精灵​回复1​能量​。"
+        },
+        {
+            "id": 7190410,
+            "name": "许愿池",
+            "icon_id": "318031",
+            "move_type": {
+                "id": 18,
+                "name": "Illusion",
+                "localized": {
+                    "zh": "幻"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "许愿池",
+                    "description": "造成​魔伤，​双方已有的印记层数+1。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 4,
+            "power": 55,
+            "description": "造成​魔伤，​双方已有的印记层数+1。"
         }
     ],
     "legacy_moves": [

@@ -1,7 +1,7 @@
 {
     "id": 3595,
     "name": "yesongyang",
-    "form": "松叶羊",
+    "form": "default",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -43,7 +43,7 @@
         "id": 154,
         "name": "yesongyang",
         "localized": {
-            "zh": "守望精灵"
+            "zh": "松叶羊"
         }
     },
     "trait": {
@@ -676,6 +676,28 @@
             "energy_cost": 4,
             "power": null,
             "description": "自己获得1层光合印记。"
+        },
+        {
+            "id": 7140330,
+            "name": "马步",
+            "icon_id": "313037",
+            "move_type": {
+                "id": 12,
+                "name": "Fighting",
+                "localized": {
+                    "zh": "武"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "马步",
+                    "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 3,
+            "power": null,
+            "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
         }
     ],
     "legacy_moves": [
@@ -1175,7 +1197,7 @@
                         "id": 3594,
                         "species_id": 153,
                         "name": "songzai",
-                        "form": "松仔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "松仔"
@@ -1208,7 +1230,7 @@
                         "id": 3595,
                         "species_id": 154,
                         "name": "yesongyang",
-                        "form": "松叶羊",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "松叶羊"
@@ -1243,7 +1265,7 @@
                         "id": 3596,
                         "species_id": 155,
                         "name": "zhenyexunlin",
-                        "form": "针叶巡林",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "针叶巡林"
@@ -1278,8 +1300,8 @@
         "current_monster_id": 3595
     },
     "world_profile": {
-        "type_desc": "嘟嘟煲",
-        "description_habitat": "喵喵",
+        "type_desc": "松羊精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "刚刚经历换角，松果模样的角脱落，身上的针叶变得锋利，逐渐觉醒领地意识。换角的过程中不要贸然靠近，不然会被踢出几米远。被踢的时候可以闻到它们身上带着森林中泥土和青草的香味。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1294,7 +1316,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 525,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

@@ -1,7 +1,7 @@
 {
     "id": 3744,
     "name": "huohongwei",
-    "form": "火红尾",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -37,7 +37,7 @@
         "id": 340,
         "name": "huohongwei",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "火红尾"
         }
     },
     "trait": {
@@ -1147,7 +1147,7 @@
                         "id": 3744,
                         "species_id": 340,
                         "name": "huohongwei",
-                        "form": "火红尾",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "火红尾"
@@ -1174,7 +1174,7 @@
                         "id": 3745,
                         "species_id": 341,
                         "name": "yadanbin",
-                        "form": "雅丹鬃",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雅丹鬃"
@@ -1203,8 +1203,8 @@
         "current_monster_id": 3744
     },
     "world_profile": {
-        "type_desc": "仪式之星",
-        "description_habitat": "喵喵",
+        "type_desc": "烈马精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "午为烈火之马，丙在天为阳——当二者相遇，火红尾从赤云中探出，它来自东方，额前的火纹像初升之阳，鬃毛如飞天的飘带。东方的洛克会在春节把绘有火红尾纹样的灯笼挂于檐角，灯火随风一晃，便似驹影掠过，寓意为火马开岁，光明满堂。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1218,13 +1218,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3744001,
         "pet_id": 3744001,
-        "name": "异色柴渣虫的蛋",
+        "name": null,
         "model_id": 3744001,
         "hatch_data": 57600,
         "weight_low": 8016,
@@ -1232,21 +1232,15 @@
         "height_low": 40,
         "height_high": 61,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
-        "is_contact_add_shining_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
+        "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3744001,
                 "pet_id": 3744001,
-                "name": "异色柴渣虫的蛋",
+                "name": null,
                 "model_id": 3744001,
                 "hatch_data": 57600,
                 "weight_low": 8016,
@@ -1254,21 +1248,15 @@
                 "height_low": 40,
                 "height_high": 61,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
             },
             {
                 "id": 3744002,
                 "pet_id": 3744002,
-                "name": "柴渣虫",
+                "name": null,
                 "model_id": 3744002,
                 "hatch_data": 57600,
                 "weight_low": 8016,
@@ -1276,21 +1264,15 @@
                 "height_low": 40,
                 "height_high": 61,
                 "precious_egg_type": 2,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3744003,
                 "pet_id": 3744003,
-                "name": "异色柴渣虫的蛋",
+                "name": null,
                 "model_id": 3744001,
                 "hatch_data": 57600,
                 "weight_low": 8016,
@@ -1306,7 +1288,7 @@
             {
                 "id": 37440001,
                 "pet_id": 37440001,
-                "name": "异色柴渣虫的蛋",
+                "name": null,
                 "model_id": 3744001,
                 "hatch_data": 300,
                 "weight_low": 8016,

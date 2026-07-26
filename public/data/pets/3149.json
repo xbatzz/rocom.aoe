@@ -1,7 +1,7 @@
 {
     "id": 3149,
     "name": "yejumo",
-    "form": "夜宿颅",
+    "form": "default",
     "main_type": {
         "id": 15,
         "name": "Ghost",
@@ -37,7 +37,7 @@
         "id": 328,
         "name": "yejumo",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "夜宿颅"
         }
     },
     "trait": {
@@ -487,13 +487,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7190260,
@@ -670,6 +670,50 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7180380,
+            "name": "限时特惠",
+            "icon_id": "117039",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "限时特惠",
+                    "description": "造成魔伤，敌方每有1只力竭精灵，本次技能能耗-1。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 6,
+            "power": 140,
+            "description": "造成魔伤，敌方每有1只力竭精灵，本次技能能耗-1。"
+        },
+        {
+            "id": 7021230,
+            "name": "友谊满溢",
+            "icon_id": "101112",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "友谊满溢",
+                    "description": "造成​魔伤，​选择：​每次使用后威力​永久​​+20​或​应对状态​时​本​次技能​威力​+100%。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 2,
+            "power": 70,
+            "description": "造成​魔伤，​选择：​每次使用后威力​永久​​+20​或​应对状态​时​本​次技能​威力​+100%。"
         }
     ],
     "legacy_moves": [
@@ -1169,7 +1213,7 @@
                         "id": 3148,
                         "species_id": 327,
                         "name": "anyekulou",
-                        "form": "空空颅",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "空空颅"
@@ -1196,7 +1240,7 @@
                         "id": 3149,
                         "species_id": 328,
                         "name": "yejumo",
-                        "form": "夜宿颅",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "夜宿颅"
@@ -1226,7 +1270,7 @@
                         "id": 3150,
                         "species_id": 329,
                         "name": "yexiao",
-                        "form": "夜枭",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "夜枭"
@@ -1255,8 +1299,8 @@
         "current_monster_id": 3149
     },
     "world_profile": {
-        "type_desc": "彩蝶鲨",
-        "description_habitat": "喵喵",
+        "type_desc": "骨头精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "吓退其他精灵以取乐，有人说它们以恐惧为食，但没人考证过真假。长出双爪后，行动更加自如，有了保护自己的能力。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1270,7 +1314,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 1200,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

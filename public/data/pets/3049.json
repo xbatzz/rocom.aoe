@@ -1,7 +1,7 @@
 {
     "id": 3049,
     "name": "baifalanren",
-    "form": "白发懒人",
+    "form": "default",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -26,18 +26,18 @@
         }
     },
     "implemented": true,
-    "base_hp": 86,
-    "base_phy_atk": 94,
-    "base_mag_atk": 38,
-    "base_phy_def": 81,
-    "base_mag_def": 66,
+    "base_hp": 94,
+    "base_phy_atk": 100,
+    "base_mag_atk": 42,
+    "base_phy_def": 86,
+    "base_mag_def": 70,
     "base_spd": 45,
     "evolves_from_id": null,
     "species": {
         "id": 73,
         "name": "baifalanren",
         "localized": {
-            "zh": "蒲公英娃娃"
+            "zh": "白发懒人"
         }
     },
     "trait": {
@@ -692,6 +692,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7140330,
+            "name": "马步",
+            "icon_id": "313037",
+            "move_type": {
+                "id": 12,
+                "name": "Fighting",
+                "localized": {
+                    "zh": "武"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "马步",
+                    "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 3,
+            "power": null,
+            "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
         }
     ],
     "legacy_moves": [
@@ -1191,7 +1213,7 @@
                         "id": 3049,
                         "species_id": 73,
                         "name": "baifalanren",
-                        "form": "白发懒人",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "白发懒人"
@@ -1218,7 +1240,7 @@
                         "id": 3101,
                         "species_id": 74,
                         "name": "dongliyuan",
-                        "form": "动力猿",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "动力猿"
@@ -1253,7 +1275,7 @@
                         "id": 3102,
                         "species_id": 75,
                         "name": "keshuiwang",
-                        "form": "瞌睡王",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "瞌睡王"
@@ -1288,8 +1310,8 @@
         "current_monster_id": 3049
     },
     "world_profile": {
-        "type_desc": "石刺蜥",
-        "description_habitat": "常见于草地",
+        "type_desc": "睡不醒精灵",
+        "description_habitat": "偶见于城镇周边、山地",
         "introduction": "一直闭着眼睛在睡觉，即使是醒了也看不出来。在它睡着的时候也能对听到的声音有所反应，仿佛是个熟练的梦游者。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1304,57 +1326,29 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
-        "id": 3040001,
-        "pet_id": 3040001,
-        "name": "白发懒人",
-        "model_id": 3040001,
-        "hatch_data": 28800,
-        "weight_low": 1505,
-        "weight_high": 2440,
-        "height_low": 15,
-        "height_high": 21,
+        "id": 3049001,
+        "pet_id": 3049001,
+        "name": null,
+        "model_id": 3049001,
+        "hatch_data": 57600,
+        "weight_low": 6825,
+        "weight_high": 9400,
+        "height_low": 31,
+        "height_high": 43,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
-                "id": 3040001,
-                "pet_id": 3040001,
-                "name": "白发懒人",
-                "model_id": 3040001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 3049001,
                 "pet_id": 3049001,
-                "name": "记忆石（完美无瑕）",
+                "name": null,
                 "model_id": 3049001,
                 "hatch_data": 57600,
                 "weight_low": 6825,
@@ -1362,21 +1356,15 @@
                 "height_low": 31,
                 "height_high": 43,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3049002,
                 "pet_id": 3049002,
-                "name": "煤球憨憨",
+                "name": null,
                 "model_id": 3049001,
                 "hatch_data": 57600,
                 "weight_low": 6825,
@@ -1384,88 +1372,6 @@
                 "height_low": 31,
                 "height_high": 43,
                 "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3288001,
-                "pet_id": 3288001,
-                "name": "白发懒人",
-                "model_id": 3288001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3289001,
-                "pet_id": 3289001,
-                "name": "白发懒人",
-                "model_id": 3289001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3290001,
-                "pet_id": 3290001,
-                "name": "白发懒人",
-                "model_id": 3290001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 30400001,
-                "pet_id": 30400001,
-                "name": "白发懒人",
-                "model_id": 3040001,
-                "hatch_data": 300,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 7,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1474,7 +1380,7 @@
             {
                 "id": 30490001,
                 "pet_id": 30490001,
-                "name": "记忆石（完美无瑕）",
+                "name": null,
                 "model_id": 3049001,
                 "hatch_data": 300,
                 "weight_low": 6825,
@@ -1482,718 +1388,6 @@
                 "height_low": 31,
                 "height_high": 43,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 32880001,
-                "pet_id": 32880001,
-                "name": "白发懒人",
-                "model_id": 3288001,
-                "hatch_data": 300,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 32890001,
-                "pet_id": 32890001,
-                "name": "白发懒人",
-                "model_id": 3289001,
-                "hatch_data": 300,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 32900001,
-                "pet_id": 32900001,
-                "name": "白发懒人",
-                "model_id": 3290001,
-                "hatch_data": 300,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000002,
-                "pet_id": 91000002,
-                "name": "记忆石（完美无瑕）",
-                "model_id": 3049001,
-                "hatch_data": 57600,
-                "weight_low": 6825,
-                "weight_high": 9400,
-                "height_low": 31,
-                "height_high": 43,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000063,
-                "pet_id": 91000063,
-                "name": "白发懒人",
-                "model_id": 3040001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000064,
-                "pet_id": 91000064,
-                "name": "白发懒人",
-                "model_id": 3289001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000065,
-                "pet_id": 91000065,
-                "name": "白发懒人",
-                "model_id": 3290001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000002,
-                "pet_id": 92000002,
-                "name": "记忆石（完美无瑕）",
-                "model_id": 3049001,
-                "hatch_data": 57600,
-                "weight_low": 6825,
-                "weight_high": 9400,
-                "height_low": 31,
-                "height_high": 43,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000063,
-                "pet_id": 92000063,
-                "name": "白发懒人",
-                "model_id": 3040001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000064,
-                "pet_id": 92000064,
-                "name": "白发懒人",
-                "model_id": 3289001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000065,
-                "pet_id": 92000065,
-                "name": "白发懒人",
-                "model_id": 3290001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000002,
-                "pet_id": 93000002,
-                "name": "记忆石（完美无瑕）",
-                "model_id": 3049001,
-                "hatch_data": 57600,
-                "weight_low": 6825,
-                "weight_high": 9400,
-                "height_low": 31,
-                "height_high": 43,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000063,
-                "pet_id": 93000063,
-                "name": "白发懒人",
-                "model_id": 3040001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000064,
-                "pet_id": 93000064,
-                "name": "白发懒人",
-                "model_id": 3289001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000065,
-                "pet_id": 93000065,
-                "name": "白发懒人",
-                "model_id": 3290001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000002,
-                "pet_id": 94000002,
-                "name": "记忆石（完美无瑕）",
-                "model_id": 3049001,
-                "hatch_data": 57600,
-                "weight_low": 6825,
-                "weight_high": 9400,
-                "height_low": 31,
-                "height_high": 43,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000063,
-                "pet_id": 94000063,
-                "name": "白发懒人",
-                "model_id": 3040001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000064,
-                "pet_id": 94000064,
-                "name": "白发懒人",
-                "model_id": 3289001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000065,
-                "pet_id": 94000065,
-                "name": "白发懒人",
-                "model_id": 3290001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000006,
-                "pet_id": 95000006,
-                "name": "白发懒人",
-                "model_id": 3040001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000008,
-                "pet_id": 95000008,
-                "name": "记忆石（完美无瑕）",
-                "model_id": 3049001,
-                "hatch_data": 57600,
-                "weight_low": 6825,
-                "weight_high": 9400,
-                "height_low": 31,
-                "height_high": 43,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000034,
-                "pet_id": 95000034,
-                "name": "白发懒人",
-                "model_id": 3289001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000035,
-                "pet_id": 95000035,
-                "name": "白发懒人",
-                "model_id": 3290001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000002,
-                "pet_id": 96000002,
-                "name": "记忆石（完美无瑕）",
-                "model_id": 3049001,
-                "hatch_data": 57600,
-                "weight_low": 6825,
-                "weight_high": 9400,
-                "height_low": 31,
-                "height_high": 43,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000063,
-                "pet_id": 96000063,
-                "name": "白发懒人",
-                "model_id": 3040001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000064,
-                "pet_id": 96000064,
-                "name": "白发懒人",
-                "model_id": 3289001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000065,
-                "pet_id": 96000065,
-                "name": "白发懒人",
-                "model_id": 3290001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000002,
-                "pet_id": 97000002,
-                "name": "记忆石（完美无瑕）",
-                "model_id": 3049001,
-                "hatch_data": 57600,
-                "weight_low": 6825,
-                "weight_high": 9400,
-                "height_low": 31,
-                "height_high": 43,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000063,
-                "pet_id": 97000063,
-                "name": "白发懒人",
-                "model_id": 3040001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000064,
-                "pet_id": 97000064,
-                "name": "白发懒人",
-                "model_id": 3289001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000065,
-                "pet_id": 97000065,
-                "name": "白发懒人",
-                "model_id": 3290001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000002,
-                "pet_id": 98000002,
-                "name": "记忆石（完美无瑕）",
-                "model_id": 3049001,
-                "hatch_data": 57600,
-                "weight_low": 6825,
-                "weight_high": 9400,
-                "height_low": 31,
-                "height_high": 43,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000063,
-                "pet_id": 98000063,
-                "name": "白发懒人",
-                "model_id": 3040001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000064,
-                "pet_id": 98000064,
-                "name": "白发懒人",
-                "model_id": 3289001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000065,
-                "pet_id": 98000065,
-                "name": "白发懒人",
-                "model_id": 3290001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000006,
-                "pet_id": 99000006,
-                "name": "白发懒人",
-                "model_id": 3040001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000008,
-                "pet_id": 99000008,
-                "name": "记忆石（完美无瑕）",
-                "model_id": 3049001,
-                "hatch_data": 57600,
-                "weight_low": 6825,
-                "weight_high": 9400,
-                "height_low": 31,
-                "height_high": 43,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000034,
-                "pet_id": 99000034,
-                "name": "白发懒人",
-                "model_id": 3289001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000035,
-                "pet_id": 99000035,
-                "name": "白发懒人",
-                "model_id": 3290001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000112,
-                "pet_id": 99000112,
-                "name": "白发懒人",
-                "model_id": 3040001,
-                "hatch_data": 72000,
-                "weight_low": 1505,
-                "weight_high": 2440,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -2202,7 +1396,7 @@
             {
                 "id": 99000117,
                 "pet_id": 99000117,
-                "name": "记忆石（完美无瑕）",
+                "name": null,
                 "model_id": 3049001,
                 "hatch_data": 72000,
                 "weight_low": 6825,

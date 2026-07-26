@@ -1,7 +1,7 @@
 {
     "id": 3141,
     "name": "huayidie",
-    "form": "花衣蝶",
+    "form": "default",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -43,7 +43,7 @@
         "id": 101,
         "name": "huayidie",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "花衣蝶"
         }
     },
     "trait": {
@@ -742,6 +742,50 @@
             "energy_cost": 5,
             "power": null,
             "description": "减伤100%，应对攻击：减免的伤害变为回复自己生命，且本技能能耗永久+2。"
+        },
+        {
+            "id": 7190450,
+            "name": "薄纱环",
+            "icon_id": "118036",
+            "move_type": {
+                "id": 18,
+                "name": "Illusion",
+                "localized": {
+                    "zh": "幻"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "薄纱环",
+                    "description": "选择：对手随机获得1种负面印记或自己随机获得1种正面印记。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 3,
+            "power": null,
+            "description": "选择：对手随机获得1种负面印记或自己随机获得1种正面印记。"
+        },
+        {
+            "id": 7130330,
+            "name": "振翅",
+            "icon_id": "212026",
+            "move_type": {
+                "id": 11,
+                "name": "Bug",
+                "localized": {
+                    "zh": "虫"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "振翅",
+                    "description": "选择：己方队伍​获得​1​次​奉献：​连击​+1或​威力​+20。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "选择：己方队伍​获得​1​次​奉献：​连击​+1或​威力​+20。"
         }
     ],
     "legacy_moves": [
@@ -1241,7 +1285,7 @@
                         "id": 3139,
                         "species_id": 99,
                         "name": "xiaocaochong",
-                        "form": "小草虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小草虫"
@@ -1274,7 +1318,7 @@
                         "id": 3140,
                         "species_id": 100,
                         "name": "caoyichong",
-                        "form": "草衣虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "草衣虫"
@@ -1309,7 +1353,7 @@
                         "id": 3141,
                         "species_id": 101,
                         "name": "huayidie",
-                        "form": "花衣蝶",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "花衣蝶"
@@ -1345,7 +1389,7 @@
     },
     "world_profile": {
         "type_desc": "蝶精灵",
-        "description_habitat": "行踪神秘",
+        "description_habitat": "常见于草丛",
         "introduction": "原本的尾巴脱落后变成手中的花朵，似乎蕴含着魔法能量，能当作魔杖使用。冬日寒冷的雨夜里，成千上万的花衣蝶聚集在枯树上休息，清晨又四散飞走，如同花开一夜的蜃景。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1360,7 +1404,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

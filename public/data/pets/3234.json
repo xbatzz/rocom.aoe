@@ -795,13 +795,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7190320,
@@ -912,6 +912,28 @@
             "energy_cost": 0,
             "power": null,
             "description": "自己获得魔攻+70%。"
+        },
+        {
+            "id": 7190450,
+            "name": "薄纱环",
+            "icon_id": "118036",
+            "move_type": {
+                "id": 18,
+                "name": "Illusion",
+                "localized": {
+                    "zh": "幻"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "薄纱环",
+                    "description": "选择：对手随机获得1种负面印记或自己随机获得1种正面印记。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 3,
+            "power": null,
+            "description": "选择：对手随机获得1种负面印记或自己随机获得1种正面印记。"
         }
     ],
     "legacy_moves": [
@@ -1467,8 +1489,8 @@
         "current_monster_id": 3234
     },
     "world_profile": {
-        "type_desc": null,
-        "description_habitat": null,
+        "type_desc": "愉悦精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "总是一副亲切愉悦的样子，备受小洛克们的喜欢，但似乎在没人的时候它们不会展现出一丁点生气。曾经不分昼夜持续观测一年，且让样本知道自己被观测，期间样本呈现愉悦的状态。停止观测一小时后样本所有生命体征均消失。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1476,17 +1498,19 @@
         "movement_type": "步行",
         "classis_id": 6,
         "classis_name": "自然类精灵",
-        "handbook_area_ids": []
+        "handbook_area_ids": [
+            1
+        ]
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1250,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3234001,
         "pet_id": 3234001,
-        "name": "小星光",
+        "name": null,
         "model_id": 3234001,
         "hatch_data": 28800,
         "weight_low": 2090,
@@ -1494,21 +1518,15 @@
         "height_low": 27,
         "height_high": 38,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3234001,
                 "pet_id": 3234001,
-                "name": "小星光",
+                "name": null,
                 "model_id": 3234001,
                 "hatch_data": 28800,
                 "weight_low": 2090,
@@ -1516,21 +1534,47 @@
                 "height_low": 27,
                 "height_high": 38,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3234002,
                 "pet_id": 3234002,
-                "name": "小星光（水系血脉）",
+                "name": null,
+                "model_id": 3234001,
+                "hatch_data": 28800,
+                "weight_low": 2090,
+                "weight_high": 3480,
+                "height_low": 27,
+                "height_high": 38,
+                "precious_egg_type": 1,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3234003,
+                "pet_id": 3234003,
+                "name": null,
+                "model_id": 3234002,
+                "hatch_data": 28800,
+                "weight_low": 2090,
+                "weight_high": 3480,
+                "height_low": 27,
+                "height_high": 38,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3234004,
+                "pet_id": 3234004,
+                "name": null,
                 "model_id": 3234001,
                 "hatch_data": 300,
                 "weight_low": 2090,
@@ -1544,9 +1588,25 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3234005,
+                "pet_id": 3234005,
+                "name": null,
+                "model_id": 3234002,
+                "hatch_data": 28800,
+                "weight_low": 2090,
+                "weight_high": 3480,
+                "height_low": 27,
+                "height_high": 38,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 32340001,
                 "pet_id": 32340001,
-                "name": "小星光",
+                "name": null,
                 "model_id": 3234001,
                 "hatch_data": 300,
                 "weight_low": 2090,

@@ -1,7 +1,7 @@
 {
     "id": 3074,
     "name": "gelanqiu",
-    "form": "格兰球",
+    "form": "default",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -37,7 +37,7 @@
         "id": 276,
         "name": "gelanqiu",
         "localized": {
-            "zh": "毛绒绒精灵"
+            "zh": "格兰球"
         }
     },
     "trait": {
@@ -377,13 +377,13 @@
             "localized": {
                 "zh": {
                     "name": "鸩毒",
-                    "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+20。"
+                    "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+20。"
+            "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
         },
         {
             "id": 7120120,
@@ -626,6 +626,72 @@
             "energy_cost": 4,
             "power": 30,
             "description": "造成魔伤，3连击，若敌方本回合更换精灵，本次技能连击数+3。"
+        },
+        {
+            "id": 7030580,
+            "name": "撒花",
+            "icon_id": "202043",
+            "move_type": {
+                "id": 2,
+                "name": "Grass",
+                "localized": {
+                    "zh": "草"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "撒花",
+                    "description": "造成魔伤，选择：自己生命大于80%时威力+50或应对状态时自己回复35%生命。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 4,
+            "power": 95,
+            "description": "造成魔伤，选择：自己生命大于80%时威力+50或应对状态时自己回复35%生命。"
+        },
+        {
+            "id": 7021230,
+            "name": "友谊满溢",
+            "icon_id": "101112",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "友谊满溢",
+                    "description": "造成​魔伤，​选择：​每次使用后威力​永久​​+20​或​应对状态​时​本​次技能​威力​+100%。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 2,
+            "power": 70,
+            "description": "造成​魔伤，​选择：​每次使用后威力​永久​​+20​或​应对状态​时​本​次技能​威力​+100%。"
+        },
+        {
+            "id": 7060270,
+            "name": "色散",
+            "icon_id": "118029",
+            "move_type": {
+                "id": 5,
+                "name": "Light",
+                "localized": {
+                    "zh": "光"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "色散",
+                    "description": "造成魔伤，对​混血精灵造成​伤害​+50%。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 80,
+            "description": "造成魔伤，对​混血精灵造成​伤害​+50%。"
         }
     ],
     "legacy_moves": [
@@ -1125,7 +1191,7 @@
                         "id": 3072,
                         "species_id": 274,
                         "name": "gelanzhongzi",
-                        "form": "格兰种子",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "格兰种子"
@@ -1152,7 +1218,7 @@
                         "id": 3073,
                         "species_id": 275,
                         "name": "gelanhua",
-                        "form": "格兰花",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "格兰花"
@@ -1184,7 +1250,7 @@
                         "id": 3074,
                         "species_id": 276,
                         "name": "gelanqiu",
-                        "form": "格兰球",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "格兰球"
@@ -1216,7 +1282,7 @@
         "current_monster_id": 3074
     },
     "world_profile": {
-        "type_desc": "常见于浅滩",
+        "type_desc": "圆滚滚精灵",
         "description_habitat": "常见于山林、草地",
         "introduction": "格兰球的花瓣持续生长与更替，老化花瓣会化作鳞片般的护甲。护甲上黏附诸多致痒花粉，它们热衷于边笑边蹭其他精灵。但洛克研究学者经观察其表情和动作发现，它们坏笑时鳞片般的护甲会微微张开，让它们更好地传粉。",
         "refresh_locations": [
@@ -1232,7 +1298,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

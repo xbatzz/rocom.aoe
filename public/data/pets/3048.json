@@ -401,7 +401,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "光系技能威力永久+50%，应对防御：改为永久+100%。"
         },
@@ -1334,7 +1334,7 @@
     "world_profile": {
         "type_desc": null,
         "description_habitat": null,
-        "introduction": "身体中蕴含着光之魔法的力量。有着光一般的勇气，无论什么情况下都会守护同伴。“这一次，带着梦想回来，这一次，带着光明回来，这一次带着无限的荣耀回来”。",
+        "introduction": "身体中蕴含着光之魔法的力量。有着光一般的勇气，无论什么情况下都会守护同伴。 “这一次，带着光明回来”。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
         ],

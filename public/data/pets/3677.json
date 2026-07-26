@@ -297,7 +297,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 6,
+            "energy_cost": 4,
             "power": null,
             "description": "使敌方精灵减益的层数翻倍。"
         },
@@ -632,6 +632,50 @@
             "energy_cost": 2,
             "power": null,
             "description": "减伤60%，应对攻击：敌方脱离。"
+        },
+        {
+            "id": 7021210,
+            "name": "急中生智",
+            "icon_id": "301104",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "急中生智",
+                    "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 80,
+            "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+        },
+        {
+            "id": 7120220,
+            "name": "鸩毒",
+            "icon_id": "111019",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "鸩毒",
+                    "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 75,
+            "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
         }
     ],
     "legacy_moves": [
@@ -1200,8 +1244,8 @@
         "current_monster_id": 3677
     },
     "world_profile": {
-        "type_desc": null,
-        "description_habitat": null,
+        "type_desc": "烟花精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "爱扎堆聊天的小话痨，走到哪聊到哪，头顶的烟花就是它们的聊天气泡，聊得越开心，烟花崩得越热闹。脑袋上噼里啪啦闪个不停，如果看到落单的烟花团一整天头上都没有冒出烟花，请多关心它的心理健康。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1209,23 +1253,25 @@
         "movement_type": "浮游",
         "classis_id": 6,
         "classis_name": "自然类精灵",
-        "handbook_area_ids": []
+        "handbook_area_ids": [
+            1
+        ]
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 3000,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3677001,
         "pet_id": 3677001,
-        "name": "洋红沙丁",
+        "name": null,
         "model_id": 3677001,
-        "hatch_data": 1,
-        "weight_low": 1,
-        "weight_high": 10,
-        "height_low": 1,
-        "height_high": 10,
+        "hatch_data": 28800,
+        "weight_low": 1768,
+        "weight_high": 2528,
+        "height_low": 14,
+        "height_high": 21,
         "precious_egg_type": null,
         "egg_base_glass_prob_array": null,
         "egg_add_glass_prob_array": null,
@@ -1235,14 +1281,62 @@
             {
                 "id": 3677001,
                 "pet_id": 3677001,
-                "name": "洋红沙丁",
+                "name": null,
                 "model_id": 3677001,
-                "hatch_data": 1,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
+                "hatch_data": 28800,
+                "weight_low": 1768,
+                "weight_high": 2528,
+                "height_low": 14,
+                "height_high": 21,
                 "precious_egg_type": null,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3677002,
+                "pet_id": 3677002,
+                "name": null,
+                "model_id": 3677002,
+                "hatch_data": 28800,
+                "weight_low": 1768,
+                "weight_high": 2528,
+                "height_low": 14,
+                "height_high": 21,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3677003,
+                "pet_id": 3677003,
+                "name": null,
+                "model_id": 3677001,
+                "hatch_data": 300,
+                "weight_low": 1768,
+                "weight_high": 2528,
+                "height_low": 14,
+                "height_high": 21,
+                "precious_egg_type": 1,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3677004,
+                "pet_id": 3677004,
+                "name": null,
+                "model_id": 3677002,
+                "hatch_data": 28800,
+                "weight_low": 1768,
+                "weight_high": 2528,
+                "height_low": 14,
+                "height_high": 21,
+                "precious_egg_type": 2,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1251,13 +1345,13 @@
             {
                 "id": 36770001,
                 "pet_id": 36770001,
-                "name": "月光能量的样子",
+                "name": null,
                 "model_id": 3677001,
                 "hatch_data": 300,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
+                "weight_low": 1768,
+                "weight_high": 2528,
+                "height_low": 14,
+                "height_high": 21,
                 "precious_egg_type": 7,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,

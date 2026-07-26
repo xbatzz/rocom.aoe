@@ -1,7 +1,7 @@
 {
     "id": 3262,
     "name": "huhuzhu",
-    "form": "呼呼猪",
+    "form": "default",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -43,7 +43,7 @@
         "id": 137,
         "name": "huhuzhu",
         "localized": {
-            "zh": "古啦多"
+            "zh": "呼呼猪"
         }
     },
     "trait": {
@@ -293,13 +293,13 @@
             "localized": {
                 "zh": {
                     "name": "石锁",
-                    "description": "造成物伤，敌方3回合无法更换精灵。"
+                    "description": "造成物伤，敌方获得3回合禁足。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 50,
-            "description": "造成物伤，敌方3回合无法更换精灵。"
+            "description": "造成物伤，敌方获得3回合禁足。"
         },
         {
             "id": 7090390,
@@ -1175,7 +1175,7 @@
                         "id": 3262,
                         "species_id": 137,
                         "name": "huhuzhu",
-                        "form": "呼呼猪",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "呼呼猪"
@@ -1237,7 +1237,7 @@
                         "id": 3263,
                         "species_id": 138,
                         "name": "liaoyazhu",
-                        "form": "獠牙猪",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "獠牙猪"
@@ -1301,8 +1301,8 @@
         "current_monster_id": 3262
     },
     "world_profile": {
-        "type_desc": "蜥蜴精灵",
-        "description_habitat": "狸精灵",
+        "type_desc": "圆滚滚精灵",
+        "description_habitat": "常见于雪山",
         "introduction": "得益于能够分泌疏水性油脂的皮脂腺，皮毛紧实而油亮，既防水又防寒。四肢短而粗壮，跑起来很快，奔跑时偶尔轻微摆动尾巴用来保持平衡。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1317,13 +1317,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3262001,
         "pet_id": 3262001,
-        "name": "多西",
+        "name": null,
         "model_id": 3262001,
         "hatch_data": 57600,
         "weight_low": 2380,
@@ -1331,21 +1331,15 @@
         "height_low": 22,
         "height_high": 31,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
-        "is_contact_add_shining_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
+        "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3262001,
                 "pet_id": 3262001,
-                "name": "多西",
+                "name": null,
                 "model_id": 3262001,
                 "hatch_data": 57600,
                 "weight_low": 2380,
@@ -1353,21 +1347,15 @@
                 "height_low": 22,
                 "height_high": 31,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
             },
             {
                 "id": 3262002,
                 "pet_id": 3262002,
-                "name": "小翼龙",
+                "name": null,
                 "model_id": 3262002,
                 "hatch_data": 57600,
                 "weight_low": 2380,
@@ -1375,21 +1363,15 @@
                 "height_low": 22,
                 "height_high": 31,
                 "precious_egg_type": 2,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3262003,
                 "pet_id": 3262003,
-                "name": "伊雷龙",
+                "name": null,
                 "model_id": 3262001,
                 "hatch_data": 300,
                 "weight_low": 2380,
@@ -1403,16 +1385,16 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3333002,
-                "pet_id": 3333002,
-                "name": "呼呼猪",
-                "model_id": 3333001,
-                "hatch_data": 300,
+                "id": 3262004,
+                "pet_id": 3262004,
+                "name": null,
+                "model_id": 3262002,
+                "hatch_data": 57600,
                 "weight_low": 2380,
-                "weight_high": 3264,
-                "height_low": 12,
-                "height_high": 17,
-                "precious_egg_type": 1,
+                "weight_high": 3560,
+                "height_low": 22,
+                "height_high": 31,
+                "precious_egg_type": 2,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1421,7 +1403,7 @@
             {
                 "id": 32620001,
                 "pet_id": 32620001,
-                "name": "多西",
+                "name": null,
                 "model_id": 3262001,
                 "hatch_data": 300,
                 "weight_low": 2380,
@@ -1435,171 +1417,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000030,
-                "pet_id": 91000030,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000030,
-                "pet_id": 92000030,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000030,
-                "pet_id": 93000030,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000030,
-                "pet_id": 94000030,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000029,
-                "pet_id": 95000029,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000030,
-                "pet_id": 96000030,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000030,
-                "pet_id": 97000030,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000030,
-                "pet_id": 98000030,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000029,
-                "pet_id": 99000029,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000101,
                 "pet_id": 99000101,
-                "name": "多西",
+                "name": null,
                 "model_id": 3262001,
                 "hatch_data": 72000,
                 "weight_low": 2380,

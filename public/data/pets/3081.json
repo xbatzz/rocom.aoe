@@ -1,7 +1,7 @@
 {
     "id": 3081,
     "name": "zhiyuhuowa",
-    "form": "治愈兔",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -43,7 +43,7 @@
         "id": 255,
         "name": "zhiyuhuowa",
         "localized": {
-            "zh": "常见于城镇周边"
+            "zh": "治愈兔"
         }
     },
     "trait": {
@@ -673,9 +673,97 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 2,
+            "energy_cost": 4,
             "power": null,
             "description": "自己获得1层萌芽印记。"
+        },
+        {
+            "id": 7040660,
+            "name": "野火",
+            "icon_id": "103049",
+            "move_type": {
+                "id": 3,
+                "name": "Fire",
+                "localized": {
+                    "zh": "火"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "野火",
+                    "description": "选择：敌方获得7层灼烧或物防-90%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 1,
+            "power": null,
+            "description": "选择：敌方获得7层灼烧或物防-90%。"
+        },
+        {
+            "id": 7160340,
+            "name": "委屈",
+            "icon_id": "115025",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "委屈",
+                    "description": "减伤70%，应对攻击：自己获得1层萌芽印记。"
+                }
+            },
+            "move_category": "Defense",
+            "energy_cost": 4,
+            "power": null,
+            "description": "减伤70%，应对攻击：自己获得1层萌芽印记。"
+        },
+        {
+            "id": 7160350,
+            "name": "可爱",
+            "icon_id": "115029",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "可爱",
+                    "description": "对敌方精灵造成魔法伤害。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 100,
+            "description": "对敌方精灵造成魔法伤害。"
+        },
+        {
+            "id": 7160360,
+            "name": "转圈圈",
+            "icon_id": "115030",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "转圈圈",
+                    "description": "造成魔伤，若敌方本回合更换精灵，本次攻击使敌方获得萌化。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 85,
+            "description": "造成魔伤，若敌方本回合更换精灵，本次攻击使敌方获得萌化。"
         }
     ],
     "legacy_moves": [
@@ -1175,7 +1263,7 @@
                         "id": 3081,
                         "species_id": 255,
                         "name": "zhiyuhuowa",
-                        "form": "治愈兔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "治愈兔"
@@ -1208,7 +1296,7 @@
                         "id": 3082,
                         "species_id": 256,
                         "name": "shengguanghuowa",
-                        "form": "红丝绒",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "红丝绒"
@@ -1243,7 +1331,7 @@
                         "id": 3350,
                         "species_id": 257,
                         "name": "huoguangxiunv",
-                        "form": "红绒十字",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "红绒十字"
@@ -1278,8 +1366,8 @@
         "current_monster_id": 3081
     },
     "world_profile": {
-        "type_desc": "行踪神秘",
-        "description_habitat": "锅精灵",
+        "type_desc": "兔精灵",
+        "description_habitat": "常见于城镇周边",
         "introduction": "平时生活在灌木丛中，看到洛克的话会因为好奇而主动靠近。据说如果感冒了的小洛克摸摸它的小脚，就会很快康复。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1294,13 +1382,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3081001,
         "pet_id": 3081001,
-        "name": "异色格兰种子",
+        "name": null,
         "model_id": 3081001,
         "hatch_data": 43200,
         "weight_low": 4211,
@@ -1308,21 +1396,15 @@
         "height_low": 24,
         "height_high": 34,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
-        "is_contact_add_shining_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
+        "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3081001,
                 "pet_id": 3081001,
-                "name": "异色格兰种子",
+                "name": null,
                 "model_id": 3081001,
                 "hatch_data": 43200,
                 "weight_low": 4211,
@@ -1330,21 +1412,15 @@
                 "height_low": 24,
                 "height_high": 34,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
             },
             {
                 "id": 3081002,
                 "pet_id": 3081002,
-                "name": "灵狐（水系血脉）",
+                "name": null,
                 "model_id": 3081002,
                 "hatch_data": 43200,
                 "weight_low": 4211,
@@ -1352,65 +1428,47 @@
                 "height_low": 24,
                 "height_high": 34,
                 "precious_egg_type": 2,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3093001,
-                "pet_id": 3093001,
-                "name": "治愈兔",
-                "model_id": 3093001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 2320,
-                "height_low": 25,
+                "id": 3081003,
+                "pet_id": 3081003,
+                "name": null,
+                "model_id": 3081001,
+                "hatch_data": 300,
+                "weight_low": 4211,
+                "weight_high": 5768,
+                "height_low": 24,
                 "height_high": 34,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3098001,
-                "pet_id": 3098001,
-                "name": "治愈兔",
-                "model_id": 3098001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2400,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "id": 3081004,
+                "pet_id": 3081004,
+                "name": null,
+                "model_id": 3081002,
+                "hatch_data": 43200,
+                "weight_low": 4211,
+                "weight_high": 5768,
+                "height_low": 24,
+                "height_high": 34,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 30810001,
                 "pet_id": 30810001,
-                "name": "异色格兰种子",
+                "name": null,
                 "model_id": 3081001,
                 "hatch_data": 300,
                 "weight_low": 4211,
@@ -1418,392 +1476,6 @@
                 "height_low": 24,
                 "height_high": 34,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 30930001,
-                "pet_id": 30930001,
-                "name": "治愈兔",
-                "model_id": 3093001,
-                "hatch_data": 300,
-                "weight_low": 1575,
-                "weight_high": 2320,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 30980001,
-                "pet_id": 30980001,
-                "name": "治愈兔",
-                "model_id": 3098001,
-                "hatch_data": 300,
-                "weight_low": 1225,
-                "weight_high": 2400,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000043,
-                "pet_id": 91000043,
-                "name": "异色格兰种子",
-                "model_id": 3081001,
-                "hatch_data": 43200,
-                "weight_low": 4211,
-                "weight_high": 5768,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000066,
-                "pet_id": 91000066,
-                "name": "治愈兔",
-                "model_id": 3093001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 2320,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000073,
-                "pet_id": 91000073,
-                "name": "治愈兔",
-                "model_id": 3098001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2400,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000043,
-                "pet_id": 92000043,
-                "name": "异色格兰种子",
-                "model_id": 3081001,
-                "hatch_data": 43200,
-                "weight_low": 4211,
-                "weight_high": 5768,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000066,
-                "pet_id": 92000066,
-                "name": "治愈兔",
-                "model_id": 3093001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 2320,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000073,
-                "pet_id": 92000073,
-                "name": "治愈兔",
-                "model_id": 3098001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2400,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000043,
-                "pet_id": 93000043,
-                "name": "异色格兰种子",
-                "model_id": 3081001,
-                "hatch_data": 43200,
-                "weight_low": 4211,
-                "weight_high": 5768,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000066,
-                "pet_id": 93000066,
-                "name": "治愈兔",
-                "model_id": 3093001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 2320,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000073,
-                "pet_id": 93000073,
-                "name": "治愈兔",
-                "model_id": 3098001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2400,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000043,
-                "pet_id": 94000043,
-                "name": "异色格兰种子",
-                "model_id": 3081001,
-                "hatch_data": 43200,
-                "weight_low": 4211,
-                "weight_high": 5768,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000066,
-                "pet_id": 94000066,
-                "name": "治愈兔",
-                "model_id": 3093001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 2320,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000073,
-                "pet_id": 94000073,
-                "name": "治愈兔",
-                "model_id": 3098001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2400,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000043,
-                "pet_id": 96000043,
-                "name": "异色格兰种子",
-                "model_id": 3081001,
-                "hatch_data": 43200,
-                "weight_low": 4211,
-                "weight_high": 5768,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000066,
-                "pet_id": 96000066,
-                "name": "治愈兔",
-                "model_id": 3093001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 2320,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000073,
-                "pet_id": 96000073,
-                "name": "治愈兔",
-                "model_id": 3098001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2400,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000043,
-                "pet_id": 97000043,
-                "name": "异色格兰种子",
-                "model_id": 3081001,
-                "hatch_data": 43200,
-                "weight_low": 4211,
-                "weight_high": 5768,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000066,
-                "pet_id": 97000066,
-                "name": "治愈兔",
-                "model_id": 3093001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 2320,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000073,
-                "pet_id": 97000073,
-                "name": "治愈兔",
-                "model_id": 3098001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2400,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000043,
-                "pet_id": 98000043,
-                "name": "异色格兰种子",
-                "model_id": 3081001,
-                "hatch_data": 43200,
-                "weight_low": 4211,
-                "weight_high": 5768,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000066,
-                "pet_id": 98000066,
-                "name": "治愈兔",
-                "model_id": 3093001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 2320,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000073,
-                "pet_id": 98000073,
-                "name": "治愈兔",
-                "model_id": 3098001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2400,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1812,44 +1484,12 @@
             {
                 "id": 99000078,
                 "pet_id": 99000078,
-                "name": "异色格兰种子",
+                "name": null,
                 "model_id": 3081001,
                 "hatch_data": 72000,
                 "weight_low": 4211,
                 "weight_high": 5768,
                 "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 4,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000135,
-                "pet_id": 99000135,
-                "name": "治愈兔",
-                "model_id": 3098001,
-                "hatch_data": 72000,
-                "weight_low": 1225,
-                "weight_high": 2400,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 4,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000144,
-                "pet_id": 99000144,
-                "name": "治愈兔",
-                "model_id": 3093001,
-                "hatch_data": 72000,
-                "weight_low": 1575,
-                "weight_high": 2320,
-                "height_low": 25,
                 "height_high": 34,
                 "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,

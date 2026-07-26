@@ -1,7 +1,7 @@
 {
     "id": 3094,
     "name": "wudonglulu",
-    "form": "舞动路路",
+    "form": "default",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -43,7 +43,7 @@
         "id": 196,
         "name": "wudonglulu",
         "localized": {
-            "zh": "常见于河岸、山地"
+            "zh": "舞动路路"
         }
     },
     "trait": {
@@ -742,6 +742,50 @@
             "energy_cost": 2,
             "power": null,
             "description": "减伤80%，应对攻击：自己获得物防+70%。"
+        },
+        {
+            "id": 7160390,
+            "name": "耍赖",
+            "icon_id": "101106",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "耍赖",
+                    "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
+        },
+        {
+            "id": 7021280,
+            "name": "缓一缓",
+            "icon_id": "101114",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "缓一缓",
+                    "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
         }
     ],
     "legacy_moves": [
@@ -1241,7 +1285,7 @@
                         "id": 3093,
                         "species_id": 195,
                         "name": "daixiaolu",
-                        "form": "呆小路",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "呆小路"
@@ -1274,7 +1318,7 @@
                         "id": 3094,
                         "species_id": 196,
                         "name": "wudonglulu",
-                        "form": "舞动路路",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "舞动路路"
@@ -1309,7 +1353,7 @@
                         "id": 3095,
                         "species_id": 197,
                         "name": "baifalulu",
-                        "form": "白发路路",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "白发路路"
@@ -1344,8 +1388,8 @@
         "current_monster_id": 3094
     },
     "world_profile": {
-        "type_desc": "电咩咩",
-        "description_habitat": "小星光",
+        "type_desc": "芳香精灵",
+        "description_habitat": "常见于草地、山林",
         "introduction": "每只舞动路路都携带着一颗蛋，经常看到它们用头上的毛发擦拭蛋，那是它们最珍视的一部分。蓬松的毛发下看不到眼睛，主要靠头上的叶片来感受环境，身体非常灵活。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1360,7 +1404,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 1200,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

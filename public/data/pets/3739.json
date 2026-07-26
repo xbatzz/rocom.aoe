@@ -358,7 +358,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
-            "power": 110,
+            "power": 140,
             "description": "造成物伤，每次使用后，本技能能耗永久+1。"
         },
         {
@@ -1257,7 +1257,7 @@
                         "id": 3315,
                         "species_id": 36,
                         "name": "xiaoshulan",
-                        "form": "小鼠獭",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小鼠獭"
@@ -1311,7 +1311,7 @@
                         "id": 3316,
                         "species_id": 37,
                         "name": "dashulan",
-                        "form": "燕尾獭",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "燕尾獭"
@@ -1369,7 +1369,7 @@
                         "id": 3317,
                         "species_id": 38,
                         "name": "jushulan",
-                        "form": "卷胡巨獭",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "卷胡巨獭"
@@ -1417,7 +1417,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

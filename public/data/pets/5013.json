@@ -43,7 +43,7 @@
         "id": 144,
         "name": "xueyingwawa",
         "localized": {
-            "zh": "企鹅精灵"
+            "zh": "雪影娃娃"
         }
     },
     "trait": {
@@ -1263,7 +1263,7 @@
                         "id": 3121,
                         "species_id": 142,
                         "name": "daermaodou",
-                        "form": "大耳帽兜",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "大耳帽兜"
@@ -1296,7 +1296,7 @@
                         "id": 3122,
                         "species_id": 143,
                         "name": "maodouwawa",
-                        "form": "帽兜娃娃",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "帽兜娃娃"
@@ -1331,7 +1331,7 @@
                         "id": 3123,
                         "species_id": 144,
                         "name": "xueyingwawa",
-                        "form": "雪影娃娃",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雪影娃娃"
@@ -1470,18 +1470,45 @@
                             }
                         },
                         "evolution_conditions": []
+                    },
+                    {
+                        "id": 8116,
+                        "species_id": 144,
+                        "name": "xueyingwawa_shouling",
+                        "form": "雪影冰灵",
+                        "localized": {
+                            "zh": {
+                                "name": "雪影冰灵"
+                            }
+                        },
+                        "is_leader_form": true,
+                        "main_type": {
+                            "id": 7,
+                            "name": "Ice",
+                            "localized": {
+                                "zh": "冰"
+                            }
+                        },
+                        "sub_type": {
+                            "id": 14,
+                            "name": "Cute",
+                            "localized": {
+                                "zh": "萌"
+                            }
+                        },
+                        "evolution_conditions": []
                     }
                 ]
             }
         ],
         "max_depth": 3,
-        "total_unique_monsters": 7,
+        "total_unique_monsters": 8,
         "species_id": 144,
         "current_monster_id": 5013
     },
     "world_profile": {
-        "type_desc": "常见于城镇、草地、雪山",
-        "description_habitat": "喵喵",
+        "type_desc": "伴生精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "如果遇到了致命的危险，毛绒娃娃会变成巨大的兔精灵来保护主人。不要贸然靠近，不然它会非常生气。这时的它有明确的领地范围，喜欢用耳朵的香腺擦拭东西来划分地盘。如果它用耳朵蹭蹭你，代表你可以接近。",
         "refresh_locations": [
             "暂时找不到这只精灵的踪迹噢！"

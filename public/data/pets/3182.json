@@ -1,7 +1,7 @@
 {
     "id": 3182,
     "name": "longxipaer",
-    "form": "龙息帕尔",
+    "form": "default",
     "main_type": {
         "id": 16,
         "name": "Dark",
@@ -37,7 +37,7 @@
         "id": 295,
         "name": "longxipaer",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "龙息帕尔"
         }
     },
     "trait": {
@@ -155,13 +155,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7020970,
@@ -1169,7 +1169,7 @@
                         "id": 3180,
                         "species_id": 293,
                         "name": "xiaopaersasi",
-                        "form": "小帕尔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小帕尔"
@@ -1196,7 +1196,7 @@
                         "id": 3181,
                         "species_id": 294,
                         "name": "paersasi2",
-                        "form": "帕尔萨斯",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "帕尔萨斯"
@@ -1226,7 +1226,7 @@
                         "id": 3182,
                         "species_id": 295,
                         "name": "longxipaer",
-                        "form": "龙息帕尔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "龙息帕尔"
@@ -1256,8 +1256,8 @@
         "current_monster_id": 3182
     },
     "world_profile": {
-        "type_desc": "小草虫",
-        "description_habitat": "喵喵",
+        "type_desc": "尖尾精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "在古老的典籍中记载，龙息帕尔和其他恶系精灵的行事风格不同，它们秉持等价交换的原则，会严格遵守自己缔结的契约。在契约完成前绝不会离开，甚至愿意为此等待漫长的时光。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"

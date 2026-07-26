@@ -177,13 +177,13 @@
             "localized": {
                 "zh": {
                     "name": "齿轮扭矩",
-                    "description": "造成物伤，每回合位置发生变化时，本技能威力永久+20。"
+                    "description": "造成物伤，每回合位置发生变化时，本技能威力永久+15。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 80,
-            "description": "造成物伤，每回合位置发生变化时，本技能威力永久+20。"
+            "power": 70,
+            "description": "造成物伤，每回合位置发生变化时，本技能威力永久+15。"
         },
         {
             "id": 7070170,
@@ -353,13 +353,13 @@
             "localized": {
                 "zh": {
                     "name": "微型斥候",
-                    "description": "造成魔伤，自己每​受​到​一​次​抵抗​伤害，​本技​能​威力​永久​+20。"
+                    "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），​本技​能​威力​永久​+20。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造成魔伤，自己每​受​到​一​次​抵抗​伤害，​本技​能​威力​永久​+20。"
+            "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），​本技​能​威力​永久​+20。"
         },
         {
             "id": 7070270,
@@ -1365,8 +1365,8 @@
         "current_monster_id": 3733
     },
     "world_profile": {
-        "type_desc": null,
-        "description_habitat": null,
+        "type_desc": "独轮车精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "被洛克制造并赋予美好的使命，它们的底层结构里面写着“去吧，去给孩子们带来快乐吧。”于是它们年复一年日复一日，用不太灵光的脑袋想，用有点笨的小手做，尝试制作出所有能让洛克感觉到快乐的事物。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1374,14 +1374,65 @@
         "movement_type": "地面",
         "classis_id": 6,
         "classis_name": "自然类精灵",
-        "handbook_area_ids": []
+        "handbook_area_ids": [
+            1
+        ]
     },
     "catch_info": {
         "catch_threshold": null,
-        "catch_guarant_rate": 180,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
-    "breeding": null,
+    "breeding": {
+        "id": 3733002,
+        "pet_id": 3733002,
+        "name": null,
+        "model_id": 3733001,
+        "hatch_data": 100,
+        "weight_low": 3395,
+        "weight_high": 5920,
+        "height_low": 23,
+        "height_high": 30,
+        "precious_egg_type": 1,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
+        "is_contact_add_shining_prob": null,
+        "variants": [
+            {
+                "id": 3733002,
+                "pet_id": 3733002,
+                "name": null,
+                "model_id": 3733001,
+                "hatch_data": 100,
+                "weight_low": 3395,
+                "weight_high": 5920,
+                "height_low": 23,
+                "height_high": 30,
+                "precious_egg_type": 1,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 37330001,
+                "pet_id": 37330001,
+                "name": null,
+                "model_id": 3733001,
+                "hatch_data": 100,
+                "weight_low": 3395,
+                "weight_high": 5920,
+                "height_low": 23,
+                "height_high": 30,
+                "precious_egg_type": 7,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            }
+        ]
+    },
     "breeding_profile": {
         "pet_base_id": 3733,
         "egg_groups": [

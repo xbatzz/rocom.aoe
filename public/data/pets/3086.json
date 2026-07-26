@@ -1,7 +1,7 @@
 {
     "id": 3086,
     "name": "keliji",
-    "form": "可立鸡",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -37,7 +37,7 @@
         "id": 266,
         "name": "keliji",
         "localized": {
-            "zh": "豆丁鱼"
+            "zh": "可立鸡"
         }
     },
     "trait": {
@@ -1015,7 +1015,7 @@
                         "id": 3086,
                         "species_id": 266,
                         "name": "keliji",
-                        "form": "可立鸡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "可立鸡"
@@ -1036,7 +1036,7 @@
                         "id": 19000001,
                         "species_id": 266,
                         "name": "keliji",
-                        "form": "可立鸡-变形测试用",
+                        "form": "-变形测试用",
                         "localized": {
                             "zh": {
                                 "name": "可立鸡-变形测试用"
@@ -1057,7 +1057,7 @@
                         "id": 19000005,
                         "species_id": 266,
                         "name": "keliji",
-                        "form": "可立鸡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "可立鸡"
@@ -1084,7 +1084,7 @@
                         "id": 3087,
                         "species_id": 267,
                         "name": "yunyunji",
-                        "form": "晕晕鸡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "晕晕鸡"
@@ -1113,7 +1113,7 @@
                         "id": 3088,
                         "species_id": 268,
                         "name": "shenshiji",
-                        "form": "绅士鸡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "绅士鸡"
@@ -1142,7 +1142,7 @@
                         "id": 3089,
                         "species_id": 269,
                         "name": "wuzheji",
-                        "form": "武者鸡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "武者鸡"
@@ -1178,8 +1178,8 @@
         "current_monster_id": 3086
     },
     "world_profile": {
-        "type_desc": "天鹅精灵",
-        "description_habitat": "常见于山林",
+        "type_desc": "鸡仔精灵",
+        "description_habitat": "常见于山地",
         "introduction": "鸡冠有特殊腺体分泌可燃气体，情绪激动时，鸡冠会熊熊燃烧。为了便于警戒，可立鸡会排成一队，由鸡冠火焰最旺盛的个体来带领。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1194,13 +1194,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 3000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3086001,
         "pet_id": 3086001,
-        "name": "异色灵狐",
+        "name": null,
         "model_id": 3086001,
         "hatch_data": 43200,
         "weight_low": 1610,
@@ -1208,21 +1208,15 @@
         "height_low": 17,
         "height_high": 23,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3086001,
                 "pet_id": 3086001,
-                "name": "异色灵狐",
+                "name": null,
                 "model_id": 3086001,
                 "hatch_data": 43200,
                 "weight_low": 1610,
@@ -1230,50 +1224,38 @@
                 "height_low": 17,
                 "height_high": 23,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3106001,
-                "pet_id": 3106001,
-                "name": "可立鸡",
-                "model_id": 3106001,
-                "hatch_data": 57600,
-                "weight_low": 7350,
-                "weight_high": 13600,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3550002,
-                "pet_id": 3550002,
-                "name": "豆丁鱼",
-                "model_id": 3550001,
+                "id": 3086002,
+                "pet_id": 3086002,
+                "name": null,
+                "model_id": 3086002,
                 "hatch_data": 43200,
-                "weight_low": 3745,
-                "weight_high": 5800,
-                "height_low": 15,
-                "height_high": 20,
-                "precious_egg_type": 1,
+                "weight_low": 1610,
+                "weight_high": 2960,
+                "height_low": 17,
+                "height_high": 23,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3086003,
+                "pet_id": 3086003,
+                "name": null,
+                "model_id": 3086002,
+                "hatch_data": 43200,
+                "weight_low": 1610,
+                "weight_high": 2960,
+                "height_low": 17,
+                "height_high": 23,
+                "precious_egg_type": 2,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1282,7 +1264,7 @@
             {
                 "id": 30860001,
                 "pet_id": 30860001,
-                "name": "异色灵狐",
+                "name": null,
                 "model_id": 3086001,
                 "hatch_data": 300,
                 "weight_low": 1610,
@@ -1290,258 +1272,6 @@
                 "height_low": 17,
                 "height_high": 23,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31060001,
-                "pet_id": 31060001,
-                "name": "可立鸡",
-                "model_id": 3106001,
-                "hatch_data": 300,
-                "weight_low": 7350,
-                "weight_high": 13600,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000076,
-                "pet_id": 91000076,
-                "name": "可立鸡",
-                "model_id": 3106001,
-                "hatch_data": 57600,
-                "weight_low": 7350,
-                "weight_high": 13600,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000100,
-                "pet_id": 91000100,
-                "name": "异色灵狐",
-                "model_id": 3086001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2960,
-                "height_low": 17,
-                "height_high": 23,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000076,
-                "pet_id": 92000076,
-                "name": "可立鸡",
-                "model_id": 3106001,
-                "hatch_data": 57600,
-                "weight_low": 7350,
-                "weight_high": 13600,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000100,
-                "pet_id": 92000100,
-                "name": "异色灵狐",
-                "model_id": 3086001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2960,
-                "height_low": 17,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000076,
-                "pet_id": 93000076,
-                "name": "可立鸡",
-                "model_id": 3106001,
-                "hatch_data": 57600,
-                "weight_low": 7350,
-                "weight_high": 13600,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000100,
-                "pet_id": 93000100,
-                "name": "异色灵狐",
-                "model_id": 3086001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2960,
-                "height_low": 17,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000076,
-                "pet_id": 94000076,
-                "name": "可立鸡",
-                "model_id": 3106001,
-                "hatch_data": 57600,
-                "weight_low": 7350,
-                "weight_high": 13600,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000100,
-                "pet_id": 94000100,
-                "name": "异色灵狐",
-                "model_id": 3086001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2960,
-                "height_low": 17,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000076,
-                "pet_id": 96000076,
-                "name": "可立鸡",
-                "model_id": 3106001,
-                "hatch_data": 57600,
-                "weight_low": 7350,
-                "weight_high": 13600,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000100,
-                "pet_id": 96000100,
-                "name": "异色灵狐",
-                "model_id": 3086001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2960,
-                "height_low": 17,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000076,
-                "pet_id": 97000076,
-                "name": "可立鸡",
-                "model_id": 3106001,
-                "hatch_data": 57600,
-                "weight_low": 7350,
-                "weight_high": 13600,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000100,
-                "pet_id": 97000100,
-                "name": "异色灵狐",
-                "model_id": 3086001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2960,
-                "height_low": 17,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000076,
-                "pet_id": 98000076,
-                "name": "可立鸡",
-                "model_id": 3106001,
-                "hatch_data": 57600,
-                "weight_low": 7350,
-                "weight_high": 13600,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000100,
-                "pet_id": 98000100,
-                "name": "异色灵狐",
-                "model_id": 3086001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2960,
-                "height_low": 17,
-                "height_high": 23,
-                "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1550,29 +1280,13 @@
             {
                 "id": 99000109,
                 "pet_id": 99000109,
-                "name": "异色灵狐",
+                "name": null,
                 "model_id": 3086001,
                 "hatch_data": 72000,
                 "weight_low": 1610,
                 "weight_high": 2960,
                 "height_low": 17,
                 "height_high": 23,
-                "precious_egg_type": 4,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000131,
-                "pet_id": 99000131,
-                "name": "可立鸡",
-                "model_id": 3106001,
-                "hatch_data": 72000,
-                "weight_low": 7350,
-                "weight_high": 13600,
-                "height_low": 21,
-                "height_high": 29,
                 "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,

@@ -1,7 +1,7 @@
 {
     "id": 3190,
     "name": "dianmiemie",
-    "form": "电咩咩",
+    "form": "default",
     "main_type": {
         "id": 9,
         "name": "Electric",
@@ -37,7 +37,7 @@
         "id": 66,
         "name": "dianmiemie",
         "localized": {
-            "zh": "蹦蹦草"
+            "zh": "电咩咩"
         }
     },
     "trait": {
@@ -199,13 +199,13 @@
             "localized": {
                 "zh": {
                     "name": "电离爆破",
-                    "description": "敌方获得速度-40，3连击。"
+                    "description": "敌方获得魔攻-20%，速度-20，2连击。"
                 }
             },
             "move_category": "Status",
-            "energy_cost": 3,
+            "energy_cost": 1,
             "power": null,
-            "description": "敌方获得速度-40，3连击。"
+            "description": "敌方获得魔攻-20%，速度-20，2连击。"
         },
         {
             "id": 7110280,
@@ -733,7 +733,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 2,
+            "energy_cost": 4,
             "power": null,
             "description": "自己获得1层萌芽印记。"
         },
@@ -1257,7 +1257,7 @@
                         "id": 3190,
                         "species_id": 66,
                         "name": "dianmiemie",
-                        "form": "电咩咩",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "电咩咩"
@@ -1284,7 +1284,7 @@
                         "id": 3191,
                         "species_id": 67,
                         "name": "fenmiemie",
-                        "form": "粉咩咩",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "粉咩咩"
@@ -1313,7 +1313,7 @@
                         "id": 3192,
                         "species_id": 68,
                         "name": "dianqiumiemie",
-                        "form": "电球咩咩",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "电球咩咩"
@@ -1342,7 +1342,7 @@
         "current_monster_id": 3190
     },
     "world_profile": {
-        "type_desc": "常见于草地",
+        "type_desc": "羊精灵",
         "description_habitat": "常见于草地",
         "introduction": "整个咩咩非常蓬松，每一根蓬松的毛都带电，稍微靠近它就要被静电“哔哩”一下。释放能量之后会进入低电量状态，低电量时会没精打采并吃很多。",
         "refresh_locations": [
@@ -1358,13 +1358,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3190001,
         "pet_id": 3190001,
-        "name": "多多（完美无瑕）",
+        "name": null,
         "model_id": 3190001,
         "hatch_data": 72000,
         "weight_low": 2510,
@@ -1372,21 +1372,15 @@
         "height_low": 25,
         "height_high": 34,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            400,
-            3125
-        ],
-        "egg_add_glass_prob_array": [
-            2,
-            113
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3190001,
                 "pet_id": 3190001,
-                "name": "多多（完美无瑕）",
+                "name": null,
                 "model_id": 3190001,
                 "hatch_data": 72000,
                 "weight_low": 2510,
@@ -1394,59 +1388,31 @@
                 "height_low": 25,
                 "height_high": 34,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3228001,
-                "pet_id": 3228001,
-                "name": "电咩咩",
-                "model_id": 3228001,
-                "hatch_data": 43200,
-                "weight_low": 2839,
-                "weight_high": 3760,
-                "height_low": 28,
-                "height_high": 39,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3230001,
-                "pet_id": 3230001,
-                "name": "电咩咩",
-                "model_id": 3230001,
-                "hatch_data": 43200,
-                "weight_low": 2030,
-                "weight_high": 2560,
-                "height_low": 20,
-                "height_high": 29,
-                "precious_egg_type": null,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": true,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3190002,
+                "pet_id": 3190002,
+                "name": null,
+                "model_id": 3190001,
+                "hatch_data": 300,
+                "weight_low": 2510,
+                "weight_high": 3640,
+                "height_low": 25,
+                "height_high": 34,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 31900001,
                 "pet_id": 31900001,
-                "name": "多多（完美无瑕）",
+                "name": null,
                 "model_id": 3190001,
                 "hatch_data": 300,
                 "weight_low": 2510,
@@ -1457,206 +1423,12 @@
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 32280001,
-                "pet_id": 32280001,
-                "name": "电咩咩",
-                "model_id": 3228001,
-                "hatch_data": 300,
-                "weight_low": 2839,
-                "weight_high": 3760,
-                "height_low": 28,
-                "height_high": 39,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 32300001,
-                "pet_id": 32300001,
-                "name": "电咩咩",
-                "model_id": 3230001,
-                "hatch_data": 300,
-                "weight_low": 2030,
-                "weight_high": 2560,
-                "height_low": 20,
-                "height_high": 29,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000047,
-                "pet_id": 91000047,
-                "name": "多多（完美无瑕）",
-                "model_id": 3190001,
-                "hatch_data": 72000,
-                "weight_low": 2510,
-                "weight_high": 3640,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000047,
-                "pet_id": 92000047,
-                "name": "多多（完美无瑕）",
-                "model_id": 3190001,
-                "hatch_data": 72000,
-                "weight_low": 2510,
-                "weight_high": 3640,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000047,
-                "pet_id": 93000047,
-                "name": "多多（完美无瑕）",
-                "model_id": 3190001,
-                "hatch_data": 72000,
-                "weight_low": 2510,
-                "weight_high": 3640,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000047,
-                "pet_id": 94000047,
-                "name": "多多（完美无瑕）",
-                "model_id": 3190001,
-                "hatch_data": 72000,
-                "weight_low": 2510,
-                "weight_high": 3640,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000022,
-                "pet_id": 95000022,
-                "name": "多多（完美无瑕）",
-                "model_id": 3190001,
-                "hatch_data": 72000,
-                "weight_low": 2510,
-                "weight_high": 3640,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000047,
-                "pet_id": 96000047,
-                "name": "多多（完美无瑕）",
-                "model_id": 3190001,
-                "hatch_data": 72000,
-                "weight_low": 2510,
-                "weight_high": 3640,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000047,
-                "pet_id": 97000047,
-                "name": "多多（完美无瑕）",
-                "model_id": 3190001,
-                "hatch_data": 72000,
-                "weight_low": 2510,
-                "weight_high": 3640,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000047,
-                "pet_id": 98000047,
-                "name": "多多（完美无瑕）",
-                "model_id": 3190001,
-                "hatch_data": 72000,
-                "weight_low": 2510,
-                "weight_high": 3640,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000022,
-                "pet_id": 99000022,
-                "name": "多多（完美无瑕）",
-                "model_id": 3190001,
-                "hatch_data": 72000,
-                "weight_low": 2510,
-                "weight_high": 3640,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 99000087,
                 "pet_id": 99000087,
-                "name": "多多（完美无瑕）",
+                "name": null,
                 "model_id": 3190001,
                 "hatch_data": 72000,
                 "weight_low": 2510,

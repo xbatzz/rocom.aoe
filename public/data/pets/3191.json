@@ -1,7 +1,7 @@
 {
     "id": 3191,
     "name": "fenmiemie",
-    "form": "粉咩咩",
+    "form": "default",
     "main_type": {
         "id": 9,
         "name": "Electric",
@@ -37,7 +37,7 @@
         "id": 67,
         "name": "fenmiemie",
         "localized": {
-            "zh": "常见于草地、平原"
+            "zh": "粉咩咩"
         }
     },
     "trait": {
@@ -199,13 +199,13 @@
             "localized": {
                 "zh": {
                     "name": "电离爆破",
-                    "description": "敌方获得速度-40，3连击。"
+                    "description": "敌方获得魔攻-20%，速度-20，2连击。"
                 }
             },
             "move_category": "Status",
-            "energy_cost": 3,
+            "energy_cost": 1,
             "power": null,
-            "description": "敌方获得速度-40，3连击。"
+            "description": "敌方获得魔攻-20%，速度-20，2连击。"
         },
         {
             "id": 7110280,
@@ -733,7 +733,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 2,
+            "energy_cost": 4,
             "power": null,
             "description": "自己获得1层萌芽印记。"
         },
@@ -1257,7 +1257,7 @@
                         "id": 3190,
                         "species_id": 66,
                         "name": "dianmiemie",
-                        "form": "电咩咩",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "电咩咩"
@@ -1284,7 +1284,7 @@
                         "id": 3191,
                         "species_id": 67,
                         "name": "fenmiemie",
-                        "form": "粉咩咩",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "粉咩咩"
@@ -1313,7 +1313,7 @@
                         "id": 3192,
                         "species_id": 68,
                         "name": "dianqiumiemie",
-                        "form": "电球咩咩",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "电球咩咩"
@@ -1342,7 +1342,7 @@
         "current_monster_id": 3191
     },
     "world_profile": {
-        "type_desc": "幻影灵菇",
+        "type_desc": "羊精灵",
         "description_habitat": "常见于草地",
         "introduction": "经常看到它们聚在一起胡乱放电，放电的时候会跳奇怪的舞蹈，十分开心的样子。如果埋进它们的毛里猛吸一口，被电很惨同时会闻到糊糊的怪味。",
         "refresh_locations": [
@@ -1358,7 +1358,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 525,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

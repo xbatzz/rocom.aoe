@@ -1,7 +1,7 @@
 {
     "id": 3571,
     "name": "heiyufuren",
-    "form": "黑羽夫人",
+    "form": "default",
     "main_type": {
         "id": 13,
         "name": "Flying",
@@ -43,7 +43,7 @@
         "id": 91,
         "name": "heiyufuren",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "黑羽夫人"
         }
     },
     "trait": {
@@ -99,7 +99,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "迅捷，驱散敌方1种增益。"
         },
@@ -713,13 +713,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7020800,
@@ -1307,7 +1307,7 @@
                         "id": 3344,
                         "species_id": 88,
                         "name": "huaguitianer",
-                        "form": "乖乖鹄",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "乖乖鹄"
@@ -1340,7 +1340,7 @@
                         "id": 3345,
                         "species_id": 89,
                         "name": "lanzhutianer",
-                        "form": "蓝珠天鹅",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "蓝珠天鹅"
@@ -1375,7 +1375,7 @@
                         "id": 3346,
                         "species_id": 90,
                         "name": "cuidingfuren",
-                        "form": "翠顶夫人",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "翠顶夫人"
@@ -1404,7 +1404,7 @@
                         "id": 3571,
                         "species_id": 91,
                         "name": "heiyufuren",
-                        "form": "黑羽夫人",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "黑羽夫人"
@@ -1440,8 +1440,8 @@
         "current_monster_id": 3571
     },
     "world_profile": {
-        "type_desc": "叮叮恶魔",
-        "description_habitat": "喵喵",
+        "type_desc": "优雅精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "天鹅精灵中罕见的独居分支，对社交并不热衷。羽毛长而卷翘，摸起来有些刺手，似乎并不符合种族中普遍的审美，但自信令她看起来非常优雅。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1457,7 +1457,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

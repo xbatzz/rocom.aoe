@@ -1,7 +1,7 @@
 {
     "id": 19000003,
     "name": "guodong",
-    "form": "果冻-变形测试用",
+    "form": "-变形测试用",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -37,7 +37,7 @@
         "id": 313,
         "name": "guodong",
         "localized": {
-            "zh": "墨鱿士"
+            "zh": "果冻"
         }
     },
     "trait": {
@@ -1015,7 +1015,7 @@
                         "id": 3118,
                         "species_id": 313,
                         "name": "guodong",
-                        "form": "果冻",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "果冻"
@@ -1036,7 +1036,7 @@
                         "id": 19000003,
                         "species_id": 313,
                         "name": "guodong",
-                        "form": "果冻-变形测试用",
+                        "form": "-变形测试用",
                         "localized": {
                             "zh": {
                                 "name": "果冻-变形测试用"
@@ -1057,7 +1057,7 @@
                         "id": 19000006,
                         "species_id": 313,
                         "name": "guodong",
-                        "form": "果冻",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "果冻"
@@ -1084,7 +1084,7 @@
                         "id": 3526,
                         "species_id": 314,
                         "name": "mochabuding",
-                        "form": "抹茶布丁",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "抹茶布丁"
@@ -1114,7 +1114,7 @@
                         "id": 3527,
                         "species_id": 315,
                         "name": "yejiangbuding",
-                        "form": "椰浆布丁",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "椰浆布丁"
@@ -1144,7 +1144,7 @@
                         "id": 3528,
                         "species_id": 316,
                         "name": "rongyanbuding",
-                        "form": "熔岩布丁",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "熔岩布丁"
@@ -1180,8 +1180,8 @@
         "current_monster_id": 19000003
     },
     "world_profile": {
-        "type_desc": "阿米亚特",
-        "description_habitat": "喵喵",
+        "type_desc": "凝胶精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "没有固定形状的精灵，可以钻进各种狭窄的地方。身体很黏，需要经常补充水分，不然就会变得皱巴巴的没有活力。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"

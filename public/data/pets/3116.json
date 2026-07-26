@@ -1,7 +1,7 @@
 {
     "id": 3116,
     "name": "landiesha",
-    "form": "蓝蝶鲨",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -43,7 +43,7 @@
         "id": 109,
         "name": "landiesha",
         "localized": {
-            "zh": "鸟仔精灵"
+            "zh": "蓝蝶鲨"
         }
     },
     "trait": {
@@ -1153,7 +1153,7 @@
                         "id": 3115,
                         "species_id": 108,
                         "name": "fuzhousha",
-                        "form": "风铃鲨",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "风铃鲨"
@@ -1186,7 +1186,7 @@
                         "id": 3116,
                         "species_id": 109,
                         "name": "landiesha",
-                        "form": "蓝蝶鲨",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "蓝蝶鲨"
@@ -1221,7 +1221,7 @@
                         "id": 3117,
                         "species_id": 110,
                         "name": "caidiesha",
-                        "form": "彩蝶鲨",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "彩蝶鲨"
@@ -1256,8 +1256,8 @@
         "current_monster_id": 3116
     },
     "world_profile": {
-        "type_desc": "燕尾獭",
-        "description_habitat": "硬壳精灵",
+        "type_desc": "轻飘飘精灵",
+        "description_habitat": "常见于湖泊",
         "introduction": "它的身体构造至今难以完全解释：体内几乎都是水，身体被一层透明的膜包裹住，里面的液体非常轻。飞行时，由于压力变化或者风势太大，液体有时会漏出来。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1272,7 +1272,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 525,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

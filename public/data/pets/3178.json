@@ -1,7 +1,7 @@
 {
     "id": 3178,
     "name": "judulangzhu",
-    "form": "矮脚爬爬",
+    "form": "default",
     "main_type": {
         "id": 11,
         "name": "Bug",
@@ -27,17 +27,17 @@
     },
     "implemented": true,
     "base_hp": 80,
-    "base_phy_atk": 117,
-    "base_mag_atk": 110,
-    "base_phy_def": 74,
-    "base_mag_def": 59,
+    "base_phy_atk": 118,
+    "base_mag_atk": 109,
+    "base_phy_def": 86,
+    "base_mag_def": 71,
     "base_spd": 92,
     "evolves_from_id": null,
     "species": {
         "id": 214,
         "name": "judulangzhu",
         "localized": {
-            "zh": "常见于草地、山林"
+            "zh": "矮脚爬爬"
         }
     },
     "trait": {
@@ -619,13 +619,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7130240,
@@ -670,6 +670,72 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7120260,
+            "name": "毒誓",
+            "icon_id": "111031",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "毒誓",
+                    "description": "对敌方精灵造成物理伤害。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 4,
+            "power": 120,
+            "description": "对敌方精灵造成物理伤害。"
+        },
+        {
+            "id": 7180420,
+            "name": "下注",
+            "icon_id": "117043",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "下注",
+                    "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 85,
+            "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+        },
+        {
+            "id": 7020540,
+            "name": "重击",
+            "icon_id": "702059",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "重击",
+                    "description": "造成物伤，每次使用后，本技能能耗永久+1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 2,
+            "power": 140,
+            "description": "造成物伤，每次使用后，本技能能耗永久+1。"
         }
     ],
     "legacy_moves": [
@@ -1169,7 +1235,7 @@
                         "id": 3178,
                         "species_id": 214,
                         "name": "judulangzhu",
-                        "form": "矮脚爬爬",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "矮脚爬爬"
@@ -1196,7 +1262,7 @@
                         "id": 3179,
                         "species_id": 215,
                         "name": "emolangzhu",
-                        "form": "恶魔红钻",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "恶魔红钻"
@@ -1231,8 +1297,8 @@
         "current_monster_id": 3178
     },
     "world_profile": {
-        "type_desc": "伊贝粉粉",
-        "description_habitat": "常见于山林",
+        "type_desc": "蜘蛛精灵",
+        "description_habitat": "常见于山地",
         "introduction": "足较短，翻倒后很难再顺利站起来。野外发现的矮脚爬爬里面十个有八个正在努力翻身。因为可爱的外表而受到许多小洛克的喜爱，但受惊时会咬人，致使王国只能贴出告示，警告大家不要轻易触碰。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1247,13 +1313,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3178001,
         "pet_id": 3178001,
-        "name": "小灵菇",
+        "name": null,
         "model_id": 3178001,
         "hatch_data": 28800,
         "weight_low": 1155,
@@ -1261,21 +1327,15 @@
         "height_low": 12,
         "height_high": 18,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3178001,
                 "pet_id": 3178001,
-                "name": "小灵菇",
+                "name": null,
                 "model_id": 3178001,
                 "hatch_data": 28800,
                 "weight_low": 1155,
@@ -1283,43 +1343,15 @@
                 "height_low": 12,
                 "height_high": 18,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3209001,
-                "pet_id": 3209001,
-                "name": "矮脚爬爬",
-                "model_id": 3209001,
-                "hatch_data": 72000,
-                "weight_low": 8785,
-                "weight_high": 14600,
-                "height_low": 26,
-                "height_high": 36,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 31780001,
                 "pet_id": 31780001,
-                "name": "小灵菇",
+                "name": null,
                 "model_id": 3178001,
                 "hatch_data": 300,
                 "weight_low": 1155,
@@ -1330,212 +1362,18 @@
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 32090001,
-                "pet_id": 32090001,
-                "name": "矮脚爬爬",
-                "model_id": 3209001,
-                "hatch_data": 300,
-                "weight_low": 8785,
-                "weight_high": 14600,
-                "height_low": 26,
-                "height_high": 36,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000040,
-                "pet_id": 91000040,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000040,
-                "pet_id": 92000040,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000040,
-                "pet_id": 93000040,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000040,
-                "pet_id": 94000040,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000021,
-                "pet_id": 95000021,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000040,
-                "pet_id": 96000040,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000040,
-                "pet_id": 97000040,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000040,
-                "pet_id": 98000040,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000021,
-                "pet_id": 99000021,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 99000091,
                 "pet_id": 99000091,
-                "name": "小灵菇",
+                "name": null,
                 "model_id": 3178001,
                 "hatch_data": 72000,
                 "weight_low": 1155,
                 "weight_high": 1680,
                 "height_low": 12,
                 "height_high": 18,
-                "precious_egg_type": 4,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000116,
-                "pet_id": 99000116,
-                "name": "矮脚爬爬",
-                "model_id": 3209001,
-                "hatch_data": 72000,
-                "weight_low": 8785,
-                "weight_high": 14600,
-                "height_low": 26,
-                "height_high": 36,
                 "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,

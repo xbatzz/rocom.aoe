@@ -203,7 +203,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "迅捷，驱散敌方1种增益。"
         },
@@ -758,6 +758,28 @@
             "energy_cost": 3,
             "power": 40,
             "description": "造成​魔伤，​3连击。巧变：​翼系防御​技​能​。"
+        },
+        {
+            "id": 7021190,
+            "name": "吹散",
+            "icon_id": "101111",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "吹散",
+                    "description": "造成魔伤，选择：驱散敌方所有增益或驱散双方1层印记。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 65,
+            "description": "造成魔伤，选择：驱散敌方所有增益或驱散双方1层印记。"
         }
     ],
     "legacy_moves": [
@@ -1257,7 +1279,7 @@
                         "id": 3534,
                         "species_id": 177,
                         "name": "banban",
-                        "form": "斑斑",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "斑斑"
@@ -1305,7 +1327,7 @@
                         "id": 3535,
                         "species_id": 178,
                         "name": "banxiao",
-                        "form": "斑枭",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "斑枭"

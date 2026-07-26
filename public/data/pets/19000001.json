@@ -1,7 +1,7 @@
 {
     "id": 19000001,
     "name": "keliji",
-    "form": "可立鸡-变形测试用",
+    "form": "-变形测试用",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -37,7 +37,7 @@
         "id": 266,
         "name": "keliji",
         "localized": {
-            "zh": "豆丁鱼"
+            "zh": "可立鸡"
         }
     },
     "trait": {
@@ -1015,7 +1015,7 @@
                         "id": 3086,
                         "species_id": 266,
                         "name": "keliji",
-                        "form": "可立鸡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "可立鸡"
@@ -1036,7 +1036,7 @@
                         "id": 19000001,
                         "species_id": 266,
                         "name": "keliji",
-                        "form": "可立鸡-变形测试用",
+                        "form": "-变形测试用",
                         "localized": {
                             "zh": {
                                 "name": "可立鸡-变形测试用"
@@ -1057,7 +1057,7 @@
                         "id": 19000005,
                         "species_id": 266,
                         "name": "keliji",
-                        "form": "可立鸡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "可立鸡"
@@ -1084,7 +1084,7 @@
                         "id": 3087,
                         "species_id": 267,
                         "name": "yunyunji",
-                        "form": "晕晕鸡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "晕晕鸡"
@@ -1113,7 +1113,7 @@
                         "id": 3088,
                         "species_id": 268,
                         "name": "shenshiji",
-                        "form": "绅士鸡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "绅士鸡"
@@ -1142,7 +1142,7 @@
                         "id": 3089,
                         "species_id": 269,
                         "name": "wuzheji",
-                        "form": "武者鸡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "武者鸡"
@@ -1178,8 +1178,8 @@
         "current_monster_id": 19000001
     },
     "world_profile": {
-        "type_desc": "天鹅精灵",
-        "description_habitat": "常见于山林",
+        "type_desc": "鸡仔精灵",
+        "description_habitat": "常见于山地",
         "introduction": "鸡冠有特殊腺体分泌可燃气体，情绪激动时，鸡冠会熊熊燃烧。 为了便于警戒，可立鸡会排成一队，由鸡冠火焰最旺盛的个体来带领。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1193,40 +1193,7 @@
         ]
     },
     "catch_info": null,
-    "breeding": {
-        "id": 3550002,
-        "pet_id": 3550002,
-        "name": "豆丁鱼",
-        "model_id": 3550001,
-        "hatch_data": 43200,
-        "weight_low": 3745,
-        "weight_high": 5800,
-        "height_low": 15,
-        "height_high": 20,
-        "precious_egg_type": 1,
-        "egg_base_glass_prob_array": null,
-        "egg_add_glass_prob_array": null,
-        "is_contact_add_glass_prob": null,
-        "is_contact_add_shining_prob": null,
-        "variants": [
-            {
-                "id": 3550002,
-                "pet_id": 3550002,
-                "name": "豆丁鱼",
-                "model_id": 3550001,
-                "hatch_data": 43200,
-                "weight_low": 3745,
-                "weight_high": 5800,
-                "height_low": 15,
-                "height_high": 20,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            }
-        ]
-    },
+    "breeding": null,
     "breeding_profile": {
         "pet_base_id": 19000001,
         "egg_groups": [

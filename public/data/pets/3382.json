@@ -1,7 +1,7 @@
 {
     "id": 3382,
     "name": "shungdengyu",
-    "form": "双灯鱼",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -43,7 +43,7 @@
         "id": 320,
         "name": "shungdengyu",
         "localized": {
-            "zh": "圣剑-X"
+            "zh": "双灯鱼"
         }
     },
     "trait": {
@@ -449,13 +449,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7170160,
@@ -652,7 +652,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
-            "power": 110,
+            "power": 140,
             "description": "造成物伤，每次使用后，本技能能耗永久+1。"
         }
     ],
@@ -1153,7 +1153,7 @@
                         "id": 3382,
                         "species_id": 320,
                         "name": "shungdengyu",
-                        "form": "双灯鱼",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "双灯鱼"
@@ -1186,7 +1186,7 @@
                         "id": 3383,
                         "species_id": 321,
                         "name": "lidengyu",
-                        "form": "利灯鱼",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "利灯鱼"
@@ -1221,8 +1221,8 @@
         "current_monster_id": 3382
     },
     "world_profile": {
-        "type_desc": "石头精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "小鱼精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "头顶的光似乎并不是光系魔法，而是来自于某种寄生在其身上的会发光的细菌，目前不清楚发光细菌的其他特性，即使在水中也必须把头顶的灯伸到水面上。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1236,13 +1236,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 3000,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3382001,
         "pet_id": 3382001,
-        "name": "雪绒鸟",
+        "name": null,
         "model_id": 3382001,
         "hatch_data": 57600,
         "weight_low": 5215,
@@ -1250,21 +1250,15 @@
         "height_low": 21,
         "height_high": 30,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
-        "is_contact_add_shining_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
+        "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3382001,
                 "pet_id": 3382001,
-                "name": "雪绒鸟",
+                "name": null,
                 "model_id": 3382001,
                 "hatch_data": 57600,
                 "weight_low": 5215,
@@ -1272,21 +1266,15 @@
                 "height_low": 21,
                 "height_high": 30,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
             },
             {
                 "id": 3382002,
                 "pet_id": 3382002,
-                "name": "夏天的样子",
+                "name": null,
                 "model_id": 3382001,
                 "hatch_data": 57600,
                 "weight_low": 5215,
@@ -1302,7 +1290,7 @@
             {
                 "id": 3382003,
                 "pet_id": 3382003,
-                "name": "雪绒鸟（首领血脉）",
+                "name": null,
                 "model_id": 3382002,
                 "hatch_data": 57600,
                 "weight_low": 5215,
@@ -1310,21 +1298,15 @@
                 "height_low": 21,
                 "height_high": 30,
                 "precious_egg_type": 2,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3382004,
                 "pet_id": 3382004,
-                "name": "雪绒鸟",
+                "name": null,
                 "model_id": 3382001,
                 "hatch_data": 300,
                 "weight_low": 5215,
@@ -1338,53 +1320,41 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3545002,
-                "pet_id": 3545002,
-                "name": "双灯鱼",
-                "model_id": 3545001,
-                "hatch_data": 300,
-                "weight_low": 40495,
-                "weight_high": 69440,
-                "height_low": 40,
-                "height_high": 49,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
+                "id": 3382005,
+                "pet_id": 3382005,
+                "name": null,
+                "model_id": 3382002,
+                "hatch_data": 57600,
+                "weight_low": 5215,
+                "weight_high": 7120,
+                "height_low": 21,
+                "height_high": 30,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3545003,
-                "pet_id": 3545003,
-                "name": "双灯鱼",
-                "model_id": 3545001,
-                "hatch_data": 300,
-                "weight_low": 40495,
-                "weight_high": 69440,
-                "height_low": 40,
-                "height_high": 49,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
+                "id": 3382006,
+                "pet_id": 3382006,
+                "name": null,
+                "model_id": 3382002,
+                "hatch_data": 57600,
+                "weight_low": 5215,
+                "weight_high": 7120,
+                "height_low": 21,
+                "height_high": 30,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 33820001,
                 "pet_id": 33820001,
-                "name": "雪绒鸟",
+                "name": null,
                 "model_id": 3382001,
                 "hatch_data": 300,
                 "weight_low": 5215,
@@ -1400,7 +1370,7 @@
             {
                 "id": 99000128,
                 "pet_id": 99000128,
-                "name": "雪绒鸟",
+                "name": null,
                 "model_id": 3382001,
                 "hatch_data": 72000,
                 "weight_low": 5215,

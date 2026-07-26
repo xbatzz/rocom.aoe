@@ -1,7 +1,7 @@
 {
     "id": 19000006,
     "name": "guodong",
-    "form": "果冻",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -37,7 +37,7 @@
         "id": 313,
         "name": "guodong",
         "localized": {
-            "zh": "墨鱿士"
+            "zh": "果冻"
         }
     },
     "trait": {
@@ -1015,7 +1015,7 @@
                         "id": 3118,
                         "species_id": 313,
                         "name": "guodong",
-                        "form": "果冻",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "果冻"
@@ -1036,7 +1036,7 @@
                         "id": 19000003,
                         "species_id": 313,
                         "name": "guodong",
-                        "form": "果冻-变形测试用",
+                        "form": "-变形测试用",
                         "localized": {
                             "zh": {
                                 "name": "果冻-变形测试用"
@@ -1057,7 +1057,7 @@
                         "id": 19000006,
                         "species_id": 313,
                         "name": "guodong",
-                        "form": "果冻",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "果冻"
@@ -1084,7 +1084,7 @@
                         "id": 3526,
                         "species_id": 314,
                         "name": "mochabuding",
-                        "form": "抹茶布丁",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "抹茶布丁"
@@ -1114,7 +1114,7 @@
                         "id": 3527,
                         "species_id": 315,
                         "name": "yejiangbuding",
-                        "form": "椰浆布丁",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "椰浆布丁"
@@ -1144,7 +1144,7 @@
                         "id": 3528,
                         "species_id": 316,
                         "name": "rongyanbuding",
-                        "form": "熔岩布丁",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "熔岩布丁"
@@ -1180,8 +1180,8 @@
         "current_monster_id": 19000006
     },
     "world_profile": {
-        "type_desc": "阿米亚特",
-        "description_habitat": "喵喵",
+        "type_desc": "凝胶精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "透明而不起眼的精灵，经常在干净的水源被发现。研究发现，果冻精灵可以维护森林、湖泊和山脉的生态平衡，似乎是因为它们能让水变得清澈。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1195,84 +1195,7 @@
         ]
     },
     "catch_info": null,
-    "breeding": {
-        "id": 3121001,
-        "pet_id": 3121001,
-        "name": "果冻",
-        "model_id": 3121001,
-        "hatch_data": 28800,
-        "weight_low": 2937,
-        "weight_high": 4280,
-        "height_low": 17,
-        "height_high": 20,
-        "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
-        "is_contact_add_shining_prob": true,
-        "variants": [
-            {
-                "id": 3121001,
-                "pet_id": 3121001,
-                "name": "果冻",
-                "model_id": 3121001,
-                "hatch_data": 28800,
-                "weight_low": 2937,
-                "weight_high": 4280,
-                "height_low": 17,
-                "height_high": 20,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
-            },
-            {
-                "id": 31210001,
-                "pet_id": 31210001,
-                "name": "果冻",
-                "model_id": 3121001,
-                "hatch_data": 300,
-                "weight_low": 2937,
-                "weight_high": 4280,
-                "height_low": 17,
-                "height_high": 20,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000056,
-                "pet_id": 99000056,
-                "name": "果冻",
-                "model_id": 3121001,
-                "hatch_data": 72000,
-                "weight_low": 2937,
-                "weight_high": 4280,
-                "height_low": 17,
-                "height_high": 20,
-                "precious_egg_type": 4,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            }
-        ]
-    },
+    "breeding": null,
     "breeding_profile": {
         "pet_base_id": 19000006,
         "egg_groups": [

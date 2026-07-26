@@ -1,7 +1,7 @@
 {
     "id": 3457,
     "name": "yueyaxuexiong",
-    "form": "月牙雪熊",
+    "form": "default",
     "main_type": {
         "id": 7,
         "name": "Ice",
@@ -43,18 +43,18 @@
         "id": 322,
         "name": "yueyaxuexiong",
         "localized": {
-            "zh": "常见于河岸"
+            "zh": "月牙雪熊"
         }
     },
     "trait": {
         "id": 200205,
         "name": "月牙雪糕",
-        "description": "使用攻击技能时，敌方每层冻结视为1层额外星陨印记。",
+        "description": "使用攻击技能时，敌方每有1层冻结，在攻击前使其获得1层星陨印记。",
         "icon_id": "200205",
         "localized": {
             "zh": {
                 "name": "月牙雪糕",
-                "description": "使用攻击技能时，敌方每层冻结视为1层额外星陨印记。"
+                "description": "使用攻击技能时，敌方每有1层冻结，在攻击前使其获得1层星陨印记。"
             }
         }
     },
@@ -1153,7 +1153,7 @@
                         "id": 3457,
                         "species_id": 322,
                         "name": "yueyaxuexiong",
-                        "form": "月牙雪熊",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "月牙雪熊"
@@ -1186,8 +1186,8 @@
         "current_monster_id": 3457
     },
     "world_profile": {
-        "type_desc": "风铃鲨",
-        "description_habitat": "喵喵",
+        "type_desc": "圆滚滚精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "额前的星星质地不明，触感温热，能够从其中检测到异常的魔力波动。如果星星离开身体太远的话，身体会进入沉睡状态。“虽然它从不去看，但是魔法丢得很准。”",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1201,13 +1201,13 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3457001,
         "pet_id": 3457001,
-        "name": "粉星仔",
+        "name": null,
         "model_id": 3457001,
         "hatch_data": 72000,
         "weight_low": 26775,
@@ -1215,21 +1215,15 @@
         "height_low": 53,
         "height_high": 60,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            400,
-            3125
-        ],
-        "egg_add_glass_prob_array": [
-            2,
-            113
-        ],
-        "is_contact_add_glass_prob": true,
-        "is_contact_add_shining_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
+        "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3457001,
                 "pet_id": 3457001,
-                "name": "粉星仔",
+                "name": null,
                 "model_id": 3457001,
                 "hatch_data": 72000,
                 "weight_low": 26775,
@@ -1237,21 +1231,15 @@
                 "height_low": 53,
                 "height_high": 60,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
             },
             {
                 "id": 3457002,
                 "pet_id": 3457002,
-                "name": "异色粉星仔的蛋",
+                "name": null,
                 "model_id": 3457002,
                 "hatch_data": 72000,
                 "weight_low": 26775,
@@ -1259,21 +1247,15 @@
                 "height_low": 53,
                 "height_high": 60,
                 "precious_egg_type": 2,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3457003,
                 "pet_id": 3457003,
-                "name": "粉星仔",
+                "name": null,
                 "model_id": 3457001,
                 "hatch_data": 300,
                 "weight_low": 26775,
@@ -1287,9 +1269,25 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3457004,
+                "pet_id": 3457004,
+                "name": null,
+                "model_id": 3457002,
+                "hatch_data": 72000,
+                "weight_low": 26775,
+                "weight_high": 37000,
+                "height_low": 53,
+                "height_high": 60,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 34570001,
                 "pet_id": 34570001,
-                "name": "粉星仔",
+                "name": null,
                 "model_id": 3457001,
                 "hatch_data": 300,
                 "weight_low": 26775,
@@ -1305,7 +1303,7 @@
             {
                 "id": 99000055,
                 "pet_id": 99000055,
-                "name": "粉星仔",
+                "name": null,
                 "model_id": 3457001,
                 "hatch_data": 72000,
                 "weight_low": 26775,

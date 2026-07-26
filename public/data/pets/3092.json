@@ -1,7 +1,7 @@
 {
     "id": 3092,
     "name": "liehuoshouhu",
-    "form": "烈火守护",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -37,7 +37,7 @@
         "id": 218,
         "name": "liehuoshouhu",
         "localized": {
-            "zh": "常见于山地"
+            "zh": "烈火守护"
         }
     },
     "trait": {
@@ -487,13 +487,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7080290,
@@ -1169,7 +1169,7 @@
                         "id": 3090,
                         "species_id": 216,
                         "name": "huoweiwate",
-                        "form": "火尾瓦特",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "火尾瓦特"
@@ -1196,7 +1196,7 @@
                         "id": 3091,
                         "species_id": 217,
                         "name": "huoweizhanshi",
-                        "form": "火尾战士",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "火尾战士"
@@ -1225,7 +1225,7 @@
                         "id": 3092,
                         "species_id": 218,
                         "name": "liehuoshouhu",
-                        "form": "烈火守护",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "烈火守护"
@@ -1254,8 +1254,8 @@
         "current_monster_id": 3092
     },
     "world_profile": {
-        "type_desc": "睡不醒精灵",
-        "description_habitat": "常见于海洋",
+        "type_desc": "守护精灵",
+        "description_habitat": "常见于山林",
         "introduction": "在草原上全速奔跑的时候时常引发火灾。毛发蓬松且疏水，毛发内部均能发现未燃尽的火星。被驯服后性情极其温顺。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1270,7 +1270,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

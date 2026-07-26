@@ -1,7 +1,7 @@
 {
     "id": 3109,
     "name": "maya",
-    "form": "仪使者",
+    "form": "default",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -43,7 +43,7 @@
         "id": 113,
         "name": "maya",
         "localized": {
-            "zh": "阿米樱"
+            "zh": "仪使者"
         }
     },
     "trait": {
@@ -359,13 +359,13 @@
             "localized": {
                 "zh": {
                     "name": "流沙",
-                    "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
+                    "description": "敌方获得3回合禁足，应对防御：敌方获得双防-60%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
+            "description": "敌方获得3回合禁足，应对防御：敌方获得双防-60%。"
         },
         {
             "id": 7080170,
@@ -786,6 +786,28 @@
             "energy_cost": 4,
             "power": 20,
             "description": "造成物伤，敌方​每​有​1层​印记，​本次攻击威力​+20。"
+        },
+        {
+            "id": 7190420,
+            "name": "星痕",
+            "icon_id": "118025",
+            "move_type": {
+                "id": 18,
+                "name": "Illusion",
+                "localized": {
+                    "zh": "幻"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "星痕",
+                    "description": "造成​魔伤，​若​对​手​有​印记，​本次技​能​威力​+40。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 90,
+            "description": "造成​魔伤，​若​对​手​有​印记，​本次技​能​威力​+40。"
         }
     ],
     "legacy_moves": [
@@ -1285,7 +1307,7 @@
                         "id": 3109,
                         "species_id": 113,
                         "name": "maya",
-                        "form": "仪使者",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "仪使者"
@@ -1318,7 +1340,7 @@
                         "id": 3110,
                         "species_id": 114,
                         "name": "mayazhixing",
-                        "form": "仪式之星",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "仪式之星"
@@ -1353,7 +1375,7 @@
                         "id": 3111,
                         "species_id": 115,
                         "name": "mayashixianggui",
-                        "form": "仪式巨像",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "仪式巨像"
@@ -1388,8 +1410,8 @@
         "current_monster_id": 3109
     },
     "world_profile": {
-        "type_desc": "优雅精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "遗迹精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "在很久很久前被洛克族在遗迹的深处发现，可能已经有上千年的历史了。它的身体由宝石和贵重的金属组成，是被追求财富的人争抢的对象。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1404,13 +1426,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3109001,
         "pet_id": 3109001,
-        "name": "呆小路",
+        "name": null,
         "model_id": 3109001,
         "hatch_data": 72000,
         "weight_low": 6668,
@@ -1418,21 +1440,15 @@
         "height_low": 19,
         "height_high": 24,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            400,
-            3125
-        ],
-        "egg_add_glass_prob_array": [
-            2,
-            113
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3109001,
                 "pet_id": 3109001,
-                "name": "呆小路",
+                "name": null,
                 "model_id": 3109001,
                 "hatch_data": 72000,
                 "weight_low": 6668,
@@ -1440,21 +1456,15 @@
                 "height_low": 19,
                 "height_high": 24,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3109002,
                 "pet_id": 3109002,
-                "name": "炫彩呆小路",
+                "name": null,
                 "model_id": 3109001,
                 "hatch_data": 300,
                 "weight_low": 6668,
@@ -1462,49 +1472,21 @@
                 "height_low": 19,
                 "height_high": 24,
                 "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3109003,
                 "pet_id": 3109003,
-                "name": "炫彩呆小路",
+                "name": null,
                 "model_id": 3109001,
                 "hatch_data": 300,
                 "weight_low": 6668,
                 "weight_high": 14020,
                 "height_low": 19,
                 "height_high": 24,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3118005,
-                "pet_id": 3118005,
-                "name": "仪使者",
-                "model_id": 3118001,
-                "hatch_data": 300,
-                "weight_low": 1523,
-                "weight_high": 2240,
-                "height_low": 13,
-                "height_high": 15,
                 "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
@@ -1514,7 +1496,7 @@
             {
                 "id": 31090001,
                 "pet_id": 31090001,
-                "name": "呆小路",
+                "name": null,
                 "model_id": 3109001,
                 "hatch_data": 300,
                 "weight_low": 6668,
@@ -1530,7 +1512,7 @@
             {
                 "id": 99000121,
                 "pet_id": 99000121,
-                "name": "呆小路",
+                "name": null,
                 "model_id": 3109001,
                 "hatch_data": 72000,
                 "weight_low": 6668,

@@ -37,7 +37,7 @@
         "id": 200,
         "name": "qimengmi",
         "localized": {
-            "zh": "常见于海面、河面"
+            "zh": "梦想三三"
         }
     },
     "trait": {
@@ -736,6 +736,50 @@
             "energy_cost": 3,
             "power": null,
             "description": "减伤70%，应对攻击：下回合所选技能使用次数+1。"
+        },
+        {
+            "id": 7160330,
+            "name": "拆礼物",
+            "icon_id": "315024",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "拆礼物",
+                    "description": "造​成​物伤，​若​​敌方有​萌化，​本次技能威力+100。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 50,
+            "description": "造​成​物伤，​若​​敌方有​萌化，​本次技能威力+100。"
+        },
+        {
+            "id": 7110450,
+            "name": "通电",
+            "icon_id": "110032",
+            "move_type": {
+                "id": 9,
+                "name": "Electric",
+                "localized": {
+                    "zh": "电"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "通电",
+                    "description": "造​成​物伤，​敌方获得​1​层引电。​"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 75,
+            "description": "造​成​物伤，​敌方获得​1​层引电。​"
         }
     ],
     "legacy_moves": [
@@ -1235,7 +1279,7 @@
                         "id": 3373,
                         "species_id": 198,
                         "name": "doudou",
-                        "form": "逗逗",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "逗逗"
@@ -1262,7 +1306,7 @@
                         "id": 3374,
                         "species_id": 199,
                         "name": "qiqiumao",
-                        "form": "气球猫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "气球猫"
@@ -1291,7 +1335,7 @@
                         "id": 3375,
                         "species_id": 200,
                         "name": "qimengmi",
-                        "form": "梦想三三",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "梦想三三"
@@ -1400,18 +1444,39 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": []
+                    },
+                    {
+                        "id": 8118,
+                        "species_id": 200,
+                        "name": "qimengmi_shouling",
+                        "form": "奇梦咪",
+                        "localized": {
+                            "zh": {
+                                "name": "奇梦咪"
+                            }
+                        },
+                        "is_leader_form": true,
+                        "main_type": {
+                            "id": 14,
+                            "name": "Cute",
+                            "localized": {
+                                "zh": "萌"
+                            }
+                        },
+                        "sub_type": null,
+                        "evolution_conditions": []
                     }
                 ]
             }
         ],
         "max_depth": 3,
-        "total_unique_monsters": 7,
+        "total_unique_monsters": 8,
         "species_id": 200,
         "current_monster_id": 5024
     },
     "world_profile": {
-        "type_desc": "羊精灵",
-        "description_habitat": "常见于山林",
+        "type_desc": "猫老师精灵",
+        "description_habitat": "常见于山地",
         "introduction": "负责的喵老师为了让学生好好学习，想到了一种更直接的教学管理方式：只要有学生想溜出教室探头逃课，下一秒就会被它软乎乎却弹性十足的肚皮弹回座位。",
         "refresh_locations": [
             "暂时找不到这只精灵的踪迹噢！"

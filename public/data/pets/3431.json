@@ -1,7 +1,7 @@
 {
     "id": 3431,
     "name": "haizhizhi_xinghuangbaihe",
-    "form": "海枝枝",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -43,7 +43,7 @@
         "id": 220,
         "name": "haizhizhi_bilanshanhu",
         "localized": {
-            "zh": "花怨鳗"
+            "zh": "海枝枝"
         }
     },
     "trait": {
@@ -1219,7 +1219,7 @@
                         "id": 3430,
                         "species_id": 220,
                         "name": "haizhizhi_bilanshanhu",
-                        "form": "海枝枝",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "海枝枝"
@@ -1246,7 +1246,7 @@
                         "id": 3431,
                         "species_id": 220,
                         "name": "haizhizhi_xinghuangbaihe",
-                        "form": "海枝枝",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "海枝枝"
@@ -1273,7 +1273,7 @@
                         "id": 3432,
                         "species_id": 220,
                         "name": "haizhizhi_yanghongshading",
-                        "form": "海枝枝",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "海枝枝"
@@ -1300,7 +1300,7 @@
                         "id": 3433,
                         "species_id": 220,
                         "name": "haizhizhi_cuilvlunbu",
-                        "form": "海枝枝",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "海枝枝"
@@ -1333,8 +1333,8 @@
         "current_monster_id": 3431
     },
     "world_profile": {
-        "type_desc": "动力猿",
-        "description_habitat": "猫老师精灵",
+        "type_desc": "珊瑚精灵",
+        "description_habitat": "常见于海面",
         "introduction": "喜欢用金黄褐色的共生藻打扮自己，是海枝枝界的珠宝设计师，尖端的胶质花朵被称为百合玉，脱落时会被洛克捡走做成耳坠，据说戴着能听见水流的回声，会用闪亮的花朵吸引豆丁鱼当保镖。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1349,13 +1349,13 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 1200,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3431001,
         "pet_id": 3431001,
-        "name": "蹦蹦种子",
+        "name": null,
         "model_id": 3431001,
         "hatch_data": 43200,
         "weight_low": 1229,
@@ -1363,21 +1363,15 @@
         "height_low": 32,
         "height_high": 35,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3431001,
                 "pet_id": 3431001,
-                "name": "蹦蹦种子",
+                "name": null,
                 "model_id": 3431001,
                 "hatch_data": 43200,
                 "weight_low": 1229,
@@ -1385,21 +1379,15 @@
                 "height_low": 32,
                 "height_high": 35,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3431002,
                 "pet_id": 3431002,
-                "name": "蹦蹦种子（首领血脉）",
+                "name": null,
                 "model_id": 3431001,
                 "hatch_data": 300,
                 "weight_low": 1229,
@@ -1410,72 +1398,12 @@
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3614002,
-                "pet_id": 3614002,
-                "name": "海枝枝",
-                "model_id": 3614001,
-                "hatch_data": 28800,
-                "weight_low": 511,
-                "weight_high": 1220,
-                "height_low": 10,
-                "height_high": 13,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3618001,
-                "pet_id": 3618001,
-                "name": "海枝枝",
-                "model_id": 3618001,
-                "hatch_data": 43200,
-                "weight_low": 1558,
-                "weight_high": 2724,
-                "height_low": 14,
-                "height_high": 19,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3704001,
-                "pet_id": 3704001,
-                "name": "海枝枝",
-                "model_id": 3704001,
-                "hatch_data": 28800,
-                "weight_low": 1061,
-                "weight_high": 1640,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 34310001,
                 "pet_id": 34310001,
-                "name": "蹦蹦种子",
+                "name": null,
                 "model_id": 3431001,
                 "hatch_data": 300,
                 "weight_low": 1229,
@@ -1483,392 +1411,6 @@
                 "height_low": 32,
                 "height_high": 35,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 36180001,
-                "pet_id": 36180001,
-                "name": "海枝枝",
-                "model_id": 3618001,
-                "hatch_data": 300,
-                "weight_low": 1558,
-                "weight_high": 2724,
-                "height_low": 14,
-                "height_high": 19,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000011,
-                "pet_id": 91000011,
-                "name": "海枝枝",
-                "model_id": 3618001,
-                "hatch_data": 43200,
-                "weight_low": 1558,
-                "weight_high": 2724,
-                "height_low": 14,
-                "height_high": 19,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000024,
-                "pet_id": 91000024,
-                "name": "海枝枝",
-                "model_id": 3704001,
-                "hatch_data": 28800,
-                "weight_low": 1061,
-                "weight_high": 1640,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000087,
-                "pet_id": 91000087,
-                "name": "蹦蹦种子",
-                "model_id": 3431001,
-                "hatch_data": 43200,
-                "weight_low": 1229,
-                "weight_high": 2728,
-                "height_low": 32,
-                "height_high": 35,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000011,
-                "pet_id": 92000011,
-                "name": "海枝枝",
-                "model_id": 3618001,
-                "hatch_data": 43200,
-                "weight_low": 1558,
-                "weight_high": 2724,
-                "height_low": 14,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000024,
-                "pet_id": 92000024,
-                "name": "海枝枝",
-                "model_id": 3704001,
-                "hatch_data": 28800,
-                "weight_low": 1061,
-                "weight_high": 1640,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000087,
-                "pet_id": 92000087,
-                "name": "蹦蹦种子",
-                "model_id": 3431001,
-                "hatch_data": 43200,
-                "weight_low": 1229,
-                "weight_high": 2728,
-                "height_low": 32,
-                "height_high": 35,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000011,
-                "pet_id": 93000011,
-                "name": "海枝枝",
-                "model_id": 3618001,
-                "hatch_data": 43200,
-                "weight_low": 1558,
-                "weight_high": 2724,
-                "height_low": 14,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000024,
-                "pet_id": 93000024,
-                "name": "海枝枝",
-                "model_id": 3704001,
-                "hatch_data": 28800,
-                "weight_low": 1061,
-                "weight_high": 1640,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000087,
-                "pet_id": 93000087,
-                "name": "蹦蹦种子",
-                "model_id": 3431001,
-                "hatch_data": 43200,
-                "weight_low": 1229,
-                "weight_high": 2728,
-                "height_low": 32,
-                "height_high": 35,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000011,
-                "pet_id": 94000011,
-                "name": "海枝枝",
-                "model_id": 3618001,
-                "hatch_data": 43200,
-                "weight_low": 1558,
-                "weight_high": 2724,
-                "height_low": 14,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000024,
-                "pet_id": 94000024,
-                "name": "海枝枝",
-                "model_id": 3704001,
-                "hatch_data": 28800,
-                "weight_low": 1061,
-                "weight_high": 1640,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000087,
-                "pet_id": 94000087,
-                "name": "蹦蹦种子",
-                "model_id": 3431001,
-                "hatch_data": 43200,
-                "weight_low": 1229,
-                "weight_high": 2728,
-                "height_low": 32,
-                "height_high": 35,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000011,
-                "pet_id": 96000011,
-                "name": "海枝枝",
-                "model_id": 3618001,
-                "hatch_data": 43200,
-                "weight_low": 1558,
-                "weight_high": 2724,
-                "height_low": 14,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000024,
-                "pet_id": 96000024,
-                "name": "海枝枝",
-                "model_id": 3704001,
-                "hatch_data": 28800,
-                "weight_low": 1061,
-                "weight_high": 1640,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000087,
-                "pet_id": 96000087,
-                "name": "蹦蹦种子",
-                "model_id": 3431001,
-                "hatch_data": 43200,
-                "weight_low": 1229,
-                "weight_high": 2728,
-                "height_low": 32,
-                "height_high": 35,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000011,
-                "pet_id": 97000011,
-                "name": "海枝枝",
-                "model_id": 3618001,
-                "hatch_data": 43200,
-                "weight_low": 1558,
-                "weight_high": 2724,
-                "height_low": 14,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000024,
-                "pet_id": 97000024,
-                "name": "海枝枝",
-                "model_id": 3704001,
-                "hatch_data": 28800,
-                "weight_low": 1061,
-                "weight_high": 1640,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000087,
-                "pet_id": 97000087,
-                "name": "蹦蹦种子",
-                "model_id": 3431001,
-                "hatch_data": 43200,
-                "weight_low": 1229,
-                "weight_high": 2728,
-                "height_low": 32,
-                "height_high": 35,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000011,
-                "pet_id": 98000011,
-                "name": "海枝枝",
-                "model_id": 3618001,
-                "hatch_data": 43200,
-                "weight_low": 1558,
-                "weight_high": 2724,
-                "height_low": 14,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000024,
-                "pet_id": 98000024,
-                "name": "海枝枝",
-                "model_id": 3704001,
-                "hatch_data": 28800,
-                "weight_low": 1061,
-                "weight_high": 1640,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000087,
-                "pet_id": 98000087,
-                "name": "蹦蹦种子",
-                "model_id": 3431001,
-                "hatch_data": 43200,
-                "weight_low": 1229,
-                "weight_high": 2728,
-                "height_low": 32,
-                "height_high": 35,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000088,
-                "pet_id": 99000088,
-                "name": "海枝枝",
-                "model_id": 3618001,
-                "hatch_data": 72000,
-                "weight_low": 1558,
-                "weight_high": 2724,
-                "height_low": 14,
-                "height_high": 19,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,

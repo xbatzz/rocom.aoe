@@ -1,7 +1,7 @@
 {
     "id": 3144,
     "name": "ziyemeiying",
-    "form": "朔夜伊芙",
+    "form": "default",
     "main_type": {
         "id": 16,
         "name": "Dark",
@@ -37,7 +37,7 @@
         "id": 87,
         "name": "ziyemeiying",
         "localized": {
-            "zh": "蜂精灵"
+            "zh": "朔夜伊芙"
         }
     },
     "trait": {
@@ -265,13 +265,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7180260,
@@ -736,6 +736,50 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7180420,
+            "name": "下注",
+            "icon_id": "117043",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "下注",
+                    "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 85,
+            "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+        },
+        {
+            "id": 7160390,
+            "name": "耍赖",
+            "icon_id": "101106",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "耍赖",
+                    "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
         }
     ],
     "legacy_moves": [
@@ -1235,7 +1279,7 @@
                         "id": 3142,
                         "species_id": 85,
                         "name": "xiaoye",
-                        "form": "小夜",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小夜"
@@ -1262,7 +1306,7 @@
                         "id": 3143,
                         "species_id": 86,
                         "name": "ziye",
-                        "form": "紫夜",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "紫夜"
@@ -1292,7 +1336,7 @@
                         "id": 3144,
                         "species_id": 87,
                         "name": "ziyemeiying",
-                        "form": "朔夜伊芙",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "朔夜伊芙"
@@ -1322,8 +1366,8 @@
         "current_monster_id": 3144
     },
     "world_profile": {
-        "type_desc": "常见于洞穴、山地",
-        "description_habitat": "喵喵",
+        "type_desc": "猫精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "喜欢在远处观察其他精灵的活动，有时会故意制造幻象来测试目标的反应。几乎不与同类接触，有些排斥社交，意外的是，被亲近的洛克抚摸的话耳朵尖会发光。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1339,7 +1383,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 180,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

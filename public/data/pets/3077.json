@@ -1,7 +1,7 @@
 {
     "id": 3077,
     "name": "jianzuihuxian",
-    "form": "尖嘴狐仙",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -43,7 +43,7 @@
         "id": 149,
         "name": "jianzuihuxian",
         "localized": {
-            "zh": "呼呼猪"
+            "zh": "尖嘴狐仙"
         }
     },
     "trait": {
@@ -1263,7 +1263,7 @@
                         "id": 3075,
                         "species_id": 147,
                         "name": "linghu",
-                        "form": "灵狐",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "灵狐"
@@ -1296,7 +1296,7 @@
                         "id": 3076,
                         "species_id": 148,
                         "name": "jiuweihu",
-                        "form": "九尾狐",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "九尾狐"
@@ -1331,7 +1331,7 @@
                         "id": 3077,
                         "species_id": 149,
                         "name": "jianzuihuxian",
-                        "form": "尖嘴狐仙",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "尖嘴狐仙"
@@ -1366,8 +1366,8 @@
         "current_monster_id": 3077
     },
     "world_profile": {
-        "type_desc": "圆滚滚精灵",
-        "description_habitat": "雪巨人",
+        "type_desc": "狐仙精灵",
+        "description_habitat": "偶见于雪山",
         "introduction": "尖嘴狐仙能通过感知大地的温度变化来预测农时。当它摇着尾巴经过农田时，尾巴扇动的气流会形成特殊的暖湿环流，让田地在寒冷的初春也能保持适宜作物生长的温度。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1382,43 +1382,10 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 180,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
-    "breeding": {
-        "id": 3333002,
-        "pet_id": 3333002,
-        "name": "呼呼猪",
-        "model_id": 3333001,
-        "hatch_data": 300,
-        "weight_low": 2380,
-        "weight_high": 3264,
-        "height_low": 12,
-        "height_high": 17,
-        "precious_egg_type": 1,
-        "egg_base_glass_prob_array": null,
-        "egg_add_glass_prob_array": null,
-        "is_contact_add_glass_prob": null,
-        "is_contact_add_shining_prob": null,
-        "variants": [
-            {
-                "id": 3333002,
-                "pet_id": 3333002,
-                "name": "呼呼猪",
-                "model_id": 3333001,
-                "hatch_data": 300,
-                "weight_low": 2380,
-                "weight_high": 3264,
-                "height_low": 12,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            }
-        ]
-    },
+    "breeding": null,
     "breeding_profile": {
         "pet_base_id": 3077,
         "egg_groups": [

@@ -626,6 +626,28 @@
             "energy_cost": 0,
             "power": null,
             "description": "敌方获得全技能能耗+1，应对防御：改为能耗+3。"
+        },
+        {
+            "id": 7130340,
+            "name": "拟寄生",
+            "icon_id": "212035",
+            "move_type": {
+                "id": 11,
+                "name": "Bug",
+                "localized": {
+                    "zh": "虫"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "拟寄生",
+                    "description": "造成​魔伤，​偷取​敌​方​1​层​印记。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 80,
+            "description": "造成​魔伤，​偷取​敌​方​1​层​印记。"
         }
     ],
     "legacy_moves": [

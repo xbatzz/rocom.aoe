@@ -1,7 +1,7 @@
 {
     "id": 3084,
     "name": "zhireyuan",
-    "form": "炽热猿",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -37,7 +37,7 @@
         "id": 250,
         "name": "zhireyuan",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "炽热猿"
         }
     },
     "trait": {
@@ -1213,7 +1213,7 @@
                         "id": 3083,
                         "species_id": 249,
                         "name": "keaiyuan",
-                        "form": "可爱猿",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "可爱猿"
@@ -1240,7 +1240,7 @@
                         "id": 3084,
                         "species_id": 250,
                         "name": "zhireyuan",
-                        "form": "炽热猿",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "炽热猿"
@@ -1269,7 +1269,7 @@
                         "id": 3085,
                         "species_id": 251,
                         "name": "huoyanyuan",
-                        "form": "火焰猿",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "火焰猿"
@@ -1298,8 +1298,8 @@
         "current_monster_id": 3084
     },
     "world_profile": {
-        "type_desc": "花魁蜂后",
-        "description_habitat": "喵喵",
+        "type_desc": "猿精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "会从头上喷出烟来彰显气势，普遍好斗。打喷嚏的时候，背上也会跟着喷出巨大的浓烟，还会洒出一些岩浆。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1314,7 +1314,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 310,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

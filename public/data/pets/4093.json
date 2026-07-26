@@ -399,13 +399,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7020690,
@@ -736,6 +736,28 @@
             "energy_cost": 2,
             "power": null,
             "description": "自己回复20%生命，下次技能无需蓄力。"
+        },
+        {
+            "id": 7021190,
+            "name": "吹散",
+            "icon_id": "101111",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "吹散",
+                    "description": "造成魔伤，选择：驱散敌方所有增益或驱散双方1层印记。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 65,
+            "description": "造成魔伤，选择：驱散敌方所有增益或驱散双方1层印记。"
         }
     ],
     "legacy_moves": [

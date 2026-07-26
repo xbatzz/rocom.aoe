@@ -1,7 +1,7 @@
 {
     "id": 3121,
     "name": "daermaodou",
-    "form": "大耳帽兜",
+    "form": "default",
     "main_type": {
         "id": 7,
         "name": "Ice",
@@ -43,7 +43,7 @@
         "id": 142,
         "name": "daermaodou",
         "localized": {
-            "zh": "恶魔狼"
+            "zh": "大耳帽兜"
         }
     },
     "trait": {
@@ -1263,7 +1263,7 @@
                         "id": 3121,
                         "species_id": 142,
                         "name": "daermaodou",
-                        "form": "大耳帽兜",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "大耳帽兜"
@@ -1296,7 +1296,7 @@
                         "id": 3122,
                         "species_id": 143,
                         "name": "maodouwawa",
-                        "form": "帽兜娃娃",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "帽兜娃娃"
@@ -1331,7 +1331,7 @@
                         "id": 3123,
                         "species_id": 144,
                         "name": "xueyingwawa",
-                        "form": "雪影娃娃",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雪影娃娃"
@@ -1366,8 +1366,8 @@
         "current_monster_id": 3121
     },
     "world_profile": {
-        "type_desc": "音速犬",
-        "description_habitat": "喵喵",
+        "type_desc": "兔精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "全身覆满白色绒毛，能抵御寒冷，仔细观察它们的毛毛分为两种，一种是顺滑纤细的针毛，另一种是又软又密的绒毛。虽然体型小，但却不畏惧寒冷，小小的手爪柔软又温暖。似乎喜欢抱抱。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1382,19 +1382,19 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
-        "id": 3009001,
-        "pet_id": 3009001,
-        "name": "恶魔狼",
-        "model_id": 3009001,
-        "hatch_data": 1,
-        "weight_low": 1,
-        "weight_high": 10,
-        "height_low": 1,
-        "height_high": 10,
+        "id": 3121001,
+        "pet_id": 3121001,
+        "name": null,
+        "model_id": 3121001,
+        "hatch_data": 28800,
+        "weight_low": 2937,
+        "weight_high": 4280,
+        "height_low": 17,
+        "height_high": 20,
         "precious_egg_type": null,
         "egg_base_glass_prob_array": null,
         "egg_add_glass_prob_array": null,
@@ -1402,25 +1402,9 @@
         "is_contact_add_shining_prob": null,
         "variants": [
             {
-                "id": 3009001,
-                "pet_id": 3009001,
-                "name": "恶魔狼",
-                "model_id": 3009001,
-                "hatch_data": 1,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 3121001,
                 "pet_id": 3121001,
-                "name": "果冻",
+                "name": null,
                 "model_id": 3121001,
                 "hatch_data": 28800,
                 "weight_low": 2937,
@@ -1428,21 +1412,15 @@
                 "height_low": 17,
                 "height_high": 20,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
             },
             {
                 "id": 3121002,
                 "pet_id": 3121002,
-                "name": "果冻（火系血脉）",
+                "name": null,
                 "model_id": 3121002,
                 "hatch_data": 28800,
                 "weight_low": 2937,
@@ -1458,7 +1436,7 @@
             {
                 "id": 3121003,
                 "pet_id": 3121003,
-                "name": "果冻（草系血脉）",
+                "name": null,
                 "model_id": 3121001,
                 "hatch_data": 300,
                 "weight_low": 2937,
@@ -1466,21 +1444,15 @@
                 "height_low": 17,
                 "height_high": 20,
                 "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
             },
             {
                 "id": 3121004,
                 "pet_id": 3121004,
-                "name": "果冻（冰系血脉）",
+                "name": null,
                 "model_id": 3121002,
                 "hatch_data": 28800,
                 "weight_low": 2937,
@@ -1488,21 +1460,15 @@
                 "height_low": 17,
                 "height_high": 20,
                 "precious_egg_type": 2,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3121005,
                 "pet_id": 3121005,
-                "name": "果冻（草系血脉）",
+                "name": null,
                 "model_id": 3121001,
                 "hatch_data": 300,
                 "weight_low": 2937,
@@ -1510,60 +1476,38 @@
                 "height_low": 17,
                 "height_high": 20,
                 "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
-            },
-            {
-                "id": 3133001,
-                "pet_id": 3133001,
-                "name": "大耳帽兜",
-                "model_id": 3133001,
-                "hatch_data": 1,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
-                "precious_egg_type": null,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3142002,
-                "pet_id": 3142002,
-                "name": "大耳帽兜",
-                "model_id": 3142001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 3040,
-                "height_low": 22,
-                "height_high": 30,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 30090001,
-                "pet_id": 30090001,
-                "name": "恶魔狼",
-                "model_id": 3009001,
+                "id": 3121006,
+                "pet_id": 3121006,
+                "name": null,
+                "model_id": 3121001,
                 "hatch_data": 300,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
-                "precious_egg_type": 7,
+                "weight_low": 2937,
+                "weight_high": 4280,
+                "height_low": 17,
+                "height_high": 20,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3121007,
+                "pet_id": 3121007,
+                "name": null,
+                "model_id": 3121002,
+                "hatch_data": 28800,
+                "weight_low": 2937,
+                "weight_high": 4280,
+                "height_low": 17,
+                "height_high": 20,
+                "precious_egg_type": 2,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1572,29 +1516,13 @@
             {
                 "id": 31210001,
                 "pet_id": 31210001,
-                "name": "果冻",
+                "name": null,
                 "model_id": 3121001,
                 "hatch_data": 300,
                 "weight_low": 2937,
                 "weight_high": 4280,
                 "height_low": 17,
                 "height_high": 20,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31330001,
-                "pet_id": 31330001,
-                "name": "大耳帽兜",
-                "model_id": 3133001,
-                "hatch_data": 300,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
                 "precious_egg_type": 7,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
@@ -1604,7 +1532,7 @@
             {
                 "id": 99000056,
                 "pet_id": 99000056,
-                "name": "果冻",
+                "name": null,
                 "model_id": 3121001,
                 "hatch_data": 72000,
                 "weight_low": 2937,

@@ -1224,7 +1224,7 @@
                         "id": 3154,
                         "species_id": 246,
                         "name": "qiuluo",
-                        "form": "裘洛",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "裘洛"
@@ -1274,7 +1274,7 @@
                         "id": 3155,
                         "species_id": 247,
                         "name": "qiuli",
-                        "form": "裘力",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "裘力"
@@ -1303,7 +1303,7 @@
                         "id": 3156,
                         "species_id": 248,
                         "name": "qiuka",
-                        "form": "裘卡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "裘卡"

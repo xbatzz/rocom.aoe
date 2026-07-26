@@ -1,7 +1,7 @@
 {
     "id": 3745,
     "name": "yadanbin",
-    "form": "雅丹鬃",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -37,7 +37,7 @@
         "id": 341,
         "name": "yadanbin",
         "localized": {
-            "zh": "书卷精灵"
+            "zh": "雅丹鬃"
         }
     },
     "trait": {
@@ -1147,7 +1147,7 @@
                         "id": 3744,
                         "species_id": 340,
                         "name": "huohongwei",
-                        "form": "火红尾",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "火红尾"
@@ -1174,7 +1174,7 @@
                         "id": 3745,
                         "species_id": 341,
                         "name": "yadanbin",
-                        "form": "雅丹鬃",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雅丹鬃"
@@ -1203,8 +1203,8 @@
         "current_monster_id": 3745
     },
     "world_profile": {
-        "type_desc": "遗迹精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "烈马精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "岁首更替，丙午是天地通明的光明之年，传闻雅丹鬃是光明的使者，会在新年的子夜仰首长嘶，声如裂帛，鬃毛化作飞天的流火长带，照得千里沙海通明。此时，万盏红灯同时亮起，仿佛回应烈马奔腾——天地通明，光明永昼。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1218,7 +1218,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

@@ -1,7 +1,7 @@
 {
     "id": 3170,
     "name": "xiaoshitou",
-    "form": "石石",
+    "form": "default",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -37,7 +37,7 @@
         "id": 111,
         "name": "xiaoshitou",
         "localized": {
-            "zh": "魔眷鸟"
+            "zh": "石石"
         }
     },
     "trait": {
@@ -353,13 +353,13 @@
             "localized": {
                 "zh": {
                     "name": "流沙",
-                    "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
+                    "description": "敌方获得3回合禁足，应对防御：敌方获得双防-60%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
+            "description": "敌方获得3回合禁足，应对防御：敌方获得双防-60%。"
         },
         {
             "id": 7080140,
@@ -736,6 +736,50 @@
             "energy_cost": 3,
             "power": null,
             "description": "自己获得物防+160%和魔防-60%。"
+        },
+        {
+            "id": 7090200,
+            "name": "冰天雪地",
+            "icon_id": "108014",
+            "move_type": {
+                "id": 7,
+                "name": "Ice",
+                "localized": {
+                    "zh": "冰"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "冰天雪地",
+                    "description": "减伤80%，应对攻击：被应对技能能耗+3。"
+                }
+            },
+            "move_category": "Defense",
+            "energy_cost": 2,
+            "power": null,
+            "description": "减伤80%，应对攻击：被应对技能能耗+3。"
+        },
+        {
+            "id": 7021150,
+            "name": "逆袭",
+            "icon_id": "201100",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "逆袭",
+                    "description": "造成物伤，本技能能耗每+1，威力+50。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 1,
+            "power": 55,
+            "description": "造成物伤，本技能能耗每+1，威力+50。"
         }
     ],
     "legacy_moves": [
@@ -1235,7 +1279,7 @@
                         "id": 3170,
                         "species_id": 111,
                         "name": "xiaoshitou",
-                        "form": "石石",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "石石"
@@ -1262,7 +1306,7 @@
                         "id": 3171,
                         "species_id": 112,
                         "name": "julingshi",
-                        "form": "巨灵石",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "巨灵石"
@@ -1297,8 +1341,8 @@
         "current_monster_id": 3170
     },
     "world_profile": {
-        "type_desc": "常见于沙地",
-        "description_habitat": "常见于山林",
+        "type_desc": "计重精灵",
+        "description_habitat": "常见于山地",
         "introduction": "古老的种族，似乎和现在的精灵们很少交流，但对洛克族十分友好。地系部族掌握建造之术后的创造的第一个物种。在古代也被用作计量单位，一个石石约等于三十千克。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1314,13 +1358,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3170001,
         "pet_id": 3170001,
-        "name": "小夜",
+        "name": null,
         "model_id": 3170001,
         "hatch_data": 72000,
         "weight_low": 21350,
@@ -1328,21 +1372,15 @@
         "height_low": 15,
         "height_high": 21,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            400,
-            3125
-        ],
-        "egg_add_glass_prob_array": [
-            2,
-            113
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3170001,
                 "pet_id": 3170001,
-                "name": "小夜",
+                "name": null,
                 "model_id": 3170001,
                 "hatch_data": 72000,
                 "weight_low": 21350,
@@ -1350,65 +1388,21 @@
                 "height_low": 15,
                 "height_high": 21,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3170002,
-                "pet_id": 3170002,
-                "name": "小夜（幻系血脉）",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3203001,
-                "pet_id": 3203001,
-                "name": "石石",
-                "model_id": 3203001,
-                "hatch_data": 57600,
-                "weight_low": 8575,
-                "weight_high": 13840,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
-            },
-            {
-                "id": 3203003,
-                "pet_id": 3203003,
-                "name": "石石",
-                "model_id": 3203001,
-                "hatch_data": 300,
-                "weight_low": 8575,
-                "weight_high": 13840,
-                "height_low": 24,
-                "height_high": 34,
+                "id": 3170002,
+                "pet_id": 3170002,
+                "name": null,
+                "model_id": 3170001,
+                "hatch_data": 72000,
+                "weight_low": 21350,
+                "weight_high": 30000,
+                "height_low": 15,
+                "height_high": 21,
                 "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
@@ -1418,7 +1412,7 @@
             {
                 "id": 31700001,
                 "pet_id": 31700001,
-                "name": "小夜",
+                "name": null,
                 "model_id": 3170001,
                 "hatch_data": 300,
                 "weight_low": 21350,
@@ -1426,244 +1420,6 @@
                 "height_low": 15,
                 "height_high": 21,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 32030001,
-                "pet_id": 32030001,
-                "name": "石石",
-                "model_id": 3203001,
-                "hatch_data": 300,
-                "weight_low": 8575,
-                "weight_high": 13840,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000022,
-                "pet_id": 91000022,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000022,
-                "pet_id": 92000022,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000022,
-                "pet_id": 93000022,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000022,
-                "pet_id": 94000022,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000019,
-                "pet_id": 95000019,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000024,
-                "pet_id": 95000024,
-                "name": "石石",
-                "model_id": 3203001,
-                "hatch_data": 57600,
-                "weight_low": 8575,
-                "weight_high": 13840,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000022,
-                "pet_id": 96000022,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000022,
-                "pet_id": 97000022,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000022,
-                "pet_id": 98000022,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000019,
-                "pet_id": 99000019,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000024,
-                "pet_id": 99000024,
-                "name": "石石",
-                "model_id": 3203001,
-                "hatch_data": 57600,
-                "weight_low": 8575,
-                "weight_high": 13840,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000081,
-                "pet_id": 99000081,
-                "name": "石石",
-                "model_id": 3203001,
-                "hatch_data": 72000,
-                "weight_low": 8575,
-                "weight_high": 13840,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1672,7 +1428,7 @@
             {
                 "id": 99000137,
                 "pet_id": 99000137,
-                "name": "小夜",
+                "name": null,
                 "model_id": 3170001,
                 "hatch_data": 72000,
                 "weight_low": 21350,

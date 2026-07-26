@@ -37,7 +37,7 @@
         "id": 10,
         "name": "shuiling",
         "localized": {
-            "zh": "波波拉"
+            "zh": "水灵"
         }
     },
     "trait": {
@@ -597,13 +597,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7021130,
@@ -626,6 +626,28 @@
             "energy_cost": 2,
             "power": null,
             "description": "减伤60%，应对攻击：敌方脱离。"
+        },
+        {
+            "id": 7050220,
+            "name": "润泽",
+            "icon_id": "104001",
+            "move_type": {
+                "id": 4,
+                "name": "Water",
+                "localized": {
+                    "zh": "水"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "润泽",
+                    "description": "自己获得魔攻+190%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 7,
+            "power": null,
+            "description": "自己获得魔攻+190%。"
         }
     ],
     "legacy_moves": [
@@ -1125,7 +1147,7 @@
                         "id": 3002,
                         "species_id": 8,
                         "name": "shuilanlan",
-                        "form": "水蓝蓝",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "水蓝蓝"
@@ -1152,7 +1174,7 @@
                         "id": 3033,
                         "species_id": 9,
                         "name": "bobola",
-                        "form": "波波拉",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "波波拉"
@@ -1184,7 +1206,7 @@
                         "id": 3005,
                         "species_id": 10,
                         "name": "shuiling",
-                        "form": "水灵",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "水灵"
@@ -1254,18 +1276,39 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": []
+                    },
+                    {
+                        "id": 8101,
+                        "species_id": 10,
+                        "name": "shuiling_shouling",
+                        "form": "圣水守护",
+                        "localized": {
+                            "zh": {
+                                "name": "圣水守护"
+                            }
+                        },
+                        "is_leader_form": true,
+                        "main_type": {
+                            "id": 4,
+                            "name": "Water",
+                            "localized": {
+                                "zh": "水"
+                            }
+                        },
+                        "sub_type": null,
+                        "evolution_conditions": []
                     }
                 ]
             }
         ],
         "max_depth": 3,
-        "total_unique_monsters": 5,
+        "total_unique_monsters": 6,
         "species_id": 10,
         "current_monster_id": 5010
     },
     "world_profile": {
-        "type_desc": "魔力猫",
-        "description_habitat": "喵喵",
+        "type_desc": "水之灵",
+        "description_habitat": "行踪神秘",
         "introduction": "“无论是云中落下的一滴水，还是湖面中微风吹起的一道涟漪，都有她的身影。”",
         "refresh_locations": [],
         "movement_type": "浮游",

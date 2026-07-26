@@ -1,7 +1,7 @@
 {
     "id": 3101,
     "name": "dongliyuan",
-    "form": "动力猿",
+    "form": "default",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -32,18 +32,18 @@
         }
     },
     "implemented": true,
-    "base_hp": 115,
-    "base_phy_atk": 125,
-    "base_mag_atk": 51,
-    "base_phy_def": 108,
-    "base_mag_def": 88,
+    "base_hp": 125,
+    "base_phy_atk": 134,
+    "base_mag_atk": 56,
+    "base_phy_def": 114,
+    "base_mag_def": 94,
     "base_spd": 60,
     "evolves_from_id": 3049,
     "species": {
         "id": 74,
         "name": "dongliyuan",
         "localized": {
-            "zh": "伊贝儿"
+            "zh": "动力猿"
         }
     },
     "trait": {
@@ -698,6 +698,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7140330,
+            "name": "马步",
+            "icon_id": "313037",
+            "move_type": {
+                "id": 12,
+                "name": "Fighting",
+                "localized": {
+                    "zh": "武"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "马步",
+                    "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 3,
+            "power": null,
+            "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
         }
     ],
     "legacy_moves": [
@@ -1197,7 +1219,7 @@
                         "id": 3049,
                         "species_id": 73,
                         "name": "baifalanren",
-                        "form": "白发懒人",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "白发懒人"
@@ -1224,7 +1246,7 @@
                         "id": 3101,
                         "species_id": 74,
                         "name": "dongliyuan",
-                        "form": "动力猿",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "动力猿"
@@ -1259,7 +1281,7 @@
                         "id": 3102,
                         "species_id": 75,
                         "name": "keshuiwang",
-                        "form": "瞌睡王",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "瞌睡王"
@@ -1294,8 +1316,8 @@
         "current_monster_id": 3101
     },
     "world_profile": {
-        "type_desc": "蜥蜴精灵",
-        "description_habitat": "常见于草地",
+        "type_desc": "睡不醒精灵",
+        "description_habitat": "偶见于城镇周边、山地",
         "introduction": "有一半的时间在睡觉，极少保持清醒，清醒时精力极其旺盛。会使劲捶打胸口努力让自己变得清醒，但是卖力地运动过后睡得更沉了。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1310,7 +1332,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 310,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

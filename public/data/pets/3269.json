@@ -1,7 +1,7 @@
 {
     "id": 3269,
     "name": "jimiegulong",
-    "form": "寂灭骨龙",
+    "form": "default",
     "main_type": {
         "id": 8,
         "name": "Dragon",
@@ -43,7 +43,7 @@
         "id": 290,
         "name": "jimiegulong",
         "localized": {
-            "zh": "恶作剧精灵"
+            "zh": "寂灭骨龙"
         }
     },
     "trait": {
@@ -537,13 +537,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7021130,
@@ -1131,7 +1131,7 @@
                         "id": 3268,
                         "species_id": 289,
                         "name": "datougulong",
-                        "form": "大头骨龙",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "大头骨龙"
@@ -1164,7 +1164,7 @@
                         "id": 3269,
                         "species_id": 290,
                         "name": "jimiegulong",
-                        "form": "寂灭骨龙",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "寂灭骨龙"
@@ -1199,8 +1199,8 @@
         "current_monster_id": 3269
     },
     "world_profile": {
-        "type_desc": "鸟仔精灵",
-        "description_habitat": "乌拉塔",
+        "type_desc": "骨头精灵",
+        "description_habitat": "常见于污染区域",
         "introduction": "当被从土层里挖出来的时候，它们正在一无所知地睡觉。别看它们脆弱得好像一脚会散架，但埋了亿万年的矿物硬度堪比钻石。“它总是对着镜子思考，幻想自己当年活着时候的样子。”",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1215,7 +1215,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 180,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

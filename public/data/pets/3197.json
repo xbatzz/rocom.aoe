@@ -1,7 +1,7 @@
 {
     "id": 3197,
     "name": "tongkudianhuan",
-    "form": "荆棘电环",
+    "form": "default",
     "main_type": {
         "id": 9,
         "name": "Electric",
@@ -37,7 +37,7 @@
         "id": 209,
         "name": "tongkudianhuan",
         "localized": {
-            "zh": "棋子精灵"
+            "zh": "荆棘电环"
         }
     },
     "trait": {
@@ -199,13 +199,13 @@
             "localized": {
                 "zh": {
                     "name": "电离爆破",
-                    "description": "敌方获得速度-40，3连击。"
+                    "description": "敌方获得魔攻-20%，速度-20，2连击。"
                 }
             },
             "move_category": "Status",
-            "energy_cost": 3,
+            "energy_cost": 1,
             "power": null,
-            "description": "敌方获得速度-40，3连击。"
+            "description": "敌方获得魔攻-20%，速度-20，2连击。"
         },
         {
             "id": 7020970,
@@ -1279,7 +1279,7 @@
                         "id": 3195,
                         "species_id": 207,
                         "name": "shandianhuan",
-                        "form": "闪电环",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "闪电环"
@@ -1306,7 +1306,7 @@
                         "id": 3196,
                         "species_id": 208,
                         "name": "beishangdianhuan",
-                        "form": "刺电环",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "刺电环"
@@ -1335,7 +1335,7 @@
                         "id": 3197,
                         "species_id": 209,
                         "name": "tongkudianhuan",
-                        "form": "荆棘电环",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "荆棘电环"
@@ -1364,8 +1364,8 @@
         "current_monster_id": 3197
     },
     "world_profile": {
-        "type_desc": "圆滚滚精灵",
-        "description_habitat": "常见于海洋",
+        "type_desc": "负电精灵",
+        "description_habitat": "常见于山林",
         "introduction": "总是会发出意义不明的“哔哔”声，似乎使用这种声音诱敌。表情看起来更加痛苦了，仿佛电力在体内循环本身就是一种负担。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1380,7 +1380,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

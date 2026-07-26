@@ -1,7 +1,7 @@
 {
     "id": 3419,
     "name": "lihaixiaoluo",
-    "form": "厉毒小萝",
+    "form": "default",
     "main_type": {
         "id": 10,
         "name": "Poison",
@@ -43,7 +43,7 @@
         "id": 291,
         "name": "lihaixiaoluo",
         "localized": {
-            "zh": "维修精灵"
+            "zh": "厉毒小萝"
         }
     },
     "trait": {
@@ -654,6 +654,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "携带​的​攻击​技​能​获得​附加中毒3​，​应对防御：​改为​获得附加中毒6。"
+        },
+        {
+            "id": 7150370,
+            "name": "超声波",
+            "icon_id": "114031",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "超声波",
+                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
         }
     ],
     "legacy_moves": [
@@ -1153,7 +1175,7 @@
                         "id": 3419,
                         "species_id": 291,
                         "name": "lihaixiaoluo",
-                        "form": "厉毒小萝",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "厉毒小萝"
@@ -1186,7 +1208,7 @@
                         "id": 3420,
                         "species_id": 292,
                         "name": "lihaixiuluo",
-                        "form": "厉毒修萝",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "厉毒修萝"
@@ -1221,8 +1243,8 @@
         "current_monster_id": 3419
     },
     "world_profile": {
-        "type_desc": "行踪神秘",
-        "description_habitat": "喵喵",
+        "type_desc": "毛绒绒精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "体味清香，翼下藏有数个腺体，能够发射致洛克晕厥的毒雾。受惊时将双翼展为扇形，倾泻毒雾后迅速逃离。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1237,13 +1259,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3419001,
         "pet_id": 3419001,
-        "name": "雪山附近的样子",
+        "name": null,
         "model_id": 3419001,
         "hatch_data": 43200,
         "weight_low": 3056,
@@ -1251,21 +1273,15 @@
         "height_low": 23,
         "height_high": 27,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3419001,
                 "pet_id": 3419001,
-                "name": "雪山附近的样子",
+                "name": null,
                 "model_id": 3419001,
                 "hatch_data": 43200,
                 "weight_low": 3056,
@@ -1273,21 +1289,15 @@
                 "height_low": 23,
                 "height_high": 27,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3419002,
                 "pet_id": 3419002,
-                "name": "蹦蹦种子",
+                "name": null,
                 "model_id": 3419001,
                 "hatch_data": 43200,
                 "weight_low": 3056,
@@ -1301,31 +1311,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3594001,
-                "pet_id": 3594001,
-                "name": "厉毒小萝",
-                "model_id": 3594001,
-                "hatch_data": 43200,
-                "weight_low": 2188,
-                "weight_high": 3140,
-                "height_low": 22,
-                "height_high": 28,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 34190001,
                 "pet_id": 34190001,
-                "name": "雪山附近的样子",
+                "name": null,
                 "model_id": 3419001,
                 "hatch_data": 300,
                 "weight_low": 3056,
@@ -1339,25 +1327,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 35940001,
-                "pet_id": 35940001,
-                "name": "厉毒小萝",
-                "model_id": 3594001,
-                "hatch_data": 300,
-                "weight_low": 2188,
-                "weight_high": 3140,
-                "height_low": 22,
-                "height_high": 28,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000070,
                 "pet_id": 99000070,
-                "name": "雪山附近的样子",
+                "name": null,
                 "model_id": 3419001,
                 "hatch_data": 72000,
                 "weight_low": 3056,

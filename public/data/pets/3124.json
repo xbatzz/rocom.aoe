@@ -1,7 +1,7 @@
 {
     "id": 3124,
     "name": "dingding",
-    "form": "脆筒甜甜",
+    "form": "default",
     "main_type": {
         "id": 7,
         "name": "Ice",
@@ -37,7 +37,7 @@
         "id": 234,
         "name": "dingding",
         "localized": {
-            "zh": "拨浪鼓精灵"
+            "zh": "脆筒甜甜"
         }
     },
     "trait": {
@@ -780,6 +780,50 @@
             "energy_cost": 3,
             "power": 95,
             "description": "造成​魔伤，​敌方​获得​1层​冻结，应对状态：额​外​获得4层​冻结，​​巧变：​冻结相关技​能​。"
+        },
+        {
+            "id": 7090470,
+            "name": "打喷嚏",
+            "icon_id": "108042",
+            "move_type": {
+                "id": 7,
+                "name": "Ice",
+                "localized": {
+                    "zh": "冰"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "打喷嚏",
+                    "description": "3连击，​每​次​连击敌方获得1层冻结。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 1,
+            "power": null,
+            "description": "3连击，​每​次​连击敌方获得1层冻结。"
+        },
+        {
+            "id": 7021190,
+            "name": "吹散",
+            "icon_id": "101111",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "吹散",
+                    "description": "造成魔伤，选择：驱散敌方所有增益或驱散双方1层印记。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 65,
+            "description": "造成魔伤，选择：驱散敌方所有增益或驱散双方1层印记。"
         }
     ],
     "legacy_moves": [
@@ -1279,7 +1323,7 @@
                         "id": 3124,
                         "species_id": 234,
                         "name": "dingding",
-                        "form": "脆筒甜甜",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "脆筒甜甜"
@@ -1306,7 +1350,7 @@
                         "id": 3125,
                         "species_id": 235,
                         "name": "yingtaodingding",
-                        "form": "香草甜甜",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "香草甜甜"
@@ -1330,7 +1374,7 @@
                         "id": 3478,
                         "species_id": 235,
                         "name": "dingding_yangtao",
-                        "form": "香草甜甜",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "香草甜甜"
@@ -1354,7 +1398,7 @@
                         "id": 3479,
                         "species_id": 235,
                         "name": "dingding_lanmei",
-                        "form": "香草甜甜",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "香草甜甜"
@@ -1384,7 +1428,7 @@
                         "id": 3126,
                         "species_id": 236,
                         "name": "shuangqiudingding",
-                        "form": "圣代甜甜",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "圣代甜甜"
@@ -1408,7 +1452,7 @@
                         "id": 3458,
                         "species_id": 236,
                         "name": "shuangqiudingding_yingtaocaomei",
-                        "form": "圣代甜甜",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "圣代甜甜"
@@ -1432,7 +1476,7 @@
                         "id": 3459,
                         "species_id": 236,
                         "name": "shuangqiudingding_yingtaomocha",
-                        "form": "圣代甜甜",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "圣代甜甜"
@@ -1456,7 +1500,7 @@
                         "id": 3460,
                         "species_id": 236,
                         "name": "shuangqiudingding_lanmeiqiaokeli",
-                        "form": "圣代甜甜",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "圣代甜甜"
@@ -1480,7 +1524,7 @@
                         "id": 3461,
                         "species_id": 236,
                         "name": "shuangqiudingding_lanmeicaomei",
-                        "form": "圣代甜甜",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "圣代甜甜"
@@ -1504,7 +1548,7 @@
                         "id": 3462,
                         "species_id": 236,
                         "name": "shuangqiudingding_lanmeimocha",
-                        "form": "圣代甜甜",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "圣代甜甜"
@@ -1528,7 +1572,7 @@
                         "id": 3463,
                         "species_id": 236,
                         "name": "shuangqiudingding_yangtaoqiaokeli",
-                        "form": "圣代甜甜",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "圣代甜甜"
@@ -1552,7 +1596,7 @@
                         "id": 3464,
                         "species_id": 236,
                         "name": "shuangqiudingding_yangtaocaomei",
-                        "form": "圣代甜甜",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "圣代甜甜"
@@ -1576,7 +1620,7 @@
                         "id": 3465,
                         "species_id": 236,
                         "name": "shuangqiudingding_yangtaomocha",
-                        "form": "圣代甜甜",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "圣代甜甜"
@@ -1606,8 +1650,8 @@
         "current_monster_id": 3124
     },
     "world_profile": {
-        "type_desc": "常见于海洋",
-        "description_habitat": "锅精灵",
+        "type_desc": "冰冰凉精灵",
+        "description_habitat": "常见于城镇周边",
         "introduction": "使用淡奶油、蛋黄搅拌加热后，冷冻1000小时以上，有极小概率得到一只香草甜甜。以蛋筒底为支点蹦跶着前行，受到惊吓时会缩到自己的蛋筒里瑟瑟发抖。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1622,13 +1666,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3124001,
         "pet_id": 3124001,
-        "name": "果冻（火血脉，完美无暇）",
+        "name": null,
         "model_id": 3124001,
         "hatch_data": 28800,
         "weight_low": 630,
@@ -1636,21 +1680,15 @@
         "height_low": 13,
         "height_high": 17,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3124001,
                 "pet_id": 3124001,
-                "name": "果冻（火血脉，完美无暇）",
+                "name": null,
                 "model_id": 3124001,
                 "hatch_data": 28800,
                 "weight_low": 630,
@@ -1658,21 +1696,15 @@
                 "height_low": 13,
                 "height_high": 17,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3124002,
                 "pet_id": 3124002,
-                "name": "果冻（草血脉，完美无暇）",
+                "name": null,
                 "model_id": 3124001,
                 "hatch_data": 28800,
                 "weight_low": 630,
@@ -1688,7 +1720,7 @@
             {
                 "id": 3124003,
                 "pet_id": 3124003,
-                "name": "果冻（冰血脉，完美无暇）",
+                "name": null,
                 "model_id": 3124001,
                 "hatch_data": 300,
                 "weight_low": 630,
@@ -1699,34 +1731,12 @@
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3145001,
-                "pet_id": 3145001,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 31240001,
                 "pet_id": 31240001,
-                "name": "果冻（火血脉，完美无暇）",
+                "name": null,
                 "model_id": 3124001,
                 "hatch_data": 300,
                 "weight_low": 630,
@@ -1734,258 +1744,6 @@
                 "height_low": 13,
                 "height_high": 17,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31450001,
-                "pet_id": 31450001,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 300,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000006,
-                "pet_id": 91000006,
-                "name": "果冻（火血脉，完美无暇）",
-                "model_id": 3124001,
-                "hatch_data": 28800,
-                "weight_low": 630,
-                "weight_high": 1520,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000102,
-                "pet_id": 91000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000006,
-                "pet_id": 92000006,
-                "name": "果冻（火血脉，完美无暇）",
-                "model_id": 3124001,
-                "hatch_data": 28800,
-                "weight_low": 630,
-                "weight_high": 1520,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000102,
-                "pet_id": 92000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000006,
-                "pet_id": 93000006,
-                "name": "果冻（火血脉，完美无暇）",
-                "model_id": 3124001,
-                "hatch_data": 28800,
-                "weight_low": 630,
-                "weight_high": 1520,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000102,
-                "pet_id": 93000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000006,
-                "pet_id": 94000006,
-                "name": "果冻（火血脉，完美无暇）",
-                "model_id": 3124001,
-                "hatch_data": 28800,
-                "weight_low": 630,
-                "weight_high": 1520,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000102,
-                "pet_id": 94000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000006,
-                "pet_id": 96000006,
-                "name": "果冻（火血脉，完美无暇）",
-                "model_id": 3124001,
-                "hatch_data": 28800,
-                "weight_low": 630,
-                "weight_high": 1520,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000102,
-                "pet_id": 96000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000006,
-                "pet_id": 97000006,
-                "name": "果冻（火血脉，完美无暇）",
-                "model_id": 3124001,
-                "hatch_data": 28800,
-                "weight_low": 630,
-                "weight_high": 1520,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000102,
-                "pet_id": 97000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000006,
-                "pet_id": 98000006,
-                "name": "果冻（火血脉，完美无暇）",
-                "model_id": 3124001,
-                "hatch_data": 28800,
-                "weight_low": 630,
-                "weight_high": 1520,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000102,
-                "pet_id": 98000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1994,29 +1752,13 @@
             {
                 "id": 99000104,
                 "pet_id": 99000104,
-                "name": "果冻（火血脉，完美无暇）",
+                "name": null,
                 "model_id": 3124001,
                 "hatch_data": 72000,
                 "weight_low": 630,
                 "weight_high": 1520,
                 "height_low": 13,
                 "height_high": 17,
-                "precious_egg_type": 4,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000157,
-                "pet_id": 99000157,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 72000,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
                 "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,

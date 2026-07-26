@@ -43,7 +43,7 @@
         "id": 191,
         "name": "qiqidu",
         "localized": {
-            "zh": "九幽菇"
+            "zh": "棋祈督"
         }
     },
     "trait": {
@@ -436,9 +436,9 @@
     ],
     "move_stones": [
         {
-            "id": 7080320,
-            "name": "鸣沙陷阱",
-            "icon_id": "107028",
+            "id": 7080190,
+            "name": "流沙",
+            "icon_id": "708017",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -448,14 +448,36 @@
             },
             "localized": {
                 "zh": {
-                    "name": "鸣沙陷阱",
-                    "description": "造成物伤，物防比敌方越高，本次技能威力越高。"
+                    "name": "流沙",
+                    "description": "敌方获得3回合禁足，应对防御：敌方获得双防-60%。"
                 }
             },
-            "move_category": "Physical Attack",
-            "energy_cost": 4,
-            "power": 60,
-            "description": "造成物伤，物防比敌方越高，本次技能威力越高。"
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "敌方获得3回合禁足，应对防御：敌方获得双防-60%。"
+        },
+        {
+            "id": 7080210,
+            "name": "沙涌",
+            "icon_id": "708021",
+            "move_type": {
+                "id": 6,
+                "name": "Ground",
+                "localized": {
+                    "zh": "地"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "沙涌",
+                    "description": "将天气改为沙暴，持续8回合。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 7,
+            "power": null,
+            "description": "将天气改为沙暴，持续8回合。"
         },
         {
             "id": 7140190,
@@ -524,9 +546,9 @@
             "description": "造成魔伤，2连击，每成功应对1次，本技能连击数永久+2。"
         },
         {
-            "id": 7140170,
-            "name": "气沉丹田",
-            "icon_id": "213020",
+            "id": 7140100,
+            "name": "反击拳",
+            "icon_id": "113027",
             "move_type": {
                 "id": 12,
                 "name": "Fighting",
@@ -536,41 +558,19 @@
             },
             "localized": {
                 "zh": {
-                    "name": "气沉丹田",
-                    "description": "自己回复60%生命，获得物攻+130%，每次应对后本技能能耗-3，使用后能耗重置。"
-                }
-            },
-            "move_category": "Status",
-            "energy_cost": 10,
-            "power": null,
-            "description": "自己回复60%生命，获得物攻+130%，每次应对后本技能能耗-3，使用后能耗重置。"
-        },
-        {
-            "id": 7140260,
-            "name": "一拳",
-            "icon_id": "113030",
-            "move_type": {
-                "id": 12,
-                "name": "Fighting",
-                "localized": {
-                    "zh": "武"
-                }
-            },
-            "localized": {
-                "zh": {
-                    "name": "一拳",
-                    "description": "对敌方精灵造成物理伤害。"
+                    "name": "反击拳",
+                    "description": "造成物伤，2连击，若后手攻击，改为3连击。"
                 }
             },
             "move_category": "Physical Attack",
-            "energy_cost": 5,
-            "power": 140,
-            "description": "对敌方精灵造成物理伤害。"
+            "energy_cost": 2,
+            "power": 25,
+            "description": "造成物伤，2连击，若后手攻击，改为3连击。"
         },
         {
-            "id": 7080170,
-            "name": "抛石",
-            "icon_id": "708001",
+            "id": 7080140,
+            "name": "岩土暴击",
+            "icon_id": "708013",
             "move_type": {
                 "id": 6,
                 "name": "Ground",
@@ -580,102 +580,102 @@
             },
             "localized": {
                 "zh": {
-                    "name": "抛石",
-                    "description": "造成物伤，回合结束时，本技能能耗永久-5。"
+                    "name": "岩土暴击",
+                    "description": "造成物伤，每被攻击1次。本技能能耗永久-1。"
                 }
             },
             "move_category": "Physical Attack",
-            "energy_cost": 30,
+            "energy_cost": 8,
             "power": 140,
-            "description": "造成物伤，回合结束时，本技能能耗永久-5。"
+            "description": "造成物伤，每被攻击1次。本技能能耗永久-1。"
         },
         {
-            "id": 7060230,
-            "name": "透射",
-            "icon_id": "105015",
+            "id": 7180270,
+            "name": "诋毁",
+            "icon_id": "117025",
             "move_type": {
-                "id": 5,
-                "name": "Light",
+                "id": 16,
+                "name": "Dark",
                 "localized": {
-                    "zh": "光"
+                    "zh": "恶"
                 }
             },
             "localized": {
                 "zh": {
-                    "name": "透射",
+                    "name": "诋毁",
                     "description": "对敌方精灵造成物理伤害。"
                 }
             },
             "move_category": "Physical Attack",
-            "energy_cost": 1,
-            "power": 60,
+            "energy_cost": 2,
+            "power": 80,
             "description": "对敌方精灵造成物理伤害。"
         },
         {
-            "id": 7060220,
-            "name": "天光",
-            "icon_id": "205014",
+            "id": 7180110,
+            "name": "撕咬",
+            "icon_id": "718015",
             "move_type": {
-                "id": 5,
-                "name": "Light",
+                "id": 16,
+                "name": "Dark",
                 "localized": {
-                    "zh": "光"
+                    "zh": "恶"
                 }
             },
             "localized": {
                 "zh": {
-                    "name": "天光",
-                    "description": "造成魔伤，本技能系别和天气系别相同。"
+                    "name": "撕咬",
+                    "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
                 }
             },
-            "move_category": "Magic Attack",
+            "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 95,
-            "description": "造成魔伤，本技能系别和天气系别相同。"
+            "power": 30,
+            "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         },
         {
-            "id": 7060140,
-            "name": "漫反射",
-            "icon_id": "706008",
+            "id": 7180170,
+            "name": "力量吞噬",
+            "icon_id": "718009",
             "move_type": {
-                "id": 5,
-                "name": "Light",
+                "id": 16,
+                "name": "Dark",
                 "localized": {
-                    "zh": "光"
+                    "zh": "恶"
                 }
             },
             "localized": {
                 "zh": {
-                    "name": "漫反射",
-                    "description": "每种系别中的至多1个技能，威力+35。"
+                    "name": "力量吞噬",
+                    "description": "敌方获得全技能威力-20，自己获得全技能威力+20。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 4,
+            "power": null,
+            "description": "敌方获得全技能威力-20，自己获得全技能威力+20。"
+        },
+        {
+            "id": 7180320,
+            "name": "暗箱操作",
+            "icon_id": "117030",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "暗箱操作",
+                    "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "每种系别中的至多1个技能，威力+35。"
-        },
-        {
-            "id": 7060240,
-            "name": "放晴",
-            "icon_id": "205017",
-            "move_type": {
-                "id": 5,
-                "name": "Light",
-                "localized": {
-                    "zh": "光"
-                }
-            },
-            "localized": {
-                "zh": {
-                    "name": "放晴",
-                    "description": "光系技能威力永久+50%，应对防御：改为永久+100%。"
-                }
-            },
-            "move_category": "Status",
-            "energy_cost": 0,
-            "power": null,
-            "description": "光系技能威力永久+50%，应对防御：改为永久+100%。"
+            "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
         },
         {
             "id": 7021090,
@@ -810,26 +810,26 @@
             "description": "驱散敌方所有增益。"
         },
         {
-            "id": 7021160,
-            "name": "摇篮曲",
-            "icon_id": "201102",
+            "id": 7080200,
+            "name": "泥浆铠甲",
+            "icon_id": "708018",
             "move_type": {
-                "id": 1,
-                "name": "Normal",
+                "id": 6,
+                "name": "Ground",
                 "localized": {
-                    "zh": "普通"
+                    "zh": "地"
                 }
             },
             "localized": {
                 "zh": {
-                    "name": "摇篮曲",
-                    "description": "敌方获得全技能能耗+3，应对防御：额外造成打断，且敌方下回合获得眩晕。"
+                    "name": "泥浆铠甲",
+                    "description": "自己获得物攻和物防+60%，应对防御：额外使自己的增益翻倍。"
                 }
             },
             "move_category": "Status",
-            "energy_cost": 5,
+            "energy_cost": 2,
             "power": null,
-            "description": "敌方获得全技能能耗+3，应对防御：额外造成打断，且敌方下回合获得眩晕。"
+            "description": "自己获得物攻和物防+60%，应对防御：额外使自己的增益翻倍。"
         },
         {
             "id": 7140300,
@@ -852,28 +852,6 @@
             "energy_cost": 3,
             "power": null,
             "description": "减伤80%，应对攻击：自己获得全技能威力+40。"
-        },
-        {
-            "id": 7021110,
-            "name": "有效预防",
-            "icon_id": "201094",
-            "move_type": {
-                "id": 1,
-                "name": "Normal",
-                "localized": {
-                    "zh": "普通"
-                }
-            },
-            "localized": {
-                "zh": {
-                    "name": "有效预防",
-                    "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
-                }
-            },
-            "move_category": "Defense",
-            "energy_cost": 1,
-            "power": null,
-            "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
         },
         {
             "id": 7020390,
@@ -1280,11 +1258,11 @@
         {
             "monster_id": 5046,
             "type_id": 15,
-            "move_id": 7170220,
+            "move_id": 7170250,
             "move": {
-                "id": 7170220,
-                "name": "灵媒",
-                "icon_id": "116016",
+                "id": 7170250,
+                "name": "勾魂",
+                "icon_id": "116019",
                 "move_type": {
                     "id": 15,
                     "name": "Ghost",
@@ -1294,14 +1272,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "灵媒",
-                        "description": "对敌方精灵造成魔法伤害。"
+                        "name": "勾魂",
+                        "description": "偷取敌方3能量。"
                     }
                 },
-                "move_category": "Magic Attack",
-                "energy_cost": 3,
-                "power": 100,
-                "description": "对敌方精灵造成魔法伤害。"
+                "move_category": "Status",
+                "energy_cost": 1,
+                "power": null,
+                "description": "偷取敌方3能量。"
             }
         },
         {
@@ -1395,7 +1373,7 @@
                         "id": 3550,
                         "species_id": 188,
                         "name": "qiqi",
-                        "form": "棋棋",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋棋"
@@ -1422,7 +1400,7 @@
                         "id": 3555,
                         "species_id": 188,
                         "name": "qiqi_yidi",
-                        "form": "棋棋",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋棋"
@@ -1455,7 +1433,7 @@
                         "id": 3551,
                         "species_id": 189,
                         "name": "qiqishi",
-                        "form": "棋骑士",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋骑士"
@@ -1478,7 +1456,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋骑士」关联的联动条件（参数 3）",
+                            "需激活白子形态分支",
                             "需为雄性"
                         ]
                     },
@@ -1486,7 +1464,7 @@
                         "id": 3552,
                         "species_id": 192,
                         "name": "qiqihou",
-                        "form": "棋绮后",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋绮后"
@@ -1509,7 +1487,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋绮后」关联的联动条件（参数 3）",
+                            "需激活白子形态分支",
                             "需为雌性"
                         ]
                     },
@@ -1517,7 +1495,7 @@
                         "id": 3553,
                         "species_id": 190,
                         "name": "qiqilei",
-                        "form": "棋齐垒",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋齐垒"
@@ -1540,7 +1518,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋齐垒」关联的联动条件（参数 3）",
+                            "需激活白子形态分支",
                             "需为雄性"
                         ]
                     },
@@ -1548,7 +1526,7 @@
                         "id": 3554,
                         "species_id": 191,
                         "name": "qiqidu",
-                        "form": "棋祈督",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋祈督"
@@ -1571,7 +1549,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋祈督」关联的联动条件（参数 3）",
+                            "需激活白子形态分支",
                             "需为雄性"
                         ]
                     },
@@ -1579,7 +1557,7 @@
                         "id": 3556,
                         "species_id": 189,
                         "name": "qiqishi_yidi",
-                        "form": "棋骑士",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋骑士"
@@ -1602,7 +1580,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋骑士」关联的联动条件（参数 3）",
+                            "需激活黑子形态分支",
                             "需为雄性"
                         ]
                     },
@@ -1610,7 +1588,7 @@
                         "id": 3557,
                         "species_id": 192,
                         "name": "qiqihou_yidi",
-                        "form": "棋绮后",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋绮后"
@@ -1633,7 +1611,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋绮后」关联的联动条件（参数 3）",
+                            "需激活黑子形态分支",
                             "需为雌性"
                         ]
                     },
@@ -1641,7 +1619,7 @@
                         "id": 3558,
                         "species_id": 190,
                         "name": "qiqilei_yidi",
-                        "form": "棋齐垒",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋齐垒"
@@ -1664,7 +1642,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋齐垒」关联的联动条件（参数 3）",
+                            "需激活黑子形态分支",
                             "需为雄性"
                         ]
                     },
@@ -1672,7 +1650,7 @@
                         "id": 3559,
                         "species_id": 191,
                         "name": "qiqidu_yidi",
-                        "form": "棋祈督",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋祈督"
@@ -1695,7 +1673,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋祈督」关联的联动条件（参数 3）",
+                            "需激活黑子形态分支",
                             "需为雄性"
                         ]
                     }
@@ -1769,8 +1747,8 @@
         "current_monster_id": 5046
     },
     "world_profile": {
-        "type_desc": "刺刺精灵",
-        "description_habitat": "海螺精灵",
+        "type_desc": "棋子精灵",
+        "description_habitat": "常见于山林、城堡周边",
         "introduction": "在棋盘最中央的格子是为它预留的王座，棋契陛下并非被雕刻，而是由黑白两色棋子在万夜轮转中自行“对局”而生，它不移动，却可以传令所有棋子。“当王棋离座，棋盘即终局；终局之时，所有棋子将回归石质，世界将再无边界可言。”",
         "refresh_locations": [
             "暂时找不到这只精灵的踪迹噢！"

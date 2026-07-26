@@ -1,7 +1,7 @@
 {
     "id": 3069,
     "name": "chuitouguan",
-    "form": "锤头鹳",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -43,7 +43,7 @@
         "id": 92,
         "name": "chuitouguan",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "锤头鹳"
         }
     },
     "trait": {
@@ -209,7 +209,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "迅捷，驱散敌方1种增益。"
         },
@@ -1263,7 +1263,7 @@
                         "id": 3069,
                         "species_id": 92,
                         "name": "chuitouguan",
-                        "form": "锤头鹳",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "锤头鹳"
@@ -1296,8 +1296,8 @@
         "current_monster_id": 3069
     },
     "world_profile": {
-        "type_desc": "恶作剧精灵",
-        "description_habitat": "天鹅精灵",
+        "type_desc": "锤头精灵",
+        "description_habitat": "常见于浅滩",
         "introduction": "三三两两地站在建筑的高处，有些神秘，被认为是王国的守护者。洛克靠近时，会发出尖锐刺耳的声音，头部奇怪的形状为工具设计提供了设计灵感。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1313,13 +1313,13 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3069001,
         "pet_id": 3069001,
-        "name": "幽影树（首领血脉）",
+        "name": null,
         "model_id": 3069001,
         "hatch_data": 72000,
         "weight_low": 17955,
@@ -1327,21 +1327,15 @@
         "height_low": 46,
         "height_high": 65,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            400,
-            3125
-        ],
-        "egg_add_glass_prob_array": [
-            2,
-            113
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3069001,
                 "pet_id": 3069001,
-                "name": "幽影树（首领血脉）",
+                "name": null,
                 "model_id": 3069001,
                 "hatch_data": 72000,
                 "weight_low": 17955,
@@ -1349,43 +1343,15 @@
                 "height_low": 46,
                 "height_high": 65,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3072001,
-                "pet_id": 3072001,
-                "name": "锤头鹳",
-                "model_id": 3072001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2160,
-                "height_low": 17,
-                "height_high": 24,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
             },
             {
                 "id": 30690001,
                 "pet_id": 30690001,
-                "name": "幽影树（首领血脉）",
+                "name": null,
                 "model_id": 3069001,
                 "hatch_data": 300,
                 "weight_low": 17955,
@@ -1393,274 +1359,6 @@
                 "height_low": 46,
                 "height_high": 65,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 30720001,
-                "pet_id": 30720001,
-                "name": "锤头鹳",
-                "model_id": 3072001,
-                "hatch_data": 300,
-                "weight_low": 1225,
-                "weight_high": 2160,
-                "height_low": 17,
-                "height_high": 24,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000035,
-                "pet_id": 91000035,
-                "name": "幽影树（首领血脉）",
-                "model_id": 3069001,
-                "hatch_data": 72000,
-                "weight_low": 17955,
-                "weight_high": 26320,
-                "height_low": 46,
-                "height_high": 65,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000068,
-                "pet_id": 91000068,
-                "name": "锤头鹳",
-                "model_id": 3072001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2160,
-                "height_low": 17,
-                "height_high": 24,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000035,
-                "pet_id": 92000035,
-                "name": "幽影树（首领血脉）",
-                "model_id": 3069001,
-                "hatch_data": 72000,
-                "weight_low": 17955,
-                "weight_high": 26320,
-                "height_low": 46,
-                "height_high": 65,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000068,
-                "pet_id": 92000068,
-                "name": "锤头鹳",
-                "model_id": 3072001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2160,
-                "height_low": 17,
-                "height_high": 24,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000035,
-                "pet_id": 93000035,
-                "name": "幽影树（首领血脉）",
-                "model_id": 3069001,
-                "hatch_data": 72000,
-                "weight_low": 17955,
-                "weight_high": 26320,
-                "height_low": 46,
-                "height_high": 65,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000068,
-                "pet_id": 93000068,
-                "name": "锤头鹳",
-                "model_id": 3072001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2160,
-                "height_low": 17,
-                "height_high": 24,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000035,
-                "pet_id": 94000035,
-                "name": "幽影树（首领血脉）",
-                "model_id": 3069001,
-                "hatch_data": 72000,
-                "weight_low": 17955,
-                "weight_high": 26320,
-                "height_low": 46,
-                "height_high": 65,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000068,
-                "pet_id": 94000068,
-                "name": "锤头鹳",
-                "model_id": 3072001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2160,
-                "height_low": 17,
-                "height_high": 24,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000035,
-                "pet_id": 96000035,
-                "name": "幽影树（首领血脉）",
-                "model_id": 3069001,
-                "hatch_data": 72000,
-                "weight_low": 17955,
-                "weight_high": 26320,
-                "height_low": 46,
-                "height_high": 65,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000068,
-                "pet_id": 96000068,
-                "name": "锤头鹳",
-                "model_id": 3072001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2160,
-                "height_low": 17,
-                "height_high": 24,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000035,
-                "pet_id": 97000035,
-                "name": "幽影树（首领血脉）",
-                "model_id": 3069001,
-                "hatch_data": 72000,
-                "weight_low": 17955,
-                "weight_high": 26320,
-                "height_low": 46,
-                "height_high": 65,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000068,
-                "pet_id": 97000068,
-                "name": "锤头鹳",
-                "model_id": 3072001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2160,
-                "height_low": 17,
-                "height_high": 24,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000035,
-                "pet_id": 98000035,
-                "name": "幽影树（首领血脉）",
-                "model_id": 3069001,
-                "hatch_data": 72000,
-                "weight_low": 17955,
-                "weight_high": 26320,
-                "height_low": 46,
-                "height_high": 65,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000068,
-                "pet_id": 98000068,
-                "name": "锤头鹳",
-                "model_id": 3072001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2160,
-                "height_low": 17,
-                "height_high": 24,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000119,
-                "pet_id": 99000119,
-                "name": "锤头鹳",
-                "model_id": 3072001,
-                "hatch_data": 72000,
-                "weight_low": 1225,
-                "weight_high": 2160,
-                "height_low": 17,
-                "height_high": 24,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1669,7 +1367,7 @@
             {
                 "id": 99000136,
                 "pet_id": 99000136,
-                "name": "幽影树（首领血脉）",
+                "name": null,
                 "model_id": 3069001,
                 "hatch_data": 72000,
                 "weight_low": 17955,

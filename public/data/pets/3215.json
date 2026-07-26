@@ -1,7 +1,7 @@
 {
     "id": 3215,
     "name": "haibaozhanshi",
-    "form": "海豹战士",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -43,7 +43,7 @@
         "id": 181,
         "name": "haibaozhanshi",
         "localized": {
-            "zh": "神圣狮鹫"
+            "zh": "海豹战士"
         }
     },
     "trait": {
@@ -1241,7 +1241,7 @@
                         "id": 3215,
                         "species_id": 181,
                         "name": "haibaozhanshi",
-                        "form": "海豹战士",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "海豹战士"
@@ -1274,7 +1274,7 @@
                         "id": 3216,
                         "species_id": 182,
                         "name": "haibaochuangzhang",
-                        "form": "海豹船长",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "海豹船长"
@@ -1309,8 +1309,8 @@
         "current_monster_id": 3215
     },
     "world_profile": {
-        "type_desc": "贪食鼹",
-        "description_habitat": "常见于山地、城堡周边",
+        "type_desc": "海盗精灵",
+        "description_habitat": "常见于海岸",
         "introduction": "圆润的身躯游得飞快，皮肤非常滑溜，十次抓捕中九次都要被它溜走。喜欢被紧挨着或被挤压着的感觉，经常成群结队地出没，迷路的时候，也会一整群一起迷路。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1325,13 +1325,13 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 1200,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3215001,
         "pet_id": 3215001,
-        "name": "迷迷眼",
+        "name": null,
         "model_id": 3215001,
         "hatch_data": 72000,
         "weight_low": 24325,
@@ -1339,21 +1339,15 @@
         "height_low": 27,
         "height_high": 38,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            400,
-            3125
-        ],
-        "egg_add_glass_prob_array": [
-            2,
-            113
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3215001,
                 "pet_id": 3215001,
-                "name": "迷迷眼",
+                "name": null,
                 "model_id": 3215001,
                 "hatch_data": 72000,
                 "weight_low": 24325,
@@ -1361,43 +1355,21 @@
                 "height_low": 27,
                 "height_high": 38,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3215002,
-                "pet_id": 3215002,
-                "name": "拉特",
-                "model_id": 3215001,
-                "hatch_data": 72000,
-                "weight_low": 24325,
-                "weight_high": 35040,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3276002,
-                "pet_id": 3276002,
-                "name": "海豹战士",
-                "model_id": 3276001,
-                "hatch_data": 28800,
-                "weight_low": 1260,
-                "weight_high": 1920,
-                "height_low": 21,
-                "height_high": 25,
+                "id": 3215002,
+                "pet_id": 3215002,
+                "name": null,
+                "model_id": 3215001,
+                "hatch_data": 72000,
+                "weight_low": 24325,
+                "weight_high": 35040,
+                "height_low": 27,
+                "height_high": 38,
                 "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
@@ -1407,7 +1379,7 @@
             {
                 "id": 32150001,
                 "pet_id": 32150001,
-                "name": "迷迷眼",
+                "name": null,
                 "model_id": 3215001,
                 "hatch_data": 300,
                 "weight_low": 24325,
@@ -1421,127 +1393,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000106,
-                "pet_id": 91000106,
-                "name": "迷迷眼",
-                "model_id": 3215001,
-                "hatch_data": 72000,
-                "weight_low": 24325,
-                "weight_high": 35040,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000106,
-                "pet_id": 92000106,
-                "name": "迷迷眼",
-                "model_id": 3215001,
-                "hatch_data": 72000,
-                "weight_low": 24325,
-                "weight_high": 35040,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000106,
-                "pet_id": 93000106,
-                "name": "迷迷眼",
-                "model_id": 3215001,
-                "hatch_data": 72000,
-                "weight_low": 24325,
-                "weight_high": 35040,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000106,
-                "pet_id": 94000106,
-                "name": "迷迷眼",
-                "model_id": 3215001,
-                "hatch_data": 72000,
-                "weight_low": 24325,
-                "weight_high": 35040,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000106,
-                "pet_id": 96000106,
-                "name": "迷迷眼",
-                "model_id": 3215001,
-                "hatch_data": 72000,
-                "weight_low": 24325,
-                "weight_high": 35040,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000106,
-                "pet_id": 97000106,
-                "name": "迷迷眼",
-                "model_id": 3215001,
-                "hatch_data": 72000,
-                "weight_low": 24325,
-                "weight_high": 35040,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000106,
-                "pet_id": 98000106,
-                "name": "迷迷眼",
-                "model_id": 3215001,
-                "hatch_data": 72000,
-                "weight_low": 24325,
-                "weight_high": 35040,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000130,
                 "pet_id": 99000130,
-                "name": "迷迷眼",
+                "name": null,
                 "model_id": 3215001,
                 "hatch_data": 72000,
                 "weight_low": 24325,

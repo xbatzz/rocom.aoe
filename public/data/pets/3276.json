@@ -1,7 +1,7 @@
 {
     "id": 3276,
     "name": "lvyiniao",
-    "form": "绿翼鸟",
+    "form": "default",
     "main_type": {
         "id": 13,
         "name": "Flying",
@@ -33,8 +33,8 @@
     },
     "implemented": true,
     "base_hp": 52,
-    "base_phy_atk": 68,
-    "base_mag_atk": 20,
+    "base_phy_atk": 63,
+    "base_mag_atk": 18,
     "base_phy_def": 56,
     "base_mag_def": 53,
     "base_spd": 81,
@@ -43,18 +43,18 @@
         "id": 102,
         "name": "lvyiniao",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "绿翼鸟"
         }
     },
     "trait": {
         "id": 200183,
         "name": "自由飘",
-        "description": "自己每有1层萌化，获得连击数+2。",
+        "description": "自己每有1层萌化，获得连击数+3。",
         "icon_id": "200183",
         "localized": {
             "zh": {
                 "name": "自由飘",
-                "description": "自己每有1层萌化，获得连击数+2。"
+                "description": "自己每有1层萌化，获得连击数+3。"
             }
         }
     },
@@ -297,8 +297,8 @@
                 }
             },
             "move_category": "Physical Attack",
-            "energy_cost": 3,
-            "power": 100,
+            "energy_cost": 1,
+            "power": 55,
             "description": "造成物伤，本技能能耗每+1，威力+50。"
         },
         {
@@ -654,6 +654,72 @@
             "energy_cost": 3,
             "power": 80,
             "description": "造成物伤，自己生命大于80%时，本次技能威力+75。"
+        },
+        {
+            "id": 7160390,
+            "name": "耍赖",
+            "icon_id": "101106",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "耍赖",
+                    "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
+        },
+        {
+            "id": 7150360,
+            "name": "试飞",
+            "icon_id": "114037",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "试飞",
+                    "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 2,
+            "power": 20,
+            "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+        },
+        {
+            "id": 7150370,
+            "name": "超声波",
+            "icon_id": "114031",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "超声波",
+                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
         }
     ],
     "legacy_moves": [
@@ -1153,7 +1219,7 @@
                         "id": 3276,
                         "species_id": 102,
                         "name": "lvyiniao",
-                        "form": "绿翼鸟",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "绿翼鸟"
@@ -1186,7 +1252,7 @@
                         "id": 3277,
                         "species_id": 103,
                         "name": "moyiniao",
-                        "form": "魔翼鸟",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "魔翼鸟"
@@ -1221,7 +1287,7 @@
                         "id": 3278,
                         "species_id": 104,
                         "name": "mojuanniao",
-                        "form": "魔眷鸟",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "魔眷鸟"
@@ -1256,8 +1322,8 @@
         "current_monster_id": 3276
     },
     "world_profile": {
-        "type_desc": "常见于果树下",
-        "description_habitat": "常见于海洋",
+        "type_desc": "鸟仔精灵",
+        "description_habitat": "常见于山林",
         "introduction": "胆小谨慎的精灵，总是下意识地遮挡和隐藏自己。头部心型冠的原理不明，要小心对待，拉扯后，绿翼鸟的性格和样貌会大变，拉扯三次后变回本来的性格和样貌。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1272,13 +1338,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3276001,
         "pet_id": 3276001,
-        "name": "黑炎宝宝",
+        "name": null,
         "model_id": 3276001,
         "hatch_data": 28800,
         "weight_low": 1260,
@@ -1286,21 +1352,15 @@
         "height_low": 21,
         "height_high": 25,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3276001,
                 "pet_id": 3276001,
-                "name": "黑炎宝宝",
+                "name": null,
                 "model_id": 3276001,
                 "hatch_data": 28800,
                 "weight_low": 1260,
@@ -1308,21 +1368,15 @@
                 "height_low": 21,
                 "height_high": 25,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3276002,
                 "pet_id": 3276002,
-                "name": "海豹战士",
+                "name": null,
                 "model_id": 3276001,
                 "hatch_data": 28800,
                 "weight_low": 1260,
@@ -1338,7 +1392,7 @@
             {
                 "id": 3276003,
                 "pet_id": 3276003,
-                "name": "海豹战士（翼系血脉）",
+                "name": null,
                 "model_id": 3276001,
                 "hatch_data": 300,
                 "weight_low": 1260,
@@ -1352,53 +1406,25 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3364001,
-                "pet_id": 3364001,
-                "name": "绿翼鸟",
-                "model_id": 3364001,
-                "hatch_data": 72000,
-                "weight_low": 13825,
-                "weight_high": 19440,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3373001,
-                "pet_id": 3373001,
-                "name": "绿翼鸟",
-                "model_id": 3373001,
-                "hatch_data": 57600,
-                "weight_low": 210,
-                "weight_high": 320,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "id": 3276004,
+                "pet_id": 3276004,
+                "name": null,
+                "model_id": 3276001,
+                "hatch_data": 300,
+                "weight_low": 1260,
+                "weight_high": 1920,
+                "height_low": 21,
+                "height_high": 25,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 32760001,
                 "pet_id": 32760001,
-                "name": "黑炎宝宝",
+                "name": null,
                 "model_id": 3276001,
                 "hatch_data": 300,
                 "weight_low": 1260,
@@ -1406,334 +1432,6 @@
                 "height_low": 21,
                 "height_high": 25,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 33640001,
-                "pet_id": 33640001,
-                "name": "绿翼鸟",
-                "model_id": 3364001,
-                "hatch_data": 300,
-                "weight_low": 13825,
-                "weight_high": 19440,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 33730001,
-                "pet_id": 33730001,
-                "name": "绿翼鸟",
-                "model_id": 3373001,
-                "hatch_data": 300,
-                "weight_low": 210,
-                "weight_high": 320,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000057,
-                "pet_id": 91000057,
-                "name": "黑炎宝宝",
-                "model_id": 3276001,
-                "hatch_data": 28800,
-                "weight_low": 1260,
-                "weight_high": 1920,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000059,
-                "pet_id": 91000059,
-                "name": "绿翼鸟",
-                "model_id": 3373001,
-                "hatch_data": 57600,
-                "weight_low": 210,
-                "weight_high": 320,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000057,
-                "pet_id": 92000057,
-                "name": "黑炎宝宝",
-                "model_id": 3276001,
-                "hatch_data": 28800,
-                "weight_low": 1260,
-                "weight_high": 1920,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000059,
-                "pet_id": 92000059,
-                "name": "绿翼鸟",
-                "model_id": 3373001,
-                "hatch_data": 57600,
-                "weight_low": 210,
-                "weight_high": 320,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000057,
-                "pet_id": 93000057,
-                "name": "黑炎宝宝",
-                "model_id": 3276001,
-                "hatch_data": 28800,
-                "weight_low": 1260,
-                "weight_high": 1920,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000059,
-                "pet_id": 93000059,
-                "name": "绿翼鸟",
-                "model_id": 3373001,
-                "hatch_data": 57600,
-                "weight_low": 210,
-                "weight_high": 320,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000057,
-                "pet_id": 94000057,
-                "name": "黑炎宝宝",
-                "model_id": 3276001,
-                "hatch_data": 28800,
-                "weight_low": 1260,
-                "weight_high": 1920,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000059,
-                "pet_id": 94000059,
-                "name": "绿翼鸟",
-                "model_id": 3373001,
-                "hatch_data": 57600,
-                "weight_low": 210,
-                "weight_high": 320,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000040,
-                "pet_id": 95000040,
-                "name": "绿翼鸟",
-                "model_id": 3373001,
-                "hatch_data": 57600,
-                "weight_low": 210,
-                "weight_high": 320,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000057,
-                "pet_id": 96000057,
-                "name": "黑炎宝宝",
-                "model_id": 3276001,
-                "hatch_data": 28800,
-                "weight_low": 1260,
-                "weight_high": 1920,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000059,
-                "pet_id": 96000059,
-                "name": "绿翼鸟",
-                "model_id": 3373001,
-                "hatch_data": 57600,
-                "weight_low": 210,
-                "weight_high": 320,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000057,
-                "pet_id": 97000057,
-                "name": "黑炎宝宝",
-                "model_id": 3276001,
-                "hatch_data": 28800,
-                "weight_low": 1260,
-                "weight_high": 1920,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000059,
-                "pet_id": 97000059,
-                "name": "绿翼鸟",
-                "model_id": 3373001,
-                "hatch_data": 57600,
-                "weight_low": 210,
-                "weight_high": 320,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000057,
-                "pet_id": 98000057,
-                "name": "黑炎宝宝",
-                "model_id": 3276001,
-                "hatch_data": 28800,
-                "weight_low": 1260,
-                "weight_high": 1920,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000059,
-                "pet_id": 98000059,
-                "name": "绿翼鸟",
-                "model_id": 3373001,
-                "hatch_data": 57600,
-                "weight_low": 210,
-                "weight_high": 320,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000040,
-                "pet_id": 99000040,
-                "name": "绿翼鸟",
-                "model_id": 3373001,
-                "hatch_data": 57600,
-                "weight_low": 210,
-                "weight_high": 320,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000115,
-                "pet_id": 99000115,
-                "name": "绿翼鸟",
-                "model_id": 3373001,
-                "hatch_data": 72000,
-                "weight_low": 210,
-                "weight_high": 320,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1742,7 +1440,7 @@
             {
                 "id": 99000118,
                 "pet_id": 99000118,
-                "name": "黑炎宝宝",
+                "name": null,
                 "model_id": 3276001,
                 "hatch_data": 72000,
                 "weight_low": 1260,

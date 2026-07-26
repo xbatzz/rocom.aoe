@@ -1,7 +1,7 @@
 {
     "id": 3075,
     "name": "linghu",
-    "form": "灵狐",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -43,7 +43,7 @@
         "id": 147,
         "name": "linghu",
         "localized": {
-            "zh": "冰冰凉精灵"
+            "zh": "灵狐"
         }
     },
     "trait": {
@@ -1263,7 +1263,7 @@
                         "id": 3075,
                         "species_id": 147,
                         "name": "linghu",
-                        "form": "灵狐",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "灵狐"
@@ -1296,7 +1296,7 @@
                         "id": 3076,
                         "species_id": 148,
                         "name": "jiuweihu",
-                        "form": "九尾狐",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "九尾狐"
@@ -1331,7 +1331,7 @@
                         "id": 3077,
                         "species_id": 149,
                         "name": "jianzuihuxian",
-                        "form": "尖嘴狐仙",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "尖嘴狐仙"
@@ -1366,8 +1366,8 @@
         "current_monster_id": 3075
     },
     "world_profile": {
-        "type_desc": "常见于树林",
-        "description_habitat": "雪巨人",
+        "type_desc": "狐精灵",
+        "description_habitat": "偶见于雪山",
         "introduction": "鼻子呼出热热的气可能会灼伤小洛克的手，如果在雪山不小心被冻伤，去拜托灵狐帮忙吹一口热气，冻伤瞬间就会痊愈了。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1382,13 +1382,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3075001,
         "pet_id": 3075001,
-        "name": "异色护主犬",
+        "name": null,
         "model_id": 3075001,
         "hatch_data": 57600,
         "weight_low": 2590,
@@ -1396,21 +1396,15 @@
         "height_low": 24,
         "height_high": 33,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3075001,
                 "pet_id": 3075001,
-                "name": "异色护主犬",
+                "name": null,
                 "model_id": 3075001,
                 "hatch_data": 57600,
                 "weight_low": 2590,
@@ -1418,21 +1412,15 @@
                 "height_low": 24,
                 "height_high": 33,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3075002,
                 "pet_id": 3075002,
-                "name": "护主犬（首领血脉）",
+                "name": null,
                 "model_id": 3075001,
                 "hatch_data": 57600,
                 "weight_low": 2590,
@@ -1448,7 +1436,7 @@
             {
                 "id": 3075003,
                 "pet_id": 3075003,
-                "name": "护主犬（首领血脉）",
+                "name": null,
                 "model_id": 3075001,
                 "hatch_data": 300,
                 "weight_low": 2590,
@@ -1462,9 +1450,41 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3075004,
+                "pet_id": 3075004,
+                "name": null,
+                "model_id": 3075002,
+                "hatch_data": 57600,
+                "weight_low": 2590,
+                "weight_high": 3560,
+                "height_low": 24,
+                "height_high": 33,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3075005,
+                "pet_id": 3075005,
+                "name": null,
+                "model_id": 3075002,
+                "hatch_data": 57600,
+                "weight_low": 2590,
+                "weight_high": 3560,
+                "height_low": 24,
+                "height_high": 33,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 30750001,
                 "pet_id": 30750001,
-                "name": "异色护主犬",
+                "name": null,
                 "model_id": 3075001,
                 "hatch_data": 300,
                 "weight_low": 2590,
@@ -1478,127 +1498,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000010,
-                "pet_id": 91000010,
-                "name": "异色护主犬",
-                "model_id": 3075001,
-                "hatch_data": 57600,
-                "weight_low": 2590,
-                "weight_high": 3560,
-                "height_low": 24,
-                "height_high": 33,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000010,
-                "pet_id": 92000010,
-                "name": "异色护主犬",
-                "model_id": 3075001,
-                "hatch_data": 57600,
-                "weight_low": 2590,
-                "weight_high": 3560,
-                "height_low": 24,
-                "height_high": 33,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000010,
-                "pet_id": 93000010,
-                "name": "异色护主犬",
-                "model_id": 3075001,
-                "hatch_data": 57600,
-                "weight_low": 2590,
-                "weight_high": 3560,
-                "height_low": 24,
-                "height_high": 33,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000010,
-                "pet_id": 94000010,
-                "name": "异色护主犬",
-                "model_id": 3075001,
-                "hatch_data": 57600,
-                "weight_low": 2590,
-                "weight_high": 3560,
-                "height_low": 24,
-                "height_high": 33,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000010,
-                "pet_id": 96000010,
-                "name": "异色护主犬",
-                "model_id": 3075001,
-                "hatch_data": 57600,
-                "weight_low": 2590,
-                "weight_high": 3560,
-                "height_low": 24,
-                "height_high": 33,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000010,
-                "pet_id": 97000010,
-                "name": "异色护主犬",
-                "model_id": 3075001,
-                "hatch_data": 57600,
-                "weight_low": 2590,
-                "weight_high": 3560,
-                "height_low": 24,
-                "height_high": 33,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000010,
-                "pet_id": 98000010,
-                "name": "异色护主犬",
-                "model_id": 3075001,
-                "hatch_data": 57600,
-                "weight_low": 2590,
-                "weight_high": 3560,
-                "height_low": 24,
-                "height_high": 33,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000057,
                 "pet_id": 99000057,
-                "name": "异色护主犬",
+                "name": null,
                 "model_id": 3075001,
                 "hatch_data": 72000,
                 "weight_low": 2590,

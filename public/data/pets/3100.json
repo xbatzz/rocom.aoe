@@ -1,7 +1,7 @@
 {
     "id": 3100,
     "name": "bengchuangsongshu",
-    "form": "蹦床松鼠",
+    "form": "default",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -37,7 +37,7 @@
         "id": 51,
         "name": "bengchuangsongshu",
         "localized": {
-            "zh": "常见于树林"
+            "zh": "蹦床松鼠"
         }
     },
     "trait": {
@@ -1257,7 +1257,7 @@
                         "id": 3098,
                         "species_id": 49,
                         "name": "lversongshu",
-                        "form": "绿耳松鼠",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "绿耳松鼠"
@@ -1284,7 +1284,7 @@
                         "id": 3099,
                         "species_id": 50,
                         "name": "baozhensongshu",
-                        "form": "抱枕松鼠",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "抱枕松鼠"
@@ -1313,7 +1313,7 @@
                         "id": 3100,
                         "species_id": 51,
                         "name": "bengchuangsongshu",
-                        "form": "蹦床松鼠",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "蹦床松鼠"
@@ -1342,8 +1342,8 @@
         "current_monster_id": 3100
     },
     "world_profile": {
-        "type_desc": "常见于山林、草地",
-        "description_habitat": "常见于城镇、草地、雪山",
+        "type_desc": "圆滚滚精灵",
+        "description_habitat": "常见于树林",
         "introduction": "尾巴的力量非常强，巨大的尾部并不是蓬松的，内部有着强健的肌肉，实心并且富有弹性。可以用尾巴把自己弹射到三层楼那么高的地方。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1358,7 +1358,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

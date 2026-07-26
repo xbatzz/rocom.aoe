@@ -1,7 +1,7 @@
 {
     "id": 3521,
     "name": "lilayao",
-    "form": "里拉鳐",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -37,7 +37,7 @@
         "id": 219,
         "name": "lilayao",
         "localized": {
-            "zh": "常见于山地"
+            "zh": "里拉鳐"
         }
     },
     "trait": {
@@ -799,9 +799,53 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 2,
+            "energy_cost": 4,
             "power": null,
             "description": "自己获得1层萌芽印记。"
+        },
+        {
+            "id": 7180390,
+            "name": "纺纱",
+            "icon_id": "117037",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "纺纱",
+                    "description": "敌方获得1层暗涌印记。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 4,
+            "power": null,
+            "description": "敌方获得1层暗涌印记。"
+        },
+        {
+            "id": 7190450,
+            "name": "薄纱环",
+            "icon_id": "118036",
+            "move_type": {
+                "id": 18,
+                "name": "Illusion",
+                "localized": {
+                    "zh": "幻"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "薄纱环",
+                    "description": "选择：对手随机获得1种负面印记或自己随机获得1种正面印记。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 3,
+            "power": null,
+            "description": "选择：对手随机获得1种负面印记或自己随机获得1种正面印记。"
         }
     ],
     "legacy_moves": [
@@ -1301,7 +1345,7 @@
                         "id": 3521,
                         "species_id": 219,
                         "name": "lilayao",
-                        "form": "里拉鳐",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "里拉鳐"
@@ -1328,8 +1372,8 @@
         "current_monster_id": 3521
     },
     "world_profile": {
-        "type_desc": "偶见于城镇周边、山地",
-        "description_habitat": "猫老师精灵",
+        "type_desc": "里拉琴精灵",
+        "description_habitat": "常见于海面",
         "introduction": "里拉鳐的体表能够分泌并牵连出细长的粘液，这些粘液对水流变化极其敏感，能帮助它判断水流方向。游动时，水流掠过粘液弦会引发持续振动，发出琴音。一般认为雄性的气孔粘液更少，形成的琴弦更细，因此琴声更清脆明亮。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1344,13 +1388,13 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 525,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3521001,
         "pet_id": 3521001,
-        "name": "幽星光",
+        "name": null,
         "model_id": 3521001,
         "hatch_data": 72000,
         "weight_low": 13510,
@@ -1358,21 +1402,15 @@
         "height_low": 40,
         "height_high": 46,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            400,
-            3125
-        ],
-        "egg_add_glass_prob_array": [
-            2,
-            113
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3521001,
                 "pet_id": 3521001,
-                "name": "幽星光",
+                "name": null,
                 "model_id": 3521001,
                 "hatch_data": 72000,
                 "weight_low": 13510,
@@ -1380,21 +1418,15 @@
                 "height_low": 40,
                 "height_high": 46,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3521002,
                 "pet_id": 3521002,
-                "name": "幽星光",
+                "name": null,
                 "model_id": 3521001,
                 "hatch_data": 72000,
                 "weight_low": 13510,
@@ -1410,7 +1442,7 @@
             {
                 "id": 35210001,
                 "pet_id": 35210001,
-                "name": "幽星光",
+                "name": null,
                 "model_id": 3521001,
                 "hatch_data": 300,
                 "weight_low": 13510,
@@ -1424,127 +1456,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000028,
-                "pet_id": 91000028,
-                "name": "幽星光",
-                "model_id": 3521001,
-                "hatch_data": 72000,
-                "weight_low": 13510,
-                "weight_high": 19800,
-                "height_low": 40,
-                "height_high": 46,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000028,
-                "pet_id": 92000028,
-                "name": "幽星光",
-                "model_id": 3521001,
-                "hatch_data": 72000,
-                "weight_low": 13510,
-                "weight_high": 19800,
-                "height_low": 40,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000028,
-                "pet_id": 93000028,
-                "name": "幽星光",
-                "model_id": 3521001,
-                "hatch_data": 72000,
-                "weight_low": 13510,
-                "weight_high": 19800,
-                "height_low": 40,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000028,
-                "pet_id": 94000028,
-                "name": "幽星光",
-                "model_id": 3521001,
-                "hatch_data": 72000,
-                "weight_low": 13510,
-                "weight_high": 19800,
-                "height_low": 40,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000028,
-                "pet_id": 96000028,
-                "name": "幽星光",
-                "model_id": 3521001,
-                "hatch_data": 72000,
-                "weight_low": 13510,
-                "weight_high": 19800,
-                "height_low": 40,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000028,
-                "pet_id": 97000028,
-                "name": "幽星光",
-                "model_id": 3521001,
-                "hatch_data": 72000,
-                "weight_low": 13510,
-                "weight_high": 19800,
-                "height_low": 40,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000028,
-                "pet_id": 98000028,
-                "name": "幽星光",
-                "model_id": 3521001,
-                "hatch_data": 72000,
-                "weight_low": 13510,
-                "weight_high": 19800,
-                "height_low": 40,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000165,
                 "pet_id": 99000165,
-                "name": "幽星光",
+                "name": null,
                 "model_id": 3521001,
                 "hatch_data": 72000,
                 "weight_low": 13510,

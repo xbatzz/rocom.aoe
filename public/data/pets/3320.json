@@ -1,7 +1,7 @@
 {
     "id": 3320,
     "name": "fenerxingtu",
-    "form": "粉耳星兔",
+    "form": "default",
     "main_type": {
         "id": 18,
         "name": "Illusion",
@@ -37,7 +37,7 @@
         "id": 336,
         "name": "fenerxingtu",
         "localized": {
-            "zh": "画精灵"
+            "zh": "粉耳星兔"
         }
     },
     "trait": {
@@ -509,13 +509,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7021130,
@@ -626,6 +626,50 @@
             "energy_cost": 2,
             "power": 35,
             "description": "造成魔伤，敌方获得2层中毒。"
+        },
+        {
+            "id": 7190420,
+            "name": "星痕",
+            "icon_id": "118025",
+            "move_type": {
+                "id": 18,
+                "name": "Illusion",
+                "localized": {
+                    "zh": "幻"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "星痕",
+                    "description": "造成​魔伤，​若​对​手​有​印记，​本次技​能​威力​+40。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 90,
+            "description": "造成​魔伤，​若​对​手​有​印记，​本次技​能​威力​+40。"
+        },
+        {
+            "id": 7021210,
+            "name": "急中生智",
+            "icon_id": "301104",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "急中生智",
+                    "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 80,
+            "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
         }
     ],
     "legacy_moves": [
@@ -1125,7 +1169,7 @@
                         "id": 3319,
                         "species_id": 335,
                         "name": "fenxingzai",
-                        "form": "粉星仔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "粉星仔"
@@ -1152,7 +1196,7 @@
                         "id": 3320,
                         "species_id": 336,
                         "name": "fenerxingtu",
-                        "form": "粉耳星兔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "粉耳星兔"
@@ -1175,7 +1219,7 @@
                         "id": 3485,
                         "species_id": 337,
                         "name": "luoyunxingtu",
-                        "form": "落陨星兔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "落陨星兔"
@@ -1211,8 +1255,8 @@
         "current_monster_id": 3320
     },
     "world_profile": {
-        "type_desc": "常见于山地",
-        "description_habitat": "喵喵",
+        "type_desc": "信使精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "踏着流星而来的信使，在洛克族里传闻对着它们说话有概率可以梦想成真。它们总是很着急，在夜幕下如同一道道银针般穿行，谁让这世间的许愿总是太多、太多了呢。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1226,7 +1270,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 180,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

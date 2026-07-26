@@ -27,10 +27,10 @@
     },
     "implemented": true,
     "base_hp": 113,
-    "base_phy_atk": 90,
-    "base_mag_atk": 89,
-    "base_phy_def": 106,
-    "base_mag_def": 74,
+    "base_phy_atk": 102,
+    "base_mag_atk": 100,
+    "base_phy_def": 117,
+    "base_mag_def": 83,
     "base_spd": 100,
     "evolves_from_id": 3501,
     "species": {
@@ -43,12 +43,12 @@
     "trait": {
         "id": 200103,
         "name": "刺肤",
-        "description": "每受到1次攻击，对攻击自己的精灵造成50威力物理伤害。",
+        "description": "每受到1次攻击伤害，对攻击自己的精灵造成50威力物理伤害。",
         "icon_id": "200103",
         "localized": {
             "zh": {
                 "name": "刺肤",
-                "description": "每受到1次攻击，对攻击自己的精灵造成50威力物理伤害。"
+                "description": "每受到1次攻击伤害，对攻击自己的精灵造成50威力物理伤害。"
             }
         }
     },
@@ -243,13 +243,13 @@
             "localized": {
                 "zh": {
                     "name": "石锁",
-                    "description": "造成物伤，敌方3回合无法更换精灵。"
+                    "description": "造成物伤，敌方获得3回合禁足。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 50,
-            "description": "造成物伤，敌方3回合无法更换精灵。"
+            "description": "造成物伤，敌方获得3回合禁足。"
         },
         {
             "id": 7080250,
@@ -663,13 +663,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7020810,
@@ -736,6 +736,28 @@
             "energy_cost": 2,
             "power": null,
             "description": "减伤70%，巧变：毒系状态技能，应对攻击。"
+        },
+        {
+            "id": 7120270,
+            "name": "溶解",
+            "icon_id": "111028",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "溶解",
+                    "description": "减伤90%，应对攻击：驱散敌方1种增益。"
+                }
+            },
+            "move_category": "Defense",
+            "energy_cost": 2,
+            "power": null,
+            "description": "减伤90%，应对攻击：驱散敌方1种增益。"
         }
     ],
     "legacy_moves": [
@@ -1235,7 +1257,7 @@
                         "id": 3106,
                         "species_id": 24,
                         "name": "huociyanxiyi",
-                        "form": "石肤蜥",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "石肤蜥"
@@ -1256,7 +1278,7 @@
                         "id": 3500,
                         "species_id": 24,
                         "name": "shifuxi_yidi",
-                        "form": "石肤蜥",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "石肤蜥"
@@ -1387,8 +1409,8 @@
         "current_monster_id": 3502
     },
     "world_profile": {
-        "type_desc": "水元素精灵",
-        "description_habitat": "蜥蜴精灵",
+        "type_desc": "蜥蜴精灵",
+        "description_habitat": "常见于草地、山地",
         "introduction": "普遍性情暴躁，攻击性强，会发射岩石来划清自己的地盘。它背上石头与身体融合的原理至今仍是研究协会重要的研究课题。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1403,7 +1425,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

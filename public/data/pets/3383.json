@@ -1,7 +1,7 @@
 {
     "id": 3383,
     "name": "lidengyu",
-    "form": "利灯鱼",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -43,7 +43,7 @@
         "id": 321,
         "name": "lidengyu",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "利灯鱼"
         }
     },
     "trait": {
@@ -449,13 +449,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7170160,
@@ -652,7 +652,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
-            "power": 110,
+            "power": 140,
             "description": "造成物伤，每次使用后，本技能能耗永久+1。"
         }
     ],
@@ -1153,7 +1153,7 @@
                         "id": 3382,
                         "species_id": 320,
                         "name": "shungdengyu",
-                        "form": "双灯鱼",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "双灯鱼"
@@ -1186,7 +1186,7 @@
                         "id": 3383,
                         "species_id": 321,
                         "name": "lidengyu",
-                        "form": "利灯鱼",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "利灯鱼"
@@ -1221,8 +1221,8 @@
         "current_monster_id": 3383
     },
     "world_profile": {
-        "type_desc": "偶见于山地、雪山",
-        "description_habitat": "喵喵",
+        "type_desc": "狂乱精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "独居生物，个体之间保持距离，互不侵犯。常常自言自语，狂笑乱跳。据研究它们头顶的灯内有百万只以上的发光菌，肉眼很难观察。每只菌似乎都有独立意识，能够和本体进行沟通，甚至还有可能侵蚀本体的脑。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1236,7 +1236,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

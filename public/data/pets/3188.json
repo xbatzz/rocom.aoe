@@ -1,7 +1,7 @@
 {
     "id": 3188,
     "name": "late",
-    "form": "拉特",
+    "form": "default",
     "main_type": {
         "id": 9,
         "name": "Electric",
@@ -37,7 +37,7 @@
         "id": 205,
         "name": "late",
         "localized": {
-            "zh": "棋子精灵"
+            "zh": "拉特"
         }
     },
     "trait": {
@@ -531,13 +531,13 @@
             "localized": {
                 "zh": {
                     "name": "电离爆破",
-                    "description": "敌方获得速度-40，3连击。"
+                    "description": "敌方获得魔攻-20%，速度-20，2连击。"
                 }
             },
             "move_category": "Status",
-            "energy_cost": 3,
+            "energy_cost": 1,
             "power": null,
-            "description": "敌方获得速度-40，3连击。"
+            "description": "敌方获得魔攻-20%，速度-20，2连击。"
         },
         {
             "id": 7130140,
@@ -736,6 +736,50 @@
             "energy_cost": 3,
             "power": null,
             "description": "自己和敌方获得萌化：回复40%生命。"
+        },
+        {
+            "id": 7110450,
+            "name": "通电",
+            "icon_id": "110032",
+            "move_type": {
+                "id": 9,
+                "name": "Electric",
+                "localized": {
+                    "zh": "电"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "通电",
+                    "description": "造​成​物伤，​敌方获得​1​层引电。​"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 75,
+            "description": "造​成​物伤，​敌方获得​1​层引电。​"
+        },
+        {
+            "id": 7160350,
+            "name": "可爱",
+            "icon_id": "115029",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "可爱",
+                    "description": "对敌方精灵造成魔法伤害。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 100,
+            "description": "对敌方精灵造成魔法伤害。"
         }
     ],
     "legacy_moves": [
@@ -1235,7 +1279,7 @@
                         "id": 3188,
                         "species_id": 205,
                         "name": "late",
-                        "form": "拉特",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "拉特"
@@ -1262,7 +1306,7 @@
                         "id": 3189,
                         "species_id": 206,
                         "name": "kula",
-                        "form": "酷拉",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "酷拉"
@@ -1291,8 +1335,8 @@
         "current_monster_id": 3188
     },
     "world_profile": {
-        "type_desc": "蒲公英",
-        "description_habitat": "常见于海洋",
+        "type_desc": "沉默精灵",
+        "description_habitat": "常见于山林",
         "introduction": "同伴之间经常会打架，用头或者用拳头对撞，每撞一下都会闪着电光。大多数拉特沉默寡言，但正义感十足，拉特们会出手帮助遇到麻烦的洛克和精灵。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1307,13 +1351,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3188001,
         "pet_id": 3188001,
-        "name": "异色空空颅的蛋",
+        "name": null,
         "model_id": 3188001,
         "hatch_data": 28800,
         "weight_low": 2695,
@@ -1321,21 +1365,15 @@
         "height_low": 21,
         "height_high": 25,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
-        "is_contact_add_shining_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
+        "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3188001,
                 "pet_id": 3188001,
-                "name": "异色空空颅的蛋",
+                "name": null,
                 "model_id": 3188001,
                 "hatch_data": 28800,
                 "weight_low": 2695,
@@ -1343,21 +1381,15 @@
                 "height_low": 21,
                 "height_high": 25,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
             },
             {
                 "id": 3188002,
                 "pet_id": 3188002,
-                "name": "多多",
+                "name": null,
                 "model_id": 3188002,
                 "hatch_data": 28800,
                 "weight_low": 2695,
@@ -1365,21 +1397,15 @@
                 "height_low": 21,
                 "height_high": 25,
                 "precious_egg_type": 2,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3188003,
                 "pet_id": 3188003,
-                "name": "炫彩多多",
+                "name": null,
                 "model_id": 3188001,
                 "hatch_data": 28800,
                 "weight_low": 2695,
@@ -1393,16 +1419,32 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3215002,
-                "pet_id": 3215002,
-                "name": "拉特",
-                "model_id": 3215001,
-                "hatch_data": 72000,
-                "weight_low": 24325,
-                "weight_high": 35040,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
+                "id": 3188004,
+                "pet_id": 3188004,
+                "name": null,
+                "model_id": 3188002,
+                "hatch_data": 28800,
+                "weight_low": 2695,
+                "weight_high": 3440,
+                "height_low": 21,
+                "height_high": 25,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3188005,
+                "pet_id": 3188005,
+                "name": null,
+                "model_id": 3188001,
+                "hatch_data": 300,
+                "weight_low": 2695,
+                "weight_high": 3440,
+                "height_low": 21,
+                "height_high": 25,
+                "precious_egg_type": 6,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1411,7 +1453,7 @@
             {
                 "id": 31880001,
                 "pet_id": 31880001,
-                "name": "异色空空颅的蛋",
+                "name": null,
                 "model_id": 3188001,
                 "hatch_data": 300,
                 "weight_low": 2695,
@@ -1425,127 +1467,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000052,
-                "pet_id": 91000052,
-                "name": "异色空空颅的蛋",
-                "model_id": 3188001,
-                "hatch_data": 28800,
-                "weight_low": 2695,
-                "weight_high": 3440,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000052,
-                "pet_id": 92000052,
-                "name": "异色空空颅的蛋",
-                "model_id": 3188001,
-                "hatch_data": 28800,
-                "weight_low": 2695,
-                "weight_high": 3440,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000052,
-                "pet_id": 93000052,
-                "name": "异色空空颅的蛋",
-                "model_id": 3188001,
-                "hatch_data": 28800,
-                "weight_low": 2695,
-                "weight_high": 3440,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000052,
-                "pet_id": 94000052,
-                "name": "异色空空颅的蛋",
-                "model_id": 3188001,
-                "hatch_data": 28800,
-                "weight_low": 2695,
-                "weight_high": 3440,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000052,
-                "pet_id": 96000052,
-                "name": "异色空空颅的蛋",
-                "model_id": 3188001,
-                "hatch_data": 28800,
-                "weight_low": 2695,
-                "weight_high": 3440,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000052,
-                "pet_id": 97000052,
-                "name": "异色空空颅的蛋",
-                "model_id": 3188001,
-                "hatch_data": 28800,
-                "weight_low": 2695,
-                "weight_high": 3440,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000052,
-                "pet_id": 98000052,
-                "name": "异色空空颅的蛋",
-                "model_id": 3188001,
-                "hatch_data": 28800,
-                "weight_low": 2695,
-                "weight_high": 3440,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000059,
                 "pet_id": 99000059,
-                "name": "异色空空颅的蛋",
+                "name": null,
                 "model_id": 3188001,
                 "hatch_data": 72000,
                 "weight_low": 2695,

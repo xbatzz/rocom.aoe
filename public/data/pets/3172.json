@@ -1,7 +1,7 @@
 {
     "id": 3172,
     "name": "xuedouding",
-    "form": "雪豆丁",
+    "form": "default",
     "main_type": {
         "id": 7,
         "name": "Ice",
@@ -37,7 +37,7 @@
         "id": 134,
         "name": "xuedouding",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "雪豆丁"
         }
     },
     "trait": {
@@ -629,7 +629,7 @@
         },
         {
             "id": 7090430,
-            "name": "冰封",
+            "name": "冷凝",
             "icon_id": "108039",
             "move_type": {
                 "id": 7,
@@ -640,7 +640,7 @@
             },
             "localized": {
                 "zh": {
-                    "name": "冰封",
+                    "name": "冷凝",
                     "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
                 }
             },
@@ -648,6 +648,72 @@
             "energy_cost": 4,
             "power": 95,
             "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
+        },
+        {
+            "id": 7090460,
+            "name": "雪原狩猎",
+            "icon_id": "208041",
+            "move_type": {
+                "id": 7,
+                "name": "Ice",
+                "localized": {
+                    "zh": "冰"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "雪原狩猎",
+                    "description": "造​成​物伤，​天气为暴风雪时，本次技能威力​+50%"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 80,
+            "description": "造​成​物伤，​天气为暴风雪时，本次技能威力​+50%"
+        },
+        {
+            "id": 7140330,
+            "name": "马步",
+            "icon_id": "313037",
+            "move_type": {
+                "id": 12,
+                "name": "Fighting",
+                "localized": {
+                    "zh": "武"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "马步",
+                    "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 3,
+            "power": null,
+            "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+        },
+        {
+            "id": 7021280,
+            "name": "缓一缓",
+            "icon_id": "101114",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "缓一缓",
+                    "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
         }
     ],
     "legacy_moves": [
@@ -1147,7 +1213,7 @@
                         "id": 3172,
                         "species_id": 134,
                         "name": "xuedouding",
-                        "form": "雪豆丁",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雪豆丁"
@@ -1174,7 +1240,7 @@
                         "id": 3173,
                         "species_id": 135,
                         "name": "xuemanren",
-                        "form": "雪蛮人",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雪蛮人"
@@ -1203,7 +1269,7 @@
                         "id": 3174,
                         "species_id": 136,
                         "name": "xuejuren",
-                        "form": "雪巨人",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雪巨人"
@@ -1232,8 +1298,8 @@
         "current_monster_id": 3172
     },
     "world_profile": {
-        "type_desc": "舔舔精灵",
-        "description_habitat": "狸精灵",
+        "type_desc": "冰冰凉精灵",
+        "description_habitat": "常见于雪山",
         "introduction": "出生后被父母放置在雪窝里，进食补充的能量会在冬眠时令身躯快速成长。大手大脚的雪豆丁习惯于翻滚着移动。思维直接，比较容易发脾气，可以抚摸脑袋令其冷静。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1248,13 +1314,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 3000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3172001,
         "pet_id": 3172001,
-        "name": "小夜（完美无暇）",
+        "name": null,
         "model_id": 3172001,
         "hatch_data": 57600,
         "weight_low": 3325,
@@ -1262,21 +1328,15 @@
         "height_low": 37,
         "height_high": 51,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3172001,
                 "pet_id": 3172001,
-                "name": "小夜（完美无暇）",
+                "name": null,
                 "model_id": 3172001,
                 "hatch_data": 57600,
                 "weight_low": 3325,
@@ -1284,23 +1344,33 @@
                 "height_low": 37,
                 "height_high": 51,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3172002,
                 "pet_id": 3172002,
-                "name": "异色小夜",
+                "name": null,
                 "model_id": 3172001,
                 "hatch_data": 57600,
+                "weight_low": 3325,
+                "weight_high": 5000,
+                "height_low": 37,
+                "height_high": 51,
+                "precious_egg_type": 1,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3172003,
+                "pet_id": 3172003,
+                "name": null,
+                "model_id": 3172001,
+                "hatch_data": 300,
                 "weight_low": 3325,
                 "weight_high": 5000,
                 "height_low": 37,
@@ -1314,7 +1384,7 @@
             {
                 "id": 31720001,
                 "pet_id": 31720001,
-                "name": "小夜（完美无暇）",
+                "name": null,
                 "model_id": 3172001,
                 "hatch_data": 300,
                 "weight_low": 3325,
@@ -1328,171 +1398,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000090,
-                "pet_id": 91000090,
-                "name": "小夜（完美无暇）",
-                "model_id": 3172001,
-                "hatch_data": 57600,
-                "weight_low": 3325,
-                "weight_high": 5000,
-                "height_low": 37,
-                "height_high": 51,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000090,
-                "pet_id": 92000090,
-                "name": "小夜（完美无暇）",
-                "model_id": 3172001,
-                "hatch_data": 57600,
-                "weight_low": 3325,
-                "weight_high": 5000,
-                "height_low": 37,
-                "height_high": 51,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000090,
-                "pet_id": 93000090,
-                "name": "小夜（完美无暇）",
-                "model_id": 3172001,
-                "hatch_data": 57600,
-                "weight_low": 3325,
-                "weight_high": 5000,
-                "height_low": 37,
-                "height_high": 51,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000090,
-                "pet_id": 94000090,
-                "name": "小夜（完美无暇）",
-                "model_id": 3172001,
-                "hatch_data": 57600,
-                "weight_low": 3325,
-                "weight_high": 5000,
-                "height_low": 37,
-                "height_high": 51,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000020,
-                "pet_id": 95000020,
-                "name": "小夜（完美无暇）",
-                "model_id": 3172001,
-                "hatch_data": 57600,
-                "weight_low": 3325,
-                "weight_high": 5000,
-                "height_low": 37,
-                "height_high": 51,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000090,
-                "pet_id": 96000090,
-                "name": "小夜（完美无暇）",
-                "model_id": 3172001,
-                "hatch_data": 57600,
-                "weight_low": 3325,
-                "weight_high": 5000,
-                "height_low": 37,
-                "height_high": 51,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000090,
-                "pet_id": 97000090,
-                "name": "小夜（完美无暇）",
-                "model_id": 3172001,
-                "hatch_data": 57600,
-                "weight_low": 3325,
-                "weight_high": 5000,
-                "height_low": 37,
-                "height_high": 51,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000090,
-                "pet_id": 98000090,
-                "name": "小夜（完美无暇）",
-                "model_id": 3172001,
-                "hatch_data": 57600,
-                "weight_low": 3325,
-                "weight_high": 5000,
-                "height_low": 37,
-                "height_high": 51,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000020,
-                "pet_id": 99000020,
-                "name": "小夜（完美无暇）",
-                "model_id": 3172001,
-                "hatch_data": 57600,
-                "weight_low": 3325,
-                "weight_high": 5000,
-                "height_low": 37,
-                "height_high": 51,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000068,
                 "pet_id": 99000068,
-                "name": "小夜（完美无暇）",
+                "name": null,
                 "model_id": 3172001,
                 "hatch_data": 72000,
                 "weight_low": 3325,

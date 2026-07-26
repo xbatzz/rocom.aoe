@@ -1,7 +1,7 @@
 {
     "id": 3011,
     "name": "emolang",
-    "form": "恶魔狼",
+    "form": "default",
     "main_type": {
         "id": 16,
         "name": "Dark",
@@ -37,7 +37,7 @@
         "id": 131,
         "name": "emolang",
         "localized": {
-            "zh": "猫精灵"
+            "zh": "恶魔狼"
         }
     },
     "trait": {
@@ -199,13 +199,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7180340,
@@ -1169,7 +1169,7 @@
                         "id": 3011,
                         "species_id": 131,
                         "name": "emolang",
-                        "form": "恶魔狼",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "恶魔狼"
@@ -1197,7 +1197,7 @@
                         "id": 4011,
                         "species_id": 131,
                         "name": "emolang_shouling",
-                        "form": "恶魔狼王",
+                        "form": "王",
                         "localized": {
                             "zh": {
                                 "name": "恶魔狼王"
@@ -1218,7 +1218,28 @@
                         "id": 5016,
                         "species_id": 131,
                         "name": "emolang_shouling",
-                        "form": "恶魔狼王",
+                        "form": "王",
+                        "localized": {
+                            "zh": {
+                                "name": "恶魔狼王"
+                            }
+                        },
+                        "is_leader_form": true,
+                        "main_type": {
+                            "id": 16,
+                            "name": "Dark",
+                            "localized": {
+                                "zh": "恶"
+                            }
+                        },
+                        "sub_type": null,
+                        "evolution_conditions": []
+                    },
+                    {
+                        "id": 8104,
+                        "species_id": 131,
+                        "name": "emolang_shouling",
+                        "form": "王",
                         "localized": {
                             "zh": {
                                 "name": "恶魔狼王"
@@ -1239,13 +1260,13 @@
             }
         ],
         "max_depth": 1,
-        "total_unique_monsters": 3,
+        "total_unique_monsters": 4,
         "species_id": 131,
         "current_monster_id": 3011
     },
     "world_profile": {
-        "type_desc": "舔舔精灵",
-        "description_habitat": "黑猫巫师",
+        "type_desc": "狼精灵",
+        "description_habitat": "偶见于山地",
         "introduction": "胸前的毛发非常粗糙，似乎能够起到保护作用。能够在战场上高速地移动，迅猛的前爪攻击十分有力。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1260,19 +1281,19 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 180,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
-        "id": 3009001,
-        "pet_id": 3009001,
-        "name": "恶魔狼",
-        "model_id": 3009001,
-        "hatch_data": 1,
-        "weight_low": 1,
-        "weight_high": 10,
-        "height_low": 1,
-        "height_high": 10,
+        "id": 3011001,
+        "pet_id": 3011001,
+        "name": null,
+        "model_id": 3011001,
+        "hatch_data": 72000,
+        "weight_low": 25900,
+        "weight_high": 36800,
+        "height_low": 52,
+        "height_high": 73,
         "precious_egg_type": null,
         "egg_base_glass_prob_array": null,
         "egg_add_glass_prob_array": null,
@@ -1280,25 +1301,9 @@
         "is_contact_add_shining_prob": null,
         "variants": [
             {
-                "id": 3009001,
-                "pet_id": 3009001,
-                "name": "恶魔狼",
-                "model_id": 3009001,
-                "hatch_data": 1,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 3011001,
                 "pet_id": 3011001,
-                "name": "异色恶魔狼的蛋",
+                "name": null,
                 "model_id": 3011001,
                 "hatch_data": 72000,
                 "weight_low": 25900,
@@ -1306,21 +1311,15 @@
                 "height_low": 52,
                 "height_high": 73,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
             },
             {
                 "id": 3011002,
                 "pet_id": 3011002,
-                "name": "鸭吉吉（首领血脉）",
+                "name": null,
                 "model_id": 3011002,
                 "hatch_data": 72000,
                 "weight_low": 25900,
@@ -1336,7 +1335,7 @@
             {
                 "id": 3011003,
                 "pet_id": 3011003,
-                "name": "阿米亚特",
+                "name": null,
                 "model_id": 3011001,
                 "hatch_data": 300,
                 "weight_low": 25900,
@@ -1344,21 +1343,15 @@
                 "height_low": 52,
                 "height_high": 73,
                 "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
             },
             {
                 "id": 3011004,
                 "pet_id": 3011004,
-                "name": "蹦蹦种子（首领血脉）",
+                "name": null,
                 "model_id": 3011002,
                 "hatch_data": 72000,
                 "weight_low": 25900,
@@ -1366,21 +1359,15 @@
                 "height_low": 52,
                 "height_high": 73,
                 "precious_egg_type": 2,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3011005,
                 "pet_id": 3011005,
-                "name": "阿米亚特",
+                "name": null,
                 "model_id": 3011001,
                 "hatch_data": 300,
                 "weight_low": 25900,
@@ -1388,28 +1375,22 @@
                 "height_low": 52,
                 "height_high": 73,
                 "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
             },
             {
-                "id": 30090001,
-                "pet_id": 30090001,
-                "name": "恶魔狼",
-                "model_id": 3009001,
-                "hatch_data": 300,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
-                "precious_egg_type": 7,
+                "id": 3011006,
+                "pet_id": 3011006,
+                "name": null,
+                "model_id": 3011002,
+                "hatch_data": 72000,
+                "weight_low": 25900,
+                "weight_high": 36800,
+                "height_low": 52,
+                "height_high": 73,
+                "precious_egg_type": 2,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1418,7 +1399,7 @@
             {
                 "id": 30110001,
                 "pet_id": 30110001,
-                "name": "异色恶魔狼的蛋",
+                "name": null,
                 "model_id": 3011001,
                 "hatch_data": 300,
                 "weight_low": 25900,
@@ -1432,171 +1413,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000009,
-                "pet_id": 91000009,
-                "name": "异色恶魔狼的蛋",
-                "model_id": 3011001,
-                "hatch_data": 72000,
-                "weight_low": 25900,
-                "weight_high": 36800,
-                "height_low": 52,
-                "height_high": 73,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000009,
-                "pet_id": 92000009,
-                "name": "异色恶魔狼的蛋",
-                "model_id": 3011001,
-                "hatch_data": 72000,
-                "weight_low": 25900,
-                "weight_high": 36800,
-                "height_low": 52,
-                "height_high": 73,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000009,
-                "pet_id": 93000009,
-                "name": "异色恶魔狼的蛋",
-                "model_id": 3011001,
-                "hatch_data": 72000,
-                "weight_low": 25900,
-                "weight_high": 36800,
-                "height_low": 52,
-                "height_high": 73,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000009,
-                "pet_id": 94000009,
-                "name": "异色恶魔狼的蛋",
-                "model_id": 3011001,
-                "hatch_data": 72000,
-                "weight_low": 25900,
-                "weight_high": 36800,
-                "height_low": 52,
-                "height_high": 73,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000001,
-                "pet_id": 95000001,
-                "name": "异色恶魔狼的蛋",
-                "model_id": 3011001,
-                "hatch_data": 72000,
-                "weight_low": 25900,
-                "weight_high": 36800,
-                "height_low": 52,
-                "height_high": 73,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000009,
-                "pet_id": 96000009,
-                "name": "异色恶魔狼的蛋",
-                "model_id": 3011001,
-                "hatch_data": 72000,
-                "weight_low": 25900,
-                "weight_high": 36800,
-                "height_low": 52,
-                "height_high": 73,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000009,
-                "pet_id": 97000009,
-                "name": "异色恶魔狼的蛋",
-                "model_id": 3011001,
-                "hatch_data": 72000,
-                "weight_low": 25900,
-                "weight_high": 36800,
-                "height_low": 52,
-                "height_high": 73,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000009,
-                "pet_id": 98000009,
-                "name": "异色恶魔狼的蛋",
-                "model_id": 3011001,
-                "hatch_data": 72000,
-                "weight_low": 25900,
-                "weight_high": 36800,
-                "height_low": 52,
-                "height_high": 73,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000001,
-                "pet_id": 99000001,
-                "name": "异色恶魔狼的蛋",
-                "model_id": 3011001,
-                "hatch_data": 72000,
-                "weight_low": 25900,
-                "weight_high": 36800,
-                "height_low": 52,
-                "height_high": 73,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000066,
                 "pet_id": 99000066,
-                "name": "异色恶魔狼的蛋",
+                "name": null,
                 "model_id": 3011001,
                 "hatch_data": 72000,
                 "weight_low": 25900,

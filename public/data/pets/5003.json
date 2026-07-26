@@ -1,7 +1,7 @@
 {
     "id": 5003,
     "name": "molimiao_shouling",
-    "form": "叶冕魔力猫",
+    "form": "叶冕",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -26,9 +26,9 @@
         }
     },
     "implemented": true,
-    "base_hp": 131,
-    "base_phy_atk": 109,
-    "base_mag_atk": 109,
+    "base_hp": 108,
+    "base_phy_atk": 127,
+    "base_mag_atk": 127,
     "base_phy_def": 81,
     "base_mag_def": 151,
     "base_spd": 55,
@@ -37,7 +37,7 @@
         "id": 4,
         "name": "molimiao",
         "localized": {
-            "zh": "草之灵"
+            "zh": "魔力猫"
         }
     },
     "trait": {
@@ -624,7 +624,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
-            "power": 110,
+            "power": 140,
             "description": "造成物伤，每次使用后，本技能能耗永久+1。"
         },
         {
@@ -758,6 +758,28 @@
             "energy_cost": 2,
             "power": null,
             "description": "减伤80%，应对攻击：自己获得物防+70%。"
+        },
+        {
+            "id": 7140090,
+            "name": "斩断",
+            "icon_id": "213009",
+            "move_type": {
+                "id": 12,
+                "name": "Fighting",
+                "localized": {
+                    "zh": "武"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "斩断",
+                    "description": "造成物伤，应对状态：额外打断被应对技能。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 2,
+            "power": 70,
+            "description": "造成物伤，应对状态：额外打断被应对技能。"
         }
     ],
     "legacy_moves": [
@@ -1257,7 +1279,7 @@
                         "id": 3001,
                         "species_id": 2,
                         "name": "miaomiao",
-                        "form": "喵喵",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "喵喵"
@@ -1284,7 +1306,7 @@
                         "id": 3025,
                         "species_id": 3,
                         "name": "miaowu",
-                        "form": "喵呜",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "喵呜"
@@ -1316,7 +1338,7 @@
                         "id": 3007,
                         "species_id": 4,
                         "name": "molimiao",
-                        "form": "魔力猫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "魔力猫"
@@ -1349,7 +1371,7 @@
                         "id": 4007,
                         "species_id": 4,
                         "name": "molimiao_shouling",
-                        "form": "叶冕魔力猫",
+                        "form": "叶冕",
                         "localized": {
                             "zh": {
                                 "name": "叶冕魔力猫"
@@ -1370,7 +1392,49 @@
                         "id": 5003,
                         "species_id": 4,
                         "name": "molimiao_shouling",
-                        "form": "叶冕魔力猫",
+                        "form": "叶冕",
+                        "localized": {
+                            "zh": {
+                                "name": "叶冕魔力猫"
+                            }
+                        },
+                        "is_leader_form": true,
+                        "main_type": {
+                            "id": 2,
+                            "name": "Grass",
+                            "localized": {
+                                "zh": "草"
+                            }
+                        },
+                        "sub_type": null,
+                        "evolution_conditions": []
+                    },
+                    {
+                        "id": 5061,
+                        "species_id": 4,
+                        "name": "wumiao",
+                        "form": "武斗酷猫",
+                        "localized": {
+                            "zh": {
+                                "name": "武斗酷猫"
+                            }
+                        },
+                        "is_leader_form": true,
+                        "main_type": {
+                            "id": 2,
+                            "name": "Grass",
+                            "localized": {
+                                "zh": "草"
+                            }
+                        },
+                        "sub_type": null,
+                        "evolution_conditions": []
+                    },
+                    {
+                        "id": 8103,
+                        "species_id": 4,
+                        "name": "molimiao_shouling",
+                        "form": "叶冕",
                         "localized": {
                             "zh": {
                                 "name": "叶冕魔力猫"
@@ -1391,13 +1455,13 @@
             }
         ],
         "max_depth": 3,
-        "total_unique_monsters": 5,
+        "total_unique_monsters": 7,
         "species_id": 4,
         "current_monster_id": 5003
     },
     "world_profile": {
-        "type_desc": "喵喵",
-        "description_habitat": "喵喵",
+        "type_desc": "草之灵",
+        "description_habitat": "行踪神秘",
         "introduction": "“每天尽情地吃可可果，和喜欢的小洛克一起冒险，是很开心的生活。”",
         "refresh_locations": [],
         "movement_type": "步行",

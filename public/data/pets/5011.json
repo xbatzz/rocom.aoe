@@ -43,7 +43,7 @@
         "id": 110,
         "name": "caidiesha",
         "localized": {
-            "zh": "魔翼鸟"
+            "zh": "彩蝶鲨"
         }
     },
     "trait": {
@@ -1153,7 +1153,7 @@
                         "id": 3115,
                         "species_id": 108,
                         "name": "fuzhousha",
-                        "form": "风铃鲨",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "风铃鲨"
@@ -1186,7 +1186,7 @@
                         "id": 3116,
                         "species_id": 109,
                         "name": "landiesha",
-                        "form": "蓝蝶鲨",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "蓝蝶鲨"
@@ -1221,7 +1221,7 @@
                         "id": 3117,
                         "species_id": 110,
                         "name": "caidiesha",
-                        "form": "彩蝶鲨",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "彩蝶鲨"
@@ -1316,8 +1316,8 @@
         "current_monster_id": 5011
     },
     "world_profile": {
-        "type_desc": "啃啃精灵",
-        "description_habitat": "硬壳精灵",
+        "type_desc": "轻飘飘精灵",
+        "description_habitat": "常见于湖泊",
         "introduction": "暴雨时，它将雨水储藏在身体中；干旱降至，它在半空挥舞翼膜，水分升空化作雾墙，再聚成雨云。“这一路上，跌跌撞撞，有时快乐，有时候感伤，可是它依然坚强，哪怕真的没有尽头，它都愿意继续前行。”",
         "refresh_locations": [],
         "movement_type": "浮游",

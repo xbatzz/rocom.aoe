@@ -1,7 +1,7 @@
 {
     "id": 3008,
     "name": "caotouya",
-    "form": "草头鸭",
+    "form": "default",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -37,7 +37,7 @@
         "id": 179,
         "name": "caotouya",
         "localized": {
-            "zh": "怒目怂猫"
+            "zh": "草头鸭"
         }
     },
     "trait": {
@@ -692,6 +692,50 @@
             "energy_cost": 2,
             "power": null,
             "description": "减伤60%，应对攻击：自己获得全技能能耗-2。"
+        },
+        {
+            "id": 7050490,
+            "name": "沉溺",
+            "icon_id": "104037",
+            "move_type": {
+                "id": 4,
+                "name": "Water",
+                "localized": {
+                    "zh": "水"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "沉溺",
+                    "description": "造成物伤，天气为雨天时，本技能能耗-2。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 4,
+            "power": 110,
+            "description": "造成物伤，天气为雨天时，本技能能耗-2。"
+        },
+        {
+            "id": 7140330,
+            "name": "马步",
+            "icon_id": "313037",
+            "move_type": {
+                "id": 12,
+                "name": "Fighting",
+                "localized": {
+                    "zh": "武"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "马步",
+                    "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 3,
+            "power": null,
+            "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
         }
     ],
     "legacy_moves": [
@@ -1191,7 +1235,7 @@
                         "id": 3008,
                         "species_id": 179,
                         "name": "caotouya",
-                        "form": "草头鸭",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "草头鸭"
@@ -1218,7 +1262,7 @@
                         "id": 3067,
                         "species_id": 180,
                         "name": "zhuangzhuangya",
-                        "form": "卷毛鸭",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "卷毛鸭"
@@ -1256,8 +1300,8 @@
         "current_monster_id": 3008
     },
     "world_profile": {
-        "type_desc": "食蚁兽精灵",
-        "description_habitat": "常见于山林",
+        "type_desc": "鸭仔精灵",
+        "description_habitat": "常见于河岸、山地",
         "introduction": "眼睛长在两侧，不停地转动，不知道是不是在思考，很难解读它的行为规律。视觉范围有360度，从任何方向接近都会被它发现。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1272,61 +1316,29 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 3000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
-        "id": 3004001,
-        "pet_id": 3004001,
-        "name": "草头鸭",
-        "model_id": 3004001,
-        "hatch_data": 72000,
-        "weight_low": 1925,
-        "weight_high": 2800,
-        "height_low": 23,
-        "height_high": 32,
-        "precious_egg_type": 1,
+        "id": 3008001,
+        "pet_id": 3008001,
+        "name": null,
+        "model_id": 3008001,
+        "hatch_data": 28800,
+        "weight_low": 1715,
+        "weight_high": 2628,
+        "height_low": 21,
+        "height_high": 30,
+        "precious_egg_type": null,
         "egg_base_glass_prob_array": null,
         "egg_add_glass_prob_array": null,
         "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
-                "id": 3004001,
-                "pet_id": 3004001,
-                "name": "草头鸭",
-                "model_id": 3004001,
-                "hatch_data": 72000,
-                "weight_low": 1925,
-                "weight_high": 2800,
-                "height_low": 23,
-                "height_high": 32,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3004003,
-                "pet_id": 3004003,
-                "name": "草头鸭",
-                "model_id": 3004001,
-                "hatch_data": 72000,
-                "weight_low": 1925,
-                "weight_high": 2800,
-                "height_low": 23,
-                "height_high": 32,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 3008001,
                 "pet_id": 3008001,
-                "name": "赤毛鸡仔",
+                "name": null,
                 "model_id": 3008001,
                 "hatch_data": 28800,
                 "weight_low": 1715,
@@ -1334,21 +1346,15 @@
                 "height_low": 21,
                 "height_high": 30,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3008002,
                 "pet_id": 3008002,
-                "name": "异色恶魔叮",
+                "name": null,
                 "model_id": 3008001,
                 "hatch_data": 28800,
                 "weight_low": 1715,
@@ -1356,22 +1362,6 @@
                 "height_low": 21,
                 "height_high": 30,
                 "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 30040001,
-                "pet_id": 30040001,
-                "name": "草头鸭",
-                "model_id": 3004001,
-                "hatch_data": 300,
-                "weight_low": 1925,
-                "weight_high": 2800,
-                "height_low": 23,
-                "height_high": 32,
-                "precious_egg_type": 7,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1380,7 +1370,7 @@
             {
                 "id": 30080001,
                 "pet_id": 30080001,
-                "name": "赤毛鸡仔",
+                "name": null,
                 "model_id": 3008001,
                 "hatch_data": 300,
                 "weight_low": 1715,
@@ -1394,127 +1384,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000067,
-                "pet_id": 91000067,
-                "name": "赤毛鸡仔",
-                "model_id": 3008001,
-                "hatch_data": 28800,
-                "weight_low": 1715,
-                "weight_high": 2628,
-                "height_low": 21,
-                "height_high": 30,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000067,
-                "pet_id": 92000067,
-                "name": "赤毛鸡仔",
-                "model_id": 3008001,
-                "hatch_data": 28800,
-                "weight_low": 1715,
-                "weight_high": 2628,
-                "height_low": 21,
-                "height_high": 30,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000067,
-                "pet_id": 93000067,
-                "name": "赤毛鸡仔",
-                "model_id": 3008001,
-                "hatch_data": 28800,
-                "weight_low": 1715,
-                "weight_high": 2628,
-                "height_low": 21,
-                "height_high": 30,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000067,
-                "pet_id": 94000067,
-                "name": "赤毛鸡仔",
-                "model_id": 3008001,
-                "hatch_data": 28800,
-                "weight_low": 1715,
-                "weight_high": 2628,
-                "height_low": 21,
-                "height_high": 30,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000067,
-                "pet_id": 96000067,
-                "name": "赤毛鸡仔",
-                "model_id": 3008001,
-                "hatch_data": 28800,
-                "weight_low": 1715,
-                "weight_high": 2628,
-                "height_low": 21,
-                "height_high": 30,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000067,
-                "pet_id": 97000067,
-                "name": "赤毛鸡仔",
-                "model_id": 3008001,
-                "hatch_data": 28800,
-                "weight_low": 1715,
-                "weight_high": 2628,
-                "height_low": 21,
-                "height_high": 30,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000067,
-                "pet_id": 98000067,
-                "name": "赤毛鸡仔",
-                "model_id": 3008001,
-                "hatch_data": 28800,
-                "weight_low": 1715,
-                "weight_high": 2628,
-                "height_low": 21,
-                "height_high": 30,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000152,
                 "pet_id": 99000152,
-                "name": "赤毛鸡仔",
+                "name": null,
                 "model_id": 3008001,
                 "hatch_data": 72000,
                 "weight_low": 1715,

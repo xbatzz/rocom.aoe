@@ -1,7 +1,7 @@
 {
     "id": 3154,
     "name": "qiuluo",
-    "form": "裘洛",
+    "form": "default",
     "main_type": {
         "id": 10,
         "name": "Poison",
@@ -37,7 +37,7 @@
         "id": 246,
         "name": "qiuluo",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "裘洛"
         }
     },
     "trait": {
@@ -1235,7 +1235,7 @@
                         "id": 3154,
                         "species_id": 246,
                         "name": "qiuluo",
-                        "form": "裘洛",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "裘洛"
@@ -1262,7 +1262,7 @@
                         "id": 3155,
                         "species_id": 247,
                         "name": "qiuli",
-                        "form": "裘力",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "裘力"
@@ -1291,7 +1291,7 @@
                         "id": 3156,
                         "species_id": 248,
                         "name": "qiuka",
-                        "form": "裘卡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "裘卡"
@@ -1320,8 +1320,8 @@
         "current_monster_id": 3154
     },
     "world_profile": {
-        "type_desc": "常见于草地、山林",
-        "description_habitat": "喵喵",
+        "type_desc": "毛绒绒精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "胸口的星星状器官暖烘烘的，天冷的时候裘洛们都会把前爪揣在胸口取暖。曾经有洛克贸然地接触了裘洛的尾巴，皮肤变得红肿疼痛，足足半年之后才好转痊愈。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1336,13 +1336,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3154001,
         "pet_id": 3154001,
-        "name": "小螂",
+        "name": null,
         "model_id": 3154001,
         "hatch_data": 43200,
         "weight_low": 2625,
@@ -1350,21 +1350,15 @@
         "height_low": 30,
         "height_high": 42,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3154001,
                 "pet_id": 3154001,
-                "name": "小螂",
+                "name": null,
                 "model_id": 3154001,
                 "hatch_data": 43200,
                 "weight_low": 2625,
@@ -1372,65 +1366,15 @@
                 "height_low": 30,
                 "height_high": 42,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3193001,
-                "pet_id": 3193001,
-                "name": "裘洛",
-                "model_id": 3193001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3442001,
-                "pet_id": 3442001,
-                "name": "裘洛",
-                "model_id": 3442001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 31540001,
                 "pet_id": 31540001,
-                "name": "小螂",
+                "name": null,
                 "model_id": 3154001,
                 "hatch_data": 300,
                 "weight_low": 2625,
@@ -1438,334 +1382,6 @@
                 "height_low": 30,
                 "height_high": 42,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31930001,
-                "pet_id": 31930001,
-                "name": "裘洛",
-                "model_id": 3193001,
-                "hatch_data": 300,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 34420001,
-                "pet_id": 34420001,
-                "name": "裘洛",
-                "model_id": 3442001,
-                "hatch_data": 300,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000049,
-                "pet_id": 91000049,
-                "name": "裘洛",
-                "model_id": 3193001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000050,
-                "pet_id": 91000050,
-                "name": "裘洛",
-                "model_id": 3442001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000049,
-                "pet_id": 92000049,
-                "name": "裘洛",
-                "model_id": 3193001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000050,
-                "pet_id": 92000050,
-                "name": "裘洛",
-                "model_id": 3442001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000049,
-                "pet_id": 93000049,
-                "name": "裘洛",
-                "model_id": 3193001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000050,
-                "pet_id": 93000050,
-                "name": "裘洛",
-                "model_id": 3442001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000049,
-                "pet_id": 94000049,
-                "name": "裘洛",
-                "model_id": 3193001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000050,
-                "pet_id": 94000050,
-                "name": "裘洛",
-                "model_id": 3442001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000017,
-                "pet_id": 95000017,
-                "name": "小螂",
-                "model_id": 3154001,
-                "hatch_data": 43200,
-                "weight_low": 2625,
-                "weight_high": 5000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000049,
-                "pet_id": 96000049,
-                "name": "裘洛",
-                "model_id": 3193001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000050,
-                "pet_id": 96000050,
-                "name": "裘洛",
-                "model_id": 3442001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000049,
-                "pet_id": 97000049,
-                "name": "裘洛",
-                "model_id": 3193001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000050,
-                "pet_id": 97000050,
-                "name": "裘洛",
-                "model_id": 3442001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000049,
-                "pet_id": 98000049,
-                "name": "裘洛",
-                "model_id": 3193001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000050,
-                "pet_id": 98000050,
-                "name": "裘洛",
-                "model_id": 3442001,
-                "hatch_data": 57600,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000017,
-                "pet_id": 99000017,
-                "name": "小螂",
-                "model_id": 3154001,
-                "hatch_data": 43200,
-                "weight_low": 2625,
-                "weight_high": 5000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000089,
-                "pet_id": 99000089,
-                "name": "裘洛",
-                "model_id": 3193001,
-                "hatch_data": 72000,
-                "weight_low": 9625,
-                "weight_high": 14480,
-                "height_low": 33,
-                "height_high": 46,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1774,7 +1390,7 @@
             {
                 "id": 99000163,
                 "pet_id": 99000163,
-                "name": "小螂",
+                "name": null,
                 "model_id": 3154001,
                 "hatch_data": 72000,
                 "weight_low": 2625,

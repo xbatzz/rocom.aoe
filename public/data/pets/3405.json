@@ -1,7 +1,7 @@
 {
     "id": 3405,
     "name": "youmingzhiyan",
-    "form": "幽冥眼",
+    "form": "default",
     "main_type": {
         "id": 15,
         "name": "Ghost",
@@ -37,7 +37,7 @@
         "id": 56,
         "name": "youmingzhiyan",
         "localized": {
-            "zh": "常见于城镇周边"
+            "zh": "幽冥眼"
         }
     },
     "trait": {
@@ -692,6 +692,28 @@
             "energy_cost": 3,
             "power": 30,
             "description": "造成魔伤，2连击，每次连击使敌方获得2层灼烧。"
+        },
+        {
+            "id": 7170280,
+            "name": "魔镜",
+            "icon_id": "116023",
+            "move_type": {
+                "id": 15,
+                "name": "Ghost",
+                "localized": {
+                    "zh": "幽"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "魔镜",
+                    "description": "敌方获得魔防​-50%，​且​失​去​3​能量​。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "敌方获得魔防​-50%，​且​失​去​3​能量​。"
         }
     ],
     "legacy_moves": [
@@ -1191,7 +1213,7 @@
                         "id": 3060,
                         "species_id": 54,
                         "name": "xiaoyoulinglian",
-                        "form": "小灵面",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小灵面"
@@ -1218,7 +1240,7 @@
                         "id": 3061,
                         "species_id": 55,
                         "name": "youlinglian",
-                        "form": "暗影灵面",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "暗影灵面"
@@ -1238,14 +1260,14 @@
                             "消耗 15,000 洛克贝",
                             "消耗 修行信笺 ×2",
                             "消耗 睡铃 ×2",
-                            "需满足特殊条件（类型 4，参数 18、6）"
+                            "需激活「睁眼的样子」分支"
                         ]
                     },
                     {
                         "id": 3481,
                         "species_id": 55,
                         "name": "youlinglian_biyan",
-                        "form": "暗影灵面",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "暗影灵面"
@@ -1265,7 +1287,7 @@
                             "消耗 15,000 洛克贝",
                             "消耗 修行信笺 ×2",
                             "消耗 睡铃 ×2",
-                            "需满足特殊条件（类型 4，参数 6、18）"
+                            "需激活「闭眼的样子」分支"
                         ]
                     }
                 ],
@@ -1278,7 +1300,7 @@
                         "id": 3405,
                         "species_id": 56,
                         "name": "youmingzhiyan",
-                        "form": "幽冥眼",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "幽冥眼"
@@ -1295,14 +1317,14 @@
                         "sub_type": null,
                         "evolution_conditions": [
                             "等级达到 32 级",
-                            "需满足特殊条件（类型 4，参数 18、6）"
+                            "需激活「睁眼的样子」分支"
                         ]
                     },
                     {
                         "id": 3482,
                         "species_id": 56,
                         "name": "youmingzhiyan_biyan",
-                        "form": "幽冥眼",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "幽冥眼"
@@ -1319,7 +1341,7 @@
                         "sub_type": null,
                         "evolution_conditions": [
                             "等级达到 32 级",
-                            "需满足特殊条件（类型 4，参数 6、18）"
+                            "需激活「闭眼的样子」分支"
                         ]
                     }
                 ],
@@ -1332,8 +1354,8 @@
         "current_monster_id": 3405
     },
     "world_profile": {
-        "type_desc": "鸟仔精灵",
-        "description_habitat": "锅精灵",
+        "type_desc": "假面精灵",
+        "description_habitat": "常见于城镇周边",
         "introduction": "传说幽冥眼一族在生命终结的时候能窥见生命与宇宙的奥秘。对灵魂与星辰抱有极其虔诚的信仰，面具上刻着的眼睛形状图腾似乎象征着种族的信仰。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1349,7 +1371,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

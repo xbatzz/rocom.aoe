@@ -1,7 +1,7 @@
 {
     "id": 3227,
     "name": "juhuali",
-    "form": "菊花梨",
+    "form": "default",
     "main_type": {
         "id": 14,
         "name": "Cute",
@@ -26,18 +26,18 @@
         }
     },
     "implemented": true,
-    "base_hp": 106,
-    "base_phy_atk": 49,
-    "base_mag_atk": 116,
-    "base_phy_def": 77,
-    "base_mag_def": 115,
+    "base_hp": 120,
+    "base_phy_atk": 56,
+    "base_mag_atk": 127,
+    "base_phy_def": 84,
+    "base_mag_def": 125,
     "base_spd": 60,
     "evolves_from_id": null,
     "species": {
         "id": 79,
         "name": "juhuali",
         "localized": {
-            "zh": "海盔虫"
+            "zh": "菊花梨"
         }
     },
     "trait": {
@@ -116,7 +116,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
-            "power": 110,
+            "power": 140,
             "description": "造成物伤，每次使用后，本技能能耗永久+1。"
         },
         {
@@ -667,9 +667,75 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 2,
+            "energy_cost": 4,
             "power": null,
             "description": "自己获得1层萌芽印记。"
+        },
+        {
+            "id": 7160350,
+            "name": "可爱",
+            "icon_id": "115029",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "可爱",
+                    "description": "对敌方精灵造成魔法伤害。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 100,
+            "description": "对敌方精灵造成魔法伤害。"
+        },
+        {
+            "id": 7160370,
+            "name": "蹦跶",
+            "icon_id": "115031",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "蹦跶",
+                    "description": "造成​魔伤，​自己​有​减益​时​本​技​能​能​耗​-1，​选择：​自己​获得​萌化或​解除萌化​。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 110,
+            "description": "造成​魔伤，​自己​有​减益​时​本​技​能​能​耗​-1，​选择：​自己​获得​萌化或​解除萌化​。"
+        },
+        {
+            "id": 7160360,
+            "name": "转圈圈",
+            "icon_id": "115030",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "转圈圈",
+                    "description": "造成魔伤，若敌方本回合更换精灵，本次攻击使敌方获得萌化。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 85,
+            "description": "造成魔伤，若敌方本回合更换精灵，本次攻击使敌方获得萌化。"
         }
     ],
     "legacy_moves": [
@@ -1169,7 +1235,7 @@
                         "id": 3227,
                         "species_id": 79,
                         "name": "juhuali",
-                        "form": "菊花梨",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "菊花梨"
@@ -1196,8 +1262,8 @@
         "current_monster_id": 3227
     },
     "world_profile": {
-        "type_desc": "布是石",
-        "description_habitat": "常见于海洋",
+        "type_desc": "拟态精灵",
+        "description_habitat": "常见于山林",
         "introduction": "看起来像梨，闻起来像梨，尝起来味道也像梨。睡觉的时候会把身体藏在泥巴里，只把花朵留在地面上。小黄蜂想要来授粉的话它会非常苦恼。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1212,13 +1278,13 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 310,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3227001,
         "pet_id": 3227001,
-        "name": "异色拉特",
+        "name": null,
         "model_id": 3227001,
         "hatch_data": 28800,
         "weight_low": 1470,
@@ -1226,21 +1292,15 @@
         "height_low": 27,
         "height_high": 37,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3227001,
                 "pet_id": 3227001,
-                "name": "异色拉特",
+                "name": null,
                 "model_id": 3227001,
                 "hatch_data": 28800,
                 "weight_low": 1470,
@@ -1248,219 +1308,47 @@
                 "height_low": 27,
                 "height_high": 37,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3279002,
-                "pet_id": 3279002,
-                "name": "菊花梨",
-                "model_id": 3279001,
-                "hatch_data": 300,
-                "weight_low": 970,
-                "weight_high": 1800,
-                "height_low": 16,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3279003,
-                "pet_id": 3279003,
-                "name": "菊花梨",
-                "model_id": 3279001,
-                "hatch_data": 300,
-                "weight_low": 970,
-                "weight_high": 1800,
-                "height_low": 16,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3280002,
-                "pet_id": 3280002,
-                "name": "菊花梨",
-                "model_id": 3280001,
-                "hatch_data": 300,
-                "weight_low": 970,
-                "weight_high": 1800,
-                "height_low": 16,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3280003,
-                "pet_id": 3280003,
-                "name": "菊花梨",
-                "model_id": 3280001,
-                "hatch_data": 300,
-                "weight_low": 970,
-                "weight_high": 1800,
-                "height_low": 16,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3281002,
-                "pet_id": 3281002,
-                "name": "菊花梨",
-                "model_id": 3281001,
-                "hatch_data": 300,
-                "weight_low": 970,
-                "weight_high": 1800,
-                "height_low": 16,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3281003,
-                "pet_id": 3281003,
-                "name": "菊花梨",
-                "model_id": 3281001,
-                "hatch_data": 300,
-                "weight_low": 970,
-                "weight_high": 1800,
-                "height_low": 16,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3484001,
-                "pet_id": 3484001,
-                "name": "海盔虫",
-                "model_id": 3484001,
+                "id": 3227002,
+                "pet_id": 3227002,
+                "name": null,
+                "model_id": 3227002,
                 "hatch_data": 28800,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "weight_low": 1470,
+                "weight_high": 2320,
+                "height_low": 27,
+                "height_high": 37,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3533002,
-                "pet_id": 3533002,
-                "name": "菊花梨",
-                "model_id": 3533001,
-                "hatch_data": 300,
-                "weight_low": 970,
-                "weight_high": 1800,
-                "height_low": 16,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3533003,
-                "pet_id": 3533003,
-                "name": "菊花梨",
-                "model_id": 3533001,
-                "hatch_data": 300,
-                "weight_low": 970,
-                "weight_high": 1800,
-                "height_low": 16,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
+                "id": 3227003,
+                "pet_id": 3227003,
+                "name": null,
+                "model_id": 3227002,
+                "hatch_data": 28800,
+                "weight_low": 1470,
+                "weight_high": 2320,
+                "height_low": 27,
+                "height_high": 37,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 32270001,
                 "pet_id": 32270001,
-                "name": "异色拉特",
+                "name": null,
                 "model_id": 3227001,
                 "hatch_data": 300,
                 "weight_low": 1470,
@@ -1468,318 +1356,6 @@
                 "height_low": 27,
                 "height_high": 37,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 34840001,
-                "pet_id": 34840001,
-                "name": "海盔虫",
-                "model_id": 3484001,
-                "hatch_data": 300,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000013,
-                "pet_id": 91000013,
-                "name": "异色拉特",
-                "model_id": 3227001,
-                "hatch_data": 28800,
-                "weight_low": 1470,
-                "weight_high": 2320,
-                "height_low": 27,
-                "height_high": 37,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000056,
-                "pet_id": 91000056,
-                "name": "海盔虫",
-                "model_id": 3484001,
-                "hatch_data": 28800,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000013,
-                "pet_id": 92000013,
-                "name": "异色拉特",
-                "model_id": 3227001,
-                "hatch_data": 28800,
-                "weight_low": 1470,
-                "weight_high": 2320,
-                "height_low": 27,
-                "height_high": 37,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000056,
-                "pet_id": 92000056,
-                "name": "海盔虫",
-                "model_id": 3484001,
-                "hatch_data": 28800,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000013,
-                "pet_id": 93000013,
-                "name": "异色拉特",
-                "model_id": 3227001,
-                "hatch_data": 28800,
-                "weight_low": 1470,
-                "weight_high": 2320,
-                "height_low": 27,
-                "height_high": 37,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000056,
-                "pet_id": 93000056,
-                "name": "海盔虫",
-                "model_id": 3484001,
-                "hatch_data": 28800,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000013,
-                "pet_id": 94000013,
-                "name": "异色拉特",
-                "model_id": 3227001,
-                "hatch_data": 28800,
-                "weight_low": 1470,
-                "weight_high": 2320,
-                "height_low": 27,
-                "height_high": 37,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000056,
-                "pet_id": 94000056,
-                "name": "海盔虫",
-                "model_id": 3484001,
-                "hatch_data": 28800,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000044,
-                "pet_id": 95000044,
-                "name": "海盔虫",
-                "model_id": 3484001,
-                "hatch_data": 28800,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000013,
-                "pet_id": 96000013,
-                "name": "异色拉特",
-                "model_id": 3227001,
-                "hatch_data": 28800,
-                "weight_low": 1470,
-                "weight_high": 2320,
-                "height_low": 27,
-                "height_high": 37,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000056,
-                "pet_id": 96000056,
-                "name": "海盔虫",
-                "model_id": 3484001,
-                "hatch_data": 28800,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000013,
-                "pet_id": 97000013,
-                "name": "异色拉特",
-                "model_id": 3227001,
-                "hatch_data": 28800,
-                "weight_low": 1470,
-                "weight_high": 2320,
-                "height_low": 27,
-                "height_high": 37,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000056,
-                "pet_id": 97000056,
-                "name": "海盔虫",
-                "model_id": 3484001,
-                "hatch_data": 28800,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000013,
-                "pet_id": 98000013,
-                "name": "异色拉特",
-                "model_id": 3227001,
-                "hatch_data": 28800,
-                "weight_low": 1470,
-                "weight_high": 2320,
-                "height_low": 27,
-                "height_high": 37,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000056,
-                "pet_id": 98000056,
-                "name": "海盔虫",
-                "model_id": 3484001,
-                "hatch_data": 28800,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000044,
-                "pet_id": 99000044,
-                "name": "海盔虫",
-                "model_id": 3484001,
-                "hatch_data": 28800,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000062,
-                "pet_id": 99000062,
-                "name": "海盔虫",
-                "model_id": 3484001,
-                "hatch_data": 72000,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1788,7 +1364,7 @@
             {
                 "id": 99000110,
                 "pet_id": 99000110,
-                "name": "异色拉特",
+                "name": null,
                 "model_id": 3227001,
                 "hatch_data": 72000,
                 "weight_low": 1470,

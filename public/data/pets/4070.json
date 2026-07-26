@@ -48,13 +48,13 @@
     },
     "trait": {
         "id": 200151,
-        "name": "急性子",
-        "description": "每次连击赋予敌方2层灼烧。",
-        "icon_id": "200151",
+        "name": "不死鸟",
+        "description": "每场战斗1次，受到致命伤害时保留1血，且敌方获得15层灼烧。",
+        "icon_id": "200154",
         "localized": {
             "zh": {
-                "name": "急性子",
-                "description": "每次连击赋予敌方2层灼烧。"
+                "name": "不死鸟",
+                "description": "每场战斗1次，受到致命伤害时保留1血，且敌方获得15层灼烧。"
             }
         }
     },
@@ -170,26 +170,26 @@
             "description": "自己获得全技能威力+20，迅捷。"
         },
         {
-            "id": 7020510,
-            "name": "乘胜追击",
-            "icon_id": "702050",
+            "id": 7040630,
+            "name": "花火",
+            "icon_id": "103047",
             "move_type": {
-                "id": 1,
-                "name": "Normal",
+                "id": 3,
+                "name": "Fire",
                 "localized": {
-                    "zh": "普通"
+                    "zh": "火"
                 }
             },
             "localized": {
                 "zh": {
-                    "name": "乘胜追击",
-                    "description": "造成物伤，1连击，每次使用后，本技能连击数永久+1。"
+                    "name": "花火",
+                    "description": "造成物伤，敌方获得4层灼烧。"
                 }
             },
             "move_category": "Physical Attack",
-            "energy_cost": 2,
-            "power": 40,
-            "description": "造成物伤，1连击，每次使用后，本技能连击数永久+1。"
+            "energy_cost": 3,
+            "power": 70,
+            "description": "造成物伤，敌方获得4层灼烧。"
         },
         {
             "id": 7150120,
@@ -324,9 +324,9 @@
             "description": "对敌方精灵造成魔法伤害。"
         },
         {
-            "id": 7150080,
-            "name": "翼击",
-            "icon_id": "715004",
+            "id": 7150360,
+            "name": "试飞",
+            "icon_id": "114037",
             "move_type": {
                 "id": 13,
                 "name": "Flying",
@@ -336,14 +336,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "翼击",
-                    "description": "造成魔伤，迅捷。"
+                    "name": "试飞",
+                    "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
                 }
             },
-            "move_category": "Magic Attack",
-            "energy_cost": 3,
-            "power": 50,
-            "description": "造成魔伤，迅捷。"
+            "move_category": "Physical Attack",
+            "energy_cost": 2,
+            "power": 20,
+            "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
         },
         {
             "id": 7040180,
@@ -742,6 +742,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "自己获得速度+80，应对防御：改为速度+160。"
+        },
+        {
+            "id": 7150370,
+            "name": "超声波",
+            "icon_id": "114031",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "超声波",
+                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
         }
     ],
     "legacy_moves": [

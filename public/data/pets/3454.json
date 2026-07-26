@@ -1,7 +1,7 @@
 {
     "id": 3454,
     "name": "dishu_xushui",
-    "form": "地鼠",
+    "form": "default",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -37,7 +37,7 @@
         "id": 277,
         "name": "dishu",
         "localized": {
-            "zh": "毛绒绒精灵"
+            "zh": "地鼠"
         }
     },
     "trait": {
@@ -199,13 +199,13 @@
             "localized": {
                 "zh": {
                     "name": "石锁",
-                    "description": "造成物伤，敌方3回合无法更换精灵。"
+                    "description": "造成物伤，敌方获得3回合禁足。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 50,
-            "description": "造成物伤，敌方3回合无法更换精灵。"
+            "description": "造成物伤，敌方获得3回合禁足。"
         },
         {
             "id": 7080340,
@@ -692,6 +692,28 @@
             "energy_cost": 0,
             "power": null,
             "description": "​驱散​自己​的​减益，​自己​每​有​1层减益，​本技​能​能​耗​-1，巧变：​水系​攻击​技​能​。"
+        },
+        {
+            "id": 7120270,
+            "name": "溶解",
+            "icon_id": "111028",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "溶解",
+                    "description": "减伤90%，应对攻击：驱散敌方1种增益。"
+                }
+            },
+            "move_category": "Defense",
+            "energy_cost": 2,
+            "power": null,
+            "description": "减伤90%，应对攻击：驱散敌方1种增益。"
         }
     ],
     "legacy_moves": [
@@ -1191,7 +1213,7 @@
                         "id": 3020,
                         "species_id": 277,
                         "name": "dishu",
-                        "form": "地鼠",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "地鼠"
@@ -1212,7 +1234,7 @@
                         "id": 3454,
                         "species_id": 277,
                         "name": "dishu_xushui",
-                        "form": "地鼠",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "地鼠"
@@ -1239,7 +1261,7 @@
                         "id": 3021,
                         "species_id": 278,
                         "name": "dunshu",
-                        "form": "遁鼠",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "遁鼠"
@@ -1262,7 +1284,7 @@
                         "id": 3455,
                         "species_id": 278,
                         "name": "dunshu_xushui",
-                        "form": "遁鼠",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "遁鼠"
@@ -1291,7 +1313,7 @@
                         "id": 3022,
                         "species_id": 279,
                         "name": "dundishu",
-                        "form": "遁地鼠",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "遁地鼠"
@@ -1314,7 +1336,7 @@
                         "id": 3456,
                         "species_id": 279,
                         "name": "dundishu_xushui",
-                        "form": "遁地鼠",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "遁地鼠"
@@ -1343,8 +1365,8 @@
         "current_monster_id": 3454
     },
     "world_profile": {
-        "type_desc": "绿草精灵",
-        "description_habitat": "可爱猿",
+        "type_desc": "鼠精灵",
+        "description_habitat": "常见于土路旁",
         "introduction": "生活在干旱地区，演化出了可以储藏水分的特殊耳朵结构。它们呼吸时，在鼻腔和口腔中凝结出水珠，再将水珠输送到耳朵里储存起来。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1359,13 +1381,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 3000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3454001,
         "pet_id": 3454001,
-        "name": "奇丽草（首领血脉）",
+        "name": null,
         "model_id": 3454001,
         "hatch_data": 28800,
         "weight_low": 1330,
@@ -1373,21 +1395,15 @@
         "height_low": 20,
         "height_high": 27,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3454001,
                 "pet_id": 3454001,
-                "name": "奇丽草（首领血脉）",
+                "name": null,
                 "model_id": 3454001,
                 "hatch_data": 28800,
                 "weight_low": 1330,
@@ -1395,21 +1411,47 @@
                 "height_low": 20,
                 "height_high": 27,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3454003,
+                "pet_id": 3454003,
+                "name": null,
+                "model_id": 3454002,
+                "hatch_data": 28800,
+                "weight_low": 1330,
+                "weight_high": 2052,
+                "height_low": 20,
+                "height_high": 27,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3454004,
+                "pet_id": 3454004,
+                "name": null,
+                "model_id": 3454002,
+                "hatch_data": 28800,
+                "weight_low": 1330,
+                "weight_high": 2052,
+                "height_low": 20,
+                "height_high": 27,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 34540001,
                 "pet_id": 34540001,
-                "name": "奇丽草（首领血脉）",
+                "name": null,
                 "model_id": 3454001,
                 "hatch_data": 300,
                 "weight_low": 1330,
@@ -1417,124 +1459,6 @@
                 "height_low": 20,
                 "height_high": 27,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000079,
-                "pet_id": 91000079,
-                "name": "奇丽草（首领血脉）",
-                "model_id": 3454001,
-                "hatch_data": 28800,
-                "weight_low": 1330,
-                "weight_high": 2052,
-                "height_low": 20,
-                "height_high": 27,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000079,
-                "pet_id": 92000079,
-                "name": "奇丽草（首领血脉）",
-                "model_id": 3454001,
-                "hatch_data": 28800,
-                "weight_low": 1330,
-                "weight_high": 2052,
-                "height_low": 20,
-                "height_high": 27,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000079,
-                "pet_id": 93000079,
-                "name": "奇丽草（首领血脉）",
-                "model_id": 3454001,
-                "hatch_data": 28800,
-                "weight_low": 1330,
-                "weight_high": 2052,
-                "height_low": 20,
-                "height_high": 27,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000079,
-                "pet_id": 94000079,
-                "name": "奇丽草（首领血脉）",
-                "model_id": 3454001,
-                "hatch_data": 28800,
-                "weight_low": 1330,
-                "weight_high": 2052,
-                "height_low": 20,
-                "height_high": 27,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000079,
-                "pet_id": 96000079,
-                "name": "奇丽草（首领血脉）",
-                "model_id": 3454001,
-                "hatch_data": 28800,
-                "weight_low": 1330,
-                "weight_high": 2052,
-                "height_low": 20,
-                "height_high": 27,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000079,
-                "pet_id": 97000079,
-                "name": "奇丽草（首领血脉）",
-                "model_id": 3454001,
-                "hatch_data": 28800,
-                "weight_low": 1330,
-                "weight_high": 2052,
-                "height_low": 20,
-                "height_high": 27,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000079,
-                "pet_id": 98000079,
-                "name": "奇丽草（首领血脉）",
-                "model_id": 3454001,
-                "hatch_data": 28800,
-                "weight_low": 1330,
-                "weight_high": 2052,
-                "height_low": 20,
-                "height_high": 27,
-                "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,

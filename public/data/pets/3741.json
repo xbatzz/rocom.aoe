@@ -26,29 +26,29 @@
         }
     },
     "implemented": true,
-    "base_hp": 108,
-    "base_phy_atk": 126,
-    "base_mag_atk": 54,
-    "base_phy_def": 132,
-    "base_mag_def": 98,
-    "base_spd": 110,
-    "evolves_from_id": null,
+    "base_hp": 96,
+    "base_phy_atk": 101,
+    "base_mag_atk": 41,
+    "base_phy_def": 124,
+    "base_mag_def": 91,
+    "base_spd": 100,
+    "evolves_from_id": 3740,
     "species": {
-        "id": 3741,
+        "id": 442,
         "name": "hulianchacha",
         "localized": {
             "zh": "宝藏沙狐"
         }
     },
     "trait": {
-        "id": 200293,
+        "id": 200313,
         "name": "博物",
-        "description": "入场时，识破敌方​精灵​的​变化​效果，​解除​其​伪装。​",
+        "description": "在场时，识破​精灵​的​变化​效果，​解除​其​伪装。​",
         "icon_id": "200288",
         "localized": {
             "zh": {
                 "name": "博物",
-                "description": "入场时，识破敌方​精灵​的​变化​效果，​解除​其​伪装。​"
+                "description": "在场时，识破​精灵​的​变化​效果，​解除​其​伪装。​"
             }
         }
     },
@@ -203,8 +203,8 @@
                 }
             },
             "move_category": "Physical Attack",
-            "energy_cost": 3,
-            "power": 100,
+            "energy_cost": 1,
+            "power": 55,
             "description": "造成物伤，本技能能耗每+1，威力+50。"
         },
         {
@@ -983,11 +983,11 @@
         {
             "monster_id": 3741,
             "type_id": 14,
-            "move_id": 7160200,
+            "move_id": 7160230,
             "move": {
-                "id": 7160200,
-                "name": "甜心续航",
-                "icon_id": "716005",
+                "id": 7160230,
+                "name": "魅惑",
+                "icon_id": "115011",
                 "move_type": {
                     "id": 14,
                     "name": "Cute",
@@ -997,14 +997,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "甜心续航",
-                        "description": "自己和敌方获得萌化：回复40%生命。"
+                        "name": "魅惑",
+                        "description": "对敌方精灵造成魔法伤害。"
                     }
                 },
-                "move_category": "Status",
-                "energy_cost": 3,
-                "power": null,
-                "description": "自己和敌方获得萌化：回复40%生命。"
+                "move_category": "Magic Attack",
+                "energy_cost": 1,
+                "power": 60,
+                "description": "对敌方精灵造成魔法伤害。"
             }
         },
         {
@@ -1122,8 +1122,35 @@
                 "depth": 0,
                 "monsters": [
                     {
+                        "id": 3740,
+                        "species_id": 441,
+                        "name": "fangfanghu",
+                        "form": "default",
+                        "localized": {
+                            "zh": {
+                                "name": "宝藏小狐"
+                            }
+                        },
+                        "is_leader_form": false,
+                        "main_type": {
+                            "id": 1,
+                            "name": "Normal",
+                            "localized": {
+                                "zh": "普通"
+                            }
+                        },
+                        "sub_type": null,
+                        "evolution_conditions": []
+                    }
+                ],
+                "is_leader_stage": false
+            },
+            {
+                "depth": 1,
+                "monsters": [
+                    {
                         "id": 3741,
-                        "species_id": 3741,
+                        "species_id": 442,
                         "name": "hulianchacha",
                         "form": "default",
                         "localized": {
@@ -1148,26 +1175,28 @@
                 "is_leader_stage": false
             }
         ],
-        "max_depth": 0,
-        "total_unique_monsters": 1,
-        "species_id": 3741,
+        "max_depth": 1,
+        "total_unique_monsters": 2,
+        "species_id": 442,
         "current_monster_id": 3741
     },
     "world_profile": {
-        "type_desc": null,
-        "description_habitat": null,
-        "introduction": "成长之后，它们的气质更加淡然，不怕吵闹，也不怕洛克接近，甚至会在洛克聚居区悠闲散步，寻找街区里的“宝藏”。有传闻，当洛克遇到不认识的物体，就可以让见多识广的宝藏沙狐来帮忙辨认。",
+        "type_desc": "藏狐精灵",
+        "description_habitat": "行踪神秘",
+        "introduction": "只有看到虫系精灵的时候会双眼放光，经常出现在虫群附近，爪子摩挲着没见过的虫，嘴巴里嘟嘟囔囔说着什么。实习研究员遇到不认识的虫都会去给它看看。直到学院反复重申：野外考察作业务必独立完成。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
         ],
         "movement_type": null,
         "classis_id": 6,
         "classis_name": "自然类精灵",
-        "handbook_area_ids": []
+        "handbook_area_ids": [
+            1
+        ]
     },
     "catch_info": {
-        "catch_threshold": 500,
-        "catch_guarant_rate": 1200,
+        "catch_threshold": 250,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

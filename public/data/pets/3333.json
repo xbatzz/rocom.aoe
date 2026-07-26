@@ -1,7 +1,7 @@
 {
     "id": 3333,
     "name": "xuewawa",
-    "form": "雪娃娃",
+    "form": "default",
     "main_type": {
         "id": 7,
         "name": "Ice",
@@ -37,7 +37,7 @@
         "id": 139,
         "name": "xuewawa",
         "localized": {
-            "zh": "常见于山地、河岸"
+            "zh": "雪娃娃"
         }
     },
     "trait": {
@@ -761,7 +761,7 @@
         },
         {
             "id": 7090430,
-            "name": "冰封",
+            "name": "冷凝",
             "icon_id": "108039",
             "move_type": {
                 "id": 7,
@@ -772,7 +772,7 @@
             },
             "localized": {
                 "zh": {
-                    "name": "冰封",
+                    "name": "冷凝",
                     "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
                 }
             },
@@ -780,6 +780,50 @@
             "energy_cost": 4,
             "power": 95,
             "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
+        },
+        {
+            "id": 7090470,
+            "name": "打喷嚏",
+            "icon_id": "108042",
+            "move_type": {
+                "id": 7,
+                "name": "Ice",
+                "localized": {
+                    "zh": "冰"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "打喷嚏",
+                    "description": "3连击，​每​次​连击敌方获得1层冻结。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 1,
+            "power": null,
+            "description": "3连击，​每​次​连击敌方获得1层冻结。"
+        },
+        {
+            "id": 7090200,
+            "name": "冰天雪地",
+            "icon_id": "108014",
+            "move_type": {
+                "id": 7,
+                "name": "Ice",
+                "localized": {
+                    "zh": "冰"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "冰天雪地",
+                    "description": "减伤80%，应对攻击：被应对技能能耗+3。"
+                }
+            },
+            "move_category": "Defense",
+            "energy_cost": 2,
+            "power": null,
+            "description": "减伤80%，应对攻击：被应对技能能耗+3。"
         }
     ],
     "legacy_moves": [
@@ -1279,7 +1323,7 @@
                         "id": 3333,
                         "species_id": 139,
                         "name": "xuewawa",
-                        "form": "雪娃娃",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雪娃娃"
@@ -1306,7 +1350,7 @@
                         "id": 3334,
                         "species_id": 140,
                         "name": "bingfengyuanling",
-                        "form": "冰封怨灵",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "冰封怨灵"
@@ -1335,7 +1379,7 @@
                         "id": 3335,
                         "species_id": 141,
                         "name": "xueling",
-                        "form": "雪灵",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雪灵"
@@ -1364,8 +1408,8 @@
         "current_monster_id": 3333
     },
     "world_profile": {
-        "type_desc": "护主犬",
-        "description_habitat": "狸精灵",
+        "type_desc": "守望精灵",
+        "description_habitat": "常见于雪山",
         "introduction": "它对洛克族异常友好，面对温暖的抚摸与拥抱也从不抗拒。传说它们是最早与洛克建立契约的种族之一，耳朵的轮廓正像星之链在契约双方之间勾勒出的形状。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1380,13 +1424,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3333001,
         "pet_id": 3333001,
-        "name": "古拉海象",
+        "name": null,
         "model_id": 3333001,
         "hatch_data": 43200,
         "weight_low": 2380,
@@ -1394,21 +1438,15 @@
         "height_low": 12,
         "height_high": 17,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3333001,
                 "pet_id": 3333001,
-                "name": "古拉海象",
+                "name": null,
                 "model_id": 3333001,
                 "hatch_data": 43200,
                 "weight_low": 2380,
@@ -1416,21 +1454,15 @@
                 "height_low": 12,
                 "height_high": 17,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3333002,
                 "pet_id": 3333002,
-                "name": "呼呼猪",
+                "name": null,
                 "model_id": 3333001,
                 "hatch_data": 300,
                 "weight_low": 2380,
@@ -1446,7 +1478,7 @@
             {
                 "id": 3333003,
                 "pet_id": 3333003,
-                "name": "异色呼呼猪",
+                "name": null,
                 "model_id": 3333001,
                 "hatch_data": 300,
                 "weight_low": 2380,
@@ -1457,34 +1489,12 @@
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3492001,
-                "pet_id": 3492001,
-                "name": "雪娃娃",
-                "model_id": 3492001,
-                "hatch_data": 43200,
-                "weight_low": 1488,
-                "weight_high": 2600,
-                "height_low": 16,
-                "height_high": 19,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 33330001,
                 "pet_id": 33330001,
-                "name": "古拉海象",
+                "name": null,
                 "model_id": 3333001,
                 "hatch_data": 300,
                 "weight_low": 2380,
@@ -1492,258 +1502,6 @@
                 "height_low": 12,
                 "height_high": 17,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 34920001,
-                "pet_id": 34920001,
-                "name": "雪娃娃",
-                "model_id": 3492001,
-                "hatch_data": 300,
-                "weight_low": 1488,
-                "weight_high": 2600,
-                "height_low": 16,
-                "height_high": 19,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000031,
-                "pet_id": 91000031,
-                "name": "古拉海象",
-                "model_id": 3333001,
-                "hatch_data": 43200,
-                "weight_low": 2380,
-                "weight_high": 3264,
-                "height_low": 12,
-                "height_high": 17,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000061,
-                "pet_id": 91000061,
-                "name": "雪娃娃",
-                "model_id": 3492001,
-                "hatch_data": 43200,
-                "weight_low": 1488,
-                "weight_high": 2600,
-                "height_low": 16,
-                "height_high": 19,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000031,
-                "pet_id": 92000031,
-                "name": "古拉海象",
-                "model_id": 3333001,
-                "hatch_data": 43200,
-                "weight_low": 2380,
-                "weight_high": 3264,
-                "height_low": 12,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000061,
-                "pet_id": 92000061,
-                "name": "雪娃娃",
-                "model_id": 3492001,
-                "hatch_data": 43200,
-                "weight_low": 1488,
-                "weight_high": 2600,
-                "height_low": 16,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000031,
-                "pet_id": 93000031,
-                "name": "古拉海象",
-                "model_id": 3333001,
-                "hatch_data": 43200,
-                "weight_low": 2380,
-                "weight_high": 3264,
-                "height_low": 12,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000061,
-                "pet_id": 93000061,
-                "name": "雪娃娃",
-                "model_id": 3492001,
-                "hatch_data": 43200,
-                "weight_low": 1488,
-                "weight_high": 2600,
-                "height_low": 16,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000031,
-                "pet_id": 94000031,
-                "name": "古拉海象",
-                "model_id": 3333001,
-                "hatch_data": 43200,
-                "weight_low": 2380,
-                "weight_high": 3264,
-                "height_low": 12,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000061,
-                "pet_id": 94000061,
-                "name": "雪娃娃",
-                "model_id": 3492001,
-                "hatch_data": 43200,
-                "weight_low": 1488,
-                "weight_high": 2600,
-                "height_low": 16,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000031,
-                "pet_id": 96000031,
-                "name": "古拉海象",
-                "model_id": 3333001,
-                "hatch_data": 43200,
-                "weight_low": 2380,
-                "weight_high": 3264,
-                "height_low": 12,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000061,
-                "pet_id": 96000061,
-                "name": "雪娃娃",
-                "model_id": 3492001,
-                "hatch_data": 43200,
-                "weight_low": 1488,
-                "weight_high": 2600,
-                "height_low": 16,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000031,
-                "pet_id": 97000031,
-                "name": "古拉海象",
-                "model_id": 3333001,
-                "hatch_data": 43200,
-                "weight_low": 2380,
-                "weight_high": 3264,
-                "height_low": 12,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000061,
-                "pet_id": 97000061,
-                "name": "雪娃娃",
-                "model_id": 3492001,
-                "hatch_data": 43200,
-                "weight_low": 1488,
-                "weight_high": 2600,
-                "height_low": 16,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000031,
-                "pet_id": 98000031,
-                "name": "古拉海象",
-                "model_id": 3333001,
-                "hatch_data": 43200,
-                "weight_low": 2380,
-                "weight_high": 3264,
-                "height_low": 12,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000061,
-                "pet_id": 98000061,
-                "name": "雪娃娃",
-                "model_id": 3492001,
-                "hatch_data": 43200,
-                "weight_low": 1488,
-                "weight_high": 2600,
-                "height_low": 16,
-                "height_high": 19,
-                "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1752,29 +1510,13 @@
             {
                 "id": 99000084,
                 "pet_id": 99000084,
-                "name": "古拉海象",
+                "name": null,
                 "model_id": 3333001,
                 "hatch_data": 72000,
                 "weight_low": 2380,
                 "weight_high": 3264,
                 "height_low": 12,
                 "height_high": 17,
-                "precious_egg_type": 4,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000147,
-                "pet_id": 99000147,
-                "name": "雪娃娃",
-                "model_id": 3492001,
-                "hatch_data": 72000,
-                "weight_low": 1488,
-                "weight_high": 2600,
-                "height_low": 16,
-                "height_high": 19,
                 "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,

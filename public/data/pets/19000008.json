@@ -37,7 +37,7 @@
         "id": 348,
         "name": "wusibeibei",
         "localized": {
-            "zh": "钨丝贝贝（S2剧情骑乘专用）"
+            "zh": "钨丝贝贝"
         }
     },
     "trait": {
@@ -177,13 +177,13 @@
             "localized": {
                 "zh": {
                     "name": "齿轮扭矩",
-                    "description": "造成物伤，每回合位置发生变化时，本技能威力永久+20。"
+                    "description": "造成物伤，每回合位置发生变化时，本技能威力永久+15。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 80,
-            "description": "造成物伤，每回合位置发生变化时，本技能威力永久+20。"
+            "power": 70,
+            "description": "造成物伤，每回合位置发生变化时，本技能威力永久+15。"
         },
         {
             "id": 7070170,
@@ -353,13 +353,13 @@
             "localized": {
                 "zh": {
                     "name": "微型斥候",
-                    "description": "造成魔伤，自己每​受​到​一​次​抵抗​伤害，​本技​能​威力​永久​+20。"
+                    "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），​本技​能​威力​永久​+20。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造成魔伤，自己每​受​到​一​次​抵抗​伤害，​本技​能​威力​永久​+20。"
+            "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），​本技​能​威力​永久​+20。"
         },
         {
             "id": 7070270,
@@ -1365,8 +1365,8 @@
         "current_monster_id": 19000008
     },
     "world_profile": {
-        "type_desc": null,
-        "description_habitat": null,
+        "type_desc": "独轮车精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "它们被洛克制造出来，底层代码写着给孩子们带来快乐。它们在基地里一圈圈绕行，金属关节常因长时间练习而发热，看到晃动的影子会停下分辨，是不是终于有洛克来看表演了。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1374,7 +1374,9 @@
         "movement_type": "地面",
         "classis_id": 6,
         "classis_name": "自然类精灵",
-        "handbook_area_ids": []
+        "handbook_area_ids": [
+            1
+        ]
     },
     "catch_info": null,
     "breeding": null,

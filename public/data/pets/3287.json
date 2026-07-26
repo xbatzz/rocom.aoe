@@ -670,6 +670,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7050490,
+            "name": "沉溺",
+            "icon_id": "104037",
+            "move_type": {
+                "id": 4,
+                "name": "Water",
+                "localized": {
+                    "zh": "水"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "沉溺",
+                    "description": "造成物伤，天气为雨天时，本技能能耗-2。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 4,
+            "power": 110,
+            "description": "造成物伤，天气为雨天时，本技能能耗-2。"
         }
     ],
     "legacy_moves": [
@@ -1169,7 +1191,7 @@
                         "id": 3279,
                         "species_id": 18,
                         "name": "xuerongniao_chun",
-                        "form": "雪绒鸟",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雪绒鸟"
@@ -1190,7 +1212,7 @@
                         "id": 3280,
                         "species_id": 18,
                         "name": "xuerongniao_xia",
-                        "form": "雪绒鸟",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雪绒鸟"
@@ -1211,7 +1233,7 @@
                         "id": 3281,
                         "species_id": 18,
                         "name": "xuerongniao_qiu",
-                        "form": "雪绒鸟",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雪绒鸟"
@@ -1232,7 +1254,7 @@
                         "id": 3533,
                         "species_id": 18,
                         "name": "xuerongniao_dong",
-                        "form": "雪绒鸟",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雪绒鸟"
@@ -1568,18 +1590,39 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": []
+                    },
+                    {
+                        "id": 8111,
+                        "species_id": 20,
+                        "name": "lanniao_shouling",
+                        "form": "霜翼领主",
+                        "localized": {
+                            "zh": {
+                                "name": "霜翼领主"
+                            }
+                        },
+                        "is_leader_form": true,
+                        "main_type": {
+                            "id": 13,
+                            "name": "Flying",
+                            "localized": {
+                                "zh": "翼"
+                            }
+                        },
+                        "sub_type": null,
+                        "evolution_conditions": []
                     }
                 ]
             }
         ],
         "max_depth": 3,
-        "total_unique_monsters": 17,
+        "total_unique_monsters": 18,
         "species_id": 20,
         "current_monster_id": 3287
     },
     "world_profile": {
-        "type_desc": "火之灵",
-        "description_habitat": "鸟仔精灵",
+        "type_desc": "长羽精灵",
+        "description_habitat": "常见于草地、山林、雪山",
         "introduction": "羽片边缘被秋风磨出细锯齿，既利于稳定滑翔，也像一片会飞的枫叶。进入大迁徙时，它会担任领航者，它的尾羽扫过枯枝时能留下整齐的断痕，当洛克看到一排排整齐的枯枝剪影，就知道它们刚飞过。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1594,7 +1637,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

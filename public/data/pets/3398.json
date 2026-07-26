@@ -1,7 +1,7 @@
 {
     "id": 3398,
     "name": "xingchenchong",
-    "form": "星尘虫",
+    "form": "default",
     "main_type": {
         "id": 11,
         "name": "Bug",
@@ -37,7 +37,7 @@
         "id": 317,
         "name": "xingchenchong",
         "localized": {
-            "zh": "常见于山林"
+            "zh": "星尘虫"
         }
     },
     "trait": {
@@ -1257,7 +1257,7 @@
                         "id": 3398,
                         "species_id": 317,
                         "name": "xingchenchong",
-                        "form": "星尘虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "星尘虫"
@@ -1284,7 +1284,7 @@
                         "id": 3399,
                         "species_id": 318,
                         "name": "luoxingchong",
-                        "form": "落星虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "落星虫"
@@ -1313,7 +1313,7 @@
                         "id": 3400,
                         "species_id": 319,
                         "name": "yunxingchong",
-                        "form": "陨星虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "陨星虫"
@@ -1342,8 +1342,8 @@
         "current_monster_id": 3398
     },
     "world_profile": {
-        "type_desc": "石头精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "吞噬精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "洛克与精灵开始缔结契约的时候诞生的物种。以精灵契约为食，是极其稀少的物种。囫囵吞下咕噜球后，先整个保存在身体里一段时间，非常久之后才能完全消化掉。虽然也能吃其他食物，但很难从中获取养分。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1358,13 +1358,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1000,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3398001,
         "pet_id": 3398001,
-        "name": "秋天的样子",
+        "name": null,
         "model_id": 3398001,
         "hatch_data": 28800,
         "weight_low": 263,
@@ -1372,21 +1372,15 @@
         "height_low": 6,
         "height_high": 8,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3398001,
                 "pet_id": 3398001,
-                "name": "秋天的样子",
+                "name": null,
                 "model_id": 3398001,
                 "hatch_data": 28800,
                 "weight_low": 263,
@@ -1394,43 +1388,15 @@
                 "height_low": 6,
                 "height_high": 8,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3568001,
-                "pet_id": 3568001,
-                "name": "星尘虫",
-                "model_id": 3568001,
-                "hatch_data": 28800,
-                "weight_low": 1085,
-                "weight_high": 1800,
-                "height_low": 23,
-                "height_high": 27,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 33980001,
                 "pet_id": 33980001,
-                "name": "秋天的样子",
+                "name": null,
                 "model_id": 3398001,
                 "hatch_data": 300,
                 "weight_low": 263,
@@ -1438,38 +1404,6 @@
                 "height_low": 6,
                 "height_high": 8,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 35680001,
-                "pet_id": 35680001,
-                "name": "星尘虫",
-                "model_id": 3568001,
-                "hatch_data": 300,
-                "weight_low": 1085,
-                "weight_high": 1800,
-                "height_low": 23,
-                "height_high": 27,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000067,
-                "pet_id": 99000067,
-                "name": "星尘虫",
-                "model_id": 3568001,
-                "hatch_data": 72000,
-                "weight_low": 1085,
-                "weight_high": 1800,
-                "height_low": 23,
-                "height_high": 27,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1478,7 +1412,7 @@
             {
                 "id": 99000154,
                 "pet_id": 99000154,
-                "name": "秋天的样子",
+                "name": null,
                 "model_id": 3398001,
                 "hatch_data": 72000,
                 "weight_low": 263,

@@ -1,7 +1,7 @@
 {
     "id": 3070,
     "name": "huzhuquan",
-    "form": "护主犬",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -37,7 +37,7 @@
         "id": 47,
         "name": "huzhuquan",
         "localized": {
-            "zh": "卡瓦重"
+            "zh": "护主犬"
         }
     },
     "trait": {
@@ -1125,7 +1125,7 @@
                         "id": 3070,
                         "species_id": 47,
                         "name": "huzhuquan",
-                        "form": "护主犬",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "护主犬"
@@ -1152,7 +1152,7 @@
                         "id": 3071,
                         "species_id": 48,
                         "name": "yinsuquan",
-                        "form": "音速犬",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "音速犬"
@@ -1181,8 +1181,8 @@
         "current_monster_id": 3070
     },
     "world_profile": {
-        "type_desc": "羊精灵",
-        "description_habitat": "常见于草地、沙地、雪山",
+        "type_desc": "狗狗精灵",
+        "description_habitat": "常见于城镇、草地、雪山",
         "introduction": "时刻保持着警觉，任何危险都无法逃过它的眼睛。虽然身形小巧，但面对无论多么凶猛庞大的敌人都会勇敢地燃起斗志。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1197,13 +1197,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 3000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3070001,
         "pet_id": 3070001,
-        "name": "异色幽影树",
+        "name": null,
         "model_id": 3070001,
         "hatch_data": 28800,
         "weight_low": 4760,
@@ -1211,21 +1211,15 @@
         "height_low": 27,
         "height_high": 38,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3070001,
                 "pet_id": 3070001,
-                "name": "异色幽影树",
+                "name": null,
                 "model_id": 3070001,
                 "hatch_data": 28800,
                 "weight_low": 4760,
@@ -1233,21 +1227,15 @@
                 "height_low": 27,
                 "height_high": 38,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3070002,
                 "pet_id": 3070002,
-                "name": "异色幽影树",
+                "name": null,
                 "model_id": 3070001,
                 "hatch_data": 28800,
                 "weight_low": 4760,
@@ -1263,7 +1251,7 @@
             {
                 "id": 3070003,
                 "pet_id": 3070003,
-                "name": "忽幽狸",
+                "name": null,
                 "model_id": 3070001,
                 "hatch_data": 300,
                 "weight_low": 4760,
@@ -1271,21 +1259,15 @@
                 "height_low": 27,
                 "height_high": 38,
                 "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3070004,
                 "pet_id": 3070004,
-                "name": "忽幽狸",
+                "name": null,
                 "model_id": 3070001,
                 "hatch_data": 300,
                 "weight_low": 4760,
@@ -1293,43 +1275,15 @@
                 "height_low": 27,
                 "height_high": 38,
                 "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3072002,
-                "pet_id": 3072002,
-                "name": "护主犬",
-                "model_id": 3072002,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2160,
-                "height_low": 17,
-                "height_high": 24,
-                "precious_egg_type": 2,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 30700001,
                 "pet_id": 30700001,
-                "name": "异色幽影树",
+                "name": null,
                 "model_id": 3070001,
                 "hatch_data": 300,
                 "weight_low": 4760,
@@ -1343,171 +1297,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000099,
-                "pet_id": 91000099,
-                "name": "异色幽影树",
-                "model_id": 3070001,
-                "hatch_data": 28800,
-                "weight_low": 4760,
-                "weight_high": 7000,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000099,
-                "pet_id": 92000099,
-                "name": "异色幽影树",
-                "model_id": 3070001,
-                "hatch_data": 28800,
-                "weight_low": 4760,
-                "weight_high": 7000,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000099,
-                "pet_id": 93000099,
-                "name": "异色幽影树",
-                "model_id": 3070001,
-                "hatch_data": 28800,
-                "weight_low": 4760,
-                "weight_high": 7000,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000099,
-                "pet_id": 94000099,
-                "name": "异色幽影树",
-                "model_id": 3070001,
-                "hatch_data": 28800,
-                "weight_low": 4760,
-                "weight_high": 7000,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000012,
-                "pet_id": 95000012,
-                "name": "异色幽影树",
-                "model_id": 3070001,
-                "hatch_data": 28800,
-                "weight_low": 4760,
-                "weight_high": 7000,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000099,
-                "pet_id": 96000099,
-                "name": "异色幽影树",
-                "model_id": 3070001,
-                "hatch_data": 28800,
-                "weight_low": 4760,
-                "weight_high": 7000,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000099,
-                "pet_id": 97000099,
-                "name": "异色幽影树",
-                "model_id": 3070001,
-                "hatch_data": 28800,
-                "weight_low": 4760,
-                "weight_high": 7000,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000099,
-                "pet_id": 98000099,
-                "name": "异色幽影树",
-                "model_id": 3070001,
-                "hatch_data": 28800,
-                "weight_low": 4760,
-                "weight_high": 7000,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000012,
-                "pet_id": 99000012,
-                "name": "异色幽影树",
-                "model_id": 3070001,
-                "hatch_data": 28800,
-                "weight_low": 4760,
-                "weight_high": 7000,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000073,
                 "pet_id": 99000073,
-                "name": "异色幽影树",
+                "name": null,
                 "model_id": 3070001,
                 "hatch_data": 72000,
                 "weight_low": 4760,

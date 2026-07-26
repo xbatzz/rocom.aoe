@@ -1,6 +1,6 @@
 {
     "id": 3590,
-    "name": "3590",
+    "name": "daita",
     "form": "default",
     "main_type": {
         "id": 18,
@@ -35,7 +35,7 @@
     "evolves_from_id": 3589,
     "species": {
         "id": 3590,
-        "name": "3590",
+        "name": "daita",
         "localized": {
             "zh": "玳塔"
         }
@@ -1180,7 +1180,7 @@
                     {
                         "id": 3590,
                         "species_id": 3590,
-                        "name": "3590",
+                        "name": "daita",
                         "form": "default",
                         "localized": {
                             "zh": {

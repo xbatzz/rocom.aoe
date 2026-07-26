@@ -177,13 +177,13 @@
             "localized": {
                 "zh": {
                     "name": "石锁",
-                    "description": "造成物伤，敌方3回合无法更换精灵。"
+                    "description": "造成物伤，敌方获得3回合禁足。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 50,
-            "description": "造成物伤，敌方3回合无法更换精灵。"
+            "description": "造成物伤，敌方获得3回合禁足。"
         },
         {
             "id": 7080380,
@@ -641,13 +641,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7021130,
@@ -670,6 +670,28 @@
             "energy_cost": 2,
             "power": null,
             "description": "减伤60%，应对攻击：敌方脱离。"
+        },
+        {
+            "id": 7080460,
+            "name": "沙石阵",
+            "icon_id": "107045",
+            "move_type": {
+                "id": 6,
+                "name": "Ground",
+                "localized": {
+                    "zh": "地"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "沙石阵",
+                    "description": "自己获得速度​-​20，​选择：且额外获得​物防+90%或​魔防​+90%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得速度​-​20，​选择：且额外获得​物防+90%或​魔防​+90%。"
         }
     ],
     "legacy_moves": [
@@ -1225,7 +1247,7 @@
                         "id": 3105,
                         "species_id": 29,
                         "name": "bulaikeyan",
-                        "form": "布克棱岩",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "布克棱岩"
@@ -1254,7 +1276,7 @@
         "current_monster_id": 3104
     },
     "world_profile": {
-        "type_desc": "水灵",
+        "type_desc": "石头精灵",
         "description_habitat": "常见于洞穴、山地",
         "introduction": "脑袋部分的坚硬度接近基岩，普通的岩石对它来说就像泥土一样柔软。它的头好像完全感觉不到疼，受到击打很久之后才能明白刚才发生了什么。",
         "refresh_locations": [
@@ -1270,7 +1292,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 1200,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

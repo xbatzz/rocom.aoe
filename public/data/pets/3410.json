@@ -1,7 +1,7 @@
 {
     "id": 3410,
     "name": "quanzhagn1",
-    "form": "权杖-Ⅱ",
+    "form": "default",
     "main_type": {
         "id": 17,
         "name": "Mechanical",
@@ -37,7 +37,7 @@
         "id": 145,
         "name": "quanzhagn1",
         "localized": {
-            "zh": "企鹅精灵"
+            "zh": "权杖-Ⅱ"
         }
     },
     "trait": {
@@ -646,7 +646,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
-            "power": 110,
+            "power": 140,
             "description": "造成物伤，每次使用后，本技能能耗永久+1。"
         },
         {
@@ -773,13 +773,13 @@
             "localized": {
                 "zh": {
                     "name": "微型斥候",
-                    "description": "造成魔伤，自己每​受​到​一​次​抵抗​伤害，​本技​能​威力​永久​+20。"
+                    "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），​本技​能​威力​永久​+20。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造成魔伤，自己每​受​到​一​次​抵抗​伤害，​本技​能​威力​永久​+20。"
+            "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），​本技​能​威力​永久​+20。"
         }
     ],
     "legacy_moves": [
@@ -1279,7 +1279,7 @@
                         "id": 3410,
                         "species_id": 145,
                         "name": "quanzhagn1",
-                        "form": "权杖-Ⅱ",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "权杖-Ⅱ"
@@ -1306,7 +1306,7 @@
                         "id": 3411,
                         "species_id": 146,
                         "name": "quanzhagn2",
-                        "form": "权杖-V",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "权杖-V"
@@ -1335,8 +1335,8 @@
         "current_monster_id": 3410
     },
     "world_profile": {
-        "type_desc": "绿耳松鼠",
-        "description_habitat": "雪豆丁",
+        "type_desc": "科技精灵",
+        "description_habitat": "常见于遗迹周边",
         "introduction": "黄金时代的工匠们曾将占星与炼金并列为同一门学问的两种语言。于是他们以火焰为芯，以螺纹为骨，铸成了权杖。现在只有极少量留存下来。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1351,13 +1351,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3410001,
         "pet_id": 3410001,
-        "name": "火山附近的样子",
+        "name": null,
         "model_id": 3410001,
         "hatch_data": 57600,
         "weight_low": 9975,
@@ -1365,21 +1365,15 @@
         "height_low": 19,
         "height_high": 23,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3410001,
                 "pet_id": 3410001,
-                "name": "火山附近的样子",
+                "name": null,
                 "model_id": 3410001,
                 "hatch_data": 57600,
                 "weight_low": 9975,
@@ -1387,21 +1381,15 @@
                 "height_low": 19,
                 "height_high": 23,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 34100001,
                 "pet_id": 34100001,
-                "name": "火山附近的样子",
+                "name": null,
                 "model_id": 3410001,
                 "hatch_data": 300,
                 "weight_low": 9975,
@@ -1415,127 +1403,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000054,
-                "pet_id": 91000054,
-                "name": "火山附近的样子",
-                "model_id": 3410001,
-                "hatch_data": 57600,
-                "weight_low": 9975,
-                "weight_high": 14280,
-                "height_low": 19,
-                "height_high": 23,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000054,
-                "pet_id": 92000054,
-                "name": "火山附近的样子",
-                "model_id": 3410001,
-                "hatch_data": 57600,
-                "weight_low": 9975,
-                "weight_high": 14280,
-                "height_low": 19,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000054,
-                "pet_id": 93000054,
-                "name": "火山附近的样子",
-                "model_id": 3410001,
-                "hatch_data": 57600,
-                "weight_low": 9975,
-                "weight_high": 14280,
-                "height_low": 19,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000054,
-                "pet_id": 94000054,
-                "name": "火山附近的样子",
-                "model_id": 3410001,
-                "hatch_data": 57600,
-                "weight_low": 9975,
-                "weight_high": 14280,
-                "height_low": 19,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000054,
-                "pet_id": 96000054,
-                "name": "火山附近的样子",
-                "model_id": 3410001,
-                "hatch_data": 57600,
-                "weight_low": 9975,
-                "weight_high": 14280,
-                "height_low": 19,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000054,
-                "pet_id": 97000054,
-                "name": "火山附近的样子",
-                "model_id": 3410001,
-                "hatch_data": 57600,
-                "weight_low": 9975,
-                "weight_high": 14280,
-                "height_low": 19,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000054,
-                "pet_id": 98000054,
-                "name": "火山附近的样子",
-                "model_id": 3410001,
-                "hatch_data": 57600,
-                "weight_low": 9975,
-                "weight_high": 14280,
-                "height_low": 19,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000132,
                 "pet_id": 99000132,
-                "name": "火山附近的样子",
+                "name": null,
                 "model_id": 3410001,
                 "hatch_data": 72000,
                 "weight_low": 9975,

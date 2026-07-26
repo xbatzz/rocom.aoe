@@ -1015,7 +1015,7 @@
                         "id": 3118,
                         "species_id": 313,
                         "name": "guodong",
-                        "form": "果冻",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "果冻"
@@ -1063,7 +1063,7 @@
                         "id": 3526,
                         "species_id": 314,
                         "name": "mochabuding",
-                        "form": "抹茶布丁",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "抹茶布丁"
@@ -1093,7 +1093,7 @@
                         "id": 3527,
                         "species_id": 315,
                         "name": "yejiangbuding",
-                        "form": "椰浆布丁",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "椰浆布丁"
@@ -1123,7 +1123,7 @@
                         "id": 3528,
                         "species_id": 316,
                         "name": "rongyanbuding",
-                        "form": "熔岩布丁",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "熔岩布丁"

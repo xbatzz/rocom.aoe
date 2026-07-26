@@ -1,7 +1,7 @@
 {
     "id": 5006,
     "name": "yajiji_shouling",
-    "form": "鸭吉吉国王",
+    "form": "国王",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -27,8 +27,8 @@
     },
     "implemented": true,
     "base_hp": 136,
-    "base_phy_atk": 135,
-    "base_mag_atk": 50,
+    "base_phy_atk": 159,
+    "base_mag_atk": 64,
     "base_phy_def": 79,
     "base_mag_def": 64,
     "base_spd": 105,
@@ -37,7 +37,7 @@
         "id": 11,
         "name": "yajiji",
         "localized": {
-            "zh": "水灵"
+            "zh": "鸭吉吉"
         }
     },
     "trait": {
@@ -535,7 +535,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "迅捷，驱散敌方1种增益。"
         },
@@ -648,6 +648,50 @@
             "energy_cost": 5,
             "power": null,
             "description": "敌方获得全技能能耗+3，应对防御：额外造成打断，且敌方下回合获得眩晕。"
+        },
+        {
+            "id": 7150370,
+            "name": "超声波",
+            "icon_id": "114031",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "超声波",
+                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+        },
+        {
+            "id": 7150310,
+            "name": "羽翼庇护",
+            "icon_id": "114027",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "羽翼庇护",
+                    "description": "减伤70%，应对攻击：自己获得连击数+2。"
+                }
+            },
+            "move_category": "Defense",
+            "energy_cost": 2,
+            "power": null,
+            "description": "减伤70%，应对攻击：自己获得连击数+2。"
         }
     ],
     "legacy_moves": [
@@ -1147,7 +1191,7 @@
                         "id": 3012,
                         "species_id": 11,
                         "name": "yajiji",
-                        "form": "鸭吉吉",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉"
@@ -1168,7 +1212,7 @@
                         "id": 3036,
                         "species_id": 11,
                         "name": "yaji",
-                        "form": "鸭吉吉",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉"
@@ -1189,7 +1233,7 @@
                         "id": 3452,
                         "species_id": 11,
                         "name": "yajiji_jijiya",
-                        "form": "鸭吉吉",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉"
@@ -1210,7 +1254,7 @@
                         "id": 3453,
                         "species_id": 11,
                         "name": "dengyidengya",
-                        "form": "鸭吉吉",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉"
@@ -1231,7 +1275,7 @@
                         "id": 3495,
                         "species_id": 11,
                         "name": "yajiji_ranleya",
-                        "form": "鸭吉吉",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉"
@@ -1252,7 +1296,7 @@
                         "id": 3742,
                         "species_id": 11,
                         "name": "yajiji_qilaiya",
-                        "form": "鸭吉吉",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉"
@@ -1280,7 +1324,7 @@
                         "id": 4012,
                         "species_id": 11,
                         "name": "yajiji_shouling",
-                        "form": "鸭吉吉国王",
+                        "form": "国王",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉国王"
@@ -1301,7 +1345,7 @@
                         "id": 5006,
                         "species_id": 11,
                         "name": "yajiji_shouling",
-                        "form": "鸭吉吉国王",
+                        "form": "国王",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉国王"
@@ -1322,7 +1366,7 @@
                         "id": 5036,
                         "species_id": 11,
                         "name": "yajiji_shouling",
-                        "form": "鸭吉吉国王",
+                        "form": "国王",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉国王"
@@ -1343,7 +1387,7 @@
                         "id": 5037,
                         "species_id": 11,
                         "name": "yajiji_shouling",
-                        "form": "鸭吉吉国王",
+                        "form": "国王",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉国王"
@@ -1364,7 +1408,7 @@
                         "id": 5038,
                         "species_id": 11,
                         "name": "yajiji_shouling",
-                        "form": "鸭吉吉国王",
+                        "form": "国王",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉国王"
@@ -1385,7 +1429,7 @@
                         "id": 5039,
                         "species_id": 11,
                         "name": "yajiji_shouling",
-                        "form": "鸭吉吉国王",
+                        "form": "国王",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉国王"
@@ -1406,7 +1450,7 @@
                         "id": 5052,
                         "species_id": 11,
                         "name": "yajiji_shouling",
-                        "form": "鸭吉吉国王",
+                        "form": "国王",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉国王"
@@ -1432,8 +1476,8 @@
         "current_monster_id": 5006
     },
     "world_profile": {
-        "type_desc": "草之灵",
-        "description_habitat": "鸭吉吉",
+        "type_desc": "鸭仔精灵",
+        "description_habitat": "常见于山林、河岸",
         "introduction": "啪嗒啪嗒，鸭吉吉国王来了。那边的，别看怀表了，让时间听国王的；这边的毛太蓬松了，站紧实一点，别挡着国王的道了。嗯？还有你，既然来了我们鸭吉吉王国，记得要给过路费鸭！",
         "refresh_locations": [],
         "movement_type": "步行",

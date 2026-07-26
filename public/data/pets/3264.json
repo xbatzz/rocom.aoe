@@ -26,29 +26,29 @@
         }
     },
     "implemented": true,
-    "base_hp": 98,
-    "base_phy_atk": 107,
-    "base_mag_atk": 40,
-    "base_phy_def": 60,
-    "base_mag_def": 48,
+    "base_hp": 82,
+    "base_phy_atk": 86,
+    "base_mag_atk": 27,
+    "base_phy_def": 52,
+    "base_mag_def": 41,
     "base_spd": 80,
     "evolves_from_id": null,
     "species": {
-        "id": 3264,
+        "id": 430,
         "name": "xieefangchui",
         "localized": {
             "zh": "卡波"
         }
     },
     "trait": {
-        "id": 200145,
-        "name": "悬一线",
-        "description": "首次受到致命伤害时，保留1生命值，眩晕敌方一回合。",
-        "icon_id": "200145",
+        "id": 200296,
+        "name": "诅咒",
+        "description": "每受到1次技能攻击（不含连击），敌方获得1层暗涌印记。",
+        "icon_id": "200296",
         "localized": {
             "zh": {
-                "name": "悬一线",
-                "description": "首次受到致命伤害时，保留1生命值，眩晕敌方一回合。"
+                "name": "诅咒",
+                "description": "每受到1次技能攻击（不含连击），敌方获得1层暗涌印记。"
             }
         }
     },
@@ -155,35 +155,35 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
-            "id": 7020970,
-            "name": "先发制人",
-            "icon_id": "101079",
+            "id": 7180090,
+            "name": "蝙蝠",
+            "icon_id": "706001",
             "move_type": {
-                "id": 1,
-                "name": "Normal",
+                "id": 16,
+                "name": "Dark",
                 "localized": {
-                    "zh": "普通"
+                    "zh": "恶"
                 }
             },
             "localized": {
                 "zh": {
-                    "name": "先发制人",
-                    "description": "造成物理伤害，先手+1。"
+                    "name": "蝙蝠",
+                    "description": "造成物伤，并吸血100%。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
-            "power": 55,
-            "description": "造成物理伤害，先手+1。"
+            "power": 65,
+            "description": "造成物伤，并吸血100%。"
         },
         {
             "id": 7180170,
@@ -230,9 +230,9 @@
             "description": "减伤90%，应对攻击：自己获得50%吸血。"
         },
         {
-            "id": 7180090,
-            "name": "蝙蝠",
-            "icon_id": "706001",
+            "id": 7180380,
+            "name": "限时特惠",
+            "icon_id": "117039",
             "move_type": {
                 "id": 16,
                 "name": "Dark",
@@ -242,19 +242,19 @@
             },
             "localized": {
                 "zh": {
-                    "name": "蝙蝠",
-                    "description": "造成物伤，并吸血100%。"
+                    "name": "限时特惠",
+                    "description": "造成魔伤，敌方每有1只力竭精灵，本次技能能耗-1。"
                 }
             },
-            "move_category": "Physical Attack",
-            "energy_cost": 2,
-            "power": 65,
-            "description": "造成物伤，并吸血100%。"
+            "move_category": "Magic Attack",
+            "energy_cost": 6,
+            "power": 140,
+            "description": "造成魔伤，敌方每有1只力竭精灵，本次技能能耗-1。"
         },
         {
-            "id": 7180200,
-            "name": "隐藏条款",
-            "icon_id": "217018",
+            "id": 7180390,
+            "name": "纺纱",
+            "icon_id": "117037",
             "move_type": {
                 "id": 16,
                 "name": "Dark",
@@ -264,14 +264,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "隐藏条款",
-                    "description": "与敌方交换携带的技能。"
+                    "name": "纺纱",
+                    "description": "敌方获得1层暗涌印记。"
                 }
             },
             "move_category": "Status",
-            "energy_cost": 8,
+            "energy_cost": 4,
             "power": null,
-            "description": "与敌方交换携带的技能。"
+            "description": "敌方获得1层暗涌印记。"
         },
         {
             "id": 7180150,
@@ -1005,11 +1005,11 @@
         {
             "monster_id": 3264,
             "type_id": 14,
-            "move_id": 7160200,
+            "move_id": 7160230,
             "move": {
-                "id": 7160200,
-                "name": "甜心续航",
-                "icon_id": "716005",
+                "id": 7160230,
+                "name": "魅惑",
+                "icon_id": "115011",
                 "move_type": {
                     "id": 14,
                     "name": "Cute",
@@ -1019,14 +1019,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "甜心续航",
-                        "description": "自己和敌方获得萌化：回复40%生命。"
+                        "name": "魅惑",
+                        "description": "对敌方精灵造成魔法伤害。"
                     }
                 },
-                "move_category": "Status",
-                "energy_cost": 3,
-                "power": null,
-                "description": "自己和敌方获得萌化：回复40%生命。"
+                "move_category": "Magic Attack",
+                "energy_cost": 1,
+                "power": 60,
+                "description": "对敌方精灵造成魔法伤害。"
             }
         },
         {
@@ -1086,11 +1086,11 @@
         {
             "monster_id": 3264,
             "type_id": 17,
-            "move_id": 7070170,
+            "move_id": 7070010,
             "move": {
-                "id": 7070170,
-                "name": "啮合传递",
-                "icon_id": "106017",
+                "id": 7070010,
+                "name": "械斗",
+                "icon_id": "720001",
                 "move_type": {
                     "id": 17,
                     "name": "Mechanical",
@@ -1100,14 +1100,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "啮合传递",
-                        "description": "自己获得速度+30，本技能位于1号或3号位时额外获得物攻+80%，传动1。"
+                        "name": "械斗",
+                        "description": "造成物伤，本技能位于1号位时威力+60，传动1。"
                     }
                 },
-                "move_category": "Status",
+                "move_category": "Physical Attack",
                 "energy_cost": 1,
-                "power": null,
-                "description": "自己获得速度+30，本技能位于1号或3号位时额外获得物攻+80%，传动1。"
+                "power": 45,
+                "description": "造成物伤，本技能位于1号位时威力+60，传动1。"
             }
         },
         {
@@ -1145,7 +1145,7 @@
                 "monsters": [
                     {
                         "id": 3264,
-                        "species_id": 3264,
+                        "species_id": 430,
                         "name": "xieefangchui",
                         "form": "default",
                         "localized": {
@@ -1172,7 +1172,7 @@
                 "monsters": [
                     {
                         "id": 3265,
-                        "species_id": 3265,
+                        "species_id": 431,
                         "name": "hunshuifangchui",
                         "form": "default",
                         "localized": {
@@ -1199,12 +1199,12 @@
         ],
         "max_depth": 1,
         "total_unique_monsters": 2,
-        "species_id": 3264,
+        "species_id": 430,
         "current_monster_id": 3264
     },
     "world_profile": {
-        "type_desc": null,
-        "description_habitat": null,
+        "type_desc": "纺锤精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "能够生产出纺线的精灵，纺线主要由卡波体内的蛋白质和唾液构成。卡波的唾液中带有某种未知诅咒，即使是同类触碰到的话也会中毒陷入昏睡。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1212,17 +1212,19 @@
         "movement_type": "地面",
         "classis_id": 6,
         "classis_name": "自然类精灵",
-        "handbook_area_ids": []
+        "handbook_area_ids": [
+            1
+        ]
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1250,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3264001,
         "pet_id": 3264001,
-        "name": "伊雷龙（首领血脉）",
+        "name": null,
         "model_id": 3264001,
         "hatch_data": 28800,
         "weight_low": 910,
@@ -1230,21 +1232,15 @@
         "height_low": 20,
         "height_high": 28,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3264001,
                 "pet_id": 3264001,
-                "name": "伊雷龙（首领血脉）",
+                "name": null,
                 "model_id": 3264001,
                 "hatch_data": 28800,
                 "weight_low": 910,
@@ -1252,28 +1248,54 @@
                 "height_low": 20,
                 "height_high": 28,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3351001,
-                "pet_id": 3351001,
-                "name": "卡波",
-                "model_id": 3351001,
-                "hatch_data": 1,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
-                "precious_egg_type": null,
+                "id": 3264002,
+                "pet_id": 3264002,
+                "name": null,
+                "model_id": 3264002,
+                "hatch_data": 28800,
+                "weight_low": 910,
+                "weight_high": 1508,
+                "height_low": 20,
+                "height_high": 28,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3264003,
+                "pet_id": 3264003,
+                "name": null,
+                "model_id": 3264001,
+                "hatch_data": 300,
+                "weight_low": 910,
+                "weight_high": 1508,
+                "height_low": 20,
+                "height_high": 28,
+                "precious_egg_type": 1,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3264004,
+                "pet_id": 3264004,
+                "name": null,
+                "model_id": 3264002,
+                "hatch_data": 28800,
+                "weight_low": 910,
+                "weight_high": 1508,
+                "height_low": 20,
+                "height_high": 28,
+                "precious_egg_type": 2,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1282,29 +1304,13 @@
             {
                 "id": 32640001,
                 "pet_id": 32640001,
-                "name": "伊雷龙（首领血脉）",
+                "name": null,
                 "model_id": 3264001,
                 "hatch_data": 300,
                 "weight_low": 910,
                 "weight_high": 1508,
                 "height_low": 20,
                 "height_high": 28,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 33510001,
-                "pet_id": 33510001,
-                "name": "卡波",
-                "model_id": 3351001,
-                "hatch_data": 300,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
                 "precious_egg_type": 7,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,

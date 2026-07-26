@@ -1,7 +1,7 @@
 {
     "id": 3610,
     "name": "shumochong",
-    "form": "书魔虫",
+    "form": "default",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -27,8 +27,8 @@
     },
     "implemented": true,
     "base_hp": 67,
-    "base_phy_atk": 75,
-    "base_mag_atk": 75,
+    "base_phy_atk": 69,
+    "base_mag_atk": 69,
     "base_phy_def": 48,
     "base_mag_def": 73,
     "base_spd": 57,
@@ -37,18 +37,18 @@
         "id": 303,
         "name": "shumochong",
         "localized": {
-            "zh": "噼啪鸟"
+            "zh": "书魔虫"
         }
     },
     "trait": {
         "id": 200244,
         "name": "图书守卫者",
-        "description": "入场时，若自己魔力值为1，自己获得双攻+50%。",
+        "description": "入场时，若自己魔力值为1，自己获得双攻+100%。",
         "icon_id": "200244",
         "localized": {
             "zh": {
                 "name": "图书守卫者",
-                "description": "入场时，若自己魔力值为1，自己获得双攻+50%。"
+                "description": "入场时，若自己魔力值为1，自己获得双攻+100%。"
             }
         }
     },
@@ -443,13 +443,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7021130,
@@ -1103,7 +1103,7 @@
                         "id": 3610,
                         "species_id": 303,
                         "name": "shumochong",
-                        "form": "书魔虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "书魔虫"
@@ -1130,7 +1130,7 @@
                         "id": 3611,
                         "species_id": 304,
                         "name": "shujuanshouhu",
-                        "form": "书卷守护",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "书卷守护"
@@ -1159,7 +1159,7 @@
                         "id": 3612,
                         "species_id": 305,
                         "name": "gujuanzhizhengguan",
-                        "form": "古卷执政官",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "古卷执政官"
@@ -1189,7 +1189,7 @@
                         "id": 3613,
                         "species_id": 306,
                         "name": "gujuanxiamoxiang",
-                        "form": "古卷匣魔像",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "古卷匣魔像"
@@ -1225,8 +1225,8 @@
         "current_monster_id": 3610
     },
     "world_profile": {
-        "type_desc": "常见于草丛",
-        "description_habitat": "喵喵",
+        "type_desc": "书卷精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "沉迷于阅读，其力量来源于书本的知识。走路和睡觉时都手不释卷，读的书越多体型变得越大，隔一段时间就要调整绑书带的长度，不然会阻碍它学习新知识。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1240,13 +1240,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3610001,
         "pet_id": 3610001,
-        "name": "麦香驼",
+        "name": null,
         "model_id": 3610001,
         "hatch_data": 28800,
         "weight_low": 798,
@@ -1254,21 +1254,15 @@
         "height_low": 13,
         "height_high": 17,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3610001,
                 "pet_id": 3610001,
-                "name": "麦香驼",
+                "name": null,
                 "model_id": 3610001,
                 "hatch_data": 28800,
                 "weight_low": 798,
@@ -1276,21 +1270,15 @@
                 "height_low": 13,
                 "height_high": 17,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 36100001,
                 "pet_id": 36100001,
-                "name": "麦香驼",
+                "name": null,
                 "model_id": 3610001,
                 "hatch_data": 300,
                 "weight_low": 798,
@@ -1298,82 +1286,6 @@
                 "height_low": 13,
                 "height_high": 17,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 37040001,
-                "pet_id": 37040001,
-                "name": "噼啪鸟",
-                "model_id": 3704001,
-                "hatch_data": 300,
-                "weight_low": 1061,
-                "weight_high": 1640,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000054,
-                "pet_id": 95000054,
-                "name": "麦香驼",
-                "model_id": 3610001,
-                "hatch_data": 28800,
-                "weight_low": 798,
-                "weight_high": 1544,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000054,
-                "pet_id": 99000054,
-                "name": "麦香驼",
-                "model_id": 3610001,
-                "hatch_data": 28800,
-                "weight_low": 798,
-                "weight_high": 1544,
-                "height_low": 13,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000124,
-                "pet_id": 99000124,
-                "name": "噼啪鸟",
-                "model_id": 3704001,
-                "hatch_data": 72000,
-                "weight_low": 1061,
-                "weight_high": 1640,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1382,7 +1294,7 @@
             {
                 "id": 99000175,
                 "pet_id": 99000175,
-                "name": "麦香驼",
+                "name": null,
                 "model_id": 3610001,
                 "hatch_data": 72000,
                 "weight_low": 798,

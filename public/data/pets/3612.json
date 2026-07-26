@@ -1,7 +1,7 @@
 {
     "id": 3612,
     "name": "gujuanzhizhengguan",
-    "form": "古卷执政官",
+    "form": "default",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -33,8 +33,8 @@
     },
     "implemented": true,
     "base_hp": 111,
-    "base_phy_atk": 125,
-    "base_mag_atk": 125,
+    "base_phy_atk": 115,
+    "base_mag_atk": 115,
     "base_phy_def": 80,
     "base_mag_def": 122,
     "base_spd": 95,
@@ -43,18 +43,18 @@
         "id": 305,
         "name": "gujuanzhizhengguan",
         "localized": {
-            "zh": "鲸精灵"
+            "zh": "古卷执政官"
         }
     },
     "trait": {
         "id": 200244,
         "name": "图书守卫者",
-        "description": "入场时，若自己魔力值为1，自己获得双攻+50%。",
+        "description": "入场时，若自己魔力值为1，自己获得双攻+100%。",
         "icon_id": "200244",
         "localized": {
             "zh": {
                 "name": "图书守卫者",
-                "description": "入场时，若自己魔力值为1，自己获得双攻+50%。"
+                "description": "入场时，若自己魔力值为1，自己获得双攻+100%。"
             }
         }
     },
@@ -801,13 +801,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7021130,
@@ -830,6 +830,28 @@
             "energy_cost": 2,
             "power": null,
             "description": "减伤60%，应对攻击：敌方脱离。"
+        },
+        {
+            "id": 7021230,
+            "name": "友谊满溢",
+            "icon_id": "101112",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "友谊满溢",
+                    "description": "造成​魔伤，​选择：​每次使用后威力​永久​​+20​或​应对状态​时​本​次技能​威力​+100%。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 2,
+            "power": 70,
+            "description": "造成​魔伤，​选择：​每次使用后威力​永久​​+20​或​应对状态​时​本​次技能​威力​+100%。"
         }
     ],
     "legacy_moves": [
@@ -1329,7 +1351,7 @@
                         "id": 3610,
                         "species_id": 303,
                         "name": "shumochong",
-                        "form": "书魔虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "书魔虫"
@@ -1356,7 +1378,7 @@
                         "id": 3611,
                         "species_id": 304,
                         "name": "shujuanshouhu",
-                        "form": "书卷守护",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "书卷守护"
@@ -1385,7 +1407,7 @@
                         "id": 3612,
                         "species_id": 305,
                         "name": "gujuanzhizhengguan",
-                        "form": "古卷执政官",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "古卷执政官"
@@ -1415,7 +1437,7 @@
                         "id": 3613,
                         "species_id": 306,
                         "name": "gujuanxiamoxiang",
-                        "form": "古卷匣魔像",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "古卷匣魔像"
@@ -1451,8 +1473,8 @@
         "current_monster_id": 3612
     },
     "world_profile": {
-        "type_desc": "鸟仔精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "智慧精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "期末时期的图书馆，每当古卷执政官从书架间缓缓现身，它周围的位置总被围得水泄不通，它的古卷如臂膀般展开，书页无声翻动，精准停在学生们最需要的章节上。“不要抗拒，作业是你和知识之间的契约。”",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1466,7 +1488,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

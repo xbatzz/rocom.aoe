@@ -125,7 +125,7 @@
                     {
                         "id": 3590,
                         "species_id": 3590,
-                        "name": "3590",
+                        "name": "daita",
                         "form": "default",
                         "localized": {
                             "zh": {
@@ -232,7 +232,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 525,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

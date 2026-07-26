@@ -780,6 +780,28 @@
             "energy_cost": 4,
             "power": 120,
             "description": "对敌方精灵造成物理伤害。"
+        },
+        {
+            "id": 7030560,
+            "name": "养分回流",
+            "icon_id": "302042",
+            "move_type": {
+                "id": 2,
+                "name": "Grass",
+                "localized": {
+                    "zh": "草"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "养分回流",
+                    "description": "造成​魔伤，​为场​下​所有​精灵​回复1​能量​。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 75,
+            "description": "造成​魔伤，​为场​下​所有​精灵​回复1​能量​。"
         }
     ],
     "legacy_moves": [
@@ -1341,7 +1363,7 @@
                         "id": 3147,
                         "species_id": 23,
                         "name": "lunhuilinggu",
-                        "form": "幻影灵菇",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "幻影灵菇"
@@ -1376,7 +1398,7 @@
         "current_monster_id": 3145
     },
     "world_profile": {
-        "type_desc": "行踪神秘",
+        "type_desc": "菇精灵",
         "description_habitat": "常见于草地",
         "introduction": "可能在任何潮湿的阴冷角落出现，看到蓝色荧光不要贸然接近。吸食其他生物的情绪作为养分，吃饱后会发出轻轻的叹气声。",
         "refresh_locations": [
@@ -1392,13 +1414,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 10000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3145001,
         "pet_id": 3145001,
-        "name": "脆筒甜甜",
+        "name": null,
         "model_id": 3145001,
         "hatch_data": 28800,
         "weight_low": 1890,
@@ -1406,21 +1428,15 @@
         "height_low": 18,
         "height_high": 25,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3145001,
                 "pet_id": 3145001,
-                "name": "脆筒甜甜",
+                "name": null,
                 "model_id": 3145001,
                 "hatch_data": 28800,
                 "weight_low": 1890,
@@ -1428,43 +1444,15 @@
                 "height_low": 18,
                 "height_high": 25,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3178001,
-                "pet_id": 3178001,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 31450001,
                 "pet_id": 31450001,
-                "name": "脆筒甜甜",
+                "name": null,
                 "model_id": 3145001,
                 "hatch_data": 300,
                 "weight_low": 1890,
@@ -1472,318 +1460,6 @@
                 "height_low": 18,
                 "height_high": 25,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31780001,
-                "pet_id": 31780001,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 300,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000040,
-                "pet_id": 91000040,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000102,
-                "pet_id": 91000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000040,
-                "pet_id": 92000040,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000102,
-                "pet_id": 92000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000040,
-                "pet_id": 93000040,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000102,
-                "pet_id": 93000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000040,
-                "pet_id": 94000040,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000102,
-                "pet_id": 94000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000021,
-                "pet_id": 95000021,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000040,
-                "pet_id": 96000040,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000102,
-                "pet_id": 96000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000040,
-                "pet_id": 97000040,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000102,
-                "pet_id": 97000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000040,
-                "pet_id": 98000040,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000102,
-                "pet_id": 98000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000021,
-                "pet_id": 99000021,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 28800,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000091,
-                "pet_id": 99000091,
-                "name": "小灵菇",
-                "model_id": 3178001,
-                "hatch_data": 72000,
-                "weight_low": 1155,
-                "weight_high": 1680,
-                "height_low": 12,
-                "height_high": 18,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1792,7 +1468,7 @@
             {
                 "id": 99000157,
                 "pet_id": 99000157,
-                "name": "脆筒甜甜",
+                "name": null,
                 "model_id": 3145001,
                 "hatch_data": 72000,
                 "weight_low": 1890,

@@ -1,0 +1,116 @@
+{
+    "id": 8200,
+    "name": "8200",
+    "form": "default",
+    "main_type": {
+        "id": 2,
+        "name": "Grass",
+        "localized": {
+            "zh": "草"
+        }
+    },
+    "sub_type": null,
+    "default_legacy_type": {
+        "id": 2,
+        "name": "Grass",
+        "localized": {
+            "zh": "草"
+        }
+    },
+    "leader_potential": false,
+    "is_leader_form": false,
+    "preferred_attack_style": "Both",
+    "localized": {
+        "zh": {
+            "name": "赫拉"
+        }
+    },
+    "implemented": false,
+    "base_hp": 400,
+    "base_phy_atk": 110,
+    "base_mag_atk": 110,
+    "base_phy_def": 150,
+    "base_mag_def": 80,
+    "base_spd": 120,
+    "evolves_from_id": null,
+    "species": {
+        "id": 8200,
+        "name": "8200",
+        "localized": {
+            "zh": "赫拉"
+        }
+    },
+    "trait": {
+        "id": 299001,
+        "name": "？？？",
+        "description": "此精灵被隐藏起来了，看不出特性",
+        "icon_id": "img_wenhao",
+        "localized": {
+            "zh": {
+                "name": "？？？",
+                "description": "此精灵被隐藏起来了，看不出特性"
+            }
+        }
+    },
+    "move_pool": [],
+    "move_stones": [],
+    "legacy_moves": [],
+    "evolution_tree": {
+        "stages": [
+            {
+                "depth": 0,
+                "monsters": [
+                    {
+                        "id": 8200,
+                        "species_id": 8200,
+                        "name": "8200",
+                        "form": "default",
+                        "localized": {
+                            "zh": {
+                                "name": "赫拉"
+                            }
+                        },
+                        "is_leader_form": false,
+                        "main_type": {
+                            "id": 2,
+                            "name": "Grass",
+                            "localized": {
+                                "zh": "草"
+                            }
+                        },
+                        "sub_type": null,
+                        "evolution_conditions": [
+                            "等级达到 25 级"
+                        ]
+                    }
+                ],
+                "is_leader_stage": false
+            }
+        ],
+        "max_depth": 0,
+        "total_unique_monsters": 1,
+        "species_id": 8200,
+        "current_monster_id": 8200
+    },
+    "world_profile": {
+        "type_desc": null,
+        "description_habitat": null,
+        "introduction": null,
+        "refresh_locations": [
+            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
+        ],
+        "movement_type": "步行",
+        "classis_id": 6,
+        "classis_name": "自然类精灵",
+        "handbook_area_ids": []
+    },
+    "catch_info": null,
+    "breeding": null,
+    "breeding_profile": {
+        "pet_base_id": 8200,
+        "egg_groups": [],
+        "proportion_male": 5,
+        "male_rate": 50,
+        "female_rate": 50
+    }
+}

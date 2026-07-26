@@ -43,7 +43,7 @@
         "id": 115,
         "name": "mayashixianggui",
         "localized": {
-            "zh": "石头精灵"
+            "zh": "仪式巨像"
         }
     },
     "trait": {
@@ -297,8 +297,8 @@
                 }
             },
             "move_category": "Physical Attack",
-            "energy_cost": 3,
-            "power": 100,
+            "energy_cost": 1,
+            "power": 55,
             "description": "造成物伤，本技能能耗每+1，威力+50。"
         },
         {
@@ -654,6 +654,72 @@
             "energy_cost": 3,
             "power": 80,
             "description": "造成物伤，自己生命大于80%时，本次技能威力+75。"
+        },
+        {
+            "id": 7160390,
+            "name": "耍赖",
+            "icon_id": "101106",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "耍赖",
+                    "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
+        },
+        {
+            "id": 7150360,
+            "name": "试飞",
+            "icon_id": "114037",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "试飞",
+                    "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 2,
+            "power": 20,
+            "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+        },
+        {
+            "id": 7150370,
+            "name": "超声波",
+            "icon_id": "114031",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "超声波",
+                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
         }
     ],
     "legacy_moves": [
@@ -1153,7 +1219,7 @@
                         "id": 3109,
                         "species_id": 113,
                         "name": "maya",
-                        "form": "仪使者",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "仪使者"
@@ -1186,7 +1252,7 @@
                         "id": 3110,
                         "species_id": 114,
                         "name": "mayazhixing",
-                        "form": "仪式之星",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "仪式之星"
@@ -1221,7 +1287,7 @@
                         "id": 3111,
                         "species_id": 115,
                         "name": "mayashixianggui",
-                        "form": "仪式巨像",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "仪式巨像"
@@ -1306,18 +1372,45 @@
                             }
                         },
                         "evolution_conditions": []
+                    },
+                    {
+                        "id": 8115,
+                        "species_id": 115,
+                        "name": "yishijuxiang_shouling",
+                        "form": "祭礼巨像",
+                        "localized": {
+                            "zh": {
+                                "name": "祭礼巨像"
+                            }
+                        },
+                        "is_leader_form": true,
+                        "main_type": {
+                            "id": 6,
+                            "name": "Ground",
+                            "localized": {
+                                "zh": "地"
+                            }
+                        },
+                        "sub_type": {
+                            "id": 18,
+                            "name": "Illusion",
+                            "localized": {
+                                "zh": "幻"
+                            }
+                        },
+                        "evolution_conditions": []
                     }
                 ]
             }
         ],
         "max_depth": 3,
-        "total_unique_monsters": 5,
+        "total_unique_monsters": 6,
         "species_id": 115,
         "current_monster_id": 4084
     },
     "world_profile": {
-        "type_desc": "矿晶虫",
-        "description_habitat": "喵喵",
+        "type_desc": "遗迹精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "它们是远古星象祭典的传承者，将观测到的星轨运行规律铭刻在体表，延续着文明的脉络，身上的古文字符号已超出当代洛克的认知范畴，无法被识别解读。",
         "refresh_locations": [
             "暂时找不到这只精灵的踪迹噢！"

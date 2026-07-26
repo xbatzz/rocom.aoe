@@ -1,7 +1,7 @@
 {
     "id": 3777,
     "name": "youlingshu",
-    "form": "幽影树",
+    "form": "default",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -43,7 +43,7 @@
         "id": 35,
         "name": "youlingshu",
         "localized": {
-            "zh": "蝶精灵"
+            "zh": "幽影树"
         }
     },
     "trait": {
@@ -1153,7 +1153,7 @@
                         "id": 3064,
                         "species_id": 35,
                         "name": "youlingshu",
-                        "form": "幽影树",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "幽影树"
@@ -1180,7 +1180,7 @@
                         "id": 3777,
                         "species_id": 35,
                         "name": "youlingshu",
-                        "form": "幽影树",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "幽影树"
@@ -1263,18 +1263,45 @@
                             }
                         },
                         "evolution_conditions": []
+                    },
+                    {
+                        "id": 8109,
+                        "species_id": 35,
+                        "name": "youyingshu_shouling",
+                        "form": "幻影荆棘",
+                        "localized": {
+                            "zh": {
+                                "name": "幻影荆棘"
+                            }
+                        },
+                        "is_leader_form": true,
+                        "main_type": {
+                            "id": 2,
+                            "name": "Grass",
+                            "localized": {
+                                "zh": "草"
+                            }
+                        },
+                        "sub_type": {
+                            "id": 15,
+                            "name": "Ghost",
+                            "localized": {
+                                "zh": "幽"
+                            }
+                        },
+                        "evolution_conditions": []
                     }
                 ]
             }
         ],
         "max_depth": 1,
-        "total_unique_monsters": 4,
+        "total_unique_monsters": 5,
         "species_id": 35,
         "current_monster_id": 3777
     },
     "world_profile": {
-        "type_desc": "硬壳精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "树精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "左手和右手似乎有各自的想法，在黑暗中看起来就像三只精灵。虽然伪装拙劣到谁都能看穿的程度，但依旧喜欢伪装成普通树木的样子，跟在洛克身后，但是对洛克并没有恶意。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1289,74 +1316,7 @@
         ]
     },
     "catch_info": null,
-    "breeding": {
-        "id": 3064002,
-        "pet_id": 3064002,
-        "name": "幽影树",
-        "model_id": 3064001,
-        "hatch_data": 300,
-        "weight_low": 10325,
-        "weight_high": 15000,
-        "height_low": 27,
-        "height_high": 38,
-        "precious_egg_type": 1,
-        "egg_base_glass_prob_array": [
-            5191,
-            5191
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            0
-        ],
-        "is_contact_add_glass_prob": true,
-        "is_contact_add_shining_prob": null,
-        "variants": [
-            {
-                "id": 3064002,
-                "pet_id": 3064002,
-                "name": "幽影树",
-                "model_id": 3064001,
-                "hatch_data": 300,
-                "weight_low": 10325,
-                "weight_high": 15000,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3064004,
-                "pet_id": 3064004,
-                "name": "幽影树",
-                "model_id": 3064001,
-                "hatch_data": 300,
-                "weight_low": 10325,
-                "weight_high": 15000,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            }
-        ]
-    },
+    "breeding": null,
     "breeding_profile": {
         "pet_base_id": 3777,
         "egg_groups": [

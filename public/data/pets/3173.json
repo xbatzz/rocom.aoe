@@ -1,7 +1,7 @@
 {
     "id": 3173,
     "name": "xuemanren",
-    "form": "雪蛮人",
+    "form": "default",
     "main_type": {
         "id": 7,
         "name": "Ice",
@@ -37,7 +37,7 @@
         "id": 135,
         "name": "xuemanren",
         "localized": {
-            "zh": "帽帽精灵"
+            "zh": "雪蛮人"
         }
     },
     "trait": {
@@ -629,7 +629,7 @@
         },
         {
             "id": 7090430,
-            "name": "冰封",
+            "name": "冷凝",
             "icon_id": "108039",
             "move_type": {
                 "id": 7,
@@ -640,7 +640,7 @@
             },
             "localized": {
                 "zh": {
-                    "name": "冰封",
+                    "name": "冷凝",
                     "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
                 }
             },
@@ -648,6 +648,72 @@
             "energy_cost": 4,
             "power": 95,
             "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
+        },
+        {
+            "id": 7090460,
+            "name": "雪原狩猎",
+            "icon_id": "208041",
+            "move_type": {
+                "id": 7,
+                "name": "Ice",
+                "localized": {
+                    "zh": "冰"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "雪原狩猎",
+                    "description": "造​成​物伤，​天气为暴风雪时，本次技能威力​+50%"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 80,
+            "description": "造​成​物伤，​天气为暴风雪时，本次技能威力​+50%"
+        },
+        {
+            "id": 7140330,
+            "name": "马步",
+            "icon_id": "313037",
+            "move_type": {
+                "id": 12,
+                "name": "Fighting",
+                "localized": {
+                    "zh": "武"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "马步",
+                    "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 3,
+            "power": null,
+            "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+        },
+        {
+            "id": 7021280,
+            "name": "缓一缓",
+            "icon_id": "101114",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "缓一缓",
+                    "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
         }
     ],
     "legacy_moves": [
@@ -1147,7 +1213,7 @@
                         "id": 3172,
                         "species_id": 134,
                         "name": "xuedouding",
-                        "form": "雪豆丁",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雪豆丁"
@@ -1174,7 +1240,7 @@
                         "id": 3173,
                         "species_id": 135,
                         "name": "xuemanren",
-                        "form": "雪蛮人",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雪蛮人"
@@ -1203,7 +1269,7 @@
                         "id": 3174,
                         "species_id": 136,
                         "name": "xuejuren",
-                        "form": "雪巨人",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雪巨人"
@@ -1232,8 +1298,8 @@
         "current_monster_id": 3173
     },
     "world_profile": {
-        "type_desc": "常见于草地、沙地、雪山",
-        "description_habitat": "狸精灵",
+        "type_desc": "冰冰凉精灵",
+        "description_habitat": "常见于雪山",
         "introduction": "上肢沉重却灵活，体表鬃毛格外厚重，兼具保暖与防护的功能。吸收的寒气能够压缩后储存在脊背和额头上，形成坚实有力的冰晶，用以保持平衡和击打对手。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1248,7 +1314,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 1200,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

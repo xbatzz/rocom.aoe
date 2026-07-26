@@ -1,7 +1,7 @@
 {
     "id": 3483,
     "name": "pengyechong",
-    "form": "蓬叶虫",
+    "form": "default",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -43,7 +43,7 @@
         "id": 119,
         "name": "pengyechong",
         "localized": {
-            "zh": "石石"
+            "zh": "蓬叶虫"
         }
     },
     "trait": {
@@ -475,8 +475,8 @@
                 }
             },
             "move_category": "Physical Attack",
-            "energy_cost": 4,
-            "power": 95,
+            "energy_cost": 3,
+            "power": 85,
             "description": "造成物伤，驱散敌方所有印记，应对状态：改为偷取印记。"
         },
         {
@@ -1175,7 +1175,7 @@
                         "id": 3376,
                         "species_id": 118,
                         "name": "xuanyanchong",
-                        "form": "旋叶虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "旋叶虫"
@@ -1202,7 +1202,7 @@
                         "id": 3496,
                         "species_id": 118,
                         "name": "xuanyechong_yidi",
-                        "form": "旋叶虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "旋叶虫"
@@ -1235,7 +1235,7 @@
                         "id": 3483,
                         "species_id": 119,
                         "name": "pengyechong",
-                        "form": "蓬叶虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "蓬叶虫"
@@ -1264,7 +1264,7 @@
                         "id": 3497,
                         "species_id": 119,
                         "name": "pengyechong_yidi",
-                        "form": "蓬叶虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "蓬叶虫"
@@ -1299,7 +1299,7 @@
                         "id": 3377,
                         "species_id": 120,
                         "name": "fenggunmuchong",
-                        "form": "风滚暮虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "风滚暮虫"
@@ -1328,7 +1328,7 @@
                         "id": 3498,
                         "species_id": 120,
                         "name": "fengguanmuchong_yidi",
-                        "form": "风滚暮虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "风滚暮虫"
@@ -1363,8 +1363,8 @@
         "current_monster_id": 3483
     },
     "world_profile": {
-        "type_desc": "矿石精灵",
-        "description_habitat": "常见于城镇、草地、雪山",
+        "type_desc": "拟态精灵",
+        "description_habitat": "常见于树林",
         "introduction": "必要时能借助鞘翅进行短暂滑行，从一处树冠滑到另一处枝丫。它经常在风力带动下被动迁移，偶尔被风刮走很远，落稳后呆住好一会才能意识到周围环境已经变了。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1380,147 +1380,10 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 1200,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
-    "breeding": {
-        "id": 3203001,
-        "pet_id": 3203001,
-        "name": "石石",
-        "model_id": 3203001,
-        "hatch_data": 57600,
-        "weight_low": 8575,
-        "weight_high": 13840,
-        "height_low": 24,
-        "height_high": 34,
-        "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
-        "is_contact_add_shining_prob": true,
-        "variants": [
-            {
-                "id": 3203001,
-                "pet_id": 3203001,
-                "name": "石石",
-                "model_id": 3203001,
-                "hatch_data": 57600,
-                "weight_low": 8575,
-                "weight_high": 13840,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
-            },
-            {
-                "id": 3203003,
-                "pet_id": 3203003,
-                "name": "石石",
-                "model_id": 3203001,
-                "hatch_data": 300,
-                "weight_low": 8575,
-                "weight_high": 13840,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 32030001,
-                "pet_id": 32030001,
-                "name": "石石",
-                "model_id": 3203001,
-                "hatch_data": 300,
-                "weight_low": 8575,
-                "weight_high": 13840,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000024,
-                "pet_id": 95000024,
-                "name": "石石",
-                "model_id": 3203001,
-                "hatch_data": 57600,
-                "weight_low": 8575,
-                "weight_high": 13840,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000024,
-                "pet_id": 99000024,
-                "name": "石石",
-                "model_id": 3203001,
-                "hatch_data": 57600,
-                "weight_low": 8575,
-                "weight_high": 13840,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000081,
-                "pet_id": 99000081,
-                "name": "石石",
-                "model_id": 3203001,
-                "hatch_data": 72000,
-                "weight_low": 8575,
-                "weight_high": 13840,
-                "height_low": 24,
-                "height_high": 34,
-                "precious_egg_type": 4,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            }
-        ]
-    },
+    "breeding": null,
     "breeding_profile": {
         "pet_base_id": 3483,
         "egg_groups": [

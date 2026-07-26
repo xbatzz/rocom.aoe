@@ -1,7 +1,7 @@
 {
     "id": 3399,
     "name": "luoxingchong",
-    "form": "落星虫",
+    "form": "default",
     "main_type": {
         "id": 11,
         "name": "Bug",
@@ -37,7 +37,7 @@
         "id": 318,
         "name": "luoxingchong",
         "localized": {
-            "zh": "硬壳精灵"
+            "zh": "落星虫"
         }
     },
     "trait": {
@@ -1257,7 +1257,7 @@
                         "id": 3398,
                         "species_id": 317,
                         "name": "xingchenchong",
-                        "form": "星尘虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "星尘虫"
@@ -1284,7 +1284,7 @@
                         "id": 3399,
                         "species_id": 318,
                         "name": "luoxingchong",
-                        "form": "落星虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "落星虫"
@@ -1313,7 +1313,7 @@
                         "id": 3400,
                         "species_id": 319,
                         "name": "yunxingchong",
-                        "form": "陨星虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "陨星虫"
@@ -1342,8 +1342,8 @@
         "current_monster_id": 3399
     },
     "world_profile": {
-        "type_desc": "行踪神秘",
-        "description_habitat": "喵喵",
+        "type_desc": "吞噬精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "与精灵缔结契约的形式发生变化，咕噜球的样子世代更替，这一种族的外表也渐渐发生了变化。有人曾经尝试使用特殊咕噜球喂食，虫的形态在数年后发生变化，但实验没有继续下来，猜测是因为资金不足。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1358,7 +1358,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 310,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

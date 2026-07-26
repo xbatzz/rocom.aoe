@@ -176,7 +176,7 @@
     "breeding": {
         "id": 3445001,
         "pet_id": 3445001,
-        "name": "矿晶虫（首领血脉）",
+        "name": null,
         "model_id": 3445001,
         "hatch_data": 72000,
         "weight_low": 34825,
@@ -184,21 +184,15 @@
         "height_low": 64,
         "height_high": 68,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            400,
-            3125
-        ],
-        "egg_add_glass_prob_array": [
-            2,
-            113
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3445001,
                 "pet_id": 3445001,
-                "name": "矿晶虫（首领血脉）",
+                "name": null,
                 "model_id": 3445001,
                 "hatch_data": 72000,
                 "weight_low": 34825,
@@ -206,43 +200,21 @@
                 "height_low": 64,
                 "height_high": 68,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 34450001,
-                "pet_id": 34450001,
-                "name": "矿晶虫（首领血脉）",
-                "model_id": 3445001,
-                "hatch_data": 300,
-                "weight_low": 34825,
-                "weight_high": 43200,
-                "height_low": 64,
-                "height_high": 68,
-                "precious_egg_type": 7,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 37060001,
-                "pet_id": 37060001,
-                "name": "雪毛角羚牛",
-                "model_id": 3706001,
+                "id": 34450001,
+                "pet_id": 34450001,
+                "name": null,
+                "model_id": 3445001,
                 "hatch_data": 300,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
+                "weight_low": 34825,
+                "weight_high": 43200,
+                "height_low": 64,
+                "height_high": 68,
                 "precious_egg_type": 7,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,

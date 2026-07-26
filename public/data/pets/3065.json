@@ -1,7 +1,7 @@
 {
     "id": 3065,
     "name": "huyouli",
-    "form": "忽幽狸",
+    "form": "default",
     "main_type": {
         "id": 10,
         "name": "Poison",
@@ -43,7 +43,7 @@
         "id": 123,
         "name": "huyouli",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "忽幽狸"
         }
     },
     "trait": {
@@ -735,13 +735,13 @@
             "localized": {
                 "zh": {
                     "name": "鸩毒",
-                    "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+20。"
+                    "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+20。"
+            "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
         },
         {
             "id": 7170240,
@@ -764,6 +764,28 @@
             "energy_cost": 2,
             "power": null,
             "description": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。"
+        },
+        {
+            "id": 7120280,
+            "name": "过敏原",
+            "icon_id": "111030",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "过敏原",
+                    "description": "造成魔伤，1连击，若敌方有中毒效果，本次技能连击数+2。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 35,
+            "description": "造成魔伤，1连击，若敌方有中毒效果，本次技能连击数+2。"
         }
     ],
     "legacy_moves": [
@@ -1263,7 +1285,7 @@
                         "id": 3065,
                         "species_id": 123,
                         "name": "huyouli",
-                        "form": "忽幽狸",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "忽幽狸"
@@ -1296,7 +1318,7 @@
                         "id": 3066,
                         "species_id": 124,
                         "name": "youlingli",
-                        "form": "影狸",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "影狸"
@@ -1334,8 +1356,8 @@
         "current_monster_id": 3065
     },
     "world_profile": {
-        "type_desc": "常见于山地、草地",
-        "description_habitat": "喵喵",
+        "type_desc": "狸精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "忽幽狸的尾巴覆盖着剧毒尖刺，静止时会伪装成灌木枝条。当感知到危险，尾巴会瞬间硬化成防御姿态，刺尖分泌的神经毒素能使猎物肌肉僵直。检测显示，其毒素对草系精灵效果加倍。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1351,13 +1373,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 3000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3065001,
         "pet_id": 3065001,
-        "name": "幽影树（首领血脉）",
+        "name": null,
         "model_id": 3065001,
         "hatch_data": 43200,
         "weight_low": 2905,
@@ -1365,21 +1387,15 @@
         "height_low": 32,
         "height_high": 45,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3065001,
                 "pet_id": 3065001,
-                "name": "幽影树（首领血脉）",
+                "name": null,
                 "model_id": 3065001,
                 "hatch_data": 43200,
                 "weight_low": 2905,
@@ -1387,65 +1403,15 @@
                 "height_low": 32,
                 "height_high": 45,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3070003,
-                "pet_id": 3070003,
-                "name": "忽幽狸",
-                "model_id": 3070001,
-                "hatch_data": 300,
-                "weight_low": 4760,
-                "weight_high": 7000,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3070004,
-                "pet_id": 3070004,
-                "name": "忽幽狸",
-                "model_id": 3070001,
-                "hatch_data": 300,
-                "weight_low": 4760,
-                "weight_high": 7000,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 30650001,
                 "pet_id": 30650001,
-                "name": "幽影树（首领血脉）",
+                "name": null,
                 "model_id": 3065001,
                 "hatch_data": 300,
                 "weight_low": 2905,
@@ -1461,7 +1427,7 @@
             {
                 "id": 99000168,
                 "pet_id": 99000168,
-                "name": "幽影树（首领血脉）",
+                "name": null,
                 "model_id": 3065001,
                 "hatch_data": 72000,
                 "weight_low": 2905,

@@ -1,7 +1,7 @@
 {
     "id": 3556,
     "name": "qiqishi_yidi",
-    "form": "棋骑士",
+    "form": "default",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -43,18 +43,18 @@
         "id": 189,
         "name": "qiqishi",
         "localized": {
-            "zh": "菇菇丁"
+            "zh": "棋骑士"
         }
     },
     "trait": {
         "id": 200236,
         "name": "腾挪",
-        "description": "攻击技能应对1次后，回满状态，变为棋绮后。",
+        "description": "攻击技能应对1次后，回满能量和生命，变为棋绮后。",
         "icon_id": "200236",
         "localized": {
             "zh": {
                 "name": "腾挪",
-                "description": "攻击技能应对1次后，回满状态，变为棋绮后。"
+                "description": "攻击技能应对1次后，回满能量和生命，变为棋绮后。"
             }
         }
     },
@@ -852,6 +852,50 @@
             "energy_cost": 2,
             "power": 90,
             "description": "对敌方精灵造成物理伤害。"
+        },
+        {
+            "id": 7070210,
+            "name": "蒸汽进行曲",
+            "icon_id": "106020",
+            "move_type": {
+                "id": 17,
+                "name": "Mechanical",
+                "localized": {
+                    "zh": "机械"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "蒸汽进行曲",
+                    "description": "选择：​自己获得速度​+60或​物攻+90%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 1,
+            "power": null,
+            "description": "选择：​自己获得速度​+60或​物攻+90%。"
+        },
+        {
+            "id": 7140330,
+            "name": "马步",
+            "icon_id": "313037",
+            "move_type": {
+                "id": 12,
+                "name": "Fighting",
+                "localized": {
+                    "zh": "武"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "马步",
+                    "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 3,
+            "power": null,
+            "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
         }
     ],
     "legacy_moves": [
@@ -1351,7 +1395,7 @@
                         "id": 3550,
                         "species_id": 188,
                         "name": "qiqi",
-                        "form": "棋棋",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋棋"
@@ -1378,7 +1422,7 @@
                         "id": 3555,
                         "species_id": 188,
                         "name": "qiqi_yidi",
-                        "form": "棋棋",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋棋"
@@ -1411,7 +1455,7 @@
                         "id": 3551,
                         "species_id": 189,
                         "name": "qiqishi",
-                        "form": "棋骑士",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋骑士"
@@ -1434,7 +1478,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋骑士」关联的联动条件（参数 3）",
+                            "需激活白子形态分支",
                             "需为雄性"
                         ]
                     },
@@ -1442,7 +1486,7 @@
                         "id": 3552,
                         "species_id": 192,
                         "name": "qiqihou",
-                        "form": "棋绮后",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋绮后"
@@ -1465,7 +1509,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋绮后」关联的联动条件（参数 3）",
+                            "需激活白子形态分支",
                             "需为雌性"
                         ]
                     },
@@ -1473,7 +1517,7 @@
                         "id": 3553,
                         "species_id": 190,
                         "name": "qiqilei",
-                        "form": "棋齐垒",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋齐垒"
@@ -1496,7 +1540,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋齐垒」关联的联动条件（参数 3）",
+                            "需激活白子形态分支",
                             "需为雄性"
                         ]
                     },
@@ -1504,7 +1548,7 @@
                         "id": 3554,
                         "species_id": 191,
                         "name": "qiqidu",
-                        "form": "棋祈督",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋祈督"
@@ -1527,7 +1571,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋祈督」关联的联动条件（参数 3）",
+                            "需激活白子形态分支",
                             "需为雄性"
                         ]
                     },
@@ -1535,7 +1579,7 @@
                         "id": 3556,
                         "species_id": 189,
                         "name": "qiqishi_yidi",
-                        "form": "棋骑士",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋骑士"
@@ -1558,7 +1602,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋骑士」关联的联动条件（参数 3）",
+                            "需激活黑子形态分支",
                             "需为雄性"
                         ]
                     },
@@ -1566,7 +1610,7 @@
                         "id": 3557,
                         "species_id": 192,
                         "name": "qiqihou_yidi",
-                        "form": "棋绮后",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋绮后"
@@ -1589,7 +1633,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋绮后」关联的联动条件（参数 3）",
+                            "需激活黑子形态分支",
                             "需为雌性"
                         ]
                     },
@@ -1597,7 +1641,7 @@
                         "id": 3558,
                         "species_id": 190,
                         "name": "qiqilei_yidi",
-                        "form": "棋齐垒",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋齐垒"
@@ -1620,7 +1664,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋齐垒」关联的联动条件（参数 3）",
+                            "需激活黑子形态分支",
                             "需为雄性"
                         ]
                     },
@@ -1628,7 +1672,7 @@
                         "id": 3559,
                         "species_id": 191,
                         "name": "qiqidu_yidi",
-                        "form": "棋祈督",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋祈督"
@@ -1651,7 +1695,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋祈督」关联的联动条件（参数 3）",
+                            "需激活黑子形态分支",
                             "需为雄性"
                         ]
                     }
@@ -1742,18 +1786,45 @@
                             }
                         },
                         "evolution_conditions": []
+                    },
+                    {
+                        "id": 8117,
+                        "species_id": 189,
+                        "name": "qiqibixia",
+                        "form": "棋契陛下",
+                        "localized": {
+                            "zh": {
+                                "name": "棋契陛下"
+                            }
+                        },
+                        "is_leader_form": true,
+                        "main_type": {
+                            "id": 6,
+                            "name": "Ground",
+                            "localized": {
+                                "zh": "地"
+                            }
+                        },
+                        "sub_type": {
+                            "id": 12,
+                            "name": "Fighting",
+                            "localized": {
+                                "zh": "武"
+                            }
+                        },
+                        "evolution_conditions": []
                     }
                 ]
             }
         ],
         "max_depth": 2,
-        "total_unique_monsters": 13,
+        "total_unique_monsters": 14,
         "species_id": 189,
         "current_monster_id": 3556
     },
     "world_profile": {
-        "type_desc": "常见于草地、平原",
-        "description_habitat": "海螺精灵",
+        "type_desc": "棋子精灵",
+        "description_habitat": "常见于山林、城堡周边",
         "introduction": "“在深夜，黑色棋子会跟在洛克身后排着队列，跟着移动。因此，在民间有洛克传言，深夜千万别碰黑色棋子，它们会把影子吃掉。实际上，那只是它们守护族人的本能而已。”——《黄金时代的地系工匠们·十》",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1768,533 +1839,10 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
-    "breeding": {
-        "id": 3534001,
-        "pet_id": 3534001,
-        "name": "菇菇丁",
-        "model_id": 3534001,
-        "hatch_data": 28800,
-        "weight_low": 1677,
-        "weight_high": 2468,
-        "height_low": 20,
-        "height_high": 25,
-        "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
-        "is_contact_add_shining_prob": null,
-        "variants": [
-            {
-                "id": 3534001,
-                "pet_id": 3534001,
-                "name": "菇菇丁",
-                "model_id": 3534001,
-                "hatch_data": 28800,
-                "weight_low": 1677,
-                "weight_high": 2468,
-                "height_low": 20,
-                "height_high": 25,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3536001,
-                "pet_id": 3536001,
-                "name": "菇菇丁",
-                "model_id": 3536001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2440,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3539001,
-                "pet_id": 3539001,
-                "name": "菇菇丁",
-                "model_id": 3539001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2440,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 35340001,
-                "pet_id": 35340001,
-                "name": "菇菇丁",
-                "model_id": 3534001,
-                "hatch_data": 300,
-                "weight_low": 1677,
-                "weight_high": 2468,
-                "height_low": 20,
-                "height_high": 25,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 35360001,
-                "pet_id": 35360001,
-                "name": "菇菇丁",
-                "model_id": 3536001,
-                "hatch_data": 300,
-                "weight_low": 1610,
-                "weight_high": 2440,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 35390001,
-                "pet_id": 35390001,
-                "name": "菇菇丁",
-                "model_id": 3539001,
-                "hatch_data": 300,
-                "weight_low": 1610,
-                "weight_high": 2440,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000041,
-                "pet_id": 91000041,
-                "name": "菇菇丁",
-                "model_id": 3536001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2440,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000042,
-                "pet_id": 91000042,
-                "name": "菇菇丁",
-                "model_id": 3539001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2440,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000096,
-                "pet_id": 91000096,
-                "name": "菇菇丁",
-                "model_id": 3534001,
-                "hatch_data": 28800,
-                "weight_low": 1677,
-                "weight_high": 2468,
-                "height_low": 20,
-                "height_high": 25,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000041,
-                "pet_id": 92000041,
-                "name": "菇菇丁",
-                "model_id": 3536001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2440,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000042,
-                "pet_id": 92000042,
-                "name": "菇菇丁",
-                "model_id": 3539001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2440,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000096,
-                "pet_id": 92000096,
-                "name": "菇菇丁",
-                "model_id": 3534001,
-                "hatch_data": 28800,
-                "weight_low": 1677,
-                "weight_high": 2468,
-                "height_low": 20,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000041,
-                "pet_id": 93000041,
-                "name": "菇菇丁",
-                "model_id": 3536001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2440,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000042,
-                "pet_id": 93000042,
-                "name": "菇菇丁",
-                "model_id": 3539001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2440,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000096,
-                "pet_id": 93000096,
-                "name": "菇菇丁",
-                "model_id": 3534001,
-                "hatch_data": 28800,
-                "weight_low": 1677,
-                "weight_high": 2468,
-                "height_low": 20,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000041,
-                "pet_id": 94000041,
-                "name": "菇菇丁",
-                "model_id": 3536001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2440,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000042,
-                "pet_id": 94000042,
-                "name": "菇菇丁",
-                "model_id": 3539001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2440,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000096,
-                "pet_id": 94000096,
-                "name": "菇菇丁",
-                "model_id": 3534001,
-                "hatch_data": 28800,
-                "weight_low": 1677,
-                "weight_high": 2468,
-                "height_low": 20,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000041,
-                "pet_id": 96000041,
-                "name": "菇菇丁",
-                "model_id": 3536001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2440,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000042,
-                "pet_id": 96000042,
-                "name": "菇菇丁",
-                "model_id": 3539001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2440,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000096,
-                "pet_id": 96000096,
-                "name": "菇菇丁",
-                "model_id": 3534001,
-                "hatch_data": 28800,
-                "weight_low": 1677,
-                "weight_high": 2468,
-                "height_low": 20,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000041,
-                "pet_id": 97000041,
-                "name": "菇菇丁",
-                "model_id": 3536001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2440,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000042,
-                "pet_id": 97000042,
-                "name": "菇菇丁",
-                "model_id": 3539001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2440,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000096,
-                "pet_id": 97000096,
-                "name": "菇菇丁",
-                "model_id": 3534001,
-                "hatch_data": 28800,
-                "weight_low": 1677,
-                "weight_high": 2468,
-                "height_low": 20,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000041,
-                "pet_id": 98000041,
-                "name": "菇菇丁",
-                "model_id": 3536001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2440,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000042,
-                "pet_id": 98000042,
-                "name": "菇菇丁",
-                "model_id": 3539001,
-                "hatch_data": 43200,
-                "weight_low": 1610,
-                "weight_high": 2440,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000096,
-                "pet_id": 98000096,
-                "name": "菇菇丁",
-                "model_id": 3534001,
-                "hatch_data": 28800,
-                "weight_low": 1677,
-                "weight_high": 2468,
-                "height_low": 20,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000076,
-                "pet_id": 99000076,
-                "name": "菇菇丁",
-                "model_id": 3534001,
-                "hatch_data": 72000,
-                "weight_low": 1677,
-                "weight_high": 2468,
-                "height_low": 20,
-                "height_high": 25,
-                "precious_egg_type": 4,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000106,
-                "pet_id": 99000106,
-                "name": "菇菇丁",
-                "model_id": 3536001,
-                "hatch_data": 72000,
-                "weight_low": 1610,
-                "weight_high": 2440,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": 4,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            }
-        ]
-    },
+    "breeding": null,
     "breeding_profile": {
         "pet_base_id": 3556,
         "egg_groups": [

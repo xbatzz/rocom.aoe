@@ -1,7 +1,7 @@
 {
     "id": 3400,
     "name": "yunxingchong",
-    "form": "陨星虫",
+    "form": "default",
     "main_type": {
         "id": 11,
         "name": "Bug",
@@ -37,7 +37,7 @@
         "id": 319,
         "name": "yunxingchong",
         "localized": {
-            "zh": "圣剑侍从"
+            "zh": "陨星虫"
         }
     },
     "trait": {
@@ -1257,7 +1257,7 @@
                         "id": 3398,
                         "species_id": 317,
                         "name": "xingchenchong",
-                        "form": "星尘虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "星尘虫"
@@ -1284,7 +1284,7 @@
                         "id": 3399,
                         "species_id": 318,
                         "name": "luoxingchong",
-                        "form": "落星虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "落星虫"
@@ -1313,7 +1313,7 @@
                         "id": 3400,
                         "species_id": 319,
                         "name": "yunxingchong",
-                        "form": "陨星虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "陨星虫"
@@ -1342,8 +1342,8 @@
         "current_monster_id": 3400
     },
     "world_profile": {
-        "type_desc": "罗隐",
-        "description_habitat": "喵喵",
+        "type_desc": "吞噬精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "在这个虫族中存在着森严的等级制度，某些虫有资格吃到更稀有的咕噜球。咕噜球研究科曾经提出过一个实验课题《陨星虫与国王球的对撞实验》，后来课题被取消了，原因不明。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1358,7 +1358,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 180,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

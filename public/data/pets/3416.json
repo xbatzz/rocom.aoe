@@ -1275,13 +1275,13 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 1250,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3416001,
         "pet_id": 3416001,
-        "name": "丢丢",
+        "name": null,
         "model_id": 3416001,
         "hatch_data": 72000,
         "weight_low": 17325,
@@ -1289,21 +1289,15 @@
         "height_low": 62,
         "height_high": 64,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            400,
-            3125
-        ],
-        "egg_add_glass_prob_array": [
-            2,
-            113
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3416001,
                 "pet_id": 3416001,
-                "name": "丢丢",
+                "name": null,
                 "model_id": 3416001,
                 "hatch_data": 72000,
                 "weight_low": 17325,
@@ -1311,44 +1305,6 @@
                 "height_low": 62,
                 "height_high": 64,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3582002,
-                "pet_id": 3582002,
-                "name": "格斗小五",
-                "model_id": 3582001,
-                "hatch_data": 28800,
-                "weight_low": 945,
-                "weight_high": 1600,
-                "height_low": 8,
-                "height_high": 13,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3584002,
-                "pet_id": 3584002,
-                "name": "格斗小五",
-                "model_id": 3584001,
-                "hatch_data": 28800,
-                "weight_low": 945,
-                "weight_high": 1600,
-                "height_low": 8,
-                "height_high": 13,
-                "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1357,7 +1313,7 @@
             {
                 "id": 34160001,
                 "pet_id": 34160001,
-                "name": "丢丢",
+                "name": null,
                 "model_id": 3416001,
                 "hatch_data": 300,
                 "weight_low": 17325,

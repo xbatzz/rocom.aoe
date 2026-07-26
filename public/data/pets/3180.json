@@ -1,7 +1,7 @@
 {
     "id": 3180,
     "name": "xiaopaersasi",
-    "form": "小帕尔",
+    "form": "default",
     "main_type": {
         "id": 16,
         "name": "Dark",
@@ -37,7 +37,7 @@
         "id": 293,
         "name": "xiaopaersasi",
         "localized": {
-            "zh": "机械方方"
+            "zh": "小帕尔"
         }
     },
     "trait": {
@@ -155,13 +155,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7020970,
@@ -1169,7 +1169,7 @@
                         "id": 3180,
                         "species_id": 293,
                         "name": "xiaopaersasi",
-                        "form": "小帕尔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小帕尔"
@@ -1196,7 +1196,7 @@
                         "id": 3181,
                         "species_id": 294,
                         "name": "paersasi2",
-                        "form": "帕尔萨斯",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "帕尔萨斯"
@@ -1226,7 +1226,7 @@
                         "id": 3182,
                         "species_id": 295,
                         "name": "longxipaer",
-                        "form": "龙息帕尔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "龙息帕尔"
@@ -1256,8 +1256,8 @@
         "current_monster_id": 3180
     },
     "world_profile": {
-        "type_desc": "芳香精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "毛绒绒精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "探索欲很强的精灵，会通过摇尾巴的方式表达亲近，尾尖会散发出魔法，但并不能很好的控制，时常伤到自己。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1277,7 +1277,7 @@
     "breeding": {
         "id": 3180001,
         "pet_id": 3180001,
-        "name": "空空颅",
+        "name": null,
         "model_id": 3180001,
         "hatch_data": 300,
         "weight_low": 3290,
@@ -1293,7 +1293,7 @@
             {
                 "id": 3180001,
                 "pet_id": 3180001,
-                "name": "空空颅",
+                "name": null,
                 "model_id": 3180001,
                 "hatch_data": 300,
                 "weight_low": 3290,
@@ -1307,75 +1307,15 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3211001,
-                "pet_id": 3211001,
-                "name": "小帕尔",
-                "model_id": 3211001,
-                "hatch_data": 72000,
-                "weight_low": 9520,
-                "weight_high": 13600,
-                "height_low": 31,
-                "height_high": 39,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3211004,
-                "pet_id": 3211004,
-                "name": "小帕尔",
-                "model_id": 3211001,
-                "hatch_data": 72000,
-                "weight_low": 9520,
-                "weight_high": 13600,
-                "height_low": 31,
-                "height_high": 39,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3244001,
-                "pet_id": 3244001,
-                "name": "机械方方",
-                "model_id": 3244001,
-                "hatch_data": 28800,
-                "weight_low": 350,
-                "weight_high": 1000,
-                "height_low": 12,
-                "height_high": 15,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3244003,
-                "pet_id": 3244003,
-                "name": "机械方方",
-                "model_id": 3244001,
-                "hatch_data": 28800,
-                "weight_low": 350,
-                "weight_high": 1000,
-                "height_low": 12,
-                "height_high": 15,
+                "id": 3180002,
+                "pet_id": 3180002,
+                "name": null,
+                "model_id": 3180001,
+                "hatch_data": 300,
+                "weight_low": 3290,
+                "weight_high": 5440,
+                "height_low": 27,
+                "height_high": 38,
                 "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
@@ -1385,7 +1325,7 @@
             {
                 "id": 31800001,
                 "pet_id": 31800001,
-                "name": "空空颅",
+                "name": null,
                 "model_id": 3180001,
                 "hatch_data": 300,
                 "weight_low": 3290,
@@ -1393,54 +1333,6 @@
                 "height_low": 27,
                 "height_high": 38,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 32110001,
-                "pet_id": 32110001,
-                "name": "小帕尔",
-                "model_id": 3211001,
-                "hatch_data": 300,
-                "weight_low": 9520,
-                "weight_high": 13600,
-                "height_low": 31,
-                "height_high": 39,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 32440001,
-                "pet_id": 32440001,
-                "name": "机械方方",
-                "model_id": 3244001,
-                "hatch_data": 300,
-                "weight_low": 350,
-                "weight_high": 1000,
-                "height_low": 12,
-                "height_high": 15,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000083,
-                "pet_id": 99000083,
-                "name": "小帕尔",
-                "model_id": 3211001,
-                "hatch_data": 72000,
-                "weight_low": 9520,
-                "weight_high": 13600,
-                "height_low": 31,
-                "height_high": 39,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,

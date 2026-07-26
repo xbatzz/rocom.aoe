@@ -1,7 +1,7 @@
 {
     "id": 3087,
     "name": "yunyunji",
-    "form": "晕晕鸡",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -37,7 +37,7 @@
         "id": 267,
         "name": "yunyunji",
         "localized": {
-            "zh": "常见于海面"
+            "zh": "晕晕鸡"
         }
     },
     "trait": {
@@ -1015,7 +1015,7 @@
                         "id": 3086,
                         "species_id": 266,
                         "name": "keliji",
-                        "form": "可立鸡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "可立鸡"
@@ -1042,7 +1042,7 @@
                         "id": 3087,
                         "species_id": 267,
                         "name": "yunyunji",
-                        "form": "晕晕鸡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "晕晕鸡"
@@ -1071,7 +1071,7 @@
                         "id": 3088,
                         "species_id": 268,
                         "name": "shenshiji",
-                        "form": "绅士鸡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "绅士鸡"
@@ -1100,7 +1100,7 @@
                         "id": 3089,
                         "species_id": 269,
                         "name": "wuzheji",
-                        "form": "武者鸡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "武者鸡"
@@ -1136,8 +1136,8 @@
         "current_monster_id": 3087
     },
     "world_profile": {
-        "type_desc": "常见于湖泊",
-        "description_habitat": "常见于山林",
+        "type_desc": "鸡仔精灵",
+        "description_habitat": "常见于山地",
         "introduction": "成长后学会了控制情绪，维持着绅士风度，为了追求优雅和游刃有余，逐渐更能控制火焰释放。偶尔会因为忍耐过度，大脑变得晕乎乎的。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1152,7 +1152,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 1200,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

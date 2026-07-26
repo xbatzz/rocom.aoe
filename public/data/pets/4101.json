@@ -1,26 +1,26 @@
 {
     "id": 4101,
-    "name": "xueyingwawa_shouling",
-    "form": "default",
+    "name": "fenggunmuchong_shouling",
+    "form": "暮风隐者",
     "main_type": {
-        "id": 7,
-        "name": "Ice",
+        "id": 1,
+        "name": "Normal",
         "localized": {
-            "zh": "冰"
+            "zh": "普通"
         }
     },
     "sub_type": {
-        "id": 14,
-        "name": "Cute",
+        "id": 11,
+        "name": "Bug",
         "localized": {
-            "zh": "萌"
+            "zh": "虫"
         }
     },
     "default_legacy_type": {
-        "id": 7,
-        "name": "Ice",
+        "id": 1,
+        "name": "Normal",
         "localized": {
-            "zh": "冰"
+            "zh": "普通"
         }
     },
     "leader_potential": false,
@@ -31,19 +31,19 @@
             "name": "暮风隐者"
         }
     },
-    "implemented": false,
+    "implemented": true,
     "base_hp": 0,
     "base_phy_atk": 0,
     "base_mag_atk": 0,
     "base_phy_def": 0,
     "base_mag_def": 0,
     "base_spd": 0,
-    "evolves_from_id": null,
+    "evolves_from_id": 3377,
     "species": {
-        "id": 4101,
-        "name": "xueyingwawa_shouling",
+        "id": 120,
+        "name": "fenggunmuchong",
         "localized": {
-            "zh": "暮风隐者"
+            "zh": "风滚暮虫"
         }
     },
     "trait": {
@@ -297,8 +297,8 @@
                 }
             },
             "move_category": "Physical Attack",
-            "energy_cost": 3,
-            "power": 100,
+            "energy_cost": 1,
+            "power": 55,
             "description": "造成物伤，本技能能耗每+1，威力+50。"
         },
         {
@@ -654,6 +654,72 @@
             "energy_cost": 3,
             "power": 80,
             "description": "造成物伤，自己生命大于80%时，本次技能威力+75。"
+        },
+        {
+            "id": 7160390,
+            "name": "耍赖",
+            "icon_id": "101106",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "耍赖",
+                    "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
+        },
+        {
+            "id": 7150360,
+            "name": "试飞",
+            "icon_id": "114037",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "试飞",
+                    "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 2,
+            "power": 20,
+            "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+        },
+        {
+            "id": 7150370,
+            "name": "超声波",
+            "icon_id": "114031",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "超声波",
+                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
         }
     ],
     "legacy_moves": [
@@ -1150,44 +1216,199 @@
                 "depth": 0,
                 "monsters": [
                     {
-                        "id": 4101,
-                        "species_id": 4101,
-                        "name": "xueyingwawa_shouling",
+                        "id": 3376,
+                        "species_id": 118,
+                        "name": "xuanyanchong",
                         "form": "default",
                         "localized": {
                             "zh": {
-                                "name": "暮风隐者"
+                                "name": "旋叶虫"
                             }
                         },
-                        "is_leader_form": true,
+                        "is_leader_form": false,
                         "main_type": {
-                            "id": 7,
-                            "name": "Ice",
+                            "id": 1,
+                            "name": "Normal",
                             "localized": {
-                                "zh": "冰"
+                                "zh": "普通"
                             }
                         },
                         "sub_type": {
-                            "id": 14,
-                            "name": "Cute",
+                            "id": 11,
+                            "name": "Bug",
                             "localized": {
-                                "zh": "萌"
+                                "zh": "虫"
+                            }
+                        },
+                        "evolution_conditions": []
+                    },
+                    {
+                        "id": 3496,
+                        "species_id": 118,
+                        "name": "xuanyechong_yidi",
+                        "form": "default",
+                        "localized": {
+                            "zh": {
+                                "name": "旋叶虫"
+                            }
+                        },
+                        "is_leader_form": false,
+                        "main_type": {
+                            "id": 1,
+                            "name": "Normal",
+                            "localized": {
+                                "zh": "普通"
+                            }
+                        },
+                        "sub_type": {
+                            "id": 11,
+                            "name": "Bug",
+                            "localized": {
+                                "zh": "虫"
                             }
                         },
                         "evolution_conditions": []
                     }
                 ],
-                "is_leader_stage": true
+                "is_leader_stage": false
             },
             {
                 "depth": 1,
+                "monsters": [
+                    {
+                        "id": 3483,
+                        "species_id": 119,
+                        "name": "pengyechong",
+                        "form": "default",
+                        "localized": {
+                            "zh": {
+                                "name": "蓬叶虫"
+                            }
+                        },
+                        "is_leader_form": false,
+                        "main_type": {
+                            "id": 1,
+                            "name": "Normal",
+                            "localized": {
+                                "zh": "普通"
+                            }
+                        },
+                        "sub_type": {
+                            "id": 11,
+                            "name": "Bug",
+                            "localized": {
+                                "zh": "虫"
+                            }
+                        },
+                        "evolution_conditions": [
+                            "等级达到 25 级"
+                        ]
+                    },
+                    {
+                        "id": 3497,
+                        "species_id": 119,
+                        "name": "pengyechong_yidi",
+                        "form": "default",
+                        "localized": {
+                            "zh": {
+                                "name": "蓬叶虫"
+                            }
+                        },
+                        "is_leader_form": false,
+                        "main_type": {
+                            "id": 1,
+                            "name": "Normal",
+                            "localized": {
+                                "zh": "普通"
+                            }
+                        },
+                        "sub_type": {
+                            "id": 11,
+                            "name": "Bug",
+                            "localized": {
+                                "zh": "虫"
+                            }
+                        },
+                        "evolution_conditions": [
+                            "等级达到 25 级"
+                        ]
+                    }
+                ],
+                "is_leader_stage": false
+            },
+            {
+                "depth": 2,
+                "monsters": [
+                    {
+                        "id": 3377,
+                        "species_id": 120,
+                        "name": "fenggunmuchong",
+                        "form": "default",
+                        "localized": {
+                            "zh": {
+                                "name": "风滚暮虫"
+                            }
+                        },
+                        "is_leader_form": false,
+                        "main_type": {
+                            "id": 1,
+                            "name": "Normal",
+                            "localized": {
+                                "zh": "普通"
+                            }
+                        },
+                        "sub_type": {
+                            "id": 11,
+                            "name": "Bug",
+                            "localized": {
+                                "zh": "虫"
+                            }
+                        },
+                        "evolution_conditions": [
+                            "等级达到 45 级"
+                        ]
+                    },
+                    {
+                        "id": 3498,
+                        "species_id": 120,
+                        "name": "fengguanmuchong_yidi",
+                        "form": "default",
+                        "localized": {
+                            "zh": {
+                                "name": "风滚暮虫"
+                            }
+                        },
+                        "is_leader_form": false,
+                        "main_type": {
+                            "id": 1,
+                            "name": "Normal",
+                            "localized": {
+                                "zh": "普通"
+                            }
+                        },
+                        "sub_type": {
+                            "id": 11,
+                            "name": "Bug",
+                            "localized": {
+                                "zh": "虫"
+                            }
+                        },
+                        "evolution_conditions": [
+                            "等级达到 45 级"
+                        ]
+                    }
+                ],
+                "is_leader_stage": false
+            },
+            {
+                "depth": 3,
                 "is_leader_stage": true,
                 "monsters": [
                     {
                         "id": 4101,
-                        "species_id": 4101,
-                        "name": "xueyingwawa_shouling",
-                        "form": "default",
+                        "species_id": 120,
+                        "name": "fenggunmuchong_shouling",
+                        "form": "暮风隐者",
                         "localized": {
                             "zh": {
                                 "name": "暮风隐者"
@@ -1195,17 +1416,71 @@
                         },
                         "is_leader_form": true,
                         "main_type": {
-                            "id": 7,
-                            "name": "Ice",
+                            "id": 1,
+                            "name": "Normal",
                             "localized": {
-                                "zh": "冰"
+                                "zh": "普通"
                             }
                         },
                         "sub_type": {
-                            "id": 14,
-                            "name": "Cute",
+                            "id": 11,
+                            "name": "Bug",
                             "localized": {
-                                "zh": "萌"
+                                "zh": "虫"
+                            }
+                        },
+                        "evolution_conditions": []
+                    },
+                    {
+                        "id": 5056,
+                        "species_id": 120,
+                        "name": "fenggunmuchong_shouling",
+                        "form": "暮风隐者",
+                        "localized": {
+                            "zh": {
+                                "name": "暮风隐者"
+                            }
+                        },
+                        "is_leader_form": true,
+                        "main_type": {
+                            "id": 1,
+                            "name": "Normal",
+                            "localized": {
+                                "zh": "普通"
+                            }
+                        },
+                        "sub_type": {
+                            "id": 11,
+                            "name": "Bug",
+                            "localized": {
+                                "zh": "虫"
+                            }
+                        },
+                        "evolution_conditions": []
+                    },
+                    {
+                        "id": 5062,
+                        "species_id": 120,
+                        "name": "fenggunmuchong_shouling",
+                        "form": "暮风隐者",
+                        "localized": {
+                            "zh": {
+                                "name": "暮风隐者"
+                            }
+                        },
+                        "is_leader_form": true,
+                        "main_type": {
+                            "id": 1,
+                            "name": "Normal",
+                            "localized": {
+                                "zh": "普通"
+                            }
+                        },
+                        "sub_type": {
+                            "id": 11,
+                            "name": "Bug",
+                            "localized": {
+                                "zh": "虫"
                             }
                         },
                         "evolution_conditions": []
@@ -1213,20 +1488,24 @@
                 ]
             }
         ],
-        "max_depth": 1,
-        "total_unique_monsters": 1,
-        "species_id": 4101,
+        "max_depth": 3,
+        "total_unique_monsters": 9,
+        "species_id": 120,
         "current_monster_id": 4101
     },
     "world_profile": {
-        "type_desc": null,
-        "description_habitat": null,
-        "introduction": null,
+        "type_desc": "拟态精灵",
+        "description_habitat": "常见于树林",
+        "introduction": "活了足够久的风滚暮虫，叶片会逐渐失去所有色素，变得像风干的白纸。它们有着最高的拟态造诣，身体极轻极薄，落地没有声响，没有任何精灵会对一片“枯死的叶子”产生警觉。",
         "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
         "classis_name": "自然类精灵",
-        "handbook_area_ids": []
+        "handbook_area_ids": [
+            1,
+            2,
+            3
+        ]
     },
     "catch_info": null,
     "breeding": null,

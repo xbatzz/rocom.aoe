@@ -1,7 +1,7 @@
 {
     "id": 3374,
     "name": "qiqiumao",
-    "form": "气球猫",
+    "form": "default",
     "main_type": {
         "id": 14,
         "name": "Cute",
@@ -37,7 +37,7 @@
         "id": 199,
         "name": "qiqiumao",
         "localized": {
-            "zh": "号儿鱼"
+            "zh": "气球猫"
         }
     },
     "trait": {
@@ -736,6 +736,50 @@
             "energy_cost": 3,
             "power": null,
             "description": "减伤70%，应对攻击：下回合所选技能使用次数+1。"
+        },
+        {
+            "id": 7160330,
+            "name": "拆礼物",
+            "icon_id": "315024",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "拆礼物",
+                    "description": "造​成​物伤，​若​​敌方有​萌化，​本次技能威力+100。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 50,
+            "description": "造​成​物伤，​若​​敌方有​萌化，​本次技能威力+100。"
+        },
+        {
+            "id": 7110450,
+            "name": "通电",
+            "icon_id": "110032",
+            "move_type": {
+                "id": 9,
+                "name": "Electric",
+                "localized": {
+                    "zh": "电"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "通电",
+                    "description": "造​成​物伤，​敌方获得​1​层引电。​"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 75,
+            "description": "造​成​物伤，​敌方获得​1​层引电。​"
         }
     ],
     "legacy_moves": [
@@ -1235,7 +1279,7 @@
                         "id": 3373,
                         "species_id": 198,
                         "name": "doudou",
-                        "form": "逗逗",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "逗逗"
@@ -1262,7 +1306,7 @@
                         "id": 3374,
                         "species_id": 199,
                         "name": "qiqiumao",
-                        "form": "气球猫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "气球猫"
@@ -1291,7 +1335,7 @@
                         "id": 3375,
                         "species_id": 200,
                         "name": "qimengmi",
-                        "form": "梦想三三",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "梦想三三"
@@ -1320,8 +1364,8 @@
         "current_monster_id": 3374
     },
     "world_profile": {
-        "type_desc": "粉咩咩",
-        "description_habitat": "常见于山林",
+        "type_desc": "气球精灵",
+        "description_habitat": "常见于山地",
         "introduction": "外表看起来软萌，但身体其实很结实——长期保持平衡姿态，练出了稳定身体的核心肌肉。暴风雨的时候气球猫们都会紧紧抓着树或灌木，一旦松手便很可能被风吹走。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1336,7 +1380,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 525,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

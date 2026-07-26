@@ -1,7 +1,7 @@
 {
     "id": 3309,
     "name": "xijiaoniao",
-    "form": "犀角鸟",
+    "form": "default",
     "main_type": {
         "id": 5,
         "name": "Light",
@@ -37,7 +37,7 @@
         "id": 310,
         "name": "xijiaoniao",
         "localized": {
-            "zh": "常见于土路旁"
+            "zh": "犀角鸟"
         }
     },
     "trait": {
@@ -626,6 +626,28 @@
             "energy_cost": 2,
             "power": null,
             "description": "减伤70%，应对攻击：敌方获得物攻-70%。"
+        },
+        {
+            "id": 7060260,
+            "name": "透镜实验",
+            "icon_id": "205018",
+            "move_type": {
+                "id": 5,
+                "name": "Light",
+                "localized": {
+                    "zh": "光"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "透镜实验",
+                    "description": "造​成​物伤，​选择：​敌方携​带光​系​技​能​时​威力​+50或应对状态​时​被​应对​的​技能​变​为​透射​。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 4,
+            "power": 115,
+            "description": "造​成​物伤，​选择：​敌方携​带光​系​技​能​时​威力​+50或应对状态​时​被​应对​的​技能​变​为​透射​。"
         }
     ],
     "legacy_moves": [
@@ -1125,7 +1147,7 @@
                         "id": 3309,
                         "species_id": 310,
                         "name": "xijiaoniao",
-                        "form": "犀角鸟",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "犀角鸟"
@@ -1152,7 +1174,7 @@
                         "id": 3310,
                         "species_id": 311,
                         "name": "guangjiaoshou",
-                        "form": "光纤兽",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "光纤兽"
@@ -1182,7 +1204,7 @@
                         "id": 3311,
                         "species_id": 312,
                         "name": "jiguangqianshou",
-                        "form": "疾光千兽",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "疾光千兽"
@@ -1211,8 +1233,8 @@
         "current_monster_id": 3309
     },
     "world_profile": {
-        "type_desc": "魔眷鸟",
-        "description_habitat": "喵喵",
+        "type_desc": "月光精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "足部又软又嫩，相当虚弱无力。双眼的视觉暂未发育完全，偶尔被毛发遮挡视野。研究推测其毛发承担了主要感官的功能，在看不清的时候也可以通过毛发的感光功能，早早隐藏好自己。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1226,13 +1248,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1000,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3309001,
         "pet_id": 3309001,
-        "name": "哭哭菇（完美无暇）",
+        "name": null,
         "model_id": 3309001,
         "hatch_data": 57600,
         "weight_low": 3360,
@@ -1240,21 +1262,15 @@
         "height_low": 14,
         "height_high": 17,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3309001,
                 "pet_id": 3309001,
-                "name": "哭哭菇（完美无暇）",
+                "name": null,
                 "model_id": 3309001,
                 "hatch_data": 57600,
                 "weight_low": 3360,
@@ -1262,21 +1278,15 @@
                 "height_low": 14,
                 "height_high": 17,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3309002,
                 "pet_id": 3309002,
-                "name": "呆火鸟",
+                "name": null,
                 "model_id": 3309002,
                 "hatch_data": 57600,
                 "weight_low": 3360,
@@ -1292,7 +1302,7 @@
             {
                 "id": 3309003,
                 "pet_id": 3309003,
-                "name": "哭哭菇（完美无暇）",
+                "name": null,
                 "model_id": 3309001,
                 "hatch_data": 57600,
                 "weight_low": 3360,
@@ -1308,7 +1318,7 @@
             {
                 "id": 33090001,
                 "pet_id": 33090001,
-                "name": "哭哭菇（完美无暇）",
+                "name": null,
                 "model_id": 3309001,
                 "hatch_data": 300,
                 "weight_low": 3360,

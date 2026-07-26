@@ -37,7 +37,7 @@
         "id": 233,
         "name": "gaojiaoyu",
         "localized": {
-            "zh": "拟态精灵"
+            "zh": "高脚鹬"
         }
     },
     "trait": {
@@ -159,7 +159,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "迅捷，驱散敌方1种增益。"
         },
@@ -800,8 +800,30 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 7,
-            "power": 170,
+            "power": 105,
             "description": "造成物伤，先手+1。"
+        },
+        {
+            "id": 7150350,
+            "name": "远行",
+            "icon_id": "214036",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "远行",
+                    "description": "造成​魔伤，​自己​每​先​于​敌方行动1次，本技能威力永久+25。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 2,
+            "power": 50,
+            "description": "造成​魔伤，​自己​每​先​于​敌方行动1次，本技能威力永久+25。"
         }
     ],
     "legacy_moves": [
@@ -1301,7 +1323,7 @@
                         "id": 3250,
                         "species_id": 231,
                         "name": "xiaoyu",
-                        "form": "小鹬",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小鹬"
@@ -1328,7 +1350,7 @@
                         "id": 3251,
                         "species_id": 232,
                         "name": "bimuyu",
-                        "form": "鄙目鹬",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "鄙目鹬"
@@ -1357,7 +1379,7 @@
                         "id": 3252,
                         "species_id": 233,
                         "name": "gaojiaoyu",
-                        "form": "高脚鹬",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "高脚鹬"
@@ -1434,8 +1456,8 @@
         "current_monster_id": 5054
     },
     "world_profile": {
-        "type_desc": "刺刺精灵",
-        "description_habitat": "小鼠獭",
+        "type_desc": "高脚精灵",
+        "description_habitat": "常见于沙地",
         "introduction": "头顶的帽形骨冠比普通个体更高更大，能覆盖更大的水面区域。族群捕猎时常由首领负责制造阴影，其他成员则在阴影边缘等候，乘凉的鱼虾往往还没反应过来，就已经落入了包围圈。",
         "refresh_locations": [],
         "movement_type": "步行",

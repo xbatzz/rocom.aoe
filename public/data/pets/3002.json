@@ -1,7 +1,7 @@
 {
     "id": 3002,
     "name": "shuilanlan",
-    "form": "水蓝蓝",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -37,7 +37,7 @@
         "id": 8,
         "name": "shuilanlan",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "水蓝蓝"
         }
     },
     "trait": {
@@ -597,13 +597,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7021130,
@@ -626,6 +626,28 @@
             "energy_cost": 2,
             "power": null,
             "description": "减伤60%，应对攻击：敌方脱离。"
+        },
+        {
+            "id": 7050220,
+            "name": "润泽",
+            "icon_id": "104001",
+            "move_type": {
+                "id": 4,
+                "name": "Water",
+                "localized": {
+                    "zh": "水"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "润泽",
+                    "description": "自己获得魔攻+190%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 7,
+            "power": null,
+            "description": "自己获得魔攻+190%。"
         }
     ],
     "legacy_moves": [
@@ -1125,7 +1147,28 @@
                         "id": 3002,
                         "species_id": 8,
                         "name": "shuilanlan",
-                        "form": "水蓝蓝",
+                        "form": "default",
+                        "localized": {
+                            "zh": {
+                                "name": "水蓝蓝"
+                            }
+                        },
+                        "is_leader_form": false,
+                        "main_type": {
+                            "id": 4,
+                            "name": "Water",
+                            "localized": {
+                                "zh": "水"
+                            }
+                        },
+                        "sub_type": null,
+                        "evolution_conditions": []
+                    },
+                    {
+                        "id": 32000003,
+                        "species_id": 8,
+                        "name": "shuilanlan",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "水蓝蓝"
@@ -1152,7 +1195,7 @@
                         "id": 3033,
                         "species_id": 9,
                         "name": "bobola",
-                        "form": "波波拉",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "波波拉"
@@ -1184,7 +1227,7 @@
                         "id": 3005,
                         "species_id": 10,
                         "name": "shuiling",
-                        "form": "水灵",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "水灵"
@@ -1211,13 +1254,13 @@
             }
         ],
         "max_depth": 2,
-        "total_unique_monsters": 3,
+        "total_unique_monsters": 4,
         "species_id": 8,
         "current_monster_id": 3002
     },
     "world_profile": {
-        "type_desc": "草元素精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "水元素精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "漂浮在水面上的精灵，没事吐个泡泡，头顶有一个红色的蝴蝶结。不在水中的时候，身体上也覆盖了一层液体薄膜。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1232,13 +1275,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3002001,
         "pet_id": 3002001,
-        "name": "迪莫（光系血脉）",
+        "name": null,
         "model_id": 3002001,
         "hatch_data": 43200,
         "weight_low": 998,
@@ -1246,21 +1289,15 @@
         "height_low": 19,
         "height_high": 27,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3002001,
                 "pet_id": 3002001,
-                "name": "迪莫（光系血脉）",
+                "name": null,
                 "model_id": 3002001,
                 "hatch_data": 43200,
                 "weight_low": 998,
@@ -1268,21 +1305,15 @@
                 "height_low": 19,
                 "height_high": 27,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 30020001,
                 "pet_id": 30020001,
-                "name": "迪莫（光系血脉）",
+                "name": null,
                 "model_id": 3002001,
                 "hatch_data": 300,
                 "weight_low": 998,

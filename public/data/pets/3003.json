@@ -1,7 +1,7 @@
 {
     "id": 3003,
     "name": "huohua",
-    "form": "火花",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -37,7 +37,7 @@
         "id": 5,
         "name": "huohua",
         "localized": {
-            "zh": "火元素精灵"
+            "zh": "火花"
         }
     },
     "trait": {
@@ -626,6 +626,28 @@
             "energy_cost": 0,
             "power": null,
             "description": "敌方获得全技能能耗+1，应对防御：改为能耗+3。"
+        },
+        {
+            "id": 7180350,
+            "name": "伪造账单",
+            "icon_id": "117034",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "伪造账单",
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 1,
+            "power": null,
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         }
     ],
     "legacy_moves": [
@@ -1125,7 +1147,28 @@
                         "id": 3003,
                         "species_id": 5,
                         "name": "huohua",
-                        "form": "火花",
+                        "form": "default",
+                        "localized": {
+                            "zh": {
+                                "name": "火花"
+                            }
+                        },
+                        "is_leader_form": false,
+                        "main_type": {
+                            "id": 3,
+                            "name": "Fire",
+                            "localized": {
+                                "zh": "火"
+                            }
+                        },
+                        "sub_type": null,
+                        "evolution_conditions": []
+                    },
+                    {
+                        "id": 32000002,
+                        "species_id": 5,
+                        "name": "huohua",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "火花"
@@ -1184,7 +1227,7 @@
                         "id": 3006,
                         "species_id": 7,
                         "name": "huoshen",
-                        "form": "火神",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "火神"
@@ -1211,13 +1254,13 @@
             }
         ],
         "max_depth": 2,
-        "total_unique_monsters": 3,
+        "total_unique_monsters": 4,
         "species_id": 5,
         "current_monster_id": 3003
     },
     "world_profile": {
-        "type_desc": "草元素精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "火元素精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "像一团迸发的小火花，坦诚炙热，生性勇敢无畏。能熟练运用火元素，偶尔有点冒失，是值得信赖的伙伴。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1232,13 +1275,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3003001,
         "pet_id": 3003001,
-        "name": "迪莫",
+        "name": null,
         "model_id": 3003001,
         "hatch_data": 43200,
         "weight_low": 2660,
@@ -1246,21 +1289,15 @@
         "height_low": 23,
         "height_high": 29,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3003001,
                 "pet_id": 3003001,
-                "name": "迪莫",
+                "name": null,
                 "model_id": 3003001,
                 "hatch_data": 43200,
                 "weight_low": 2660,
@@ -1268,21 +1305,15 @@
                 "height_low": 23,
                 "height_high": 29,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 30030001,
                 "pet_id": 30030001,
-                "name": "迪莫",
+                "name": null,
                 "model_id": 3003001,
                 "hatch_data": 300,
                 "weight_low": 2660,

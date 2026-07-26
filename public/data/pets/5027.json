@@ -9,7 +9,13 @@
             "zh": "火"
         }
     },
-    "sub_type": null,
+    "sub_type": {
+        "id": 5,
+        "name": "Light",
+        "localized": {
+            "zh": "光"
+        }
+    },
     "default_legacy_type": {
         "id": 3,
         "name": "Fire",
@@ -25,10 +31,10 @@
             "name": "圣火迪莫"
         }
     },
-    "implemented": false,
+    "implemented": true,
     "base_hp": 120,
-    "base_phy_atk": 97,
-    "base_mag_atk": 97,
+    "base_phy_atk": 88,
+    "base_mag_atk": 88,
     "base_phy_def": 105,
     "base_mag_def": 105,
     "base_spd": 92,
@@ -42,13 +48,13 @@
     },
     "trait": {
         "id": 280027,
-        "name": "伙伴的力量",
-        "description": "每学会一个不同系别技能，攻防提升5%。火系技能威力提升20%",
+        "name": "点燃",
+        "description": "造成克制伤害后，获得攻防速+20%，回复2能量，首个技能替换为火系愿力冲击。",
         "icon_id": "200191",
         "localized": {
             "zh": {
-                "name": "伙伴的力量",
-                "description": "每学会一个不同系别技能，攻防提升5%。火系技能威力提升20%"
+                "name": "点燃",
+                "description": "造成克制伤害后，获得攻防速+20%，回复2能量，首个技能替换为火系愿力冲击。"
             }
         }
     },
@@ -401,7 +407,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "光系技能威力永久+50%，应对防御：改为永久+100%。"
         },
@@ -802,6 +808,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7170160,
+            "name": "恐吓",
+            "icon_id": "705002",
+            "move_type": {
+                "id": 15,
+                "name": "Ghost",
+                "localized": {
+                    "zh": "幽"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "恐吓",
+                    "description": "对敌方精灵造成魔法伤害。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 2,
+            "power": 80,
+            "description": "对敌方精灵造成魔法伤害。"
         }
     ],
     "legacy_moves": [
@@ -1322,10 +1350,10 @@
                         "id": 16000004,
                         "species_id": 1,
                         "name": "dimo",
-                        "form": "default",
+                        "form": "V110-C1",
                         "localized": {
                             "zh": {
-                                "name": "迪莫"
+                                "name": "V110-C1迪莫"
                             }
                         },
                         "is_leader_form": false,
@@ -1433,7 +1461,13 @@
                                 "zh": "火"
                             }
                         },
-                        "sub_type": null,
+                        "sub_type": {
+                            "id": 5,
+                            "name": "Light",
+                            "localized": {
+                                "zh": "光"
+                            }
+                        },
                         "evolution_conditions": []
                     },
                     {
@@ -1454,7 +1488,13 @@
                                 "zh": "水"
                             }
                         },
-                        "sub_type": null,
+                        "sub_type": {
+                            "id": 5,
+                            "name": "Light",
+                            "localized": {
+                                "zh": "光"
+                            }
+                        },
                         "evolution_conditions": []
                     }
                 ]
@@ -1466,9 +1506,9 @@
         "current_monster_id": 5027
     },
     "world_profile": {
-        "type_desc": "迪莫",
-        "description_habitat": "喵喵",
-        "introduction": "身体中蕴含着火之魔法的力量。有着火一样的热情，无论什么情况下都会守护同伴。",
+        "type_desc": "永远的伙伴",
+        "description_habitat": "行踪神秘",
+        "introduction": "身体中蕴含着火之魔法的力量。有着火一样的热情，无论什么情况下都会守护同伴。 “这一次，带着荣耀回来”。",
         "refresh_locations": [],
         "movement_type": null,
         "classis_id": 6,
@@ -1479,68 +1519,7 @@
         ]
     },
     "catch_info": null,
-    "breeding": {
-        "id": 3003001,
-        "pet_id": 3003001,
-        "name": "迪莫",
-        "model_id": 3003001,
-        "hatch_data": 43200,
-        "weight_low": 2660,
-        "weight_high": 3400,
-        "height_low": 23,
-        "height_high": 29,
-        "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
-        "is_contact_add_shining_prob": null,
-        "variants": [
-            {
-                "id": 3003001,
-                "pet_id": 3003001,
-                "name": "迪莫",
-                "model_id": 3003001,
-                "hatch_data": 43200,
-                "weight_low": 2660,
-                "weight_high": 3400,
-                "height_low": 23,
-                "height_high": 29,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 30030001,
-                "pet_id": 30030001,
-                "name": "迪莫",
-                "model_id": 3003001,
-                "hatch_data": 300,
-                "weight_low": 2660,
-                "weight_high": 3400,
-                "height_low": 23,
-                "height_high": 29,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            }
-        ]
-    },
+    "breeding": null,
     "breeding_profile": {
         "pet_base_id": 5027,
         "egg_groups": [],

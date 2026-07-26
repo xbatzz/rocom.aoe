@@ -297,7 +297,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 6,
+            "energy_cost": 4,
             "power": null,
             "description": "使敌方精灵减益的层数翻倍。"
         },
@@ -632,6 +632,50 @@
             "energy_cost": 2,
             "power": null,
             "description": "减伤60%，应对攻击：敌方脱离。"
+        },
+        {
+            "id": 7021210,
+            "name": "急中生智",
+            "icon_id": "301104",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "急中生智",
+                    "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 80,
+            "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+        },
+        {
+            "id": 7120220,
+            "name": "鸩毒",
+            "icon_id": "111019",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "鸩毒",
+                    "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 75,
+            "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
         }
     ],
     "legacy_moves": [
@@ -1200,8 +1244,8 @@
         "current_monster_id": 3678
     },
     "world_profile": {
-        "type_desc": null,
-        "description_habitat": null,
+        "type_desc": "烟花精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "进化后社交圈更广了，走在城镇街道上，即使遇到不认识的精灵也能停下来聊两句。它们主动承担了一些王国业务，负责节日庆典的烟花表演，几只烟花伯爵就能组成一个专业团队。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1209,11 +1253,13 @@
         "movement_type": "浮游",
         "classis_id": 6,
         "classis_name": "自然类精灵",
-        "handbook_area_ids": []
+        "handbook_area_ids": [
+            1
+        ]
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

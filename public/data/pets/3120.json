@@ -1,7 +1,7 @@
 {
     "id": 3120,
     "name": "liulishuimu",
-    "form": "琉璃水母",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -43,7 +43,7 @@
         "id": 245,
         "name": "liulishuimu",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "琉璃水母"
         }
     },
     "trait": {
@@ -315,13 +315,13 @@
             "localized": {
                 "zh": {
                     "name": "鸩毒",
-                    "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+20。"
+                    "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+20。"
+            "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
         },
         {
             "id": 7050210,
@@ -1131,7 +1131,7 @@
                         "id": 3119,
                         "species_id": 244,
                         "name": "feicuishuimu",
-                        "form": "翡翠水母",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "翡翠水母"
@@ -1164,7 +1164,7 @@
                         "id": 3120,
                         "species_id": 245,
                         "name": "liulishuimu",
-                        "form": "琉璃水母",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "琉璃水母"
@@ -1199,8 +1199,8 @@
         "current_monster_id": 3120
     },
     "world_profile": {
-        "type_desc": "蜂精灵",
-        "description_habitat": "猫老师精灵",
+        "type_desc": "水母精灵",
+        "description_habitat": "常见于海面",
         "introduction": "身体的触手花纹会随心情变化，游动时非常漂亮。是海边生活的洛克的艺术灵感来源。然而它长长的触手可以释放多种效果的攻击，被它的美丽吸引注意时，可能会陷入危险哦。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1215,7 +1215,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 525,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

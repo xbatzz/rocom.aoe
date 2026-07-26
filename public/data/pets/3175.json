@@ -1,7 +1,7 @@
 {
     "id": 3175,
     "name": "kakayumao",
-    "form": "咔咔羽毛",
+    "form": "default",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -43,7 +43,7 @@
         "id": 96,
         "name": "kakayumao",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "咔咔羽毛"
         }
     },
     "trait": {
@@ -764,6 +764,28 @@
             "energy_cost": 3,
             "power": 40,
             "description": "造成​魔伤，​3连击。巧变：​翼系防御​技​能​。"
+        },
+        {
+            "id": 7150360,
+            "name": "试飞",
+            "icon_id": "114037",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "试飞",
+                    "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 2,
+            "power": 20,
+            "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
         }
     ],
     "legacy_moves": [
@@ -1263,7 +1285,7 @@
                         "id": 3175,
                         "species_id": 96,
                         "name": "kakayumao",
-                        "form": "咔咔羽毛",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "咔咔羽毛"
@@ -1296,7 +1318,7 @@
                         "id": 3176,
                         "species_id": 97,
                         "name": "kakaque",
-                        "form": "咔咔雀",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "咔咔雀"
@@ -1331,7 +1353,7 @@
                         "id": 3177,
                         "species_id": 98,
                         "name": "kakaniao",
-                        "form": "咔咔鸟",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "咔咔鸟"
@@ -1366,8 +1388,8 @@
         "current_monster_id": 3175
     },
     "world_profile": {
-        "type_desc": "常见于果树下",
-        "description_habitat": "喵喵",
+        "type_desc": "鸟仔精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "跑得很快，手短且柔软，一般用尾巴来代替手的作用。尝试助跑之后短暂地浮空，但似乎一直没能学会飞翔。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1382,13 +1404,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3175001,
         "pet_id": 3175001,
-        "name": "异色小夜",
+        "name": null,
         "model_id": 3175001,
         "hatch_data": 28800,
         "weight_low": 917,
@@ -1396,21 +1418,15 @@
         "height_low": 26,
         "height_high": 37,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3175001,
                 "pet_id": 3175001,
-                "name": "异色小夜",
+                "name": null,
                 "model_id": 3175001,
                 "hatch_data": 28800,
                 "weight_low": 917,
@@ -1418,65 +1434,21 @@
                 "height_low": 26,
                 "height_high": 37,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3206001,
-                "pet_id": 3206001,
-                "name": "咔咔羽毛",
-                "model_id": 3206001,
-                "hatch_data": 28800,
-                "weight_low": 1995,
-                "weight_high": 2840,
-                "height_low": 28,
-                "height_high": 39,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31750001,
-                "pet_id": 31750001,
-                "name": "异色小夜",
-                "model_id": 3175001,
-                "hatch_data": 300,
-                "weight_low": 917,
-                "weight_high": 1560,
-                "height_low": 26,
-                "height_high": 37,
-                "precious_egg_type": 7,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 32060001,
-                "pet_id": 32060001,
-                "name": "咔咔羽毛",
-                "model_id": 3206001,
+                "id": 31750001,
+                "pet_id": 31750001,
+                "name": null,
+                "model_id": 3175001,
                 "hatch_data": 300,
-                "weight_low": 1995,
-                "weight_high": 2840,
-                "height_low": 28,
-                "height_high": 39,
+                "weight_low": 917,
+                "weight_high": 1560,
+                "height_low": 26,
+                "height_high": 37,
                 "precious_egg_type": 7,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
@@ -1486,7 +1458,7 @@
             {
                 "id": 99000172,
                 "pet_id": 99000172,
-                "name": "异色小夜",
+                "name": null,
                 "model_id": 3175001,
                 "hatch_data": 72000,
                 "weight_low": 917,

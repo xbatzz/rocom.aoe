@@ -778,7 +778,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
-            "power": 110,
+            "power": 140,
             "description": "造成物伤，每次使用后，本技能能耗永久+1。"
         },
         {
@@ -1349,8 +1349,8 @@
                 }
             },
             "move_category": "Physical Attack",
-            "energy_cost": 3,
-            "power": 100,
+            "energy_cost": 1,
+            "power": 55,
             "description": "造成物伤，本技能能耗每+1，威力+50。"
         },
         {
@@ -1877,7 +1877,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "光系技能威力永久+50%，应对防御：改为永久+100%。"
         }
@@ -2410,7 +2410,7 @@
     "world_profile": {
         "type_desc": null,
         "description_habitat": null,
-        "introduction": null,
+        "introduction": "叶脉——可有一个开端？ 枝桠——是否不断新生？ 一切关于生命的力量不断疯长，草的精灵以另一种身份与洛克重逢。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
         ],

@@ -99,7 +99,7 @@
     "breeding": {
         "id": 3312001,
         "pet_id": 3312001,
-        "name": "绒绒",
+        "name": null,
         "model_id": 3312001,
         "hatch_data": 43200,
         "weight_low": 840,
@@ -107,21 +107,15 @@
         "height_low": 19,
         "height_high": 23,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3312001,
                 "pet_id": 3312001,
-                "name": "绒绒",
+                "name": null,
                 "model_id": 3312001,
                 "hatch_data": 43200,
                 "weight_low": 840,
@@ -129,21 +123,15 @@
                 "height_low": 19,
                 "height_high": 23,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 33120001,
                 "pet_id": 33120001,
-                "name": "绒绒",
+                "name": null,
                 "model_id": 3312001,
                 "hatch_data": 300,
                 "weight_low": 840,

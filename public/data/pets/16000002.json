@@ -654,6 +654,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "携带​的​攻击​技​能​获得​附加中毒3​，​应对防御：​改为​获得附加中毒6。"
+        },
+        {
+            "id": 7150370,
+            "name": "超声波",
+            "icon_id": "114031",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "超声波",
+                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
         }
     ],
     "legacy_moves": [
@@ -1153,7 +1175,7 @@
                         "id": 3419,
                         "species_id": 291,
                         "name": "lihaixiaoluo",
-                        "form": "厉毒小萝",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "厉毒小萝"
@@ -1215,7 +1237,7 @@
                         "id": 3420,
                         "species_id": 292,
                         "name": "lihaixiuluo",
-                        "form": "厉毒修萝",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "厉毒修萝"

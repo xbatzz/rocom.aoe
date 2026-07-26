@@ -1,7 +1,7 @@
 {
     "id": 5016,
     "name": "emolang_shouling",
-    "form": "恶魔狼王",
+    "form": "王",
     "main_type": {
         "id": 16,
         "name": "Dark",
@@ -37,7 +37,7 @@
         "id": 131,
         "name": "emolang",
         "localized": {
-            "zh": "猫精灵"
+            "zh": "恶魔狼"
         }
     },
     "trait": {
@@ -199,13 +199,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7180340,
@@ -1169,7 +1169,7 @@
                         "id": 3011,
                         "species_id": 131,
                         "name": "emolang",
-                        "form": "恶魔狼",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "恶魔狼"
@@ -1197,7 +1197,7 @@
                         "id": 4011,
                         "species_id": 131,
                         "name": "emolang_shouling",
-                        "form": "恶魔狼王",
+                        "form": "王",
                         "localized": {
                             "zh": {
                                 "name": "恶魔狼王"
@@ -1218,7 +1218,28 @@
                         "id": 5016,
                         "species_id": 131,
                         "name": "emolang_shouling",
-                        "form": "恶魔狼王",
+                        "form": "王",
+                        "localized": {
+                            "zh": {
+                                "name": "恶魔狼王"
+                            }
+                        },
+                        "is_leader_form": true,
+                        "main_type": {
+                            "id": 16,
+                            "name": "Dark",
+                            "localized": {
+                                "zh": "恶"
+                            }
+                        },
+                        "sub_type": null,
+                        "evolution_conditions": []
+                    },
+                    {
+                        "id": 8104,
+                        "species_id": 131,
+                        "name": "emolang_shouling",
+                        "form": "王",
                         "localized": {
                             "zh": {
                                 "name": "恶魔狼王"
@@ -1239,13 +1260,13 @@
             }
         ],
         "max_depth": 1,
-        "total_unique_monsters": 3,
+        "total_unique_monsters": 4,
         "species_id": 131,
         "current_monster_id": 5016
     },
     "world_profile": {
-        "type_desc": "舔舔精灵",
-        "description_habitat": "黑猫巫师",
+        "type_desc": "狼精灵",
+        "description_habitat": "偶见于山地",
         "introduction": "恶魔狼王是由族群内的强者通过决斗产生，胜者会以舔舐败者额头的仪式，宣告新统治的建立，当族群遭遇强敌时，恶魔狼王会断后掩护，即便身负重伤也绝不退缩。",
         "refresh_locations": [
             "暂时找不到这只精灵的踪迹噢！"

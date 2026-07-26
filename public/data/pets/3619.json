@@ -1,7 +1,7 @@
 {
     "id": 3619,
     "name": "mimixiangguai",
-    "form": "迷迷箱怪",
+    "form": "default",
     "main_type": {
         "id": 17,
         "name": "Mechanical",
@@ -43,7 +43,7 @@
         "id": 211,
         "name": "mimixiangguai",
         "localized": {
-            "zh": "奔波鼠"
+            "zh": "迷迷箱怪"
         }
     },
     "trait": {
@@ -786,6 +786,28 @@
             "energy_cost": 3,
             "power": 85,
             "description": "造成​魔伤，应对状态：​本​次​伤害翻倍。"
+        },
+        {
+            "id": 7070220,
+            "name": "轮班",
+            "icon_id": "206022",
+            "move_type": {
+                "id": 17,
+                "name": "Mechanical",
+                "localized": {
+                    "zh": "机械"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "轮班",
+                    "description": "造​成​物伤，​传动​1​，选择：​本技能位于1号​位​时​威力​+65或本​回​合额​外​传动​1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 70,
+            "description": "造​成​物伤，​传动​1​，选择：​本技能位于1号​位​时​威力​+65或本​回​合额​外​传动​1。"
         }
     ],
     "legacy_moves": [
@@ -1285,7 +1307,7 @@
                         "id": 3618,
                         "species_id": 210,
                         "name": "xiaoxiangguai",
-                        "form": "小箱怪",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小箱怪"
@@ -1318,7 +1340,7 @@
                         "id": 3619,
                         "species_id": 211,
                         "name": "mimixiangguai",
-                        "form": "迷迷箱怪",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "迷迷箱怪"
@@ -1353,8 +1375,8 @@
         "current_monster_id": 3619
     },
     "world_profile": {
-        "type_desc": "伊贝儿",
-        "description_habitat": "喵喵",
+        "type_desc": "拟态精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "它们并不追逐也不恐吓，只是静静地埋伏，等待小洛克伸手想要开宝箱时，才会突然袭击。因此老练的魔法师们会说：“冒险不难，难的是抵达终点时敢不敢伸手。”",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1369,43 +1391,10 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 180,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
-    "breeding": {
-        "id": 3330003,
-        "pet_id": 3330003,
-        "name": "奔波鼠",
-        "model_id": 3330001,
-        "hatch_data": 57600,
-        "weight_low": 2590,
-        "weight_high": 3440,
-        "height_low": 23,
-        "height_high": 29,
-        "precious_egg_type": 1,
-        "egg_base_glass_prob_array": null,
-        "egg_add_glass_prob_array": null,
-        "is_contact_add_glass_prob": null,
-        "is_contact_add_shining_prob": null,
-        "variants": [
-            {
-                "id": 3330003,
-                "pet_id": 3330003,
-                "name": "奔波鼠",
-                "model_id": 3330001,
-                "hatch_data": 57600,
-                "weight_low": 2590,
-                "weight_high": 3440,
-                "height_low": 23,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            }
-        ]
-    },
+    "breeding": null,
     "breeding_profile": {
         "pet_base_id": 3619,
         "egg_groups": [

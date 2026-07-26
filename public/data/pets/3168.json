@@ -1398,7 +1398,7 @@
     "breeding": {
         "id": 3168001,
         "pet_id": 3168001,
-        "name": "小草虫",
+        "name": null,
         "model_id": 3168001,
         "hatch_data": 57600,
         "weight_low": 5572,
@@ -1406,21 +1406,15 @@
         "height_low": 29,
         "height_high": 32,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3168001,
                 "pet_id": 3168001,
-                "name": "小草虫",
+                "name": null,
                 "model_id": 3168001,
                 "hatch_data": 57600,
                 "weight_low": 5572,
@@ -1428,21 +1422,15 @@
                 "height_low": 29,
                 "height_high": 32,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3168002,
                 "pet_id": 3168002,
-                "name": "小草虫",
+                "name": null,
                 "model_id": 3168001,
                 "hatch_data": 57600,
                 "weight_low": 5572,
@@ -1456,69 +1444,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3200001,
-                "pet_id": 3200001,
-                "name": "阿布",
-                "model_id": 3200001,
-                "hatch_data": 43200,
-                "weight_low": 2800,
-                "weight_high": 4400,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
-            },
-            {
-                "id": 3200002,
-                "pet_id": 3200002,
-                "name": "阿布",
-                "model_id": 3200002,
-                "hatch_data": 43200,
-                "weight_low": 2800,
-                "weight_high": 4400,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 2,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3200003,
-                "pet_id": 3200003,
-                "name": "阿布",
-                "model_id": 3200002,
-                "hatch_data": 43200,
-                "weight_low": 2800,
-                "weight_high": 4400,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 2,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 31680001,
                 "pet_id": 31680001,
-                "name": "小草虫",
+                "name": null,
                 "model_id": 3168001,
                 "hatch_data": 300,
                 "weight_low": 5572,
@@ -1526,82 +1454,6 @@
                 "height_low": 29,
                 "height_high": 32,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 32000001,
-                "pet_id": 32000001,
-                "name": "阿布",
-                "model_id": 3200001,
-                "hatch_data": 300,
-                "weight_low": 2800,
-                "weight_high": 4400,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000023,
-                "pet_id": 95000023,
-                "name": "阿布",
-                "model_id": 3200001,
-                "hatch_data": 43200,
-                "weight_low": 2800,
-                "weight_high": 4400,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000023,
-                "pet_id": 99000023,
-                "name": "阿布",
-                "model_id": 3200001,
-                "hatch_data": 43200,
-                "weight_low": 2800,
-                "weight_high": 4400,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000093,
-                "pet_id": 99000093,
-                "name": "阿布",
-                "model_id": 3200001,
-                "hatch_data": 72000,
-                "weight_low": 2800,
-                "weight_high": 4400,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,

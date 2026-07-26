@@ -1,7 +1,7 @@
 {
     "id": 3112,
     "name": "xiaotiantian",
-    "form": "甜田螺",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -33,17 +33,17 @@
     },
     "implemented": true,
     "base_hp": 68,
-    "base_phy_atk": 61,
-    "base_mag_atk": 64,
-    "base_phy_def": 49,
-    "base_mag_def": 74,
+    "base_phy_atk": 67,
+    "base_mag_atk": 70,
+    "base_phy_def": 54,
+    "base_mag_def": 80,
     "base_spd": 54,
     "evolves_from_id": null,
     "species": {
         "id": 185,
         "name": "xiaotiantian",
         "localized": {
-            "zh": "芋香巨角蛛"
+            "zh": "甜田螺"
         }
     },
     "trait": {
@@ -764,6 +764,50 @@
             "energy_cost": 6,
             "power": 90,
             "description": "造成魔伤，回合结束时，本技能威力永久+20。"
+        },
+        {
+            "id": 7160330,
+            "name": "拆礼物",
+            "icon_id": "315024",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "拆礼物",
+                    "description": "造​成​物伤，​若​​敌方有​萌化，​本次技能威力+100。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 50,
+            "description": "造​成​物伤，​若​​敌方有​萌化，​本次技能威力+100。"
+        },
+        {
+            "id": 7050480,
+            "name": "叠浪",
+            "icon_id": "104035",
+            "move_type": {
+                "id": 4,
+                "name": "Water",
+                "localized": {
+                    "zh": "水"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "叠浪",
+                    "description": "造​成​物伤，​3连击，本技能能耗每-1，威力+10。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 10,
+            "description": "造​成​物伤，​3连击，本技能能耗每-1，威力+10。"
         }
     ],
     "legacy_moves": [
@@ -1263,7 +1307,7 @@
                         "id": 3112,
                         "species_id": 185,
                         "name": "xiaotiantian",
-                        "form": "甜田螺",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "甜田螺"
@@ -1296,7 +1340,7 @@
                         "id": 3113,
                         "species_id": 186,
                         "name": "hailuoguniang",
-                        "form": "壳乙螺",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "壳乙螺"
@@ -1331,7 +1375,7 @@
                         "id": 3114,
                         "species_id": 187,
                         "name": "kaluoer",
-                        "form": "卡洛儿",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "卡洛儿"
@@ -1366,8 +1410,8 @@
         "current_monster_id": 3112
     },
     "world_profile": {
-        "type_desc": "食蚁兽精灵",
-        "description_habitat": "常见于草地、树林、山洞",
+        "type_desc": "硬壳精灵",
+        "description_habitat": "常见于湖面",
         "introduction": "它们进食较少，通过经常睡觉来维持体内养分的平衡。只有在海水退潮时才偶尔会出现在沙滩上，在醒着的时候才会立起来，每天大概只有五分之一的时间是醒着的。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1382,13 +1426,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 3000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3112001,
         "pet_id": 3112001,
-        "name": "绿耳松鼠",
+        "name": null,
         "model_id": 3112001,
         "hatch_data": 28800,
         "weight_low": 2625,
@@ -1396,21 +1440,15 @@
         "height_low": 17,
         "height_high": 24,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3112001,
                 "pet_id": 3112001,
-                "name": "绿耳松鼠",
+                "name": null,
                 "model_id": 3112001,
                 "hatch_data": 28800,
                 "weight_low": 2625,
@@ -1418,43 +1456,15 @@
                 "height_low": 17,
                 "height_high": 24,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3119001,
-                "pet_id": 3119001,
-                "name": "甜田螺",
-                "model_id": 3119001,
-                "hatch_data": 28800,
-                "weight_low": 11025,
-                "weight_high": 14720,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 31120001,
                 "pet_id": 31120001,
-                "name": "绿耳松鼠",
+                "name": null,
                 "model_id": 3112001,
                 "hatch_data": 300,
                 "weight_low": 2625,
@@ -1462,156 +1472,6 @@
                 "height_low": 17,
                 "height_high": 24,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31190001,
-                "pet_id": 31190001,
-                "name": "甜田螺",
-                "model_id": 3119001,
-                "hatch_data": 300,
-                "weight_low": 11025,
-                "weight_high": 14720,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000026,
-                "pet_id": 91000026,
-                "name": "甜田螺",
-                "model_id": 3119001,
-                "hatch_data": 28800,
-                "weight_low": 11025,
-                "weight_high": 14720,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000026,
-                "pet_id": 92000026,
-                "name": "甜田螺",
-                "model_id": 3119001,
-                "hatch_data": 28800,
-                "weight_low": 11025,
-                "weight_high": 14720,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000026,
-                "pet_id": 93000026,
-                "name": "甜田螺",
-                "model_id": 3119001,
-                "hatch_data": 28800,
-                "weight_low": 11025,
-                "weight_high": 14720,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000026,
-                "pet_id": 94000026,
-                "name": "甜田螺",
-                "model_id": 3119001,
-                "hatch_data": 28800,
-                "weight_low": 11025,
-                "weight_high": 14720,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000026,
-                "pet_id": 96000026,
-                "name": "甜田螺",
-                "model_id": 3119001,
-                "hatch_data": 28800,
-                "weight_low": 11025,
-                "weight_high": 14720,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000026,
-                "pet_id": 97000026,
-                "name": "甜田螺",
-                "model_id": 3119001,
-                "hatch_data": 28800,
-                "weight_low": 11025,
-                "weight_high": 14720,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000026,
-                "pet_id": 98000026,
-                "name": "甜田螺",
-                "model_id": 3119001,
-                "hatch_data": 28800,
-                "weight_low": 11025,
-                "weight_high": 14720,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000090,
-                "pet_id": 99000090,
-                "name": "甜田螺",
-                "model_id": 3119001,
-                "hatch_data": 72000,
-                "weight_low": 11025,
-                "weight_high": 14720,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1620,7 +1480,7 @@
             {
                 "id": 99000097,
                 "pet_id": 99000097,
-                "name": "绿耳松鼠",
+                "name": null,
                 "model_id": 3112001,
                 "hatch_data": 72000,
                 "weight_low": 2625,

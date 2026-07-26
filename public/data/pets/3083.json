@@ -1,7 +1,7 @@
 {
     "id": 3083,
     "name": "keaiyuan",
-    "form": "可爱猿",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -37,7 +37,7 @@
         "id": 249,
         "name": "keaiyuan",
         "localized": {
-            "zh": "翼龙"
+            "zh": "可爱猿"
         }
     },
     "trait": {
@@ -1213,7 +1213,7 @@
                         "id": 3083,
                         "species_id": 249,
                         "name": "keaiyuan",
-                        "form": "可爱猿",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "可爱猿"
@@ -1240,7 +1240,7 @@
                         "id": 3084,
                         "species_id": 250,
                         "name": "zhireyuan",
-                        "form": "炽热猿",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "炽热猿"
@@ -1269,7 +1269,7 @@
                         "id": 3085,
                         "species_id": 251,
                         "name": "huoyanyuan",
-                        "form": "火焰猿",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "火焰猿"
@@ -1298,8 +1298,8 @@
         "current_monster_id": 3083
     },
     "world_profile": {
-        "type_desc": "常见于草地、山林",
-        "description_habitat": "喵喵",
+        "type_desc": "猿精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "头顶着活跃的微型火山，就连睡觉时也会冒出小烟圈。可别因为体型而小看了它，可爱猿头上流出的熔岩就连钢铁也能融化。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1314,13 +1314,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3083001,
         "pet_id": 3083001,
-        "name": "灵狐（完美无暇）",
+        "name": null,
         "model_id": 3083001,
         "hatch_data": 57600,
         "weight_low": 7350,
@@ -1328,21 +1328,15 @@
         "height_low": 29,
         "height_high": 41,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3083001,
                 "pet_id": 3083001,
-                "name": "灵狐（完美无暇）",
+                "name": null,
                 "model_id": 3083001,
                 "hatch_data": 57600,
                 "weight_low": 7350,
@@ -1350,43 +1344,21 @@
                 "height_low": 29,
                 "height_high": 41,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3083002,
-                "pet_id": 3083002,
-                "name": "异色灵狐",
-                "model_id": 3083001,
-                "hatch_data": 57600,
-                "weight_low": 7350,
-                "weight_high": 12600,
-                "height_low": 29,
-                "height_high": 41,
-                "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3103002,
-                "pet_id": 3103002,
-                "name": "可爱猿",
-                "model_id": 3103001,
+                "id": 3083002,
+                "pet_id": 3083002,
+                "name": null,
+                "model_id": 3083001,
                 "hatch_data": 57600,
-                "weight_low": 6475,
-                "weight_high": 13000,
-                "height_low": 18,
-                "height_high": 25,
+                "weight_low": 7350,
+                "weight_high": 12600,
+                "height_low": 29,
+                "height_high": 41,
                 "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
@@ -1396,7 +1368,7 @@
             {
                 "id": 30830001,
                 "pet_id": 30830001,
-                "name": "灵狐（完美无暇）",
+                "name": null,
                 "model_id": 3083001,
                 "hatch_data": 300,
                 "weight_low": 7350,
@@ -1412,7 +1384,7 @@
             {
                 "id": 99000142,
                 "pet_id": 99000142,
-                "name": "灵狐（完美无暇）",
+                "name": null,
                 "model_id": 3083001,
                 "hatch_data": 72000,
                 "weight_low": 7350,

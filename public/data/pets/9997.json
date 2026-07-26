@@ -55,7 +55,7 @@
     "move_pool": [
         {
             "id": 7300001,
-            "name": "测试buff6",
+            "name": "测试buff40",
             "icon_id": "708003",
             "move_type": {
                 "id": 6,
@@ -66,18 +66,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "测试buff6",
-                    "description": "造成物伤"
+                    "name": "测试buff40",
+                    "description": "使用此技能后，用gm使用技能引燃，观察对方身上层数，每失去2层灼烧，获得一层中毒"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 0,
             "power": 100,
-            "description": "造成物伤"
+            "description": "使用此技能后，用gm使用技能引燃，观察对方身上层数，每失去2层灼烧，获得一层中毒"
         },
         {
             "id": 7300002,
-            "name": "测试buff28",
+            "name": "测试buff151",
             "icon_id": "708003",
             "move_type": {
                 "id": 6,
@@ -88,18 +88,18 @@
             },
             "localized": {
                 "zh": {
-                    "name": "测试buff28",
-                    "description": "造成物伤"
+                    "name": "测试buff151",
+                    "description": "使用此技能后，用gm释放技能蝙蝠，每5％的过量恢复，获得一层物攻buff"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 0,
             "power": 100,
-            "description": "造成物伤"
+            "description": "使用此技能后，用gm释放技能蝙蝠，每5％的过量恢复，获得一层物攻buff"
         },
         {
             "id": 7300003,
-            "name": "测试buff134",
+            "name": "测试buff153",
             "icon_id": "708003",
             "move_type": {
                 "id": 6,
@@ -110,14 +110,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "测试buff134",
-                    "description": "造成物伤"
+                    "name": "测试buff153",
+                    "description": "使用此技能后，使用任意攻击技能，观察敌方生命值百分比与buff的关系，小于50%时获得物攻buff"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 5,
             "power": 100,
-            "description": "造成物伤"
+            "description": "使用此技能后，使用任意攻击技能，观察敌方生命值百分比与buff的关系，小于50%时获得物攻buff"
         }
     ],
     "move_stones": [],

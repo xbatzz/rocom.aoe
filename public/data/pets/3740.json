@@ -26,29 +26,29 @@
         }
     },
     "implemented": true,
-    "base_hp": 87,
-    "base_phy_atk": 101,
-    "base_mag_atk": 43,
-    "base_phy_def": 106,
-    "base_mag_def": 78,
-    "base_spd": 88,
+    "base_hp": 77,
+    "base_phy_atk": 81,
+    "base_mag_atk": 33,
+    "base_phy_def": 99,
+    "base_mag_def": 73,
+    "base_spd": 80,
     "evolves_from_id": null,
     "species": {
-        "id": 3740,
+        "id": 441,
         "name": "fangfanghu",
         "localized": {
             "zh": "宝藏小狐"
         }
     },
     "trait": {
-        "id": 200293,
+        "id": 200313,
         "name": "博物",
-        "description": "入场时，识破敌方​精灵​的​变化​效果，​解除​其​伪装。​",
+        "description": "在场时，识破​精灵​的​变化​效果，​解除​其​伪装。​",
         "icon_id": "200288",
         "localized": {
             "zh": {
                 "name": "博物",
-                "description": "入场时，识破敌方​精灵​的​变化​效果，​解除​其​伪装。​"
+                "description": "在场时，识破​精灵​的​变化​效果，​解除​其​伪装。​"
             }
         }
     },
@@ -203,8 +203,8 @@
                 }
             },
             "move_category": "Physical Attack",
-            "energy_cost": 3,
-            "power": 100,
+            "energy_cost": 1,
+            "power": 55,
             "description": "造成物伤，本技能能耗每+1，威力+50。"
         },
         {
@@ -983,11 +983,11 @@
         {
             "monster_id": 3740,
             "type_id": 14,
-            "move_id": 7160200,
+            "move_id": 7160230,
             "move": {
-                "id": 7160200,
-                "name": "甜心续航",
-                "icon_id": "716005",
+                "id": 7160230,
+                "name": "魅惑",
+                "icon_id": "115011",
                 "move_type": {
                     "id": 14,
                     "name": "Cute",
@@ -997,14 +997,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "甜心续航",
-                        "description": "自己和敌方获得萌化：回复40%生命。"
+                        "name": "魅惑",
+                        "description": "对敌方精灵造成魔法伤害。"
                     }
                 },
-                "move_category": "Status",
-                "energy_cost": 3,
-                "power": null,
-                "description": "自己和敌方获得萌化：回复40%生命。"
+                "move_category": "Magic Attack",
+                "energy_cost": 1,
+                "power": 60,
+                "description": "对敌方精灵造成魔法伤害。"
             }
         },
         {
@@ -1123,7 +1123,7 @@
                 "monsters": [
                     {
                         "id": 3740,
-                        "species_id": 3740,
+                        "species_id": 441,
                         "name": "fangfanghu",
                         "form": "default",
                         "localized": {
@@ -1144,31 +1144,127 @@
                     }
                 ],
                 "is_leader_stage": false
+            },
+            {
+                "depth": 1,
+                "monsters": [
+                    {
+                        "id": 3741,
+                        "species_id": 442,
+                        "name": "hulianchacha",
+                        "form": "default",
+                        "localized": {
+                            "zh": {
+                                "name": "宝藏沙狐"
+                            }
+                        },
+                        "is_leader_form": false,
+                        "main_type": {
+                            "id": 1,
+                            "name": "Normal",
+                            "localized": {
+                                "zh": "普通"
+                            }
+                        },
+                        "sub_type": null,
+                        "evolution_conditions": [
+                            "等级达到 33 级"
+                        ]
+                    }
+                ],
+                "is_leader_stage": false
             }
         ],
-        "max_depth": 0,
-        "total_unique_monsters": 1,
-        "species_id": 3740,
+        "max_depth": 1,
+        "total_unique_monsters": 2,
+        "species_id": 441,
         "current_monster_id": 3740
     },
     "world_profile": {
-        "type_desc": null,
-        "description_habitat": null,
-        "introduction": "人畜无害的模样下藏着让人摸不透的佛系气质。大大的眼睛里有三分呆萌和七分迟钝，曾经被误认为是高冷的精灵，普通系研究员观察它们数月后得出结论——它其实只是单纯的没反应过来。",
+        "type_desc": "藏狐精灵",
+        "description_habitat": "行踪神秘",
+        "introduction": "宝藏小狐是一种从容的精灵，即使被其他精灵咬到，也可以保持冷静。它大大的眼睛中，蕴含着深邃的平静。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
         ],
         "movement_type": "地面",
         "classis_id": 6,
         "classis_name": "自然类精灵",
-        "handbook_area_ids": []
+        "handbook_area_ids": [
+            1
+        ]
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 3000,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
-    "breeding": null,
+    "breeding": {
+        "id": 3740001,
+        "pet_id": 3740001,
+        "name": null,
+        "model_id": 3740001,
+        "hatch_data": 43200,
+        "weight_low": 1187,
+        "weight_high": 1900,
+        "height_low": 18,
+        "height_high": 29,
+        "precious_egg_type": null,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
+        "is_contact_add_shining_prob": null,
+        "variants": [
+            {
+                "id": 3740001,
+                "pet_id": 3740001,
+                "name": null,
+                "model_id": 3740001,
+                "hatch_data": 43200,
+                "weight_low": 1187,
+                "weight_high": 1900,
+                "height_low": 18,
+                "height_high": 29,
+                "precious_egg_type": null,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3740002,
+                "pet_id": 3740002,
+                "name": null,
+                "model_id": 3740001,
+                "hatch_data": 300,
+                "weight_low": 1187,
+                "weight_high": 1900,
+                "height_low": 18,
+                "height_high": 29,
+                "precious_egg_type": 1,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 37400001,
+                "pet_id": 37400001,
+                "name": null,
+                "model_id": 3740001,
+                "hatch_data": 300,
+                "weight_low": 1187,
+                "weight_high": 1900,
+                "height_low": 18,
+                "height_high": 29,
+                "precious_egg_type": 7,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            }
+        ]
+    },
     "breeding_profile": {
         "pet_base_id": 3740,
         "egg_groups": [

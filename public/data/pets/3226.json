@@ -1,7 +1,7 @@
 {
     "id": 3226,
     "name": "hanyinshe",
-    "form": "寒音蛇",
+    "form": "default",
     "main_type": {
         "id": 10,
         "name": "Poison",
@@ -43,7 +43,7 @@
         "id": 213,
         "name": "hanyinshe",
         "localized": {
-            "zh": "偶见于城镇"
+            "zh": "寒音蛇"
         }
     },
     "trait": {
@@ -449,13 +449,13 @@
             "localized": {
                 "zh": {
                     "name": "鸩毒",
-                    "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+20。"
+                    "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+20。"
+            "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
         },
         {
             "id": 7020630,
@@ -559,13 +559,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7090260,
@@ -830,6 +830,50 @@
             "energy_cost": 1,
             "power": null,
             "description": "携带​的​攻击​技​能​获得​附加中毒3​，​应对防御：​改为​获得附加中毒6。"
+        },
+        {
+            "id": 7120280,
+            "name": "过敏原",
+            "icon_id": "111030",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "过敏原",
+                    "description": "造成魔伤，1连击，若敌方有中毒效果，本次技能连击数+2。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 35,
+            "description": "造成魔伤，1连击，若敌方有中毒效果，本次技能连击数+2。"
+        },
+        {
+            "id": 7160390,
+            "name": "耍赖",
+            "icon_id": "101106",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "耍赖",
+                    "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
         }
     ],
     "legacy_moves": [
@@ -1329,7 +1373,7 @@
                         "id": 3225,
                         "species_id": 212,
                         "name": "guzhongshe",
-                        "form": "古钟蛇",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "古钟蛇"
@@ -1362,7 +1406,7 @@
                         "id": 3226,
                         "species_id": 213,
                         "name": "hanyinshe",
-                        "form": "寒音蛇",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "寒音蛇"
@@ -1397,7 +1441,7 @@
         "current_monster_id": 3226
     },
     "world_profile": {
-        "type_desc": "常见于湖岸",
+        "type_desc": "拨浪鼓精灵",
         "description_habitat": "常见于草地",
         "introduction": "拥有能分泌毒液的特殊腺体，能够通过背部空心管状的骨棘发射毒液，致使猎物晕厥。毒液会散发出腐臭的气味，有精灵或洛克靠近查看味道来源时，会猛然跃起扑击。",
         "refresh_locations": [
@@ -1413,7 +1457,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

@@ -1,7 +1,7 @@
 {
     "id": 3216,
     "name": "haibaochuangzhang",
-    "form": "海豹船长",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -43,7 +43,7 @@
         "id": 182,
         "name": "haibaochuangzhang",
         "localized": {
-            "zh": "皇家狮鹫"
+            "zh": "海豹船长"
         }
     },
     "trait": {
@@ -1241,7 +1241,7 @@
                         "id": 3215,
                         "species_id": 181,
                         "name": "haibaozhanshi",
-                        "form": "海豹战士",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "海豹战士"
@@ -1274,7 +1274,7 @@
                         "id": 3216,
                         "species_id": 182,
                         "name": "haibaochuangzhang",
-                        "form": "海豹船长",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "海豹船长"
@@ -1309,8 +1309,8 @@
         "current_monster_id": 3216
     },
     "world_profile": {
-        "type_desc": "食蚁兽精灵",
-        "description_habitat": "常见于山地、城堡周边",
+        "type_desc": "海盗精灵",
+        "description_habitat": "常见于海岸",
         "introduction": "由聪慧且经验丰富的海豹战士进化而来，拥有极强的领地意识。这一物种对征服有极端的渴望，认为其他精灵都要臣服于它们。会指挥手下的海豹战士战斗。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1325,7 +1325,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

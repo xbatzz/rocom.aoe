@@ -1,7 +1,7 @@
 {
     "id": 3033,
     "name": "bobola",
-    "form": "波波拉",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -37,7 +37,7 @@
         "id": 9,
         "name": "bobola",
         "localized": {
-            "zh": "水元素精灵"
+            "zh": "波波拉"
         }
     },
     "trait": {
@@ -597,13 +597,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7021130,
@@ -626,6 +626,28 @@
             "energy_cost": 2,
             "power": null,
             "description": "减伤60%，应对攻击：敌方脱离。"
+        },
+        {
+            "id": 7050220,
+            "name": "润泽",
+            "icon_id": "104001",
+            "move_type": {
+                "id": 4,
+                "name": "Water",
+                "localized": {
+                    "zh": "水"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "润泽",
+                    "description": "自己获得魔攻+190%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 7,
+            "power": null,
+            "description": "自己获得魔攻+190%。"
         }
     ],
     "legacy_moves": [
@@ -1125,7 +1147,7 @@
                         "id": 3002,
                         "species_id": 8,
                         "name": "shuilanlan",
-                        "form": "水蓝蓝",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "水蓝蓝"
@@ -1152,7 +1174,7 @@
                         "id": 3033,
                         "species_id": 9,
                         "name": "bobola",
-                        "form": "波波拉",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "波波拉"
@@ -1184,7 +1206,7 @@
                         "id": 3005,
                         "species_id": 10,
                         "name": "shuiling",
-                        "form": "水灵",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "水灵"
@@ -1216,8 +1238,8 @@
         "current_monster_id": 3033
     },
     "world_profile": {
-        "type_desc": "行踪神秘",
-        "description_habitat": "喵喵",
+        "type_desc": "水元素精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "在水中自如地游动，头上的触角可以感受水中的变化，总是带着一颗球一样的东西。身旁环绕着特殊的水元素，水元素凝结体中蕴含魔法能量的波动。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1232,7 +1254,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 525,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

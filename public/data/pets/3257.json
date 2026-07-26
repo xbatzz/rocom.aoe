@@ -1,7 +1,7 @@
 {
     "id": 3257,
     "name": "bulusi",
-    "form": "布鲁斯",
+    "form": "default",
     "main_type": {
         "id": 7,
         "name": "Ice",
@@ -37,7 +37,7 @@
         "id": 252,
         "name": "bulusi",
         "localized": {
-            "zh": "长颈鹿精灵"
+            "zh": "布鲁斯"
         }
     },
     "trait": {
@@ -648,6 +648,50 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7090450,
+            "name": "冰裂",
+            "icon_id": "108042",
+            "move_type": {
+                "id": 7,
+                "name": "Ice",
+                "localized": {
+                    "zh": "冰"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "冰裂",
+                    "description": "造​成​物伤，​选择：​敌方​获得​物防-30%或​敌方获得速度​-20。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 70,
+            "description": "造​成​物伤，​选择：​敌方​获得​物防-30%或​敌方获得速度​-20。"
+        },
+        {
+            "id": 7090430,
+            "name": "冷凝",
+            "icon_id": "108039",
+            "move_type": {
+                "id": 7,
+                "name": "Ice",
+                "localized": {
+                    "zh": "冰"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "冷凝",
+                    "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 4,
+            "power": 95,
+            "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
         }
     ],
     "legacy_moves": [
@@ -1147,7 +1191,7 @@
                         "id": 3257,
                         "species_id": 252,
                         "name": "bulusi",
-                        "form": "布鲁斯",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "布鲁斯"
@@ -1174,7 +1218,7 @@
                         "id": 3258,
                         "species_id": 253,
                         "name": "xuedingbulusi",
-                        "form": "雪顶布鲁斯",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雪顶布鲁斯"
@@ -1203,7 +1247,7 @@
                         "id": 3259,
                         "species_id": 254,
                         "name": "bingzuanbulusi",
-                        "form": "冰钻布鲁斯",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "冰钻布鲁斯"
@@ -1232,8 +1276,8 @@
         "current_monster_id": 3257
     },
     "world_profile": {
-        "type_desc": "常见于草地、山林",
-        "description_habitat": "喵喵",
+        "type_desc": "章鱼精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "头部开始晶体化，触感冰凉，能缓慢吸收周围热量，使自身温度维持在较低水平。头顶的白色绒球对温度变化很敏锐，能帮助它判断环境冷热。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1248,13 +1292,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3257001,
         "pet_id": 3257001,
-        "name": "贝瑟",
+        "name": null,
         "model_id": 3257001,
         "hatch_data": 43200,
         "weight_low": 840,
@@ -1262,21 +1306,15 @@
         "height_low": 23,
         "height_high": 32,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3257001,
                 "pet_id": 3257001,
-                "name": "贝瑟",
+                "name": null,
                 "model_id": 3257001,
                 "hatch_data": 43200,
                 "weight_low": 840,
@@ -1284,65 +1322,15 @@
                 "height_low": 23,
                 "height_high": 32,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3330004,
-                "pet_id": 3330004,
-                "name": "布鲁斯",
-                "model_id": 3330001,
-                "hatch_data": 300,
-                "weight_low": 2590,
-                "weight_high": 3440,
-                "height_low": 23,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3330005,
-                "pet_id": 3330005,
-                "name": "布鲁斯",
-                "model_id": 3330001,
-                "hatch_data": 300,
-                "weight_low": 2590,
-                "weight_high": 3440,
-                "height_low": 23,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 32570001,
                 "pet_id": 32570001,
-                "name": "贝瑟",
+                "name": null,
                 "model_id": 3257001,
                 "hatch_data": 300,
                 "weight_low": 840,
@@ -1356,53 +1344,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 95000028,
-                "pet_id": 95000028,
-                "name": "贝瑟",
-                "model_id": 3257001,
-                "hatch_data": 43200,
-                "weight_low": 840,
-                "weight_high": 1840,
-                "height_low": 23,
-                "height_high": 32,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000028,
-                "pet_id": 99000028,
-                "name": "贝瑟",
-                "model_id": 3257001,
-                "hatch_data": 43200,
-                "weight_low": 840,
-                "weight_high": 1840,
-                "height_low": 23,
-                "height_high": 32,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000100,
                 "pet_id": 99000100,
-                "name": "贝瑟",
+                "name": null,
                 "model_id": 3257001,
                 "hatch_data": 72000,
                 "weight_low": 840,

@@ -1,7 +1,7 @@
 {
     "id": 3127,
     "name": "xiaoshijiu",
-    "form": "小狮鹫",
+    "form": "default",
     "main_type": {
         "id": 13,
         "name": "Flying",
@@ -37,7 +37,7 @@
         "id": 165,
         "name": "xiaoshijiu",
         "localized": {
-            "zh": "翼系精灵王"
+            "zh": "小狮鹫"
         }
     },
     "trait": {
@@ -93,7 +93,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "迅捷，驱散敌方1种增益。"
         },
@@ -648,6 +648,50 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7150360,
+            "name": "试飞",
+            "icon_id": "114037",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "试飞",
+                    "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 2,
+            "power": 20,
+            "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+        },
+        {
+            "id": 7150370,
+            "name": "超声波",
+            "icon_id": "114031",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "超声波",
+                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
         }
     ],
     "legacy_moves": [
@@ -1147,7 +1191,7 @@
                         "id": 3127,
                         "species_id": 165,
                         "name": "xiaoshijiu",
-                        "form": "小狮鹫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小狮鹫"
@@ -1168,7 +1212,7 @@
                         "id": 3467,
                         "species_id": 165,
                         "name": "xiaoshijiu_gaoshan",
-                        "form": "小狮鹫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小狮鹫"
@@ -1195,7 +1239,7 @@
                         "id": 3128,
                         "species_id": 166,
                         "name": "shenshengshijiu",
-                        "form": "神圣狮鹫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "神圣狮鹫"
@@ -1218,7 +1262,7 @@
                         "id": 3468,
                         "species_id": 166,
                         "name": "shenshengshijiu_gaoshan",
-                        "form": "神圣狮鹫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "神圣狮鹫"
@@ -1247,7 +1291,7 @@
                         "id": 3129,
                         "species_id": 167,
                         "name": "huangjiashijiu",
-                        "form": "皇家狮鹫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "皇家狮鹫"
@@ -1270,7 +1314,7 @@
                         "id": 3469,
                         "species_id": 167,
                         "name": "huangjiashijiu_gaoshan",
-                        "form": "皇家狮鹫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "皇家狮鹫"
@@ -1299,8 +1343,8 @@
         "current_monster_id": 3127
     },
     "world_profile": {
-        "type_desc": "常见于城镇周边",
-        "description_habitat": "灵羽勇士",
+        "type_desc": "蛋壳精灵",
+        "description_habitat": "常见于山地、城堡周边",
         "introduction": "只能勉强顶破头部的壳，剩余的蛋壳会陪伴小狮鹫度过幼年时期，能够保护尚且脆弱的羽毛。流线型的蛋壳构造还能减小风阻，丝毫不会影响行动。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1315,13 +1359,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3127001,
         "pet_id": 3127001,
-        "name": "翡翠水母",
+        "name": null,
         "model_id": 3127001,
         "hatch_data": 43200,
         "weight_low": 4025,
@@ -1329,21 +1373,15 @@
         "height_low": 30,
         "height_high": 42,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3127001,
                 "pet_id": 3127001,
-                "name": "翡翠水母",
+                "name": null,
                 "model_id": 3127001,
                 "hatch_data": 43200,
                 "weight_low": 4025,
@@ -1351,21 +1389,15 @@
                 "height_low": 30,
                 "height_high": 42,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3127002,
                 "pet_id": 3127002,
-                "name": "翡翠水母（电系血脉）",
+                "name": null,
                 "model_id": 3127001,
                 "hatch_data": 43200,
                 "weight_low": 4025,
@@ -1381,7 +1413,7 @@
             {
                 "id": 3127003,
                 "pet_id": 3127003,
-                "name": "翡翠水母（完美无暇）",
+                "name": null,
                 "model_id": 3127001,
                 "hatch_data": 300,
                 "weight_low": 4025,
@@ -1395,31 +1427,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3148003,
-                "pet_id": 3148003,
-                "name": "小狮鹫",
-                "model_id": 3148002,
-                "hatch_data": 43200,
-                "weight_low": 1960,
-                "weight_high": 3480,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 2,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 31270001,
                 "pet_id": 31270001,
-                "name": "翡翠水母",
+                "name": null,
                 "model_id": 3127001,
                 "hatch_data": 300,
                 "weight_low": 4025,
@@ -1433,171 +1443,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000032,
-                "pet_id": 91000032,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000032,
-                "pet_id": 92000032,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000032,
-                "pet_id": 93000032,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000032,
-                "pet_id": 94000032,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000015,
-                "pet_id": 95000015,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000032,
-                "pet_id": 96000032,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000032,
-                "pet_id": 97000032,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000032,
-                "pet_id": 98000032,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000015,
-                "pet_id": 99000015,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000085,
                 "pet_id": 99000085,
-                "name": "翡翠水母",
+                "name": null,
                 "model_id": 3127001,
                 "hatch_data": 72000,
                 "weight_low": 4025,

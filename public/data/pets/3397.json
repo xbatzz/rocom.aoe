@@ -1,7 +1,7 @@
 {
     "id": 3397,
     "name": "shengyuyiwang",
-    "form": "圣羽翼王",
+    "form": "default",
     "main_type": {
         "id": 13,
         "name": "Flying",
@@ -37,7 +37,7 @@
         "id": 152,
         "name": "shengyuyiwang",
         "localized": {
-            "zh": "守望精灵"
+            "zh": "圣羽翼王"
         }
     },
     "trait": {
@@ -1279,7 +1279,7 @@
                         "id": 3395,
                         "species_id": 150,
                         "name": "liao",
-                        "form": "里奥",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "里奥"
@@ -1306,7 +1306,7 @@
                         "id": 3396,
                         "species_id": 151,
                         "name": "lingyuyongshi",
-                        "form": "灵羽勇士",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "灵羽勇士"
@@ -1336,7 +1336,7 @@
                         "id": 3397,
                         "species_id": 152,
                         "name": "shengyuyiwang",
-                        "form": "圣羽翼王",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "圣羽翼王"
@@ -1366,8 +1366,8 @@
         "current_monster_id": 3397
     },
     "world_profile": {
-        "type_desc": "圆滚滚精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "翼系精灵王",
+        "description_habitat": "行踪神秘",
         "introduction": "庇佑这片纯粹的净土，是拥有强大力量之后背负的使命。从上古壁画中得知尘封的过往，它寻求力量，发自内心地想要保护现在的一切。“张开圣洁的羽翼，为同伴抵挡风雨，便是它心中的圣歌。”",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1382,7 +1382,7 @@
     },
     "catch_info": {
         "catch_threshold": null,
-        "catch_guarant_rate": 180,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

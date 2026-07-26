@@ -1,7 +1,7 @@
 {
     "id": 3090,
     "name": "huoweiwate",
-    "form": "火尾瓦特",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -37,7 +37,7 @@
         "id": 216,
         "name": "huoweiwate",
         "localized": {
-            "zh": "芳香精灵"
+            "zh": "火尾瓦特"
         }
     },
     "trait": {
@@ -487,13 +487,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7080290,
@@ -1169,7 +1169,7 @@
                         "id": 3090,
                         "species_id": 216,
                         "name": "huoweiwate",
-                        "form": "火尾瓦特",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "火尾瓦特"
@@ -1196,7 +1196,7 @@
                         "id": 3091,
                         "species_id": 217,
                         "name": "huoweizhanshi",
-                        "form": "火尾战士",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "火尾战士"
@@ -1225,7 +1225,7 @@
                         "id": 3092,
                         "species_id": 218,
                         "name": "liehuoshouhu",
-                        "form": "烈火守护",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "烈火守护"
@@ -1254,8 +1254,8 @@
         "current_monster_id": 3090
     },
     "world_profile": {
-        "type_desc": "常见于湖岸",
-        "description_habitat": "常见于海洋",
+        "type_desc": "利爪精灵",
+        "description_habitat": "常见于山林",
         "introduction": "全身被毛又干燥又粗糙，容易产生静电现象，甚至偶尔冒出火星。它的利爪有可能是打火石，连续抓挠树木的话可能会将树木点燃。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1270,13 +1270,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 3000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3090001,
         "pet_id": 3090001,
-        "name": "烈钻鸟",
+        "name": null,
         "model_id": 3090001,
         "hatch_data": 57600,
         "weight_low": 6475,
@@ -1284,21 +1284,15 @@
         "height_low": 27,
         "height_high": 38,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3090001,
                 "pet_id": 3090001,
-                "name": "烈钻鸟",
+                "name": null,
                 "model_id": 3090001,
                 "hatch_data": 57600,
                 "weight_low": 6475,
@@ -1306,28 +1300,6 @@
                 "height_low": 27,
                 "height_high": 38,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3106002,
-                "pet_id": 3106002,
-                "name": "火尾瓦特",
-                "model_id": 3106001,
-                "hatch_data": 300,
-                "weight_low": 7350,
-                "weight_high": 13600,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1336,7 +1308,7 @@
             {
                 "id": 30900001,
                 "pet_id": 30900001,
-                "name": "烈钻鸟",
+                "name": null,
                 "model_id": 3090001,
                 "hatch_data": 300,
                 "weight_low": 6475,
@@ -1352,7 +1324,7 @@
             {
                 "id": 99000151,
                 "pet_id": 99000151,
-                "name": "烈钻鸟",
+                "name": null,
                 "model_id": 3090001,
                 "hatch_data": 72000,
                 "weight_low": 6475,

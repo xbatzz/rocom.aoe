@@ -1,7 +1,7 @@
 {
     "id": 3420,
     "name": "lihaixiuluo",
-    "form": "厉毒修萝",
+    "form": "default",
     "main_type": {
         "id": 10,
         "name": "Poison",
@@ -43,7 +43,7 @@
         "id": 292,
         "name": "lihaixiuluo",
         "localized": {
-            "zh": "帕帕斯卡"
+            "zh": "厉毒修萝"
         }
     },
     "trait": {
@@ -654,6 +654,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "携带​的​攻击​技​能​获得​附加中毒3​，​应对防御：​改为​获得附加中毒6。"
+        },
+        {
+            "id": 7150370,
+            "name": "超声波",
+            "icon_id": "114031",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "超声波",
+                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
         }
     ],
     "legacy_moves": [
@@ -1153,7 +1175,7 @@
                         "id": 3419,
                         "species_id": 291,
                         "name": "lihaixiaoluo",
-                        "form": "厉毒小萝",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "厉毒小萝"
@@ -1186,7 +1208,7 @@
                         "id": 3420,
                         "species_id": 292,
                         "name": "lihaixiuluo",
-                        "form": "厉毒修萝",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "厉毒修萝"
@@ -1221,8 +1243,8 @@
         "current_monster_id": 3420
     },
     "world_profile": {
-        "type_desc": "咔咔鸟",
-        "description_habitat": "喵喵",
+        "type_desc": "毛绒绒精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "翼上的棘刺带有能够分泌剧毒的腺体，狩猎时常在暗处蹲守观察许久，找到时机后从棘刺中射出毒液使猎物昏迷，再飞速捕获。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1237,7 +1259,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

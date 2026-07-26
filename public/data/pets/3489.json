@@ -43,12 +43,12 @@
     "trait": {
         "id": 200289,
         "name": "戏耍",
-        "description": "自己​回复​生命变​为​敌方​扣除​等量​生命​。",
+        "description": "自己​无法回复生命，而是将回复生命变​为​敌方​扣除​等量​生命​。",
         "icon_id": "200291",
         "localized": {
             "zh": {
                 "name": "戏耍",
-                "description": "自己​回复​生命变​为​敌方​扣除​等量​生命​。"
+                "description": "自己​无法回复生命，而是将回复生命变​为​敌方​扣除​等量​生命​。"
             }
         }
     },
@@ -221,13 +221,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7180210,
@@ -729,13 +729,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         }
     ],
     "legacy_moves": [
@@ -1321,8 +1321,8 @@
         "current_monster_id": 3489
     },
     "world_profile": {
-        "type_desc": null,
-        "description_habitat": null,
+        "type_desc": "小丑精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "依然爱动，所有躁动化作指尖球技，它的迈步从容而有节奏，抛球的轨迹优雅得像一门艺术。它的耳朵随着每一次弹跳有规律地颤动，就像洛克喜欢抖腿，这是它唯一泄露出来的小破绽。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1330,11 +1330,13 @@
         "movement_type": "步行",
         "classis_id": 6,
         "classis_name": "自然类精灵",
-        "handbook_area_ids": []
+        "handbook_area_ids": [
+            1
+        ]
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

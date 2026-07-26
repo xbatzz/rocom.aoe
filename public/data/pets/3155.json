@@ -1,7 +1,7 @@
 {
     "id": 3155,
     "name": "qiuli",
-    "form": "裘力",
+    "form": "default",
     "main_type": {
         "id": 10,
         "name": "Poison",
@@ -37,7 +37,7 @@
         "id": 247,
         "name": "qiuli",
         "localized": {
-            "zh": "钢铁精灵"
+            "zh": "裘力"
         }
     },
     "trait": {
@@ -1235,7 +1235,7 @@
                         "id": 3154,
                         "species_id": 246,
                         "name": "qiuluo",
-                        "form": "裘洛",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "裘洛"
@@ -1262,7 +1262,7 @@
                         "id": 3155,
                         "species_id": 247,
                         "name": "qiuli",
-                        "form": "裘力",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "裘力"
@@ -1291,7 +1291,7 @@
                         "id": 3156,
                         "species_id": 248,
                         "name": "qiuka",
-                        "form": "裘卡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "裘卡"
@@ -1320,8 +1320,8 @@
         "current_monster_id": 3155
     },
     "world_profile": {
-        "type_desc": "黄蜂后",
-        "description_habitat": "喵喵",
+        "type_desc": "毛绒绒精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "即便在寒冷的冬天也是独来独往，从不聚在一起取暖，太冷的时候会把脚放在尾巴上。尾巴尖处有两个腺体，危险时能迅速喷射毒液，会用尾巴缠住对手，释放毒素的同时使其无法逃走。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1336,7 +1336,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 525,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

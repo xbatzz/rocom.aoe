@@ -1,7 +1,7 @@
 {
     "id": 3490,
     "name": "xiniou",
-    "form": "吸泥鸥",
+    "form": "default",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -43,7 +43,7 @@
         "id": 287,
         "name": "xiniou",
         "localized": {
-            "zh": "常见于城镇周边"
+            "zh": "吸泥鸥"
         }
     },
     "trait": {
@@ -654,6 +654,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7150370,
+            "name": "超声波",
+            "icon_id": "114031",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "超声波",
+                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
         }
     ],
     "legacy_moves": [
@@ -1153,7 +1175,7 @@
                         "id": 3490,
                         "species_id": 287,
                         "name": "xiniou",
-                        "form": "吸泥鸥",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "吸泥鸥"
@@ -1186,7 +1208,7 @@
                         "id": 3491,
                         "species_id": 288,
                         "name": "nihouya",
-                        "form": "泥吼牙",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "泥吼牙"
@@ -1221,8 +1243,8 @@
         "current_monster_id": 3490
     },
     "world_profile": {
-        "type_desc": "鸟仔精灵",
-        "description_habitat": "炽焰狮",
+        "type_desc": "贪吃精灵",
+        "description_habitat": "常见于河岸",
         "introduction": "骨骼天生比较脆，需要经常吸食淤泥，泥巴里面含有它们骨骼所需的物质。如果摄入不足，它们的关节会发炎，走起路来可能容易摔倒。吻部尚未完全发育，偶尔会被泥巴噎住",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1237,13 +1259,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3490001,
         "pet_id": 3490001,
-        "name": "海盔虫（首领血脉）",
+        "name": null,
         "model_id": 3490001,
         "hatch_data": 43200,
         "weight_low": 3325,
@@ -1251,21 +1273,15 @@
         "height_low": 23,
         "height_high": 29,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3490001,
                 "pet_id": 3490001,
-                "name": "海盔虫（首领血脉）",
+                "name": null,
                 "model_id": 3490001,
                 "hatch_data": 43200,
                 "weight_low": 3325,
@@ -1273,21 +1289,47 @@
                 "height_low": 23,
                 "height_high": 29,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3490002,
+                "pet_id": 3490002,
+                "name": null,
+                "model_id": 3490001,
+                "hatch_data": 300,
+                "weight_low": 3325,
+                "weight_high": 5000,
+                "height_low": 23,
+                "height_high": 29,
+                "precious_egg_type": 1,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3490003,
+                "pet_id": 3490003,
+                "name": null,
+                "model_id": 3490001,
+                "hatch_data": 300,
+                "weight_low": 3325,
+                "weight_high": 5000,
+                "height_low": 23,
+                "height_high": 29,
+                "precious_egg_type": 1,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 34900001,
                 "pet_id": 34900001,
-                "name": "海盔虫（首领血脉）",
+                "name": null,
                 "model_id": 3490001,
                 "hatch_data": 300,
                 "weight_low": 3325,
@@ -1301,127 +1343,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000023,
-                "pet_id": 91000023,
-                "name": "海盔虫（首领血脉）",
-                "model_id": 3490001,
-                "hatch_data": 43200,
-                "weight_low": 3325,
-                "weight_high": 5000,
-                "height_low": 23,
-                "height_high": 29,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000023,
-                "pet_id": 92000023,
-                "name": "海盔虫（首领血脉）",
-                "model_id": 3490001,
-                "hatch_data": 43200,
-                "weight_low": 3325,
-                "weight_high": 5000,
-                "height_low": 23,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000023,
-                "pet_id": 93000023,
-                "name": "海盔虫（首领血脉）",
-                "model_id": 3490001,
-                "hatch_data": 43200,
-                "weight_low": 3325,
-                "weight_high": 5000,
-                "height_low": 23,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000023,
-                "pet_id": 94000023,
-                "name": "海盔虫（首领血脉）",
-                "model_id": 3490001,
-                "hatch_data": 43200,
-                "weight_low": 3325,
-                "weight_high": 5000,
-                "height_low": 23,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000023,
-                "pet_id": 96000023,
-                "name": "海盔虫（首领血脉）",
-                "model_id": 3490001,
-                "hatch_data": 43200,
-                "weight_low": 3325,
-                "weight_high": 5000,
-                "height_low": 23,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000023,
-                "pet_id": 97000023,
-                "name": "海盔虫（首领血脉）",
-                "model_id": 3490001,
-                "hatch_data": 43200,
-                "weight_low": 3325,
-                "weight_high": 5000,
-                "height_low": 23,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000023,
-                "pet_id": 98000023,
-                "name": "海盔虫（首领血脉）",
-                "model_id": 3490001,
-                "hatch_data": 43200,
-                "weight_low": 3325,
-                "weight_high": 5000,
-                "height_low": 23,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000153,
                 "pet_id": 99000153,
-                "name": "海盔虫（首领血脉）",
+                "name": null,
                 "model_id": 3490001,
                 "hatch_data": 72000,
                 "weight_low": 3325,

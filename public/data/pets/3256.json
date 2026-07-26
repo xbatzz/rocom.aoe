@@ -1,7 +1,7 @@
 {
     "id": 3256,
     "name": "liulangshu",
-    "form": "流浪鼠",
+    "form": "default",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -26,18 +26,18 @@
         }
     },
     "implemented": true,
-    "base_hp": 90,
+    "base_hp": 103,
     "base_phy_atk": 46,
     "base_mag_atk": 116,
-    "base_phy_def": 84,
-    "base_mag_def": 112,
+    "base_phy_def": 92,
+    "base_mag_def": 122,
     "base_spd": 115,
     "evolves_from_id": 3255,
     "species": {
         "id": 194,
         "name": "liulangshu",
         "localized": {
-            "zh": "草头鸭"
+            "zh": "流浪鼠"
         }
     },
     "trait": {
@@ -648,6 +648,72 @@
             "energy_cost": 4,
             "power": null,
             "description": "自己脱离，替换入场的精灵回复8能量。"
+        },
+        {
+            "id": 7080450,
+            "name": "扬尘",
+            "icon_id": "107044",
+            "move_type": {
+                "id": 6,
+                "name": "Ground",
+                "localized": {
+                    "zh": "地"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "扬尘",
+                    "description": "造成​魔伤，​天气为沙暴时，先手+1。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 80,
+            "description": "造成​魔伤，​天气为沙暴时，先手+1。"
+        },
+        {
+            "id": 7021210,
+            "name": "急中生智",
+            "icon_id": "301104",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "急中生智",
+                    "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 80,
+            "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+        },
+        {
+            "id": 7110410,
+            "name": "电离爆破",
+            "icon_id": "110027",
+            "move_type": {
+                "id": 9,
+                "name": "Electric",
+                "localized": {
+                    "zh": "电"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "电离爆破",
+                    "description": "敌方获得魔攻-20%，速度-20，2连击。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 1,
+            "power": null,
+            "description": "敌方获得魔攻-20%，速度-20，2连击。"
         }
     ],
     "legacy_moves": [
@@ -1147,7 +1213,7 @@
                         "id": 3255,
                         "species_id": 193,
                         "name": "benboshu",
-                        "form": "奔波鼠",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "奔波鼠"
@@ -1174,7 +1240,7 @@
                         "id": 3256,
                         "species_id": 194,
                         "name": "liulangshu",
-                        "form": "流浪鼠",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "流浪鼠"
@@ -1204,8 +1270,8 @@
         "current_monster_id": 3256
     },
     "world_profile": {
-        "type_desc": "花精灵",
-        "description_habitat": "常见于山林",
+        "type_desc": "流浪精灵",
+        "description_habitat": "偶见于城镇",
         "introduction": "背后鼓鼓的行囊里是更多捡来的收藏品，闪闪发光的物体对它们有着无与伦比的吸引力。不论是亮晶晶的小石子，闪着微光的菌类，还是洛克不小心遗落的饰品。在劳累之后，它们也会静静地在波光粼粼的水面望着月亮。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1220,75 +1286,10 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 310,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
-    "breeding": {
-        "id": 3004001,
-        "pet_id": 3004001,
-        "name": "草头鸭",
-        "model_id": 3004001,
-        "hatch_data": 72000,
-        "weight_low": 1925,
-        "weight_high": 2800,
-        "height_low": 23,
-        "height_high": 32,
-        "precious_egg_type": 1,
-        "egg_base_glass_prob_array": null,
-        "egg_add_glass_prob_array": null,
-        "is_contact_add_glass_prob": null,
-        "is_contact_add_shining_prob": null,
-        "variants": [
-            {
-                "id": 3004001,
-                "pet_id": 3004001,
-                "name": "草头鸭",
-                "model_id": 3004001,
-                "hatch_data": 72000,
-                "weight_low": 1925,
-                "weight_high": 2800,
-                "height_low": 23,
-                "height_high": 32,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3004003,
-                "pet_id": 3004003,
-                "name": "草头鸭",
-                "model_id": 3004001,
-                "hatch_data": 72000,
-                "weight_low": 1925,
-                "weight_high": 2800,
-                "height_low": 23,
-                "height_high": 32,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 30040001,
-                "pet_id": 30040001,
-                "name": "草头鸭",
-                "model_id": 3004001,
-                "hatch_data": 300,
-                "weight_low": 1925,
-                "weight_high": 2800,
-                "height_low": 23,
-                "height_high": 32,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            }
-        ]
-    },
+    "breeding": null,
     "breeding_profile": {
         "pet_base_id": 3256,
         "egg_groups": [

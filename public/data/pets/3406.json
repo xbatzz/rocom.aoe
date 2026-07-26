@@ -1,7 +1,7 @@
 {
     "id": 3406,
     "name": "tita",
-    "form": "缇塔",
+    "form": "default",
     "main_type": {
         "id": 17,
         "name": "Mechanical",
@@ -37,7 +37,7 @@
         "id": 229,
         "name": "tita",
         "localized": {
-            "zh": "负电精灵"
+            "zh": "缇塔"
         }
     },
     "trait": {
@@ -265,13 +265,13 @@
             "localized": {
                 "zh": {
                     "name": "齿轮扭矩",
-                    "description": "造成物伤，每回合位置发生变化时，本技能威力永久+20。"
+                    "description": "造成物伤，每回合位置发生变化时，本技能威力永久+15。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 80,
-            "description": "造成物伤，每回合位置发生变化时，本技能威力永久+20。"
+            "power": 70,
+            "description": "造成物伤，每回合位置发生变化时，本技能威力永久+15。"
         },
         {
             "id": 7070060,
@@ -670,6 +670,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7070300,
+            "name": "绞轮",
+            "icon_id": "106031",
+            "move_type": {
+                "id": 17,
+                "name": "Mechanical",
+                "localized": {
+                    "zh": "机械"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "绞轮",
+                    "description": "造成物伤，每受到1次抵抗的技能攻击（不含连击），​本技能能耗永久-1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 5,
+            "power": 115,
+            "description": "造成物伤，每受到1次抵抗的技能攻击（不含连击），​本技能能耗永久-1。"
         }
     ],
     "legacy_moves": [
@@ -1169,7 +1191,7 @@
                         "id": 3406,
                         "species_id": 229,
                         "name": "tita",
-                        "form": "缇塔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "缇塔"
@@ -1196,7 +1218,7 @@
                         "id": 3407,
                         "species_id": 230,
                         "name": "shengbotita",
-                        "form": "声波缇塔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "声波缇塔"
@@ -1225,8 +1247,8 @@
         "current_monster_id": 3406
     },
     "world_profile": {
-        "type_desc": "刺盔虫",
-        "description_habitat": "锅精灵",
+        "type_desc": "机械臂精灵",
+        "description_habitat": "常见于城镇周边",
         "introduction": "总是扫描寻找着什么，明明对洛克抱有极大的好奇，但是因为其机器守则限制，只能和洛克保持在一个不远不近的距离。“既可靠又实用，深得洛克们青睐，是您寻物时的不二之选。”",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1241,13 +1263,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3406001,
         "pet_id": 3406001,
-        "name": "雪绒鸟（首领血脉）",
+        "name": null,
         "model_id": 3406001,
         "hatch_data": 57600,
         "weight_low": 13370,
@@ -1255,49 +1277,21 @@
         "height_low": 28,
         "height_high": 31,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3406001,
                 "pet_id": 3406001,
-                "name": "雪绒鸟（首领血脉）",
+                "name": null,
                 "model_id": 3406001,
                 "hatch_data": 57600,
                 "weight_low": 13370,
                 "weight_high": 18080,
                 "height_low": 28,
                 "height_high": 31,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3572001,
-                "pet_id": 3572001,
-                "name": "缇塔",
-                "model_id": 3572001,
-                "hatch_data": 1,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
                 "precious_egg_type": null,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
@@ -1307,7 +1301,7 @@
             {
                 "id": 34060001,
                 "pet_id": 34060001,
-                "name": "雪绒鸟（首领血脉）",
+                "name": null,
                 "model_id": 3406001,
                 "hatch_data": 300,
                 "weight_low": 13370,
@@ -1321,127 +1315,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000055,
-                "pet_id": 91000055,
-                "name": "雪绒鸟（首领血脉）",
-                "model_id": 3406001,
-                "hatch_data": 57600,
-                "weight_low": 13370,
-                "weight_high": 18080,
-                "height_low": 28,
-                "height_high": 31,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000055,
-                "pet_id": 92000055,
-                "name": "雪绒鸟（首领血脉）",
-                "model_id": 3406001,
-                "hatch_data": 57600,
-                "weight_low": 13370,
-                "weight_high": 18080,
-                "height_low": 28,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000055,
-                "pet_id": 93000055,
-                "name": "雪绒鸟（首领血脉）",
-                "model_id": 3406001,
-                "hatch_data": 57600,
-                "weight_low": 13370,
-                "weight_high": 18080,
-                "height_low": 28,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000055,
-                "pet_id": 94000055,
-                "name": "雪绒鸟（首领血脉）",
-                "model_id": 3406001,
-                "hatch_data": 57600,
-                "weight_low": 13370,
-                "weight_high": 18080,
-                "height_low": 28,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000055,
-                "pet_id": 96000055,
-                "name": "雪绒鸟（首领血脉）",
-                "model_id": 3406001,
-                "hatch_data": 57600,
-                "weight_low": 13370,
-                "weight_high": 18080,
-                "height_low": 28,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000055,
-                "pet_id": 97000055,
-                "name": "雪绒鸟（首领血脉）",
-                "model_id": 3406001,
-                "hatch_data": 57600,
-                "weight_low": 13370,
-                "weight_high": 18080,
-                "height_low": 28,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000055,
-                "pet_id": 98000055,
-                "name": "雪绒鸟（首领血脉）",
-                "model_id": 3406001,
-                "hatch_data": 57600,
-                "weight_low": 13370,
-                "weight_high": 18080,
-                "height_low": 28,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000164,
                 "pet_id": 99000164,
-                "name": "雪绒鸟（首领血脉）",
+                "name": null,
                 "model_id": 3406001,
                 "hatch_data": 72000,
                 "weight_low": 13370,

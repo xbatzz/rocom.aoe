@@ -1,7 +1,7 @@
 {
     "id": 3485,
     "name": "luoyunxingtu",
-    "form": "落陨星兔",
+    "form": "default",
     "main_type": {
         "id": 15,
         "name": "Ghost",
@@ -43,7 +43,7 @@
         "id": 337,
         "name": "luoyunxingtu",
         "localized": {
-            "zh": "画像守护"
+            "zh": "落陨星兔"
         }
     },
     "trait": {
@@ -669,13 +669,35 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
+        },
+        {
+            "id": 7021210,
+            "name": "急中生智",
+            "icon_id": "301104",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "急中生智",
+                    "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 80,
+            "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
         }
     ],
     "legacy_moves": [
@@ -1175,7 +1197,7 @@
                         "id": 3319,
                         "species_id": 335,
                         "name": "fenxingzai",
-                        "form": "粉星仔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "粉星仔"
@@ -1202,7 +1224,7 @@
                         "id": 3320,
                         "species_id": 336,
                         "name": "fenerxingtu",
-                        "form": "粉耳星兔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "粉耳星兔"
@@ -1225,7 +1247,7 @@
                         "id": 3485,
                         "species_id": 337,
                         "name": "luoyunxingtu",
-                        "form": "落陨星兔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "落陨星兔"
@@ -1261,8 +1283,8 @@
         "current_monster_id": 3485
     },
     "world_profile": {
-        "type_desc": "仪使者",
-        "description_habitat": "喵喵",
+        "type_desc": "信使精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "“能够在流星上倾听许愿的家伙，总会被认为是善良的吧？嘻嘻，它们可从来没说过会以什么方式实现哦！扭曲的实现也是实现。不愿以他人的理想为自己一生的追求，却也无法逃脱命运的桎梏。那么来吧，向它们许愿吧”！",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1276,7 +1298,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 180,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

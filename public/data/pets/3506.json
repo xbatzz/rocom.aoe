@@ -1,7 +1,7 @@
 {
     "id": 3506,
     "name": "huayuanman",
-    "form": "花怨鳗",
+    "form": "default",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -43,7 +43,7 @@
         "id": 201,
         "name": "huayuanman",
         "localized": {
-            "zh": "常见于海面、河面"
+            "zh": "花怨鳗"
         }
     },
     "trait": {
@@ -713,13 +713,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7021130,
@@ -1241,7 +1241,7 @@
                         "id": 3506,
                         "species_id": 201,
                         "name": "huayuanman",
-                        "form": "花怨鳗",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "花怨鳗"
@@ -1274,7 +1274,7 @@
                         "id": 3507,
                         "species_id": 202,
                         "name": "manweishou",
-                        "form": "鳗尾兽",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "鳗尾兽"
@@ -1309,8 +1309,8 @@
         "current_monster_id": 3506
     },
     "world_profile": {
-        "type_desc": "常见于草地",
-        "description_habitat": "硬壳精灵",
+        "type_desc": "花精灵",
+        "description_habitat": "常见于田地、河岸",
         "introduction": "它们的身体具有趋触性，身躯底部会紧贴赖以生存的土地，这让它们有安全感，尤其喜欢湿润的泥土。三朵花常相互缠绕以保持接触，但也因此容易打结。当它们争执时，会发出连绵的铃声。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1325,13 +1325,13 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 1200,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3506001,
         "pet_id": 3506001,
-        "name": "电动长颈鹿（首领血脉）",
+        "name": null,
         "model_id": 3506001,
         "hatch_data": 28800,
         "weight_low": 1015,
@@ -1339,21 +1339,15 @@
         "height_low": 25,
         "height_high": 28,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3506001,
                 "pet_id": 3506001,
-                "name": "电动长颈鹿（首领血脉）",
+                "name": null,
                 "model_id": 3506001,
                 "hatch_data": 28800,
                 "weight_low": 1015,
@@ -1361,21 +1355,15 @@
                 "height_low": 25,
                 "height_high": 28,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3506002,
                 "pet_id": 3506002,
-                "name": "电动长颈鹿（首领血脉）",
+                "name": null,
                 "model_id": 3506001,
                 "hatch_data": 28800,
                 "weight_low": 1015,
@@ -1391,7 +1379,7 @@
             {
                 "id": 3506003,
                 "pet_id": 3506003,
-                "name": "路路尼",
+                "name": null,
                 "model_id": 3506001,
                 "hatch_data": 300,
                 "weight_low": 1015,
@@ -1407,7 +1395,7 @@
             {
                 "id": 35060001,
                 "pet_id": 35060001,
-                "name": "电动长颈鹿（首领血脉）",
+                "name": null,
                 "model_id": 3506001,
                 "hatch_data": 300,
                 "weight_low": 1015,
@@ -1421,171 +1409,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000081,
-                "pet_id": 91000081,
-                "name": "电动长颈鹿（首领血脉）",
-                "model_id": 3506001,
-                "hatch_data": 28800,
-                "weight_low": 1015,
-                "weight_high": 1600,
-                "height_low": 25,
-                "height_high": 28,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000081,
-                "pet_id": 92000081,
-                "name": "电动长颈鹿（首领血脉）",
-                "model_id": 3506001,
-                "hatch_data": 28800,
-                "weight_low": 1015,
-                "weight_high": 1600,
-                "height_low": 25,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000081,
-                "pet_id": 93000081,
-                "name": "电动长颈鹿（首领血脉）",
-                "model_id": 3506001,
-                "hatch_data": 28800,
-                "weight_low": 1015,
-                "weight_high": 1600,
-                "height_low": 25,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000081,
-                "pet_id": 94000081,
-                "name": "电动长颈鹿（首领血脉）",
-                "model_id": 3506001,
-                "hatch_data": 28800,
-                "weight_low": 1015,
-                "weight_high": 1600,
-                "height_low": 25,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000045,
-                "pet_id": 95000045,
-                "name": "电动长颈鹿（首领血脉）",
-                "model_id": 3506001,
-                "hatch_data": 28800,
-                "weight_low": 1015,
-                "weight_high": 1600,
-                "height_low": 25,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000081,
-                "pet_id": 96000081,
-                "name": "电动长颈鹿（首领血脉）",
-                "model_id": 3506001,
-                "hatch_data": 28800,
-                "weight_low": 1015,
-                "weight_high": 1600,
-                "height_low": 25,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000081,
-                "pet_id": 97000081,
-                "name": "电动长颈鹿（首领血脉）",
-                "model_id": 3506001,
-                "hatch_data": 28800,
-                "weight_low": 1015,
-                "weight_high": 1600,
-                "height_low": 25,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000081,
-                "pet_id": 98000081,
-                "name": "电动长颈鹿（首领血脉）",
-                "model_id": 3506001,
-                "hatch_data": 28800,
-                "weight_low": 1015,
-                "weight_high": 1600,
-                "height_low": 25,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000045,
-                "pet_id": 99000045,
-                "name": "电动长颈鹿（首领血脉）",
-                "model_id": 3506001,
-                "hatch_data": 28800,
-                "weight_low": 1015,
-                "weight_high": 1600,
-                "height_low": 25,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000105,
                 "pet_id": 99000105,
-                "name": "电动长颈鹿（首领血脉）",
+                "name": null,
                 "model_id": 3506001,
                 "hatch_data": 72000,
                 "weight_low": 1015,

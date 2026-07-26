@@ -269,7 +269,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 6,
+            "energy_cost": 4,
             "power": null,
             "description": "使敌方精灵减益的层数翻倍。"
         },
@@ -648,6 +648,50 @@
             "energy_cost": 5,
             "power": null,
             "description": "敌方获得全技能能耗+3，应对防御：额外造成打断，且敌方下回合获得眩晕。"
+        },
+        {
+            "id": 7120270,
+            "name": "溶解",
+            "icon_id": "111028",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "溶解",
+                    "description": "减伤90%，应对攻击：驱散敌方1种增益。"
+                }
+            },
+            "move_category": "Defense",
+            "energy_cost": 2,
+            "power": null,
+            "description": "减伤90%，应对攻击：驱散敌方1种增益。"
+        },
+        {
+            "id": 7120220,
+            "name": "鸩毒",
+            "icon_id": "111019",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "鸩毒",
+                    "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 75,
+            "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
         }
     ],
     "legacy_moves": [
@@ -1147,7 +1191,7 @@
                         "id": 3367,
                         "species_id": 52,
                         "name": "duudbao",
-                        "form": "嘟嘟煲",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "嘟嘟煲"
@@ -1195,7 +1239,7 @@
                         "id": 3368,
                         "species_id": 53,
                         "name": "duudguo",
-                        "form": "嘟嘟锅",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "嘟嘟锅"

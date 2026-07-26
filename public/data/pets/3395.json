@@ -1,7 +1,7 @@
 {
     "id": 3395,
     "name": "liao",
-    "form": "里奥",
+    "form": "default",
     "main_type": {
         "id": 13,
         "name": "Flying",
@@ -37,7 +37,7 @@
         "id": 150,
         "name": "liao",
         "localized": {
-            "zh": "獠牙猪"
+            "zh": "里奥"
         }
     },
     "trait": {
@@ -1279,7 +1279,7 @@
                         "id": 3395,
                         "species_id": 150,
                         "name": "liao",
-                        "form": "里奥",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "里奥"
@@ -1306,7 +1306,7 @@
                         "id": 3396,
                         "species_id": 151,
                         "name": "lingyuyongshi",
-                        "form": "灵羽勇士",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "灵羽勇士"
@@ -1336,7 +1336,7 @@
                         "id": 3397,
                         "species_id": 152,
                         "name": "shengyuyiwang",
-                        "form": "圣羽翼王",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "圣羽翼王"
@@ -1366,8 +1366,8 @@
         "current_monster_id": 3395
     },
     "world_profile": {
-        "type_desc": "常见于树林",
-        "description_habitat": "喵喵",
+        "type_desc": "翼系精灵王",
+        "description_habitat": "行踪神秘",
         "introduction": "有着圆滚滚的身躯，小小的翅膀还无法熟练飞翔，却能和愿力发生共鸣，从而获得力量。“和伙伴在一起的安全感连美食都不能替代。即使有时候像个小跟屁虫也无所谓。”",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1382,13 +1382,13 @@
     },
     "catch_info": {
         "catch_threshold": null,
-        "catch_guarant_rate": 180,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3395001,
         "pet_id": 3395001,
-        "name": "雪绒鸟",
+        "name": null,
         "model_id": 3395001,
         "hatch_data": 43200,
         "weight_low": 1680,
@@ -1396,21 +1396,15 @@
         "height_low": 15,
         "height_high": 19,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3395001,
                 "pet_id": 3395001,
-                "name": "雪绒鸟",
+                "name": null,
                 "model_id": 3395001,
                 "hatch_data": 43200,
                 "weight_low": 1680,
@@ -1418,65 +1412,21 @@
                 "height_low": 15,
                 "height_high": 19,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3565001,
-                "pet_id": 3565001,
-                "name": "里奥",
-                "model_id": 3565001,
-                "hatch_data": 28800,
-                "weight_low": 2013,
-                "weight_high": 3040,
-                "height_low": 16,
-                "height_high": 21,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 33950001,
-                "pet_id": 33950001,
-                "name": "雪绒鸟",
-                "model_id": 3395001,
-                "hatch_data": 300,
-                "weight_low": 1680,
-                "weight_high": 2360,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 7,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 35650001,
-                "pet_id": 35650001,
-                "name": "里奥",
-                "model_id": 3565001,
+                "id": 33950001,
+                "pet_id": 33950001,
+                "name": null,
+                "model_id": 3395001,
                 "hatch_data": 300,
-                "weight_low": 2013,
-                "weight_high": 3040,
-                "height_low": 16,
-                "height_high": 21,
+                "weight_low": 1680,
+                "weight_high": 2360,
+                "height_low": 15,
+                "height_high": 19,
                 "precious_egg_type": 7,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,

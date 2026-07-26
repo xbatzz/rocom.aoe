@@ -1,7 +1,7 @@
 {
     "id": 3606,
     "name": "huajingling",
-    "form": "画精灵",
+    "form": "default",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -37,7 +37,7 @@
         "id": 299,
         "name": "huajingling",
         "localized": {
-            "zh": "常见于山地"
+            "zh": "画精灵"
         }
     },
     "trait": {
@@ -1147,7 +1147,7 @@
                         "id": 3606,
                         "species_id": 299,
                         "name": "huajingling",
-                        "form": "画精灵",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "画精灵"
@@ -1174,7 +1174,7 @@
                         "id": 3607,
                         "species_id": 300,
                         "name": "huaxiangshouhu",
-                        "form": "画像守护",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "画像守护"
@@ -1203,7 +1203,7 @@
                         "id": 3608,
                         "species_id": 301,
                         "name": "huajianfashishou",
-                        "form": "画间法师手",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "画间法师手"
@@ -1233,7 +1233,7 @@
                         "id": 3609,
                         "species_id": 302,
                         "name": "huajianchentieshou",
-                        "form": "画间沉铁兽",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "画间沉铁兽"
@@ -1269,8 +1269,8 @@
         "current_monster_id": 3606
     },
     "world_profile": {
-        "type_desc": "虫仔精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "画框精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "画中世界诞生的精灵，活泼好动，对穿梭魔法的运用不是很熟练，偶尔会被画框卡住。曾经尝试少吃可可果来解决这个问题，后来发现并没有效果。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1284,13 +1284,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3606001,
         "pet_id": 3606001,
-        "name": "三叶草龙",
+        "name": null,
         "model_id": 3606001,
         "hatch_data": 28800,
         "weight_low": 347,
@@ -1298,21 +1298,15 @@
         "height_low": 12,
         "height_high": 16,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3606001,
                 "pet_id": 3606001,
-                "name": "三叶草龙",
+                "name": null,
                 "model_id": 3606001,
                 "hatch_data": 28800,
                 "weight_low": 347,
@@ -1320,21 +1314,15 @@
                 "height_low": 12,
                 "height_high": 16,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 36060001,
                 "pet_id": 36060001,
-                "name": "三叶草龙",
+                "name": null,
                 "model_id": 3606001,
                 "hatch_data": 300,
                 "weight_low": 347,
@@ -1348,53 +1336,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 95000053,
-                "pet_id": 95000053,
-                "name": "三叶草龙",
-                "model_id": 3606001,
-                "hatch_data": 28800,
-                "weight_low": 347,
-                "weight_high": 608,
-                "height_low": 12,
-                "height_high": 16,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000053,
-                "pet_id": 99000053,
-                "name": "三叶草龙",
-                "model_id": 3606001,
-                "hatch_data": 28800,
-                "weight_low": 347,
-                "weight_high": 608,
-                "height_low": 12,
-                "height_high": 16,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000176,
                 "pet_id": 99000176,
-                "name": "三叶草龙",
+                "name": null,
                 "model_id": 3606001,
                 "hatch_data": 72000,
                 "weight_low": 347,

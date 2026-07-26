@@ -1,7 +1,7 @@
 {
     "id": 3142,
     "name": "xiaoye",
-    "form": "小夜",
+    "form": "default",
     "main_type": {
         "id": 16,
         "name": "Dark",
@@ -37,7 +37,7 @@
         "id": 85,
         "name": "xiaoye",
         "localized": {
-            "zh": "一窝蜂"
+            "zh": "小夜"
         }
     },
     "trait": {
@@ -265,13 +265,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7180260,
@@ -736,6 +736,50 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7180420,
+            "name": "下注",
+            "icon_id": "117043",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "下注",
+                    "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 85,
+            "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+        },
+        {
+            "id": 7160390,
+            "name": "耍赖",
+            "icon_id": "101106",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "耍赖",
+                    "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
         }
     ],
     "legacy_moves": [
@@ -1235,7 +1279,7 @@
                         "id": 3142,
                         "species_id": 85,
                         "name": "xiaoye",
-                        "form": "小夜",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小夜"
@@ -1262,7 +1306,7 @@
                         "id": 3143,
                         "species_id": 86,
                         "name": "ziye",
-                        "form": "紫夜",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "紫夜"
@@ -1292,7 +1336,7 @@
                         "id": 3144,
                         "species_id": 87,
                         "name": "ziyemeiying",
-                        "form": "朔夜伊芙",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "朔夜伊芙"
@@ -1322,8 +1366,8 @@
         "current_monster_id": 3142
     },
     "world_profile": {
-        "type_desc": "布克棱岩",
-        "description_habitat": "喵喵",
+        "type_desc": "猫精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "身手敏捷的小猫，擅长在雾气中隐藏身形，也可以幻化成其他物体。常常以惊讶和恐惧为食，消化后会散发出一种奇怪的味道。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1339,45 +1383,29 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
-        "id": 3050002,
-        "pet_id": 3050002,
-        "name": "一窝蜂",
-        "model_id": 3050001,
-        "hatch_data": 72000,
-        "weight_low": 31570,
-        "weight_high": 44800,
-        "height_low": 41,
-        "height_high": 58,
-        "precious_egg_type": 1,
+        "id": 3142001,
+        "pet_id": 3142001,
+        "name": null,
+        "model_id": 3142001,
+        "hatch_data": 57600,
+        "weight_low": 1575,
+        "weight_high": 3040,
+        "height_low": 22,
+        "height_high": 30,
+        "precious_egg_type": null,
         "egg_base_glass_prob_array": null,
         "egg_add_glass_prob_array": null,
         "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
-                "id": 3050002,
-                "pet_id": 3050002,
-                "name": "一窝蜂",
-                "model_id": 3050001,
-                "hatch_data": 72000,
-                "weight_low": 31570,
-                "weight_high": 44800,
-                "height_low": 41,
-                "height_high": 58,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 3142001,
                 "pet_id": 3142001,
-                "name": "大耳帽兜（首领血脉）",
+                "name": null,
                 "model_id": 3142001,
                 "hatch_data": 57600,
                 "weight_low": 1575,
@@ -1385,21 +1413,15 @@
                 "height_low": 22,
                 "height_high": 30,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3142002,
                 "pet_id": 3142002,
-                "name": "大耳帽兜",
+                "name": null,
                 "model_id": 3142001,
                 "hatch_data": 57600,
                 "weight_low": 1575,
@@ -1415,7 +1437,7 @@
             {
                 "id": 3142003,
                 "pet_id": 3142003,
-                "name": "异色大耳帽兜的蛋",
+                "name": null,
                 "model_id": 3142001,
                 "hatch_data": 300,
                 "weight_low": 1575,
@@ -1429,31 +1451,41 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3170001,
-                "pet_id": 3170001,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
+                "id": 3142004,
+                "pet_id": 3142004,
+                "name": null,
+                "model_id": 3142002,
+                "hatch_data": 57600,
+                "weight_low": 1575,
+                "weight_high": 3040,
+                "height_low": 22,
+                "height_high": 30,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3142005,
+                "pet_id": 3142005,
+                "name": null,
+                "model_id": 3142002,
+                "hatch_data": 57600,
+                "weight_low": 1575,
+                "weight_high": 3040,
+                "height_low": 22,
+                "height_high": 30,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 31420001,
                 "pet_id": 31420001,
-                "name": "大耳帽兜（首领血脉）",
+                "name": null,
                 "model_id": 3142001,
                 "hatch_data": 300,
                 "weight_low": 1575,
@@ -1464,330 +1496,18 @@
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31700001,
-                "pet_id": 31700001,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 300,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000008,
-                "pet_id": 91000008,
-                "name": "大耳帽兜（首领血脉）",
-                "model_id": 3142001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 3040,
-                "height_low": 22,
-                "height_high": 30,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000022,
-                "pet_id": 91000022,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000008,
-                "pet_id": 92000008,
-                "name": "大耳帽兜（首领血脉）",
-                "model_id": 3142001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 3040,
-                "height_low": 22,
-                "height_high": 30,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000022,
-                "pet_id": 92000022,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000008,
-                "pet_id": 93000008,
-                "name": "大耳帽兜（首领血脉）",
-                "model_id": 3142001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 3040,
-                "height_low": 22,
-                "height_high": 30,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000022,
-                "pet_id": 93000022,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000008,
-                "pet_id": 94000008,
-                "name": "大耳帽兜（首领血脉）",
-                "model_id": 3142001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 3040,
-                "height_low": 22,
-                "height_high": 30,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000022,
-                "pet_id": 94000022,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000019,
-                "pet_id": 95000019,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000008,
-                "pet_id": 96000008,
-                "name": "大耳帽兜（首领血脉）",
-                "model_id": 3142001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 3040,
-                "height_low": 22,
-                "height_high": 30,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000022,
-                "pet_id": 96000022,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000008,
-                "pet_id": 97000008,
-                "name": "大耳帽兜（首领血脉）",
-                "model_id": 3142001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 3040,
-                "height_low": 22,
-                "height_high": 30,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000022,
-                "pet_id": 97000022,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000008,
-                "pet_id": 98000008,
-                "name": "大耳帽兜（首领血脉）",
-                "model_id": 3142001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 3040,
-                "height_low": 22,
-                "height_high": 30,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000022,
-                "pet_id": 98000022,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000019,
-                "pet_id": 99000019,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 99000103,
                 "pet_id": 99000103,
-                "name": "大耳帽兜（首领血脉）",
+                "name": null,
                 "model_id": 3142001,
                 "hatch_data": 72000,
                 "weight_low": 1575,
                 "weight_high": 3040,
                 "height_low": 22,
                 "height_high": 30,
-                "precious_egg_type": 4,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000137,
-                "pet_id": 99000137,
-                "name": "小夜",
-                "model_id": 3170001,
-                "hatch_data": 72000,
-                "weight_low": 21350,
-                "weight_high": 30000,
-                "height_low": 15,
-                "height_high": 21,
                 "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,

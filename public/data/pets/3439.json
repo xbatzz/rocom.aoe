@@ -1,7 +1,7 @@
 {
     "id": 3439,
     "name": "mengyouyou",
-    "form": "梦悠悠",
+    "form": "default",
     "main_type": {
         "id": 15,
         "name": "Ghost",
@@ -37,7 +37,7 @@
         "id": 58,
         "name": "mengyouyou",
         "localized": {
-            "zh": "假面精灵"
+            "zh": "梦悠悠"
         }
     },
     "trait": {
@@ -399,13 +399,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7180330,
@@ -648,6 +648,50 @@
             "energy_cost": 3,
             "power": 80,
             "description": "造成魔伤，对​混血精灵造成​伤害​+50%。"
+        },
+        {
+            "id": 7160350,
+            "name": "可爱",
+            "icon_id": "115029",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "可爱",
+                    "description": "对敌方精灵造成魔法伤害。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 100,
+            "description": "对敌方精灵造成魔法伤害。"
+        },
+        {
+            "id": 7170280,
+            "name": "魔镜",
+            "icon_id": "116023",
+            "move_type": {
+                "id": 15,
+                "name": "Ghost",
+                "localized": {
+                    "zh": "幽"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "魔镜",
+                    "description": "敌方获得魔防​-50%，​且​失​去​3​能量​。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "敌方获得魔防​-50%，​且​失​去​3​能量​。"
         }
     ],
     "legacy_moves": [
@@ -1147,7 +1191,7 @@
                         "id": 3438,
                         "species_id": 57,
                         "name": "menhyou",
-                        "form": "梦游",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "梦游"
@@ -1163,6 +1207,33 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": []
+                    },
+                    {
+                        "id": 3440,
+                        "species_id": 57,
+                        "name": "mengyou_pink",
+                        "form": "default",
+                        "localized": {
+                            "zh": {
+                                "name": "梦游"
+                            }
+                        },
+                        "is_leader_form": false,
+                        "main_type": {
+                            "id": 5,
+                            "name": "Light",
+                            "localized": {
+                                "zh": "光"
+                            }
+                        },
+                        "sub_type": {
+                            "id": 15,
+                            "name": "Ghost",
+                            "localized": {
+                                "zh": "幽"
+                            }
+                        },
+                        "evolution_conditions": []
                     }
                 ],
                 "is_leader_stage": false
@@ -1174,7 +1245,7 @@
                         "id": 3439,
                         "species_id": 58,
                         "name": "mengyouyou",
-                        "form": "梦悠悠",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "梦悠悠"
@@ -1192,18 +1263,47 @@
                         "evolution_conditions": [
                             "等级达到 32 级"
                         ]
+                    },
+                    {
+                        "id": 3441,
+                        "species_id": 58,
+                        "name": "mengyouyou_pink",
+                        "form": "default",
+                        "localized": {
+                            "zh": {
+                                "name": "梦悠悠"
+                            }
+                        },
+                        "is_leader_form": false,
+                        "main_type": {
+                            "id": 5,
+                            "name": "Light",
+                            "localized": {
+                                "zh": "光"
+                            }
+                        },
+                        "sub_type": {
+                            "id": 15,
+                            "name": "Ghost",
+                            "localized": {
+                                "zh": "幽"
+                            }
+                        },
+                        "evolution_conditions": [
+                            "等级达到 32 级"
+                        ]
                     }
                 ],
                 "is_leader_stage": false
             }
         ],
         "max_depth": 1,
-        "total_unique_monsters": 2,
+        "total_unique_monsters": 4,
         "species_id": 58,
         "current_monster_id": 3439
     },
     "world_profile": {
-        "type_desc": "岚鸟",
+        "type_desc": "睡衣精灵",
         "description_habitat": "常见于草地",
         "introduction": "被遗忘的旧睡衣，因为孤单和思念而死，死后变成了幽灵。明明是毛绒绒的，但是体表温度极低，摸起来很凉，即使一直抱着它，它也很难变暖。",
         "refresh_locations": [
@@ -1214,12 +1314,13 @@
         "classis_name": "自然类精灵",
         "handbook_area_ids": [
             1,
-            2
+            2,
+            3
         ]
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

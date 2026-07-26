@@ -1,7 +1,7 @@
 {
     "id": 3396,
     "name": "lingyuyongshi",
-    "form": "灵羽勇士",
+    "form": "default",
     "main_type": {
         "id": 13,
         "name": "Flying",
@@ -37,7 +37,7 @@
         "id": 151,
         "name": "lingyuyongshi",
         "localized": {
-            "zh": "常见于雪山"
+            "zh": "灵羽勇士"
         }
     },
     "trait": {
@@ -1279,7 +1279,7 @@
                         "id": 3395,
                         "species_id": 150,
                         "name": "liao",
-                        "form": "里奥",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "里奥"
@@ -1306,7 +1306,7 @@
                         "id": 3396,
                         "species_id": 151,
                         "name": "lingyuyongshi",
-                        "form": "灵羽勇士",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "灵羽勇士"
@@ -1336,7 +1336,7 @@
                         "id": 3397,
                         "species_id": 152,
                         "name": "shengyuyiwang",
-                        "form": "圣羽翼王",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "圣羽翼王"
@@ -1366,8 +1366,8 @@
         "current_monster_id": 3396
     },
     "world_profile": {
-        "type_desc": "蹦床松鼠",
-        "description_habitat": "喵喵",
+        "type_desc": "翼系精灵王",
+        "description_habitat": "行踪神秘",
         "introduction": "弱小的家伙为了伙伴却愿意勇敢向前！光羽圣殿的门扉悄然开启，沐浴在圣光之力的启迪中，澎湃的力量汹涌而来。“它的思绪已沉醉在无垠的天际中，这片蓝天便是它魂牵梦绕的地方。”",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1382,7 +1382,7 @@
     },
     "catch_info": {
         "catch_threshold": null,
-        "catch_guarant_rate": 180,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

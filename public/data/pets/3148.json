@@ -1,7 +1,7 @@
 {
     "id": 3148,
     "name": "anyekulou",
-    "form": "空空颅",
+    "form": "default",
     "main_type": {
         "id": 15,
         "name": "Ghost",
@@ -37,7 +37,7 @@
         "id": 327,
         "name": "anyekulou",
         "localized": {
-            "zh": "厉毒修萝"
+            "zh": "空空颅"
         }
     },
     "trait": {
@@ -487,13 +487,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7190260,
@@ -670,6 +670,50 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7180380,
+            "name": "限时特惠",
+            "icon_id": "117039",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "限时特惠",
+                    "description": "造成魔伤，敌方每有1只力竭精灵，本次技能能耗-1。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 6,
+            "power": 140,
+            "description": "造成魔伤，敌方每有1只力竭精灵，本次技能能耗-1。"
+        },
+        {
+            "id": 7021230,
+            "name": "友谊满溢",
+            "icon_id": "101112",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "友谊满溢",
+                    "description": "造成​魔伤，​选择：​每次使用后威力​永久​​+20​或​应对状态​时​本​次技能​威力​+100%。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 2,
+            "power": 70,
+            "description": "造成​魔伤，​选择：​每次使用后威力​永久​​+20​或​应对状态​时​本​次技能​威力​+100%。"
         }
     ],
     "legacy_moves": [
@@ -1169,7 +1213,7 @@
                         "id": 3148,
                         "species_id": 327,
                         "name": "anyekulou",
-                        "form": "空空颅",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "空空颅"
@@ -1196,7 +1240,7 @@
                         "id": 3149,
                         "species_id": 328,
                         "name": "yejumo",
-                        "form": "夜宿颅",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "夜宿颅"
@@ -1226,7 +1270,7 @@
                         "id": 3150,
                         "species_id": 329,
                         "name": "yexiao",
-                        "form": "夜枭",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "夜枭"
@@ -1255,8 +1299,8 @@
         "current_monster_id": 3148
     },
     "world_profile": {
-        "type_desc": "常见于湖泊",
-        "description_habitat": "喵喵",
+        "type_desc": "骨头精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "夜晚很容易在破旧的空屋见到。力量弱小但长着骇人的面容，会恐吓其他精灵，以此来保护自己。它几乎不依赖视觉，通过感知热量来判断生物的位置与距离。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1270,13 +1314,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 3000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3148001,
         "pet_id": 3148001,
-        "name": "脆筒甜甜（武系血脉）",
+        "name": null,
         "model_id": 3148001,
         "hatch_data": 43200,
         "weight_low": 1960,
@@ -1284,21 +1328,15 @@
         "height_low": 18,
         "height_high": 25,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
-        "is_contact_add_shining_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
+        "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3148001,
                 "pet_id": 3148001,
-                "name": "脆筒甜甜（武系血脉）",
+                "name": null,
                 "model_id": 3148001,
                 "hatch_data": 43200,
                 "weight_low": 1960,
@@ -1306,21 +1344,15 @@
                 "height_low": 18,
                 "height_high": 25,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
             },
             {
                 "id": 3148002,
                 "pet_id": 3148002,
-                "name": "脆筒甜甜（完美无暇）",
+                "name": null,
                 "model_id": 3148001,
                 "hatch_data": 43200,
                 "weight_low": 1960,
@@ -1336,7 +1368,7 @@
             {
                 "id": 3148003,
                 "pet_id": 3148003,
-                "name": "小狮鹫",
+                "name": null,
                 "model_id": 3148002,
                 "hatch_data": 43200,
                 "weight_low": 1960,
@@ -1344,21 +1376,15 @@
                 "height_low": 18,
                 "height_high": 25,
                 "precious_egg_type": 2,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3148004,
                 "pet_id": 3148004,
-                "name": "脆筒甜甜（武系血脉）",
+                "name": null,
                 "model_id": 3148001,
                 "hatch_data": 300,
                 "weight_low": 1960,
@@ -1372,15 +1398,31 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3180001,
-                "pet_id": 3180001,
-                "name": "空空颅",
-                "model_id": 3180001,
+                "id": 3148005,
+                "pet_id": 3148005,
+                "name": null,
+                "model_id": 3148002,
+                "hatch_data": 43200,
+                "weight_low": 1960,
+                "weight_high": 3480,
+                "height_low": 18,
+                "height_high": 25,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3148006,
+                "pet_id": 3148006,
+                "name": null,
+                "model_id": 3148001,
                 "hatch_data": 300,
-                "weight_low": 3290,
-                "weight_high": 5440,
-                "height_low": 27,
-                "height_high": 38,
+                "weight_low": 1960,
+                "weight_high": 3480,
+                "height_low": 18,
+                "height_high": 25,
                 "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
@@ -1388,31 +1430,25 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3187001,
-                "pet_id": 3187001,
-                "name": "空空颅",
-                "model_id": 3187001,
-                "hatch_data": 57600,
-                "weight_low": 5600,
-                "weight_high": 8600,
-                "height_low": 25,
-                "height_high": 35,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "id": 3148007,
+                "pet_id": 3148007,
+                "name": null,
+                "model_id": 3148001,
+                "hatch_data": 300,
+                "weight_low": 1960,
+                "weight_high": 3480,
+                "height_low": 18,
+                "height_high": 25,
+                "precious_egg_type": 1,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 31480001,
                 "pet_id": 31480001,
-                "name": "脆筒甜甜（武系血脉）",
+                "name": null,
                 "model_id": 3148001,
                 "hatch_data": 300,
                 "weight_low": 1960,
@@ -1423,88 +1459,12 @@
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31800001,
-                "pet_id": 31800001,
-                "name": "空空颅",
-                "model_id": 3180001,
-                "hatch_data": 300,
-                "weight_low": 3290,
-                "weight_high": 5440,
-                "height_low": 27,
-                "height_high": 38,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31870001,
-                "pet_id": 31870001,
-                "name": "空空颅",
-                "model_id": 3187001,
-                "hatch_data": 300,
-                "weight_low": 5600,
-                "weight_high": 8600,
-                "height_low": 25,
-                "height_high": 35,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000016,
-                "pet_id": 95000016,
-                "name": "脆筒甜甜（武系血脉）",
-                "model_id": 3148001,
-                "hatch_data": 43200,
-                "weight_low": 1960,
-                "weight_high": 3480,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000016,
-                "pet_id": 99000016,
-                "name": "脆筒甜甜（武系血脉）",
-                "model_id": 3148001,
-                "hatch_data": 43200,
-                "weight_low": 1960,
-                "weight_high": 3480,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 99000061,
                 "pet_id": 99000061,
-                "name": "脆筒甜甜（武系血脉）",
+                "name": null,
                 "model_id": 3148001,
                 "hatch_data": 72000,
                 "weight_low": 1960,

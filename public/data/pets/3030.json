@@ -1,7 +1,7 @@
 {
     "id": 3030,
     "name": "qiliye",
-    "form": "奇丽叶",
+    "form": "default",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -37,7 +37,7 @@
         "id": 42,
         "name": "qiliye",
         "localized": {
-            "zh": "奇丽草"
+            "zh": "奇丽叶"
         }
     },
     "trait": {
@@ -575,13 +575,13 @@
             "localized": {
                 "zh": {
                     "name": "流沙",
-                    "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
+                    "description": "敌方获得3回合禁足，应对防御：敌方获得双防-60%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
+            "description": "敌方获得3回合禁足，应对防御：敌方获得双防-60%。"
         },
         {
             "id": 7020940,
@@ -1279,7 +1279,7 @@
                         "id": 3029,
                         "species_id": 41,
                         "name": "qilicao",
-                        "form": "奇丽草",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "奇丽草"
@@ -1306,7 +1306,7 @@
                         "id": 3030,
                         "species_id": 42,
                         "name": "qiliye",
-                        "form": "奇丽叶",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "奇丽叶"
@@ -1338,7 +1338,7 @@
                         "id": 3031,
                         "species_id": 43,
                         "name": "qilihua",
-                        "form": "奇丽花",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "奇丽花"
@@ -1370,8 +1370,8 @@
         "current_monster_id": 3030
     },
     "world_profile": {
-        "type_desc": "常见于湖泊",
-        "description_habitat": "行踪神秘",
+        "type_desc": "花苞精灵",
+        "description_habitat": "常见于山地、草地",
         "introduction": "头顶的花苞十分巨大，花苞成长速度已经超过身体，头部上方是视野盲区，由身体下面五个足状的突起维持平衡。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1386,59 +1386,10 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 525,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
-    "breeding": {
-        "id": 3017002,
-        "pet_id": 3017002,
-        "name": "奇丽草",
-        "model_id": 3017001,
-        "hatch_data": 28800,
-        "weight_low": 1505,
-        "weight_high": 2240,
-        "height_low": 20,
-        "height_high": 28,
-        "precious_egg_type": 1,
-        "egg_base_glass_prob_array": null,
-        "egg_add_glass_prob_array": null,
-        "is_contact_add_glass_prob": null,
-        "is_contact_add_shining_prob": null,
-        "variants": [
-            {
-                "id": 3017002,
-                "pet_id": 3017002,
-                "name": "奇丽草",
-                "model_id": 3017001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2240,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3026003,
-                "pet_id": 3026003,
-                "name": "奇丽草",
-                "model_id": 3026001,
-                "hatch_data": 300,
-                "weight_low": 3255,
-                "weight_high": 4120,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            }
-        ]
-    },
+    "breeding": null,
     "breeding_profile": {
         "pet_base_id": 3030,
         "egg_groups": [

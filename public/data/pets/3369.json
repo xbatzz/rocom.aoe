@@ -1,7 +1,7 @@
 {
     "id": 3369,
     "name": "youxingguang",
-    "form": "幽星光",
+    "form": "default",
     "main_type": {
         "id": 18,
         "name": "Illusion",
@@ -37,7 +37,7 @@
         "id": 345,
         "name": "youxingguang",
         "localized": {
-            "zh": "绒绒"
+            "zh": "幽星光"
         }
     },
     "trait": {
@@ -648,6 +648,28 @@
             "energy_cost": 3,
             "power": 40,
             "description": "造成​魔伤，​3连击。巧变：​翼系防御​技​能​。"
+        },
+        {
+            "id": 7150350,
+            "name": "远行",
+            "icon_id": "214036",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "远行",
+                    "description": "造成​魔伤，​自己​每​先​于​敌方行动1次，本技能威力永久+25。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 2,
+            "power": 50,
+            "description": "造成​魔伤，​自己​每​先​于​敌方行动1次，本技能威力永久+25。"
         }
     ],
     "legacy_moves": [
@@ -1147,7 +1169,7 @@
                         "id": 3369,
                         "species_id": 345,
                         "name": "youxingguang",
-                        "form": "幽星光",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "幽星光"
@@ -1174,7 +1196,7 @@
                         "id": 3370,
                         "species_id": 346,
                         "name": "yaoxingguang",
-                        "form": "曜星光",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "曜星光"
@@ -1209,7 +1231,7 @@
                         "id": 3371,
                         "species_id": 347,
                         "name": "muxingchen",
-                        "form": "暮星辰",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "暮星辰"
@@ -1244,8 +1266,8 @@
         "current_monster_id": 3369
     },
     "world_profile": {
-        "type_desc": "行踪神秘",
-        "description_habitat": "喵喵",
+        "type_desc": "观星精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "无数幽星光家族的精灵们花费了几千年时间仰望星空，并持续观察和记录，星星的轨迹被它们编成旋律，一代代传唱。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1259,95 +1281,29 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 3000,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
-        "id": 3312001,
-        "pet_id": 3312001,
-        "name": "绒绒",
-        "model_id": 3312001,
-        "hatch_data": 43200,
-        "weight_low": 840,
-        "weight_high": 1808,
-        "height_low": 19,
+        "id": 3369001,
+        "pet_id": 3369001,
+        "name": null,
+        "model_id": 3369001,
+        "hatch_data": 28800,
+        "weight_low": 210,
+        "weight_high": 480,
+        "height_low": 17,
         "height_high": 23,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
-                "id": 3312001,
-                "pet_id": 3312001,
-                "name": "绒绒",
-                "model_id": 3312001,
-                "hatch_data": 43200,
-                "weight_low": 840,
-                "weight_high": 1808,
-                "height_low": 19,
-                "height_high": 23,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3319001,
-                "pet_id": 3319001,
-                "name": "绒绒",
-                "model_id": 3319001,
-                "hatch_data": 57600,
-                "weight_low": 3430,
-                "weight_high": 5120,
-                "height_low": 17,
-                "height_high": 21,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
-            },
-            {
-                "id": 3319003,
-                "pet_id": 3319003,
-                "name": "绒绒",
-                "model_id": 3319001,
-                "hatch_data": 300,
-                "weight_low": 3430,
-                "weight_high": 5120,
-                "height_low": 17,
-                "height_high": 21,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 3369001,
                 "pet_id": 3369001,
-                "name": "绿翼鸟（完美无暇）",
+                "name": null,
                 "model_id": 3369001,
                 "hatch_data": 28800,
                 "weight_low": 210,
@@ -1355,21 +1311,15 @@
                 "height_low": 17,
                 "height_high": 23,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3369002,
                 "pet_id": 3369002,
-                "name": "绿翼鸟（完美无暇）",
+                "name": null,
                 "model_id": 3369001,
                 "hatch_data": 28800,
                 "weight_low": 210,
@@ -1377,76 +1327,6 @@
                 "height_low": 17,
                 "height_high": 23,
                 "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3521001,
-                "pet_id": 3521001,
-                "name": "幽星光",
-                "model_id": 3521001,
-                "hatch_data": 72000,
-                "weight_low": 13510,
-                "weight_high": 19800,
-                "height_low": 40,
-                "height_high": 46,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3521002,
-                "pet_id": 3521002,
-                "name": "幽星光",
-                "model_id": 3521001,
-                "hatch_data": 72000,
-                "weight_low": 13510,
-                "weight_high": 19800,
-                "height_low": 40,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 33120001,
-                "pet_id": 33120001,
-                "name": "绒绒",
-                "model_id": 3312001,
-                "hatch_data": 300,
-                "weight_low": 840,
-                "weight_high": 1808,
-                "height_low": 19,
-                "height_high": 23,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 33190001,
-                "pet_id": 33190001,
-                "name": "绒绒",
-                "model_id": 3319001,
-                "hatch_data": 300,
-                "weight_low": 3430,
-                "weight_high": 5120,
-                "height_low": 17,
-                "height_high": 21,
-                "precious_egg_type": 7,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1455,7 +1335,7 @@
             {
                 "id": 33690001,
                 "pet_id": 33690001,
-                "name": "绿翼鸟（完美无暇）",
+                "name": null,
                 "model_id": 3369001,
                 "hatch_data": 300,
                 "weight_low": 210,
@@ -1463,172 +1343,6 @@
                 "height_low": 17,
                 "height_high": 23,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 35210001,
-                "pet_id": 35210001,
-                "name": "幽星光",
-                "model_id": 3521001,
-                "hatch_data": 300,
-                "weight_low": 13510,
-                "weight_high": 19800,
-                "height_low": 40,
-                "height_high": 46,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000028,
-                "pet_id": 91000028,
-                "name": "幽星光",
-                "model_id": 3521001,
-                "hatch_data": 72000,
-                "weight_low": 13510,
-                "weight_high": 19800,
-                "height_low": 40,
-                "height_high": 46,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000028,
-                "pet_id": 92000028,
-                "name": "幽星光",
-                "model_id": 3521001,
-                "hatch_data": 72000,
-                "weight_low": 13510,
-                "weight_high": 19800,
-                "height_low": 40,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000028,
-                "pet_id": 93000028,
-                "name": "幽星光",
-                "model_id": 3521001,
-                "hatch_data": 72000,
-                "weight_low": 13510,
-                "weight_high": 19800,
-                "height_low": 40,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000028,
-                "pet_id": 94000028,
-                "name": "幽星光",
-                "model_id": 3521001,
-                "hatch_data": 72000,
-                "weight_low": 13510,
-                "weight_high": 19800,
-                "height_low": 40,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000028,
-                "pet_id": 96000028,
-                "name": "幽星光",
-                "model_id": 3521001,
-                "hatch_data": 72000,
-                "weight_low": 13510,
-                "weight_high": 19800,
-                "height_low": 40,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000028,
-                "pet_id": 97000028,
-                "name": "幽星光",
-                "model_id": 3521001,
-                "hatch_data": 72000,
-                "weight_low": 13510,
-                "weight_high": 19800,
-                "height_low": 40,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000028,
-                "pet_id": 98000028,
-                "name": "幽星光",
-                "model_id": 3521001,
-                "hatch_data": 72000,
-                "weight_low": 13510,
-                "weight_high": 19800,
-                "height_low": 40,
-                "height_high": 46,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000075,
-                "pet_id": 99000075,
-                "name": "绒绒",
-                "model_id": 3319001,
-                "hatch_data": 72000,
-                "weight_low": 3430,
-                "weight_high": 5120,
-                "height_low": 17,
-                "height_high": 21,
-                "precious_egg_type": 4,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000165,
-                "pet_id": 99000165,
-                "name": "幽星光",
-                "model_id": 3521001,
-                "hatch_data": 72000,
-                "weight_low": 13510,
-                "weight_high": 19800,
-                "height_low": 40,
-                "height_high": 46,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,

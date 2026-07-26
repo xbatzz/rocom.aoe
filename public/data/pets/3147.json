@@ -1,7 +1,7 @@
 {
     "id": 3147,
     "name": "lunhuilinggu",
-    "form": "幻影灵菇",
+    "form": "default",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -43,7 +43,7 @@
         "id": 23,
         "name": "lunhuilinggu",
         "localized": {
-            "zh": "常见于草地"
+            "zh": "幻影灵菇"
         }
     },
     "trait": {
@@ -786,6 +786,28 @@
             "energy_cost": 4,
             "power": 120,
             "description": "对敌方精灵造成物理伤害。"
+        },
+        {
+            "id": 7030560,
+            "name": "养分回流",
+            "icon_id": "302042",
+            "move_type": {
+                "id": 2,
+                "name": "Grass",
+                "localized": {
+                    "zh": "草"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "养分回流",
+                    "description": "造成​魔伤，​为场​下​所有​精灵​回复1​能量​。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 75,
+            "description": "造成​魔伤，​为场​下​所有​精灵​回复1​能量​。"
         }
     ],
     "legacy_moves": [
@@ -1347,7 +1369,7 @@
                         "id": 3147,
                         "species_id": 23,
                         "name": "lunhuilinggu",
-                        "form": "幻影灵菇",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "幻影灵菇"
@@ -1382,9 +1404,9 @@
         "current_monster_id": 3147
     },
     "world_profile": {
-        "type_desc": "水元素精灵",
+        "type_desc": "菇精灵",
         "description_habitat": "常见于草地",
-        "introduction": "仅仅看到它触角上闪烁的荧光就会头痛难耐，对其研究很难有进展。没有生命迹象但是可以自如活动，无法判定是植物还是生物，唯独颈间圆环中似乎蕴含强大生命力。",
+        "introduction": "仅仅看到它触角上闪烁的荧光就会头痛难耐，对其研究很难有进展。没有生命迹象但是可以自如活动，无法判定是植物还是动物，唯独颈间圆环中似乎蕴含强大生命力。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
         ],
@@ -1398,7 +1420,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

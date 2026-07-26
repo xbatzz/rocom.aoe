@@ -1,7 +1,7 @@
 {
     "id": 3093,
     "name": "daixiaolu",
-    "form": "呆小路",
+    "form": "default",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -43,7 +43,7 @@
         "id": 195,
         "name": "daixiaolu",
         "localized": {
-            "zh": "卷毛鸭"
+            "zh": "呆小路"
         }
     },
     "trait": {
@@ -742,6 +742,50 @@
             "energy_cost": 2,
             "power": null,
             "description": "减伤80%，应对攻击：自己获得物防+70%。"
+        },
+        {
+            "id": 7160390,
+            "name": "耍赖",
+            "icon_id": "101106",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "耍赖",
+                    "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
+        },
+        {
+            "id": 7021280,
+            "name": "缓一缓",
+            "icon_id": "101114",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "缓一缓",
+                    "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
         }
     ],
     "legacy_moves": [
@@ -1241,7 +1285,7 @@
                         "id": 3093,
                         "species_id": 195,
                         "name": "daixiaolu",
-                        "form": "呆小路",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "呆小路"
@@ -1274,7 +1318,7 @@
                         "id": 3094,
                         "species_id": 196,
                         "name": "wudonglulu",
-                        "form": "舞动路路",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "舞动路路"
@@ -1309,7 +1353,7 @@
                         "id": 3095,
                         "species_id": 197,
                         "name": "baifalulu",
-                        "form": "白发路路",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "白发路路"
@@ -1344,8 +1388,8 @@
         "current_monster_id": 3093
     },
     "world_profile": {
-        "type_desc": "常见于草地、平原",
-        "description_habitat": "小星光",
+        "type_desc": "蛋壳精灵",
+        "description_habitat": "常见于草地、山林",
         "introduction": "幼年期较长，主要靠嗅闻、聆听和头上叶子的触觉来获取信息。头顶毛发会散发出爆米花的香味，偶尔引来其他精灵。它们之间用互闻头顶代表问候。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1360,13 +1404,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 3000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3093001,
         "pet_id": 3093001,
-        "name": "治愈兔",
+        "name": null,
         "model_id": 3093001,
         "hatch_data": 57600,
         "weight_low": 1575,
@@ -1374,21 +1418,15 @@
         "height_low": 25,
         "height_high": 34,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3093001,
                 "pet_id": 3093001,
-                "name": "治愈兔",
+                "name": null,
                 "model_id": 3093001,
                 "hatch_data": 57600,
                 "weight_low": 1575,
@@ -1396,21 +1434,15 @@
                 "height_low": 25,
                 "height_high": 34,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3093002,
                 "pet_id": 3093002,
-                "name": "异色治愈兔",
+                "name": null,
                 "model_id": 3093001,
                 "hatch_data": 57600,
                 "weight_low": 1575,
@@ -1421,34 +1453,12 @@
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3109001,
-                "pet_id": 3109001,
-                "name": "呆小路",
-                "model_id": 3109001,
-                "hatch_data": 72000,
-                "weight_low": 6668,
-                "weight_high": 14020,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 30930001,
                 "pet_id": 30930001,
-                "name": "治愈兔",
+                "name": null,
                 "model_id": 3093001,
                 "hatch_data": 300,
                 "weight_low": 1575,
@@ -1456,156 +1466,6 @@
                 "height_low": 25,
                 "height_high": 34,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31090001,
-                "pet_id": 31090001,
-                "name": "呆小路",
-                "model_id": 3109001,
-                "hatch_data": 300,
-                "weight_low": 6668,
-                "weight_high": 14020,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000066,
-                "pet_id": 91000066,
-                "name": "治愈兔",
-                "model_id": 3093001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 2320,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000066,
-                "pet_id": 92000066,
-                "name": "治愈兔",
-                "model_id": 3093001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 2320,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000066,
-                "pet_id": 93000066,
-                "name": "治愈兔",
-                "model_id": 3093001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 2320,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000066,
-                "pet_id": 94000066,
-                "name": "治愈兔",
-                "model_id": 3093001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 2320,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000066,
-                "pet_id": 96000066,
-                "name": "治愈兔",
-                "model_id": 3093001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 2320,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000066,
-                "pet_id": 97000066,
-                "name": "治愈兔",
-                "model_id": 3093001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 2320,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000066,
-                "pet_id": 98000066,
-                "name": "治愈兔",
-                "model_id": 3093001,
-                "hatch_data": 57600,
-                "weight_low": 1575,
-                "weight_high": 2320,
-                "height_low": 25,
-                "height_high": 34,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000121,
-                "pet_id": 99000121,
-                "name": "呆小路",
-                "model_id": 3109001,
-                "hatch_data": 72000,
-                "weight_low": 6668,
-                "weight_high": 14020,
-                "height_low": 19,
-                "height_high": 24,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1614,7 +1474,7 @@
             {
                 "id": 99000144,
                 "pet_id": 99000144,
-                "name": "治愈兔",
+                "name": null,
                 "model_id": 3093001,
                 "hatch_data": 72000,
                 "weight_low": 1575,

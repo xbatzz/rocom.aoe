@@ -1,7 +1,7 @@
 {
     "id": 3132,
     "name": "fengcizhizhu",
-    "form": "芋香巨角蛛",
+    "form": "default",
     "main_type": {
         "id": 10,
         "name": "Poison",
@@ -33,8 +33,8 @@
     },
     "implemented": true,
     "base_hp": 92,
-    "base_phy_atk": 61,
-    "base_mag_atk": 61,
+    "base_phy_atk": 88,
+    "base_mag_atk": 88,
     "base_phy_def": 91,
     "base_mag_def": 91,
     "base_spd": 110,
@@ -43,7 +43,7 @@
         "id": 170,
         "name": "fengcizhizhu",
         "localized": {
-            "zh": "松羊精灵"
+            "zh": "芋香巨角蛛"
         }
     },
     "trait": {
@@ -275,7 +275,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 6,
+            "energy_cost": 4,
             "power": null,
             "description": "使敌方精灵减益的层数翻倍。"
         },
@@ -1241,7 +1241,7 @@
                         "id": 3130,
                         "species_id": 168,
                         "name": "yuanyanzhizhu",
-                        "form": "圆眼蜘蛛",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "圆眼蜘蛛"
@@ -1268,7 +1268,7 @@
                         "id": 3131,
                         "species_id": 169,
                         "name": "jianjiaozhizhu",
-                        "form": "尖角蜘蛛",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "尖角蜘蛛"
@@ -1303,7 +1303,7 @@
                         "id": 3132,
                         "species_id": 170,
                         "name": "fengcizhizhu",
-                        "form": "芋香巨角蛛",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "芋香巨角蛛"
@@ -1338,8 +1338,8 @@
         "current_monster_id": 3132
     },
     "world_profile": {
-        "type_desc": "睡衣精灵",
-        "description_habitat": "松羊精灵",
+        "type_desc": "蜘蛛精灵",
+        "description_habitat": "常见于草地、树林、山洞",
         "introduction": "颜色鲜艳美丽，尾部丝囊中的液体有剧毒，织出的蜘蛛网散发异香。依靠体毒和利刺能轻易捕获猎物，从不群居，个体之间都保持一定距离，互不侵犯。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1354,7 +1354,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

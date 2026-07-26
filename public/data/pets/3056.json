@@ -626,6 +626,28 @@
             "energy_cost": 5,
             "power": null,
             "description": "减伤100%，应对攻击：减免的伤害变为回复自己生命，且本技能能耗永久+2。"
+        },
+        {
+            "id": 7140340,
+            "name": "驱赶",
+            "icon_id": "113038",
+            "move_type": {
+                "id": 12,
+                "name": "Fighting",
+                "localized": {
+                    "zh": "武"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "驱赶",
+                    "description": "造成​魔伤，​选择：​本​次技能​威力​+20或​应对状态​时​本​次​技能威力​+140。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 70,
+            "description": "造成​魔伤，​选择：​本​次技能​威力​+20或​应对状态​时​本​次​技能威力​+140。"
         }
     ],
     "legacy_moves": [
@@ -1125,7 +1147,7 @@
                         "id": 3055,
                         "species_id": 12,
                         "name": "banbanke",
-                        "form": "板板壳",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "板板壳"
@@ -1146,7 +1168,7 @@
                         "id": 3516,
                         "species_id": 12,
                         "name": "banbanke_tuipi",
-                        "form": "板板壳",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "板板壳"
@@ -1283,8 +1305,8 @@
         "current_monster_id": 3056
     },
     "world_profile": {
-        "type_desc": "火花",
-        "description_habitat": "硬壳精灵",
+        "type_desc": "硬壳精灵",
+        "description_habitat": "常见于湖泊",
         "introduction": "很少再缩进壳里，即使遇到危险也会勇敢面对。甲壳内一部分是空气，一部分是水，通过喷嘴来调节重量从而在水中下潜和上浮。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1299,7 +1321,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 1200,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

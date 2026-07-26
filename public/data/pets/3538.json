@@ -1,7 +1,7 @@
 {
     "id": 3538,
     "name": "wulata",
-    "form": "乌拉塔",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -43,7 +43,7 @@
         "id": 260,
         "name": "wulata",
         "localized": {
-            "zh": "脆筒甜甜"
+            "zh": "乌拉塔"
         }
     },
     "trait": {
@@ -676,6 +676,50 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7180420,
+            "name": "下注",
+            "icon_id": "117043",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "下注",
+                    "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 85,
+            "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+        },
+        {
+            "id": 7040650,
+            "name": "焚身",
+            "icon_id": "203037",
+            "move_type": {
+                "id": 3,
+                "name": "Fire",
+                "localized": {
+                    "zh": "火"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "焚身",
+                    "description": "造成高额物理伤害，自己下回合获得眩晕。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 5,
+            "power": 180,
+            "description": "造成高额物理伤害，自己下回合获得眩晕。"
         }
     ],
     "legacy_moves": [
@@ -1175,7 +1219,7 @@
                         "id": 3536,
                         "species_id": 258,
                         "name": "wuda",
-                        "form": "乌达",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "乌达"
@@ -1202,7 +1246,7 @@
                         "id": 3539,
                         "species_id": 258,
                         "name": "wuda_yidi",
-                        "form": "乌达",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "乌达"
@@ -1235,7 +1279,7 @@
                         "id": 3537,
                         "species_id": 259,
                         "name": "miniwu",
-                        "form": "迷你乌",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "迷你乌"
@@ -1258,14 +1302,14 @@
                         },
                         "evolution_conditions": [
                             "等级达到 30 级",
-                            "需满足特殊条件（类型 4，参数 6、18）"
+                            "需激活「极昼的样子」分支"
                         ]
                     },
                     {
                         "id": 3540,
                         "species_id": 259,
                         "name": "miniwu_yidi",
-                        "form": "迷你乌",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "迷你乌"
@@ -1288,7 +1332,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 30 级",
-                            "需满足特殊条件（类型 4，参数 18、6）"
+                            "需激活「极夜的样子」分支"
                         ]
                     }
                 ],
@@ -1301,7 +1345,7 @@
                         "id": 3538,
                         "species_id": 260,
                         "name": "wulata",
-                        "form": "乌拉塔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "乌拉塔"
@@ -1324,14 +1368,14 @@
                         },
                         "evolution_conditions": [
                             "等级达到 50 级",
-                            "需满足特殊条件（类型 4，参数 6、18）"
+                            "需激活「极昼的样子」分支"
                         ]
                     },
                     {
                         "id": 3541,
                         "species_id": 260,
                         "name": "wulata_yidi",
-                        "form": "乌拉塔",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "乌拉塔"
@@ -1354,7 +1398,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 50 级",
-                            "需满足特殊条件（类型 4，参数 18、6）"
+                            "需激活「极夜的样子」分支"
                         ]
                     }
                 ],
@@ -1367,8 +1411,8 @@
         "current_monster_id": 3538
     },
     "world_profile": {
-        "type_desc": "猫精灵",
-        "description_habitat": "常见于山林",
+        "type_desc": "恶作剧精灵",
+        "description_habitat": "常见于山地",
         "introduction": "在对决中常常使用夸张的姿态让对手退却，体内另一股意志会让它在关键时刻保持一条底线——它并不以伤害为乐，只汲取自己必要的尖叫。尊重对手，十分有礼貌。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1383,205 +1427,10 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
-    "breeding": {
-        "id": 3145001,
-        "pet_id": 3145001,
-        "name": "脆筒甜甜",
-        "model_id": 3145001,
-        "hatch_data": 28800,
-        "weight_low": 1890,
-        "weight_high": 2840,
-        "height_low": 18,
-        "height_high": 25,
-        "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
-        "is_contact_add_shining_prob": null,
-        "variants": [
-            {
-                "id": 3145001,
-                "pet_id": 3145001,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31450001,
-                "pet_id": 31450001,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 300,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000102,
-                "pet_id": 91000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000102,
-                "pet_id": 92000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000102,
-                "pet_id": 93000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000102,
-                "pet_id": 94000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000102,
-                "pet_id": 96000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000102,
-                "pet_id": 97000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000102,
-                "pet_id": 98000102,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 28800,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000157,
-                "pet_id": 99000157,
-                "name": "脆筒甜甜",
-                "model_id": 3145001,
-                "hatch_data": 72000,
-                "weight_low": 1890,
-                "weight_high": 2840,
-                "height_low": 18,
-                "height_high": 25,
-                "precious_egg_type": 4,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            }
-        ]
-    },
+    "breeding": null,
     "breeding_profile": {
         "pet_base_id": 3538,
         "egg_groups": [

@@ -1,7 +1,7 @@
 {
     "id": 3014,
     "name": "amiyate",
-    "form": "阿米亚特",
+    "form": "default",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -37,7 +37,7 @@
         "id": 105,
         "name": "amiyate",
         "localized": {
-            "zh": "小草虫"
+            "zh": "阿米亚特"
         }
     },
     "trait": {
@@ -692,6 +692,50 @@
             "energy_cost": 2,
             "power": null,
             "description": "自己的生命比例变为与敌方生命比例相同，巧变：恶系攻击技能。"
+        },
+        {
+            "id": 7180410,
+            "name": "困兽",
+            "icon_id": "117042",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "困兽",
+                    "description": "造成物伤，若自己生命低于50%，本次攻击吸血50%。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 90,
+            "description": "造成物伤，若自己生命低于50%，本次攻击吸血50%。"
+        },
+        {
+            "id": 7180400,
+            "name": "血契",
+            "icon_id": "117041",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "血契",
+                    "description": "造成物伤，自己每失去10%生命，本技能威力+10。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 4,
+            "power": 75,
+            "description": "造成物伤，自己每失去10%生命，本技能威力+10。"
         }
     ],
     "legacy_moves": [
@@ -1191,7 +1235,7 @@
                         "id": 3014,
                         "species_id": 105,
                         "name": "amiyate",
-                        "form": "阿米亚特",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "阿米亚特"
@@ -1218,7 +1262,7 @@
                         "id": 3015,
                         "species_id": 106,
                         "name": "amiying",
-                        "form": "阿米樱",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "阿米樱"
@@ -1250,7 +1294,7 @@
                         "id": 3016,
                         "species_id": 107,
                         "name": "luoyin",
-                        "form": "罗隐",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "罗隐"
@@ -1288,8 +1332,8 @@
         "current_monster_id": 3014
     },
     "world_profile": {
-        "type_desc": "行踪神秘",
-        "description_habitat": "喵喵",
+        "type_desc": "石头精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "全身都是岩石，但眼睛周围没有岩石保护，是十分脆弱的柔软皮肤。喜欢吃不同口味的矿石，总是静静呆着，没什么存在感。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1304,79 +1348,29 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
-        "id": 3011003,
-        "pet_id": 3011003,
-        "name": "阿米亚特",
-        "model_id": 3011001,
-        "hatch_data": 300,
-        "weight_low": 25900,
-        "weight_high": 36800,
-        "height_low": 52,
-        "height_high": 73,
-        "precious_egg_type": 1,
-        "egg_base_glass_prob_array": [
-            5191,
-            5191
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            0
-        ],
-        "is_contact_add_glass_prob": true,
-        "is_contact_add_shining_prob": true,
+        "id": 3014001,
+        "pet_id": 3014001,
+        "name": null,
+        "model_id": 3014001,
+        "hatch_data": 57600,
+        "weight_low": 13475,
+        "weight_high": 19680,
+        "height_low": 24,
+        "height_high": 33,
+        "precious_egg_type": null,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
+        "is_contact_add_shining_prob": null,
         "variants": [
-            {
-                "id": 3011003,
-                "pet_id": 3011003,
-                "name": "阿米亚特",
-                "model_id": 3011001,
-                "hatch_data": 300,
-                "weight_low": 25900,
-                "weight_high": 36800,
-                "height_low": 52,
-                "height_high": 73,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
-            },
-            {
-                "id": 3011005,
-                "pet_id": 3011005,
-                "name": "阿米亚特",
-                "model_id": 3011001,
-                "hatch_data": 300,
-                "weight_low": 25900,
-                "weight_high": 36800,
-                "height_low": 52,
-                "height_high": 73,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
-            },
             {
                 "id": 3014001,
                 "pet_id": 3014001,
-                "name": "绿草精灵（地系血脉）",
+                "name": null,
                 "model_id": 3014001,
                 "hatch_data": 57600,
                 "weight_low": 13475,
@@ -1384,72 +1378,6 @@
                 "height_low": 24,
                 "height_high": 33,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3165001,
-                "pet_id": 3165001,
-                "name": "小草虫",
-                "model_id": 3165001,
-                "hatch_data": 57600,
-                "weight_low": 4340,
-                "weight_high": 6320,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3168001,
-                "pet_id": 3168001,
-                "name": "小草虫",
-                "model_id": 3168001,
-                "hatch_data": 57600,
-                "weight_low": 5572,
-                "weight_high": 6368,
-                "height_low": 29,
-                "height_high": 32,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3168002,
-                "pet_id": 3168002,
-                "name": "小草虫",
-                "model_id": 3168001,
-                "hatch_data": 57600,
-                "weight_low": 5572,
-                "weight_high": 6368,
-                "height_low": 29,
-                "height_high": 32,
-                "precious_egg_type": 5,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1458,7 +1386,7 @@
             {
                 "id": 30140001,
                 "pet_id": 30140001,
-                "name": "绿草精灵（地系血脉）",
+                "name": null,
                 "model_id": 3014001,
                 "hatch_data": 300,
                 "weight_low": 13475,
@@ -1469,272 +1397,18 @@
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31650001,
-                "pet_id": 31650001,
-                "name": "小草虫",
-                "model_id": 3165001,
-                "hatch_data": 300,
-                "weight_low": 4340,
-                "weight_high": 6320,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31680001,
-                "pet_id": 31680001,
-                "name": "小草虫",
-                "model_id": 3168001,
-                "hatch_data": 300,
-                "weight_low": 5572,
-                "weight_high": 6368,
-                "height_low": 29,
-                "height_high": 32,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000004,
-                "pet_id": 91000004,
-                "name": "绿草精灵（地系血脉）",
-                "model_id": 3014001,
-                "hatch_data": 57600,
-                "weight_low": 13475,
-                "weight_high": 19680,
-                "height_low": 24,
-                "height_high": 33,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000004,
-                "pet_id": 92000004,
-                "name": "绿草精灵（地系血脉）",
-                "model_id": 3014001,
-                "hatch_data": 57600,
-                "weight_low": 13475,
-                "weight_high": 19680,
-                "height_low": 24,
-                "height_high": 33,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000004,
-                "pet_id": 93000004,
-                "name": "绿草精灵（地系血脉）",
-                "model_id": 3014001,
-                "hatch_data": 57600,
-                "weight_low": 13475,
-                "weight_high": 19680,
-                "height_low": 24,
-                "height_high": 33,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000004,
-                "pet_id": 94000004,
-                "name": "绿草精灵（地系血脉）",
-                "model_id": 3014001,
-                "hatch_data": 57600,
-                "weight_low": 13475,
-                "weight_high": 19680,
-                "height_low": 24,
-                "height_high": 33,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000002,
-                "pet_id": 95000002,
-                "name": "绿草精灵（地系血脉）",
-                "model_id": 3014001,
-                "hatch_data": 57600,
-                "weight_low": 13475,
-                "weight_high": 19680,
-                "height_low": 24,
-                "height_high": 33,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000018,
-                "pet_id": 95000018,
-                "name": "小草虫",
-                "model_id": 3165001,
-                "hatch_data": 57600,
-                "weight_low": 4340,
-                "weight_high": 6320,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000004,
-                "pet_id": 96000004,
-                "name": "绿草精灵（地系血脉）",
-                "model_id": 3014001,
-                "hatch_data": 57600,
-                "weight_low": 13475,
-                "weight_high": 19680,
-                "height_low": 24,
-                "height_high": 33,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000004,
-                "pet_id": 97000004,
-                "name": "绿草精灵（地系血脉）",
-                "model_id": 3014001,
-                "hatch_data": 57600,
-                "weight_low": 13475,
-                "weight_high": 19680,
-                "height_low": 24,
-                "height_high": 33,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000004,
-                "pet_id": 98000004,
-                "name": "绿草精灵（地系血脉）",
-                "model_id": 3014001,
-                "hatch_data": 57600,
-                "weight_low": 13475,
-                "weight_high": 19680,
-                "height_low": 24,
-                "height_high": 33,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000002,
-                "pet_id": 99000002,
-                "name": "绿草精灵（地系血脉）",
-                "model_id": 3014001,
-                "hatch_data": 57600,
-                "weight_low": 13475,
-                "weight_high": 19680,
-                "height_low": 24,
-                "height_high": 33,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000018,
-                "pet_id": 99000018,
-                "name": "小草虫",
-                "model_id": 3165001,
-                "hatch_data": 57600,
-                "weight_low": 4340,
-                "weight_high": 6320,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 99000058,
                 "pet_id": 99000058,
-                "name": "绿草精灵（地系血脉）",
+                "name": null,
                 "model_id": 3014001,
                 "hatch_data": 72000,
                 "weight_low": 13475,
                 "weight_high": 19680,
                 "height_low": 24,
                 "height_high": 33,
-                "precious_egg_type": 4,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000111,
-                "pet_id": 99000111,
-                "name": "小草虫",
-                "model_id": 3165001,
-                "hatch_data": 72000,
-                "weight_low": 4340,
-                "weight_high": 6320,
-                "height_low": 22,
-                "height_high": 31,
                 "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,

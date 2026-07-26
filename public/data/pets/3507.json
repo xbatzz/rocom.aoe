@@ -1,7 +1,7 @@
 {
     "id": 3507,
     "name": "manweishou",
-    "form": "鳗尾兽",
+    "form": "default",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -43,7 +43,7 @@
         "id": 202,
         "name": "manweishou",
         "localized": {
-            "zh": "常见于湖面"
+            "zh": "鳗尾兽"
         }
     },
     "trait": {
@@ -713,13 +713,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7021130,
@@ -1241,7 +1241,7 @@
                         "id": 3506,
                         "species_id": 201,
                         "name": "huayuanman",
-                        "form": "花怨鳗",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "花怨鳗"
@@ -1274,7 +1274,7 @@
                         "id": 3507,
                         "species_id": 202,
                         "name": "manweishou",
-                        "form": "鳗尾兽",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "鳗尾兽"
@@ -1309,8 +1309,8 @@
         "current_monster_id": 3507
     },
     "world_profile": {
-        "type_desc": "电球咩咩",
-        "description_habitat": "硬壳精灵",
+        "type_desc": "花精灵",
+        "description_habitat": "常见于田地、河岸",
         "introduction": "它们的头部几乎没有视力，主要靠嘴感受气流来调整方向，偶尔会在地表横冲直撞。吼叫时会带动口中的吊钟形花朵震动，发出阵阵钟声。它们和同伴间通过这些声响，彼此交流。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1325,7 +1325,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

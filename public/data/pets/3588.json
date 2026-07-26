@@ -1,6 +1,6 @@
 {
     "id": 3588,
-    "name": "3588",
+    "name": "qulvfeiyu",
     "form": "default",
     "main_type": {
         "id": 18,
@@ -35,7 +35,7 @@
     "evolves_from_id": null,
     "species": {
         "id": 3588,
-        "name": "3588",
+        "name": "qulvfeiyu",
         "localized": {
             "zh": "曲率飞鱼"
         }
@@ -52,7 +52,7 @@
                     {
                         "id": 3588,
                         "species_id": 3588,
-                        "name": "3588",
+                        "name": "qulvfeiyu",
                         "form": "default",
                         "localized": {
                             "zh": {

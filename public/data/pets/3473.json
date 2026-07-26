@@ -1,7 +1,7 @@
 {
     "id": 3473,
     "name": "buguake",
-    "form": "布瓜蝌",
+    "form": "default",
     "main_type": {
         "id": 18,
         "name": "Illusion",
@@ -37,7 +37,7 @@
         "id": 338,
         "name": "buguake",
         "localized": {
-            "zh": "画间法师手"
+            "zh": "布瓜蝌"
         }
     },
     "trait": {
@@ -1125,7 +1125,7 @@
                         "id": 3473,
                         "species_id": 338,
                         "name": "buguake",
-                        "form": "布瓜蝌",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "布瓜蝌"
@@ -1141,12 +1141,18 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": []
-                    },
+                    }
+                ],
+                "is_leader_stage": false
+            },
+            {
+                "depth": 1,
+                "monsters": [
                     {
                         "id": 3474,
                         "species_id": 339,
                         "name": "shanganwa",
-                        "form": "上岸蛙",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "上岸蛙"
@@ -1169,14 +1175,14 @@
                 "is_leader_stage": false
             }
         ],
-        "max_depth": 0,
+        "max_depth": 1,
         "total_unique_monsters": 2,
         "species_id": 338,
         "current_monster_id": 3473
     },
     "world_profile": {
-        "type_desc": "遗迹精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "好运精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "这本来是一只布瓜形状的娃娃，缝制它的老洛克以“不挂科”的谐音为它取了名字，希望它能给魔法学院的小洛克们带来好运。没想到布娃娃因为被赋予非常多爱与希望的力量，竟然诞生了生命和意识。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1190,13 +1196,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 3000,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3473001,
         "pet_id": 3473001,
-        "name": "觅觅蝠",
+        "name": null,
         "model_id": 3473001,
         "hatch_data": 28800,
         "weight_low": 298,
@@ -1204,21 +1210,15 @@
         "height_low": 14,
         "height_high": 21,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3473001,
                 "pet_id": 3473001,
-                "name": "觅觅蝠",
+                "name": null,
                 "model_id": 3473001,
                 "hatch_data": 28800,
                 "weight_low": 298,
@@ -1226,21 +1226,15 @@
                 "height_low": 14,
                 "height_high": 21,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 34730001,
                 "pet_id": 34730001,
-                "name": "觅觅蝠",
+                "name": null,
                 "model_id": 3473001,
                 "hatch_data": 300,
                 "weight_low": 298,

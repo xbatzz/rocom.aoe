@@ -1,7 +1,7 @@
 {
     "id": 3063,
     "name": "baijindujiaoshou",
-    "form": "白金独角兽",
+    "form": "default",
     "main_type": {
         "id": 5,
         "name": "Light",
@@ -37,7 +37,7 @@
         "id": 117,
         "name": "baijindujiaoshou",
         "localized": {
-            "zh": "蓝蝶鲨"
+            "zh": "白金独角兽"
         }
     },
     "trait": {
@@ -1235,7 +1235,7 @@
                         "id": 3062,
                         "species_id": 116,
                         "name": "xiaodujiaoshou",
-                        "form": "小独角兽",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小独角兽"
@@ -1262,7 +1262,7 @@
                         "id": 3063,
                         "species_id": 117,
                         "name": "baijindujiaoshou",
-                        "form": "白金独角兽",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "白金独角兽"
@@ -1348,8 +1348,8 @@
         "current_monster_id": 3063
     },
     "world_profile": {
-        "type_desc": "常见于矿石群旁",
-        "description_habitat": "小星光",
+        "type_desc": "独角精灵",
+        "description_habitat": "常见于草地、山林",
         "introduction": "在黑暗中能够照亮周围，像神明一般圣洁而华丽。头顶的角除了穿刺敌人，还能施放出让人震撼的强大魔法冲击。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1365,7 +1365,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

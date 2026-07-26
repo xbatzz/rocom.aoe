@@ -380,7 +380,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 7,
-            "power": 170,
+            "power": 105,
             "description": "造成物伤，先手+1。"
         }
     ],
@@ -1344,8 +1344,8 @@
         "current_monster_id": 3394
     },
     "world_profile": {
-        "type_desc": null,
-        "description_habitat": null,
+        "type_desc": "非凡精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "身形变成了梭形，修长的尾羽薄而宽，能把横着吹来的山风悄悄转成向上的托力。研究院测过它的风阻系数，低得离谱，但凡鹰自己好像并不在意这些数据。它飞得很稳，不快不慢，从平凡到非凡，它从没停过，也从没急过。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1353,7 +1353,9 @@
         "movement_type": "步行",
         "classis_id": 6,
         "classis_name": "自然类精灵",
-        "handbook_area_ids": []
+        "handbook_area_ids": [
+            1
+        ]
     },
     "catch_info": {
         "catch_threshold": 1000,

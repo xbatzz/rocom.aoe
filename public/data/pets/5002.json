@@ -37,7 +37,7 @@
         "id": 117,
         "name": "baijindujiaoshou",
         "localized": {
-            "zh": "蓝蝶鲨"
+            "zh": "白金独角兽"
         }
     },
     "trait": {
@@ -1235,7 +1235,7 @@
                         "id": 3062,
                         "species_id": 116,
                         "name": "xiaodujiaoshou",
-                        "form": "小独角兽",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小独角兽"
@@ -1262,7 +1262,7 @@
                         "id": 3063,
                         "species_id": 117,
                         "name": "baijindujiaoshou",
-                        "form": "白金独角兽",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "白金独角兽"
@@ -1348,8 +1348,8 @@
         "current_monster_id": 5002
     },
     "world_profile": {
-        "type_desc": "常见于矿石群旁",
-        "description_habitat": "小星光",
+        "type_desc": "独角精灵",
+        "description_habitat": "常见于草地、山林",
         "introduction": "彩虹独角兽的毛发可以随环境光线改变反射的波长，在不同角度呈现出彩虹般的绚丽色彩。它也是精灵种群中最为了解洛克的存在，友谊的力量会在彼此心中唤醒新的希望。",
         "refresh_locations": [],
         "movement_type": "步行",

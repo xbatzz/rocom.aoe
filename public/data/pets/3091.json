@@ -1,7 +1,7 @@
 {
     "id": 3091,
     "name": "huoweizhanshi",
-    "form": "火尾战士",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -37,7 +37,7 @@
         "id": 217,
         "name": "huoweizhanshi",
         "localized": {
-            "zh": "逗逗"
+            "zh": "火尾战士"
         }
     },
     "trait": {
@@ -487,13 +487,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7080290,
@@ -1169,7 +1169,7 @@
                         "id": 3090,
                         "species_id": 216,
                         "name": "huoweiwate",
-                        "form": "火尾瓦特",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "火尾瓦特"
@@ -1196,7 +1196,7 @@
                         "id": 3091,
                         "species_id": 217,
                         "name": "huoweizhanshi",
-                        "form": "火尾战士",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "火尾战士"
@@ -1225,7 +1225,7 @@
                         "id": 3092,
                         "species_id": 218,
                         "name": "liehuoshouhu",
-                        "form": "烈火守护",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "烈火守护"
@@ -1254,8 +1254,8 @@
         "current_monster_id": 3091
     },
     "world_profile": {
-        "type_desc": "白发懒人",
-        "description_habitat": "常见于海洋",
+        "type_desc": "利爪精灵",
+        "description_habitat": "常见于山林",
         "introduction": "经常看到它在磨爪子，磨得发烫了才会停下。在战斗前会加热自己的身体以提升力量，有时甚至会让整个头顶的毛发燃烧起来。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1270,59 +1270,10 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 1200,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
-    "breeding": {
-        "id": 3522001,
-        "pet_id": 3522001,
-        "name": "逗逗",
-        "model_id": 3522001,
-        "hatch_data": 1,
-        "weight_low": 1,
-        "weight_high": 10,
-        "height_low": 1,
-        "height_high": 10,
-        "precious_egg_type": null,
-        "egg_base_glass_prob_array": null,
-        "egg_add_glass_prob_array": null,
-        "is_contact_add_glass_prob": null,
-        "is_contact_add_shining_prob": null,
-        "variants": [
-            {
-                "id": 3522001,
-                "pet_id": 3522001,
-                "name": "逗逗",
-                "model_id": 3522001,
-                "hatch_data": 1,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 35220001,
-                "pet_id": 35220001,
-                "name": "逗逗",
-                "model_id": 3522001,
-                "hatch_data": 300,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            }
-        ]
-    },
+    "breeding": null,
     "breeding_profile": {
         "pet_base_id": 3091,
         "egg_groups": [

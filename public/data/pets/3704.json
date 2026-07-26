@@ -1,7 +1,7 @@
 {
     "id": 3704,
     "name": "youyou",
-    "form": "优优",
+    "form": "default",
     "main_type": {
         "id": 5,
         "name": "Light",
@@ -43,7 +43,7 @@
         "id": 270,
         "name": "youyou",
         "localized": {
-            "zh": "电鳗精灵"
+            "zh": "优优"
         }
     },
     "trait": {
@@ -253,7 +253,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "光系技能威力永久+50%，应对防御：改为永久+100%。"
         },
@@ -337,13 +337,13 @@
             "localized": {
                 "zh": {
                     "name": "流沙",
-                    "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
+                    "description": "敌方获得3回合禁足，应对防御：敌方获得双防-60%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
+            "description": "敌方获得3回合禁足，应对防御：敌方获得双防-60%。"
         }
     ],
     "move_stones": [
@@ -1131,7 +1131,7 @@
                         "id": 3704,
                         "species_id": 270,
                         "name": "youyou",
-                        "form": "优优",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "优优"
@@ -1164,7 +1164,7 @@
                         "id": 3705,
                         "species_id": 271,
                         "name": "rongguangyouyou",
-                        "form": "绒光优优",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "绒光优优"
@@ -1199,8 +1199,8 @@
         "current_monster_id": 3704
     },
     "world_profile": {
-        "type_desc": "常见于湖泊",
-        "description_habitat": "常见于山林",
+        "type_desc": "狐獴精灵",
+        "description_habitat": "常见于山地",
         "introduction": "白天，它们竖起蓬松的尾巴，在沙地上蹦跳活动。夜里守在洞口放哨，尾尖亮起柔和的暖黄光，并用尾巴轻点地面，把消息无声地传给同伴。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1215,13 +1215,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3704001,
         "pet_id": 3704001,
-        "name": "海枝枝",
+        "name": null,
         "model_id": 3704001,
         "hatch_data": 28800,
         "weight_low": 1061,
@@ -1229,21 +1229,15 @@
         "height_low": 16,
         "height_high": 23,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3704001,
                 "pet_id": 3704001,
-                "name": "海枝枝",
+                "name": null,
                 "model_id": 3704001,
                 "hatch_data": 28800,
                 "weight_low": 1061,
@@ -1251,21 +1245,15 @@
                 "height_low": 16,
                 "height_high": 23,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 37040001,
                 "pet_id": 37040001,
-                "name": "噼啪鸟",
+                "name": null,
                 "model_id": 3704001,
                 "hatch_data": 300,
                 "weight_low": 1061,
@@ -1279,127 +1267,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000024,
-                "pet_id": 91000024,
-                "name": "海枝枝",
-                "model_id": 3704001,
-                "hatch_data": 28800,
-                "weight_low": 1061,
-                "weight_high": 1640,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000024,
-                "pet_id": 92000024,
-                "name": "海枝枝",
-                "model_id": 3704001,
-                "hatch_data": 28800,
-                "weight_low": 1061,
-                "weight_high": 1640,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000024,
-                "pet_id": 93000024,
-                "name": "海枝枝",
-                "model_id": 3704001,
-                "hatch_data": 28800,
-                "weight_low": 1061,
-                "weight_high": 1640,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000024,
-                "pet_id": 94000024,
-                "name": "海枝枝",
-                "model_id": 3704001,
-                "hatch_data": 28800,
-                "weight_low": 1061,
-                "weight_high": 1640,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000024,
-                "pet_id": 96000024,
-                "name": "海枝枝",
-                "model_id": 3704001,
-                "hatch_data": 28800,
-                "weight_low": 1061,
-                "weight_high": 1640,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000024,
-                "pet_id": 97000024,
-                "name": "海枝枝",
-                "model_id": 3704001,
-                "hatch_data": 28800,
-                "weight_low": 1061,
-                "weight_high": 1640,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000024,
-                "pet_id": 98000024,
-                "name": "海枝枝",
-                "model_id": 3704001,
-                "hatch_data": 28800,
-                "weight_low": 1061,
-                "weight_high": 1640,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000124,
                 "pet_id": 99000124,
-                "name": "噼啪鸟",
+                "name": null,
                 "model_id": 3704001,
                 "hatch_data": 72000,
                 "weight_low": 1061,

@@ -1,7 +1,7 @@
 {
     "id": 3358,
     "name": "benlelu",
-    "form": "奔乐鹿",
+    "form": "default",
     "main_type": {
         "id": 9,
         "name": "Electric",
@@ -37,7 +37,7 @@
         "id": 227,
         "name": "benlelu",
         "localized": {
-            "zh": "常见于山林"
+            "zh": "奔乐鹿"
         }
     },
     "trait": {
@@ -714,6 +714,50 @@
             "energy_cost": 1,
             "power": null,
             "description": "脱离，应对防御：额外使敌方攻击技能能耗+4。"
+        },
+        {
+            "id": 7110450,
+            "name": "通电",
+            "icon_id": "110032",
+            "move_type": {
+                "id": 9,
+                "name": "Electric",
+                "localized": {
+                    "zh": "电"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "通电",
+                    "description": "造​成​物伤，​敌方获得​1​层引电。​"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 75,
+            "description": "造​成​物伤，​敌方获得​1​层引电。​"
+        },
+        {
+            "id": 7180420,
+            "name": "下注",
+            "icon_id": "117043",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "下注",
+                    "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 85,
+            "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
         }
     ],
     "legacy_moves": [
@@ -1213,7 +1257,7 @@
                         "id": 3357,
                         "species_id": 226,
                         "name": "diandongchangjinglu",
-                        "form": "电动长颈鹿",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "电动长颈鹿"
@@ -1240,7 +1284,7 @@
                         "id": 3358,
                         "species_id": 227,
                         "name": "benlelu",
-                        "form": "奔乐鹿",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "奔乐鹿"
@@ -1269,7 +1313,7 @@
                         "id": 3359,
                         "species_id": 228,
                         "name": "jueshilu",
-                        "form": "爵士鹿",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "爵士鹿"
@@ -1298,8 +1342,8 @@
         "current_monster_id": 3358
     },
     "world_profile": {
-        "type_desc": "刺刺精灵",
-        "description_habitat": "常见于山林",
+        "type_desc": "长颈鹿精灵",
+        "description_habitat": "常见于山地",
         "introduction": "非常喜欢被抚摸，但要避开头、脚和尾巴。夜间视力很差，通常会睡眠；若必须夜间行动，会消耗能量点亮头顶电球照明，而电球的明暗也会随听见的节拍起伏。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1314,7 +1358,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 525,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

@@ -269,7 +269,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 6,
+            "energy_cost": 4,
             "power": null,
             "description": "使敌方精灵减益的层数翻倍。"
         },
@@ -648,6 +648,50 @@
             "energy_cost": 5,
             "power": null,
             "description": "敌方获得全技能能耗+3，应对防御：额外造成打断，且敌方下回合获得眩晕。"
+        },
+        {
+            "id": 7120270,
+            "name": "溶解",
+            "icon_id": "111028",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "溶解",
+                    "description": "减伤90%，应对攻击：驱散敌方1种增益。"
+                }
+            },
+            "move_category": "Defense",
+            "energy_cost": 2,
+            "power": null,
+            "description": "减伤90%，应对攻击：驱散敌方1种增益。"
+        },
+        {
+            "id": 7120220,
+            "name": "鸩毒",
+            "icon_id": "111019",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "鸩毒",
+                    "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 75,
+            "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
         }
     ],
     "legacy_moves": [
@@ -1147,7 +1191,7 @@
                         "id": 3367,
                         "species_id": 52,
                         "name": "duudbao",
-                        "form": "嘟嘟煲",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "嘟嘟煲"
@@ -1195,7 +1239,7 @@
                         "id": 3368,
                         "species_id": 53,
                         "name": "duudguo",
-                        "form": "嘟嘟锅",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "嘟嘟锅"
@@ -1236,402 +1280,7 @@
         "handbook_area_ids": []
     },
     "catch_info": null,
-    "breeding": {
-        "id": 3508001,
-        "pet_id": 3508001,
-        "name": "嘟嘟煲",
-        "model_id": 3508001,
-        "hatch_data": 57600,
-        "weight_low": 1698,
-        "weight_high": 2260,
-        "height_low": 14,
-        "height_high": 17,
-        "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
-        "is_contact_add_shining_prob": null,
-        "variants": [
-            {
-                "id": 3508001,
-                "pet_id": 3508001,
-                "name": "嘟嘟煲",
-                "model_id": 3508001,
-                "hatch_data": 57600,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3511001,
-                "pet_id": 3511001,
-                "name": "嘟嘟煲",
-                "model_id": 3511001,
-                "hatch_data": 57600,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 35080001,
-                "pet_id": 35080001,
-                "name": "嘟嘟煲",
-                "model_id": 3508001,
-                "hatch_data": 300,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 35110001,
-                "pet_id": 35110001,
-                "name": "嘟嘟煲",
-                "model_id": 3511001,
-                "hatch_data": 300,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000082,
-                "pet_id": 91000082,
-                "name": "嘟嘟煲",
-                "model_id": 3508001,
-                "hatch_data": 57600,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000083,
-                "pet_id": 91000083,
-                "name": "嘟嘟煲",
-                "model_id": 3511001,
-                "hatch_data": 57600,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000082,
-                "pet_id": 92000082,
-                "name": "嘟嘟煲",
-                "model_id": 3508001,
-                "hatch_data": 57600,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000083,
-                "pet_id": 92000083,
-                "name": "嘟嘟煲",
-                "model_id": 3511001,
-                "hatch_data": 57600,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000082,
-                "pet_id": 93000082,
-                "name": "嘟嘟煲",
-                "model_id": 3508001,
-                "hatch_data": 57600,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000083,
-                "pet_id": 93000083,
-                "name": "嘟嘟煲",
-                "model_id": 3511001,
-                "hatch_data": 57600,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000082,
-                "pet_id": 94000082,
-                "name": "嘟嘟煲",
-                "model_id": 3508001,
-                "hatch_data": 57600,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000083,
-                "pet_id": 94000083,
-                "name": "嘟嘟煲",
-                "model_id": 3511001,
-                "hatch_data": 57600,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000046,
-                "pet_id": 95000046,
-                "name": "嘟嘟煲",
-                "model_id": 3508001,
-                "hatch_data": 57600,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000082,
-                "pet_id": 96000082,
-                "name": "嘟嘟煲",
-                "model_id": 3508001,
-                "hatch_data": 57600,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000083,
-                "pet_id": 96000083,
-                "name": "嘟嘟煲",
-                "model_id": 3511001,
-                "hatch_data": 57600,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000082,
-                "pet_id": 97000082,
-                "name": "嘟嘟煲",
-                "model_id": 3508001,
-                "hatch_data": 57600,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000083,
-                "pet_id": 97000083,
-                "name": "嘟嘟煲",
-                "model_id": 3511001,
-                "hatch_data": 57600,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000082,
-                "pet_id": 98000082,
-                "name": "嘟嘟煲",
-                "model_id": 3508001,
-                "hatch_data": 57600,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000083,
-                "pet_id": 98000083,
-                "name": "嘟嘟煲",
-                "model_id": 3511001,
-                "hatch_data": 57600,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000046,
-                "pet_id": 99000046,
-                "name": "嘟嘟煲",
-                "model_id": 3508001,
-                "hatch_data": 57600,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000146,
-                "pet_id": 99000146,
-                "name": "嘟嘟煲",
-                "model_id": 3508001,
-                "hatch_data": 72000,
-                "weight_low": 1698,
-                "weight_high": 2260,
-                "height_low": 14,
-                "height_high": 17,
-                "precious_egg_type": 4,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            }
-        ]
-    },
+    "breeding": null,
     "breeding_profile": {
         "pet_base_id": 18000004,
         "egg_groups": [

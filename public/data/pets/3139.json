@@ -1,7 +1,7 @@
 {
     "id": 3139,
     "name": "xiaocaochong",
-    "form": "小草虫",
+    "form": "default",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -43,7 +43,7 @@
         "id": 99,
         "name": "xiaocaochong",
         "localized": {
-            "zh": "魔草巫灵"
+            "zh": "小草虫"
         }
     },
     "trait": {
@@ -742,6 +742,50 @@
             "energy_cost": 5,
             "power": null,
             "description": "减伤100%，应对攻击：减免的伤害变为回复自己生命，且本技能能耗永久+2。"
+        },
+        {
+            "id": 7190450,
+            "name": "薄纱环",
+            "icon_id": "118036",
+            "move_type": {
+                "id": 18,
+                "name": "Illusion",
+                "localized": {
+                    "zh": "幻"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "薄纱环",
+                    "description": "选择：对手随机获得1种负面印记或自己随机获得1种正面印记。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 3,
+            "power": null,
+            "description": "选择：对手随机获得1种负面印记或自己随机获得1种正面印记。"
+        },
+        {
+            "id": 7130330,
+            "name": "振翅",
+            "icon_id": "212026",
+            "move_type": {
+                "id": 11,
+                "name": "Bug",
+                "localized": {
+                    "zh": "虫"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "振翅",
+                    "description": "选择：己方队伍​获得​1​次​奉献：​连击​+1或​威力​+20。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "选择：己方队伍​获得​1​次​奉献：​连击​+1或​威力​+20。"
         }
     ],
     "legacy_moves": [
@@ -1241,7 +1285,7 @@
                         "id": 3139,
                         "species_id": 99,
                         "name": "xiaocaochong",
-                        "form": "小草虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小草虫"
@@ -1274,7 +1318,7 @@
                         "id": 3140,
                         "species_id": 100,
                         "name": "caoyichong",
-                        "form": "草衣虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "草衣虫"
@@ -1309,7 +1353,7 @@
                         "id": 3141,
                         "species_id": 101,
                         "name": "huayidie",
-                        "form": "花衣蝶",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "花衣蝶"
@@ -1344,8 +1388,8 @@
         "current_monster_id": 3139
     },
     "world_profile": {
-        "type_desc": "常见于果树下",
-        "description_habitat": "行踪神秘",
+        "type_desc": "虫仔精灵",
+        "description_habitat": "常见于草丛",
         "introduction": "果树分叉越多的地方，越容易找到它们，常常被误认为是未熟的青葡萄。肤表黏糊糊的，睡觉时缩成一团挂在树上。常观察到许多只挤在一起，目前推测是畏寒的原因。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1360,13 +1404,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3139001,
         "pet_id": 3139001,
-        "name": "异色大耳帽兜的蛋",
+        "name": null,
         "model_id": 3139001,
         "hatch_data": 28800,
         "weight_low": 735,
@@ -1374,21 +1418,15 @@
         "height_low": 20,
         "height_high": 28,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3139001,
                 "pet_id": 3139001,
-                "name": "异色大耳帽兜的蛋",
+                "name": null,
                 "model_id": 3139001,
                 "hatch_data": 28800,
                 "weight_low": 735,
@@ -1396,72 +1434,54 @@
                 "height_low": 20,
                 "height_high": 28,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3165001,
-                "pet_id": 3165001,
-                "name": "小草虫",
-                "model_id": 3165001,
-                "hatch_data": 57600,
-                "weight_low": 4340,
-                "weight_high": 6320,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "id": 3139002,
+                "pet_id": 3139002,
+                "name": null,
+                "model_id": 3139001,
+                "hatch_data": 300,
+                "weight_low": 735,
+                "weight_high": 1360,
+                "height_low": 20,
+                "height_high": 28,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3168001,
-                "pet_id": 3168001,
-                "name": "小草虫",
-                "model_id": 3168001,
-                "hatch_data": 57600,
-                "weight_low": 5572,
-                "weight_high": 6368,
-                "height_low": 29,
-                "height_high": 32,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
+                "id": 3139003,
+                "pet_id": 3139003,
+                "name": null,
+                "model_id": 3139002,
+                "hatch_data": 28800,
+                "weight_low": 735,
+                "weight_high": 1360,
+                "height_low": 20,
+                "height_high": 28,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3168002,
-                "pet_id": 3168002,
-                "name": "小草虫",
-                "model_id": 3168001,
-                "hatch_data": 57600,
-                "weight_low": 5572,
-                "weight_high": 6368,
-                "height_low": 29,
-                "height_high": 32,
-                "precious_egg_type": 5,
+                "id": 3139004,
+                "pet_id": 3139004,
+                "name": null,
+                "model_id": 3139002,
+                "hatch_data": 28800,
+                "weight_low": 735,
+                "weight_high": 1360,
+                "height_low": 20,
+                "height_high": 28,
+                "precious_egg_type": 2,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1470,7 +1490,7 @@
             {
                 "id": 31390001,
                 "pet_id": 31390001,
-                "name": "异色大耳帽兜的蛋",
+                "name": null,
                 "model_id": 3139001,
                 "hatch_data": 300,
                 "weight_low": 735,
@@ -1478,216 +1498,6 @@
                 "height_low": 20,
                 "height_high": 28,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31650001,
-                "pet_id": 31650001,
-                "name": "小草虫",
-                "model_id": 3165001,
-                "hatch_data": 300,
-                "weight_low": 4340,
-                "weight_high": 6320,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31680001,
-                "pet_id": 31680001,
-                "name": "小草虫",
-                "model_id": 3168001,
-                "hatch_data": 300,
-                "weight_low": 5572,
-                "weight_high": 6368,
-                "height_low": 29,
-                "height_high": 32,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000037,
-                "pet_id": 91000037,
-                "name": "异色大耳帽兜的蛋",
-                "model_id": 3139001,
-                "hatch_data": 28800,
-                "weight_low": 735,
-                "weight_high": 1360,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000037,
-                "pet_id": 92000037,
-                "name": "异色大耳帽兜的蛋",
-                "model_id": 3139001,
-                "hatch_data": 28800,
-                "weight_low": 735,
-                "weight_high": 1360,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000037,
-                "pet_id": 93000037,
-                "name": "异色大耳帽兜的蛋",
-                "model_id": 3139001,
-                "hatch_data": 28800,
-                "weight_low": 735,
-                "weight_high": 1360,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000037,
-                "pet_id": 94000037,
-                "name": "异色大耳帽兜的蛋",
-                "model_id": 3139001,
-                "hatch_data": 28800,
-                "weight_low": 735,
-                "weight_high": 1360,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000018,
-                "pet_id": 95000018,
-                "name": "小草虫",
-                "model_id": 3165001,
-                "hatch_data": 57600,
-                "weight_low": 4340,
-                "weight_high": 6320,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000037,
-                "pet_id": 96000037,
-                "name": "异色大耳帽兜的蛋",
-                "model_id": 3139001,
-                "hatch_data": 28800,
-                "weight_low": 735,
-                "weight_high": 1360,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000037,
-                "pet_id": 97000037,
-                "name": "异色大耳帽兜的蛋",
-                "model_id": 3139001,
-                "hatch_data": 28800,
-                "weight_low": 735,
-                "weight_high": 1360,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000037,
-                "pet_id": 98000037,
-                "name": "异色大耳帽兜的蛋",
-                "model_id": 3139001,
-                "hatch_data": 28800,
-                "weight_low": 735,
-                "weight_high": 1360,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000018,
-                "pet_id": 99000018,
-                "name": "小草虫",
-                "model_id": 3165001,
-                "hatch_data": 57600,
-                "weight_low": 4340,
-                "weight_high": 6320,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000111,
-                "pet_id": 99000111,
-                "name": "小草虫",
-                "model_id": 3165001,
-                "hatch_data": 72000,
-                "weight_low": 4340,
-                "weight_high": 6320,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1696,7 +1506,7 @@
             {
                 "id": 99000123,
                 "pet_id": 99000123,
-                "name": "异色大耳帽兜的蛋",
+                "name": null,
                 "model_id": 3139001,
                 "hatch_data": 72000,
                 "weight_low": 735,

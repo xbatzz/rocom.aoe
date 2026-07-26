@@ -1248,8 +1248,8 @@
         "current_monster_id": 3684
     },
     "world_profile": {
-        "type_desc": null,
-        "description_habitat": null,
+        "type_desc": "魔术师精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "认为变出东西的魔法很厉害，于是想要传授给其他精灵这项技术，可惜其他精灵都不是很感兴趣，只有咕咕帽不厌其烦地每天请教，它很开心，于是更加殷切地陪练。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1257,11 +1257,13 @@
         "movement_type": "浮游",
         "classis_id": 6,
         "classis_name": "自然类精灵",
-        "handbook_area_ids": []
+        "handbook_area_ids": [
+            1
+        ]
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

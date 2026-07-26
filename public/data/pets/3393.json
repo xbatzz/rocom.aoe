@@ -380,7 +380,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 7,
-            "power": 170,
+            "power": 105,
             "description": "造成物伤，先手+1。"
         }
     ],
@@ -1344,8 +1344,8 @@
         "current_monster_id": 3393
     },
     "world_profile": {
-        "type_desc": null,
-        "description_habitat": null,
+        "type_desc": "不屈精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "安静独立的精灵，在长期在高空迎风飞行后，翅膀尖端开始显出橘色的翎羽，它们一天一天地练习，一根羽毛一根羽毛地蜕变，翼系研究员管这个过程叫\"凡羽蜕金\"。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1353,11 +1353,13 @@
         "movement_type": "步行",
         "classis_id": 6,
         "classis_name": "自然类精灵",
-        "handbook_area_ids": []
+        "handbook_area_ids": [
+            1
+        ]
     },
     "catch_info": {
         "catch_threshold": null,
-        "catch_guarant_rate": 180,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

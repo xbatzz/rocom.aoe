@@ -1,7 +1,7 @@
 {
     "id": 3179,
     "name": "emolangzhu",
-    "form": "恶魔红钻",
+    "form": "default",
     "main_type": {
         "id": 11,
         "name": "Bug",
@@ -35,15 +35,15 @@
     "base_hp": 100,
     "base_phy_atk": 147,
     "base_mag_atk": 137,
-    "base_phy_def": 93,
-    "base_mag_def": 74,
+    "base_phy_def": 108,
+    "base_mag_def": 89,
     "base_spd": 115,
     "evolves_from_id": 3178,
     "species": {
         "id": 215,
         "name": "emolangzhu",
         "localized": {
-            "zh": "芳香精灵"
+            "zh": "恶魔红钻"
         }
     },
     "trait": {
@@ -625,13 +625,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7130240,
@@ -676,6 +676,72 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7120260,
+            "name": "毒誓",
+            "icon_id": "111031",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "毒誓",
+                    "description": "对敌方精灵造成物理伤害。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 4,
+            "power": 120,
+            "description": "对敌方精灵造成物理伤害。"
+        },
+        {
+            "id": 7180420,
+            "name": "下注",
+            "icon_id": "117043",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "下注",
+                    "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 85,
+            "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+        },
+        {
+            "id": 7020540,
+            "name": "重击",
+            "icon_id": "702059",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "重击",
+                    "description": "造成物伤，每次使用后，本技能能耗永久+1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 2,
+            "power": 140,
+            "description": "造成物伤，每次使用后，本技能能耗永久+1。"
         }
     ],
     "legacy_moves": [
@@ -1175,7 +1241,7 @@
                         "id": 3178,
                         "species_id": 214,
                         "name": "judulangzhu",
-                        "form": "矮脚爬爬",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "矮脚爬爬"
@@ -1202,7 +1268,7 @@
                         "id": 3179,
                         "species_id": 215,
                         "name": "emolangzhu",
-                        "form": "恶魔红钻",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "恶魔红钻"
@@ -1237,8 +1303,8 @@
         "current_monster_id": 3179
     },
     "world_profile": {
-        "type_desc": "毛绒绒精灵",
-        "description_habitat": "常见于山林",
+        "type_desc": "蜘蛛精灵",
+        "description_habitat": "常见于山地",
         "introduction": "喜欢在洞穴的暗处歇息，会提前布好精细且带有剧毒的网守株待兔。步足末端布满危险的剧毒，尖锐而坚硬的触足既能用作进攻的矛，也能用作防御的盾。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1253,7 +1319,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

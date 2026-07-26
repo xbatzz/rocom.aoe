@@ -407,7 +407,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 6,
+            "energy_cost": 4,
             "power": null,
             "description": "使敌方精灵减益的层数翻倍。"
         }
@@ -786,6 +786,94 @@
             "energy_cost": 3,
             "power": 100,
             "description": "对敌方精灵造成魔法伤害。"
+        },
+        {
+            "id": 7120290,
+            "name": "重金属粉尘",
+            "icon_id": "211024",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "重金属粉尘",
+                    "description": "携带​的​攻击​技​能​获得​附加中毒3​，​应对防御：​改为​获得附加中毒6。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 1,
+            "power": null,
+            "description": "携带​的​攻击​技​能​获得​附加中毒3​，​应对防御：​改为​获得附加中毒6。"
+        },
+        {
+            "id": 7030590,
+            "name": "丰收",
+            "icon_id": "102039",
+            "move_type": {
+                "id": 2,
+                "name": "Grass",
+                "localized": {
+                    "zh": "草"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "丰收",
+                    "description": "造​成​物伤，​自己​回复​20%生命​。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 5,
+            "power": 85,
+            "description": "造​成​物伤，​自己​回复​20%生命​。"
+        },
+        {
+            "id": 7030600,
+            "name": "补觉",
+            "icon_id": "102045",
+            "move_type": {
+                "id": 2,
+                "name": "Grass",
+                "localized": {
+                    "zh": "草"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "补觉",
+                    "description": "选择：自己回复25%生命或回复8能量。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "选择：自己回复25%生命或回复8能量。"
+        },
+        {
+            "id": 7120260,
+            "name": "毒誓",
+            "icon_id": "111031",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "毒誓",
+                    "description": "对敌方精灵造成物理伤害。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 4,
+            "power": 120,
+            "description": "对敌方精灵造成物理伤害。"
         }
     ],
     "legacy_moves": [

@@ -1,7 +1,7 @@
 {
     "id": 3119,
     "name": "feicuishuimu",
-    "form": "翡翠水母",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -43,7 +43,7 @@
         "id": 244,
         "name": "feicuishuimu",
         "localized": {
-            "zh": "多西"
+            "zh": "翡翠水母"
         }
     },
     "trait": {
@@ -315,13 +315,13 @@
             "localized": {
                 "zh": {
                     "name": "鸩毒",
-                    "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+20。"
+                    "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+20。"
+            "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
         },
         {
             "id": 7050210,
@@ -1131,7 +1131,7 @@
                         "id": 3119,
                         "species_id": 244,
                         "name": "feicuishuimu",
-                        "form": "翡翠水母",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "翡翠水母"
@@ -1164,7 +1164,7 @@
                         "id": 3120,
                         "species_id": 245,
                         "name": "liulishuimu",
-                        "form": "琉璃水母",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "琉璃水母"
@@ -1199,8 +1199,8 @@
         "current_monster_id": 3119
     },
     "world_profile": {
-        "type_desc": "一窝蜂",
-        "description_habitat": "猫老师精灵",
+        "type_desc": "水母精灵",
+        "description_habitat": "常见于海面",
         "introduction": "柔软的精灵，通过收缩身体喷水在水中前进。会使用触手释放毒素，以此麻痹对手，然后将其拖入水中。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1215,13 +1215,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3119001,
         "pet_id": 3119001,
-        "name": "甜田螺",
+        "name": null,
         "model_id": 3119001,
         "hatch_data": 28800,
         "weight_low": 11025,
@@ -1229,21 +1229,15 @@
         "height_low": 21,
         "height_high": 29,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3119001,
                 "pet_id": 3119001,
-                "name": "甜田螺",
+                "name": null,
                 "model_id": 3119001,
                 "hatch_data": 28800,
                 "weight_low": 11025,
@@ -1251,21 +1245,15 @@
                 "height_low": 21,
                 "height_high": 29,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3119002,
                 "pet_id": 3119002,
-                "name": "风铃鲨",
+                "name": null,
                 "model_id": 3119001,
                 "hatch_data": 28800,
                 "weight_low": 11025,
@@ -1281,7 +1269,7 @@
             {
                 "id": 3119003,
                 "pet_id": 3119003,
-                "name": "风铃鲨（首领血脉）",
+                "name": null,
                 "model_id": 3119001,
                 "hatch_data": 300,
                 "weight_low": 11025,
@@ -1295,97 +1283,25 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 3127001,
-                "pet_id": 3127001,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3130001,
-                "pet_id": 3130001,
-                "name": "翡翠水母",
-                "model_id": 3130001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2000,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3262001,
-                "pet_id": 3262001,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
-            },
-            {
-                "id": 3467001,
-                "pet_id": 3467001,
-                "name": "翡翠水母",
-                "model_id": 3467001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
+                "id": 3119004,
+                "pet_id": 3119004,
+                "name": null,
+                "model_id": 3119001,
+                "hatch_data": 300,
+                "weight_low": 11025,
+                "weight_high": 14720,
+                "height_low": 21,
+                "height_high": 29,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 31190001,
                 "pet_id": 31190001,
-                "name": "甜田螺",
+                "name": null,
                 "model_id": 3119001,
                 "hatch_data": 300,
                 "weight_low": 11025,
@@ -1393,808 +1309,6 @@
                 "height_low": 21,
                 "height_high": 29,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31270001,
-                "pet_id": 31270001,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 300,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31300001,
-                "pet_id": 31300001,
-                "name": "翡翠水母",
-                "model_id": 3130001,
-                "hatch_data": 300,
-                "weight_low": 1225,
-                "weight_high": 2000,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 32620001,
-                "pet_id": 32620001,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 300,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 34670001,
-                "pet_id": 34670001,
-                "name": "翡翠水母",
-                "model_id": 3467001,
-                "hatch_data": 300,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000026,
-                "pet_id": 91000026,
-                "name": "甜田螺",
-                "model_id": 3119001,
-                "hatch_data": 28800,
-                "weight_low": 11025,
-                "weight_high": 14720,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000030,
-                "pet_id": 91000030,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000032,
-                "pet_id": 91000032,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000033,
-                "pet_id": 91000033,
-                "name": "翡翠水母",
-                "model_id": 3467001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000036,
-                "pet_id": 91000036,
-                "name": "翡翠水母",
-                "model_id": 3130001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2000,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000026,
-                "pet_id": 92000026,
-                "name": "甜田螺",
-                "model_id": 3119001,
-                "hatch_data": 28800,
-                "weight_low": 11025,
-                "weight_high": 14720,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000030,
-                "pet_id": 92000030,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000032,
-                "pet_id": 92000032,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000033,
-                "pet_id": 92000033,
-                "name": "翡翠水母",
-                "model_id": 3467001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000036,
-                "pet_id": 92000036,
-                "name": "翡翠水母",
-                "model_id": 3130001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2000,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000026,
-                "pet_id": 93000026,
-                "name": "甜田螺",
-                "model_id": 3119001,
-                "hatch_data": 28800,
-                "weight_low": 11025,
-                "weight_high": 14720,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000030,
-                "pet_id": 93000030,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000032,
-                "pet_id": 93000032,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000033,
-                "pet_id": 93000033,
-                "name": "翡翠水母",
-                "model_id": 3467001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000036,
-                "pet_id": 93000036,
-                "name": "翡翠水母",
-                "model_id": 3130001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2000,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000026,
-                "pet_id": 94000026,
-                "name": "甜田螺",
-                "model_id": 3119001,
-                "hatch_data": 28800,
-                "weight_low": 11025,
-                "weight_high": 14720,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000030,
-                "pet_id": 94000030,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000032,
-                "pet_id": 94000032,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000033,
-                "pet_id": 94000033,
-                "name": "翡翠水母",
-                "model_id": 3467001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000036,
-                "pet_id": 94000036,
-                "name": "翡翠水母",
-                "model_id": 3130001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2000,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000015,
-                "pet_id": 95000015,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000029,
-                "pet_id": 95000029,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000043,
-                "pet_id": 95000043,
-                "name": "翡翠水母",
-                "model_id": 3467001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000026,
-                "pet_id": 96000026,
-                "name": "甜田螺",
-                "model_id": 3119001,
-                "hatch_data": 28800,
-                "weight_low": 11025,
-                "weight_high": 14720,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000030,
-                "pet_id": 96000030,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000032,
-                "pet_id": 96000032,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000033,
-                "pet_id": 96000033,
-                "name": "翡翠水母",
-                "model_id": 3467001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000036,
-                "pet_id": 96000036,
-                "name": "翡翠水母",
-                "model_id": 3130001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2000,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000026,
-                "pet_id": 97000026,
-                "name": "甜田螺",
-                "model_id": 3119001,
-                "hatch_data": 28800,
-                "weight_low": 11025,
-                "weight_high": 14720,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000030,
-                "pet_id": 97000030,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000032,
-                "pet_id": 97000032,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000033,
-                "pet_id": 97000033,
-                "name": "翡翠水母",
-                "model_id": 3467001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000036,
-                "pet_id": 97000036,
-                "name": "翡翠水母",
-                "model_id": 3130001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2000,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000026,
-                "pet_id": 98000026,
-                "name": "甜田螺",
-                "model_id": 3119001,
-                "hatch_data": 28800,
-                "weight_low": 11025,
-                "weight_high": 14720,
-                "height_low": 21,
-                "height_high": 29,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000030,
-                "pet_id": 98000030,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000032,
-                "pet_id": 98000032,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000033,
-                "pet_id": 98000033,
-                "name": "翡翠水母",
-                "model_id": 3467001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000036,
-                "pet_id": 98000036,
-                "name": "翡翠水母",
-                "model_id": 3130001,
-                "hatch_data": 28800,
-                "weight_low": 1225,
-                "weight_high": 2000,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000015,
-                "pet_id": 99000015,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000029,
-                "pet_id": 99000029,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000043,
-                "pet_id": 99000043,
-                "name": "翡翠水母",
-                "model_id": 3467001,
-                "hatch_data": 43200,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000085,
-                "pet_id": 99000085,
-                "name": "翡翠水母",
-                "model_id": 3127001,
-                "hatch_data": 72000,
-                "weight_low": 4025,
-                "weight_high": 7000,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -2203,45 +1317,13 @@
             {
                 "id": 99000090,
                 "pet_id": 99000090,
-                "name": "甜田螺",
+                "name": null,
                 "model_id": 3119001,
                 "hatch_data": 72000,
                 "weight_low": 11025,
                 "weight_high": 14720,
                 "height_low": 21,
                 "height_high": 29,
-                "precious_egg_type": 4,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000094,
-                "pet_id": 99000094,
-                "name": "翡翠水母",
-                "model_id": 3130001,
-                "hatch_data": 72000,
-                "weight_low": 1225,
-                "weight_high": 2000,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 4,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000101,
-                "pet_id": 99000101,
-                "name": "多西",
-                "model_id": 3262001,
-                "hatch_data": 72000,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
                 "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,

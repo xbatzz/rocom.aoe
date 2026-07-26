@@ -1,7 +1,7 @@
 {
     "id": 3113,
     "name": "hailuoguniang",
-    "form": "壳乙螺",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -33,17 +33,17 @@
     },
     "implemented": true,
     "base_hp": 91,
-    "base_phy_atk": 81,
-    "base_mag_atk": 86,
-    "base_phy_def": 66,
-    "base_mag_def": 99,
+    "base_phy_atk": 89,
+    "base_mag_atk": 94,
+    "base_phy_def": 72,
+    "base_mag_def": 107,
     "base_spd": 72,
     "evolves_from_id": 3112,
     "species": {
         "id": 186,
         "name": "hailuoguniang",
         "localized": {
-            "zh": "波波螺"
+            "zh": "壳乙螺"
         }
     },
     "trait": {
@@ -764,6 +764,50 @@
             "energy_cost": 6,
             "power": 90,
             "description": "造成魔伤，回合结束时，本技能威力永久+20。"
+        },
+        {
+            "id": 7160330,
+            "name": "拆礼物",
+            "icon_id": "315024",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "拆礼物",
+                    "description": "造​成​物伤，​若​​敌方有​萌化，​本次技能威力+100。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 50,
+            "description": "造​成​物伤，​若​​敌方有​萌化，​本次技能威力+100。"
+        },
+        {
+            "id": 7050480,
+            "name": "叠浪",
+            "icon_id": "104035",
+            "move_type": {
+                "id": 4,
+                "name": "Water",
+                "localized": {
+                    "zh": "水"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "叠浪",
+                    "description": "造​成​物伤，​3连击，本技能能耗每-1，威力+10。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 10,
+            "description": "造​成​物伤，​3连击，本技能能耗每-1，威力+10。"
         }
     ],
     "legacy_moves": [
@@ -1263,7 +1307,7 @@
                         "id": 3112,
                         "species_id": 185,
                         "name": "xiaotiantian",
-                        "form": "甜田螺",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "甜田螺"
@@ -1296,7 +1340,7 @@
                         "id": 3113,
                         "species_id": 186,
                         "name": "hailuoguniang",
-                        "form": "壳乙螺",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "壳乙螺"
@@ -1331,7 +1375,7 @@
                         "id": 3114,
                         "species_id": 187,
                         "name": "kaluoer",
-                        "form": "卡洛儿",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "卡洛儿"
@@ -1366,8 +1410,8 @@
         "current_monster_id": 3113
     },
     "world_profile": {
-        "type_desc": "行踪神秘",
-        "description_habitat": "常见于草地、树林、山洞",
+        "type_desc": "硬壳精灵",
+        "description_habitat": "常见于湖面",
         "introduction": "生活在螺壳里，似乎对壳外面的世界不太关心，多数时间都躲在壳内睡觉，对食物的香味比较敏感，可以用食物引诱出来。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1382,7 +1426,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 1200,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

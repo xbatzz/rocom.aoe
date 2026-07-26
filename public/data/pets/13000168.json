@@ -1,6 +1,6 @@
 {
     "id": 13000168,
-    "name": "13000168",
+    "name": "yajiji_shouling",
     "form": "default",
     "main_type": {
         "id": 1,
@@ -35,7 +35,7 @@
     "evolves_from_id": null,
     "species": {
         "id": 13000168,
-        "name": "13000168",
+        "name": "yajiji_shouling",
         "localized": {
             "zh": "麦克达克"
         }
@@ -535,7 +535,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "迅捷，驱散敌方1种增益。"
         },
@@ -648,6 +648,50 @@
             "energy_cost": 5,
             "power": null,
             "description": "敌方获得全技能能耗+3，应对防御：额外造成打断，且敌方下回合获得眩晕。"
+        },
+        {
+            "id": 7150370,
+            "name": "超声波",
+            "icon_id": "114031",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "超声波",
+                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+        },
+        {
+            "id": 7150310,
+            "name": "羽翼庇护",
+            "icon_id": "114027",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "羽翼庇护",
+                    "description": "减伤70%，应对攻击：自己获得连击数+2。"
+                }
+            },
+            "move_category": "Defense",
+            "energy_cost": 2,
+            "power": null,
+            "description": "减伤70%，应对攻击：自己获得连击数+2。"
         }
     ],
     "legacy_moves": [
@@ -1146,7 +1190,7 @@
                     {
                         "id": 13000168,
                         "species_id": 13000168,
-                        "name": "13000168",
+                        "name": "yajiji_shouling",
                         "form": "default",
                         "localized": {
                             "zh": {
@@ -1174,7 +1218,7 @@
                     {
                         "id": 13000168,
                         "species_id": 13000168,
-                        "name": "13000168",
+                        "name": "yajiji_shouling",
                         "form": "default",
                         "localized": {
                             "zh": {

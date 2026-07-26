@@ -146,7 +146,7 @@
     "breeding": {
         "id": 3428001,
         "pet_id": 3428001,
-        "name": "彩玉球形态",
+        "name": null,
         "model_id": 3428001,
         "hatch_data": 72000,
         "weight_low": 27475,
@@ -154,21 +154,15 @@
         "height_low": 36,
         "height_high": 39,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            400,
-            3125
-        ],
-        "egg_add_glass_prob_array": [
-            2,
-            113
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3428001,
                 "pet_id": 3428001,
-                "name": "彩玉球形态",
+                "name": null,
                 "model_id": 3428001,
                 "hatch_data": 72000,
                 "weight_low": 27475,
@@ -176,50 +170,6 @@
                 "height_low": 36,
                 "height_high": 39,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3614001,
-                "pet_id": 3614001,
-                "name": "臭臭锥",
-                "model_id": 3614001,
-                "hatch_data": 28800,
-                "weight_low": 511,
-                "weight_high": 1220,
-                "height_low": 10,
-                "height_high": 13,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
-            },
-            {
-                "id": 3614004,
-                "pet_id": 3614004,
-                "name": "臭臭锥",
-                "model_id": 3614001,
-                "hatch_data": 300,
-                "weight_low": 511,
-                "weight_high": 1220,
-                "height_low": 10,
-                "height_high": 13,
-                "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -228,7 +178,7 @@
             {
                 "id": 34280001,
                 "pet_id": 34280001,
-                "name": "彩玉球形态",
+                "name": null,
                 "model_id": 3428001,
                 "hatch_data": 300,
                 "weight_low": 27475,
@@ -236,38 +186,6 @@
                 "height_low": 36,
                 "height_high": 39,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 36140001,
-                "pet_id": 36140001,
-                "name": "臭臭锥",
-                "model_id": 3614001,
-                "hatch_data": 300,
-                "weight_low": 511,
-                "weight_high": 1220,
-                "height_low": 10,
-                "height_high": 13,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000071,
-                "pet_id": 99000071,
-                "name": "臭臭锥",
-                "model_id": 3614001,
-                "hatch_data": 72000,
-                "weight_low": 511,
-                "weight_high": 1220,
-                "height_low": 10,
-                "height_high": 13,
-                "precious_egg_type": 4,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,

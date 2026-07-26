@@ -1,7 +1,7 @@
 {
     "id": 3528,
     "name": "rongyanbuding",
-    "form": "熔岩布丁",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -43,7 +43,7 @@
         "id": 316,
         "name": "rongyanbuding",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "熔岩布丁"
         }
     },
     "trait": {
@@ -1241,7 +1241,7 @@
                         "id": 3118,
                         "species_id": 313,
                         "name": "guodong",
-                        "form": "果冻",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "果冻"
@@ -1268,7 +1268,7 @@
                         "id": 3526,
                         "species_id": 314,
                         "name": "mochabuding",
-                        "form": "抹茶布丁",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "抹茶布丁"
@@ -1298,7 +1298,7 @@
                         "id": 3527,
                         "species_id": 315,
                         "name": "yejiangbuding",
-                        "form": "椰浆布丁",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "椰浆布丁"
@@ -1328,7 +1328,7 @@
                         "id": 3528,
                         "species_id": 316,
                         "name": "rongyanbuding",
-                        "form": "熔岩布丁",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "熔岩布丁"
@@ -1364,8 +1364,8 @@
         "current_monster_id": 3528
     },
     "world_profile": {
-        "type_desc": "阿米樱",
-        "description_habitat": "喵喵",
+        "type_desc": "布丁精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "熔岩布丁负责增温与成熟，它体内的活性物质能促进糖分增多，在丰收季节，洛克常带着它们在可可果林区活动，帮助可可果形成更明显的甜香气味，洛克也常把它们的活跃视作可可果林健康的信号之一。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1380,7 +1380,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 310,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

@@ -1,7 +1,7 @@
 {
     "id": 3088,
     "name": "shenshiji",
-    "form": "绅士鸡",
+    "form": "default",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -43,7 +43,7 @@
         "id": 268,
         "name": "shenshiji",
         "localized": {
-            "zh": "龙血精灵"
+            "zh": "绅士鸡"
         }
     },
     "trait": {
@@ -1307,7 +1307,7 @@
                         "id": 3086,
                         "species_id": 266,
                         "name": "keliji",
-                        "form": "可立鸡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "可立鸡"
@@ -1334,7 +1334,7 @@
                         "id": 3087,
                         "species_id": 267,
                         "name": "yunyunji",
-                        "form": "晕晕鸡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "晕晕鸡"
@@ -1363,7 +1363,7 @@
                         "id": 3088,
                         "species_id": 268,
                         "name": "shenshiji",
-                        "form": "绅士鸡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "绅士鸡"
@@ -1392,7 +1392,7 @@
                         "id": 3089,
                         "species_id": 269,
                         "name": "wuzheji",
-                        "form": "武者鸡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "武者鸡"
@@ -1428,8 +1428,8 @@
         "current_monster_id": 3088
     },
     "world_profile": {
-        "type_desc": "翠顶夫人",
-        "description_habitat": "常见于山林",
+        "type_desc": "绅士精灵",
+        "description_habitat": "常见于山地",
         "introduction": "充满高尚气度的种群，常把一只手放在身后。手中的羽毛可以喷射火焰，制造独特而优雅的攻击。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1444,7 +1444,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

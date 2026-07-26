@@ -401,7 +401,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "光系技能威力永久+50%，应对防御：改为永久+100%。"
         },
@@ -802,6 +802,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7170160,
+            "name": "恐吓",
+            "icon_id": "705002",
+            "move_type": {
+                "id": 15,
+                "name": "Ghost",
+                "localized": {
+                    "zh": "幽"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "恐吓",
+                    "description": "对敌方精灵造成魔法伤害。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 2,
+            "power": 80,
+            "description": "对敌方精灵造成魔法伤害。"
         }
     ],
     "legacy_moves": [
@@ -1322,10 +1344,10 @@
                         "id": 16000004,
                         "species_id": 1,
                         "name": "dimo",
-                        "form": "default",
+                        "form": "V110-C1",
                         "localized": {
                             "zh": {
-                                "name": "迪莫"
+                                "name": "V110-C1迪莫"
                             }
                         },
                         "is_leader_form": false,
@@ -1433,7 +1455,13 @@
                                 "zh": "火"
                             }
                         },
-                        "sub_type": null,
+                        "sub_type": {
+                            "id": 5,
+                            "name": "Light",
+                            "localized": {
+                                "zh": "光"
+                            }
+                        },
                         "evolution_conditions": []
                     },
                     {
@@ -1454,7 +1482,13 @@
                                 "zh": "水"
                             }
                         },
-                        "sub_type": null,
+                        "sub_type": {
+                            "id": 5,
+                            "name": "Light",
+                            "localized": {
+                                "zh": "光"
+                            }
+                        },
                         "evolution_conditions": []
                     }
                 ]
@@ -1466,8 +1500,8 @@
         "current_monster_id": 16000007
     },
     "world_profile": {
-        "type_desc": "迪莫",
-        "description_habitat": "喵喵",
+        "type_desc": "永远的伙伴",
+        "description_habitat": "行踪神秘",
         "introduction": "这是关于勇气的故事，他很脆弱却也不曾退缩；这是关于梦想的故事，梦很简单却也执着。这就是我，迪莫。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1481,68 +1515,7 @@
         ]
     },
     "catch_info": null,
-    "breeding": {
-        "id": 3003001,
-        "pet_id": 3003001,
-        "name": "迪莫",
-        "model_id": 3003001,
-        "hatch_data": 43200,
-        "weight_low": 2660,
-        "weight_high": 3400,
-        "height_low": 23,
-        "height_high": 29,
-        "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
-        "is_contact_add_shining_prob": null,
-        "variants": [
-            {
-                "id": 3003001,
-                "pet_id": 3003001,
-                "name": "迪莫",
-                "model_id": 3003001,
-                "hatch_data": 43200,
-                "weight_low": 2660,
-                "weight_high": 3400,
-                "height_low": 23,
-                "height_high": 29,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 30030001,
-                "pet_id": 30030001,
-                "name": "迪莫",
-                "model_id": 3003001,
-                "hatch_data": 300,
-                "weight_low": 2660,
-                "weight_high": 3400,
-                "height_low": 23,
-                "height_high": 29,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            }
-        ]
-    },
+    "breeding": null,
     "breeding_profile": {
         "pet_base_id": 16000007,
         "egg_groups": [

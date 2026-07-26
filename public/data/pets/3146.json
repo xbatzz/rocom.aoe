@@ -786,6 +786,28 @@
             "energy_cost": 4,
             "power": 120,
             "description": "对敌方精灵造成物理伤害。"
+        },
+        {
+            "id": 7030560,
+            "name": "养分回流",
+            "icon_id": "302042",
+            "move_type": {
+                "id": 2,
+                "name": "Grass",
+                "localized": {
+                    "zh": "草"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "养分回流",
+                    "description": "造成​魔伤，​为场​下​所有​精灵​回复1​能量​。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 75,
+            "description": "造成​魔伤，​为场​下​所有​精灵​回复1​能量​。"
         }
     ],
     "legacy_moves": [
@@ -1347,7 +1369,7 @@
                         "id": 3147,
                         "species_id": 23,
                         "name": "lunhuilinggu",
-                        "form": "幻影灵菇",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "幻影灵菇"
@@ -1382,7 +1404,7 @@
         "current_monster_id": 3146
     },
     "world_profile": {
-        "type_desc": "水蓝蓝",
+        "type_desc": "菇精灵",
         "description_habitat": "常见于草地",
         "introduction": "头顶的触角比隐藏在伞盖下的面目更能够表达出心情，悄无声息地飘来飘去，通常出现在后半夜。在森林深处大量聚集，散发着淡淡荧光，会吸收周围植物和小型动物的情绪。",
         "refresh_locations": [
@@ -1398,7 +1420,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 1200,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

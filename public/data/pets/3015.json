@@ -1,7 +1,7 @@
 {
     "id": 3015,
     "name": "amiying",
-    "form": "阿米樱",
+    "form": "default",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -37,7 +37,7 @@
         "id": 106,
         "name": "amiying",
         "localized": {
-            "zh": "常见于草丛"
+            "zh": "阿米樱"
         }
     },
     "trait": {
@@ -692,6 +692,50 @@
             "energy_cost": 2,
             "power": null,
             "description": "自己的生命比例变为与敌方生命比例相同，巧变：恶系攻击技能。"
+        },
+        {
+            "id": 7180410,
+            "name": "困兽",
+            "icon_id": "117042",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "困兽",
+                    "description": "造成物伤，若自己生命低于50%，本次攻击吸血50%。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 90,
+            "description": "造成物伤，若自己生命低于50%，本次攻击吸血50%。"
+        },
+        {
+            "id": 7180400,
+            "name": "血契",
+            "icon_id": "117041",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "血契",
+                    "description": "造成物伤，自己每失去10%生命，本技能威力+10。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 4,
+            "power": 75,
+            "description": "造成物伤，自己每失去10%生命，本技能威力+10。"
         }
     ],
     "legacy_moves": [
@@ -1191,7 +1235,7 @@
                         "id": 3014,
                         "species_id": 105,
                         "name": "amiyate",
-                        "form": "阿米亚特",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "阿米亚特"
@@ -1218,7 +1262,7 @@
                         "id": 3015,
                         "species_id": 106,
                         "name": "amiying",
-                        "form": "阿米樱",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "阿米樱"
@@ -1250,7 +1294,7 @@
                         "id": 3016,
                         "species_id": 107,
                         "name": "luoyin",
-                        "form": "罗隐",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "罗隐"
@@ -1288,8 +1332,8 @@
         "current_monster_id": 3015
     },
     "world_profile": {
-        "type_desc": "小鼠獭",
-        "description_habitat": "喵喵",
+        "type_desc": "石头精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "石头组成的上身和双臂异常粗壮，腿部短小，经常会腿痛。重重挥拳的时候会把构成手部的石头都打散，不过很快就会用岩石修补好。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1304,7 +1348,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 310,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

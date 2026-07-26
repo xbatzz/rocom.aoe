@@ -735,13 +735,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         }
     ],
     "legacy_moves": [
@@ -1241,7 +1241,7 @@
                         "id": 3136,
                         "species_id": 32,
                         "name": "maomao",
-                        "form": "毛毛",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "毛毛"
@@ -1304,7 +1304,7 @@
                         "id": 3137,
                         "species_id": 33,
                         "name": "papa",
-                        "form": "爬爬",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "爬爬"
@@ -1339,7 +1339,7 @@
                         "id": 3138,
                         "species_id": 34,
                         "name": "huadie",
-                        "form": "化蝶",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "化蝶"
@@ -1369,7 +1369,7 @@
                         "id": 3470,
                         "species_id": 34,
                         "name": "huadie_youmingzhiyan",
-                        "form": "化蝶",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "化蝶"
@@ -1399,7 +1399,7 @@
                         "id": 3471,
                         "species_id": 34,
                         "name": "huadie_miaomiao",
-                        "form": "化蝶",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "化蝶"
@@ -1429,7 +1429,7 @@
                         "id": 3472,
                         "species_id": 34,
                         "name": "huadie_qilihua",
-                        "form": "化蝶",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "化蝶"

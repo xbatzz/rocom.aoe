@@ -1,7 +1,7 @@
 {
     "id": 3411,
     "name": "quanzhagn2",
-    "form": "权杖-V",
+    "form": "default",
     "main_type": {
         "id": 17,
         "name": "Mechanical",
@@ -37,7 +37,7 @@
         "id": 146,
         "name": "quanzhagn2",
         "localized": {
-            "zh": "冰冰凉精灵"
+            "zh": "权杖-V"
         }
     },
     "trait": {
@@ -646,7 +646,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
-            "power": 110,
+            "power": 140,
             "description": "造成物伤，每次使用后，本技能能耗永久+1。"
         },
         {
@@ -773,13 +773,13 @@
             "localized": {
                 "zh": {
                     "name": "微型斥候",
-                    "description": "造成魔伤，自己每​受​到​一​次​抵抗​伤害，​本技​能​威力​永久​+20。"
+                    "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），​本技​能​威力​永久​+20。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造成魔伤，自己每​受​到​一​次​抵抗​伤害，​本技​能​威力​永久​+20。"
+            "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），​本技​能​威力​永久​+20。"
         }
     ],
     "legacy_moves": [
@@ -1279,7 +1279,7 @@
                         "id": 3410,
                         "species_id": 145,
                         "name": "quanzhagn1",
-                        "form": "权杖-Ⅱ",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "权杖-Ⅱ"
@@ -1306,7 +1306,7 @@
                         "id": 3411,
                         "species_id": 146,
                         "name": "quanzhagn2",
-                        "form": "权杖-V",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "权杖-V"
@@ -1335,8 +1335,8 @@
         "current_monster_id": 3411
     },
     "world_profile": {
-        "type_desc": "松鼠精灵",
-        "description_habitat": "雪豆丁",
+        "type_desc": "科技精灵",
+        "description_habitat": "常见于遗迹周边",
         "introduction": "在充满斗争与冲突的时代中诞生的精灵，背负着工匠们的意志、行动与他们所点燃的第一把火。在诞生之初能向周围的机械精灵发出统一指令，它们能协调队列、分配任务，让贵族看到了机械系精灵无限的可能性。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1351,7 +1351,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

@@ -1,7 +1,7 @@
 {
     "id": 3255,
     "name": "benboshu",
-    "form": "奔波鼠",
+    "form": "default",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -26,18 +26,18 @@
         }
     },
     "implemented": true,
-    "base_hp": 72,
+    "base_hp": 82,
     "base_phy_atk": 37,
     "base_mag_atk": 93,
-    "base_phy_def": 67,
-    "base_mag_def": 90,
+    "base_phy_def": 74,
+    "base_mag_def": 98,
     "base_spd": 92,
     "evolves_from_id": null,
     "species": {
         "id": 193,
         "name": "benboshu",
         "localized": {
-            "zh": "斑枭"
+            "zh": "奔波鼠"
         }
     },
     "trait": {
@@ -648,6 +648,72 @@
             "energy_cost": 4,
             "power": null,
             "description": "自己脱离，替换入场的精灵回复8能量。"
+        },
+        {
+            "id": 7080450,
+            "name": "扬尘",
+            "icon_id": "107044",
+            "move_type": {
+                "id": 6,
+                "name": "Ground",
+                "localized": {
+                    "zh": "地"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "扬尘",
+                    "description": "造成​魔伤，​天气为沙暴时，先手+1。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 80,
+            "description": "造成​魔伤，​天气为沙暴时，先手+1。"
+        },
+        {
+            "id": 7021210,
+            "name": "急中生智",
+            "icon_id": "301104",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "急中生智",
+                    "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 80,
+            "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+        },
+        {
+            "id": 7110410,
+            "name": "电离爆破",
+            "icon_id": "110027",
+            "move_type": {
+                "id": 9,
+                "name": "Electric",
+                "localized": {
+                    "zh": "电"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "电离爆破",
+                    "description": "敌方获得魔攻-20%，速度-20，2连击。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 1,
+            "power": null,
+            "description": "敌方获得魔攻-20%，速度-20，2连击。"
         }
     ],
     "legacy_moves": [
@@ -1147,7 +1213,7 @@
                         "id": 3255,
                         "species_id": 193,
                         "name": "benboshu",
-                        "form": "奔波鼠",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "奔波鼠"
@@ -1174,7 +1240,7 @@
                         "id": 3256,
                         "species_id": 194,
                         "name": "liulangshu",
-                        "form": "流浪鼠",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "流浪鼠"
@@ -1204,8 +1270,8 @@
         "current_monster_id": 3255
     },
     "world_profile": {
-        "type_desc": "蹦蹦花",
-        "description_habitat": "常见于山林",
+        "type_desc": "流浪精灵",
+        "description_habitat": "偶见于城镇",
         "introduction": "毛色杂乱且粗糙，像是融合了泥土、枯叶的颜色，黑色的眼睛透露出机灵的光。它们背着自己的全部家当，在野外长期流浪，一直在路上，从未到达旅途的终点。有着健壮的身躯，但进攻意愿低，只对闪闪发光的东西兴趣浓厚。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1220,13 +1286,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1000,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3255001,
         "pet_id": 3255001,
-        "name": "异色贝瑟的蛋",
+        "name": null,
         "model_id": 3255001,
         "hatch_data": 57600,
         "weight_low": 1299,
@@ -1234,21 +1300,15 @@
         "height_low": 20,
         "height_high": 25,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3255001,
                 "pet_id": 3255001,
-                "name": "异色贝瑟的蛋",
+                "name": null,
                 "model_id": 3255001,
                 "hatch_data": 57600,
                 "weight_low": 1299,
@@ -1256,28 +1316,6 @@
                 "height_low": 20,
                 "height_high": 25,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3330003,
-                "pet_id": 3330003,
-                "name": "奔波鼠",
-                "model_id": 3330001,
-                "hatch_data": 57600,
-                "weight_low": 2590,
-                "weight_high": 3440,
-                "height_low": 23,
-                "height_high": 29,
-                "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1286,7 +1324,7 @@
             {
                 "id": 32550001,
                 "pet_id": 32550001,
-                "name": "异色贝瑟的蛋",
+                "name": null,
                 "model_id": 3255001,
                 "hatch_data": 300,
                 "weight_low": 1299,
@@ -1300,127 +1338,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000005,
-                "pet_id": 91000005,
-                "name": "异色贝瑟的蛋",
-                "model_id": 3255001,
-                "hatch_data": 57600,
-                "weight_low": 1299,
-                "weight_high": 2560,
-                "height_low": 20,
-                "height_high": 25,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000005,
-                "pet_id": 92000005,
-                "name": "异色贝瑟的蛋",
-                "model_id": 3255001,
-                "hatch_data": 57600,
-                "weight_low": 1299,
-                "weight_high": 2560,
-                "height_low": 20,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000005,
-                "pet_id": 93000005,
-                "name": "异色贝瑟的蛋",
-                "model_id": 3255001,
-                "hatch_data": 57600,
-                "weight_low": 1299,
-                "weight_high": 2560,
-                "height_low": 20,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000005,
-                "pet_id": 94000005,
-                "name": "异色贝瑟的蛋",
-                "model_id": 3255001,
-                "hatch_data": 57600,
-                "weight_low": 1299,
-                "weight_high": 2560,
-                "height_low": 20,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000005,
-                "pet_id": 96000005,
-                "name": "异色贝瑟的蛋",
-                "model_id": 3255001,
-                "hatch_data": 57600,
-                "weight_low": 1299,
-                "weight_high": 2560,
-                "height_low": 20,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000005,
-                "pet_id": 97000005,
-                "name": "异色贝瑟的蛋",
-                "model_id": 3255001,
-                "hatch_data": 57600,
-                "weight_low": 1299,
-                "weight_high": 2560,
-                "height_low": 20,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000005,
-                "pet_id": 98000005,
-                "name": "异色贝瑟的蛋",
-                "model_id": 3255001,
-                "hatch_data": 57600,
-                "weight_low": 1299,
-                "weight_high": 2560,
-                "height_low": 20,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000167,
                 "pet_id": 99000167,
-                "name": "异色贝瑟的蛋",
+                "name": null,
                 "model_id": 3255001,
                 "hatch_data": 72000,
                 "weight_low": 1299,

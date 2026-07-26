@@ -1,7 +1,7 @@
 {
     "id": 3599,
     "name": "youshemoshi",
-    "form": "游蛇魔使",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -43,7 +43,7 @@
         "id": 161,
         "name": "youshemoshi",
         "localized": {
-            "zh": "常见于遗迹周边"
+            "zh": "游蛇魔使"
         }
     },
     "trait": {
@@ -691,13 +691,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7050260,
@@ -742,6 +742,28 @@
             "energy_cost": 6,
             "power": 90,
             "description": "造成魔伤，回合结束时，本技能威力永久+20。"
+        },
+        {
+            "id": 7050480,
+            "name": "叠浪",
+            "icon_id": "104035",
+            "move_type": {
+                "id": 4,
+                "name": "Water",
+                "localized": {
+                    "zh": "水"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "叠浪",
+                    "description": "造​成​物伤，​3连击，本技能能耗每-1，威力+10。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 10,
+            "description": "造​成​物伤，​3连击，本技能能耗每-1，威力+10。"
         }
     ],
     "legacy_moves": [
@@ -1241,7 +1263,7 @@
                         "id": 3597,
                         "species_id": 159,
                         "name": "shuidishe",
-                        "form": "水滴蛇",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "水滴蛇"
@@ -1274,7 +1296,7 @@
                         "id": 3598,
                         "species_id": 160,
                         "name": "shuishesuo",
-                        "form": "水蛇锁",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "水蛇锁"
@@ -1309,7 +1331,7 @@
                         "id": 3599,
                         "species_id": 161,
                         "name": "youshemoshi",
-                        "form": "游蛇魔使",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "游蛇魔使"
@@ -1344,8 +1366,8 @@
         "current_monster_id": 3599
     },
     "world_profile": {
-        "type_desc": "轻飘飘精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "水蛇精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "真理的引路人，传闻它们最初的使命早已失败，但仍在守望，守望古老预言的验证，或是等待一段新的契约。它们拥有修长柔软的尾巴，据说尾巴尖端可以打开远古的知识之门。“真理从不主动现身——你愿意推开这扇门吗？”",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1360,7 +1382,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

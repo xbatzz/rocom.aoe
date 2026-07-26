@@ -110,7 +110,7 @@
     "breeding": {
         "id": 3186001,
         "pet_id": 3186001,
-        "name": "异色空空颅的蛋",
+        "name": null,
         "model_id": 3186001,
         "hatch_data": 43200,
         "weight_low": 2520,
@@ -118,21 +118,15 @@
         "height_low": 26,
         "height_high": 36,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3186001,
                 "pet_id": 3186001,
-                "name": "异色空空颅的蛋",
+                "name": null,
                 "model_id": 3186001,
                 "hatch_data": 43200,
                 "weight_low": 2520,
@@ -140,65 +134,21 @@
                 "height_low": 26,
                 "height_high": 36,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3213001,
-                "pet_id": 3213001,
-                "name": "小光",
-                "model_id": 3213001,
-                "hatch_data": 72000,
-                "weight_low": 10325,
-                "weight_high": 16640,
-                "height_low": 41,
-                "height_high": 58,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    400,
-                    3125
-                ],
-                "egg_add_glass_prob_array": [
-                    2,
-                    113
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31860001,
-                "pet_id": 31860001,
-                "name": "异色空空颅的蛋",
-                "model_id": 3186001,
-                "hatch_data": 300,
-                "weight_low": 2520,
-                "weight_high": 3440,
-                "height_low": 26,
-                "height_high": 36,
-                "precious_egg_type": 7,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 32130001,
-                "pet_id": 32130001,
-                "name": "小光",
-                "model_id": 3213001,
+                "id": 31860001,
+                "pet_id": 31860001,
+                "name": null,
+                "model_id": 3186001,
                 "hatch_data": 300,
-                "weight_low": 10325,
-                "weight_high": 16640,
-                "height_low": 41,
-                "height_high": 58,
+                "weight_low": 2520,
+                "weight_high": 3440,
+                "height_low": 26,
+                "height_high": 36,
                 "precious_egg_type": 7,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,

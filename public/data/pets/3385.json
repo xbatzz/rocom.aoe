@@ -1,7 +1,7 @@
 {
     "id": 3385,
     "name": "kuaiqiyu",
-    "form": "快鳍鱼",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -43,7 +43,7 @@
         "id": 240,
         "name": "kuaiqiyu",
         "localized": {
-            "zh": "常见于山林"
+            "zh": "快鳍鱼"
         }
     },
     "trait": {
@@ -1285,7 +1285,7 @@
                         "id": 3384,
                         "species_id": 239,
                         "name": "doudingyu",
-                        "form": "豆丁鱼",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "豆丁鱼"
@@ -1318,7 +1318,7 @@
                         "id": 3385,
                         "species_id": 240,
                         "name": "kuaiqiyu",
-                        "form": "快鳍鱼",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "快鳍鱼"
@@ -1353,7 +1353,7 @@
                         "id": 3386,
                         "species_id": 241,
                         "name": "yulong",
-                        "form": "龙鱼",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "龙鱼"
@@ -1388,8 +1388,8 @@
         "current_monster_id": 3385
     },
     "world_profile": {
-        "type_desc": "常见于草地、山地",
-        "description_habitat": "猫老师精灵",
+        "type_desc": "龙血精灵",
+        "description_habitat": "常见于海面",
         "introduction": "额部鼓起突出，中空有气囊，可以自由改变前额的形状，推测可能是借着移动内部空气来产生形状上的变化，潜水能力相当强，甚至可以一边在水下灵活旋转一边发出多变的叫声，呼唤着同伴，吟唱着记忆深处关于化龙的古老歌谣。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1404,7 +1404,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 525,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

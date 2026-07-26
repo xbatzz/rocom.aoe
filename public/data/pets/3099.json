@@ -1,7 +1,7 @@
 {
     "id": 3099,
     "name": "baozhensongshu",
-    "form": "抱枕松鼠",
+    "form": "default",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -37,7 +37,7 @@
         "id": 50,
         "name": "baozhensongshu",
         "localized": {
-            "zh": "绿耳松鼠"
+            "zh": "抱枕松鼠"
         }
     },
     "trait": {
@@ -1257,7 +1257,7 @@
                         "id": 3098,
                         "species_id": 49,
                         "name": "lversongshu",
-                        "form": "绿耳松鼠",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "绿耳松鼠"
@@ -1284,7 +1284,7 @@
                         "id": 3099,
                         "species_id": 50,
                         "name": "baozhensongshu",
-                        "form": "抱枕松鼠",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "抱枕松鼠"
@@ -1313,7 +1313,7 @@
                         "id": 3100,
                         "species_id": 51,
                         "name": "bengchuangsongshu",
-                        "form": "蹦床松鼠",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "蹦床松鼠"
@@ -1342,8 +1342,8 @@
         "current_monster_id": 3099
     },
     "world_profile": {
-        "type_desc": "羊精灵",
-        "description_habitat": "常见于城镇、草地、雪山",
+        "type_desc": "圆滚滚精灵",
+        "description_habitat": "常见于树林",
         "introduction": "骑着自己的尾巴，已经不需要靠双脚走路。偶尔把头埋进身体，看上去像一颗巨大的果实。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1358,87 +1358,10 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 1200,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
-    "breeding": {
-        "id": 3112001,
-        "pet_id": 3112001,
-        "name": "绿耳松鼠",
-        "model_id": 3112001,
-        "hatch_data": 28800,
-        "weight_low": 2625,
-        "weight_high": 3760,
-        "height_low": 17,
-        "height_high": 24,
-        "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
-        "is_contact_add_shining_prob": null,
-        "variants": [
-            {
-                "id": 3112001,
-                "pet_id": 3112001,
-                "name": "绿耳松鼠",
-                "model_id": 3112001,
-                "hatch_data": 28800,
-                "weight_low": 2625,
-                "weight_high": 3760,
-                "height_low": 17,
-                "height_high": 24,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 31120001,
-                "pet_id": 31120001,
-                "name": "绿耳松鼠",
-                "model_id": 3112001,
-                "hatch_data": 300,
-                "weight_low": 2625,
-                "weight_high": 3760,
-                "height_low": 17,
-                "height_high": 24,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000097,
-                "pet_id": 99000097,
-                "name": "绿耳松鼠",
-                "model_id": 3112001,
-                "hatch_data": 72000,
-                "weight_low": 2625,
-                "weight_high": 3760,
-                "height_low": 17,
-                "height_high": 24,
-                "precious_egg_type": 4,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            }
-        ]
-    },
+    "breeding": null,
     "breeding_profile": {
         "pet_base_id": 3099,
         "egg_groups": [

@@ -449,13 +449,13 @@
             "localized": {
                 "zh": {
                     "name": "鸩毒",
-                    "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+20。"
+                    "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+20。"
+            "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
         },
         {
             "id": 7020630,
@@ -559,13 +559,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7090260,
@@ -1307,7 +1307,7 @@
                         "id": 3262,
                         "species_id": 137,
                         "name": "huhuzhu",
-                        "form": "呼呼猪",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "呼呼猪"
@@ -1369,7 +1369,7 @@
                         "id": 3263,
                         "species_id": 138,
                         "name": "liaoyazhu",
-                        "form": "獠牙猪",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "獠牙猪"
@@ -1446,13 +1446,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
         "id": 3621001,
         "pet_id": 3621001,
-        "name": "拉特（幻系血脉）",
+        "name": null,
         "model_id": 3621001,
         "hatch_data": 43200,
         "weight_low": 2415,
@@ -1460,21 +1460,15 @@
         "height_low": 40,
         "height_high": 46,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            8,
-            1125
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            50
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3621001,
                 "pet_id": 3621001,
-                "name": "拉特（幻系血脉）",
+                "name": null,
                 "model_id": 3621001,
                 "hatch_data": 43200,
                 "weight_low": 2415,
@@ -1482,21 +1476,15 @@
                 "height_low": 40,
                 "height_high": 46,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    8,
-                    1125
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    50
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3621002,
                 "pet_id": 3621002,
-                "name": "拉特（幻系血脉）",
+                "name": null,
                 "model_id": 3621001,
                 "hatch_data": 43200,
                 "weight_low": 2415,
@@ -1512,7 +1500,7 @@
             {
                 "id": 36210001,
                 "pet_id": 36210001,
-                "name": "拉特（幻系血脉）",
+                "name": null,
                 "model_id": 3621001,
                 "hatch_data": 300,
                 "weight_low": 2415,

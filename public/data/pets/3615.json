@@ -1,7 +1,7 @@
 {
     "id": 3615,
     "name": "qieguangwen",
-    "form": "窃光蚊",
+    "form": "default",
     "main_type": {
         "id": 5,
         "name": "Light",
@@ -43,7 +43,7 @@
         "id": 324,
         "name": "qieguangwen",
         "localized": {
-            "zh": "化石精灵"
+            "zh": "窃光蚊"
         }
     },
     "trait": {
@@ -808,6 +808,28 @@
             "energy_cost": 3,
             "power": 115,
             "description": "造成魔伤，巧变：吸血相关技能。"
+        },
+        {
+            "id": 7120280,
+            "name": "过敏原",
+            "icon_id": "111030",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "过敏原",
+                    "description": "造成魔伤，1连击，若敌方有中毒效果，本次技能连击数+2。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 35,
+            "description": "造成魔伤，1连击，若敌方有中毒效果，本次技能连击数+2。"
         }
     ],
     "legacy_moves": [
@@ -1307,7 +1329,7 @@
                         "id": 3614,
                         "species_id": 323,
                         "name": "shiguangwengweng",
-                        "form": "嗜光嗡嗡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "嗜光嗡嗡"
@@ -1340,7 +1362,7 @@
                         "id": 3615,
                         "species_id": 324,
                         "name": "qieguangwen",
-                        "form": "窃光蚊",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "窃光蚊"
@@ -1376,8 +1398,8 @@
         "current_monster_id": 3615
     },
     "world_profile": {
-        "type_desc": "常见于湖泊",
-        "description_habitat": "喵喵",
+        "type_desc": "偷窃精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "在微光沼泽，有不少因为长期触光水晶而琥珀化的精灵，这里面却没有恶名昭著的窃光蚊。这是因为窃光蚊会互相合作，一旦有个体吸收了过多光系能量，其他伙伴就会去吸收，帮助其减少体内的能量浓度。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1391,7 +1413,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 1200,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

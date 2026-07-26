@@ -1,7 +1,7 @@
 {
     "id": 3604,
     "name": "buchenchangrong",
-    "form": "捕尘长绒",
+    "form": "default",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -43,7 +43,7 @@
         "id": 297,
         "name": "buchenchangrong",
         "localized": {
-            "zh": "常见于山地"
+            "zh": "捕尘长绒"
         }
     },
     "trait": {
@@ -249,13 +249,13 @@
             "localized": {
                 "zh": {
                     "name": "石锁",
-                    "description": "造成物伤，敌方3回合无法更换精灵。"
+                    "description": "造成物伤，敌方获得3回合禁足。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 50,
-            "description": "造成物伤，敌方3回合无法更换精灵。"
+            "description": "造成物伤，敌方获得3回合禁足。"
         },
         {
             "id": 7130120,
@@ -341,8 +341,8 @@
                 }
             },
             "move_category": "Physical Attack",
-            "energy_cost": 4,
-            "power": 95,
+            "energy_cost": 3,
+            "power": 85,
             "description": "造成物伤，驱散敌方所有印记，应对状态：改为偷取印记。"
         }
     ],
@@ -676,6 +676,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "敌方​下​回合回复的​能量​-5，​冷​却​2回合。"
+        },
+        {
+            "id": 7130330,
+            "name": "振翅",
+            "icon_id": "212026",
+            "move_type": {
+                "id": 11,
+                "name": "Bug",
+                "localized": {
+                    "zh": "虫"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "振翅",
+                    "description": "选择：己方队伍​获得​1​次​奉献：​连击​+1或​威力​+20。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "选择：己方队伍​获得​1​次​奉献：​连击​+1或​威力​+20。"
         }
     ],
     "legacy_moves": [
@@ -1175,7 +1197,7 @@
                         "id": 3603,
                         "species_id": 296,
                         "name": "maotouxiaozhu",
-                        "form": "毛头小蛛",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "毛头小蛛"
@@ -1208,7 +1230,7 @@
                         "id": 3604,
                         "species_id": 297,
                         "name": "buchenchangrong",
-                        "form": "捕尘长绒",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "捕尘长绒"
@@ -1231,14 +1253,14 @@
                         },
                         "evolution_conditions": [
                             "等级达到 30 级",
-                            "需满足区间条件（5,000-10,000）"
+                            "需激活「捕尘长绒」分支，并满足区间条件（5,000-10,000）"
                         ]
                     },
                     {
                         "id": 3605,
                         "species_id": 298,
                         "name": "shichenduanrong",
-                        "form": "食尘短绒",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "食尘短绒"
@@ -1261,7 +1283,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 30 级",
-                            "需满足区间条件（0-5,000）"
+                            "需激活「食尘短绒」分支，并满足区间条件（0-5,000）"
                         ]
                     }
                 ],
@@ -1274,8 +1296,8 @@
         "current_monster_id": 3604
     },
     "world_profile": {
-        "type_desc": "常见于草丛",
-        "description_habitat": "鸡仔精灵",
+        "type_desc": "扫把精灵",
+        "description_habitat": "常见于魔法学院",
         "introduction": "绒毛长而纤细，每个洛克小时候都曾把家里打扫清洁的捕尘长绒当作魔法扫帚骑着玩，然后被家长揍一顿，而家长顺手拿起的武器也是捕尘长绒，但是它们喜欢被洛克需要。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1289,7 +1311,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 525,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

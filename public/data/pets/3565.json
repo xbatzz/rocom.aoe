@@ -3,18 +3,24 @@
     "name": "lishu",
     "form": "default",
     "main_type": {
+        "id": 1,
+        "name": "Normal",
+        "localized": {
+            "zh": "普通"
+        }
+    },
+    "sub_type": {
         "id": 10,
         "name": "Poison",
         "localized": {
             "zh": "毒"
         }
     },
-    "sub_type": null,
     "default_legacy_type": {
-        "id": 10,
-        "name": "Poison",
+        "id": 1,
+        "name": "Normal",
         "localized": {
-            "zh": "毒"
+            "zh": "普通"
         }
     },
     "leader_potential": false,
@@ -26,15 +32,15 @@
         }
     },
     "implemented": true,
-    "base_hp": 96,
-    "base_phy_atk": 47,
-    "base_mag_atk": 49,
+    "base_hp": 91,
+    "base_phy_atk": 61,
+    "base_mag_atk": 63,
     "base_phy_def": 62,
     "base_mag_def": 89,
     "base_spd": 80,
     "evolves_from_id": null,
     "species": {
-        "id": 3565,
+        "id": 438,
         "name": "lishu",
         "localized": {
             "zh": "栗鼠"
@@ -42,21 +48,21 @@
     },
     "trait": {
         "id": 200239,
-        "name": "栗子壳",
-        "description": "被攻击时，赋予敌方1层棘刺印记。",
+        "name": "扎手",
+        "description": "每受到1次技能攻击（不含连击），敌方获得1层棘刺印记。",
         "icon_id": "200239",
         "localized": {
             "zh": {
-                "name": "栗子壳",
-                "description": "被攻击时，赋予敌方1层棘刺印记。"
+                "name": "扎手",
+                "description": "每受到1次技能攻击（不含连击），敌方获得1层棘刺印记。"
             }
         }
     },
     "move_pool": [
         {
-            "id": 7021050,
-            "name": "耀眼",
-            "icon_id": "101087",
+            "id": 7020360,
+            "name": "抓挠",
+            "icon_id": "700005",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -66,41 +72,19 @@
             },
             "localized": {
                 "zh": {
-                    "name": "耀眼",
-                    "description": "敌方获得连击数-4。"
-                }
-            },
-            "move_category": "Status",
-            "energy_cost": 1,
-            "power": null,
-            "description": "敌方获得连击数-4。"
-        },
-        {
-            "id": 7120060,
-            "name": "毒针",
-            "icon_id": "712001",
-            "move_type": {
-                "id": 10,
-                "name": "Poison",
-                "localized": {
-                    "zh": "毒"
-                }
-            },
-            "localized": {
-                "zh": {
-                    "name": "毒针",
-                    "description": "造成物伤，敌方获得1层中毒。"
+                    "name": "抓挠",
+                    "description": "造成物伤，自己回复1能量。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 0,
-            "power": 20,
-            "description": "造成物伤，敌方获得1层中毒。"
+            "power": 35,
+            "description": "造成物伤，自己回复1能量。"
         },
         {
-            "id": 7120250,
-            "name": "不可接触",
-            "icon_id": "111022",
+            "id": 7120080,
+            "name": "连续毒针",
+            "icon_id": "712009",
             "move_type": {
                 "id": 10,
                 "name": "Poison",
@@ -110,102 +94,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "不可接触",
-                    "description": "减伤50%，敌方每有1层中毒效果，本技能减伤+10%，应对攻击。"
-                }
-            },
-            "move_category": "Defense",
-            "energy_cost": 1,
-            "power": null,
-            "description": "减伤50%，敌方每有1层中毒效果，本技能减伤+10%，应对攻击。"
-        },
-        {
-            "id": 7120180,
-            "name": "毒泡泡",
-            "icon_id": "111015",
-            "move_type": {
-                "id": 10,
-                "name": "Poison",
-                "localized": {
-                    "zh": "毒"
-                }
-            },
-            "localized": {
-                "zh": {
-                    "name": "毒泡泡",
-                    "description": "对敌方精灵造成魔法伤害。"
-                }
-            },
-            "move_category": "Magic Attack",
-            "energy_cost": 0,
-            "power": 40,
-            "description": "对敌方精灵造成魔法伤害。"
-        },
-        {
-            "id": 7120230,
-            "name": "腐化",
-            "icon_id": "111020",
-            "move_type": {
-                "id": 10,
-                "name": "Poison",
-                "localized": {
-                    "zh": "毒"
-                }
-            },
-            "localized": {
-                "zh": {
-                    "name": "腐化",
-                    "description": "敌方每有1层中毒效果，敌方获得双攻-30%。"
-                }
-            },
-            "move_category": "Status",
-            "energy_cost": 1,
-            "power": null,
-            "description": "敌方每有1层中毒效果，敌方获得双攻-30%。"
-        },
-        {
-            "id": 7120190,
-            "name": "溃烂触碰",
-            "icon_id": "111016",
-            "move_type": {
-                "id": 10,
-                "name": "Poison",
-                "localized": {
-                    "zh": "毒"
-                }
-            },
-            "localized": {
-                "zh": {
-                    "name": "溃烂触碰",
-                    "description": "对敌方精灵造成物理伤害。"
+                    "name": "连续毒针",
+                    "description": "造成物伤，2连击，每次连击使敌方获得1层中毒。"
                 }
             },
             "move_category": "Physical Attack",
-            "energy_cost": 1,
-            "power": 60,
-            "description": "对敌方精灵造成物理伤害。"
-        },
-        {
-            "id": 7120130,
-            "name": "毒雾",
-            "icon_id": "712002",
-            "move_type": {
-                "id": 10,
-                "name": "Poison",
-                "localized": {
-                    "zh": "毒"
-                }
-            },
-            "localized": {
-                "zh": {
-                    "name": "毒雾",
-                    "description": "将敌方所有增益，转化成中毒。"
-                }
-            },
-            "move_category": "Status",
-            "energy_cost": 7,
-            "power": null,
-            "description": "将敌方所有增益，转化成中毒。"
+            "energy_cost": 2,
+            "power": 15,
+            "description": "造成物伤，2连击，每次连击使敌方获得1层中毒。"
         },
         {
             "id": 7020780,
@@ -230,9 +126,9 @@
             "description": "减伤70%，应对攻击。"
         },
         {
-            "id": 7020890,
-            "name": "音波弹",
-            "icon_id": "101071",
+            "id": 7020920,
+            "name": "能量炮",
+            "icon_id": "101074",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -242,58 +138,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "音波弹",
-                    "description": "造成魔伤，1连击。"
+                    "name": "能量炮",
+                    "description": "造成魔伤，2连击。"
                 }
             },
             "move_category": "Magic Attack",
-            "energy_cost": 1,
-            "power": 60,
-            "description": "造成魔伤，1连击。"
-        },
-        {
-            "id": 7120070,
-            "name": "腐蚀酸液",
-            "icon_id": "712005",
-            "move_type": {
-                "id": 10,
-                "name": "Poison",
-                "localized": {
-                    "zh": "毒"
-                }
-            },
-            "localized": {
-                "zh": {
-                    "name": "腐蚀酸液",
-                    "description": "造成魔伤，敌方获得2层中毒。"
-                }
-            },
-            "move_category": "Magic Attack",
-            "energy_cost": 2,
-            "power": 35,
-            "description": "造成魔伤，敌方获得2层中毒。"
-        },
-        {
-            "id": 7021110,
-            "name": "有效预防",
-            "icon_id": "201094",
-            "move_type": {
-                "id": 1,
-                "name": "Normal",
-                "localized": {
-                    "zh": "普通"
-                }
-            },
-            "localized": {
-                "zh": {
-                    "name": "有效预防",
-                    "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
-                }
-            },
-            "move_category": "Defense",
-            "energy_cost": 1,
-            "power": null,
-            "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+            "energy_cost": 3,
+            "power": 50,
+            "description": "造成魔伤，2连击。"
         },
         {
             "id": 7120210,
@@ -318,9 +170,9 @@
             "description": "对敌方精灵造成魔法伤害。"
         },
         {
-            "id": 7020380,
-            "name": "飞踢",
-            "icon_id": "700007",
+            "id": 7020790,
+            "name": "防反",
+            "icon_id": "703005",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -330,36 +182,168 @@
             },
             "localized": {
                 "zh": {
-                    "name": "飞踢",
-                    "description": "对敌方精灵造成物理伤害。"
-                }
-            },
-            "move_category": "Physical Attack",
-            "energy_cost": 3,
-            "power": 110,
-            "description": "对敌方精灵造成物理伤害。"
-        },
-        {
-            "id": 7021120,
-            "name": "嗜痛",
-            "icon_id": "301096",
-            "move_type": {
-                "id": 1,
-                "name": "Normal",
-                "localized": {
-                    "zh": "普通"
-                }
-            },
-            "localized": {
-                "zh": {
-                    "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "name": "防反",
+                    "description": "减伤70%，应对攻击：自己获得物攻和魔攻+70%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤70%，应对攻击：自己获得物攻和魔攻+70%。"
+        },
+        {
+            "id": 7021090,
+            "name": "热身运动",
+            "icon_id": "201091",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "热身运动",
+                    "description": "自己获得连击数+3。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得连击数+3。"
+        },
+        {
+            "id": 7020510,
+            "name": "乘胜追击",
+            "icon_id": "702050",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "乘胜追击",
+                    "description": "造成物伤，1连击，每次使用后，本技能连击数永久+1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 2,
+            "power": 40,
+            "description": "造成物伤，1连击，每次使用后，本技能连击数永久+1。"
+        },
+        {
+            "id": 7120280,
+            "name": "过敏原",
+            "icon_id": "111030",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "过敏原",
+                    "description": "造成魔伤，1连击，若敌方有中毒效果，本次技能连击数+2。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 35,
+            "description": "造成魔伤，1连击，若敌方有中毒效果，本次技能连击数+2。"
+        },
+        {
+            "id": 7120270,
+            "name": "溶解",
+            "icon_id": "111028",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "溶解",
+                    "description": "减伤90%，应对攻击：驱散敌方1种增益。"
+                }
+            },
+            "move_category": "Defense",
+            "energy_cost": 2,
+            "power": null,
+            "description": "减伤90%，应对攻击：驱散敌方1种增益。"
+        },
+        {
+            "id": 7120230,
+            "name": "腐化",
+            "icon_id": "111020",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "腐化",
+                    "description": "敌方每有1层中毒效果，敌方获得双攻-30%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 1,
+            "power": null,
+            "description": "敌方每有1层中毒效果，敌方获得双攻-30%。"
+        },
+        {
+            "id": 7021170,
+            "name": "倾泻",
+            "icon_id": "702051",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "倾泻",
+                    "description": "造成魔伤，若本次攻击未被防御技能应对，则驱散双方所有印记。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 70,
+            "description": "造成魔伤，若本次攻击未被防御技能应对，则驱散双方所有印记。"
+        },
+        {
+            "id": 7120100,
+            "name": "毒液渗透",
+            "icon_id": "311006",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "毒液渗透",
+                    "description": "造成魔伤，敌方每有1层中毒效果，本技能能耗-1，敌方获得1层中毒。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 5,
+            "power": 120,
+            "description": "造成魔伤，敌方每有1层中毒效果，本技能能耗-1，敌方获得1层中毒。"
         },
         {
             "id": 7120090,
@@ -382,31 +366,31 @@
             "energy_cost": 2,
             "power": 25,
             "description": "造成物伤，敌方获得2层中毒，应对状态：改为获得6层。"
-        }
-    ],
-    "move_stones": [
+        },
         {
-            "id": 7030420,
-            "name": "种皮爆裂",
-            "icon_id": "102025",
+            "id": 7020470,
+            "name": "追打",
+            "icon_id": "703004",
             "move_type": {
-                "id": 2,
-                "name": "Grass",
+                "id": 1,
+                "name": "Normal",
                 "localized": {
-                    "zh": "草"
+                    "zh": "普通"
                 }
             },
             "localized": {
                 "zh": {
-                    "name": "种皮爆裂",
-                    "description": "造成物伤，2连击。"
+                    "name": "追打",
+                    "description": "造成魔伤，1连击，应对状态：本技能变为3连击。"
                 }
             },
-            "move_category": "Physical Attack",
-            "energy_cost": 1,
-            "power": 25,
-            "description": "造成物伤，2连击。"
-        },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 75,
+            "description": "造成魔伤，1连击，应对状态：本技能变为3连击。"
+        }
+    ],
+    "move_stones": [
         {
             "id": 7030440,
             "name": "棘突",
@@ -474,28 +458,6 @@
             "description": "为场下每个精灵回复3能量。"
         },
         {
-            "id": 7030320,
-            "name": "酶浓度调整",
-            "icon_id": "102019",
-            "move_type": {
-                "id": 2,
-                "name": "Grass",
-                "localized": {
-                    "zh": "草"
-                }
-            },
-            "localized": {
-                "zh": {
-                    "name": "酶浓度调整",
-                    "description": "减伤80%，应对攻击：自己回复20%生命。"
-                }
-            },
-            "move_category": "Defense",
-            "energy_cost": 3,
-            "power": null,
-            "description": "减伤80%，应对攻击：自己回复20%生命。"
-        },
-        {
             "id": 7030520,
             "name": "纤维化",
             "icon_id": "102036",
@@ -518,136 +480,26 @@
             "description": "减伤80%，应对攻击：自己获得物防+70%。"
         },
         {
-            "id": 7080280,
-            "name": "泥巴喷射",
-            "icon_id": "107024",
+            "id": 7030320,
+            "name": "酶浓度调整",
+            "icon_id": "102019",
             "move_type": {
-                "id": 6,
-                "name": "Ground",
+                "id": 2,
+                "name": "Grass",
                 "localized": {
-                    "zh": "地"
+                    "zh": "草"
                 }
             },
             "localized": {
                 "zh": {
-                    "name": "泥巴喷射",
-                    "description": "对敌方精灵造成魔法伤害。"
+                    "name": "酶浓度调整",
+                    "description": "减伤80%，应对攻击：自己回复20%生命。"
                 }
             },
-            "move_category": "Magic Attack",
-            "energy_cost": 1,
-            "power": 60,
-            "description": "对敌方精灵造成魔法伤害。"
-        },
-        {
-            "id": 7080350,
-            "name": "震击",
-            "icon_id": "107032",
-            "move_type": {
-                "id": 6,
-                "name": "Ground",
-                "localized": {
-                    "zh": "地"
-                }
-            },
-            "localized": {
-                "zh": {
-                    "name": "震击",
-                    "description": "造成物伤，敌方获得连击数-3。"
-                }
-            },
-            "move_category": "Physical Attack",
+            "move_category": "Defense",
             "energy_cost": 3,
-            "power": 80,
-            "description": "造成物伤，敌方获得连击数-3。"
-        },
-        {
-            "id": 7080230,
-            "name": "硬化",
-            "icon_id": "708020",
-            "move_type": {
-                "id": 6,
-                "name": "Ground",
-                "localized": {
-                    "zh": "地"
-                }
-            },
-            "localized": {
-                "zh": {
-                    "name": "硬化",
-                    "description": "减伤90%，若上次使用攻击技则本技能能耗-2，应对攻击。"
-                }
-            },
-            "move_category": "Defense",
-            "energy_cost": 2,
             "power": null,
-            "description": "减伤90%，若上次使用攻击技则本技能能耗-2，应对攻击。"
-        },
-        {
-            "id": 7080220,
-            "name": "刺盾",
-            "icon_id": "708019",
-            "move_type": {
-                "id": 6,
-                "name": "Ground",
-                "localized": {
-                    "zh": "地"
-                }
-            },
-            "localized": {
-                "zh": {
-                    "name": "刺盾",
-                    "description": "减伤70%，应对攻击：敌方获得物攻-70%。"
-                }
-            },
-            "move_category": "Defense",
-            "energy_cost": 2,
-            "power": null,
-            "description": "减伤70%，应对攻击：敌方获得物攻-70%。"
-        },
-        {
-            "id": 7020550,
-            "name": "魔能爆",
-            "icon_id": "702061",
-            "move_type": {
-                "id": 1,
-                "name": "Normal",
-                "localized": {
-                    "zh": "普通"
-                }
-            },
-            "localized": {
-                "zh": {
-                    "name": "魔能爆",
-                    "description": "造成魔伤，使用时消耗所有能量，消耗越高，伤害越高。"
-                }
-            },
-            "move_category": "Magic Attack",
-            "energy_cost": 0,
-            "power": 1,
-            "description": "造成魔伤，使用时消耗所有能量，消耗越高，伤害越高。"
-        },
-        {
-            "id": 7020460,
-            "name": "连续爪击",
-            "icon_id": "702048",
-            "move_type": {
-                "id": 1,
-                "name": "Normal",
-                "localized": {
-                    "zh": "普通"
-                }
-            },
-            "localized": {
-                "zh": {
-                    "name": "连续爪击",
-                    "description": "造成物伤，2连击，应对状态：本次技能连击数翻倍。"
-                }
-            },
-            "move_category": "Physical Attack",
-            "energy_cost": 2,
-            "power": 30,
-            "description": "造成物伤，2连击，应对状态：本次技能连击数翻倍。"
+            "description": "减伤80%，应对攻击：自己回复20%生命。"
         },
         {
             "id": 7020640,
@@ -672,9 +524,9 @@
             "description": "自己回复30%生命。"
         },
         {
-            "id": 7020860,
-            "name": "复写",
-            "icon_id": "702085",
+            "id": 7020700,
+            "name": "伺机而动",
+            "icon_id": "702041",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -684,19 +536,19 @@
             },
             "localized": {
                 "zh": {
-                    "name": "复写",
-                    "description": "每回合随机变成自己未携带的技能，且该技能能耗-2。"
+                    "name": "伺机而动",
+                    "description": "下一次攻击时，技能威力+70。"
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
-            "description": "每回合随机变成自己未携带的技能，且该技能能耗-2。"
+            "description": "下一次攻击时，技能威力+70。"
         },
         {
-            "id": 7021090,
-            "name": "热身运动",
-            "icon_id": "201091",
+            "id": 7020660,
+            "name": "激怒",
+            "icon_id": "702072",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -706,14 +558,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "热身运动",
-                    "description": "自己获得连击数+3。"
+                    "name": "激怒",
+                    "description": "敌方除本回合使用的技能，其他技能能耗+3，持续3回合。"
                 }
             },
             "move_category": "Status",
-            "energy_cost": 2,
+            "energy_cost": 3,
             "power": null,
-            "description": "自己获得连击数+3。"
+            "description": "敌方除本回合使用的技能，其他技能能耗+3，持续3回合。"
         },
         {
             "id": 7020810,
@@ -736,17 +588,171 @@
             "energy_cost": 5,
             "power": null,
             "description": "减伤100%，应对攻击：减免的伤害变为回复自己生命，且本技能能耗永久+2。"
+        },
+        {
+            "id": 7021120,
+            "name": "嗜痛",
+            "icon_id": "301096",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "嗜痛",
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
+                }
+            },
+            "move_category": "Defense",
+            "energy_cost": 2,
+            "power": null,
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
+        },
+        {
+            "id": 7020800,
+            "name": "血气",
+            "icon_id": "301053",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "血气",
+                    "description": "减伤60%，应对攻击：本回合受到致命伤害时，保留1生命值。"
+                }
+            },
+            "move_category": "Defense",
+            "energy_cost": 2,
+            "power": null,
+            "description": "减伤60%，应对攻击：本回合受到致命伤害时，保留1生命值。"
+        },
+        {
+            "id": 7120220,
+            "name": "鸩毒",
+            "icon_id": "111019",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "鸩毒",
+                    "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 75,
+            "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
+        },
+        {
+            "id": 7020460,
+            "name": "连续爪击",
+            "icon_id": "702048",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "连续爪击",
+                    "description": "造成物伤，2连击，应对状态：本次技能连击数翻倍。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 2,
+            "power": 30,
+            "description": "造成物伤，2连击，应对状态：本次技能连击数翻倍。"
+        },
+        {
+            "id": 7020740,
+            "name": "棘刺",
+            "icon_id": "702063",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "棘刺",
+                    "description": "敌方获得1层棘刺印记。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "敌方获得1层棘刺印记。"
+        },
+        {
+            "id": 7020850,
+            "name": "取念",
+            "icon_id": "702039",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "取念",
+                    "description": "每回合随机变成敌方任意精灵的技能，且该技能能耗-2。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 0,
+            "power": null,
+            "description": "每回合随机变成敌方任意精灵的技能，且该技能能耗-2。"
+        },
+        {
+            "id": 7120250,
+            "name": "不可接触",
+            "icon_id": "111022",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "不可接触",
+                    "description": "减伤50%，敌方每有1层中毒效果，本技能减伤+10%，应对攻击。"
+                }
+            },
+            "move_category": "Defense",
+            "energy_cost": 1,
+            "power": null,
+            "description": "减伤50%，敌方每有1层中毒效果，本技能减伤+10%，应对攻击。"
         }
     ],
     "legacy_moves": [
         {
             "monster_id": 3565,
             "type_id": 1,
-            "move_id": 7020790,
+            "move_id": 7020880,
             "move": {
-                "id": 7020790,
-                "name": "防反",
-                "icon_id": "703005",
+                "id": 7020880,
+                "name": "拍击",
+                "icon_id": "101070",
                 "move_type": {
                     "id": 1,
                     "name": "Normal",
@@ -756,14 +762,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "防反",
-                        "description": "减伤70%，应对攻击：自己获得物攻和魔攻+70%。"
+                        "name": "拍击",
+                        "description": "对敌方精灵造成魔法伤害。"
                     }
                 },
-                "move_category": "Defense",
-                "energy_cost": 2,
-                "power": null,
-                "description": "减伤70%，应对攻击：自己获得物攻和魔攻+70%。"
+                "move_category": "Magic Attack",
+                "energy_cost": 1,
+                "power": 65,
+                "description": "对敌方精灵造成魔法伤害。"
             }
         },
         {
@@ -1233,7 +1239,7 @@
                 "monsters": [
                     {
                         "id": 3565,
-                        "species_id": 3565,
+                        "species_id": 438,
                         "name": "lishu",
                         "form": "default",
                         "localized": {
@@ -1243,13 +1249,19 @@
                         },
                         "is_leader_form": false,
                         "main_type": {
+                            "id": 1,
+                            "name": "Normal",
+                            "localized": {
+                                "zh": "普通"
+                            }
+                        },
+                        "sub_type": {
                             "id": 10,
                             "name": "Poison",
                             "localized": {
                                 "zh": "毒"
                             }
                         },
-                        "sub_type": null,
                         "evolution_conditions": []
                     }
                 ],
@@ -1260,7 +1272,7 @@
                 "monsters": [
                     {
                         "id": 3566,
-                        "species_id": 3566,
+                        "species_id": 439,
                         "name": "kelisishu",
                         "form": "default",
                         "localized": {
@@ -1270,13 +1282,19 @@
                         },
                         "is_leader_form": false,
                         "main_type": {
+                            "id": 1,
+                            "name": "Normal",
+                            "localized": {
+                                "zh": "普通"
+                            }
+                        },
+                        "sub_type": {
                             "id": 10,
                             "name": "Poison",
                             "localized": {
                                 "zh": "毒"
                             }
                         },
-                        "sub_type": null,
                         "evolution_conditions": [
                             "等级达到 32 级"
                         ]
@@ -1287,30 +1305,32 @@
         ],
         "max_depth": 1,
         "total_unique_monsters": 2,
-        "species_id": 3565,
+        "species_id": 438,
         "current_monster_id": 3565
     },
     "world_profile": {
-        "type_desc": null,
-        "description_habitat": null,
-        "introduction": "身体会散发烤栗子一样的香甜气味来吸引异性，其身体粘液是洛克制作饼干的材料，香甜又有嚼劲，广受欢迎。 有洛克曾研究过不同天气和环境里其粘液的味道变化，立志写出《栗鼠粘液美味大全》。",
+        "type_desc": "烤栗精灵",
+        "description_habitat": "行踪神秘",
+        "introduction": "身体会散发烤栗子一样的香甜气味，同行的另一名研究员舔过之后中毒几日没有好转。有洛克曾研究过不同天气和环境里其粘液的味道变化，立志写出《栗鼠粘液美味大全》。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
         ],
         "movement_type": "步行",
         "classis_id": 6,
         "classis_name": "自然类精灵",
-        "handbook_area_ids": []
+        "handbook_area_ids": [
+            1
+        ]
     },
     "catch_info": {
-        "catch_threshold": null,
+        "catch_threshold": 1000,
         "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3565001,
         "pet_id": 3565001,
-        "name": "里奥",
+        "name": null,
         "model_id": 3565001,
         "hatch_data": 28800,
         "weight_low": 2013,
@@ -1318,21 +1338,15 @@
         "height_low": 16,
         "height_high": 21,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3565001,
                 "pet_id": 3565001,
-                "name": "里奥",
+                "name": null,
                 "model_id": 3565001,
                 "hatch_data": 28800,
                 "weight_low": 2013,
@@ -1340,21 +1354,63 @@
                 "height_low": 16,
                 "height_high": 21,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3565002,
+                "pet_id": 3565002,
+                "name": null,
+                "model_id": 3565002,
+                "hatch_data": 28800,
+                "weight_low": 2013,
+                "weight_high": 3040,
+                "height_low": 16,
+                "height_high": 21,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3565003,
+                "pet_id": 3565003,
+                "name": null,
+                "model_id": 3565001,
+                "hatch_data": 300,
+                "weight_low": 2013,
+                "weight_high": 3040,
+                "height_low": 16,
+                "height_high": 21,
+                "precious_egg_type": 1,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3565004,
+                "pet_id": 3565004,
+                "name": null,
+                "model_id": 3565002,
+                "hatch_data": 28800,
+                "weight_low": 2013,
+                "weight_high": 3040,
+                "height_low": 16,
+                "height_high": 21,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 35650001,
                 "pet_id": 35650001,
-                "name": "里奥",
+                "name": null,
                 "model_id": 3565001,
                 "hatch_data": 300,
                 "weight_low": 2013,
@@ -1372,8 +1428,7 @@
     "breeding_profile": {
         "pet_base_id": 3565,
         "egg_groups": [
-            6,
-            10
+            6
         ],
         "proportion_male": 5,
         "male_rate": 50,

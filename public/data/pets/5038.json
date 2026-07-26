@@ -1,7 +1,7 @@
 {
     "id": 5038,
     "name": "yajiji_shouling",
-    "form": "鸭吉吉国王",
+    "form": "国王",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -27,8 +27,8 @@
     },
     "implemented": true,
     "base_hp": 137,
-    "base_phy_atk": 50,
-    "base_mag_atk": 134,
+    "base_phy_atk": 64,
+    "base_mag_atk": 157,
     "base_phy_def": 66,
     "base_mag_def": 82,
     "base_spd": 100,
@@ -37,7 +37,7 @@
         "id": 11,
         "name": "yajiji",
         "localized": {
-            "zh": "水灵"
+            "zh": "鸭吉吉"
         }
     },
     "trait": {
@@ -54,9 +54,9 @@
     },
     "move_pool": [
         {
-            "id": 7020370,
-            "name": "猛烈撞击",
-            "icon_id": "700001",
+            "id": 7020630,
+            "name": "魔法增效",
+            "icon_id": "700020",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -66,41 +66,19 @@
             },
             "localized": {
                 "zh": {
-                    "name": "猛烈撞击",
-                    "description": "对敌方精灵造成物理伤害。"
-                }
-            },
-            "move_category": "Physical Attack",
-            "energy_cost": 1,
-            "power": 65,
-            "description": "对敌方精灵造成物理伤害。"
-        },
-        {
-            "id": 7020620,
-            "name": "力量增效",
-            "icon_id": "700021",
-            "move_type": {
-                "id": 1,
-                "name": "Normal",
-                "localized": {
-                    "zh": "普通"
-                }
-            },
-            "localized": {
-                "zh": {
-                    "name": "力量增效",
-                    "description": "自己获得物攻+100%。"
+                    "name": "魔法增效",
+                    "description": "自己获得魔攻+70%。"
                 }
             },
             "move_category": "Status",
-            "energy_cost": 1,
+            "energy_cost": 0,
             "power": null,
-            "description": "自己获得物攻+100%。"
+            "description": "自己获得魔攻+70%。"
         },
         {
-            "id": 7020390,
-            "name": "扫尾",
-            "icon_id": "702047",
+            "id": 7020890,
+            "name": "音波弹",
+            "icon_id": "101071",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -110,14 +88,36 @@
             },
             "localized": {
                 "zh": {
-                    "name": "扫尾",
-                    "description": "对敌方精灵造成物理伤害。"
+                    "name": "音波弹",
+                    "description": "造成魔伤，1连击。"
                 }
             },
-            "move_category": "Physical Attack",
-            "energy_cost": 2,
-            "power": 90,
-            "description": "对敌方精灵造成物理伤害。"
+            "move_category": "Magic Attack",
+            "energy_cost": 1,
+            "power": 60,
+            "description": "造成魔伤，1连击。"
+        },
+        {
+            "id": 7020880,
+            "name": "拍击",
+            "icon_id": "101070",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "拍击",
+                    "description": "对敌方精灵造成魔法伤害。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 1,
+            "power": 65,
+            "description": "对敌方精灵造成魔法伤害。"
         },
         {
             "id": 7020780,
@@ -164,9 +164,9 @@
             "description": "自己回复30%生命。"
         },
         {
-            "id": 7020480,
-            "name": "旋转突击",
-            "icon_id": "702049",
+            "id": 7020900,
+            "name": "许愿星",
+            "icon_id": "101072",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -176,14 +176,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "旋转突击",
-                    "description": "造成物伤，3连击。"
+                    "name": "许愿星",
+                    "description": "对敌方精灵造成魔法伤害。"
                 }
             },
-            "move_category": "Physical Attack",
+            "move_category": "Magic Attack",
             "energy_cost": 3,
-            "power": 35,
-            "description": "造成物伤，3连击。"
+            "power": 110,
+            "description": "对敌方精灵造成魔法伤害。"
         },
         {
             "id": 7020670,
@@ -230,9 +230,9 @@
             "description": "减伤60%，应对攻击：敌方脱离。"
         },
         {
-            "id": 7020430,
-            "name": "见招拆招",
-            "icon_id": "201008",
+            "id": 7020600,
+            "name": "蓄能轰击",
+            "icon_id": "201022",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -242,14 +242,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "见招拆招",
-                    "description": "造成物伤，若上回合使用状态技能，本次技能威力+55。"
+                    "name": "蓄能轰击",
+                    "description": "造成魔伤，每使用1次普通系技能，本技能能耗永久-2。"
                 }
             },
-            "move_category": "Physical Attack",
-            "energy_cost": 2,
-            "power": 65,
-            "description": "造成物伤，若上回合使用状态技能，本次技能威力+55。"
+            "move_category": "Magic Attack",
+            "energy_cost": 6,
+            "power": 130,
+            "description": "造成魔伤，每使用1次普通系技能，本技能能耗永久-2。"
         },
         {
             "id": 7020700,
@@ -274,9 +274,9 @@
             "description": "下一次攻击时，技能威力+70。"
         },
         {
-            "id": 7021090,
-            "name": "热身运动",
-            "icon_id": "201091",
+            "id": 7021040,
+            "name": "鼓劲",
+            "icon_id": "101086",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -286,19 +286,19 @@
             },
             "localized": {
                 "zh": {
-                    "name": "热身运动",
-                    "description": "自己获得连击数+3。"
+                    "name": "鼓劲",
+                    "description": "自己获得魔防+170%。"
                 }
             },
             "move_category": "Status",
-            "energy_cost": 2,
+            "energy_cost": 3,
             "power": null,
-            "description": "自己获得连击数+3。"
+            "description": "自己获得魔防+170%。"
         },
         {
-            "id": 7020990,
-            "name": "吨位压制",
-            "icon_id": "101081",
+            "id": 7020550,
+            "name": "魔能爆",
+            "icon_id": "702061",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -308,14 +308,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "吨位压制",
-                    "description": "造成物伤，敌方体重越低，威力越高。"
+                    "name": "魔能爆",
+                    "description": "造成魔伤，使用时消耗所有能量，消耗越高，伤害越高。"
                 }
             },
-            "move_category": "Physical Attack",
-            "energy_cost": 3,
-            "power": null,
-            "description": "造成物伤，敌方体重越低，威力越高。"
+            "move_category": "Magic Attack",
+            "energy_cost": 0,
+            "power": 1,
+            "description": "造成魔伤，使用时消耗所有能量，消耗越高，伤害越高。"
         },
         {
             "id": 7020690,
@@ -342,9 +342,9 @@
     ],
     "move_stones": [
         {
-            "id": 7020790,
-            "name": "防反",
-            "icon_id": "703005",
+            "id": 7021120,
+            "name": "嗜痛",
+            "icon_id": "301096",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -354,14 +354,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "防反",
-                    "description": "减伤70%，应对攻击：自己获得物攻和魔攻+70%。"
+                    "name": "嗜痛",
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤70%，应对攻击：自己获得物攻和魔攻+70%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7020760,
@@ -386,9 +386,9 @@
             "description": "敌方获得全技能能耗+1，应对防御：改为能耗+3。"
         },
         {
-            "id": 7020860,
-            "name": "复写",
-            "icon_id": "702085",
+            "id": 7020840,
+            "name": "借用",
+            "icon_id": "700029",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -398,19 +398,19 @@
             },
             "localized": {
                 "zh": {
-                    "name": "复写",
-                    "description": "每回合随机变成自己未携带的技能，且该技能能耗-2。"
+                    "name": "借用",
+                    "description": "每回合随机变成己方队伍中其他精灵的技能。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 0,
             "power": null,
-            "description": "每回合随机变成自己未携带的技能，且该技能能耗-2。"
+            "description": "每回合随机变成己方队伍中其他精灵的技能。"
         },
         {
-            "id": 7021080,
-            "name": "三连破",
-            "icon_id": "201090",
+            "id": 7021030,
+            "name": "加固",
+            "icon_id": "101085",
             "move_type": {
                 "id": 1,
                 "name": "Normal",
@@ -420,14 +420,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "三连破",
-                    "description": "自己获得物攻+30%，3连击。"
+                    "name": "加固",
+                    "description": "自己获得物防+140%。"
                 }
             },
             "move_category": "Status",
-            "energy_cost": 1,
+            "energy_cost": 2,
             "power": null,
-            "description": "自己获得物攻+30%，3连击。"
+            "description": "自己获得物防+140%。"
         },
         {
             "id": 7020710,
@@ -452,9 +452,9 @@
             "description": "自己获得1层攻击印记。"
         },
         {
-            "id": 7150210,
-            "name": "风矢",
-            "icon_id": "114016",
+            "id": 7150220,
+            "name": "回旋风暴",
+            "icon_id": "114017",
             "move_type": {
                 "id": 13,
                 "name": "Flying",
@@ -464,36 +464,36 @@
             },
             "localized": {
                 "zh": {
-                    "name": "风矢",
-                    "description": "对敌方精灵造成物理伤害。"
+                    "name": "回旋风暴",
+                    "description": "对敌方精灵造成魔法伤害。"
                 }
             },
-            "move_category": "Physical Attack",
-            "energy_cost": 2,
-            "power": 80,
-            "description": "对敌方精灵造成物理伤害。"
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 100,
+            "description": "对敌方精灵造成魔法伤害。"
         },
         {
-            "id": 7020420,
-            "name": "冲撞",
-            "icon_id": "702058",
+            "id": 7150080,
+            "name": "翼击",
+            "icon_id": "715004",
             "move_type": {
-                "id": 1,
-                "name": "Normal",
+                "id": 13,
+                "name": "Flying",
                 "localized": {
-                    "zh": "普通"
+                    "zh": "翼"
                 }
             },
             "localized": {
                 "zh": {
-                    "name": "冲撞",
-                    "description": "造成物伤，回合结束时，本技能能耗永久-1。"
+                    "name": "翼击",
+                    "description": "造成魔伤，迅捷。"
                 }
             },
-            "move_category": "Physical Attack",
-            "energy_cost": 7,
-            "power": 135,
-            "description": "造成物伤，回合结束时，本技能能耗永久-1。"
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 50,
+            "description": "造成魔伤，迅捷。"
         },
         {
             "id": 7150120,
@@ -535,7 +535,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "迅捷，驱散敌方1种增益。"
         },
@@ -606,9 +606,9 @@
             "description": "敌方获得双防-70%，应对防御：自己额外获得物攻+70%。"
         },
         {
-            "id": 7140230,
-            "name": "缠丝劲",
-            "icon_id": "113027",
+            "id": 7140210,
+            "name": "气波",
+            "icon_id": "113025",
             "move_type": {
                 "id": 12,
                 "name": "Fighting",
@@ -618,14 +618,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "缠丝劲",
-                    "description": "造成物伤，2连击。"
+                    "name": "气波",
+                    "description": "对敌方精灵造成魔法伤害。"
                 }
             },
-            "move_category": "Physical Attack",
-            "energy_cost": 1,
-            "power": 25,
-            "description": "造成物伤，2连击。"
+            "move_category": "Magic Attack",
+            "energy_cost": 0,
+            "power": 40,
+            "description": "对敌方精灵造成魔法伤害。"
         },
         {
             "id": 7021160,
@@ -648,6 +648,50 @@
             "energy_cost": 5,
             "power": null,
             "description": "敌方获得全技能能耗+3，应对防御：额外造成打断，且敌方下回合获得眩晕。"
+        },
+        {
+            "id": 7150370,
+            "name": "超声波",
+            "icon_id": "114031",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "超声波",
+                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+        },
+        {
+            "id": 7150310,
+            "name": "羽翼庇护",
+            "icon_id": "114027",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "羽翼庇护",
+                    "description": "减伤70%，应对攻击：自己获得连击数+2。"
+                }
+            },
+            "move_category": "Defense",
+            "energy_cost": 2,
+            "power": null,
+            "description": "减伤70%，应对攻击：自己获得连击数+2。"
         }
     ],
     "legacy_moves": [
@@ -762,11 +806,11 @@
         {
             "monster_id": 5038,
             "type_id": 5,
-            "move_id": 7060230,
+            "move_id": 7060200,
             "move": {
-                "id": 7060230,
-                "name": "透射",
-                "icon_id": "105015",
+                "id": 7060200,
+                "name": "虹光冲击",
+                "icon_id": "105012",
                 "move_type": {
                     "id": 5,
                     "name": "Light",
@@ -776,14 +820,14 @@
                 },
                 "localized": {
                     "zh": {
-                        "name": "透射",
-                        "description": "对敌方精灵造成物理伤害。"
+                        "name": "虹光冲击",
+                        "description": "对敌方精灵造成魔法伤害。"
                     }
                 },
-                "move_category": "Physical Attack",
-                "energy_cost": 1,
-                "power": 60,
-                "description": "对敌方精灵造成物理伤害。"
+                "move_category": "Magic Attack",
+                "energy_cost": 3,
+                "power": 100,
+                "description": "对敌方精灵造成魔法伤害。"
             }
         },
         {
@@ -1147,7 +1191,7 @@
                         "id": 3012,
                         "species_id": 11,
                         "name": "yajiji",
-                        "form": "鸭吉吉",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉"
@@ -1168,7 +1212,7 @@
                         "id": 3036,
                         "species_id": 11,
                         "name": "yaji",
-                        "form": "鸭吉吉",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉"
@@ -1189,7 +1233,7 @@
                         "id": 3452,
                         "species_id": 11,
                         "name": "yajiji_jijiya",
-                        "form": "鸭吉吉",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉"
@@ -1210,7 +1254,7 @@
                         "id": 3453,
                         "species_id": 11,
                         "name": "dengyidengya",
-                        "form": "鸭吉吉",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉"
@@ -1231,7 +1275,7 @@
                         "id": 3495,
                         "species_id": 11,
                         "name": "yajiji_ranleya",
-                        "form": "鸭吉吉",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉"
@@ -1252,7 +1296,7 @@
                         "id": 3742,
                         "species_id": 11,
                         "name": "yajiji_qilaiya",
-                        "form": "鸭吉吉",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉"
@@ -1280,7 +1324,7 @@
                         "id": 4012,
                         "species_id": 11,
                         "name": "yajiji_shouling",
-                        "form": "鸭吉吉国王",
+                        "form": "国王",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉国王"
@@ -1301,7 +1345,7 @@
                         "id": 5006,
                         "species_id": 11,
                         "name": "yajiji_shouling",
-                        "form": "鸭吉吉国王",
+                        "form": "国王",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉国王"
@@ -1322,7 +1366,7 @@
                         "id": 5036,
                         "species_id": 11,
                         "name": "yajiji_shouling",
-                        "form": "鸭吉吉国王",
+                        "form": "国王",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉国王"
@@ -1343,7 +1387,7 @@
                         "id": 5037,
                         "species_id": 11,
                         "name": "yajiji_shouling",
-                        "form": "鸭吉吉国王",
+                        "form": "国王",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉国王"
@@ -1364,7 +1408,7 @@
                         "id": 5038,
                         "species_id": 11,
                         "name": "yajiji_shouling",
-                        "form": "鸭吉吉国王",
+                        "form": "国王",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉国王"
@@ -1385,7 +1429,7 @@
                         "id": 5039,
                         "species_id": 11,
                         "name": "yajiji_shouling",
-                        "form": "鸭吉吉国王",
+                        "form": "国王",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉国王"
@@ -1406,7 +1450,7 @@
                         "id": 5052,
                         "species_id": 11,
                         "name": "yajiji_shouling",
-                        "form": "鸭吉吉国王",
+                        "form": "国王",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉国王"
@@ -1432,8 +1476,8 @@
         "current_monster_id": 5038
     },
     "world_profile": {
-        "type_desc": "草之灵",
-        "description_habitat": "鸭吉吉",
+        "type_desc": "鸭仔精灵",
+        "description_habitat": "常见于山林、河岸",
         "introduction": "啪嗒啪嗒，鸭吉吉国王来了。那边的，别看怀表了，让时间听国王的；这边的毛太蓬松了，站紧实一点，别挡着国王的道了。嗯？还有你，既然来了我们鸭吉吉王国，记得要给过路费鸭！",
         "refresh_locations": [],
         "movement_type": "步行",

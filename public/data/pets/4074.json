@@ -670,6 +670,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7050490,
+            "name": "沉溺",
+            "icon_id": "104037",
+            "move_type": {
+                "id": 4,
+                "name": "Water",
+                "localized": {
+                    "zh": "水"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "沉溺",
+                    "description": "造成物伤，天气为雨天时，本技能能耗-2。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 4,
+            "power": 110,
+            "description": "造成物伤，天气为雨天时，本技能能耗-2。"
         }
     ],
     "legacy_moves": [
@@ -1169,7 +1191,7 @@
                         "id": 3279,
                         "species_id": 18,
                         "name": "xuerongniao_chun",
-                        "form": "雪绒鸟",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雪绒鸟"
@@ -1190,7 +1212,7 @@
                         "id": 3280,
                         "species_id": 18,
                         "name": "xuerongniao_xia",
-                        "form": "雪绒鸟",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雪绒鸟"
@@ -1211,7 +1233,7 @@
                         "id": 3281,
                         "species_id": 18,
                         "name": "xuerongniao_qiu",
-                        "form": "雪绒鸟",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雪绒鸟"
@@ -1232,7 +1254,7 @@
                         "id": 3533,
                         "species_id": 18,
                         "name": "xuerongniao_dong",
-                        "form": "雪绒鸟",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "雪绒鸟"
@@ -1568,18 +1590,39 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": []
+                    },
+                    {
+                        "id": 8111,
+                        "species_id": 20,
+                        "name": "lanniao_shouling",
+                        "form": "霜翼领主",
+                        "localized": {
+                            "zh": {
+                                "name": "霜翼领主"
+                            }
+                        },
+                        "is_leader_form": true,
+                        "main_type": {
+                            "id": 13,
+                            "name": "Flying",
+                            "localized": {
+                                "zh": "翼"
+                            }
+                        },
+                        "sub_type": null,
+                        "evolution_conditions": []
                     }
                 ]
             }
         ],
         "max_depth": 3,
-        "total_unique_monsters": 17,
+        "total_unique_monsters": 18,
         "species_id": 20,
         "current_monster_id": 4074
     },
     "world_profile": {
-        "type_desc": "火之灵",
-        "description_habitat": "鸟仔精灵",
+        "type_desc": "长羽精灵",
+        "description_habitat": "常见于草地、山林、雪山",
         "introduction": "霜翼领主会在冬季的巡视领地，将空气中尚未凝结的水滴、冰晶吸附，收纳于羽翼之中。仅需再次振翅，就可以把羽翼中的低温能量快速释放，使区域的气温骤降。",
         "refresh_locations": [
             "暂时找不到这只精灵的踪迹噢！"

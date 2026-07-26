@@ -1,7 +1,7 @@
 {
     "id": 3530,
     "name": "diyinhaoyu",
-    "form": "圆号鱼",
+    "form": "default",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -37,7 +37,7 @@
         "id": 184,
         "name": "diyinhaoyu",
         "localized": {
-            "zh": "尖角蜘蛛"
+            "zh": "圆号鱼"
         }
     },
     "trait": {
@@ -1125,7 +1125,7 @@
                         "id": 3529,
                         "species_id": 183,
                         "name": "haoeryu",
-                        "form": "号儿鱼",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "号儿鱼"
@@ -1152,7 +1152,7 @@
                         "id": 3530,
                         "species_id": 184,
                         "name": "diyinhaoyu",
-                        "form": "圆号鱼",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "圆号鱼"
@@ -1181,8 +1181,8 @@
         "current_monster_id": 3530
     },
     "world_profile": {
-        "type_desc": "巨噬针鼹",
-        "description_habitat": "常见于草地、树林、山洞",
+        "type_desc": "圆号精灵",
+        "description_habitat": "常见于海面、河面",
         "introduction": "会专门去矿物质丰富的水域，通过吸收矿物质来调整背部结构，达到调音的目的。群居，每天早上起来一齐练声，巨大的合奏声能唤醒周围水域的所有生物，喜欢安静的精灵们不愿意住在它们旁边。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1197,7 +1197,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 525,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

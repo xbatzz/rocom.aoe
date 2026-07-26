@@ -1,7 +1,7 @@
 {
     "id": 3438,
     "name": "menhyou",
-    "form": "梦游",
+    "form": "default",
     "main_type": {
         "id": 15,
         "name": "Ghost",
@@ -37,7 +37,7 @@
         "id": 57,
         "name": "menhyou",
         "localized": {
-            "zh": "常见于城镇周边"
+            "zh": "梦游"
         }
     },
     "trait": {
@@ -399,13 +399,13 @@
             "localized": {
                 "zh": {
                     "name": "伪造账单",
-                    "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+                    "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "若敌方本回合回复生命，改为失去2倍。先手+1。"
+            "description": "若敌方本回合回复生命，改为失去2倍（含溢出的回复量）。先手+1。"
         },
         {
             "id": 7180330,
@@ -648,6 +648,50 @@
             "energy_cost": 3,
             "power": 80,
             "description": "造成魔伤，对​混血精灵造成​伤害​+50%。"
+        },
+        {
+            "id": 7160350,
+            "name": "可爱",
+            "icon_id": "115029",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "可爱",
+                    "description": "对敌方精灵造成魔法伤害。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 100,
+            "description": "对敌方精灵造成魔法伤害。"
+        },
+        {
+            "id": 7170280,
+            "name": "魔镜",
+            "icon_id": "116023",
+            "move_type": {
+                "id": 15,
+                "name": "Ghost",
+                "localized": {
+                    "zh": "幽"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "魔镜",
+                    "description": "敌方获得魔防​-50%，​且​失​去​3​能量​。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "敌方获得魔防​-50%，​且​失​去​3​能量​。"
         }
     ],
     "legacy_moves": [
@@ -1147,7 +1191,7 @@
                         "id": 3438,
                         "species_id": 57,
                         "name": "menhyou",
-                        "form": "梦游",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "梦游"
@@ -1163,6 +1207,33 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": []
+                    },
+                    {
+                        "id": 3440,
+                        "species_id": 57,
+                        "name": "mengyou_pink",
+                        "form": "default",
+                        "localized": {
+                            "zh": {
+                                "name": "梦游"
+                            }
+                        },
+                        "is_leader_form": false,
+                        "main_type": {
+                            "id": 5,
+                            "name": "Light",
+                            "localized": {
+                                "zh": "光"
+                            }
+                        },
+                        "sub_type": {
+                            "id": 15,
+                            "name": "Ghost",
+                            "localized": {
+                                "zh": "幽"
+                            }
+                        },
+                        "evolution_conditions": []
                     }
                 ],
                 "is_leader_stage": false
@@ -1174,7 +1245,7 @@
                         "id": 3439,
                         "species_id": 58,
                         "name": "mengyouyou",
-                        "form": "梦悠悠",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "梦悠悠"
@@ -1192,18 +1263,47 @@
                         "evolution_conditions": [
                             "等级达到 32 级"
                         ]
+                    },
+                    {
+                        "id": 3441,
+                        "species_id": 58,
+                        "name": "mengyouyou_pink",
+                        "form": "default",
+                        "localized": {
+                            "zh": {
+                                "name": "梦悠悠"
+                            }
+                        },
+                        "is_leader_form": false,
+                        "main_type": {
+                            "id": 5,
+                            "name": "Light",
+                            "localized": {
+                                "zh": "光"
+                            }
+                        },
+                        "sub_type": {
+                            "id": 15,
+                            "name": "Ghost",
+                            "localized": {
+                                "zh": "幽"
+                            }
+                        },
+                        "evolution_conditions": [
+                            "等级达到 32 级"
+                        ]
                     }
                 ],
                 "is_leader_stage": false
             }
         ],
         "max_depth": 1,
-        "total_unique_monsters": 2,
+        "total_unique_monsters": 4,
         "species_id": 57,
         "current_monster_id": 3438
     },
     "world_profile": {
-        "type_desc": "常见于草地、山林、雪山",
+        "type_desc": "睡衣精灵",
         "description_habitat": "常见于草地",
         "introduction": "不吃不喝，大部分时间都在睡觉的奇怪生物，常呆在旧衣服堆里。喜欢群居生活，如果太长时间没有感受到其他生物的活动痕迹，会变得非常怨恨和暴躁。",
         "refresh_locations": [
@@ -1214,18 +1314,19 @@
         "classis_name": "自然类精灵",
         "handbook_area_ids": [
             1,
-            2
+            2,
+            3
         ]
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3438001,
         "pet_id": 3438001,
-        "name": "蹦蹦种子（首领血脉）",
+        "name": null,
         "model_id": 3438001,
         "hatch_data": 28800,
         "weight_low": 298,
@@ -1233,21 +1334,15 @@
         "height_low": 21,
         "height_high": 25,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3438001,
                 "pet_id": 3438001,
-                "name": "蹦蹦种子（首领血脉）",
+                "name": null,
                 "model_id": 3438001,
                 "hatch_data": 28800,
                 "weight_low": 298,
@@ -1255,21 +1350,31 @@
                 "height_low": 21,
                 "height_high": 25,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3438002,
+                "pet_id": 3438002,
+                "name": null,
+                "model_id": 3438001,
+                "hatch_data": 300,
+                "weight_low": 298,
+                "weight_high": 420,
+                "height_low": 21,
+                "height_high": 25,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 34380001,
                 "pet_id": 34380001,
-                "name": "蹦蹦种子（首领血脉）",
+                "name": null,
                 "model_id": 3438001,
                 "hatch_data": 300,
                 "weight_low": 298,
@@ -1277,140 +1382,6 @@
                 "height_low": 21,
                 "height_high": 25,
                 "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 34870001,
-                "pet_id": 34870001,
-                "name": "梦游",
-                "model_id": 3487001,
-                "hatch_data": 300,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
-                "precious_egg_type": 7,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 91000045,
-                "pet_id": 91000045,
-                "name": "蹦蹦种子（首领血脉）",
-                "model_id": 3438001,
-                "hatch_data": 28800,
-                "weight_low": 298,
-                "weight_high": 420,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000045,
-                "pet_id": 92000045,
-                "name": "蹦蹦种子（首领血脉）",
-                "model_id": 3438001,
-                "hatch_data": 28800,
-                "weight_low": 298,
-                "weight_high": 420,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000045,
-                "pet_id": 93000045,
-                "name": "蹦蹦种子（首领血脉）",
-                "model_id": 3438001,
-                "hatch_data": 28800,
-                "weight_low": 298,
-                "weight_high": 420,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000045,
-                "pet_id": 94000045,
-                "name": "蹦蹦种子（首领血脉）",
-                "model_id": 3438001,
-                "hatch_data": 28800,
-                "weight_low": 298,
-                "weight_high": 420,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000045,
-                "pet_id": 96000045,
-                "name": "蹦蹦种子（首领血脉）",
-                "model_id": 3438001,
-                "hatch_data": 28800,
-                "weight_low": 298,
-                "weight_high": 420,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000045,
-                "pet_id": 97000045,
-                "name": "蹦蹦种子（首领血脉）",
-                "model_id": 3438001,
-                "hatch_data": 28800,
-                "weight_low": 298,
-                "weight_high": 420,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000045,
-                "pet_id": 98000045,
-                "name": "蹦蹦种子（首领血脉）",
-                "model_id": 3438001,
-                "hatch_data": 28800,
-                "weight_low": 298,
-                "weight_high": 420,
-                "height_low": 21,
-                "height_high": 25,
-                "precious_egg_type": 1,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1419,7 +1390,7 @@
             {
                 "id": 99000113,
                 "pet_id": 99000113,
-                "name": "蹦蹦种子（首领血脉）",
+                "name": null,
                 "model_id": 3438001,
                 "hatch_data": 72000,
                 "weight_low": 298,

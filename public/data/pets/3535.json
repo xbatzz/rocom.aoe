@@ -1,7 +1,7 @@
 {
     "id": 3535,
     "name": "banxiao",
-    "form": "斑枭",
+    "form": "default",
     "main_type": {
         "id": 13,
         "name": "Flying",
@@ -26,18 +26,18 @@
         }
     },
     "implemented": true,
-    "base_hp": 89,
+    "base_hp": 109,
     "base_phy_atk": 112,
     "base_mag_atk": 112,
-    "base_phy_def": 89,
-    "base_mag_def": 100,
+    "base_phy_def": 102,
+    "base_mag_def": 114,
     "base_spd": 115,
     "evolves_from_id": 3534,
     "species": {
         "id": 178,
         "name": "banxiao",
         "localized": {
-            "zh": "小怂猫"
+            "zh": "斑枭"
         }
     },
     "trait": {
@@ -203,7 +203,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "迅捷，驱散敌方1种增益。"
         },
@@ -758,6 +758,28 @@
             "energy_cost": 3,
             "power": 40,
             "description": "造成​魔伤，​3连击。巧变：​翼系防御​技​能​。"
+        },
+        {
+            "id": 7021190,
+            "name": "吹散",
+            "icon_id": "101111",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "吹散",
+                    "description": "造成魔伤，选择：驱散敌方所有增益或驱散双方1层印记。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 65,
+            "description": "造成魔伤，选择：驱散敌方所有增益或驱散双方1层印记。"
         }
     ],
     "legacy_moves": [
@@ -1257,7 +1279,7 @@
                         "id": 3534,
                         "species_id": 177,
                         "name": "banban",
-                        "form": "斑斑",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "斑斑"
@@ -1284,7 +1306,7 @@
                         "id": 3535,
                         "species_id": 178,
                         "name": "banxiao",
-                        "form": "斑枭",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "斑枭"
@@ -1313,8 +1335,8 @@
         "current_monster_id": 3535
     },
     "world_profile": {
-        "type_desc": "伏地兽",
-        "description_habitat": "常见于海洋",
+        "type_desc": "猫头鹰精灵",
+        "description_habitat": "常见于山林",
         "introduction": "和洛克相交甚少的种族，拥有比较强的野性和攻击性。如果在领地内看到生面孔，可能俯冲下来攻击对方，拥有出色的深度感知能力和夜视能力，即使藏在阴影处也难以逃过它的双眼。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1329,43 +1351,10 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 1200,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
-    "breeding": {
-        "id": 3307003,
-        "pet_id": 3307003,
-        "name": "小怂猫",
-        "model_id": 3307001,
-        "hatch_data": 300,
-        "weight_low": 2030,
-        "weight_high": 2520,
-        "height_low": 23,
-        "height_high": 32,
-        "precious_egg_type": 1,
-        "egg_base_glass_prob_array": null,
-        "egg_add_glass_prob_array": null,
-        "is_contact_add_glass_prob": null,
-        "is_contact_add_shining_prob": null,
-        "variants": [
-            {
-                "id": 3307003,
-                "pet_id": 3307003,
-                "name": "小怂猫",
-                "model_id": 3307001,
-                "hatch_data": 300,
-                "weight_low": 2030,
-                "weight_high": 2520,
-                "height_low": 23,
-                "height_high": 32,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            }
-        ]
-    },
+    "breeding": null,
     "breeding_profile": {
         "pet_base_id": 3535,
         "egg_groups": [

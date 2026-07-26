@@ -1,7 +1,7 @@
 {
     "id": 3469,
     "name": "huangjiashijiu_gaoshan",
-    "form": "皇家狮鹫",
+    "form": "default",
     "main_type": {
         "id": 13,
         "name": "Flying",
@@ -37,7 +37,7 @@
         "id": 167,
         "name": "huangjiashijiu",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "皇家狮鹫"
         }
     },
     "trait": {
@@ -115,7 +115,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "迅捷，驱散敌方1种增益。"
         },
@@ -648,6 +648,50 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7150360,
+            "name": "试飞",
+            "icon_id": "114037",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "试飞",
+                    "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 2,
+            "power": 20,
+            "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+        },
+        {
+            "id": 7150370,
+            "name": "超声波",
+            "icon_id": "114031",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "超声波",
+                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
         }
     ],
     "legacy_moves": [
@@ -1147,7 +1191,7 @@
                         "id": 3127,
                         "species_id": 165,
                         "name": "xiaoshijiu",
-                        "form": "小狮鹫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小狮鹫"
@@ -1168,7 +1212,7 @@
                         "id": 3467,
                         "species_id": 165,
                         "name": "xiaoshijiu_gaoshan",
-                        "form": "小狮鹫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "小狮鹫"
@@ -1195,7 +1239,7 @@
                         "id": 3128,
                         "species_id": 166,
                         "name": "shenshengshijiu",
-                        "form": "神圣狮鹫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "神圣狮鹫"
@@ -1218,7 +1262,7 @@
                         "id": 3468,
                         "species_id": 166,
                         "name": "shenshengshijiu_gaoshan",
-                        "form": "神圣狮鹫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "神圣狮鹫"
@@ -1247,7 +1291,7 @@
                         "id": 3129,
                         "species_id": 167,
                         "name": "huangjiashijiu",
-                        "form": "皇家狮鹫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "皇家狮鹫"
@@ -1270,7 +1314,7 @@
                         "id": 3469,
                         "species_id": 167,
                         "name": "huangjiashijiu_gaoshan",
-                        "form": "皇家狮鹫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "皇家狮鹫"
@@ -1299,8 +1343,8 @@
         "current_monster_id": 3469
     },
     "world_profile": {
-        "type_desc": "假面精灵",
-        "description_habitat": "灵羽勇士",
+        "type_desc": "狮鹫精灵",
+        "description_habitat": "常见于山地、城堡周边",
         "introduction": "为了保证寒冷环境下头部温暖，头顶布满柔软的绒毛，偶尔依偎在一起取暖的时候，用喙梳理同伴的头毛，有一种猜测是为了取暖所以才会把喙伸进同伴的头毛里。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1315,7 +1359,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

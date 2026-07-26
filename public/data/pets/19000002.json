@@ -380,7 +380,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 7,
-            "power": 170,
+            "power": 105,
             "description": "造成物伤，先手+1。"
         }
     ],

@@ -1,7 +1,7 @@
 {
     "id": 3611,
     "name": "shujuanshouhu",
-    "form": "书卷守护",
+    "form": "default",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -27,8 +27,8 @@
     },
     "implemented": true,
     "base_hp": 89,
-    "base_phy_atk": 100,
-    "base_mag_atk": 100,
+    "base_phy_atk": 92,
+    "base_mag_atk": 92,
     "base_phy_def": 64,
     "base_mag_def": 98,
     "base_spd": 76,
@@ -37,18 +37,18 @@
         "id": 304,
         "name": "shujuanshouhu",
         "localized": {
-            "zh": "行踪神秘"
+            "zh": "书卷守护"
         }
     },
     "trait": {
         "id": 200244,
         "name": "图书守卫者",
-        "description": "入场时，若自己魔力值为1，自己获得双攻+50%。",
+        "description": "入场时，若自己魔力值为1，自己获得双攻+100%。",
         "icon_id": "200244",
         "localized": {
             "zh": {
                 "name": "图书守卫者",
-                "description": "入场时，若自己魔力值为1，自己获得双攻+50%。"
+                "description": "入场时，若自己魔力值为1，自己获得双攻+100%。"
             }
         }
     },
@@ -443,13 +443,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7021130,
@@ -1103,7 +1103,7 @@
                         "id": 3610,
                         "species_id": 303,
                         "name": "shumochong",
-                        "form": "书魔虫",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "书魔虫"
@@ -1130,7 +1130,7 @@
                         "id": 3611,
                         "species_id": 304,
                         "name": "shujuanshouhu",
-                        "form": "书卷守护",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "书卷守护"
@@ -1159,7 +1159,7 @@
                         "id": 3612,
                         "species_id": 305,
                         "name": "gujuanzhizhengguan",
-                        "form": "古卷执政官",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "古卷执政官"
@@ -1189,7 +1189,7 @@
                         "id": 3613,
                         "species_id": 306,
                         "name": "gujuanxiamoxiang",
-                        "form": "古卷匣魔像",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "古卷匣魔像"
@@ -1225,8 +1225,8 @@
         "current_monster_id": 3611
     },
     "world_profile": {
-        "type_desc": "绿翼鸟",
-        "description_habitat": "喵喵",
+        "type_desc": "书卷精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "身上带着书本和油墨的味道，看起来小小的，其实比想象中重很多。常与同伴交换藏书，偶尔遇到疑惑的地方，会用书使劲砸自己的头，希望用这种办法让知识快点进入身体。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1240,7 +1240,7 @@
     },
     "catch_info": {
         "catch_threshold": 500,
-        "catch_guarant_rate": 525,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": null,

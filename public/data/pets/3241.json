@@ -1,7 +1,7 @@
 {
     "id": 3241,
     "name": "bukugu",
-    "form": "怖哭菇",
+    "form": "default",
     "main_type": {
         "id": 18,
         "name": "Illusion",
@@ -37,7 +37,7 @@
         "id": 130,
         "name": "bukugu",
         "localized": {
-            "zh": "拟态精灵"
+            "zh": "怖哭菇"
         }
     },
     "trait": {
@@ -199,13 +199,13 @@
             "localized": {
                 "zh": {
                     "name": "嗜痛",
-                    "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+                    "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 2,
             "power": null,
-            "description": "减伤80%，应对攻击：期间自己每次受到伤害，获得双攻+40%。"
+            "description": "减伤80%，应对攻击：期间自己每受到1次攻击伤害，获得双攻+40%。"
         },
         {
             "id": 7021010,
@@ -1235,7 +1235,7 @@
                         "id": 3239,
                         "species_id": 128,
                         "name": "kukugu",
-                        "form": "哭哭菇",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "哭哭菇"
@@ -1262,7 +1262,7 @@
                         "id": 3240,
                         "species_id": 129,
                         "name": "buxugu",
-                        "form": "怖须菇",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "怖须菇"
@@ -1291,7 +1291,7 @@
                         "id": 3241,
                         "species_id": 130,
                         "name": "bukugu",
-                        "form": "怖哭菇",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "怖哭菇"
@@ -1320,8 +1320,8 @@
         "current_monster_id": 3241
     },
     "world_profile": {
-        "type_desc": "丢丢",
-        "description_habitat": "拟态精灵",
+        "type_desc": "菇精灵",
+        "description_habitat": "常见于山地、河岸",
         "introduction": "长期在暗处生存，双目视觉逐渐退化，演化出了胸前能够探测、储存幻系能量的触手。幻系能量凝聚在菌柄中，赋予了其极强的再生能力，即便是经过火焰的炙烤，依旧能迅速生出饱满的躯体。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1337,7 +1337,7 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 625,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": null,

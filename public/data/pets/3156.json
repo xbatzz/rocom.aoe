@@ -1,7 +1,7 @@
 {
     "id": 3156,
     "name": "qiuka",
-    "form": "裘卡",
+    "form": "default",
     "main_type": {
         "id": 10,
         "name": "Poison",
@@ -37,7 +37,7 @@
         "id": 248,
         "name": "qiuka",
         "localized": {
-            "zh": "小翼龙"
+            "zh": "裘卡"
         }
     },
     "trait": {
@@ -1235,7 +1235,7 @@
                         "id": 3154,
                         "species_id": 246,
                         "name": "qiuluo",
-                        "form": "裘洛",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "裘洛"
@@ -1262,7 +1262,7 @@
                         "id": 3155,
                         "species_id": 247,
                         "name": "qiuli",
-                        "form": "裘力",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "裘力"
@@ -1291,7 +1291,7 @@
                         "id": 3156,
                         "species_id": 248,
                         "name": "qiuka",
-                        "form": "裘卡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "裘卡"
@@ -1320,8 +1320,8 @@
         "current_monster_id": 3156
     },
     "world_profile": {
-        "type_desc": "蜂精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "毛绒绒精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "独自活动，高傲而优雅的生物。一生中只选择一只伴侣。据研究表明裘卡的体液都有剧毒，紧张时脚垫会分泌汗液，在地面上留下有剧毒的梅花形汗渍。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1336,55 +1336,10 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
-    "breeding": {
-        "id": 3262002,
-        "pet_id": 3262002,
-        "name": "小翼龙",
-        "model_id": 3262002,
-        "hatch_data": 57600,
-        "weight_low": 2380,
-        "weight_high": 3560,
-        "height_low": 22,
-        "height_high": 31,
-        "precious_egg_type": 2,
-        "egg_base_glass_prob_array": [
-            395,
-            2000
-        ],
-        "egg_add_glass_prob_array": [
-            1,
-            80
-        ],
-        "is_contact_add_glass_prob": true,
-        "is_contact_add_shining_prob": null,
-        "variants": [
-            {
-                "id": 3262002,
-                "pet_id": 3262002,
-                "name": "小翼龙",
-                "model_id": 3262002,
-                "hatch_data": 57600,
-                "weight_low": 2380,
-                "weight_high": 3560,
-                "height_low": 22,
-                "height_high": 31,
-                "precious_egg_type": 2,
-                "egg_base_glass_prob_array": [
-                    395,
-                    2000
-                ],
-                "egg_add_glass_prob_array": [
-                    1,
-                    80
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            }
-        ]
-    },
+    "breeding": null,
     "breeding_profile": {
         "pet_base_id": 3156,
         "egg_groups": [

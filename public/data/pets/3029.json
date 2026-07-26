@@ -1,7 +1,7 @@
 {
     "id": 3029,
     "name": "qilicao",
-    "form": "奇丽草",
+    "form": "default",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -37,7 +37,7 @@
         "id": 41,
         "name": "qilicao",
         "localized": {
-            "zh": "晶石蜗"
+            "zh": "奇丽草"
         }
     },
     "trait": {
@@ -575,13 +575,13 @@
             "localized": {
                 "zh": {
                     "name": "流沙",
-                    "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
+                    "description": "敌方获得3回合禁足，应对防御：敌方获得双防-60%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "敌方3回合无法更换精灵，应对防御：敌方获得双防-60%。"
+            "description": "敌方获得3回合禁足，应对防御：敌方获得双防-60%。"
         },
         {
             "id": 7020940,
@@ -1279,7 +1279,7 @@
                         "id": 3029,
                         "species_id": 41,
                         "name": "qilicao",
-                        "form": "奇丽草",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "奇丽草"
@@ -1306,7 +1306,7 @@
                         "id": 3030,
                         "species_id": 42,
                         "name": "qiliye",
-                        "form": "奇丽叶",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "奇丽叶"
@@ -1338,7 +1338,7 @@
                         "id": 3031,
                         "species_id": 43,
                         "name": "qilihua",
-                        "form": "奇丽花",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "奇丽花"
@@ -1370,8 +1370,8 @@
         "current_monster_id": 3029
     },
     "world_profile": {
-        "type_desc": "硬壳精灵",
-        "description_habitat": "行踪神秘",
+        "type_desc": "花苞精灵",
+        "description_habitat": "常见于山地、草地",
         "introduction": "头顶着花苞爬着前进，总会朝着太阳光的方向。花苞里面似乎孕育着什么，要是长期照不到太阳，花苞就会萎缩。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1386,61 +1386,29 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
     "breeding": {
-        "id": 3017002,
-        "pet_id": 3017002,
-        "name": "奇丽草",
-        "model_id": 3017001,
+        "id": 3029001,
+        "pet_id": 3029001,
+        "name": null,
+        "model_id": 3029001,
         "hatch_data": 28800,
-        "weight_low": 1505,
-        "weight_high": 2240,
-        "height_low": 20,
-        "height_high": 28,
-        "precious_egg_type": 1,
+        "weight_low": 1435,
+        "weight_high": 2280,
+        "height_low": 16,
+        "height_high": 23,
+        "precious_egg_type": null,
         "egg_base_glass_prob_array": null,
         "egg_add_glass_prob_array": null,
         "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
-                "id": 3017002,
-                "pet_id": 3017002,
-                "name": "奇丽草",
-                "model_id": 3017001,
-                "hatch_data": 28800,
-                "weight_low": 1505,
-                "weight_high": 2240,
-                "height_low": 20,
-                "height_high": 28,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 3026003,
-                "pet_id": 3026003,
-                "name": "奇丽草",
-                "model_id": 3026001,
-                "hatch_data": 300,
-                "weight_low": 3255,
-                "weight_high": 4120,
-                "height_low": 30,
-                "height_high": 42,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 3029001,
                 "pet_id": 3029001,
-                "name": "异色奇丽草的蛋",
+                "name": null,
                 "model_id": 3029001,
                 "hatch_data": 28800,
                 "weight_low": 1435,
@@ -1448,21 +1416,15 @@
                 "height_low": 16,
                 "height_high": 23,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
             },
             {
                 "id": 3029002,
                 "pet_id": 3029002,
-                "name": "紧实的样子",
+                "name": null,
                 "model_id": 3029001,
                 "hatch_data": 28800,
                 "weight_low": 1435,
@@ -1478,7 +1440,7 @@
             {
                 "id": 3029003,
                 "pet_id": 3029003,
-                "name": "小甲虫",
+                "name": null,
                 "model_id": 3029001,
                 "hatch_data": 300,
                 "weight_low": 1435,
@@ -1486,21 +1448,15 @@
                 "height_low": 16,
                 "height_high": 23,
                 "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
             },
             {
                 "id": 3029004,
                 "pet_id": 3029004,
-                "name": "丢丢",
+                "name": null,
                 "model_id": 3029002,
                 "hatch_data": 28800,
                 "weight_low": 1435,
@@ -1508,21 +1464,15 @@
                 "height_low": 16,
                 "height_high": 23,
                 "precious_egg_type": 2,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3029005,
                 "pet_id": 3029005,
-                "name": "小甲虫",
+                "name": null,
                 "model_id": 3029001,
                 "hatch_data": 300,
                 "weight_low": 1435,
@@ -1530,21 +1480,47 @@
                 "height_low": 16,
                 "height_high": 23,
                 "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    5191,
-                    5191
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    0
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": true
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3029006,
+                "pet_id": 3029006,
+                "name": null,
+                "model_id": 3029001,
+                "hatch_data": 300,
+                "weight_low": 1435,
+                "weight_high": 2280,
+                "height_low": 16,
+                "height_high": 23,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3029007,
+                "pet_id": 3029007,
+                "name": null,
+                "model_id": 3029002,
+                "hatch_data": 28800,
+                "weight_low": 1435,
+                "weight_high": 2280,
+                "height_low": 16,
+                "height_high": 23,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
             },
             {
                 "id": 30290001,
                 "pet_id": 30290001,
-                "name": "异色奇丽草的蛋",
+                "name": null,
                 "model_id": 3029001,
                 "hatch_data": 300,
                 "weight_low": 1435,
@@ -1558,171 +1534,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000016,
-                "pet_id": 91000016,
-                "name": "异色奇丽草的蛋",
-                "model_id": 3029001,
-                "hatch_data": 28800,
-                "weight_low": 1435,
-                "weight_high": 2280,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000016,
-                "pet_id": 92000016,
-                "name": "异色奇丽草的蛋",
-                "model_id": 3029001,
-                "hatch_data": 28800,
-                "weight_low": 1435,
-                "weight_high": 2280,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000016,
-                "pet_id": 93000016,
-                "name": "异色奇丽草的蛋",
-                "model_id": 3029001,
-                "hatch_data": 28800,
-                "weight_low": 1435,
-                "weight_high": 2280,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000016,
-                "pet_id": 94000016,
-                "name": "异色奇丽草的蛋",
-                "model_id": 3029001,
-                "hatch_data": 28800,
-                "weight_low": 1435,
-                "weight_high": 2280,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000004,
-                "pet_id": 95000004,
-                "name": "异色奇丽草的蛋",
-                "model_id": 3029001,
-                "hatch_data": 28800,
-                "weight_low": 1435,
-                "weight_high": 2280,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000016,
-                "pet_id": 96000016,
-                "name": "异色奇丽草的蛋",
-                "model_id": 3029001,
-                "hatch_data": 28800,
-                "weight_low": 1435,
-                "weight_high": 2280,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000016,
-                "pet_id": 97000016,
-                "name": "异色奇丽草的蛋",
-                "model_id": 3029001,
-                "hatch_data": 28800,
-                "weight_low": 1435,
-                "weight_high": 2280,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000016,
-                "pet_id": 98000016,
-                "name": "异色奇丽草的蛋",
-                "model_id": 3029001,
-                "hatch_data": 28800,
-                "weight_low": 1435,
-                "weight_high": 2280,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000004,
-                "pet_id": 99000004,
-                "name": "异色奇丽草的蛋",
-                "model_id": 3029001,
-                "hatch_data": 28800,
-                "weight_low": 1435,
-                "weight_high": 2280,
-                "height_low": 16,
-                "height_high": 23,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000069,
                 "pet_id": 99000069,
-                "name": "异色奇丽草的蛋",
+                "name": null,
                 "model_id": 3029001,
                 "hatch_data": 72000,
                 "weight_low": 1435,

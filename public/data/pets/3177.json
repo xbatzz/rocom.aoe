@@ -1,7 +1,7 @@
 {
     "id": 3177,
     "name": "kakaniao",
-    "form": "咔咔鸟",
+    "form": "default",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -43,7 +43,7 @@
         "id": 98,
         "name": "kakaniao",
         "localized": {
-            "zh": "绿草精灵"
+            "zh": "咔咔鸟"
         }
     },
     "trait": {
@@ -764,6 +764,28 @@
             "energy_cost": 3,
             "power": 40,
             "description": "造成​魔伤，​3连击。巧变：​翼系防御​技​能​。"
+        },
+        {
+            "id": 7150360,
+            "name": "试飞",
+            "icon_id": "114037",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "试飞",
+                    "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 2,
+            "power": 20,
+            "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
         }
     ],
     "legacy_moves": [
@@ -1263,7 +1285,7 @@
                         "id": 3175,
                         "species_id": 96,
                         "name": "kakayumao",
-                        "form": "咔咔羽毛",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "咔咔羽毛"
@@ -1296,7 +1318,7 @@
                         "id": 3176,
                         "species_id": 97,
                         "name": "kakaque",
-                        "form": "咔咔雀",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "咔咔雀"
@@ -1331,7 +1353,7 @@
                         "id": 3177,
                         "species_id": 98,
                         "name": "kakaniao",
-                        "form": "咔咔鸟",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "咔咔鸟"
@@ -1366,8 +1388,8 @@
         "current_monster_id": 3177
     },
     "world_profile": {
-        "type_desc": "虫仔精灵",
-        "description_habitat": "喵喵",
+        "type_desc": "芳香精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "拥有两条漂亮的大尾巴，虽然无法飞翔，但是抓着大尾巴可以滑翔一段距离，滑翔时身体散发出香香的味道，是因为这个种族普遍有些恐高，紧张的时候会释放舒缓神经的信息素，为自己壮胆。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1382,43 +1404,10 @@
     },
     "catch_info": {
         "catch_threshold": 250,
-        "catch_guarant_rate": 240,
+        "catch_guarant_rate": null,
         "catch_ball_level": 1
     },
-    "breeding": {
-        "id": 3012002,
-        "pet_id": 3012002,
-        "name": "绿草精灵",
-        "model_id": 3012001,
-        "hatch_data": 57600,
-        "weight_low": 5110,
-        "weight_high": 7040,
-        "height_low": 28,
-        "height_high": 39,
-        "precious_egg_type": 1,
-        "egg_base_glass_prob_array": null,
-        "egg_add_glass_prob_array": null,
-        "is_contact_add_glass_prob": null,
-        "is_contact_add_shining_prob": null,
-        "variants": [
-            {
-                "id": 3012002,
-                "pet_id": 3012002,
-                "name": "绿草精灵",
-                "model_id": 3012001,
-                "hatch_data": 57600,
-                "weight_low": 5110,
-                "weight_high": 7040,
-                "height_low": 28,
-                "height_high": 39,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            }
-        ]
-    },
+    "breeding": null,
     "breeding_profile": {
         "pet_base_id": 3177,
         "egg_groups": [

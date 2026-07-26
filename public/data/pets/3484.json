@@ -1,7 +1,7 @@
 {
     "id": 3484,
     "name": "luoxuanpapa",
-    "form": "螺旋帕帕",
+    "form": "default",
     "main_type": {
         "id": 13,
         "name": "Flying",
@@ -43,7 +43,7 @@
         "id": 261,
         "name": "luoxuanpapa",
         "localized": {
-            "zh": "香草甜甜"
+            "zh": "螺旋帕帕"
         }
     },
     "trait": {
@@ -73,13 +73,13 @@
             "localized": {
                 "zh": {
                     "name": "齿轮扭矩",
-                    "description": "造成物伤，每回合位置发生变化时，本技能威力永久+20。"
+                    "description": "造成物伤，每回合位置发生变化时，本技能威力永久+15。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 80,
-            "description": "造成物伤，每回合位置发生变化时，本技能威力永久+20。"
+            "power": 70,
+            "description": "造成物伤，每回合位置发生变化时，本技能威力永久+15。"
         },
         {
             "id": 7070050,
@@ -632,6 +632,28 @@
             "energy_cost": 0,
             "power": null,
             "description": "敌方获得全技能能耗+1，应对防御：改为能耗+3。"
+        },
+        {
+            "id": 7070220,
+            "name": "轮班",
+            "icon_id": "206022",
+            "move_type": {
+                "id": 17,
+                "name": "Mechanical",
+                "localized": {
+                    "zh": "机械"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "轮班",
+                    "description": "造​成​物伤，​传动​1​，选择：​本技能位于1号​位​时​威力​+65或本​回​合额​外​传动​1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 70,
+            "description": "造​成​物伤，​传动​1​，选择：​本技能位于1号​位​时​威力​+65或本​回​合额​外​传动​1。"
         }
     ],
     "legacy_moves": [
@@ -1131,7 +1153,7 @@
                         "id": 3484,
                         "species_id": 261,
                         "name": "luoxuanpapa",
-                        "form": "螺旋帕帕",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "螺旋帕帕"
@@ -1164,7 +1186,7 @@
                         "id": 3547,
                         "species_id": 262,
                         "name": "papasika",
-                        "form": "帕帕斯卡",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "帕帕斯卡"
@@ -1199,8 +1221,8 @@
         "current_monster_id": 3484
     },
     "world_profile": {
-        "type_desc": "行踪神秘",
-        "description_habitat": "小鼠獭",
+        "type_desc": "维修精灵",
+        "description_habitat": "常见于沙地",
         "introduction": "它们立志成为机械系精灵维修专员，曾有大批战损的机械系精灵奇迹般地恢复健康，排着队回到原来生活的地方，这背后默默付出的正是不起眼的螺旋帕帕。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1215,13 +1237,13 @@
     },
     "catch_info": {
         "catch_threshold": 1000,
-        "catch_guarant_rate": 1700,
+        "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3484001,
         "pet_id": 3484001,
-        "name": "海盔虫",
+        "name": null,
         "model_id": 3484001,
         "hatch_data": 28800,
         "weight_low": 728,
@@ -1229,21 +1251,15 @@
         "height_low": 15,
         "height_high": 19,
         "precious_egg_type": null,
-        "egg_base_glass_prob_array": [
-            531,
-            500
-        ],
-        "egg_add_glass_prob_array": [
-            0,
-            24
-        ],
-        "is_contact_add_glass_prob": true,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
         "is_contact_add_shining_prob": null,
         "variants": [
             {
                 "id": 3484001,
                 "pet_id": 3484001,
-                "name": "海盔虫",
+                "name": null,
                 "model_id": 3484001,
                 "hatch_data": 28800,
                 "weight_low": 728,
@@ -1251,21 +1267,15 @@
                 "height_low": 15,
                 "height_high": 19,
                 "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
                 "is_contact_add_shining_prob": null
             },
             {
                 "id": 3484002,
                 "pet_id": 3484002,
-                "name": "首领海盔虫",
+                "name": null,
                 "model_id": 3484001,
                 "hatch_data": 28800,
                 "weight_low": 728,
@@ -1281,7 +1291,7 @@
             {
                 "id": 3484003,
                 "pet_id": 3484003,
-                "name": "海盔虫（火系血脉）",
+                "name": null,
                 "model_id": 3484001,
                 "hatch_data": 300,
                 "weight_low": 728,
@@ -1297,7 +1307,7 @@
             {
                 "id": 34840001,
                 "pet_id": 34840001,
-                "name": "海盔虫",
+                "name": null,
                 "model_id": 3484001,
                 "hatch_data": 300,
                 "weight_low": 728,
@@ -1311,171 +1321,9 @@
                 "is_contact_add_shining_prob": null
             },
             {
-                "id": 91000056,
-                "pet_id": 91000056,
-                "name": "海盔虫",
-                "model_id": 3484001,
-                "hatch_data": 28800,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": null,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 92000056,
-                "pet_id": 92000056,
-                "name": "海盔虫",
-                "model_id": 3484001,
-                "hatch_data": 28800,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 93000056,
-                "pet_id": 93000056,
-                "name": "海盔虫",
-                "model_id": 3484001,
-                "hatch_data": 28800,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 94000056,
-                "pet_id": 94000056,
-                "name": "海盔虫",
-                "model_id": 3484001,
-                "hatch_data": 28800,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 95000044,
-                "pet_id": 95000044,
-                "name": "海盔虫",
-                "model_id": 3484001,
-                "hatch_data": 28800,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 96000056,
-                "pet_id": 96000056,
-                "name": "海盔虫",
-                "model_id": 3484001,
-                "hatch_data": 28800,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 97000056,
-                "pet_id": 97000056,
-                "name": "海盔虫",
-                "model_id": 3484001,
-                "hatch_data": 28800,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 98000056,
-                "pet_id": 98000056,
-                "name": "海盔虫",
-                "model_id": 3484001,
-                "hatch_data": 28800,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": null,
-                "egg_add_glass_prob_array": null,
-                "is_contact_add_glass_prob": null,
-                "is_contact_add_shining_prob": null
-            },
-            {
-                "id": 99000044,
-                "pet_id": 99000044,
-                "name": "海盔虫",
-                "model_id": 3484001,
-                "hatch_data": 28800,
-                "weight_low": 728,
-                "weight_high": 1740,
-                "height_low": 15,
-                "height_high": 19,
-                "precious_egg_type": 1,
-                "egg_base_glass_prob_array": [
-                    531,
-                    500
-                ],
-                "egg_add_glass_prob_array": [
-                    0,
-                    24
-                ],
-                "is_contact_add_glass_prob": true,
-                "is_contact_add_shining_prob": null
-            },
-            {
                 "id": 99000062,
                 "pet_id": 99000062,
-                "name": "海盔虫",
+                "name": null,
                 "model_id": 3484001,
                 "hatch_data": 72000,
                 "weight_low": 728,

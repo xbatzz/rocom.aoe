@@ -253,7 +253,7 @@
         },
         {
             "id": 7090430,
-            "name": "冰封",
+            "name": "冷凝",
             "icon_id": "108039",
             "move_type": {
                 "id": 7,
@@ -264,7 +264,7 @@
             },
             "localized": {
                 "zh": {
-                    "name": "冰封",
+                    "name": "冷凝",
                     "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
                 }
             },
@@ -736,6 +736,28 @@
             "energy_cost": 2,
             "power": null,
             "description": "减伤80%，应对攻击：敌方获得2层冻结。"
+        },
+        {
+            "id": 7090460,
+            "name": "雪原狩猎",
+            "icon_id": "208041",
+            "move_type": {
+                "id": 7,
+                "name": "Ice",
+                "localized": {
+                    "zh": "冰"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "雪原狩猎",
+                    "description": "造​成​物伤，​天气为暴风雪时，本次技能威力​+50%"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 80,
+            "description": "造​成​物伤，​天气为暴风雪时，本次技能威力​+50%"
         }
     ],
     "legacy_moves": [
@@ -1292,8 +1314,8 @@
         "current_monster_id": 3531
     },
     "world_profile": {
-        "type_desc": null,
-        "description_habitat": null,
+        "type_desc": "小雪球精灵",
+        "description_habitat": "行踪神秘",
         "introduction": "头顶的眼是精致的拟态结构，而真正的眼部和头部在腹部，都还很脆弱。魔法师们发现，它的腹部有厚厚的抗冻组织，能在极寒环境中保护核心器官。",
         "refresh_locations": [
             "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
@@ -1301,23 +1323,25 @@
         "movement_type": "地面",
         "classis_id": 6,
         "classis_name": "自然类精灵",
-        "handbook_area_ids": []
+        "handbook_area_ids": [
+            1
+        ]
     },
     "catch_info": {
-        "catch_threshold": null,
+        "catch_threshold": 1000,
         "catch_guarant_rate": null,
         "catch_ball_level": null
     },
     "breeding": {
         "id": 3531001,
         "pet_id": 3531001,
-        "name": "旋叶虫",
+        "name": null,
         "model_id": 3531001,
-        "hatch_data": 1,
-        "weight_low": 1,
-        "weight_high": 10,
-        "height_low": 1,
-        "height_high": 10,
+        "hatch_data": 72000,
+        "weight_low": 15155,
+        "weight_high": 35000,
+        "height_low": 32,
+        "height_high": 39,
         "precious_egg_type": null,
         "egg_base_glass_prob_array": null,
         "egg_add_glass_prob_array": null,
@@ -1327,14 +1351,30 @@
             {
                 "id": 3531001,
                 "pet_id": 3531001,
-                "name": "旋叶虫",
+                "name": null,
                 "model_id": 3531001,
-                "hatch_data": 1,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
+                "hatch_data": 72000,
+                "weight_low": 15155,
+                "weight_high": 35000,
+                "height_low": 32,
+                "height_high": 39,
                 "precious_egg_type": null,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3531002,
+                "pet_id": 3531002,
+                "name": null,
+                "model_id": 3531002,
+                "hatch_data": 72000,
+                "weight_low": 15155,
+                "weight_high": 35000,
+                "height_low": 32,
+                "height_high": 39,
+                "precious_egg_type": 2,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1343,13 +1383,13 @@
             {
                 "id": 35310001,
                 "pet_id": 35310001,
-                "name": "穿星星睡衣的样子",
+                "name": null,
                 "model_id": 3531001,
                 "hatch_data": 300,
-                "weight_low": 1,
-                "weight_high": 10,
-                "height_low": 1,
-                "height_high": 10,
+                "weight_low": 15155,
+                "weight_high": 35000,
+                "height_low": 32,
+                "height_high": 39,
                 "precious_egg_type": 7,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,

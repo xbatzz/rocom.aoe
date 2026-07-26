@@ -43,7 +43,7 @@
         "id": 192,
         "name": "qiqihou",
         "localized": {
-            "zh": "斑斑"
+            "zh": "棋绮后"
         }
     },
     "trait": {
@@ -673,7 +673,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 0,
+            "energy_cost": 1,
             "power": null,
             "description": "光系技能威力永久+50%，应对防御：改为永久+100%。"
         },
@@ -1395,7 +1395,7 @@
                         "id": 3550,
                         "species_id": 188,
                         "name": "qiqi",
-                        "form": "棋棋",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋棋"
@@ -1422,7 +1422,7 @@
                         "id": 3555,
                         "species_id": 188,
                         "name": "qiqi_yidi",
-                        "form": "棋棋",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋棋"
@@ -1455,7 +1455,7 @@
                         "id": 3551,
                         "species_id": 189,
                         "name": "qiqishi",
-                        "form": "棋骑士",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋骑士"
@@ -1478,7 +1478,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋骑士」关联的联动条件（参数 3）",
+                            "需激活白子形态分支",
                             "需为雄性"
                         ]
                     },
@@ -1486,7 +1486,7 @@
                         "id": 3552,
                         "species_id": 192,
                         "name": "qiqihou",
-                        "form": "棋绮后",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋绮后"
@@ -1509,7 +1509,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋绮后」关联的联动条件（参数 3）",
+                            "需激活白子形态分支",
                             "需为雌性"
                         ]
                     },
@@ -1517,7 +1517,7 @@
                         "id": 3553,
                         "species_id": 190,
                         "name": "qiqilei",
-                        "form": "棋齐垒",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋齐垒"
@@ -1540,7 +1540,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋齐垒」关联的联动条件（参数 3）",
+                            "需激活白子形态分支",
                             "需为雄性"
                         ]
                     },
@@ -1548,7 +1548,7 @@
                         "id": 3554,
                         "species_id": 191,
                         "name": "qiqidu",
-                        "form": "棋祈督",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋祈督"
@@ -1571,7 +1571,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋祈督」关联的联动条件（参数 3）",
+                            "需激活白子形态分支",
                             "需为雄性"
                         ]
                     },
@@ -1579,7 +1579,7 @@
                         "id": 3556,
                         "species_id": 189,
                         "name": "qiqishi_yidi",
-                        "form": "棋骑士",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋骑士"
@@ -1602,7 +1602,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋骑士」关联的联动条件（参数 3）",
+                            "需激活黑子形态分支",
                             "需为雄性"
                         ]
                     },
@@ -1610,7 +1610,7 @@
                         "id": 3557,
                         "species_id": 192,
                         "name": "qiqihou_yidi",
-                        "form": "棋绮后",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋绮后"
@@ -1633,7 +1633,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋绮后」关联的联动条件（参数 3）",
+                            "需激活黑子形态分支",
                             "需为雌性"
                         ]
                     },
@@ -1641,7 +1641,7 @@
                         "id": 3558,
                         "species_id": 190,
                         "name": "qiqilei_yidi",
-                        "form": "棋齐垒",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋齐垒"
@@ -1664,7 +1664,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋齐垒」关联的联动条件（参数 3）",
+                            "需激活黑子形态分支",
                             "需为雄性"
                         ]
                     },
@@ -1672,7 +1672,7 @@
                         "id": 3559,
                         "species_id": 191,
                         "name": "qiqidu_yidi",
-                        "form": "棋祈督",
+                        "form": "default",
                         "localized": {
                             "zh": {
                                 "name": "棋祈督"
@@ -1695,7 +1695,7 @@
                         },
                         "evolution_conditions": [
                             "等级达到 26 级",
-                            "需满足与对应形态「棋祈督」关联的联动条件（参数 3）",
+                            "需激活黑子形态分支",
                             "需为雄性"
                         ]
                     }
@@ -1769,8 +1769,8 @@
         "current_monster_id": 5040
     },
     "world_profile": {
-        "type_desc": "常见于草地、平原",
-        "description_habitat": "海螺精灵",
+        "type_desc": "棋子精灵",
+        "description_habitat": "常见于山林、城堡周边",
         "introduction": "在棋盘最中央的格子是为它预留的王座，棋契陛下并非被雕刻，而是由黑白两色棋子在万夜轮转中自行“对局”而生，它不移动，却可以传令所有棋子。“当王棋离座，棋盘即终局；终局之时，所有棋子将回归石质，世界将再无边界可言。”",
         "refresh_locations": [
             "暂时找不到这只精灵的踪迹噢！"
