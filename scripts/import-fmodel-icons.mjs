@@ -18,6 +18,18 @@ const fmodelIconDir = path.join(
 );
 const petSourceDir = path.join(fmodelIconDir, "Pet1024");
 const skillSourceDir = path.join(fmodelIconDir, "SkillBase");
+const featureSourceDir = path.join(
+    rootDir,
+    "NRC",
+    "Content",
+    "NewRoco",
+    "Modules",
+    "System",
+    "BattleUI",
+    "Raw",
+    "Atlas",
+    "FeatureIcon",
+);
 const petOutputDir = path.join(rootDir, "public", "assets", "webp", "friends");
 const skillOutputDir = path.join(rootDir, "public", "assets", "webp", "items");
 const binDataDir = path.join(rootDir, "public", "data", "BinData");
@@ -45,14 +57,19 @@ async function main() {
     }
 
     const skillKeys = new Set();
+    const featureKeys = new Set();
     for (const row of getRows(skillTable)) {
         const key = extractTextureKey(row?.icon);
         if (key) {
-            skillKeys.add(key);
+            if (row.icon.includes("/FeatureIcon/")) {
+                featureKeys.add(key);
+            } else {
+                skillKeys.add(key);
+            }
         }
     }
 
-    const [petResult, skillResult] = await Promise.all([
+    const results = await Promise.all([
         importReferencedIcons({
             label: "精灵",
             keys: petKeys,
@@ -61,18 +78,26 @@ async function main() {
             sourceName: (key) => `${key}.png`,
         }),
         importReferencedIcons({
-            label: "技能",
+            label: "战斗技能",
             keys: skillKeys,
             sourceDir: skillSourceDir,
             outputDir: skillOutputDir,
             sourceName: (key) => `${key}_png.png`,
         }),
+        importReferencedIcons({
+            label: "特性",
+            keys: featureKeys,
+            sourceDir: featureSourceDir,
+            outputDir: skillOutputDir,
+            sourceName: (key) => `${key}.png`,
+        }),
     ]);
 
-    printResult(petResult);
-    printResult(skillResult);
+    for (const result of results) {
+        printResult(result);
+    }
 
-    if (petResult.failed || skillResult.failed) {
+    if (results.some((result) => result.failed)) {
         process.exitCode = 1;
     }
 }

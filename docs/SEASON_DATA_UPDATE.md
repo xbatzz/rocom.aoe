@@ -43,9 +43,11 @@ NRC/Content/ScriptC/Data/Bin/BinLocalize/dev_CN/
 ```text
 NRC/Content/NewRoco/Modules/System/Common/Icon/Pet1024/
 NRC/Content/NewRoco/Modules/System/Common/Icon/SkillBase/
+NRC/Content/NewRoco/Modules/System/BattleUI/Raw/Atlas/FeatureIcon/
 ```
 
 FModel 可能把技能图片导出成 `101065_png.png`。图片导入脚本会把它规范化为 `101065.webp`。
+特性图片通常直接导出成 `200308.png`，脚本会把它转换为 `200308.webp`。
 
 Lua 的 `unluac` 设置只影响 Lua 反编译，不参与宠物、技能和图片导出。
 
@@ -247,7 +249,7 @@ public/data/tables/
 yarn test:pet-data-quality
 ```
 
-## 7. 精灵和技能图片
+## 7. 精灵、技能和特性图片
 
 ### 7.1 精灵图片
 
@@ -297,9 +299,31 @@ FModel 的 `SkillBase` 文件名通常是：
 101065.webp
 ```
 
-### 7.3 自动导入
+### 7.3 特性图片
 
-把 `Pet1024/` 和 `SkillBase/` 放到本文约定的 `NRC` 路径后运行：
+精灵的 `pet_feature`、`pet_glass_feature` 或 `pet_chaos_feature` 会关联 `SKILL_CONF` 中的特性记录。其 `icon` 字段通常指向：
+
+```text
+/Game/NewRoco/Modules/System/BattleUI/Raw/Atlas/FeatureIcon/200308
+```
+
+FModel 对应导出目录：
+
+```text
+NRC/Content/NewRoco/Modules/System/BattleUI/Raw/Atlas/FeatureIcon/
+```
+
+输出位置与技能图标相同：
+
+```text
+public/assets/webp/items/{icon_id}.webp
+```
+
+如果特性卡片显示名称首字，说明对应 WebP 不存在或加载失败，应优先检查该目录，而不是 `SkillBase/`。
+
+### 7.4 自动导入
+
+把 `Pet1024/`、`SkillBase/` 和 `FeatureIcon/` 放到本文约定的 `NRC` 路径后运行：
 
 ```bash
 yarn import:fmodel-icons
@@ -310,6 +334,7 @@ yarn import:fmodel-icons
 - 从当前 `PETBASE_CONF` 和 `SKILL_CONF` 收集实际引用。
 - 保留精灵形态后缀。
 - 去掉技能图的 `_png` 导出后缀。
+- 按 `SKILL_CONF.icon` 的资源路径区分战斗技能和特性图标。
 - 转换为带透明通道的 WebP。
 - 默认只补缺失文件，不覆盖现有图片。
 - 汇报仍然缺少的源文件。
