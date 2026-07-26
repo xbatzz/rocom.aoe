@@ -39,3 +39,6 @@ __screenshots__/
 # Vite
 *.timestamp-*-*.mjs
 __pycache__
+
+# Local FModel exports
+/NRC/
