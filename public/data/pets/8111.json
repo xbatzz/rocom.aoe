@@ -25,7 +25,7 @@
             "name": "霜翼领主"
         }
     },
-    "implemented": true,
+    "implemented": false,
     "base_hp": 0,
     "base_phy_atk": 0,
     "base_mag_atk": 0,
@@ -1233,7 +1233,7 @@
                         "id": 3281,
                         "species_id": 18,
                         "name": "xuerongniao_qiu",
-                        "form": "default",
+                        "form": "秋日形态",
                         "localized": {
                             "zh": {
                                 "name": "雪绒鸟"
@@ -1350,7 +1350,7 @@
                         "id": 3284,
                         "species_id": 19,
                         "name": "dongyuque_qiu",
-                        "form": "default",
+                        "form": "秋日形态",
                         "localized": {
                             "zh": {
                                 "name": "冬羽雀"
@@ -1457,7 +1457,7 @@
                         "id": 3287,
                         "species_id": 20,
                         "name": "lanniao_qiu",
-                        "form": "default",
+                        "form": "秋日形态",
                         "localized": {
                             "zh": {
                                 "name": "岚鸟"

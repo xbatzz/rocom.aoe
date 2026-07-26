@@ -1,7 +1,7 @@
 {
     "id": 3450,
     "name": "jingshiwo_yidi1",
-    "form": "default",
+    "form": "异地形态",
     "main_type": {
         "id": 5,
         "name": "Light",
@@ -1370,7 +1370,7 @@
                         "id": 3448,
                         "species_id": 40,
                         "name": "jingshiwo_yidi3",
-                        "form": "default",
+                        "form": "异地形态",
                         "localized": {
                             "zh": {
                                 "name": "晶石蜗"
@@ -1400,7 +1400,7 @@
                         "id": 3449,
                         "species_id": 40,
                         "name": "jingshiwo_yidi5",
-                        "form": "default",
+                        "form": "异地形态",
                         "localized": {
                             "zh": {
                                 "name": "晶石蜗"
@@ -1430,7 +1430,7 @@
                         "id": 3450,
                         "species_id": 40,
                         "name": "jingshiwo_yidi1",
-                        "form": "default",
+                        "form": "异地形态",
                         "localized": {
                             "zh": {
                                 "name": "晶石蜗"
@@ -1460,7 +1460,7 @@
                         "id": 3451,
                         "species_id": 40,
                         "name": "jingshiwo_yidi2",
-                        "form": "default",
+                        "form": "异地形态",
                         "localized": {
                             "zh": {
                                 "name": "晶石蜗"
@@ -1490,7 +1490,7 @@
                         "id": 3486,
                         "species_id": 40,
                         "name": "jingshiwo_yidi4",
-                        "form": "default",
+                        "form": "异地形态",
                         "localized": {
                             "zh": {
                                 "name": "晶石蜗"

@@ -1,7 +1,7 @@
 {
     "id": 3516,
     "name": "banbanke_tuipi",
-    "form": "default",
+    "form": "蜕皮形态",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -1168,7 +1168,7 @@
                         "id": 3516,
                         "species_id": 12,
                         "name": "banbanke_tuipi",
-                        "form": "default",
+                        "form": "蜕皮形态",
                         "localized": {
                             "zh": {
                                 "name": "板板壳"
@@ -1221,7 +1221,7 @@
                         "id": 3517,
                         "species_id": 13,
                         "name": "kakake_tuipi",
-                        "form": "default",
+                        "form": "蜕皮形态",
                         "localized": {
                             "zh": {
                                 "name": "咔咔壳"
@@ -1276,7 +1276,7 @@
                         "id": 3518,
                         "species_id": 14,
                         "name": "shuipaoke_tuipi",
-                        "form": "default",
+                        "form": "蜕皮形态",
                         "localized": {
                             "zh": {
                                 "name": "水泡壳"

@@ -1168,7 +1168,7 @@
                         "id": 3288,
                         "species_id": 44,
                         "name": "diudiu_huoshan",
-                        "form": "default",
+                        "form": "火山形态",
                         "localized": {
                             "zh": {
                                 "name": "丢丢"
@@ -1222,7 +1222,7 @@
                         "id": 3290,
                         "species_id": 44,
                         "name": "diudiu_xueshan",
-                        "form": "default",
+                        "form": "雪山形态",
                         "localized": {
                             "zh": {
                                 "name": "丢丢"
@@ -1281,7 +1281,7 @@
                         "id": 3291,
                         "species_id": 45,
                         "name": "kakachong_huoshan",
-                        "form": "default",
+                        "form": "火山形态",
                         "localized": {
                             "zh": {
                                 "name": "卡卡虫"
@@ -1342,7 +1342,7 @@
                         "id": 3293,
                         "species_id": 45,
                         "name": "kakachong_xueshan",
-                        "form": "default",
+                        "form": "雪山形态",
                         "localized": {
                             "zh": {
                                 "name": "卡卡虫"
@@ -1406,7 +1406,7 @@
                         "id": 3294,
                         "species_id": 46,
                         "name": "kawachong_huoshan",
-                        "form": "default",
+                        "form": "火山形态",
                         "localized": {
                             "zh": {
                                 "name": "卡瓦重"
@@ -1467,7 +1467,7 @@
                         "id": 3296,
                         "species_id": 46,
                         "name": "kawachong_xueshan",
-                        "form": "default",
+                        "form": "雪山形态",
                         "localized": {
                             "zh": {
                                 "name": "卡瓦重"

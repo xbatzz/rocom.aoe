@@ -1278,7 +1278,7 @@
                         "id": 3442,
                         "species_id": 80,
                         "name": "xiaoxingguang_yueguang",
-                        "form": "default",
+                        "form": "月光形态",
                         "localized": {
                             "zh": {
                                 "name": "小星光"
@@ -1334,7 +1334,7 @@
                         "id": 3443,
                         "species_id": 81,
                         "name": "xingguangshi_yueguang",
-                        "form": "default",
+                        "form": "月光形态",
                         "localized": {
                             "zh": {
                                 "name": "星光狮"

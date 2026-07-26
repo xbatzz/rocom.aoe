@@ -22045,7 +22045,7 @@
         "id": 3281,
         "species_id": 18,
         "name": "xuerongniao_qiu",
-        "form": "default",
+        "form": "秋日形态",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -22267,7 +22267,7 @@
         "id": 3284,
         "species_id": 19,
         "name": "dongyuque_qiu",
-        "form": "default",
+        "form": "秋日形态",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -22408,7 +22408,7 @@
         "id": 3287,
         "species_id": 20,
         "name": "lanniao_qiu",
-        "form": "default",
+        "form": "秋日形态",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -22455,7 +22455,7 @@
         "id": 3288,
         "species_id": 44,
         "name": "diudiu_huoshan",
-        "form": "default",
+        "form": "火山形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -22659,7 +22659,7 @@
         "id": 3290,
         "species_id": 44,
         "name": "diudiu_xueshan",
-        "form": "default",
+        "form": "雪山形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -22761,7 +22761,7 @@
         "id": 3291,
         "species_id": 45,
         "name": "kakachong_huoshan",
-        "form": "default",
+        "form": "火山形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -22867,7 +22867,7 @@
         "id": 3293,
         "species_id": 45,
         "name": "kakachong_xueshan",
-        "form": "default",
+        "form": "雪山形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -22920,7 +22920,7 @@
         "id": 3294,
         "species_id": 46,
         "name": "kawachong_huoshan",
-        "form": "default",
+        "form": "火山形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -23026,7 +23026,7 @@
         "id": 3296,
         "species_id": 46,
         "name": "kawachong_xueshan",
-        "form": "default",
+        "form": "雪山形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -33464,7 +33464,7 @@
         "id": 3440,
         "species_id": 57,
         "name": "mengyou_pink",
-        "form": "default",
+        "form": "粉色形态",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -33583,7 +33583,7 @@
         "id": 3441,
         "species_id": 58,
         "name": "mengyouyou_pink",
-        "form": "default",
+        "form": "粉色形态",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -33637,7 +33637,7 @@
         "id": 3442,
         "species_id": 80,
         "name": "xiaoxingguang_yueguang",
-        "form": "default",
+        "form": "月光形态",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -33739,7 +33739,7 @@
         "id": 3443,
         "species_id": 81,
         "name": "xingguangshi_yueguang",
-        "form": "default",
+        "form": "月光形态",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -34162,7 +34162,7 @@
         "id": 3448,
         "species_id": 40,
         "name": "jingshiwo_yidi3",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -34216,7 +34216,7 @@
         "id": 3449,
         "species_id": 40,
         "name": "jingshiwo_yidi5",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -34270,7 +34270,7 @@
         "id": 3450,
         "species_id": 40,
         "name": "jingshiwo_yidi1",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -34324,7 +34324,7 @@
         "id": 3451,
         "species_id": 40,
         "name": "jingshiwo_yidi2",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -34570,7 +34570,7 @@
         "id": 3454,
         "species_id": 277,
         "name": "dishu_xushui",
-        "form": "default",
+        "form": "蓄水形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -34698,7 +34698,7 @@
         "id": 3455,
         "species_id": 278,
         "name": "dunshu_xushui",
-        "form": "default",
+        "form": "蓄水形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -34745,7 +34745,7 @@
         "id": 3456,
         "species_id": 279,
         "name": "dundishu_xushui",
-        "form": "default",
+        "form": "蓄水形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -35446,7 +35446,7 @@
         "id": 3467,
         "species_id": 165,
         "name": "xiaoshijiu_gaoshan",
-        "form": "default",
+        "form": "高山形态",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -35543,7 +35543,7 @@
         "id": 3468,
         "species_id": 166,
         "name": "shenshengshijiu_gaoshan",
-        "form": "default",
+        "form": "高山形态",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -35591,7 +35591,7 @@
         "id": 3469,
         "species_id": 167,
         "name": "huangjiashijiu_gaoshan",
-        "form": "default",
+        "form": "高山形态",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -35944,7 +35944,7 @@
         "id": 3475,
         "species_id": 76,
         "name": "haikuichong_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -35998,7 +35998,7 @@
         "id": 3476,
         "species_id": 77,
         "name": "cikuichong_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -36052,7 +36052,7 @@
         "id": 3477,
         "species_id": 78,
         "name": "qianjikui_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -36602,7 +36602,7 @@
         "id": 3486,
         "species_id": 40,
         "name": "jingshiwo_yidi4",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -37406,7 +37406,7 @@
         "id": 3496,
         "species_id": 118,
         "name": "xuanyechong_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -37541,7 +37541,7 @@
         "id": 3497,
         "species_id": 119,
         "name": "pengyechong_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -37595,7 +37595,7 @@
         "id": 3498,
         "species_id": 120,
         "name": "fengguanmuchong_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -37809,7 +37809,7 @@
         "id": 3500,
         "species_id": 24,
         "name": "shifuxi_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -37890,7 +37890,7 @@
         "id": 3501,
         "species_id": 25,
         "name": "shicixi_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -37938,7 +37938,7 @@
         "id": 3502,
         "species_id": 26,
         "name": "shiguanwangxi_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -38569,7 +38569,7 @@
         "id": 3511,
         "species_id": 171,
         "name": "boboluo_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -38672,7 +38672,7 @@
         "id": 3512,
         "species_id": 172,
         "name": "xiaoboluo_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -38726,7 +38726,7 @@
         "id": 3513,
         "species_id": 173,
         "name": "shiboluo_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -38882,7 +38882,7 @@
         "id": 3516,
         "species_id": 12,
         "name": "banbanke_tuipi",
-        "form": "default",
+        "form": "蜕皮形态",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -38929,7 +38929,7 @@
         "id": 3517,
         "species_id": 13,
         "name": "kakake_tuipi",
-        "form": "default",
+        "form": "蜕皮形态",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -38976,7 +38976,7 @@
         "id": 3518,
         "species_id": 14,
         "name": "shuipaoke_tuipi",
-        "form": "default",
+        "form": "蜕皮形态",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -40558,7 +40558,7 @@
         "id": 3539,
         "species_id": 258,
         "name": "wuda_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -40660,7 +40660,7 @@
         "id": 3540,
         "species_id": 259,
         "name": "miniwu_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -40713,7 +40713,7 @@
         "id": 3541,
         "species_id": 260,
         "name": "wulata_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -41677,7 +41677,7 @@
         "id": 3555,
         "species_id": 188,
         "name": "qiqi_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -41811,7 +41811,7 @@
         "id": 3556,
         "species_id": 189,
         "name": "qiqishi_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -41864,7 +41864,7 @@
         "id": 3557,
         "species_id": 192,
         "name": "qiqihou_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -41917,7 +41917,7 @@
         "id": 3558,
         "species_id": 190,
         "name": "qiqilei_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -41970,7 +41970,7 @@
         "id": 3559,
         "species_id": 191,
         "name": "qiqidu_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -43424,7 +43424,7 @@
         "id": 3582,
         "species_id": 237,
         "name": "ciluntuo_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 10,
             "name": "Poison",
@@ -43558,7 +43558,7 @@
         "id": 3583,
         "species_id": 238,
         "name": "yueliangtuo_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 10,
             "name": "Poison",
@@ -46371,7 +46371,7 @@
         "id": 3621,
         "species_id": 3621,
         "name": "guzhongshe_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 10,
             "name": "Poison",
@@ -46490,7 +46490,7 @@
         "id": 3622,
         "species_id": 3622,
         "name": "hanyinshe_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 10,
             "name": "Poison",
@@ -53247,7 +53247,7 @@
         "id": 3738,
         "species_id": 3738,
         "name": "xiaosongmao_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 12,
             "name": "Fighting",
@@ -53344,7 +53344,7 @@
         "id": 3739,
         "species_id": 3739,
         "name": "numusongmao_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 12,
             "name": "Fighting",
@@ -56595,7 +56595,7 @@
                 "name": "圣水守护"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -56640,7 +56640,7 @@
                 "name": "烈火战神"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -56685,7 +56685,7 @@
                 "name": "叶冕魔力猫"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -56730,7 +56730,7 @@
                 "name": "恶魔狼王"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -56775,7 +56775,7 @@
                 "name": "鸭吉吉国王"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -56826,7 +56826,7 @@
                 "name": "蹦蹦果"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -56877,7 +56877,7 @@
                 "name": "千棘海针"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -56928,7 +56928,7 @@
                 "name": "女王蜂"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -56973,7 +56973,7 @@
                 "name": "奇丽果"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -57069,7 +57069,7 @@
                 "name": "幻影荆棘"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -57267,7 +57267,7 @@
                 "name": "迷嶂布莱克"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -57318,7 +57318,7 @@
                 "name": "神谕鲨"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -57363,7 +57363,7 @@
                 "name": "霜翼领主"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -57465,7 +57465,7 @@
                 "name": "伊里斯"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -57555,7 +57555,7 @@
                 "name": "风暴战犬"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -57606,7 +57606,7 @@
                 "name": "钻石蜗"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -57804,7 +57804,7 @@
                 "name": "黑猫密探"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -57855,7 +57855,7 @@
                 "name": "祭礼巨像"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -57906,7 +57906,7 @@
                 "name": "雪影冰灵"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -57957,7 +57957,7 @@
                 "name": "棋契陛下"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -58002,7 +58002,7 @@
                 "name": "奇梦咪"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -58047,7 +58047,7 @@
                 "name": "波普鹿"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -58092,7 +58092,7 @@
                 "name": "圣剑骑士"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -58137,7 +58137,7 @@
                 "name": "伊兰龙"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -58419,7 +58419,7 @@
                 "name": "奇梦咪"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -58464,7 +58464,7 @@
                 "name": "奇梦咪"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -58515,7 +58515,7 @@
                 "name": "雪影冰灵"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -58566,7 +58566,7 @@
                 "name": "雪影冰灵"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -58668,7 +58668,7 @@
                 "name": "暮风隐者"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -58719,7 +58719,7 @@
                 "name": "淤泥乌泽"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -58815,7 +58815,7 @@
                 "name": "暗夜颅主"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -58866,7 +58866,7 @@
                 "name": "暗影恶魔"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -58911,7 +58911,7 @@
                 "name": "风暴酷拉"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -64915,7 +64915,7 @@
                 "name": "圣水守护"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -64960,7 +64960,7 @@
                 "name": "烈火战神"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -65005,7 +65005,7 @@
                 "name": "叶冕魔力猫"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -65050,7 +65050,7 @@
                 "name": "恶魔狼王"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -65101,7 +65101,7 @@
                 "name": "蹦蹦果"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -65152,7 +65152,7 @@
                 "name": "千棘海针"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -65203,7 +65203,7 @@
                 "name": "女王蜂"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -65248,7 +65248,7 @@
                 "name": "奇丽果"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -65299,7 +65299,7 @@
                 "name": "幻影荆棘"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -65344,7 +65344,7 @@
                 "name": "迷嶂布莱克"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -65389,7 +65389,7 @@
                 "name": "霜翼领主"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -65434,7 +65434,7 @@
                 "name": "风暴战犬"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -65485,7 +65485,7 @@
                 "name": "钻石蜗"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -65530,7 +65530,7 @@
                 "name": "黑猫密探"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -65581,7 +65581,7 @@
                 "name": "祭礼巨像"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -65632,7 +65632,7 @@
                 "name": "雪影冰灵"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -65683,7 +65683,7 @@
                 "name": "棋契陛下"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -65728,7 +65728,7 @@
                 "name": "奇梦咪"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -65773,7 +65773,7 @@
                 "name": "波普鹿"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -65818,7 +65818,7 @@
                 "name": "圣剑骑士"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -65863,7 +65863,7 @@
                 "name": "伊兰龙"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -65914,7 +65914,7 @@
                 "name": "深渊罗隐"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 0,
         "base_phy_atk": 0,
         "base_mag_atk": 0,
@@ -72960,7 +72960,7 @@
         "id": 17000004,
         "species_id": 17000004,
         "name": "shifuxi_yidi",
-        "form": "default",
+        "form": "异地形态",
         "main_type": {
             "id": 6,
             "name": "Ground",

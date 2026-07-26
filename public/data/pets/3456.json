@@ -1,7 +1,7 @@
 {
     "id": 3456,
     "name": "dundishu_xushui",
-    "form": "default",
+    "form": "蓄水形态",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -1234,7 +1234,7 @@
                         "id": 3454,
                         "species_id": 277,
                         "name": "dishu_xushui",
-                        "form": "default",
+                        "form": "蓄水形态",
                         "localized": {
                             "zh": {
                                 "name": "地鼠"
@@ -1284,7 +1284,7 @@
                         "id": 3455,
                         "species_id": 278,
                         "name": "dunshu_xushui",
-                        "form": "default",
+                        "form": "蓄水形态",
                         "localized": {
                             "zh": {
                                 "name": "遁鼠"
@@ -1336,7 +1336,7 @@
                         "id": 3456,
                         "species_id": 279,
                         "name": "dundishu_xushui",
-                        "form": "default",
+                        "form": "蓄水形态",
                         "localized": {
                             "zh": {
                                 "name": "遁地鼠"

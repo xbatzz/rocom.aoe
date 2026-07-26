@@ -354,6 +354,7 @@ async function main() {
         breeding: detail.breeding,
         breeding_profile: detail.breeding_profile,
     }));
+    validateGeneratedPetDetails(details);
     const bloodlineIndexEntries = details.map((detail) => ({
         pet_id: detail.id,
         pet_name: detail.localized.zh.name,
@@ -728,7 +729,7 @@ function extractForm(context) {
     }
 
     if (!handbookName || handbookName === displayName) {
-        return "default";
+        return extractPortraitForm(context.portraitKey) ?? "default";
     }
 
     if (displayName.endsWith(handbookName)) {
@@ -752,8 +753,38 @@ function extractForm(context) {
     return displayName;
 }
 
+function extractPortraitForm(portraitKey) {
+    const formPatterns = [
+        [/_yise$/u, "异色形态"],
+        [/_yidi\d*$/u, "异地形态"],
+        [/_qiu$/u, "秋日形态"],
+        [/_huoshan$/u, "火山形态"],
+        [/_xueshan$/u, "雪山形态"],
+        [/_gaoshan$/u, "高山形态"],
+        [/_yueguang$/u, "月光形态"],
+        [/_xushui$/u, "蓄水形态"],
+        [/_tuipi$/u, "蜕皮形态"],
+        [/_pink$/u, "粉色形态"],
+    ];
+
+    return (
+        formPatterns.find(([pattern]) => pattern.test(portraitKey))?.[1] ?? null
+    );
+}
+
 function normalizeStat(value) {
     return typeof value === "number" ? value : 0;
+}
+
+function getTotalRaceStats(petBase) {
+    return (
+        normalizeStat(petBase?.hp_max_race) +
+        normalizeStat(petBase?.phy_attack_race) +
+        normalizeStat(petBase?.spe_attack_race) +
+        normalizeStat(petBase?.phy_defence_race) +
+        normalizeStat(petBase?.spe_defence_race) +
+        normalizeStat(petBase?.speed_race)
+    );
 }
 
 function resolveAttackStyle(petBase) {
@@ -823,9 +854,37 @@ function isImplementedContext(context, movePool, moveStones, legacyMoves) {
     const releasedBossFormImplemented =
         context.petBase?.is_boss === 1 &&
         typeof context.petBase?.pictorial_book_id === "number" &&
-        hasHandbookPresentationAssets(context.petBase);
+        hasHandbookPresentationAssets(context.petBase) &&
+        getTotalRaceStats(context.petBase) > 0;
 
     return canonicalCollectibleImplemented || releasedBossFormImplemented;
+}
+
+function validateGeneratedPetDetails(details) {
+    const invalidBosses = details.filter(
+        (detail) =>
+            detail.implemented &&
+            detail.is_leader_form &&
+            getTotalRaceStats({
+                hp_max_race: detail.base_hp,
+                phy_attack_race: detail.base_phy_atk,
+                spe_attack_race: detail.base_mag_atk,
+                phy_defence_race: detail.base_phy_def,
+                spe_defence_race: detail.base_mag_def,
+                speed_race: detail.base_spd,
+            }) <= 0,
+    );
+
+    if (invalidBosses.length > 0) {
+        const sample = invalidBosses
+            .slice(0, 8)
+            .map((detail) => `${detail.id}:${detail.localized.zh.name}`)
+            .join(", ");
+
+        throw new Error(
+            `Refusing to generate implemented zero-stat leader records: ${sample}`,
+        );
+    }
 }
 
 function buildSpecies(context, contextById) {

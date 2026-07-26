@@ -247,7 +247,7 @@ const summaryItems = computed(() => {
 const filteredPets = computed(() => {
     const keyword = encyclopediaState.keyword.trim().toLowerCase();
 
-    return pets.value.filter((pet) => {
+    const matches = pets.value.filter((pet) => {
         const matchesKeyword =
             keyword.length === 0 ||
             matchesPetKeyword(pet, keyword, [
@@ -290,6 +290,8 @@ const filteredPets = computed(() => {
             matchesImplementation
         );
     });
+
+    return collapseDuplicateLeaderConfigurations(matches);
 });
 
 const sortedPets = computed(() => {
@@ -505,6 +507,67 @@ function getTotalStats(pet: IPets) {
         pet.base_mag_def +
         pet.base_spd
     );
+}
+
+function getPetFormLabel(pet: IPets) {
+    const form = pet.form?.trim();
+
+    if (
+        !form ||
+        form.toLowerCase() === "default" ||
+        form === pet.localized.zh.name
+    ) {
+        return "";
+    }
+
+    return form;
+}
+
+function getLeaderPresentationKey(pet: IPets) {
+    return [
+        pet.species_id,
+        pet.localized.zh.name.trim(),
+        pet.name.trim(),
+    ].join("\u0000");
+}
+
+function shouldReplaceLeaderRepresentative(
+    candidate: IPets,
+    current: IPets,
+) {
+    if (isPetImplemented(candidate) !== isPetImplemented(current)) {
+        return isPetImplemented(candidate);
+    }
+
+    const candidateStats = getTotalStats(candidate);
+    const currentStats = getTotalStats(current);
+
+    if ((candidateStats > 0) !== (currentStats > 0)) {
+        return candidateStats > 0;
+    }
+
+    return candidate.id < current.id;
+}
+
+function collapseDuplicateLeaderConfigurations(entries: IPets[]) {
+    const regularPets: IPets[] = [];
+    const leaderByPresentation = new Map<string, IPets>();
+
+    for (const pet of entries) {
+        if (!pet.is_leader_form) {
+            regularPets.push(pet);
+            continue;
+        }
+
+        const key = getLeaderPresentationKey(pet);
+        const current = leaderByPresentation.get(key);
+
+        if (!current || shouldReplaceLeaderRepresentative(pet, current)) {
+            leaderByPresentation.set(key, pet);
+        }
+    }
+
+    return [...regularPets, ...leaderByPresentation.values()];
 }
 
 function getPeakStat(friend: IPets) {
@@ -1012,6 +1075,13 @@ document.title = "图鉴 - 洛克王国工具箱";
                                 </div>
 
                                 <div class="mt-3 flex flex-wrap gap-2">
+                                    <Badge
+                                        v-if="getPetFormLabel(pet)"
+                                        variant="outline"
+                                        class="rounded-[10px] border-primary/25 bg-primary/8 text-foreground"
+                                    >
+                                        {{ getPetFormLabel(pet) }}
+                                    </Badge>
                                     <Badge
                                         class="rounded-[10px] bg-white/10 text-foreground"
                                     >

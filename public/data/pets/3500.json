@@ -1,7 +1,7 @@
 {
     "id": 3500,
     "name": "shifuxi_yidi",
-    "form": "default",
+    "form": "异地形态",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -1278,7 +1278,7 @@
                         "id": 3500,
                         "species_id": 24,
                         "name": "shifuxi_yidi",
-                        "form": "default",
+                        "form": "异地形态",
                         "localized": {
                             "zh": {
                                 "name": "石肤蜥"
@@ -1328,7 +1328,7 @@
                         "id": 3501,
                         "species_id": 25,
                         "name": "shicixi_yidi",
-                        "form": "default",
+                        "form": "异地形态",
                         "localized": {
                             "zh": {
                                 "name": "石刺蜥"
@@ -1380,7 +1380,7 @@
                         "id": 3502,
                         "species_id": 26,
                         "name": "shiguanwangxi_yidi",
-                        "form": "default",
+                        "form": "异地形态",
                         "localized": {
                             "zh": {
                                 "name": "石冠王蜥"

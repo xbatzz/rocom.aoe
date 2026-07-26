@@ -1,7 +1,7 @@
 {
     "id": 3441,
     "name": "mengyouyou_pink",
-    "form": "default",
+    "form": "粉色形态",
     "main_type": {
         "id": 5,
         "name": "Light",
@@ -1240,7 +1240,7 @@
                         "id": 3440,
                         "species_id": 57,
                         "name": "mengyou_pink",
-                        "form": "default",
+                        "form": "粉色形态",
                         "localized": {
                             "zh": {
                                 "name": "梦游"
@@ -1296,7 +1296,7 @@
                         "id": 3441,
                         "species_id": 58,
                         "name": "mengyouyou_pink",
-                        "form": "default",
+                        "form": "粉色形态",
                         "localized": {
                             "zh": {
                                 "name": "梦悠悠"

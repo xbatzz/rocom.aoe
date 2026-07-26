@@ -10,7 +10,8 @@
         "build-only": "vite build",
         "type-check": "vue-tsc --build",
         "sync:pet-data": "node ./scripts/sync-pet-data.mjs",
-        "import:fmodel-icons": "node ./scripts/import-fmodel-icons.mjs"
+        "import:fmodel-icons": "node ./scripts/import-fmodel-icons.mjs",
+        "test:pet-data-quality": "node ./scripts/test-pet-data-quality.mjs"
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.2.2",
