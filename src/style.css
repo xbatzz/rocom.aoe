@@ -42,7 +42,7 @@
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   --radius: 10px;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -78,6 +78,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   --background: oklch(0.17 0.025 264);
   --foreground: oklch(0.96 0.01 255);
   --card: oklch(0.22 0.024 258);
@@ -127,4 +128,131 @@
     background-color: var(--background);
     font-family: 'Roboto', 'Segoe UI', sans-serif;
   }
+}
+
+html:not(.dark) [data-scroll-container] :where(
+  [class~="bg-white/4"],
+  [class~="bg-white/5"],
+  [class~="bg-white/10"]
+) {
+  background-color: color-mix(in oklab, var(--foreground) 5%, transparent);
+}
+
+html:not(.dark) :where(
+  [class~="bg-slate-950/70"],
+  [class~="bg-slate-950/82"],
+  [class~="bg-slate-950/90"],
+  [class~="bg-slate-950/95"],
+  [class~="bg-slate-950/96"],
+  [class~="bg-slate-900/80"]
+) {
+  background-color: var(--popover);
+}
+
+html:not(.dark) [data-scroll-container] :where(
+  [class~="border-white/8"],
+  [class~="border-white/10"]
+) {
+  border-color: var(--border);
+}
+
+.dark .pvp-lite-theme :where(
+  [class~="bg-white"],
+  [class~="bg-white/65"],
+  [class~="bg-white/80"],
+  [class~="bg-white/85"],
+  [class~="bg-white/90"],
+  [class~="bg-white/92"]
+) {
+  background-color: color-mix(in oklab, var(--card) 94%, transparent);
+}
+
+.dark .pvp-lite-theme :where(
+  [class~="bg-slate-50"],
+  [class~="bg-slate-100"]
+) {
+  background-color: var(--muted);
+}
+
+.dark .pvp-lite-theme :where(
+  [class~="bg-cyan-50/70"],
+  [class~="bg-sky-50"]
+) {
+  background-color: color-mix(in oklab, var(--card) 84%, #0891b2 16%);
+}
+
+.dark .pvp-lite-theme :where(
+  [class~="bg-emerald-50"],
+  [class~="bg-emerald-100"]
+) {
+  background-color: color-mix(in oklab, var(--card) 84%, #059669 16%);
+}
+
+.dark .pvp-lite-theme :where(
+  [class~="bg-rose-50"],
+  [class~="bg-rose-50/70"],
+  [class~="bg-rose-100"]
+) {
+  background-color: color-mix(in oklab, var(--card) 84%, #e11d48 16%);
+}
+
+.dark .pvp-lite-theme :where(
+  [class~="bg-amber-50"],
+  [class~="bg-amber-100"],
+  [class~="bg-orange-50"],
+  [class~="bg-orange-100"],
+  [class~="bg-orange-200"]
+) {
+  background-color: color-mix(in oklab, var(--card) 82%, #d97706 18%);
+}
+
+.dark .pvp-lite-theme :where(
+  [class~="bg-violet-50"],
+  [class~="bg-violet-50/70"],
+  [class~="bg-violet-100"]
+) {
+  background-color: color-mix(in oklab, var(--card) 84%, #7c3aed 16%);
+}
+
+.dark .pvp-lite-theme :where(
+  [class~="text-slate-950"],
+  [class~="text-slate-900"],
+  [class~="text-slate-800"]
+) {
+  color: var(--foreground);
+}
+
+.dark .pvp-lite-theme :where(
+  [class~="text-slate-700"],
+  [class~="text-slate-600"],
+  [class~="text-slate-500"],
+  [class~="text-slate-400"]
+) {
+  color: var(--muted-foreground);
+}
+
+.dark .pvp-lite-theme :where(
+  [class~="border-white/80"],
+  [class~="border-slate-100"],
+  [class~="border-slate-200"],
+  [class~="border-cyan-100"],
+  [class~="border-sky-100"],
+  [class~="border-emerald-100"],
+  [class~="border-emerald-200"],
+  [class~="border-emerald-300"],
+  [class~="border-rose-100"],
+  [class~="border-rose-200"],
+  [class~="border-rose-300"],
+  [class~="border-amber-100"],
+  [class~="border-amber-200"],
+  [class~="border-orange-100"],
+  [class~="border-orange-200"],
+  [class~="border-violet-100"],
+  [class~="border-violet-200"]
+) {
+  border-color: var(--border);
+}
+
+.dark .pvp-lite-theme :where([class*="shadow-"]) {
+  --tw-shadow-color: rgb(0 0 0 / 0.24);
 }

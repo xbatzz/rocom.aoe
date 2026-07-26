@@ -1126,7 +1126,7 @@ document.title = "对战助手 - 洛克王国工具箱";
 
 <template>
     <section
-        class="mx-auto max-w-5xl space-y-3 rounded-[28px] bg-gradient-to-b from-cyan-50 via-white to-orange-50 p-3 pb-28 text-slate-950 md:p-5 md:pb-8"
+        class="pvp-lite-theme mx-auto max-w-5xl space-y-3 rounded-[28px] bg-gradient-to-b from-cyan-50 via-white to-orange-50 p-3 pb-28 text-slate-950 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 dark:text-foreground md:p-5 md:pb-8"
     >
         <div
             class="rounded-[30px] border border-white/80 bg-white/85 px-4 py-4 shadow-lg shadow-sky-100/60 backdrop-blur md:px-6"
@@ -1251,7 +1251,7 @@ document.title = "对战助手 - 洛克王国工具箱";
 
                     <div class="grid grid-cols-[minmax(0,1fr)_42px_minmax(0,1fr)] items-stretch gap-2 md:grid-cols-[1fr_64px_1fr]">
                         <div
-                            class="min-w-0 rounded-[28px] border border-emerald-100 bg-gradient-to-br from-emerald-100 via-white to-white p-3 text-center shadow-inner md:p-5"
+                            class="min-w-0 rounded-[28px] border border-emerald-100 bg-gradient-to-br from-emerald-100 via-white to-white p-3 text-center shadow-inner dark:from-emerald-950 dark:via-card dark:to-card md:p-5"
                         >
                             <p class="text-xs font-black text-emerald-700">
                                 我方
@@ -1324,7 +1324,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                         </div>
 
                         <div
-                            class="min-w-0 rounded-[28px] border border-rose-100 bg-gradient-to-br from-rose-100 via-white to-white p-3 text-center shadow-inner md:p-5"
+                            class="min-w-0 rounded-[28px] border border-rose-100 bg-gradient-to-br from-rose-100 via-white to-white p-3 text-center shadow-inner dark:from-rose-950 dark:via-card dark:to-card md:p-5"
                         >
                             <p class="text-xs font-black text-rose-700">
                                 对方
@@ -1441,7 +1441,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                 </CardContent>
             </Card>
 
-            <Card class="overflow-hidden rounded-[32px] border-amber-200 bg-gradient-to-br from-amber-300 via-orange-100 to-white shadow-xl shadow-orange-100">
+            <Card class="overflow-hidden rounded-[32px] border-amber-200 bg-gradient-to-br from-amber-300 via-orange-100 to-white shadow-xl shadow-orange-100 dark:from-amber-900 dark:via-orange-950 dark:to-card">
                 <CardContent class="space-y-3 p-5 md:p-6">
                     <div class="flex items-center justify-between gap-3">
                         <div class="flex items-center gap-2 text-amber-900">
@@ -1485,7 +1485,7 @@ document.title = "对战助手 - 洛克王国工具箱";
 
                     <div
                         v-if="recommendedDamageOption"
-                        class="rounded-[28px] bg-gradient-to-br from-orange-200 via-amber-50 to-white p-4 shadow-inner md:p-5"
+                        class="rounded-[28px] bg-gradient-to-br from-orange-200 via-amber-50 to-white p-4 shadow-inner dark:from-orange-950 dark:via-amber-950 dark:to-card md:p-5"
                     >
                         <div class="flex items-start justify-between gap-3">
                             <div class="min-w-0">

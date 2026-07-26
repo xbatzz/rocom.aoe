@@ -17,11 +17,19 @@ import {
     Swords,
     Target,
     Calculator,
+    Moon,
+    Sun,
 } from "lucide-vue-next";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/lib/theme";
 
 const route = useRoute();
 const isMobileMenuOpen = ref(false);
+const { theme, toggleTheme } = useTheme();
+
+const themeToggleLabel = computed(() =>
+    theme.value === "dark" ? "切换浅色" : "切换暗色",
+);
 
 watch(
     () => route.path,
@@ -95,6 +103,19 @@ const navItems = [
             </router-link>
         </div>
 
+        <div class="border-t border-border p-3">
+            <button
+                type="button"
+                class="flex w-full items-center gap-3 rounded-[10px] px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent/50 hover:text-foreground"
+                :aria-label="themeToggleLabel"
+                :title="themeToggleLabel"
+                @click="toggleTheme"
+            >
+                <Sun v-if="theme === 'dark'" class="h-5 w-5 shrink-0" />
+                <Moon v-else class="h-5 w-5 shrink-0" />
+                <span>{{ themeToggleLabel }}</span>
+            </button>
+        </div>
     </aside>
 
     <!-- Mobile Header -->
@@ -105,13 +126,27 @@ const navItems = [
             <img src="/favicon.ico" alt="Logo" class="h-8 w-8" />
             <span class="font-bold text-lg tracking-tight">洛克王国工具箱</span>
         </router-link>
-        <button
-            @click="isMobileMenuOpen = !isMobileMenuOpen"
-            class="p-2 -mr-2 text-foreground flex items-center justify-center"
-        >
-            <Menu v-if="!isMobileMenuOpen" class="h-6 w-6" />
-            <X v-else class="h-6 w-6" />
-        </button>
+        <div class="-mr-2 flex items-center">
+            <button
+                type="button"
+                class="flex h-10 w-10 items-center justify-center rounded-[10px] text-foreground transition-colors hover:bg-accent/50"
+                :aria-label="themeToggleLabel"
+                :title="themeToggleLabel"
+                @click="toggleTheme"
+            >
+                <Sun v-if="theme === 'dark'" class="h-5 w-5" />
+                <Moon v-else class="h-5 w-5" />
+            </button>
+            <button
+                type="button"
+                class="flex h-10 w-10 items-center justify-center rounded-[10px] text-foreground transition-colors hover:bg-accent/50"
+                aria-label="切换导航"
+                @click="isMobileMenuOpen = !isMobileMenuOpen"
+            >
+                <Menu v-if="!isMobileMenuOpen" class="h-6 w-6" />
+                <X v-else class="h-6 w-6" />
+            </button>
+        </div>
     </header>
 
     <!-- Mobile Navigation Overlay -->
