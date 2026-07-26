@@ -3982,7 +3982,7 @@
                 "name": "圣光迪莫"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 120,
         "base_phy_atk": 80,
         "base_mag_atk": 80,
@@ -4306,7 +4306,7 @@
                 "name": "圣草迪莫"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 120,
         "base_phy_atk": 80,
         "base_mag_atk": 80,
@@ -55084,7 +55084,7 @@
                 "name": "诅咒狼灵"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -55131,7 +55131,7 @@
                 "name": "新月狼灵"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -55178,7 +55178,7 @@
                 "name": "银月狼王"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -55225,7 +55225,7 @@
                 "name": "新月鹭"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -55272,7 +55272,7 @@
                 "name": "月辉鹭"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -55319,7 +55319,7 @@
                 "name": "月使鹭纳"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -55366,7 +55366,7 @@
                 "name": "章脑丸"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -55413,7 +55413,7 @@
                 "name": "智辉章脑"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -55460,7 +55460,7 @@
                 "name": "乌头蝇"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -55507,7 +55507,7 @@
                 "name": "乌蝇飞贼"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -55554,7 +55554,7 @@
                 "name": "小浣蛋"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -55601,7 +55601,7 @@
                 "name": "黑手浣熊"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -55648,7 +55648,7 @@
                 "name": "幽铃"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -55695,7 +55695,7 @@
                 "name": "摇铃魔偶"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -55742,7 +55742,7 @@
                 "name": "布灵"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -55789,7 +55789,7 @@
                 "name": "布灵布灵"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -55890,7 +55890,7 @@
                 "name": "红萝卜兔-占位"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -55937,7 +55937,7 @@
                 "name": "艾米-占位"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -55984,7 +55984,7 @@
                 "name": "星光艾米-占位"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -56031,7 +56031,7 @@
                 "name": "小钻鼠-占位"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -56078,7 +56078,7 @@
                 "name": "钻钻鼠-占位"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -56125,7 +56125,7 @@
                 "name": "霹雳旋风鼠-占位"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -56172,7 +56172,7 @@
                 "name": "云梦豚-占位"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -56219,7 +56219,7 @@
                 "name": "长江豚-占位"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -56266,7 +56266,7 @@
                 "name": "魔盒猫-占位"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -56313,7 +56313,7 @@
                 "name": "魔盒猫（异地）-占位"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -56360,7 +56360,7 @@
                 "name": "白萝卜兔-占位"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -56407,7 +56407,7 @@
                 "name": "嘟嘟-占位"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -56454,7 +56454,7 @@
                 "name": "嘟魔蛇-占位"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -56501,7 +56501,7 @@
                 "name": "梦游（旱魃的样子）-占位"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,
@@ -56548,7 +56548,7 @@
                 "name": "梦悠悠（旱魃的样子）-占位"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 66,
         "base_phy_atk": 74,
         "base_mag_atk": 36,

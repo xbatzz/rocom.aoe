@@ -24,6 +24,8 @@ const CANONICAL_PETBASE_ID_RANGE = {
     min: 3000,
     maxExclusive: 4000,
 };
+const KNOWN_UNRELEASED_PETBASE_IDS = new Set([3048, 3051]);
+const PLACEHOLDER_NAME_PATTERN = /(?:占位|测试|废案|临时)/u;
 
 const RAW_TYPE_TO_NORMALIZED_ID = new Map([
     [2, 1],
@@ -232,6 +234,10 @@ async function main() {
         contexts.map((context) => [context.id, context]),
     );
     const contextsByGroup = groupBy(contexts, (context) => context.groupKey);
+    const contextsByPortrait = groupBy(
+        contexts,
+        (context) => context.portraitKey,
+    );
     const leaderFlagById = new Map(
         contexts.map((context) => [
             context.id,
@@ -291,6 +297,7 @@ async function main() {
             movePool,
             moveStones,
             legacyMoves,
+            contextsByPortrait,
         );
 
         return {
@@ -835,7 +842,30 @@ function hasCanonicalBreedingSignals(context) {
     );
 }
 
-function isImplementedContext(context, movePool, moveStones, legacyMoves) {
+function hasBorrowedPlaceholderPresentation(context, contextsByPortrait) {
+    if (
+        context.handbookRow !== null ||
+        typeof context.petBase?.pictorial_book_id === "number" ||
+        typeof context.petBase?.available_time === "string"
+    ) {
+        return false;
+    }
+
+    return (contextsByPortrait.get(context.portraitKey) ?? []).some(
+        (candidate) =>
+            candidate.id !== context.id &&
+            candidate.handbookRow !== null &&
+            candidate.displayName !== context.displayName,
+    );
+}
+
+function isImplementedContext(
+    context,
+    movePool,
+    moveStones,
+    legacyMoves,
+    contextsByPortrait,
+) {
     // BinData does not expose one stable `is_released` flag. The most reliable
     // rule is a split by content type:
     // - canonical collectible pets: battle-ready and backed by either
@@ -843,6 +873,17 @@ function isImplementedContext(context, movePool, moveStones, legacyMoves) {
     //   breeding signals;
     // - released leader/boss forms: boss entries with a base-species pictorial
     //   link and handbook presentation assets.
+    // Records that explicitly identify themselves as placeholders, or borrow the
+    // complete presentation template of another handbook pet without their own
+    // handbook/release data, remain queryable but are not considered released.
+    if (
+        KNOWN_UNRELEASED_PETBASE_IDS.has(context.id) ||
+        PLACEHOLDER_NAME_PATTERN.test(context.displayName) ||
+        hasBorrowedPlaceholderPresentation(context, contextsByPortrait)
+    ) {
+        return false;
+    }
+
     const canonicalCollectibleImplemented =
         isCanonicalCollectiblePetBaseId(context.id) &&
         hasBattleContent(movePool, moveStones, legacyMoves) &&

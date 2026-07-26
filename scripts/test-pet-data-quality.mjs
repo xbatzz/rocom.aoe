@@ -47,6 +47,35 @@ for (const id of [4005, 4006, 8101, 8102]) {
     );
 }
 
+for (const id of [3048, 3051]) {
+    assert.equal(
+        petById.get(id)?.implemented,
+        false,
+        `已确认未在游戏中实装的迪莫记录 ${id} 不应标记为已实装`,
+    );
+}
+
+const borrowedYadanPlaceholderIds = [
+    ...Array.from({ length: 16 }, (_, index) => 3761 + index),
+    ...Array.from({ length: 15 }, (_, index) => 3778 + index),
+];
+
+for (const id of borrowedYadanPlaceholderIds) {
+    assert.equal(
+        petById.get(id)?.implemented,
+        false,
+        `复用雅丹鬃模板的未完成记录 ${id} 不应标记为已实装`,
+    );
+}
+
+for (const id of [3745, 3777, 5025, 5026]) {
+    assert.equal(
+        petById.get(id)?.implemented,
+        true,
+        `有效记录 ${id} 应保持已实装`,
+    );
+}
+
 console.log(
     `Pet data quality checks passed (${pets.length} records, ${pets.filter((pet) => pet.implemented).length} implemented).`,
 );
