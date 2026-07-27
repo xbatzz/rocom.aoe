@@ -31,7 +31,7 @@
             "name": "星星眼"
         }
     },
-    "implemented": true,
+    "implemented": false,
     "base_hp": 89,
     "base_phy_atk": 93,
     "base_mag_atk": 102,

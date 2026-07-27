@@ -1,6 +1,7 @@
 import type { IPets } from "@/lib/interface";
 
 type PetHandbookSource = Pick<IPets, "species_id" | "id">;
+const MAX_GAME_HANDBOOK_ID = 442;
 
 export function normalizeHandbookNumberQuery(keyword: string): string {
     return keyword
@@ -25,6 +26,26 @@ export function formatPetHandbookNo(
     }
 
     return String(handbookId).padStart(3, "0");
+}
+
+export function getRealPetHandbookId(
+    pet: PetHandbookSource,
+): number | null {
+    return Number.isInteger(pet.species_id) &&
+        pet.species_id >= 1 &&
+        pet.species_id <= MAX_GAME_HANDBOOK_ID
+        ? pet.species_id
+        : null;
+}
+
+export function formatPetCatalogIdentifier(pet: PetHandbookSource): string {
+    const handbookId = getRealPetHandbookId(pet);
+
+    if (handbookId === null) {
+        return `配置 ID ${pet.id}`;
+    }
+
+    return `No.${String(handbookId).padStart(3, "0")}`;
 }
 
 export function isHandbookNumberQuery(keyword: string): boolean {

@@ -13139,7 +13139,7 @@
                 "name": "武斗酷猫"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 127,
         "base_phy_atk": 115,
         "base_mag_atk": 115,
@@ -13690,7 +13690,7 @@
                 "name": "阿布"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 86,
         "base_phy_atk": 100,
         "base_mag_atk": 100,
@@ -13802,7 +13802,7 @@
                 "name": "超能阿布"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 108,
         "base_phy_atk": 124,
         "base_mag_atk": 124,
@@ -17735,7 +17735,7 @@
                 "name": "呼拉猫"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 80,
         "base_phy_atk": 91,
         "base_mag_atk": 41,
@@ -17831,7 +17831,7 @@
                 "name": "增肌猫"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 106,
         "base_phy_atk": 121,
         "base_mag_atk": 55,
@@ -17878,7 +17878,7 @@
                 "name": "健猫教练"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 133,
         "base_phy_atk": 151,
         "base_mag_atk": 69,
@@ -18863,7 +18863,7 @@
                 "name": "星星眼"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 89,
         "base_phy_atk": 93,
         "base_mag_atk": 102,
@@ -30927,7 +30927,7 @@
                 "name": "齿轮小子"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 90,
         "base_phy_atk": 43,
         "base_mag_atk": 111,
@@ -31039,7 +31039,7 @@
                 "name": "机甲小子"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 113,
         "base_phy_atk": 53,
         "base_mag_atk": 139,
@@ -31292,7 +31292,7 @@
                 "name": "格斗小五"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 110,
         "base_phy_atk": 105,
         "base_mag_atk": 105,
@@ -31388,7 +31388,7 @@
                 "name": "格斗小六"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 76,
         "base_phy_atk": 144,
         "base_mag_atk": 63,
@@ -31484,7 +31484,7 @@
                 "name": "格斗小八"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 136,
         "base_phy_atk": 135,
         "base_mag_atk": 50,
@@ -36226,7 +36226,7 @@
                 "name": "圣羽翼王"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 83,
         "base_phy_atk": 106,
         "base_mag_atk": 106,
@@ -40841,7 +40841,7 @@
                 "name": "多灵"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 15,
         "base_phy_atk": 15,
         "base_mag_atk": 15,
@@ -40938,7 +40938,7 @@
                 "name": "多灵主"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 20,
         "base_phy_atk": 20,
         "base_mag_atk": 20,
@@ -42475,7 +42475,7 @@
                 "name": "落陨星兔"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 93,
         "base_phy_atk": 61,
         "base_mag_atk": 125,
@@ -46401,7 +46401,7 @@
                 "name": "古钟蛇"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 80,
         "base_phy_atk": 69,
         "base_mag_atk": 76,
@@ -46520,7 +46520,7 @@
                 "name": "寒音蛇"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 100,
         "base_phy_atk": 87,
         "base_mag_atk": 96,
@@ -53271,7 +53271,7 @@
                 "name": "小怂猫"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 87,
         "base_phy_atk": 106,
         "base_mag_atk": 103,
@@ -53368,7 +53368,7 @@
                 "name": "怒目怂猫"
             }
         },
-        "implemented": true,
+        "implemented": false,
         "base_hp": 109,
         "base_phy_atk": 132,
         "base_mag_atk": 128,

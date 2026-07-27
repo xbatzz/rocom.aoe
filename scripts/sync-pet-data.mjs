@@ -827,21 +827,6 @@ function hasHandbookPresentationAssets(petBase) {
     );
 }
 
-function hasCanonicalHandbookPresentation(context) {
-    return (
-        isCanonicalCollectiblePetBaseId(context.id) &&
-        typeof context.petBase?.pictorial_book_id === "number" &&
-        hasHandbookPresentationAssets(context.petBase)
-    );
-}
-
-function hasCanonicalBreedingSignals(context) {
-    return (
-        isCanonicalCollectiblePetBaseId(context.id) &&
-        uniqueNumbers(normalizeArray(context.petBase?.egg_group)).length > 0
-    );
-}
-
 function hasBorrowedPlaceholderPresentation(context, contextsByPortrait) {
     if (
         context.handbookRow !== null ||
@@ -868,11 +853,9 @@ function isImplementedContext(
 ) {
     // BinData does not expose one stable `is_released` flag. The most reliable
     // rule is a split by content type:
-    // - canonical collectible pets: battle-ready and backed by either
-    //   completeness, handbook mapping, handbook presentation assets, or egg-group
-    //   breeding signals;
-    // - released leader/boss forms: boss entries with a base-species pictorial
-    //   link and handbook presentation assets.
+    // - canonical collectible pets: battle-ready and present in PET_HANDBOOK;
+    // - released leader/boss forms: handbook-linked boss entries with handbook
+    //   presentation assets and meaningful race stats.
     // Records that explicitly identify themselves as placeholders, or borrow the
     // complete presentation template of another handbook pet without their own
     // handbook/release data, remain queryable but are not considered released.
@@ -887,14 +870,11 @@ function isImplementedContext(
     const canonicalCollectibleImplemented =
         isCanonicalCollectiblePetBaseId(context.id) &&
         hasBattleContent(movePool, moveStones, legacyMoves) &&
-        (context.petBase?.completeness === 1 ||
-            context.handbookRow !== null ||
-            hasCanonicalHandbookPresentation(context) ||
-            hasCanonicalBreedingSignals(context));
+        context.handbookRow !== null;
 
     const releasedBossFormImplemented =
         context.petBase?.is_boss === 1 &&
-        typeof context.petBase?.pictorial_book_id === "number" &&
+        context.handbookRow !== null &&
         hasHandbookPresentationAssets(context.petBase) &&
         getTotalRaceStats(context.petBase) > 0;
 

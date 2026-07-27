@@ -31,7 +31,7 @@
             "name": "古钟蛇"
         }
     },
-    "implemented": true,
+    "implemented": false,
     "base_hp": 80,
     "base_phy_atk": 69,
     "base_mag_atk": 76,

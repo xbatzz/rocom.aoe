@@ -31,7 +31,7 @@
             "name": "寒音蛇"
         }
     },
-    "implemented": true,
+    "implemented": false,
     "base_hp": 100,
     "base_phy_atk": 87,
     "base_mag_atk": 96,

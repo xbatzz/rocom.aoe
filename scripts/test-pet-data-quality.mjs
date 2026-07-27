@@ -25,6 +25,20 @@ const invalidImplementedLeaders = pets.filter(
         pet.implemented && pet.is_leader_form && getTotalStats(pet) <= 0,
 );
 
+const invalidImplementedHandbookLinks = pets.filter(
+    (pet) =>
+        pet.implemented &&
+        (!Number.isInteger(pet.species_id) ||
+            pet.species_id < 1 ||
+            pet.species_id > 442),
+);
+
+assert.deepEqual(
+    invalidImplementedHandbookLinks.map((pet) => pet.id),
+    [],
+    "已实装记录必须关联 1–442 的真实图鉴编号",
+);
+
 assert.deepEqual(
     invalidImplementedLeaders.map((pet) => pet.id),
     [],
@@ -73,6 +87,17 @@ for (const id of [3745, 3777, 5025, 5026]) {
         petById.get(id)?.implemented,
         true,
         `有效记录 ${id} 应保持已实装`,
+    );
+}
+
+for (const id of [
+    3158, 3168, 3169, 3217, 3218, 3219, 3236, 3408, 3409, 3416, 3417,
+    3418, 3480, 3543, 3544, 3567, 3621, 3622, 3738, 3739,
+]) {
+    assert.equal(
+        petById.get(id)?.implemented,
+        false,
+        `没有真实图鉴关联的记录 ${id} 不应标记为已实装`,
     );
 }
 

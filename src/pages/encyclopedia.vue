@@ -24,7 +24,7 @@ import {
     type PetImplementationFilter,
 } from "@/lib/petImplementation";
 import {
-    formatPetHandbookNo,
+    formatPetCatalogIdentifier,
     getPetHandbookId,
     isHandbookNumberQuery,
     matchesPetKeyword,
@@ -1041,7 +1041,7 @@ document.title = "图鉴 - 洛克王国工具箱";
                                         <p
                                             class="text-xs tracking-[0.22em] text-foreground uppercase"
                                         >
-                                            No.{{ formatPetHandbookNo(pet) }}
+                                            {{ formatPetCatalogIdentifier(pet) }}
                                         </p>
                                         <h3
                                             class="truncate text-xl font-semibold tracking-tight text-foreground"
