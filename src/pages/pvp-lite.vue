@@ -156,6 +156,8 @@ const allySearchQuery = ref("");
 const damageSearchQuery = ref("");
 const selectedDamageMoveId = ref<number | null>(null);
 const selectedDamageEffectKey = ref<string | null>(null);
+const swarmPowerDevotionCount = ref(0);
+const swarmHitDevotionCount = ref(0);
 const selectedDefenseTypeName = ref("");
 const showManualAllySearch = ref(false);
 const isLoading = ref(false);
@@ -391,6 +393,15 @@ const selectedDamageMove = computed(() => {
     return getDamageMoveById(selectedDamageMoveId.value, allyPetId.value);
 });
 
+const isSelectedSwarmMove = computed(
+    () =>
+        getMoveNameKey(
+            selectedDamageMove.value
+                ? getMoveDisplayName(selectedDamageMove.value)
+                : "",
+        ) === "虫群",
+);
+
 const selectedDamageEffectOptions = computed(() =>
     getDamageEffectOptions(selectedDamageMove.value),
 );
@@ -406,7 +417,9 @@ const selectedDamageEffect = computed(() => {
 });
 
 const selectedDamagePowerBonus = computed(
-    () => selectedDamageEffect.value?.getPowerBonus(allyHpPercent.value) ?? 0,
+    () =>
+        (selectedDamageEffect.value?.getPowerBonus(allyHpPercent.value) ?? 0) +
+        (isSelectedSwarmMove.value ? swarmPowerDevotionCount.value * 20 : 0),
 );
 
 const selectedDamagePowerBoostPercent = computed(
@@ -414,6 +427,10 @@ const selectedDamagePowerBoostPercent = computed(
         selectedDamageEffect.value?.getPowerBoostPercent(
             allyHpPercent.value,
         ) ?? 0,
+);
+
+const selectedDamageHitCount = computed(() =>
+    isSelectedSwarmMove.value ? 1 + swarmHitDevotionCount.value : 1,
 );
 
 const selectedDamageOption = computed<DamageOption | null>(() => {
@@ -429,6 +446,7 @@ const selectedDamageOption = computed<DamageOption | null>(() => {
         selectedDamageMove.value,
         selectedDamagePowerBonus.value,
         selectedDamagePowerBoostPercent.value,
+        selectedDamageHitCount.value,
     );
 
     return result.valid
@@ -686,6 +704,8 @@ watch(
     () => {
         selectedDamageEffectKey.value =
             selectedDamageEffectOptions.value[0]?.key ?? null;
+        swarmPowerDevotionCount.value = 0;
+        swarmHitDevotionCount.value = 0;
     },
 );
 
@@ -849,6 +869,8 @@ function resetAll() {
     damageSearchQuery.value = "";
     selectedDamageMoveId.value = null;
     selectedDamageEffectKey.value = null;
+    swarmPowerDevotionCount.value = 0;
+    swarmHitDevotionCount.value = 0;
     selectedDefenseTypeName.value = "";
     showManualAllySearch.value = false;
 }
@@ -861,6 +883,7 @@ function calculateDamage(
     move: DamageMove,
     powerBonus = 0,
     powerBoostPercent = 0,
+    hitCount = 1,
 ) {
     return calculatePaperDamage({
         attackerPet: allyPet.value!,
@@ -873,6 +896,7 @@ function calculateDamage(
         defenderNature: opponentBattleProfile.value.nature,
         powerBonus,
         powerBoostPercent,
+        hitCount,
     });
 }
 
@@ -1234,6 +1258,18 @@ function getSelectedDamageEffectStatus() {
 
 function getCurrentMovePower() {
     return selectedDamageOption.value?.result.effectivePower ?? null;
+}
+
+function adjustSwarmDevotion(
+    target: "power" | "hit",
+    delta: number,
+) {
+    const counter =
+        target === "power"
+            ? swarmPowerDevotionCount
+            : swarmHitDevotionCount;
+
+    counter.value = Math.min(20, Math.max(0, counter.value + delta));
 }
 
 function getChoiceFlatPowerBonus(choiceDescription: string) {
@@ -1866,11 +1902,120 @@ document.title = "对战助手 - 洛克王国工具箱";
                             <span class="rounded-full bg-white px-3 py-1.5">
                                 基础威力 {{ selectedDamageOption.move.power }}
                             </span>
+                            <span
+                                v-if="isSelectedSwarmMove"
+                                class="rounded-full bg-white px-3 py-1.5"
+                            >
+                                当前 {{ selectedDamageHitCount }} 连击
+                            </span>
                         </div>
 
                         <p class="mt-3 text-xs leading-5 text-slate-600">
                             {{ selectedDamageOption.move.localized.zh.description }}
                         </p>
+
+                        <div
+                            v-if="isSelectedSwarmMove"
+                            class="mt-4 space-y-3 rounded-[20px] border border-lime-200 bg-lime-50/90 p-3"
+                        >
+                            <div>
+                                <p class="text-xs font-black text-lime-900">
+                                    虫群 · 奉献增强
+                                </p>
+                                <p class="mt-1 text-xs leading-5 text-lime-800">
+                                    基础威力 20、1 连击。按队友提供的奉献次数分别叠加。
+                                </p>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="rounded-[16px] bg-white p-3">
+                                    <p class="text-xs font-black text-slate-700">
+                                        威力奉献
+                                    </p>
+                                    <p class="mt-1 text-xs text-slate-500">
+                                        每次威力 +20
+                                    </p>
+                                    <div class="mt-3 flex items-center justify-between gap-2">
+                                        <button
+                                            type="button"
+                                            class="h-9 w-9 rounded-full bg-lime-100 text-lg font-black text-lime-900 disabled:opacity-40"
+                                            :disabled="swarmPowerDevotionCount === 0"
+                                            @click="adjustSwarmDevotion('power', -1)"
+                                        >
+                                            −
+                                        </button>
+                                        <div class="text-center">
+                                            <p class="text-xl font-black text-slate-950">
+                                                {{ swarmPowerDevotionCount }}
+                                            </p>
+                                            <p class="text-[11px] text-slate-500">
+                                                当前威力 {{ getCurrentMovePower() }}
+                                            </p>
+                                        </div>
+                                        <button
+                                            type="button"
+                                            class="h-9 w-9 rounded-full bg-lime-600 text-lg font-black text-white disabled:opacity-40"
+                                            :disabled="swarmPowerDevotionCount >= 20"
+                                            @click="adjustSwarmDevotion('power', 1)"
+                                        >
+                                            +
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="rounded-[16px] bg-white p-3">
+                                    <p class="text-xs font-black text-slate-700">
+                                        连击奉献
+                                    </p>
+                                    <p class="mt-1 text-xs text-slate-500">
+                                        每次连击 +1
+                                    </p>
+                                    <div class="mt-3 flex items-center justify-between gap-2">
+                                        <button
+                                            type="button"
+                                            class="h-9 w-9 rounded-full bg-lime-100 text-lg font-black text-lime-900 disabled:opacity-40"
+                                            :disabled="swarmHitDevotionCount === 0"
+                                            @click="adjustSwarmDevotion('hit', -1)"
+                                        >
+                                            −
+                                        </button>
+                                        <div class="text-center">
+                                            <p class="text-xl font-black text-slate-950">
+                                                {{ swarmHitDevotionCount }}
+                                            </p>
+                                            <p class="text-[11px] text-slate-500">
+                                                当前 {{ selectedDamageHitCount }} 连击
+                                            </p>
+                                        </div>
+                                        <button
+                                            type="button"
+                                            class="h-9 w-9 rounded-full bg-lime-600 text-lg font-black text-white disabled:opacity-40"
+                                            :disabled="swarmHitDevotionCount >= 20"
+                                            @click="adjustSwarmDevotion('hit', 1)"
+                                        >
+                                            +
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2 text-center">
+                                <div class="rounded-[14px] bg-lime-100 px-2 py-2">
+                                    <p class="text-[11px] text-lime-800">
+                                        单段伤害
+                                    </p>
+                                    <p class="text-base font-black text-lime-950">
+                                        {{ selectedDamageOption.result.singleHitDamage }}
+                                    </p>
+                                </div>
+                                <div class="rounded-[14px] bg-lime-600 px-2 py-2 text-white">
+                                    <p class="text-[11px] text-lime-50">
+                                        {{ selectedDamageHitCount }} 连击总伤害
+                                    </p>
+                                    <p class="text-base font-black">
+                                        {{ selectedDamageOption.result.totalDamage }}
+                                        · {{ selectedDamageOption.result.damagePercent }}%
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
                         <div
                             v-if="selectedDamageEffectOptions.length"
