@@ -1624,7 +1624,13 @@ function getLegacyMove(slot: ITeamSlot, detail = activeFriendDetail.value) {
         return null;
     }
 
-    return moveMap.value[legacyMoveEntry.move_id] ?? null;
+    // Bloodline skills use raw skill IDs that do not match the canonical IDs
+    // in moves.json, while pet details contain the resolved skill payload.
+    return (
+        legacyMoveEntry.move ??
+        moveMap.value[legacyMoveEntry.move_id] ??
+        null
+    );
 }
 
 function getMoveOptions(slot: ITeamSlot, detail = activeFriendDetail.value) {
