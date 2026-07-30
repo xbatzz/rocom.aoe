@@ -15,6 +15,7 @@ import type {
     IPetSkillCatalogEntry,
     IPetSkillIndexPayload,
     IPets,
+    IPetsDetail,
     IPetsType,
 } from "@/lib/interface";
 import { isPetImplemented } from "@/lib/petImplementation";
@@ -53,6 +54,16 @@ import {
 interface DamageOption {
     move: DamageMove;
     result: PaperDamageResult;
+}
+
+interface DamageEffectOption {
+    key: string;
+    label: string;
+    description: string;
+    getPowerBonus: (allyHpPercent: number) => number;
+    getPowerBoostPercent: (allyHpPercent: number) => number;
+    usesAllyHp: boolean;
+    getStatus?: (allyHpPercent: number) => string;
 }
 
 interface OneHitPowerLine {
@@ -130,6 +141,7 @@ const types = ref<IMonsterTypeDetail[]>([]);
 const personalities = ref<IPersonality[]>([]);
 const moves = ref<DamageMove[]>([]);
 const petSkillIndex = ref<IPetSkillIndexPayload | null>(null);
+const petDetails = ref<Record<number, IPetsDetail>>({});
 const savedTeamSlots = ref<SavedTeamBuildSlot[]>([]);
 const activeTeamName = ref("当前激活队伍");
 const allyPetId = ref<number | null>(null);
@@ -142,12 +154,18 @@ const opponentHpPercent = ref(100);
 const opponentSearchQuery = ref("");
 const allySearchQuery = ref("");
 const damageSearchQuery = ref("");
+const selectedDamageMoveId = ref<number | null>(null);
+const selectedDamageEffectKey = ref<string | null>(null);
 const selectedDefenseTypeName = ref("");
 const showManualAllySearch = ref(false);
 const isLoading = ref(false);
 const errorMessage = ref("");
 
 let controller: AbortController | null = null;
+const pendingPetDetailRequests = new Map<
+    number,
+    Promise<IPetsDetail | null>
+>();
 
 const typeMap = computed(() => {
     return new Map(
@@ -206,6 +224,22 @@ const moveAliasMap = computed(() => {
     }
 
     return aliases;
+});
+
+const allyPetDetailMoves = computed(() => {
+    const detail =
+        allyPetId.value === null ? null : petDetails.value[allyPetId.value];
+    const detailMoves = [
+        ...(detail?.move_pool ?? []),
+        ...(detail?.move_stones ?? []),
+        ...(detail?.legacy_moves.flatMap((entry) =>
+            entry.move ? [entry.move] : [],
+        ) ?? []),
+    ] as DamageMove[];
+
+    return Array.from(
+        new Map(detailMoves.map((move) => [move.id, move])).values(),
+    );
 });
 
 const teamPets = computed(() => {
@@ -322,7 +356,7 @@ const configuredDamageMoves = computed(() => {
     }
 
     return slot.moveIds
-        .map((moveId) => getDamageMoveById(moveId))
+        .map((moveId) => getDamageMoveById(moveId, slot.friendId))
         .filter((move): move is DamageMove => move !== null)
         .filter(isDamageCalculableMove);
 });
@@ -334,37 +368,76 @@ const damageSearchResults = computed(() => {
         return [] as DamageMove[];
     }
 
-    return moves.value
+    const searchableMoves = Array.from(
+        new Map(
+            [...allyPetDetailMoves.value, ...moves.value].map((move) => [
+                move.id,
+                move,
+            ]),
+        ).values(),
+    );
+
+    return searchableMoves
         .filter(isDamageCalculableMove)
         .filter((move) => matchesDamageMoveKeyword(move, keyword))
         .slice(0, SEARCH_LIMIT);
 });
 
-const damageOptions = computed<DamageOption[]>(() => {
-    if (!allyPet.value || !opponentPet.value) {
-        return [];
+const selectedDamageMove = computed(() => {
+    if (selectedDamageMoveId.value === null) {
+        return null;
     }
 
-    const sourceMoves = configuredDamageMoves.value.length
-        ? configuredDamageMoves.value
-        : damageSearchResults.value;
-
-    return sourceMoves
-        .map((move) => ({
-            move,
-            result: calculateDamage(move),
-        }))
-        .filter((option) => option.result.valid)
-        .sort((left, right) => {
-            return (
-                (right.result.damagePercent ?? 0) -
-                    (left.result.damagePercent ?? 0) ||
-                left.move.id - right.move.id
-            );
-        });
+    return getDamageMoveById(selectedDamageMoveId.value, allyPetId.value);
 });
 
-const recommendedDamageOption = computed(() => damageOptions.value[0] ?? null);
+const selectedDamageEffectOptions = computed(() =>
+    getDamageEffectOptions(selectedDamageMove.value),
+);
+
+const selectedDamageEffect = computed(() => {
+    return (
+        selectedDamageEffectOptions.value.find(
+            (option) => option.key === selectedDamageEffectKey.value,
+        ) ??
+        selectedDamageEffectOptions.value[0] ??
+        null
+    );
+});
+
+const selectedDamagePowerBonus = computed(
+    () => selectedDamageEffect.value?.getPowerBonus(allyHpPercent.value) ?? 0,
+);
+
+const selectedDamagePowerBoostPercent = computed(
+    () =>
+        selectedDamageEffect.value?.getPowerBoostPercent(
+            allyHpPercent.value,
+        ) ?? 0,
+);
+
+const selectedDamageOption = computed<DamageOption | null>(() => {
+    if (
+        !allyPet.value ||
+        !opponentPet.value ||
+        !selectedDamageMove.value
+    ) {
+        return null;
+    }
+
+    const result = calculateDamage(
+        selectedDamageMove.value,
+        selectedDamagePowerBonus.value,
+        selectedDamagePowerBoostPercent.value,
+    );
+
+    return result.valid
+        ? {
+              move: selectedDamageMove.value,
+              result,
+          }
+        : null;
+});
 
 const allyOneHitPowerLines = computed<SideOneHitPowerLines | null>(() => {
     if (!allyPet.value || !opponentPet.value) {
@@ -518,7 +591,7 @@ const conclusion = computed(() => {
     }
 
     const tags: string[] = [];
-    const damage = recommendedDamageOption.value?.result.damagePercent ?? 0;
+    const damage = selectedDamageOption.value?.result.damagePercent ?? 0;
 
     if (speedDiff.value > 0) {
         tags.push("速度领先");
@@ -542,7 +615,7 @@ const conclusion = computed(() => {
 
     if (damage >= 100 && speedDiff.value >= 0) {
         return {
-            text: "当前对位偏进攻：速度参考不落后，推荐技能纸面伤害较高。",
+            text: "当前对位偏进攻：速度参考不落后，所选技能纸面伤害较高。",
             tags,
         };
     }
@@ -555,7 +628,7 @@ const conclusion = computed(() => {
     }
 
     return {
-        text: "属性对位接近：建议结合推荐技能伤害和速度参考判断下一步。",
+        text: "属性对位接近：建议结合所选技能伤害和速度参考判断下一步。",
         tags,
     };
 });
@@ -581,6 +654,40 @@ watch(opponentBattleTypes, (battleTypes) => {
         selectedDefenseTypeName.value = battleTypes[0]?.name ?? "";
     }
 });
+
+watch(
+    allyPetId,
+    (petId) => {
+        selectedDamageMoveId.value = null;
+        selectedDamageEffectKey.value = null;
+        damageSearchQuery.value = "";
+
+        if (petId !== null) {
+            void ensurePetDetail(petId);
+        }
+    },
+);
+
+watch(
+    configuredDamageMoves,
+    (configuredMoves) => {
+        if (
+            selectedDamageMoveId.value === null &&
+            configuredMoves.length > 0
+        ) {
+            selectedDamageMoveId.value = configuredMoves[0]?.id ?? null;
+        }
+    },
+    { immediate: true },
+);
+
+watch(
+    selectedDamageMove,
+    () => {
+        selectedDamageEffectKey.value =
+            selectedDamageEffectOptions.value[0]?.key ?? null;
+    },
+);
 
 function refreshSavedTeam() {
     const activeTeam = getActiveTeam();
@@ -641,6 +748,42 @@ async function loadData() {
     } finally {
         isLoading.value = false;
     }
+}
+
+async function ensurePetDetail(petId: number) {
+    if (petDetails.value[petId]) {
+        return petDetails.value[petId];
+    }
+
+    const pendingRequest = pendingPetDetailRequests.get(petId);
+
+    if (pendingRequest) {
+        return await pendingRequest;
+    }
+
+    const request = (async () => {
+        try {
+            const response = await fetch(`/data/pets/${petId}.json`);
+
+            if (!response.ok) {
+                throw new Error(`精灵详情请求失败: ${response.status}`);
+            }
+
+            const detail = (await response.json()) as IPetsDetail;
+            petDetails.value = {
+                ...petDetails.value,
+                [petId]: detail,
+            };
+            return detail;
+        } catch {
+            return null;
+        } finally {
+            pendingPetDetailRequests.delete(petId);
+        }
+    })();
+
+    pendingPetDetailRequests.set(petId, request);
+    return await request;
 }
 
 function selectTeamAlly(slot: SavedTeamBuildSlot) {
@@ -704,6 +847,8 @@ function resetAll() {
     opponentSearchQuery.value = "";
     allySearchQuery.value = "";
     damageSearchQuery.value = "";
+    selectedDamageMoveId.value = null;
+    selectedDamageEffectKey.value = null;
     selectedDefenseTypeName.value = "";
     showManualAllySearch.value = false;
 }
@@ -712,7 +857,11 @@ function normalizeOpponentProfilePreset(preset: BattleProfilePreset) {
     return preset === "saved" ? "none" : preset;
 }
 
-function calculateDamage(move: DamageMove) {
+function calculateDamage(
+    move: DamageMove,
+    powerBonus = 0,
+    powerBoostPercent = 0,
+) {
     return calculatePaperDamage({
         attackerPet: allyPet.value!,
         defenderPet: opponentPet.value!,
@@ -722,6 +871,8 @@ function calculateDamage(move: DamageMove) {
         defenderIndividualValues: opponentBattleProfile.value.individualValues,
         attackerNature: allyBattleProfile.value.nature,
         defenderNature: opponentBattleProfile.value.nature,
+        powerBonus,
+        powerBoostPercent,
     });
 }
 
@@ -995,8 +1146,143 @@ function personalityToBattleNature(
     };
 }
 
-function getDamageMoveById(moveId: number) {
-    return moveMap.value.get(moveId) ?? moveAliasMap.value.get(moveId) ?? null;
+function getDamageMoveById(moveId: number, petId: number | null = null) {
+    const detail = petId === null ? null : petDetails.value[petId];
+    const detailMove =
+        detail?.move_pool.find((move) => move.id === moveId) ??
+        detail?.move_stones.find((move) => move.id === moveId) ??
+        detail?.legacy_moves.find((entry) => entry.move_id === moveId)?.move ??
+        null;
+
+    return (
+        (detailMove as DamageMove | null) ??
+        moveMap.value.get(moveId) ??
+        moveAliasMap.value.get(moveId) ??
+        null
+    );
+}
+
+function selectDamageMove(move: DamageMove) {
+    selectedDamageMoveId.value = move.id;
+    damageSearchQuery.value = "";
+    blurActiveElement();
+}
+
+function getDamageEffectOptions(
+    move: DamageMove | null,
+): DamageEffectOption[] {
+    if (!move) {
+        return [];
+    }
+
+    const description = (
+        move.localized.zh.description ||
+        move.description ||
+        ""
+    ).replace(/\u200b/g, "");
+    const choiceText = description.match(/选择[：:](.+)/u)?.[1] ?? "";
+    const choiceDescriptions = choiceText
+        .split("或")
+        .map((item) => item.trim())
+        .filter(Boolean);
+
+    if (choiceDescriptions.length < 2) {
+        return [];
+    }
+
+    const moveName = getMoveNameKey(getMoveDisplayName(move));
+    const labels =
+        moveName === "下注" ? ["明", "暗"] : ["选项一", "选项二"];
+
+    return choiceDescriptions.slice(0, 2).map((choiceDescription, index) => {
+        const flatPowerBonus = getChoiceFlatPowerBonus(choiceDescription);
+        const powerBoostPercent =
+            getChoicePowerBoostPercent(choiceDescription);
+        const hpCondition = getChoiceHpCondition(choiceDescription);
+
+        return {
+            key: `choice-${index + 1}`,
+            label: labels[index] ?? `选项${index + 1}`,
+            description: choiceDescription,
+            getPowerBonus: (hpPercent) =>
+                isChoiceConditionMet(hpCondition, hpPercent)
+                    ? flatPowerBonus
+                    : 0,
+            getPowerBoostPercent: (hpPercent) =>
+                isChoiceConditionMet(hpCondition, hpPercent)
+                    ? powerBoostPercent
+                    : 0,
+            usesAllyHp: Boolean(hpCondition),
+            getStatus: hpCondition
+                ? (hpPercent) =>
+                      isChoiceConditionMet(hpCondition, hpPercent)
+                          ? `生命条件已满足，当前效果生效`
+                          : `生命条件未满足：需要自身生命${hpCondition.operator === "below" ? "低于" : "高于"} ${hpCondition.threshold}%`
+                : flatPowerBonus > 0 || powerBoostPercent > 0
+                  ? () =>
+                        /若|时|应对|位于|携带/u.test(choiceDescription)
+                            ? "按该选项的触发条件已满足估算"
+                            : "已计入所选即时威力效果"
+                  : undefined,
+        };
+    });
+}
+
+function getSelectedDamageEffectStatus() {
+    return selectedDamageEffect.value?.getStatus?.(allyHpPercent.value) ?? "";
+}
+
+function getCurrentMovePower() {
+    return selectedDamageOption.value?.result.effectivePower ?? null;
+}
+
+function getChoiceFlatPowerBonus(choiceDescription: string) {
+    if (choiceDescription.includes("永久")) {
+        return 0;
+    }
+
+    const match = choiceDescription.match(/威力\+(\d+)(?![%\d])/u);
+    return match?.[1] ? Number(match[1]) : 0;
+}
+
+function getChoicePowerBoostPercent(choiceDescription: string) {
+    if (choiceDescription.includes("永久")) {
+        return 0;
+    }
+
+    const match = choiceDescription.match(/威力\+(\d+)%/u);
+    return match?.[1] ? Number(match[1]) : 0;
+}
+
+function getChoiceHpCondition(choiceDescription: string) {
+    const match = choiceDescription.match(
+        /自己生命(低于|小于|高于|大于)(\d+)%/u,
+    );
+
+    if (!match?.[1] || !match[2]) {
+        return null;
+    }
+
+    return {
+        operator:
+            match[1] === "低于" || match[1] === "小于"
+                ? ("below" as const)
+                : ("above" as const),
+        threshold: Number(match[2]),
+    };
+}
+
+function isChoiceConditionMet(
+    condition: ReturnType<typeof getChoiceHpCondition>,
+    hpPercent: number,
+) {
+    if (!condition) {
+        return true;
+    }
+
+    return condition.operator === "below"
+        ? hpPercent < condition.threshold
+        : hpPercent > condition.threshold;
 }
 
 function getBattlePetTypes(pet: IPets): IPetsType[] {
@@ -1472,10 +1758,10 @@ document.title = "对战助手 - 洛克王国工具箱";
                     <div class="flex items-center justify-between gap-3">
                         <div>
                             <p class="text-sm font-black text-slate-950">
-                                推荐技能
+                                伤害技能
                             </p>
                             <p class="text-xs text-slate-500">
-                                只突出当前可计算技能中纸面伤害最高的一项
+                                选择配队已装备技能，或搜索其他技能进行估算
                             </p>
                         </div>
                         <Badge class="rounded-full bg-orange-100 text-orange-700 hover:bg-orange-100">
@@ -1484,38 +1770,159 @@ document.title = "对战助手 - 洛克王国工具箱";
                     </div>
 
                     <div
-                        v-if="recommendedDamageOption"
+                        v-if="hasBothPets && configuredDamageMoves.length"
+                        class="space-y-2"
+                    >
+                        <p class="px-1 text-xs font-black text-slate-600">
+                            当前配队装备的伤害技能
+                        </p>
+                        <div class="grid gap-2 sm:grid-cols-2">
+                            <button
+                                v-for="move in configuredDamageMoves"
+                                :key="move.id"
+                                type="button"
+                                class="rounded-[20px] border px-3 py-3 text-left transition"
+                                :class="
+                                    selectedDamageMoveId === move.id
+                                        ? 'border-orange-400 bg-orange-50 shadow-sm'
+                                        : 'border-slate-200 bg-white hover:border-orange-200'
+                                "
+                                @click="selectDamageMove(move)"
+                            >
+                                <span class="flex items-start justify-between gap-2">
+                                    <span class="min-w-0">
+                                        <span class="block truncate text-sm font-black text-slate-950">
+                                            {{ getMoveDisplayName(move) }}
+                                        </span>
+                                        <span class="mt-1 block text-xs font-semibold text-slate-500">
+                                            {{ move.move_type?.localized.zh }} ·
+                                            {{ getMoveCategoryLabel(move.move_category) }}
+                                        </span>
+                                    </span>
+                                    <span class="shrink-0 rounded-full bg-slate-100 px-2 py-1 text-xs font-black text-slate-700">
+                                        {{ move.power }}
+                                    </span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div
+                        v-else-if="hasBothPets && allyDamageBuildSlot"
+                        class="rounded-[20px] border border-dashed border-slate-200 bg-slate-50 px-3 py-3 text-xs font-semibold text-slate-600"
+                    >
+                        当前槽位没有装备可计算的伤害技能，可在下方搜索选择。
+                    </div>
+
+                    <div
+                        v-if="selectedDamageOption"
                         class="rounded-[28px] bg-gradient-to-br from-orange-200 via-amber-50 to-white p-4 shadow-inner dark:from-orange-950 dark:via-amber-950 dark:to-card md:p-5"
                     >
                         <div class="flex items-start justify-between gap-3">
                             <div class="min-w-0">
                                 <p class="truncate text-2xl font-black text-slate-950">
-                                    {{ getMoveDisplayName(recommendedDamageOption.move) }}
+                                    {{ getMoveDisplayName(selectedDamageOption.move) }}
                                 </p>
                                 <p class="mt-1 text-sm font-bold text-orange-700">
-                                    {{ getDamageKoText(recommendedDamageOption.result) }}
+                                    {{ getDamageKoText(selectedDamageOption.result) }}
                                 </p>
                             </div>
                             <div class="shrink-0 text-right">
                                 <p class="text-4xl font-black tracking-tight text-slate-950">
-                                    {{ recommendedDamageOption.result.damagePercent }}%
+                                    {{ selectedDamageOption.result.totalDamage }}
                                 </p>
                                 <p class="text-xs font-semibold text-slate-500">
-                                    预计伤害
+                                    预计伤害值
                                 </p>
                             </div>
                         </div>
 
-                        <div class="mt-4 flex flex-wrap gap-2 text-xs font-bold text-slate-700">
+                        <div class="mt-4 grid grid-cols-2 gap-2">
+                            <div class="rounded-[18px] bg-white px-3 py-3">
+                                <p class="text-xs font-semibold text-slate-500">
+                                    目标最大生命占比
+                                </p>
+                                <p class="mt-1 text-2xl font-black text-orange-700">
+                                    {{ selectedDamageOption.result.damagePercent }}%
+                                </p>
+                            </div>
+                            <div class="rounded-[18px] bg-white px-3 py-3">
+                                <p class="text-xs font-semibold text-slate-500">
+                                    当前计算威力
+                                </p>
+                                <p class="mt-1 text-2xl font-black text-slate-950">
+                                    {{ getCurrentMovePower() }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="mt-3 flex flex-wrap gap-2 text-xs font-bold text-slate-700">
                             <span class="rounded-full bg-white px-3 py-1.5">
-                                {{ recommendedDamageOption.move.move_type?.localized.zh }}
+                                {{ selectedDamageOption.move.move_type?.localized.zh }}
                             </span>
                             <span class="rounded-full bg-white px-3 py-1.5">
-                                {{ getMoveCategoryLabel(recommendedDamageOption.move.move_category) }}
+                                {{ getMoveCategoryLabel(selectedDamageOption.move.move_category) }}
                             </span>
                             <span class="rounded-full bg-white px-3 py-1.5">
-                                威力 {{ recommendedDamageOption.move.power }}
+                                基础威力 {{ selectedDamageOption.move.power }}
                             </span>
+                        </div>
+
+                        <p class="mt-3 text-xs leading-5 text-slate-600">
+                            {{ selectedDamageOption.move.localized.zh.description }}
+                        </p>
+
+                        <div
+                            v-if="selectedDamageEffectOptions.length"
+                            class="mt-4 space-y-2 rounded-[20px] border border-orange-200 bg-white/80 p-3"
+                        >
+                            <p class="text-xs font-black text-slate-700">
+                                选择技能效果
+                            </p>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button
+                                    v-for="effect in selectedDamageEffectOptions"
+                                    :key="effect.key"
+                                    type="button"
+                                    class="rounded-[16px] border px-3 py-2 text-left"
+                                    :class="
+                                        selectedDamageEffect?.key === effect.key
+                                            ? 'border-orange-400 bg-orange-100 text-orange-950'
+                                            : 'border-slate-200 bg-white text-slate-700'
+                                    "
+                                    @click="selectedDamageEffectKey = effect.key"
+                                >
+                                    <span class="block text-sm font-black">
+                                        {{ effect.label }}
+                                    </span>
+                                    <span class="mt-1 block text-xs leading-5">
+                                        {{ effect.description }}
+                                    </span>
+                                </button>
+                            </div>
+                            <label
+                                v-if="selectedDamageEffect?.usesAllyHp"
+                                class="block rounded-[16px] bg-orange-50 px-3 py-2"
+                            >
+                                <span class="flex items-center justify-between gap-3 text-xs font-black text-orange-900">
+                                    <span>我方当前生命</span>
+                                    <span>{{ allyHpPercent }}%</span>
+                                </span>
+                                <input
+                                    v-model.number="allyHpPercent"
+                                    type="range"
+                                    min="0"
+                                    max="100"
+                                    step="1"
+                                    class="mt-2 h-2 w-full cursor-pointer accent-orange-600"
+                                />
+                            </label>
+                            <p
+                                v-if="getSelectedDamageEffectStatus()"
+                                class="text-xs font-bold text-orange-700"
+                            >
+                                {{ getSelectedDamageEffectStatus() }}
+                            </p>
                         </div>
                     </div>
 
@@ -1525,13 +1932,13 @@ document.title = "对战助手 - 洛克王国工具箱";
                     >
                         {{
                             hasBothPets
-                                ? "当前构筑没有可计算技能，可手动搜索固定威力技能。"
-                                : "选择双方后自动推荐可计算技能。"
+                                ? "请选择已装备的伤害技能，或在下方搜索技能。"
+                                : "选择双方后查看技能伤害。"
                         }}
                     </div>
 
                     <div
-                        v-if="hasBothPets && !configuredDamageMoves.length"
+                        v-if="hasBothPets"
                         class="space-y-2"
                     >
                         <Input
@@ -1541,8 +1948,35 @@ document.title = "对战助手 - 洛克王国工具箱";
                             class="h-10 rounded-full border-slate-200 bg-white text-slate-950"
                         />
                         <p class="px-1 text-xs text-slate-500">
-                            输入技能后，会从搜索结果中取纸面伤害最高的一项展示。
+                            搜索当前精灵可学技能和全局技能，点击结果后计算伤害。
                         </p>
+                        <div
+                            v-if="damageSearchResults.length"
+                            class="grid gap-2 sm:grid-cols-2"
+                        >
+                            <button
+                                v-for="move in damageSearchResults"
+                                :key="move.id"
+                                type="button"
+                                class="rounded-[18px] border border-slate-200 bg-white px-3 py-2 text-left hover:border-orange-300"
+                                @click="selectDamageMove(move)"
+                            >
+                                <span class="flex items-center justify-between gap-2">
+                                    <span class="min-w-0">
+                                        <span class="block truncate text-sm font-black text-slate-950">
+                                            {{ getMoveDisplayName(move) }}
+                                        </span>
+                                        <span class="text-xs font-semibold text-slate-500">
+                                            {{ move.move_type?.localized.zh }} ·
+                                            {{ getMoveCategoryLabel(move.move_category) }}
+                                        </span>
+                                    </span>
+                                    <span class="shrink-0 text-xs font-black text-orange-700">
+                                        威力 {{ move.power }}
+                                    </span>
+                                </span>
+                            </button>
+                        </div>
                         <p
                             v-if="damageSearchQuery.trim() && !damageSearchResults.length"
                             class="px-1 text-xs font-semibold text-slate-500"
@@ -1872,7 +2306,7 @@ document.title = "对战助手 - 洛克王国工具箱";
             </details>
 
             <details
-                v-if="recommendedDamageOption?.result.valid"
+                v-if="selectedDamageOption?.result.valid"
                 class="rounded-[28px] border border-slate-200 bg-white/90 p-4 shadow-md"
             >
                 <summary class="cursor-pointer text-sm font-bold text-slate-950">
@@ -1882,39 +2316,39 @@ document.title = "对战助手 - 洛克王国工具箱";
                     <div class="rounded-[18px] bg-slate-50 px-3 py-2">
                         <p class="text-xs text-slate-500">攻击值</p>
                         <p class="font-bold text-slate-950">
-                            {{ recommendedDamageOption.result.attackStatValue }}
+                            {{ selectedDamageOption.result.attackStatValue }}
                         </p>
                     </div>
                     <div class="rounded-[18px] bg-slate-50 px-3 py-2">
                         <p class="text-xs text-slate-500">防御值</p>
                         <p class="font-bold text-slate-950">
-                            {{ recommendedDamageOption.result.defenseStatValue }}
+                            {{ selectedDamageOption.result.defenseStatValue }}
                         </p>
                     </div>
                     <div class="rounded-[18px] bg-slate-50 px-3 py-2">
                         <p class="text-xs text-slate-500">防守 HP</p>
                         <p class="font-bold text-slate-950">
-                            {{ recommendedDamageOption.result.defenderHp }}
+                            {{ selectedDamageOption.result.defenderHp }}
                         </p>
                     </div>
                     <div class="rounded-[18px] bg-slate-50 px-3 py-2">
                         <p class="text-xs text-slate-500">本系 / 属性</p>
                         <p class="font-bold text-slate-950">
-                            {{ recommendedDamageOption.result.stabMultiplier }}x /
-                            {{ recommendedDamageOption.result.typeMultiplier }}x
+                            {{ selectedDamageOption.result.stabMultiplier }}x /
+                            {{ selectedDamageOption.result.typeMultiplier }}x
                         </p>
                     </div>
                     <div class="rounded-[18px] bg-slate-50 px-3 py-2">
                         <p class="text-xs text-slate-500">显示威力</p>
                         <p class="font-bold text-slate-950">
-                            {{ recommendedDamageOption.result.displayPower }}
+                            {{ selectedDamageOption.result.displayPower }}
                         </p>
                     </div>
                     <div class="rounded-[18px] bg-slate-50 px-3 py-2">
                         <p class="text-xs text-slate-500">等级系数</p>
                         <p class="font-bold text-slate-950">
                             {{
-                                recommendedDamageOption.result.levelCoefficient?.toFixed(
+                                selectedDamageOption.result.levelCoefficient?.toFixed(
                                     4,
                                 )
                             }}
@@ -1923,15 +2357,15 @@ document.title = "对战助手 - 洛克王国工具箱";
                     <div class="rounded-[18px] bg-slate-50 px-3 py-2">
                         <p class="text-xs text-slate-500">单段 / 总伤害</p>
                         <p class="font-bold text-slate-950">
-                            {{ recommendedDamageOption.result.singleHitDamage }} /
-                            {{ recommendedDamageOption.result.totalDamage }}
+                            {{ selectedDamageOption.result.singleHitDamage }} /
+                            {{ selectedDamageOption.result.totalDamage }}
                         </p>
                     </div>
                     <div class="rounded-[18px] bg-slate-50 px-3 py-2">
                         <p class="text-xs text-slate-500">击倒次数</p>
                         <p class="font-bold text-slate-950">
                             {{
-                                recommendedDamageOption.result.estimatedHitsToKo ??
+                                selectedDamageOption.result.estimatedHitsToKo ??
                                 "-"
                             }}
                         </p>
