@@ -1655,35 +1655,43 @@ document.title = "对战助手 - 洛克王国工具箱";
                                     <p class="mt-2 text-xs font-semibold text-slate-600">
                                         实战速度 {{ allyBattleSpeed }}
                                     </p>
-                                    <div
+                                    <details
                                         v-if="allyPet.id === METEOR_BUG_PET_ID"
-                                        class="mt-3 rounded-[16px] border border-emerald-200 bg-white/80 p-2 text-left"
+                                        class="group mt-3 rounded-[16px] border border-emerald-200 bg-white/80 text-left"
                                     >
-                                        <label class="text-[11px] font-black text-emerald-800">
-                                            陨星虫捕捉球
-                                        </label>
-                                        <select
-                                            v-model="allyMeteorBallKey"
-                                            class="mt-1 h-9 w-full rounded-[10px] border border-emerald-200 bg-white px-2 text-xs font-bold text-slate-900"
+                                        <summary
+                                            class="flex cursor-pointer list-none items-center justify-between gap-2 px-2.5 py-2 text-[11px] font-black text-emerald-800 marker:hidden"
                                         >
-                                            <option
-                                                v-for="ball in METEOR_BUG_CAPTURE_BALL_OPTIONS"
-                                                :key="ball.key"
-                                                :value="ball.key"
+                                            <span>
+                                                捕捉球：{{ allyMeteorBallOption.label }}
+                                            </span>
+                                            <span class="shrink-0 text-emerald-600">
+                                                {{
+                                                    allyBattleSpeed !== allyBaseBattleSpeed
+                                                        ? `${allyBaseBattleSpeed} → ${allyBattleSpeed}`
+                                                        : "点击设置"
+                                                }}
+                                                <span class="ml-1 inline-block transition-transform group-open:rotate-180">⌄</span>
+                                            </span>
+                                        </summary>
+                                        <div class="border-t border-emerald-100 p-2">
+                                            <select
+                                                v-model="allyMeteorBallKey"
+                                                class="h-9 w-full rounded-[10px] border border-emerald-200 bg-white px-2 text-xs font-bold text-slate-900"
                                             >
-                                                {{ ball.label }}
-                                            </option>
-                                        </select>
-                                        <p class="mt-1 text-[11px] leading-4 text-slate-600">
-                                            {{ allyMeteorBallOption.description }}
-                                        </p>
-                                        <p
-                                            v-if="allyBattleSpeed !== allyBaseBattleSpeed"
-                                            class="mt-1 text-[11px] font-bold text-emerald-700"
-                                        >
-                                            速度已计入：{{ allyBaseBattleSpeed }} → {{ allyBattleSpeed }}
-                                        </p>
-                                    </div>
+                                                <option
+                                                    v-for="ball in METEOR_BUG_CAPTURE_BALL_OPTIONS"
+                                                    :key="ball.key"
+                                                    :value="ball.key"
+                                                >
+                                                    {{ ball.label }}
+                                                </option>
+                                            </select>
+                                            <p class="mt-1 text-[11px] leading-4 text-slate-600">
+                                                {{ allyMeteorBallOption.description }}
+                                            </p>
+                                        </div>
+                                    </details>
                                     <div class="mt-3 grid grid-cols-2 gap-1.5">
                                         <button
                                             v-for="preset in allyProfilePresetItems"
@@ -1757,35 +1765,43 @@ document.title = "对战助手 - 洛克王国工具箱";
                                     <p class="mt-2 text-xs font-semibold text-slate-600">
                                         实战速度 {{ opponentBattleSpeed }}
                                     </p>
-                                    <div
+                                    <details
                                         v-if="opponentPet.id === METEOR_BUG_PET_ID"
-                                        class="mt-3 rounded-[16px] border border-rose-200 bg-white/80 p-2 text-left"
+                                        class="group mt-3 rounded-[16px] border border-rose-200 bg-white/80 text-left"
                                     >
-                                        <label class="text-[11px] font-black text-rose-800">
-                                            陨星虫捕捉球
-                                        </label>
-                                        <select
-                                            v-model="opponentMeteorBallKey"
-                                            class="mt-1 h-9 w-full rounded-[10px] border border-rose-200 bg-white px-2 text-xs font-bold text-slate-900"
+                                        <summary
+                                            class="flex cursor-pointer list-none items-center justify-between gap-2 px-2.5 py-2 text-[11px] font-black text-rose-800 marker:hidden"
                                         >
-                                            <option
-                                                v-for="ball in METEOR_BUG_CAPTURE_BALL_OPTIONS"
-                                                :key="ball.key"
-                                                :value="ball.key"
+                                            <span>
+                                                捕捉球：{{ opponentMeteorBallOption.label }}
+                                            </span>
+                                            <span class="shrink-0 text-rose-600">
+                                                {{
+                                                    opponentBattleSpeed !== opponentBaseBattleSpeed
+                                                        ? `${opponentBaseBattleSpeed} → ${opponentBattleSpeed}`
+                                                        : "点击设置"
+                                                }}
+                                                <span class="ml-1 inline-block transition-transform group-open:rotate-180">⌄</span>
+                                            </span>
+                                        </summary>
+                                        <div class="border-t border-rose-100 p-2">
+                                            <select
+                                                v-model="opponentMeteorBallKey"
+                                                class="h-9 w-full rounded-[10px] border border-rose-200 bg-white px-2 text-xs font-bold text-slate-900"
                                             >
-                                                {{ ball.label }}
-                                            </option>
-                                        </select>
-                                        <p class="mt-1 text-[11px] leading-4 text-slate-600">
-                                            {{ opponentMeteorBallOption.description }}
-                                        </p>
-                                        <p
-                                            v-if="opponentBattleSpeed !== opponentBaseBattleSpeed"
-                                            class="mt-1 text-[11px] font-bold text-rose-700"
-                                        >
-                                            速度已计入：{{ opponentBaseBattleSpeed }} → {{ opponentBattleSpeed }}
-                                        </p>
-                                    </div>
+                                                <option
+                                                    v-for="ball in METEOR_BUG_CAPTURE_BALL_OPTIONS"
+                                                    :key="ball.key"
+                                                    :value="ball.key"
+                                                >
+                                                    {{ ball.label }}
+                                                </option>
+                                            </select>
+                                            <p class="mt-1 text-[11px] leading-4 text-slate-600">
+                                                {{ opponentMeteorBallOption.description }}
+                                            </p>
+                                        </div>
+                                    </details>
                                     <div class="mt-3 grid grid-cols-2 gap-1.5">
                                         <button
                                             v-for="preset in OPPONENT_PROFILE_PRESETS"
