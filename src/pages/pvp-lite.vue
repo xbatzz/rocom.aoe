@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import {
     ArrowLeftRight,
+    Mic,
     RotateCcw,
     Search,
+    Send,
     ShieldCheck,
     Swords,
     Target,
@@ -63,6 +65,27 @@ interface DamageOption {
     move: DamageMove;
     result: PaperDamageResult;
 }
+
+interface SpeechRecognitionResultEventLike {
+    results: ArrayLike<{
+        0?: {
+            transcript?: string;
+        };
+    }>;
+}
+
+interface SpeechRecognitionLike {
+    continuous: boolean;
+    interimResults: boolean;
+    lang: string;
+    onend: (() => void) | null;
+    onerror: (() => void) | null;
+    onresult: ((event: SpeechRecognitionResultEventLike) => void) | null;
+    start: () => void;
+    stop: () => void;
+}
+
+type SpeechRecognitionConstructor = new () => SpeechRecognitionLike;
 
 interface DamageEffectOption {
     key: string;
@@ -178,8 +201,14 @@ const selectedDefenseTypeName = ref("");
 const showManualAllySearch = ref(false);
 const isLoading = ref(false);
 const errorMessage = ref("");
+const battleQuestion = ref("");
+const battleAnswer = ref("");
+const isAnsweringBattleQuestion = ref(false);
+const isListeningBattleQuestion = ref(false);
+const isVoiceQuestionSupported = ref(false);
 
 let controller: AbortController | null = null;
+let battleQuestionRecognition: SpeechRecognitionLike | null = null;
 const pendingPetDetailRequests = new Map<
     number,
     Promise<IPetsDetail | null>
@@ -780,10 +809,14 @@ const conclusion = computed(() => {
 onMounted(() => {
     refreshSavedTeam();
     void loadData();
+    isVoiceQuestionSupported.value = Boolean(
+        getSpeechRecognitionConstructor(),
+    );
 });
 
 onBeforeUnmount(() => {
     controller?.abort();
+    battleQuestionRecognition?.stop();
 });
 
 watch(opponentBattleTypes, (battleTypes) => {
@@ -1408,6 +1441,234 @@ function selectDamageDirection(direction: DamageDirection) {
     blurActiveElement();
 }
 
+async function answerBattleQuestion(question = battleQuestion.value) {
+    const normalizedQuestion = question.trim();
+
+    if (!normalizedQuestion) {
+        battleAnswer.value = "请输入问题，例如“对方比我快吗？”。";
+        return;
+    }
+
+    battleQuestion.value = normalizedQuestion;
+
+    if (!hasBothPets.value) {
+        battleAnswer.value = "请先选择我方和对方精灵，再进行对战提问。";
+        return;
+    }
+
+    isAnsweringBattleQuestion.value = true;
+
+    try {
+        if (isSpeedQuestion(normalizedQuestion)) {
+            battleAnswer.value = getSpeedQuestionAnswer();
+            return;
+        }
+
+        const damageQuestion = parseDamageQuestion(normalizedQuestion);
+
+        if (!damageQuestion) {
+            battleAnswer.value =
+                "目前支持询问双方速度，以及“对方使用某技能能打我多少”这类指定技能伤害问题。";
+            return;
+        }
+
+        const attacker =
+            damageQuestion.direction === "allyToOpponent"
+                ? allyPet.value
+                : opponentPet.value;
+
+        if (!attacker) {
+            battleAnswer.value = "没有找到当前攻击方精灵。";
+            return;
+        }
+
+        await ensurePetDetail(attacker.id);
+        const move = findLearnableDamageMove(
+            attacker.id,
+            damageQuestion.moveName,
+        );
+
+        if (!move) {
+            battleAnswer.value = `${getPetDisplayName(attacker)}的可学习伤害技能中没有找到“${damageQuestion.moveName}”。`;
+            return;
+        }
+
+        damageDirection.value = damageQuestion.direction;
+        await nextTick();
+        selectDamageMove(move);
+        await nextTick();
+
+        const result = selectedDamageOption.value?.result;
+
+        if (!result?.valid) {
+            battleAnswer.value = `“${getMoveDisplayName(move)}”目前无法进行纸面伤害计算。`;
+            return;
+        }
+
+        const attackerLabel =
+            damageQuestion.direction === "allyToOpponent" ? "我方" : "对方";
+        const defenderLabel =
+            damageQuestion.direction === "allyToOpponent" ? "对方" : "我方";
+        const koText = result.estimatedHitsToKo
+            ? `，约 ${result.estimatedHitsToKo} 次击倒`
+            : "";
+
+        battleAnswer.value = `${attackerLabel}使用“${getMoveDisplayName(move)}”预计对${defenderLabel}造成 ${result.totalDamage} 点伤害，约占最大生命 ${result.damagePercent}%${koText}。`;
+    } finally {
+        isAnsweringBattleQuestion.value = false;
+    }
+}
+
+function isSpeedQuestion(question: string) {
+    return /(?:谁|哪边|我方|对方|敌方).*(?:快|速度)|(?:快|速度).*(?:谁|哪边|我方|对方|敌方)/u.test(
+        normalizeBattleQuestion(question),
+    );
+}
+
+function getSpeedQuestionAnswer() {
+    const difference = opponentBattleSpeed.value - allyBattleSpeed.value;
+
+    if (difference === 0) {
+        return `双方实战速度都是 ${allyBattleSpeed.value}，当前速度相同。`;
+    }
+
+    if (difference > 0) {
+        return `对方实战速度 ${opponentBattleSpeed.value}，我方 ${allyBattleSpeed.value}；对方快 ${difference} 点。`;
+    }
+
+    return `对方实战速度 ${opponentBattleSpeed.value}，我方 ${allyBattleSpeed.value}；我方快 ${Math.abs(difference)} 点。`;
+}
+
+function parseDamageQuestion(question: string): {
+    direction: DamageDirection;
+    moveName: string;
+} | null {
+    const normalized = normalizeBattleQuestion(question);
+    const opponentMatch = normalized.match(
+        /(?:对方|敌方)(?:使用|用)(.+?)(?=(?:能|可以)?(?:打我|攻击我|对我))/u,
+    );
+
+    if (opponentMatch?.[1]) {
+        return {
+            direction: "opponentToAlly",
+            moveName: opponentMatch[1],
+        };
+    }
+
+    const allyMatch = normalized.match(
+        /(?:我方|我)(?:使用|用)(.+?)(?=(?:能|可以)?(?:打对方|攻击对方|对对方))/u,
+    );
+
+    if (allyMatch?.[1]) {
+        return {
+            direction: "allyToOpponent",
+            moveName: allyMatch[1],
+        };
+    }
+
+    return null;
+}
+
+function findLearnableDamageMove(petId: number, moveName: string) {
+    const detail = petDetails.value[petId];
+    const learnableMoves = [
+        ...(detail?.move_pool ?? []),
+        ...(detail?.move_stones ?? []),
+        ...(detail?.legacy_moves.flatMap((entry) =>
+            entry.move ? [entry.move] : [],
+        ) ?? []),
+    ] as DamageMove[];
+    const normalizedMoveName = getMoveNameKey(moveName);
+
+    return (
+        learnableMoves.find(
+            (move) =>
+                isDamageCalculableMove(move) &&
+                getMoveNameKey(getMoveDisplayName(move)) ===
+                    normalizedMoveName,
+        ) ??
+        learnableMoves.find(
+            (move) =>
+                isDamageCalculableMove(move) &&
+                (getMoveNameKey(getMoveDisplayName(move)).includes(
+                    normalizedMoveName,
+                ) ||
+                    normalizedMoveName.includes(
+                        getMoveNameKey(getMoveDisplayName(move)),
+                    )),
+        ) ??
+        null
+    );
+}
+
+function normalizeBattleQuestion(question: string) {
+    return question
+        .replace(/[，。！？、,.!?\s]/gu, "")
+        .replace(/多少(?:点)?伤害/gu, "多少");
+}
+
+function toggleBattleQuestionVoice() {
+    if (isListeningBattleQuestion.value) {
+        battleQuestionRecognition?.stop();
+        return;
+    }
+
+    const SpeechRecognition = getSpeechRecognitionConstructor();
+
+    if (!SpeechRecognition) {
+        battleAnswer.value =
+            "当前浏览器不支持语音输入，请使用文字提问。";
+        return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = "zh-CN";
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.onresult = (event) => {
+        const transcript = event.results[0]?.[0]?.transcript?.trim() ?? "";
+
+        if (transcript) {
+            battleQuestion.value = transcript;
+            void answerBattleQuestion(transcript);
+        }
+    };
+    recognition.onerror = () => {
+        battleAnswer.value = "没有识别到语音，请重试或使用文字输入。";
+        isListeningBattleQuestion.value = false;
+    };
+    recognition.onend = () => {
+        isListeningBattleQuestion.value = false;
+    };
+
+    battleQuestionRecognition = recognition;
+    isListeningBattleQuestion.value = true;
+
+    try {
+        recognition.start();
+    } catch {
+        isListeningBattleQuestion.value = false;
+        battleAnswer.value = "语音输入启动失败，请重试或使用文字输入。";
+    }
+}
+
+function getSpeechRecognitionConstructor() {
+    if (typeof window === "undefined") {
+        return null;
+    }
+
+    const speechWindow = window as typeof window & {
+        SpeechRecognition?: SpeechRecognitionConstructor;
+        webkitSpeechRecognition?: SpeechRecognitionConstructor;
+    };
+
+    return (
+        speechWindow.SpeechRecognition ??
+        speechWindow.webkitSpeechRecognition ??
+        null
+    );
+}
+
 function getCurrentMovePower() {
     return selectedDamageOption.value?.result.effectivePower ?? null;
 }
@@ -2011,6 +2272,93 @@ document.title = "对战助手 - 洛克王国工具箱";
                         >
                             {{ tag }}
                         </span>
+                    </div>
+                </CardContent>
+            </Card>
+
+            <Card class="rounded-[30px] border-sky-100 bg-white/92 shadow-lg shadow-sky-100/60">
+                <CardContent class="space-y-3 p-4 md:p-5">
+                    <div class="flex items-start justify-between gap-3">
+                        <div>
+                            <p class="text-sm font-black text-slate-950">
+                                对战问答
+                            </p>
+                            <p class="text-xs leading-5 text-slate-500">
+                                直接询问速度或指定技能伤害，答案使用当前双方构筑计算
+                            </p>
+                        </div>
+                        <Badge class="shrink-0 rounded-full bg-sky-100 text-sky-700 hover:bg-sky-100">
+                            本地计算
+                        </Badge>
+                    </div>
+
+                    <form
+                        class="flex gap-2"
+                        @submit.prevent="answerBattleQuestion()"
+                    >
+                        <Input
+                            v-model="battleQuestion"
+                            type="text"
+                            placeholder="例如：对方使用超级糖果能打我多少？"
+                            class="h-11 min-w-0 flex-1 rounded-full border-sky-200 bg-white text-slate-950"
+                        />
+                        <Button
+                            type="button"
+                            variant="outline"
+                            size="icon"
+                            class="h-11 w-11 shrink-0 rounded-full border-sky-200"
+                            :class="
+                                isListeningBattleQuestion
+                                    ? 'bg-rose-100 text-rose-700'
+                                    : isVoiceQuestionSupported
+                                      ? 'text-sky-700'
+                                      : 'text-slate-400'
+                            "
+                            :aria-label="
+                                !isVoiceQuestionSupported
+                                    ? '当前浏览器不支持语音输入'
+                                    : isListeningBattleQuestion
+                                      ? '停止语音输入'
+                                      : '语音提问'
+                            "
+                            @click="toggleBattleQuestionVoice"
+                        >
+                            <Mic class="h-4 w-4" />
+                        </Button>
+                        <Button
+                            type="submit"
+                            size="icon"
+                            class="h-11 w-11 shrink-0 rounded-full bg-sky-600 text-white hover:bg-sky-700"
+                            :disabled="isAnsweringBattleQuestion"
+                            aria-label="发送问题"
+                        >
+                            <Send class="h-4 w-4" />
+                        </Button>
+                    </form>
+
+                    <div class="flex flex-wrap gap-2">
+                        <button
+                            type="button"
+                            class="rounded-full bg-sky-50 px-3 py-1.5 text-xs font-bold text-sky-700"
+                            @click="battleQuestion = '对方比我快吗？'; answerBattleQuestion()"
+                        >
+                            对方比我快吗？
+                        </button>
+                        <button
+                            type="button"
+                            class="rounded-full bg-sky-50 px-3 py-1.5 text-xs font-bold text-sky-700"
+                            @click="battleQuestion = '对方使用超级糖果能打我多少？'; answerBattleQuestion()"
+                        >
+                            对方使用超级糖果能打我多少？
+                        </button>
+                    </div>
+
+                    <div
+                        v-if="battleAnswer"
+                        aria-live="polite"
+                        class="rounded-[20px] border border-sky-100 bg-sky-50 px-4 py-3 text-sm font-semibold leading-6 text-slate-800"
+                    >
+                        {{ battleAnswer }}
                     </div>
                 </CardContent>
             </Card>
