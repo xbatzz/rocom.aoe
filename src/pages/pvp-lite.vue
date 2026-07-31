@@ -119,10 +119,10 @@ interface ResistanceCandidate {
     multiplier: number;
 }
 
-type MobilePanel = "speed" | "matchup" | "defense" | "damage" | "profile";
+type InfoPanel = "speed" | "matchup" | "defense" | "damage" | "profile";
 
-const MOBILE_PANEL_ITEMS: Array<{
-    key: MobilePanel;
+const INFO_PANEL_ITEMS: Array<{
+    key: InfoPanel;
     label: string;
     icon: typeof Zap;
 }> = [
@@ -246,7 +246,7 @@ const battleAnswer = ref("");
 const isAnsweringBattleQuestion = ref(false);
 const isListeningBattleQuestion = ref(false);
 const isVoiceQuestionSupported = ref(false);
-const activeMobilePanel = ref<MobilePanel>("speed");
+const activePanel = ref<InfoPanel>("speed");
 
 let controller: AbortController | null = null;
 let battleQuestionRecognition: SpeechRecognitionLike | null = null;
@@ -2777,31 +2777,64 @@ document.title = "对战助手 - 洛克王国工具箱";
                 </CardContent>
             </Card>
 
-            <nav
-                aria-label="对战信息分类"
-                class="sticky top-3 z-30 grid grid-cols-5 gap-1 rounded-[22px] border border-white/80 bg-white/95 p-1.5 shadow-xl backdrop-blur md:hidden"
-            >
-                <button
-                    v-for="item in MOBILE_PANEL_ITEMS"
-                    :key="item.key"
-                    type="button"
-                    class="flex min-w-0 flex-col items-center gap-1 rounded-[16px] px-1 py-2 text-[11px] font-black transition"
-                    :class="
-                        activeMobilePanel === item.key
-                            ? 'bg-slate-950 text-white shadow-sm'
-                            : 'text-slate-500'
-                    "
-                    :aria-pressed="activeMobilePanel === item.key"
-                    @click="activeMobilePanel = item.key"
+            <div class="md:grid md:grid-cols-[176px_minmax(0,1fr)] md:items-start md:gap-3">
+                <aside
+                    class="sticky top-3 z-30 rounded-[22px] border border-white/80 bg-white/95 p-1.5 shadow-xl backdrop-blur md:p-2"
                 >
-                    <component :is="item.icon" class="h-4 w-4" />
-                    <span>{{ item.label }}</span>
-                </button>
-            </nav>
+                    <nav
+                        aria-label="对战信息分类"
+                        class="grid grid-cols-5 gap-1 md:flex md:flex-col md:gap-1.5"
+                    >
+                        <button
+                            v-for="item in INFO_PANEL_ITEMS"
+                            :key="item.key"
+                            type="button"
+                            class="flex min-w-0 flex-col items-center gap-1 rounded-[16px] px-1 py-2 text-[11px] font-black transition md:flex-row md:gap-2.5 md:px-3 md:py-3 md:text-sm"
+                            :class="
+                                activePanel === item.key
+                                    ? 'bg-slate-950 text-white shadow-sm'
+                                    : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900'
+                            "
+                            :aria-pressed="activePanel === item.key"
+                            @click="activePanel = item.key"
+                        >
+                            <component :is="item.icon" class="h-4 w-4 shrink-0" />
+                            <span>{{ item.label }}</span>
+                        </button>
+                    </nav>
+
+                    <div class="mt-3 hidden space-y-1.5 border-t border-slate-100 pt-3 md:block">
+                        <Button
+                            variant="ghost"
+                            class="w-full justify-start rounded-[14px] text-slate-700"
+                            @click="swapSides"
+                        >
+                            <ArrowLeftRight class="h-4 w-4" />
+                            换双方
+                        </Button>
+                        <Button
+                            variant="ghost"
+                            class="w-full justify-start rounded-[14px] text-slate-700"
+                            @click="resetAll"
+                        >
+                            <RotateCcw class="h-4 w-4" />
+                            重置
+                        </Button>
+                        <RouterLink
+                            to="/pvp"
+                            class="flex items-center gap-2 rounded-[14px] bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white"
+                        >
+                            <Swords class="h-4 w-4" />
+                            打开详细版
+                        </RouterLink>
+                    </div>
+                </aside>
+
+                <div class="mt-3 min-w-0 space-y-3 md:mt-0">
 
             <Card
                 class="rounded-[24px] border-indigo-100 bg-white/92 shadow-sm"
-                :class="activeMobilePanel === 'profile' ? '' : 'hidden md:block'"
+                :class="activePanel === 'profile' ? '' : 'hidden'"
             >
                 <CardContent class="space-y-3 p-4">
                     <div class="flex items-center gap-2">
@@ -2858,7 +2891,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                 </CardContent>
             </Card>
 
-            <Card class="hidden rounded-[30px] border-sky-100 bg-white/92 shadow-lg shadow-sky-100/60 md:block">
+            <Card class="hidden">
                 <CardContent class="space-y-3 p-4 md:p-5">
                     <div class="flex items-start justify-between gap-3">
                         <div>
@@ -2942,7 +2975,7 @@ document.title = "对战助手 - 洛克王国工具箱";
 
             <Card
                 class="rounded-[30px] border-orange-100 bg-white/92 shadow-lg shadow-orange-100/60"
-                :class="activeMobilePanel === 'damage' ? '' : 'hidden md:block'"
+                :class="activePanel === 'damage' ? '' : 'hidden'"
             >
                 <CardContent class="space-y-4 p-4 md:p-5">
                     <div class="flex items-center justify-between gap-3">
@@ -3338,7 +3371,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                 </CardContent>
             </Card>
 
-            <Card class="hidden rounded-[28px] border-violet-100 bg-white/90 shadow-md shadow-violet-100/50 md:block">
+            <Card class="hidden">
                 <CardContent class="space-y-3 p-4 md:p-5">
                     <div class="flex items-start justify-between gap-3">
                         <div>
@@ -3452,7 +3485,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                 </CardContent>
             </Card>
 
-            <div class="hidden gap-2 md:grid md:grid-cols-3">
+            <div class="hidden">
                 <div class="rounded-[22px] border border-sky-100 bg-white/90 p-3 shadow-sm">
                     <div class="flex items-center gap-2">
                         <Zap class="h-4 w-4 text-sky-600" />
@@ -3505,8 +3538,8 @@ document.title = "对战助手 - 洛克王国工具箱";
 
             <details
                 class="rounded-[24px] border border-sky-100 bg-white/80 p-4 shadow-sm"
-                :class="activeMobilePanel === 'speed' ? '' : 'hidden md:block'"
-                :open="activeMobilePanel === 'speed'"
+                :class="activePanel === 'speed' ? '' : 'hidden'"
+                :open="activePanel === 'speed'"
             >
                 <summary class="cursor-pointer text-sm font-bold text-slate-950">
                     查看速度线
@@ -3539,8 +3572,8 @@ document.title = "对战助手 - 洛克王国工具箱";
 
             <details
                 class="rounded-[24px] border border-amber-100 bg-white/80 p-4 shadow-sm"
-                :class="activeMobilePanel === 'matchup' ? '' : 'hidden md:block'"
-                :open="activeMobilePanel === 'matchup'"
+                :class="activePanel === 'matchup' ? '' : 'hidden'"
+                :open="activePanel === 'matchup'"
             >
                 <summary class="cursor-pointer text-sm font-bold text-slate-950">
                     查看属性细节
@@ -3592,8 +3625,8 @@ document.title = "对战助手 - 洛克王国工具箱";
 
             <details
                 class="rounded-[24px] border border-emerald-100 bg-white/80 p-4 shadow-sm"
-                :class="activeMobilePanel === 'defense' ? '' : 'hidden md:block'"
-                :open="activeMobilePanel === 'defense'"
+                :class="activePanel === 'defense' ? '' : 'hidden'"
+                :open="activePanel === 'defense'"
             >
                 <summary class="cursor-pointer text-sm font-bold text-slate-950">
                     查看联防候选
@@ -3665,7 +3698,7 @@ document.title = "对战助手 - 洛克王国工具箱";
             <details
                 v-if="selectedDamageOption?.result.valid"
                 class="rounded-[28px] border border-slate-200 bg-white/90 p-4 shadow-md"
-                :class="activeMobilePanel === 'damage' ? '' : 'hidden md:block'"
+                :class="activePanel === 'damage' ? '' : 'hidden'"
             >
                 <summary class="cursor-pointer text-sm font-bold text-slate-950">
                     查看详细计算
@@ -3737,8 +3770,11 @@ document.title = "对战助手 - 洛克王国工具箱";
                 </RouterLink>
             </details>
 
+                </div>
+            </div>
+
             <div
-                class="sticky bottom-3 z-20 grid grid-cols-3 gap-2 rounded-full border border-white/80 bg-white/90 p-2 shadow-xl backdrop-blur"
+                class="sticky bottom-3 z-20 grid grid-cols-3 gap-2 rounded-full border border-white/80 bg-white/90 p-2 shadow-xl backdrop-blur md:hidden"
             >
                 <Button
                     variant="ghost"
