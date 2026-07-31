@@ -5,6 +5,7 @@ import {
     BookOpen,
     Calculator,
     Compass,
+    Database,
     Egg,
     GitBranch,
     ListChecks,
@@ -127,6 +128,12 @@ const moreTools: ToolLink[] = [
         description: "保留原项目收集进度能力，按需使用。",
         to: "/handbook-progress",
         icon: ListChecks,
+    },
+    {
+        title: "数据管理",
+        description: "导出或导入全部配队、图鉴进度和主题设置。",
+        to: "/data-management",
+        icon: Database,
     },
 ];
 </script>

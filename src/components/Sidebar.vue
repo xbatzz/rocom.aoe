@@ -17,6 +17,7 @@ import {
     Swords,
     Target,
     Calculator,
+    Database,
     Moon,
     Sun,
 } from "lucide-vue-next";
@@ -46,6 +47,7 @@ const navItems = [
     { name: "PVP 详细版", path: "/pvp", icon: Target },
     { name: "实战属性", path: "/stats", icon: Calculator },
     { name: "图鉴进度", path: "/handbook-progress", icon: ListTodo },
+    { name: "数据管理", path: "/data-management", icon: Database },
     { name: "表格", path: "/table", icon: Table },
     { name: "配队", path: "/team", icon: Gamepad2 },
     { name: "配种", path: "/breeding", icon: HeartPulse },

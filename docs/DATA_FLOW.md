@@ -137,7 +137,7 @@ public/data/pets/{petId}.json
 - `/data/handbook-rewards.json`
 - `/data/handbook-topic-skill-names.json`
 
-进度本身不写入 `public/data`，而是写入浏览器 `localStorage`，键名为 `rocom_handbook_progress`。
+进度本身不写入 `public/data`，而是写入浏览器 `localStorage`，键名为 `rocom_handbook_progress`。完整用户数据可通过 `/data-management` 与 `src/lib/userDataBackup.ts` 统一导出或导入，格式详见 `docs/USER_DATA.md`。
 
 ## 5. 属性关系页面读取的是哪些数据文件？
 
@@ -186,7 +186,7 @@ public/data/pets/{petId}.json
 如果个人数据只属于当前浏览器，不需要提交到仓库，更推荐使用 `localStorage` 或导入/导出 JSON。项目已有两个类似模式：
 
 - 图鉴进度：`localStorage` 键名 `rocom_handbook_progress`
-- 配队：`localStorage` 键名 `rocom.team-builder.v1`
+- 配队：`localStorage` 键名 `rocom.team-builder.v2`（兼容迁移 `rocom.team-builder.v1`）
 
 建议新增个人收藏备注时使用独立命名空间，例如：
 

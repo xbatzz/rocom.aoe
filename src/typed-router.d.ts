@@ -48,6 +48,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/data-management': RouteRecordInfo<
+      '/data-management',
+      '/data-management',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/egggroup': RouteRecordInfo<
       '/egggroup',
       '/egggroup',
@@ -160,6 +167,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/breeding.vue': {
       routes:
         | '/breeding'
+      views:
+        | never
+    }
+    'src/pages/data-management.vue': {
+      routes:
+        | '/data-management'
       views:
         | never
     }

@@ -82,6 +82,34 @@ export function saveTeamStorageState(state: TeamStorageState) {
     );
 }
 
+export function parseTeamStorageState(input: unknown): TeamStorageState | null {
+    if (!input || typeof input !== "object" || Array.isArray(input)) {
+        return null;
+    }
+
+    const value = input as {
+        version?: unknown;
+        activeTeamId?: unknown;
+        teams?: unknown;
+    };
+
+    if (
+        value.version !== STORAGE_VERSION ||
+        typeof value.activeTeamId !== "string" ||
+        !Array.isArray(value.teams) ||
+        value.teams.length === 0 ||
+        !value.teams.every(isValidStoredTeamBackup) ||
+        !value.teams.some(
+            (team) =>
+                (team as { id: string }).id === value.activeTeamId,
+        )
+    ) {
+        return null;
+    }
+
+    return normalizeStorageState(value);
+}
+
 export function getTeams(): TeamStorageTeam[] {
     return getTeamStorageState().teams;
 }
@@ -388,6 +416,29 @@ function normalizeStorageTeam(
                 ? maybeTeam.updatedAt
                 : fallbackDate,
     });
+}
+
+function isValidStoredTeamBackup(input: unknown) {
+    if (!input || typeof input !== "object" || Array.isArray(input)) {
+        return false;
+    }
+
+    const team = input as {
+        createdAt?: unknown;
+        id?: unknown;
+        name?: unknown;
+        slots?: unknown;
+        updatedAt?: unknown;
+    };
+
+    return (
+        typeof team.id === "string" &&
+        team.id.length > 0 &&
+        typeof team.name === "string" &&
+        Array.isArray(team.slots) &&
+        typeof team.createdAt === "string" &&
+        typeof team.updatedAt === "string"
+    );
 }
 
 function createDefaultStorageState(): TeamStorageState {
