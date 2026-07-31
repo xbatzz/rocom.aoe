@@ -37,6 +37,7 @@ import {
 } from "@/lib/teamStorage";
 import {
     calculateBattleStat,
+    calculateBattleStats,
     EMPTY_INDIVIDUAL_VALUES,
     getNatureModifier,
     type BattleIndividualValues,
@@ -125,6 +126,12 @@ type BattleProfilePreset =
     | "maxHp";
 type PreferredAttackStat = "phyAtk" | "magAtk";
 type DamageDirection = "allyToOpponent" | "opponentToAlly";
+type BattleQuestionSide = "ally" | "opponent";
+type BattleQuestionStat =
+    | BattleStatKey
+    | "all"
+    | "bothAttack"
+    | "bothDefense";
 
 interface BattleProfile {
     preset: BattleProfilePreset;
@@ -167,6 +174,21 @@ const BATTLE_PROFILE_LABELS: Record<BattleProfilePreset, string> = {
     maxSpeed: "极速",
     maxHp: "极限生命",
 };
+
+const BATTLE_QUESTION_SUGGESTIONS = [
+    "对方比我快吗？",
+    "对方生命值多少？",
+    "对方速度种族值多少？",
+    "我方攻击种族值多少？",
+    "我方防御多少？",
+    "我方使用虫群能打对方多少血？",
+    "我方克制对方吗？",
+    "对方用什么属性打我最疼？",
+    "这个技能是否能一击？",
+    "我应该换哪只精灵联防？",
+    "对方最快配置是多少？",
+    "我的哪个技能伤害最高？",
+];
 
 const pets = ref<IPets[]>([]);
 const types = ref<IMonsterTypeDetail[]>([]);
@@ -471,11 +493,7 @@ const allyProfilePresetItems = computed(() => {
         : ALLY_PROFILE_PRESETS.filter((item) => item.key !== "saved");
 });
 
-const configuredDamageMoves = computed(() => {
-    if (damageDirection.value !== "allyToOpponent") {
-        return [] as DamageMove[];
-    }
-
+const allyEquippedDamageMoves = computed(() => {
     const slot = allyDamageBuildSlot.value;
 
     if (!slot) {
@@ -487,6 +505,12 @@ const configuredDamageMoves = computed(() => {
         .filter((move): move is DamageMove => move !== null)
         .filter(isDamageCalculableMove);
 });
+
+const configuredDamageMoves = computed(() =>
+    damageDirection.value === "allyToOpponent"
+        ? allyEquippedDamageMoves.value
+        : [],
+);
 
 const damageSearchResults = computed(() => {
     const keyword = damageSearchQuery.value.trim().toLowerCase();
@@ -1459,16 +1483,28 @@ async function answerBattleQuestion(question = battleQuestion.value) {
     isAnsweringBattleQuestion.value = true;
 
     try {
-        if (isSpeedQuestion(normalizedQuestion)) {
+        if (isSpeedComparisonQuestion(normalizedQuestion)) {
             battleAnswer.value = getSpeedQuestionAnswer();
+            return;
+        }
+
+        const advancedAnswer = await getAdvancedBattleQuestionAnswer(
+            normalizedQuestion,
+        );
+
+        if (advancedAnswer) {
+            battleAnswer.value = advancedAnswer;
             return;
         }
 
         const damageQuestion = parseDamageQuestion(normalizedQuestion);
 
         if (!damageQuestion) {
-            battleAnswer.value =
-                "目前支持询问双方速度，以及“对方使用某技能能打我多少”这类指定技能伤害问题。";
+            const statQuestion = parseStatQuestion(normalizedQuestion);
+
+            battleAnswer.value = statQuestion
+                ? getStatQuestionAnswer(statQuestion)
+                : "目前支持速度比较、种族值、当前实战属性，以及指定技能伤害问题。";
             return;
         }
 
@@ -1519,9 +1555,20 @@ async function answerBattleQuestion(question = battleQuestion.value) {
     }
 }
 
-function isSpeedQuestion(question: string) {
-    return /(?:谁|哪边|我方|对方|敌方).*(?:快|速度)|(?:快|速度).*(?:谁|哪边|我方|对方|敌方)/u.test(
-        normalizeBattleQuestion(question),
+function isSpeedComparisonQuestion(question: string) {
+    const normalized = normalizeBattleQuestion(question);
+
+    return (
+        /(?:谁|哪边|哪方).*(?:快|速度)|(?:快|速度).*(?:谁|哪边|哪方)/u.test(
+            normalized,
+        ) ||
+        /(?:对方|敌方|对手).*(?:比我|比我方).*(?:快|速度)/u.test(
+            normalized,
+        ) ||
+        /(?:我方|我|自己).*(?:比对方|比敌方|比对手).*(?:快|速度)/u.test(
+            normalized,
+        ) ||
+        /(?:双方)?速度(?:差|比较|谁快)/u.test(normalized)
     );
 }
 
@@ -1537,6 +1584,447 @@ function getSpeedQuestionAnswer() {
     }
 
     return `对方实战速度 ${opponentBattleSpeed.value}，我方 ${allyBattleSpeed.value}；我方快 ${Math.abs(difference)} 点。`;
+}
+
+async function getAdvancedBattleQuestionAnswer(question: string) {
+    const normalized = normalizeBattleQuestion(question);
+
+    if (/(?:我方|我).*(?:克制|克不克制).*(?:对方|敌方|对手)/u.test(normalized)) {
+        return getAllyMatchupQuestionAnswer();
+    }
+
+    if (
+        /(?:对方|敌方|对手).*(?:什么|哪个)属性.*(?:最疼|伤害最高|最痛)/u.test(
+            normalized,
+        )
+    ) {
+        return getOpponentStrongestTypeAnswer();
+    }
+
+    if (/(?:这个|当前|所选)?技能.*(?:一击|秒)|(?:能否|是否|能不能)一击/u.test(normalized)) {
+        return getSelectedMoveOneHitAnswer();
+    }
+
+    if (/(?:换哪只|换哪个|谁能联防|哪只.*联防|联防.*哪只)/u.test(normalized)) {
+        return getSwitchRecommendationAnswer();
+    }
+
+    if (
+        /(?:对方|敌方|对手).*(?:最快配置|极限速度|最高速度)|(?:最快配置|极限速度|最高速度).*(?:对方|敌方|对手)/u.test(
+            normalized,
+        )
+    ) {
+        return getOpponentMaximumSpeedAnswer();
+    }
+
+    if (
+        /(?:我方|我的|我).*(?:哪个|什么)技能.*(?:伤害最高|最疼|最高伤害)|(?:我方|我的|我).*(?:伤害最高|最疼).*(?:技能)/u.test(
+            normalized,
+        )
+    ) {
+        return await getAllyHighestDamageMoveAnswer();
+    }
+
+    return null;
+}
+
+function getAllyMatchupQuestionAnswer() {
+    if (!allyPet.value || !opponentPet.value) {
+        return "请先选择双方精灵。";
+    }
+
+    const matchups = allyAttackMatchups.value;
+    const strongestMultiplier = Math.max(
+        0,
+        ...matchups.map((item) => item.multiplier),
+    );
+    const strongestTypes = matchups
+        .filter((item) => item.multiplier === strongestMultiplier)
+        .map((item) => item.type.localized.zh)
+        .join("、");
+
+    if (strongestMultiplier > 1) {
+        return `按本系属性判断，我方${getPetDisplayName(allyPet.value)}克制对方：${strongestTypes}属性攻击为 ${strongestMultiplier}x。实际伤害仍取决于技能和双方构筑。`;
+    }
+
+    if (strongestMultiplier < 1) {
+        return `按本系属性判断，我方不克制对方；当前最高也只有${strongestTypes}属性 ${strongestMultiplier}x。`;
+    }
+
+    return `按本系属性判断，我方对对方最高为${strongestTypes}属性 1x，没有属性克制。`;
+}
+
+function getOpponentStrongestTypeAnswer() {
+    if (!allyPet.value || !opponentPet.value) {
+        return "请先选择双方精灵。";
+    }
+
+    const matchups = opponentAttackMatchups.value;
+    const strongestMultiplier = Math.max(
+        0,
+        ...matchups.map((item) => item.multiplier),
+    );
+    const strongestTypes = matchups
+        .filter((item) => item.multiplier === strongestMultiplier)
+        .map((item) => item.type.localized.zh)
+        .join("、");
+
+    return `按对方本系属性判断，${strongestTypes}属性打我方倍率最高，为 ${strongestMultiplier}x。具体哪个技能最疼还要结合威力与对方攻击构筑。`;
+}
+
+function getSelectedMoveOneHitAnswer() {
+    const option = selectedDamageOption.value;
+
+    if (!option?.result.valid) {
+        return "请先在伤害技能模块选择一个可计算的技能。";
+    }
+
+    const attackerLabel = damageAttackerLabel.value;
+    const defenderLabel = damageDefenderLabel.value;
+    const moveName = getMoveDisplayName(option.move);
+    const damagePercent = option.result.damagePercent ?? 0;
+
+    if (damagePercent >= 100) {
+        return `${attackerLabel}使用“${moveName}”预计造成 ${option.result.totalDamage} 点伤害，占${defenderLabel}最大生命 ${damagePercent}%，纸面上可以一击。`;
+    }
+
+    return `${attackerLabel}使用“${moveName}”预计造成 ${option.result.totalDamage} 点伤害，占${defenderLabel}最大生命 ${damagePercent}%，不能一击，约需 ${option.result.estimatedHitsToKo ?? "多"} 次。`;
+}
+
+function getSwitchRecommendationAnswer() {
+    if (!opponentPet.value) {
+        return "请先选择对方精灵。";
+    }
+
+    const attackTypes = getBattlePetTypes(opponentPet.value);
+    const currentSlotIndex = selectedAllyTeamSlot.value?.slotIndex ?? null;
+    const candidates = teamPets.value
+        .filter(({ slot }) => slot.slotIndex !== currentSlotIndex)
+        .map(({ slot, pet }) => {
+            const matchups = attackTypes.map((type) => ({
+                type,
+                multiplier: getTypeMultiplier(
+                    getTypeRelationNet(pet, type.name, typeMap.value),
+                ),
+            }));
+
+            return {
+                slot,
+                pet,
+                matchups,
+                worstMultiplier: Math.max(
+                    0,
+                    ...matchups.map((item) => item.multiplier),
+                ),
+                totalMultiplier: matchups.reduce(
+                    (total, item) => total + item.multiplier,
+                    0,
+                ),
+            };
+        })
+        .sort(
+            (left, right) =>
+                left.worstMultiplier - right.worstMultiplier ||
+                left.totalMultiplier - right.totalMultiplier ||
+                left.slot.slotIndex - right.slot.slotIndex,
+        );
+    const best = candidates[0];
+
+    if (!best) {
+        return "当前队伍没有其他可用于联防的精灵。";
+    }
+
+    const matchupText = best.matchups
+        .map(
+            (item) =>
+                `${item.type.localized.zh} ${item.multiplier}x`,
+        )
+        .join("、");
+    const qualityText =
+        best.worstMultiplier <= 0.5
+            ? "是当前较稳定的属性联防候选"
+            : best.worstMultiplier < 1
+              ? "属性上相对更适合换入"
+              : "但没有形成明确抗性，只是当前队伍中的相对最优项";
+
+    return `建议优先考虑 ${best.pet.localized.zh.name}（槽位 ${best.slot.slotIndex}）：面对对方本系为${matchupText}，${qualityText}。此结论未考虑技能特效和换人伤害。`;
+}
+
+function getOpponentMaximumSpeedAnswer() {
+    if (!opponentPet.value) {
+        return "请先选择对方精灵。";
+    }
+
+    const baseMaximumSpeed = calculateBattleStat(
+        opponentPet.value.base_spd,
+        10,
+        0.2,
+    );
+    const maximumSpeed = applyMeteorBugCaptureBallSpeed(
+        baseMaximumSpeed,
+        opponentPet.value.id,
+        opponentMeteorBallKey.value,
+    );
+    const captureBallText =
+        opponentPet.value.id === METEOR_BUG_PET_ID
+            ? `，并计入当前${opponentMeteorBallOption.value.label}效果`
+            : "";
+
+    return `对方${getPetDisplayName(opponentPet.value)}按速度个体 10、加速性格计算的最快实战速度为 ${maximumSpeed}${captureBallText}（速度种族值 ${opponentPet.value.base_spd}）。`;
+}
+
+async function getAllyHighestDamageMoveAnswer() {
+    if (!allyPet.value || !opponentPet.value) {
+        return "请先选择双方精灵。";
+    }
+
+    await ensurePetDetail(allyPet.value.id);
+    const candidateMoves = allyEquippedDamageMoves.value.length
+        ? allyEquippedDamageMoves.value
+        : getLearnableDamageMoves(allyPet.value.id);
+    const options = candidateMoves
+        .map((move) => {
+            const effect = getDamageEffectOptions(move)[0];
+            const result = calculatePaperDamage({
+                attackerPet: allyPet.value!,
+                defenderPet: opponentPet.value!,
+                move,
+                typeMap: typeMap.value,
+                attackerIndividualValues:
+                    allyBattleProfile.value.individualValues,
+                defenderIndividualValues:
+                    opponentBattleProfile.value.individualValues,
+                attackerNature: allyBattleProfile.value.nature,
+                defenderNature: opponentBattleProfile.value.nature,
+                powerBonus: effect?.getPowerBonus(allyHpPercent.value) ?? 0,
+                powerBoostPercent:
+                    effect?.getPowerBoostPercent(allyHpPercent.value) ?? 0,
+            });
+
+            return result.valid ? { move, result } : null;
+        })
+        .filter(
+            (option): option is DamageOption => option !== null,
+        )
+        .sort(
+            (left, right) =>
+                (right.result.totalDamage ?? 0) -
+                (left.result.totalDamage ?? 0),
+        );
+    const best = options[0];
+
+    if (!best) {
+        return "我方当前没有可计算的伤害技能。";
+    }
+
+    damageDirection.value = "allyToOpponent";
+    await nextTick();
+    selectDamageMove(best.move);
+
+    const sourceText = allyEquippedDamageMoves.value.length
+        ? "已装备技能"
+        : "可学习技能";
+
+    return `按当前构筑与默认即时效果比较${sourceText}，“${getMoveDisplayName(best.move)}”纸面伤害最高：${best.result.totalDamage} 点，约占对方最大生命 ${best.result.damagePercent}%。已在下方选中该技能。`;
+}
+
+function getLearnableDamageMoves(petId: number) {
+    const detail = petDetails.value[petId];
+    const moves = [
+        ...(detail?.move_pool ?? []),
+        ...(detail?.move_stones ?? []),
+        ...(detail?.legacy_moves.flatMap((entry) =>
+            entry.move ? [entry.move] : [],
+        ) ?? []),
+    ] as DamageMove[];
+
+    return Array.from(
+        new Map(moves.map((move) => [move.id, move])).values(),
+    ).filter(isDamageCalculableMove);
+}
+
+function parseStatQuestion(question: string): {
+    side: BattleQuestionSide;
+    stat: BattleQuestionStat;
+    useBaseStat: boolean;
+} | null {
+    const normalized = normalizeBattleQuestion(question);
+    const side = getBattleQuestionSide(normalized);
+
+    if (!side || !/(?:多少|几|查看|是什么|是多高)/u.test(normalized)) {
+        return null;
+    }
+
+    const stat = getBattleQuestionStat(normalized);
+
+    if (!stat) {
+        return null;
+    }
+
+    return {
+        side,
+        stat,
+        useBaseStat: /(?:种族值|基础值|基础属性)/u.test(normalized),
+    };
+}
+
+function getBattleQuestionSide(question: string): BattleQuestionSide | null {
+    if (/(?:对方|敌方|对手|对面)/u.test(question)) {
+        return "opponent";
+    }
+
+    if (/(?:我方|自己|我的|我)/u.test(question)) {
+        return "ally";
+    }
+
+    return null;
+}
+
+function getBattleQuestionStat(question: string): BattleQuestionStat | null {
+    if (/(?:全部|完整|六维|所有).*(?:种族值|属性)/u.test(question)) {
+        return "all";
+    }
+
+    if (/双攻/u.test(question)) {
+        return "bothAttack";
+    }
+
+    if (/双防/u.test(question)) {
+        return "bothDefense";
+    }
+
+    if (/(?:魔法攻击|魔攻)/u.test(question)) {
+        return "magAtk";
+    }
+
+    if (/(?:物理攻击|物攻|攻击)/u.test(question)) {
+        return "phyAtk";
+    }
+
+    if (/(?:魔法防御|魔防)/u.test(question)) {
+        return "magDef";
+    }
+
+    if (/(?:物理防御|物防|防御)/u.test(question)) {
+        return "phyDef";
+    }
+
+    if (/(?:生命值|生命|血量|血|hp)/iu.test(question)) {
+        return "hp";
+    }
+
+    if (/(?:速度|速)/u.test(question)) {
+        return "speed";
+    }
+
+    if (/种族值/u.test(question)) {
+        return "all";
+    }
+
+    return null;
+}
+
+function getStatQuestionAnswer(question: {
+    side: BattleQuestionSide;
+    stat: BattleQuestionStat;
+    useBaseStat: boolean;
+}) {
+    const isAlly = question.side === "ally";
+    const pet = isAlly ? allyPet.value : opponentPet.value;
+    const profile = isAlly
+        ? allyBattleProfile.value
+        : opponentBattleProfile.value;
+    const sideLabel = isAlly ? "我方" : "对方";
+
+    if (!pet) {
+        return `${sideLabel}尚未选择精灵。`;
+    }
+
+    if (question.useBaseStat) {
+        return formatBaseStatAnswer(sideLabel, pet, question.stat);
+    }
+
+    const stats = calculateBattleStats(
+        pet,
+        profile.individualValues,
+        profile.nature,
+    );
+
+    if (question.stat === "speed") {
+        const speed = isAlly
+            ? allyBattleSpeed.value
+            : opponentBattleSpeed.value;
+        return `${sideLabel}${getPetDisplayName(pet)}当前实战速度为 ${speed}（速度种族值 ${pet.base_spd}）。`;
+    }
+
+    if (question.stat === "hp") {
+        const hpPercent = isAlly
+            ? allyHpPercent.value
+            : opponentHpPercent.value;
+        const currentHp = Math.round(stats.hp * hpPercent / 100);
+        return `${sideLabel}${getPetDisplayName(pet)}当前构筑最大生命为 ${stats.hp}；按当前 ${hpPercent}% 生命计算，剩余约 ${currentHp}。`;
+    }
+
+    if (question.stat === "bothAttack") {
+        return `${sideLabel}${getPetDisplayName(pet)}当前实战物攻 ${stats.phyAtk}，魔攻 ${stats.magAtk}。`;
+    }
+
+    if (question.stat === "bothDefense") {
+        return `${sideLabel}${getPetDisplayName(pet)}当前实战物防 ${stats.phyDef}，魔防 ${stats.magDef}。`;
+    }
+
+    if (question.stat === "all") {
+        return `${sideLabel}${getPetDisplayName(pet)}当前实战属性：生命 ${stats.hp}、物攻 ${stats.phyAtk}、魔攻 ${stats.magAtk}、物防 ${stats.phyDef}、魔防 ${stats.magDef}、速度 ${isAlly ? allyBattleSpeed.value : opponentBattleSpeed.value}。`;
+    }
+
+    const labels: Record<BattleStatKey, string> = {
+        hp: "生命",
+        phyAtk: "物攻",
+        magAtk: "魔攻",
+        phyDef: "物防",
+        magDef: "魔防",
+        speed: "速度",
+    };
+
+    return `${sideLabel}${getPetDisplayName(pet)}当前实战${labels[question.stat]}为 ${stats[question.stat]}。`;
+}
+
+function formatBaseStatAnswer(
+    sideLabel: string,
+    pet: IPets,
+    stat: BattleQuestionStat,
+) {
+    const statValues: Record<BattleStatKey, number> = {
+        hp: pet.base_hp,
+        phyAtk: pet.base_phy_atk,
+        magAtk: pet.base_mag_atk,
+        phyDef: pet.base_phy_def,
+        magDef: pet.base_mag_def,
+        speed: pet.base_spd,
+    };
+    const statLabels: Record<BattleStatKey, string> = {
+        hp: "生命",
+        phyAtk: "物攻",
+        magAtk: "魔攻",
+        phyDef: "物防",
+        magDef: "魔防",
+        speed: "速度",
+    };
+    const petLabel = `${sideLabel}${getPetDisplayName(pet)}`;
+
+    if (stat === "all") {
+        return `${petLabel}种族值：生命 ${pet.base_hp}、物攻 ${pet.base_phy_atk}、魔攻 ${pet.base_mag_atk}、物防 ${pet.base_phy_def}、魔防 ${pet.base_mag_def}、速度 ${pet.base_spd}。`;
+    }
+
+    if (stat === "bothAttack") {
+        return `${petLabel}物攻种族值 ${pet.base_phy_atk}，魔攻种族值 ${pet.base_mag_atk}。`;
+    }
+
+    if (stat === "bothDefense") {
+        return `${petLabel}物防种族值 ${pet.base_phy_def}，魔防种族值 ${pet.base_mag_def}。`;
+    }
+
+    return `${petLabel}${statLabels[stat]}种族值为 ${statValues[stat]}。`;
 }
 
 function parseDamageQuestion(question: string): {
@@ -2336,20 +2824,15 @@ document.title = "对战助手 - 洛克王国工具箱";
                         </Button>
                     </form>
 
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex gap-2 overflow-x-auto pb-1">
                         <button
+                            v-for="suggestion in BATTLE_QUESTION_SUGGESTIONS"
+                            :key="suggestion"
                             type="button"
-                            class="rounded-full bg-sky-50 px-3 py-1.5 text-xs font-bold text-sky-700"
-                            @click="battleQuestion = '对方比我快吗？'; answerBattleQuestion()"
+                            class="shrink-0 rounded-full bg-sky-50 px-3 py-1.5 text-xs font-bold text-sky-700"
+                            @click="battleQuestion = suggestion; answerBattleQuestion()"
                         >
-                            对方比我快吗？
-                        </button>
-                        <button
-                            type="button"
-                            class="rounded-full bg-sky-50 px-3 py-1.5 text-xs font-bold text-sky-700"
-                            @click="battleQuestion = '对方使用超级糖果能打我多少？'; answerBattleQuestion()"
-                        >
-                            对方使用超级糖果能打我多少？
+                            {{ suggestion }}
                         </button>
                     </div>
 
