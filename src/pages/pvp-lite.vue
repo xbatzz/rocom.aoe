@@ -749,76 +749,60 @@ const allySearchResults = computed(() => {
         .slice(0, SEARCH_LIMIT);
 });
 
-const conclusion = computed(() => {
+const resultSummaryTags = computed(() => {
     if (!hasBothPets.value) {
-        return {
-            text: "选择双方宠物后，会自动汇总速度、克制和纸面伤害。",
-            tags: ["等待选择"],
-        };
+        return [
+            {
+                label: "速度待比较",
+                detail: "请选择双方宠物",
+                className: "border-slate-200 bg-white/80 text-slate-600",
+            },
+            {
+                label: "克制待比较",
+                detail: "请选择双方宠物",
+                className: "border-slate-200 bg-white/80 text-slate-600",
+            },
+        ];
     }
 
-    const tags: string[] = [];
-    const damage = selectedDamageOption.value?.result.damagePercent ?? 0;
+    const speedTag = speedDiff.value > 0
+        ? {
+            label: "速度领先",
+            detail: `快 ${speedDiff.value} 点`,
+            className: "border-emerald-200 bg-emerald-50 text-emerald-800",
+        }
+        : speedDiff.value < 0
+          ? {
+              label: "速度落后",
+              detail: `慢 ${Math.abs(speedDiff.value)} 点`,
+              className: "border-rose-200 bg-rose-50 text-rose-800",
+          }
+          : {
+              label: "速度持平",
+              detail: `双方 ${allyBattleSpeed.value}`,
+              className: "border-slate-200 bg-slate-50 text-slate-700",
+          };
 
-    if (speedDiff.value > 0) {
-        tags.push("速度领先");
-    } else if (speedDiff.value < 0) {
-        tags.push("速度落后");
-    } else {
-        tags.push("速度接近");
-    }
+    const matchupDetail = `我方 ${bestAllyMultiplier.value}x / 对方 ${bestOpponentMultiplier.value}x`;
+    const matchupTag = bestAllyMultiplier.value > bestOpponentMultiplier.value
+        ? {
+            label: "克制占优",
+            detail: matchupDetail,
+            className: "border-emerald-200 bg-emerald-50 text-emerald-800",
+        }
+        : bestAllyMultiplier.value < bestOpponentMultiplier.value
+          ? {
+              label: "克制劣势",
+              detail: matchupDetail,
+              className: "border-rose-200 bg-rose-50 text-rose-800",
+          }
+          : {
+              label: "克制相当",
+              detail: matchupDetail,
+              className: "border-slate-200 bg-slate-50 text-slate-700",
+          };
 
-    if (bestAllyMultiplier.value >= 2) {
-        tags.push(`克制 ${bestAllyMultiplier.value}x`);
-    }
-
-    if (bestOpponentMultiplier.value >= 2) {
-        tags.push("防守风险");
-    }
-
-    if (damage >= 100) {
-        tags.push(
-            damageDirection.value === "allyToOpponent"
-                ? "我方伤害可观"
-                : "对方伤害较高",
-        );
-    }
-
-    if (
-        damageDirection.value === "opponentToAlly" &&
-        damage >= 100
-    ) {
-        return {
-            text:
-                speedDiff.value <= 0
-                    ? "当前对位风险较高：对方速度不落后，所选技能对我方伤害较高。"
-                    : "当前对位存在威胁：对方所选技能对我方伤害较高，注意换人与联防。",
-            tags,
-        };
-    }
-
-    if (
-        damageDirection.value === "allyToOpponent" &&
-        damage >= 100 &&
-        speedDiff.value >= 0
-    ) {
-        return {
-            text: "当前对位偏进攻：速度参考不落后，所选技能纸面伤害较高。",
-            tags,
-        };
-    }
-
-    if (bestOpponentMultiplier.value >= 2 || speedDiff.value < 0) {
-        return {
-            text: "当前对位有风险：注意对方速度或高倍率打点，必要时查看联防候选。",
-            tags,
-        };
-    }
-
-    return {
-        text: "属性对位接近：建议结合所选技能伤害和速度参考判断下一步。",
-        tags,
-    };
+    return [speedTag, matchupTag];
 });
 
 onMounted(() => {
@@ -2729,27 +2713,27 @@ document.title = "对战助手 - 洛克王国工具箱";
                 </CardContent>
             </Card>
 
-            <Card class="overflow-hidden rounded-[32px] border-amber-200 bg-gradient-to-br from-amber-300 via-orange-100 to-white shadow-xl shadow-orange-100 dark:from-amber-900 dark:via-orange-950 dark:to-card">
-                <CardContent class="space-y-3 p-5 md:p-6">
-                    <div class="flex items-center justify-between gap-3">
+            <Card class="rounded-[24px] border-amber-200 bg-amber-50/90 shadow-sm dark:bg-amber-950/40">
+                <CardContent class="flex flex-col gap-3 p-3 sm:flex-row sm:items-center sm:justify-between md:p-4">
+                    <div class="flex shrink-0 items-center justify-between gap-3 sm:justify-start">
                         <div class="flex items-center gap-2 text-amber-900">
                             <Target class="h-5 w-5" />
                             <p class="text-sm font-black">主结果</p>
                         </div>
-                        <Badge class="rounded-full bg-white/85 text-amber-800 hover:bg-white/85">
-                            {{ hasBothPets ? "已分析" : "等待选择" }}
-                        </Badge>
                     </div>
-                    <p class="text-2xl font-black leading-9 text-slate-950 md:text-3xl md:leading-10">
-                        {{ conclusion.text }}
-                    </p>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="grid flex-1 grid-cols-2 gap-2 sm:max-w-xl">
                         <span
-                            v-for="tag in conclusion.tags"
-                            :key="tag"
-                            class="rounded-full bg-white px-3 py-1.5 text-xs font-bold text-slate-800 shadow-sm"
+                            v-for="tag in resultSummaryTags"
+                            :key="tag.label"
+                            class="min-w-0 rounded-[16px] border px-3 py-2"
+                            :class="tag.className"
                         >
-                            {{ tag }}
+                            <strong class="block text-sm font-black">
+                                {{ tag.label }}
+                            </strong>
+                            <small class="block truncate text-[11px] font-semibold opacity-75">
+                                {{ tag.detail }}
+                            </small>
                         </span>
                     </div>
                 </CardContent>
