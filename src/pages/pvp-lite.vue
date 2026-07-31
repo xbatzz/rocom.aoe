@@ -179,6 +179,7 @@ const ALLY_PROFILE_PRESETS: Array<{
     label: string;
 }> = [
     { key: "saved", label: "当前构筑" },
+    { key: "none", label: "无配置" },
     { key: "maxAttack", label: "极限攻击" },
     { key: "maxSpeed", label: "极速" },
     { key: "maxHp", label: "极限生命" },
@@ -214,6 +215,7 @@ const personalities = ref<IPersonality[]>([]);
 const moves = ref<DamageMove[]>([]);
 const petSkillIndex = ref<IPetSkillIndexPayload | null>(null);
 const petDetails = ref<Record<number, IPetsDetail>>({});
+const failedPetDetailIds = ref<Set<number>>(new Set());
 const savedTeamSlots = ref<SavedTeamBuildSlot[]>([]);
 const activeTeamName = ref("当前激活队伍");
 const allyPetId = ref<number | null>(null);
@@ -473,10 +475,10 @@ const opponentSpeedPreviewItems = computed(() => {
     }
 
     return [
-        { label: "满速", individual: 10, modifier: 0.2 as NatureModifier },
-        { label: "满个体", individual: 10, modifier: 0 as NatureModifier },
-        { label: "无速", individual: 0, modifier: 0 as NatureModifier },
-        { label: "减速", individual: 0, modifier: -0.1 as NatureModifier },
+        { label: "满速", description: "10 个体 · 加速性格", individual: 10, modifier: 0.2 as NatureModifier },
+        { label: "满个体", description: "10 个体 · 无修正", individual: 10, modifier: 0 as NatureModifier },
+        { label: "无速", description: "0 个体 · 无修正", individual: 0, modifier: 0 as NatureModifier },
+        { label: "减速", description: "0 个体 · 减速性格", individual: 0, modifier: -0.1 as NatureModifier },
     ].map((item) => ({
         ...item,
         speed: applyMeteorBugCaptureBallSpeed(
@@ -522,6 +524,12 @@ const allyProfilePresetItems = computed(() => {
         : ALLY_PROFILE_PRESETS.filter((item) => item.key !== "saved");
 });
 
+const damageProfilePresetItems = computed(() =>
+    damageDirection.value === "allyToOpponent"
+        ? allyProfilePresetItems.value
+        : OPPONENT_PROFILE_PRESETS,
+);
+
 const allyEquippedDamageMoves = computed(() => {
     const slot = allyDamageBuildSlot.value;
 
@@ -541,17 +549,21 @@ const configuredDamageMoves = computed(() =>
         : [],
 );
 
+const suggestedDamageMoves = computed(() =>
+    damageAttackerDetailMoves.value
+        .filter(isDamageCalculableMove)
+        .sort((left, right) => right.power - left.power || left.id - right.id)
+        .slice(0, 6),
+);
+
 const damageSearchResults = computed(() => {
     const keyword = damageSearchQuery.value.trim().toLowerCase();
 
     if (!keyword) {
-        return [] as DamageMove[];
+        return suggestedDamageMoves.value;
     }
 
-    const candidateMoves =
-        damageDirection.value === "opponentToAlly"
-            ? damageAttackerDetailMoves.value
-            : [...damageAttackerDetailMoves.value, ...moves.value];
+    const candidateMoves = damageAttackerDetailMoves.value;
     const searchableMoves = Array.from(
         new Map(
             candidateMoves.map((move) => [
@@ -793,51 +805,51 @@ const resultSummaryTags = computed(() => {
             {
                 label: "速度待比较",
                 detail: "请选择双方宠物",
-                className: "border-slate-200 bg-white/80 text-slate-600",
+            className: "border-slate-200 bg-white/80 text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200",
             },
             {
                 label: "克制待比较",
                 detail: "请选择双方宠物",
-                className: "border-slate-200 bg-white/80 text-slate-600",
+                className: "border-slate-200 bg-white/80 text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200",
             },
         ];
     }
 
     const speedTag = speedDiff.value > 0
         ? {
-            label: "速度领先",
-            detail: `快 ${speedDiff.value} 点`,
-            className: "border-emerald-200 bg-emerald-50 text-emerald-800",
+            label: "当前速度领先",
+            detail: `快 ${speedDiff.value} 点 · 对方满速 ${opponentSpeedPreviewItems.value[0]?.speed ?? "-"}`,
+            className: "border-emerald-200 bg-emerald-50 text-emerald-800 dark:border-emerald-800 dark:bg-emerald-950/70 dark:text-emerald-100",
         }
         : speedDiff.value < 0
           ? {
-              label: "速度落后",
-              detail: `慢 ${Math.abs(speedDiff.value)} 点`,
-              className: "border-rose-200 bg-rose-50 text-rose-800",
+              label: "当前速度落后",
+              detail: `慢 ${Math.abs(speedDiff.value)} 点 · 对方满速 ${opponentSpeedPreviewItems.value[0]?.speed ?? "-"}`,
+              className: "border-rose-200 bg-rose-50 text-rose-800 dark:border-rose-800 dark:bg-rose-950/70 dark:text-rose-100",
           }
           : {
-              label: "速度持平",
-              detail: `双方 ${allyBattleSpeed.value}`,
-              className: "border-slate-200 bg-slate-50 text-slate-700",
+              label: "当前速度持平",
+              detail: `双方 ${allyBattleSpeed.value} · 对方满速 ${opponentSpeedPreviewItems.value[0]?.speed ?? "-"}`,
+              className: "border-slate-200 bg-slate-50 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100",
           };
 
     const matchupDetail = `我方 ${bestAllyMultiplier.value}x / 对方 ${bestOpponentMultiplier.value}x`;
     const matchupTag = bestAllyMultiplier.value > bestOpponentMultiplier.value
         ? {
-            label: "克制占优",
+            label: "本系克制占优",
             detail: matchupDetail,
-            className: "border-emerald-200 bg-emerald-50 text-emerald-800",
+            className: "border-emerald-200 bg-emerald-50 text-emerald-800 dark:border-emerald-800 dark:bg-emerald-950/70 dark:text-emerald-100",
         }
         : bestAllyMultiplier.value < bestOpponentMultiplier.value
           ? {
-              label: "克制劣势",
+              label: "本系克制劣势",
               detail: matchupDetail,
-              className: "border-rose-200 bg-rose-50 text-rose-800",
+              className: "border-rose-200 bg-rose-50 text-rose-800 dark:border-rose-800 dark:bg-rose-950/70 dark:text-rose-100",
           }
           : {
-              label: "克制相当",
+              label: "本系克制相当",
               detail: matchupDetail,
-              className: "border-slate-200 bg-slate-50 text-slate-700",
+              className: "border-slate-200 bg-slate-50 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100",
           };
 
     return [speedTag, matchupTag];
@@ -981,6 +993,10 @@ async function ensurePetDetail(petId: number) {
         return await pendingRequest;
     }
 
+    const nextFailedIds = new Set(failedPetDetailIds.value);
+    nextFailedIds.delete(petId);
+    failedPetDetailIds.value = nextFailedIds;
+
     const request = (async () => {
         try {
             const response = await fetch(`/data/pets/${petId}.json`);
@@ -996,6 +1012,10 @@ async function ensurePetDetail(petId: number) {
             };
             return detail;
         } catch {
+            failedPetDetailIds.value = new Set([
+                ...failedPetDetailIds.value,
+                petId,
+            ]);
             return null;
         } finally {
             pendingPetDetailRequests.delete(petId);
@@ -1044,6 +1064,38 @@ function blurActiveElement() {
     }
 }
 
+function moveActivePanel(offset: number) {
+    const currentIndex = INFO_PANEL_ITEMS.findIndex(
+        (item) => item.key === activePanel.value,
+    );
+    const nextIndex =
+        (currentIndex + offset + INFO_PANEL_ITEMS.length) %
+        INFO_PANEL_ITEMS.length;
+    const nextPanel = INFO_PANEL_ITEMS[nextIndex];
+
+    if (!nextPanel) {
+        return;
+    }
+
+    focusInfoPanel(nextPanel.key);
+}
+
+function focusInfoPanel(panel: InfoPanel) {
+    activePanel.value = panel;
+    void nextTick(() => {
+        document.getElementById(`pvp-tab-${panel}`)?.focus();
+    });
+}
+
+function selectDamageProfilePreset(preset: BattleProfilePreset) {
+    if (damageDirection.value === "allyToOpponent") {
+        allyProfilePreset.value = preset;
+        return;
+    }
+
+    opponentProfilePreset.value = preset;
+}
+
 function swapSides() {
     const nextAllyPetId = opponentPetId.value;
     const nextAllyPreset = opponentProfilePreset.value;
@@ -1084,6 +1136,7 @@ function resetAll() {
     swarmHitDevotionCount.value = 0;
     selectedDefenseTypeName.value = "";
     showManualAllySearch.value = false;
+    activePanel.value = "speed";
 }
 
 function normalizeOpponentProfilePreset(preset: BattleProfilePreset) {
@@ -2348,7 +2401,7 @@ function getBattleProfileSummary(profile: BattleProfile) {
     ]
         .filter(([, , value]) => Number(value) > 0)
         .map(([, label, value]) => `${label}${value}`);
-    const valuesText = activeValues.length ? activeValues.join(" / ") : "无个体";
+    const valuesText = activeValues.length ? activeValues.join(" / ") : "个体均为 0";
 
     return `当前：${profile.label} · ${valuesText}`;
 }
@@ -2362,12 +2415,12 @@ document.title = "对战助手 - 洛克王国工具箱";
 
 <template>
     <section
-        class="pvp-lite-theme mx-auto max-w-5xl space-y-3 rounded-[28px] bg-gradient-to-b from-cyan-50 via-white to-orange-50 p-3 pb-28 text-slate-950 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 dark:text-foreground md:p-5 md:pb-8"
+        class="pvp-lite-theme mx-auto max-w-5xl space-y-3 rounded-[28px] bg-gradient-to-b from-cyan-50 via-white to-orange-50 p-3 pb-4 text-slate-950 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 dark:text-foreground md:p-5 md:pb-8"
     >
         <div
-            class="rounded-[30px] border border-white/80 bg-white/85 px-4 py-4 shadow-lg shadow-sky-100/60 backdrop-blur md:px-6"
+            class="rounded-[24px] border border-white/80 bg-white/85 px-4 py-4 shadow-sm backdrop-blur md:px-6"
         >
-            <h1 class="text-3xl font-black tracking-tight text-slate-950 md:text-4xl">
+            <h1 class="text-2xl font-black tracking-tight text-slate-950 md:text-3xl">
                 对战助手
             </h1>
             <p class="mt-1 text-sm leading-6 text-slate-600">
@@ -2393,7 +2446,7 @@ document.title = "对战助手 - 洛克王国工具箱";
         </div>
 
         <template v-else>
-            <Card class="rounded-[30px] border-cyan-100 bg-white/92 shadow-xl shadow-cyan-100/50">
+            <Card class="rounded-[24px] border-cyan-100 bg-white/92 shadow-sm">
                 <CardContent class="space-y-3 p-3 md:p-4">
                     <div class="flex items-center justify-between gap-3 px-1">
                         <div>
@@ -2442,9 +2495,15 @@ document.title = "对战助手 - 洛克王国工具箱";
 
                     <div
                         v-else
-                        class="rounded-[22px] border border-dashed border-emerald-200 bg-emerald-50 px-4 py-4 text-sm text-emerald-800"
+                        class="flex flex-wrap items-center justify-between gap-2 rounded-[18px] border border-dashed border-emerald-200 bg-emerald-50 px-3 py-3 text-sm text-emerald-800"
                     >
-                        暂无当前队伍宠物，去配队页添加后可从当前队伍选择我方。
+                        <span>当前队伍为空，可直接选择或先完善队伍。</span>
+                        <RouterLink
+                            to="/team"
+                            class="rounded-full bg-emerald-700 px-3 py-1.5 text-xs font-bold text-white"
+                        >
+                            去添加队伍宠物
+                        </RouterLink>
                     </div>
 
                     <div
@@ -2479,7 +2538,8 @@ document.title = "对战助手 - 洛克王国工具箱";
                                     {{ getPetDisplayName(pet) }}
                                 </p>
                                 <p class="text-xs text-slate-500">
-                                    No. {{ formatPetHandbookNo(pet) }}
+                                    No. {{ formatPetHandbookNo(pet) }} ·
+                                    {{ formatTypes(pet).map((type) => type.localized.zh).join(" / ") }}
                                 </p>
                             </button>
                         </div>
@@ -2487,7 +2547,7 @@ document.title = "对战助手 - 洛克王国工具箱";
 
                     <div class="grid grid-cols-[minmax(0,1fr)_42px_minmax(0,1fr)] items-stretch gap-2 md:grid-cols-[1fr_64px_1fr]">
                         <div
-                            class="min-w-0 rounded-[28px] border border-emerald-100 bg-gradient-to-br from-emerald-100 via-white to-white p-3 text-center shadow-inner dark:from-emerald-950 dark:via-card dark:to-card md:p-5"
+                            class="min-w-0 rounded-[20px] border border-emerald-100 bg-emerald-50/70 p-3 text-center dark:bg-emerald-950/30"
                         >
                             <p class="text-xs font-black text-emerald-700">
                                 我方
@@ -2499,10 +2559,10 @@ document.title = "对战助手 - 洛克王国工具箱";
                                 <FriendPortrait
                                     :name="allyPet.name"
                                     :alt="getPetDisplayName(allyPet)"
-                                    class="h-24 w-24 rounded-[26px] shadow-md md:h-32 md:w-32"
+                                    class="h-16 w-16 rounded-[18px] shadow-sm md:h-20 md:w-20"
                                 />
                                 <div class="mt-2 min-w-0">
-                                    <p class="truncate text-lg font-black text-slate-950 md:text-2xl">
+                                    <p class="truncate text-base font-black text-slate-950 md:text-lg">
                                         {{ getPetDisplayName(allyPet) }}
                                     </p>
                                     <div class="mt-2 flex flex-wrap justify-center gap-1.5">
@@ -2554,35 +2614,36 @@ document.title = "对战助手 - 洛克王国工具箱";
                                             </p>
                                         </div>
                                     </details>
-                                    <div class="mt-3 grid grid-cols-2 gap-1.5">
-                                        <button
-                                            v-for="preset in allyProfilePresetItems"
-                                            :key="preset.key"
-                                            type="button"
-                                            class="rounded-full px-2 py-1 text-[11px] font-bold transition"
-                                            :class="
-                                                allyProfilePreset === preset.key
-                                                    ? 'bg-emerald-700 text-white shadow-sm'
-                                                    : 'bg-white text-emerald-700'
-                                            "
-                                            @click="
-                                                allyProfilePreset = preset.key
-                                            ">
-                                            {{ preset.label }}
-                                        </button>
-                                    </div>
-                                    <p class="mt-2 text-xs leading-5 text-slate-500">
-                                        {{
-                                            getBattleProfileSummary(
-                                                allyBattleProfile,
-                                            )
-                                        }}
-                                    </p>
+                                    <details class="group mt-2 rounded-[14px] border border-emerald-100 bg-white/80 text-left">
+                                        <summary class="cursor-pointer list-none px-2 py-1.5 text-[11px] font-bold text-emerald-800 marker:hidden">
+                                            构筑 · {{ allyBattleProfile.label }}
+                                            <span class="float-right transition-transform group-open:rotate-180">⌄</span>
+                                        </summary>
+                                        <div class="grid grid-cols-2 gap-1.5 border-t border-emerald-100 p-2">
+                                            <button
+                                                v-for="preset in allyProfilePresetItems"
+                                                :key="preset.key"
+                                                type="button"
+                                                class="rounded-full px-2 py-1 text-[11px] font-bold transition"
+                                                :class="
+                                                    allyProfilePreset === preset.key
+                                                        ? 'bg-emerald-700 text-white shadow-sm'
+                                                        : 'bg-emerald-50 text-emerald-700'
+                                                "
+                                                @click="allyProfilePreset = preset.key"
+                                            >
+                                                {{ preset.label }}
+                                            </button>
+                                            <p class="col-span-2 text-[11px] leading-4 text-slate-500">
+                                                {{ getBattleProfileSummary(allyBattleProfile) }}
+                                            </p>
+                                        </div>
+                                    </details>
                                 </div>
                             </div>
                             <div
                                 v-else
-                                class="flex min-h-[180px] flex-col items-center justify-center rounded-[24px] border border-dashed border-emerald-200 bg-white/65 px-3 text-sm font-semibold text-emerald-800"
+                                class="flex min-h-[104px] flex-col items-center justify-center rounded-[16px] border border-dashed border-emerald-200 bg-white/65 px-3 text-sm font-semibold text-emerald-800"
                             >
                                 从当前队伍选择我方
                             </div>
@@ -2590,14 +2651,14 @@ document.title = "对战助手 - 洛克王国工具箱";
 
                         <div class="flex items-center justify-center">
                             <div
-                                class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-950 text-base font-black text-white shadow-lg shadow-slate-300 md:h-16 md:w-16 md:text-xl"
+                                class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-950 text-sm font-black text-white shadow-sm md:h-12 md:w-12 md:text-base"
                             >
                                 VS
                             </div>
                         </div>
 
                         <div
-                            class="min-w-0 rounded-[28px] border border-rose-100 bg-gradient-to-br from-rose-100 via-white to-white p-3 text-center shadow-inner dark:from-rose-950 dark:via-card dark:to-card md:p-5"
+                            class="min-w-0 rounded-[20px] border border-rose-100 bg-rose-50/70 p-3 text-center dark:bg-rose-950/30"
                         >
                             <p class="text-xs font-black text-rose-700">
                                 对方
@@ -2609,10 +2670,10 @@ document.title = "对战助手 - 洛克王国工具箱";
                                 <FriendPortrait
                                     :name="opponentPet.name"
                                     :alt="getPetDisplayName(opponentPet)"
-                                    class="h-24 w-24 rounded-[26px] shadow-md md:h-32 md:w-32"
+                                    class="h-16 w-16 rounded-[18px] shadow-sm md:h-20 md:w-20"
                                 />
                                 <div class="mt-2 min-w-0">
-                                    <p class="truncate text-lg font-black text-slate-950 md:text-2xl">
+                                    <p class="truncate text-base font-black text-slate-950 md:text-lg">
                                         {{ getPetDisplayName(opponentPet) }}
                                     </p>
                                     <div class="mt-2 flex flex-wrap justify-center gap-1.5">
@@ -2664,35 +2725,36 @@ document.title = "对战助手 - 洛克王国工具箱";
                                             </p>
                                         </div>
                                     </details>
-                                    <div class="mt-3 grid grid-cols-2 gap-1.5">
-                                        <button
-                                            v-for="preset in OPPONENT_PROFILE_PRESETS"
-                                            :key="preset.key"
-                                            type="button"
-                                            class="rounded-full px-2 py-1 text-[11px] font-bold transition"
-                                            :class="
-                                                opponentProfilePreset === preset.key
-                                                    ? 'bg-rose-700 text-white shadow-sm'
-                                                    : 'bg-white text-rose-700'
-                                            "
-                                            @click="
-                                                opponentProfilePreset = preset.key
-                                            ">
-                                            {{ preset.label }}
-                                        </button>
-                                    </div>
-                                    <p class="mt-2 text-xs leading-5 text-slate-500">
-                                        {{
-                                            getBattleProfileSummary(
-                                                opponentBattleProfile,
-                                            )
-                                        }}
-                                    </p>
+                                    <details class="group mt-2 rounded-[14px] border border-rose-100 bg-white/80 text-left">
+                                        <summary class="cursor-pointer list-none px-2 py-1.5 text-[11px] font-bold text-rose-800 marker:hidden">
+                                            构筑 · {{ opponentBattleProfile.label }}
+                                            <span class="float-right transition-transform group-open:rotate-180">⌄</span>
+                                        </summary>
+                                        <div class="grid grid-cols-2 gap-1.5 border-t border-rose-100 p-2">
+                                            <button
+                                                v-for="preset in OPPONENT_PROFILE_PRESETS"
+                                                :key="preset.key"
+                                                type="button"
+                                                class="rounded-full px-2 py-1 text-[11px] font-bold transition"
+                                                :class="
+                                                    opponentProfilePreset === preset.key
+                                                        ? 'bg-rose-700 text-white shadow-sm'
+                                                        : 'bg-rose-50 text-rose-700'
+                                                "
+                                                @click="opponentProfilePreset = preset.key"
+                                            >
+                                                {{ preset.label }}
+                                            </button>
+                                            <p class="col-span-2 text-[11px] leading-4 text-slate-500">
+                                                {{ getBattleProfileSummary(opponentBattleProfile) }}
+                                            </p>
+                                        </div>
+                                    </details>
                                 </div>
                             </div>
                             <div
                                 v-else
-                                class="flex min-h-[180px] flex-col items-center justify-center rounded-[24px] border border-dashed border-rose-200 bg-white/65 px-3 text-sm font-semibold text-rose-800"
+                                class="flex min-h-[104px] flex-col items-center justify-center rounded-[16px] border border-dashed border-rose-200 bg-white/65 px-3 text-sm font-semibold text-rose-800"
                             >
                                 搜索对方宠物开始分析
                             </div>
@@ -2737,7 +2799,8 @@ document.title = "对战助手 - 洛克王国工具箱";
                                     {{ getPetDisplayName(pet) }}
                                 </p>
                                 <p class="text-xs text-slate-500">
-                                    No. {{ formatPetHandbookNo(pet) }}
+                                    No. {{ formatPetHandbookNo(pet) }} ·
+                                    {{ formatTypes(pet).map((type) => type.localized.zh).join(" / ") }}
                                 </p>
                             </button>
                         </div>
@@ -2751,10 +2814,10 @@ document.title = "对战助手 - 洛克王国工具箱";
                 </CardContent>
             </Card>
 
-            <Card class="rounded-[24px] border-amber-200 bg-amber-50/90 shadow-sm dark:bg-amber-950/40">
+            <Card class="rounded-[20px] border-amber-200 bg-amber-50/90 shadow-sm dark:border-amber-900 dark:bg-amber-950/40">
                 <CardContent class="flex flex-col gap-3 p-3 sm:flex-row sm:items-center sm:justify-between md:p-4">
                     <div class="flex shrink-0 items-center justify-between gap-3 sm:justify-start">
-                        <div class="flex items-center gap-2 text-amber-900">
+                        <div class="flex items-center gap-2 text-amber-900 dark:text-amber-200">
                             <Target class="h-5 w-5" />
                             <p class="text-sm font-black">主结果</p>
                         </div>
@@ -2769,7 +2832,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                             <strong class="block text-sm font-black">
                                 {{ tag.label }}
                             </strong>
-                            <small class="block truncate text-[11px] font-semibold opacity-75">
+                            <small class="block text-[11px] font-semibold leading-4 opacity-75">
                                 {{ tag.detail }}
                             </small>
                         </span>
@@ -2777,25 +2840,36 @@ document.title = "对战助手 - 洛克王国工具箱";
                 </CardContent>
             </Card>
 
-            <div class="md:grid md:grid-cols-[176px_minmax(0,1fr)] md:items-start md:gap-3">
+            <div>
                 <aside
-                    class="sticky top-3 z-30 rounded-[22px] border border-white/80 bg-white/95 p-1.5 shadow-xl backdrop-blur md:p-2"
+                    class="sticky top-[60px] z-30 rounded-[18px] border border-white/80 bg-white/95 p-1.5 shadow-lg backdrop-blur dark:border-slate-700 dark:bg-slate-900/95 md:top-3 md:flex md:items-center md:gap-2 md:p-2"
                 >
                     <nav
                         aria-label="对战信息分类"
-                        class="grid grid-cols-5 gap-1 md:flex md:flex-col md:gap-1.5"
+                        role="tablist"
+                        class="grid grid-cols-5 gap-1 md:flex md:min-w-0 md:flex-1"
+                        @keydown.right.prevent="moveActivePanel(1)"
+                        @keydown.down.prevent="moveActivePanel(1)"
+                        @keydown.left.prevent="moveActivePanel(-1)"
+                        @keydown.up.prevent="moveActivePanel(-1)"
+                        @keydown.home.prevent="focusInfoPanel('speed')"
+                        @keydown.end.prevent="focusInfoPanel('profile')"
                     >
                         <button
                             v-for="item in INFO_PANEL_ITEMS"
                             :key="item.key"
                             type="button"
-                            class="flex min-w-0 flex-col items-center gap-1 rounded-[16px] px-1 py-2 text-[11px] font-black transition md:flex-row md:gap-2.5 md:px-3 md:py-3 md:text-sm"
+                            role="tab"
+                            :id="`pvp-tab-${item.key}`"
+                            :aria-controls="`pvp-panel-${item.key}`"
+                            :aria-selected="activePanel === item.key"
+                            :tabindex="activePanel === item.key ? 0 : -1"
+                            class="flex min-w-0 flex-col items-center gap-1 rounded-[14px] px-1 py-2 text-[11px] font-black transition md:flex-1 md:flex-row md:justify-center md:gap-2 md:px-3 md:text-sm"
                             :class="
                                 activePanel === item.key
                                     ? 'bg-slate-950 text-white shadow-sm'
-                                    : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900'
+                                    : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
                             "
-                            :aria-pressed="activePanel === item.key"
                             @click="activePanel = item.key"
                         >
                             <component :is="item.icon" class="h-4 w-4 shrink-0" />
@@ -2803,10 +2877,10 @@ document.title = "对战助手 - 洛克王国工具箱";
                         </button>
                     </nav>
 
-                    <div class="mt-3 hidden space-y-1.5 border-t border-slate-100 pt-3 md:block">
+                    <div class="mt-3 hidden shrink-0 gap-1 border-t border-slate-100 pt-3 dark:border-slate-700 md:mt-0 md:flex md:border-l md:border-t-0 md:pl-2 md:pt-0">
                         <Button
                             variant="ghost"
-                            class="w-full justify-start rounded-[14px] text-slate-700"
+                            class="rounded-[12px] px-3 text-slate-700 dark:text-slate-200"
                             @click="swapSides"
                         >
                             <ArrowLeftRight class="h-4 w-4" />
@@ -2814,7 +2888,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                         </Button>
                         <Button
                             variant="ghost"
-                            class="w-full justify-start rounded-[14px] text-slate-700"
+                            class="rounded-[12px] px-3 text-slate-700 dark:text-slate-200"
                             @click="resetAll"
                         >
                             <RotateCcw class="h-4 w-4" />
@@ -2822,18 +2896,22 @@ document.title = "对战助手 - 洛克王国工具箱";
                         </Button>
                         <RouterLink
                             to="/pvp"
-                            class="flex items-center gap-2 rounded-[14px] bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white"
+                            class="flex items-center gap-2 rounded-[12px] bg-slate-950 px-3 py-2.5 text-sm font-semibold text-white dark:bg-white dark:text-slate-950"
                         >
                             <Swords class="h-4 w-4" />
-                            打开详细版
+                            详细版
                         </RouterLink>
                     </div>
                 </aside>
 
-                <div class="mt-3 min-w-0 space-y-3 md:mt-0">
+                <div class="mt-3 min-w-0 space-y-3">
 
             <Card
-                class="rounded-[24px] border-indigo-100 bg-white/92 shadow-sm"
+                id="pvp-panel-profile"
+                role="tabpanel"
+                aria-labelledby="pvp-tab-profile"
+                tabindex="0"
+                class="rounded-[20px] border-indigo-100 bg-white/92 shadow-sm"
                 :class="activePanel === 'profile' ? '' : 'hidden'"
             >
                 <CardContent class="space-y-3 p-4">
@@ -2865,20 +2943,48 @@ document.title = "对战助手 - 洛克王国工具箱";
                     <div v-if="allyPet && opponentPet" class="grid gap-2 sm:grid-cols-2">
                         <div class="rounded-[18px] bg-emerald-50 px-3 py-3">
                             <p class="text-xs font-black text-emerald-700">我方特性</p>
-                            <p class="mt-1 text-sm font-black text-slate-950">
-                                {{ allyPetDetail?.trait?.localized.zh.name ?? "暂无特性数据" }}
+                            <template v-if="allyPetDetail?.trait">
+                                <p class="mt-1 text-sm font-black text-slate-950">
+                                    {{ allyPetDetail.trait.localized.zh.name }}
+                                </p>
+                                <p class="mt-1 text-xs leading-5 text-slate-600">
+                                    {{ allyPetDetail.trait.localized.zh.description || "当前数据未提供特性说明。" }}
+                                </p>
+                            </template>
+                            <p
+                                v-else-if="allyPetId !== null && failedPetDetailIds.has(allyPetId)"
+                                class="mt-1 text-xs font-semibold text-rose-700"
+                            >
+                                特性加载失败，请重新选择该精灵后重试。
                             </p>
-                            <p class="mt-1 text-xs leading-5 text-slate-600">
-                                {{ allyPetDetail?.trait?.localized.zh.description ?? "正在获取或当前数据未提供说明。" }}
+                            <p v-else-if="!allyPetDetail" class="mt-1 text-xs text-slate-500">
+                                正在加载特性…
+                            </p>
+                            <p v-else class="mt-1 text-xs text-slate-500">
+                                暂无特性数据。
                             </p>
                         </div>
                         <div class="rounded-[18px] bg-rose-50 px-3 py-3">
                             <p class="text-xs font-black text-rose-700">对方特性</p>
-                            <p class="mt-1 text-sm font-black text-slate-950">
-                                {{ opponentPetDetail?.trait?.localized.zh.name ?? "暂无特性数据" }}
+                            <template v-if="opponentPetDetail?.trait">
+                                <p class="mt-1 text-sm font-black text-slate-950">
+                                    {{ opponentPetDetail.trait.localized.zh.name }}
+                                </p>
+                                <p class="mt-1 text-xs leading-5 text-slate-600">
+                                    {{ opponentPetDetail.trait.localized.zh.description || "当前数据未提供特性说明。" }}
+                                </p>
+                            </template>
+                            <p
+                                v-else-if="opponentPetId !== null && failedPetDetailIds.has(opponentPetId)"
+                                class="mt-1 text-xs font-semibold text-rose-700"
+                            >
+                                特性加载失败，请重新选择该精灵后重试。
                             </p>
-                            <p class="mt-1 text-xs leading-5 text-slate-600">
-                                {{ opponentPetDetail?.trait?.localized.zh.description ?? "正在获取或当前数据未提供说明。" }}
+                            <p v-else-if="!opponentPetDetail" class="mt-1 text-xs text-slate-500">
+                                正在加载特性…
+                            </p>
+                            <p v-else class="mt-1 text-xs text-slate-500">
+                                暂无特性数据。
                             </p>
                         </div>
                     </div>
@@ -2974,7 +3080,11 @@ document.title = "对战助手 - 洛克王国工具箱";
             </Card>
 
             <Card
-                class="rounded-[30px] border-orange-100 bg-white/92 shadow-lg shadow-orange-100/60"
+                id="pvp-panel-damage"
+                role="tabpanel"
+                aria-labelledby="pvp-tab-damage"
+                tabindex="0"
+                class="rounded-[20px] border-orange-100 bg-white/92 shadow-sm"
                 :class="activePanel === 'damage' ? '' : 'hidden'"
             >
                 <CardContent class="space-y-4 p-4 md:p-5">
@@ -3017,6 +3127,38 @@ document.title = "对战助手 - 洛克王国工具箱";
                         >
                             对方攻击我方
                         </button>
+                    </div>
+
+                    <div
+                        v-if="hasBothPets"
+                        class="rounded-[16px] border border-orange-100 bg-orange-50/70 p-3 dark:border-orange-900 dark:bg-orange-950/40"
+                    >
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <p class="text-xs font-black text-orange-900">
+                                {{ damageAttackerLabel }}构筑
+                            </p>
+                            <p class="text-[11px] text-slate-500">
+                                {{ getBattleProfileSummary(damageAttackerProfile) }}
+                            </p>
+                        </div>
+                        <div class="mt-2 grid grid-cols-2 gap-1.5 sm:flex">
+                            <button
+                                v-for="preset in damageProfilePresetItems"
+                                :key="preset.key"
+                                type="button"
+                                class="rounded-full px-3 py-1.5 text-xs font-bold"
+                                :class="
+                                    (damageDirection === 'allyToOpponent'
+                                        ? allyProfilePreset
+                                        : opponentProfilePreset) === preset.key
+                                        ? 'bg-orange-600 text-white'
+                                        : 'bg-white text-orange-800 dark:bg-slate-800 dark:text-orange-100'
+                                "
+                                @click="selectDamageProfilePreset(preset.key)"
+                            >
+                                {{ preset.label }}
+                            </button>
+                        </div>
                     </div>
 
                     <div
@@ -3065,7 +3207,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                         "
                         class="rounded-[20px] border border-dashed border-slate-200 bg-slate-50 px-3 py-3 text-xs font-semibold text-slate-600"
                     >
-                        当前槽位没有装备可计算的伤害技能，可在下方搜索选择。
+                        当前槽位没有装备可计算的伤害技能，可从下方推荐或搜索选择。
                     </div>
 
                     <div
@@ -3304,7 +3446,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                             hasBothPets
                                 ? damageDirection === "opponentToAlly"
                                     ? "请在下方搜索对方精灵可学习的伤害技能。"
-                                    : "请选择已装备的伤害技能，或在下方搜索技能。"
+                                    : "请选择已装备的伤害技能，或从下方推荐和搜索中选择。"
                                 : "选择双方后查看技能伤害。"
                         }}
                     </div>
@@ -3319,16 +3461,22 @@ document.title = "对战助手 - 洛克王国工具箱";
                             :placeholder="
                                 damageDirection === 'opponentToAlly'
                                     ? '搜索对方可学习的技能'
-                                    : '手动搜索技能'
+                                    : '搜索我方可学习的技能'
                             "
                             class="h-10 rounded-full border-slate-200 bg-white text-slate-950"
                         />
                         <p class="px-1 text-xs text-slate-500">
                             {{
-                                damageDirection === "opponentToAlly"
-                                    ? "仅搜索对方当前精灵可学习的技能，点击结果后计算其对我方的伤害。"
-                                    : "搜索当前精灵可学技能和全局技能，点击结果后计算伤害。"
+                                damageSearchQuery.trim()
+                                    ? `仅搜索${damageAttackerLabel}当前精灵可学习的技能。`
+                                    : `推荐${damageAttackerLabel}当前精灵可学习的高威力技能，也可输入名称筛选。`
                             }}
+                        </p>
+                        <p
+                            v-if="!damageSearchQuery.trim() && damageSearchResults.length"
+                            class="px-1 text-xs font-black text-slate-700"
+                        >
+                            常用可计算技能
                         </p>
                         <div
                             v-if="damageSearchResults.length"
@@ -3536,14 +3684,15 @@ document.title = "对战助手 - 洛克王国工具箱";
                 </div>
             </div>
 
-            <details
-                class="rounded-[24px] border border-sky-100 bg-white/80 p-4 shadow-sm"
+            <section
+                id="pvp-panel-speed"
+                role="tabpanel"
+                aria-labelledby="pvp-tab-speed"
+                tabindex="0"
+                class="rounded-[20px] border border-sky-100 bg-white/80 p-4 shadow-sm"
                 :class="activePanel === 'speed' ? '' : 'hidden'"
-                :open="activePanel === 'speed'"
             >
-                <summary class="cursor-pointer text-sm font-bold text-slate-950">
-                    查看速度线
-                </summary>
+                <h2 class="text-sm font-black text-slate-950">速度对比</h2>
                 <div class="mt-3 space-y-3">
                     <div class="rounded-[18px] bg-sky-50 px-3 py-2 text-sm text-slate-700">
                         我方 {{ allyBattleSpeed }} / 对方 {{ opponentBattleSpeed }}
@@ -3562,22 +3711,26 @@ document.title = "对战助手 - 洛克王国工具箱";
                             <p class="text-lg font-bold text-slate-950">
                                 {{ item.speed }}
                             </p>
+                            <p class="text-[11px] text-slate-500">
+                                {{ item.description }}
+                            </p>
                         </div>
                     </div>
                     <p class="text-xs leading-5 text-slate-500">
                         已计入陨星虫捕捉球的确定速度效果；棱镜球因随机结果不计入。其余技能特效、先制、天气、异常、护盾和换人博弈暂未考虑。
                     </p>
                 </div>
-            </details>
+            </section>
 
-            <details
-                class="rounded-[24px] border border-amber-100 bg-white/80 p-4 shadow-sm"
+            <section
+                id="pvp-panel-matchup"
+                role="tabpanel"
+                aria-labelledby="pvp-tab-matchup"
+                tabindex="0"
+                class="rounded-[20px] border border-amber-100 bg-white/80 p-4 shadow-sm"
                 :class="activePanel === 'matchup' ? '' : 'hidden'"
-                :open="activePanel === 'matchup'"
             >
-                <summary class="cursor-pointer text-sm font-bold text-slate-950">
-                    查看属性细节
-                </summary>
+                <h2 class="text-sm font-black text-slate-950">属性克制</h2>
                 <div class="mt-3 grid gap-3 md:grid-cols-2">
                     <div class="rounded-[18px] bg-amber-50 px-3 py-3">
                         <p class="text-xs font-bold text-amber-700">
@@ -3621,16 +3774,17 @@ document.title = "对战助手 - 洛克王国工具箱";
                         属性参考未考虑技能特效、天气、异常、护盾和换人博弈。
                     </p>
                 </div>
-            </details>
+            </section>
 
-            <details
-                class="rounded-[24px] border border-emerald-100 bg-white/80 p-4 shadow-sm"
+            <section
+                id="pvp-panel-defense"
+                role="tabpanel"
+                aria-labelledby="pvp-tab-defense"
+                tabindex="0"
+                class="rounded-[20px] border border-emerald-100 bg-white/80 p-4 shadow-sm"
                 :class="activePanel === 'defense' ? '' : 'hidden'"
-                :open="activePanel === 'defense'"
             >
-                <summary class="cursor-pointer text-sm font-bold text-slate-950">
-                    查看联防候选
-                </summary>
+                <h2 class="text-sm font-black text-slate-950">联防候选</h2>
                 <div class="mt-3 space-y-3">
                     <div class="flex flex-wrap gap-2">
                         <button
@@ -3693,7 +3847,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                         仅按当前属性计算，不代表完整换人判断。
                     </p>
                 </div>
-            </details>
+            </section>
 
             <details
                 v-if="selectedDamageOption?.result.valid"
@@ -3774,7 +3928,7 @@ document.title = "对战助手 - 洛克王国工具箱";
             </div>
 
             <div
-                class="sticky bottom-3 z-20 grid grid-cols-3 gap-2 rounded-full border border-white/80 bg-white/90 p-2 shadow-xl backdrop-blur md:hidden"
+                class="grid grid-cols-3 gap-2 rounded-[18px] border border-slate-100 bg-white/90 p-2 shadow-sm dark:border-slate-700 dark:bg-slate-900/90 md:hidden"
             >
                 <Button
                     variant="ghost"
