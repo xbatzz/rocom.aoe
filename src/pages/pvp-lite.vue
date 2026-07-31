@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {
     ArrowLeftRight,
+    BarChart3,
     Mic,
     RotateCcw,
     Search,
@@ -118,6 +119,32 @@ interface ResistanceCandidate {
     multiplier: number;
 }
 
+type MobilePanel = "speed" | "matchup" | "defense" | "damage" | "profile";
+
+const MOBILE_PANEL_ITEMS: Array<{
+    key: MobilePanel;
+    label: string;
+    icon: typeof Zap;
+}> = [
+    { key: "speed", label: "速度", icon: Zap },
+    { key: "matchup", label: "克制", icon: Target },
+    { key: "defense", label: "联防", icon: ShieldCheck },
+    { key: "damage", label: "伤害", icon: Swords },
+    { key: "profile", label: "资料", icon: BarChart3 },
+];
+
+const BASE_STAT_ITEMS: Array<{
+    key: "base_hp" | "base_phy_atk" | "base_mag_atk" | "base_phy_def" | "base_mag_def" | "base_spd";
+    label: string;
+}> = [
+    { key: "base_hp", label: "生命" },
+    { key: "base_phy_atk", label: "物攻" },
+    { key: "base_mag_atk", label: "魔攻" },
+    { key: "base_phy_def", label: "物防" },
+    { key: "base_mag_def", label: "魔防" },
+    { key: "base_spd", label: "速度" },
+];
+
 type BattleProfilePreset =
     | "saved"
     | "none"
@@ -219,6 +246,7 @@ const battleAnswer = ref("");
 const isAnsweringBattleQuestion = ref(false);
 const isListeningBattleQuestion = ref(false);
 const isVoiceQuestionSupported = ref(false);
+const activeMobilePanel = ref<MobilePanel>("speed");
 
 let controller: AbortController | null = null;
 let battleQuestionRecognition: SpeechRecognitionLike | null = null;
@@ -249,6 +277,16 @@ const implementedPets = computed(() =>
 const petMap = computed(() => {
     return new Map(implementedPets.value.map((pet) => [pet.id, pet]));
 });
+
+const allyPetDetail = computed(() =>
+    allyPetId.value === null ? null : petDetails.value[allyPetId.value] ?? null,
+);
+
+const opponentPetDetail = computed(() =>
+    opponentPetId.value === null
+        ? null
+        : petDetails.value[opponentPetId.value] ?? null,
+);
 
 const personalityMap = computed(() => {
     return new Map(
@@ -2739,7 +2777,88 @@ document.title = "对战助手 - 洛克王国工具箱";
                 </CardContent>
             </Card>
 
-            <Card class="rounded-[30px] border-sky-100 bg-white/92 shadow-lg shadow-sky-100/60">
+            <nav
+                aria-label="对战信息分类"
+                class="sticky top-3 z-30 grid grid-cols-5 gap-1 rounded-[22px] border border-white/80 bg-white/95 p-1.5 shadow-xl backdrop-blur md:hidden"
+            >
+                <button
+                    v-for="item in MOBILE_PANEL_ITEMS"
+                    :key="item.key"
+                    type="button"
+                    class="flex min-w-0 flex-col items-center gap-1 rounded-[16px] px-1 py-2 text-[11px] font-black transition"
+                    :class="
+                        activeMobilePanel === item.key
+                            ? 'bg-slate-950 text-white shadow-sm'
+                            : 'text-slate-500'
+                    "
+                    :aria-pressed="activeMobilePanel === item.key"
+                    @click="activeMobilePanel = item.key"
+                >
+                    <component :is="item.icon" class="h-4 w-4" />
+                    <span>{{ item.label }}</span>
+                </button>
+            </nav>
+
+            <Card
+                class="rounded-[24px] border-indigo-100 bg-white/92 shadow-sm"
+                :class="activeMobilePanel === 'profile' ? '' : 'hidden md:block'"
+            >
+                <CardContent class="space-y-3 p-4">
+                    <div class="flex items-center gap-2">
+                        <BarChart3 class="h-4 w-4 text-indigo-600" />
+                        <p class="text-sm font-black text-slate-950">
+                            种族值与特性
+                        </p>
+                    </div>
+                    <div
+                        v-if="allyPet && opponentPet"
+                        class="overflow-hidden rounded-[18px] border border-slate-100"
+                    >
+                        <div class="grid grid-cols-3 bg-slate-50 px-3 py-2 text-xs font-black text-slate-600">
+                            <span>种族值</span>
+                            <span class="text-center">我方</span>
+                            <span class="text-center">对方</span>
+                        </div>
+                        <div
+                            v-for="stat in BASE_STAT_ITEMS"
+                            :key="stat.key"
+                            class="grid grid-cols-3 border-t border-slate-100 px-3 py-2 text-sm"
+                        >
+                            <span class="font-semibold text-slate-500">{{ stat.label }}</span>
+                            <strong class="text-center text-slate-950">{{ allyPet[stat.key] }}</strong>
+                            <strong class="text-center text-slate-950">{{ opponentPet[stat.key] }}</strong>
+                        </div>
+                    </div>
+                    <div v-if="allyPet && opponentPet" class="grid gap-2 sm:grid-cols-2">
+                        <div class="rounded-[18px] bg-emerald-50 px-3 py-3">
+                            <p class="text-xs font-black text-emerald-700">我方特性</p>
+                            <p class="mt-1 text-sm font-black text-slate-950">
+                                {{ allyPetDetail?.trait?.localized.zh.name ?? "暂无特性数据" }}
+                            </p>
+                            <p class="mt-1 text-xs leading-5 text-slate-600">
+                                {{ allyPetDetail?.trait?.localized.zh.description ?? "正在获取或当前数据未提供说明。" }}
+                            </p>
+                        </div>
+                        <div class="rounded-[18px] bg-rose-50 px-3 py-3">
+                            <p class="text-xs font-black text-rose-700">对方特性</p>
+                            <p class="mt-1 text-sm font-black text-slate-950">
+                                {{ opponentPetDetail?.trait?.localized.zh.name ?? "暂无特性数据" }}
+                            </p>
+                            <p class="mt-1 text-xs leading-5 text-slate-600">
+                                {{ opponentPetDetail?.trait?.localized.zh.description ?? "正在获取或当前数据未提供说明。" }}
+                            </p>
+                        </div>
+                    </div>
+                    <p
+                        v-else
+                        class="rounded-[18px] border border-dashed border-indigo-200 bg-indigo-50 px-4 py-4 text-sm font-semibold text-indigo-800"
+                    >
+                        选择双方宠物后查看种族值与特性。
+                    </p>
+                </CardContent>
+            </Card>
+
+            <Card class="hidden rounded-[30px] border-sky-100 bg-white/92 shadow-lg shadow-sky-100/60 md:block">
                 <CardContent class="space-y-3 p-4 md:p-5">
                     <div class="flex items-start justify-between gap-3">
                         <div>
@@ -2821,7 +2940,10 @@ document.title = "对战助手 - 洛克王国工具箱";
                 </CardContent>
             </Card>
 
-            <Card class="rounded-[30px] border-orange-100 bg-white/92 shadow-lg shadow-orange-100/60">
+            <Card
+                class="rounded-[30px] border-orange-100 bg-white/92 shadow-lg shadow-orange-100/60"
+                :class="activeMobilePanel === 'damage' ? '' : 'hidden md:block'"
+            >
                 <CardContent class="space-y-4 p-4 md:p-5">
                     <div class="flex items-center justify-between gap-3">
                         <div>
@@ -3216,7 +3338,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                 </CardContent>
             </Card>
 
-            <Card class="rounded-[28px] border-violet-100 bg-white/90 shadow-md shadow-violet-100/50">
+            <Card class="hidden rounded-[28px] border-violet-100 bg-white/90 shadow-md shadow-violet-100/50 md:block">
                 <CardContent class="space-y-3 p-4 md:p-5">
                     <div class="flex items-start justify-between gap-3">
                         <div>
@@ -3330,7 +3452,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                 </CardContent>
             </Card>
 
-            <div class="grid gap-2 sm:grid-cols-3">
+            <div class="hidden gap-2 md:grid md:grid-cols-3">
                 <div class="rounded-[22px] border border-sky-100 bg-white/90 p-3 shadow-sm">
                     <div class="flex items-center gap-2">
                         <Zap class="h-4 w-4 text-sky-600" />
@@ -3383,6 +3505,8 @@ document.title = "对战助手 - 洛克王国工具箱";
 
             <details
                 class="rounded-[24px] border border-sky-100 bg-white/80 p-4 shadow-sm"
+                :class="activeMobilePanel === 'speed' ? '' : 'hidden md:block'"
+                :open="activeMobilePanel === 'speed'"
             >
                 <summary class="cursor-pointer text-sm font-bold text-slate-950">
                     查看速度线
@@ -3415,6 +3539,8 @@ document.title = "对战助手 - 洛克王国工具箱";
 
             <details
                 class="rounded-[24px] border border-amber-100 bg-white/80 p-4 shadow-sm"
+                :class="activeMobilePanel === 'matchup' ? '' : 'hidden md:block'"
+                :open="activeMobilePanel === 'matchup'"
             >
                 <summary class="cursor-pointer text-sm font-bold text-slate-950">
                     查看属性细节
@@ -3466,6 +3592,8 @@ document.title = "对战助手 - 洛克王国工具箱";
 
             <details
                 class="rounded-[24px] border border-emerald-100 bg-white/80 p-4 shadow-sm"
+                :class="activeMobilePanel === 'defense' ? '' : 'hidden md:block'"
+                :open="activeMobilePanel === 'defense'"
             >
                 <summary class="cursor-pointer text-sm font-bold text-slate-950">
                     查看联防候选
@@ -3537,6 +3665,7 @@ document.title = "对战助手 - 洛克王国工具箱";
             <details
                 v-if="selectedDamageOption?.result.valid"
                 class="rounded-[28px] border border-slate-200 bg-white/90 p-4 shadow-md"
+                :class="activeMobilePanel === 'damage' ? '' : 'hidden md:block'"
             >
                 <summary class="cursor-pointer text-sm font-bold text-slate-950">
                     查看详细计算
