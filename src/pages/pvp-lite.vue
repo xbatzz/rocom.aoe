@@ -50,6 +50,14 @@ import {
     type DamageMove,
     type PaperDamageResult,
 } from "@/lib/damageCalculator";
+import {
+    applyMeteorBugCaptureBallSpeed,
+    DEFAULT_METEOR_BUG_CAPTURE_BALL,
+    getMeteorBugCaptureBallOption,
+    METEOR_BUG_CAPTURE_BALL_OPTIONS,
+    METEOR_BUG_PET_ID,
+    type MeteorBugCaptureBallKey,
+} from "@/lib/meteorBugCaptureBall";
 
 interface DamageOption {
     move: DamageMove;
@@ -149,6 +157,12 @@ const opponentPetId = ref<number | null>(null);
 const selectedAllyTeamSlot = ref<SavedTeamBuildSlot | null>(null);
 const allyProfilePreset = ref<BattleProfilePreset>("saved");
 const opponentProfilePreset = ref<BattleProfilePreset>("none");
+const allyMeteorBallKey = ref<MeteorBugCaptureBallKey>(
+    DEFAULT_METEOR_BUG_CAPTURE_BALL,
+);
+const opponentMeteorBallKey = ref<MeteorBugCaptureBallKey>(
+    DEFAULT_METEOR_BUG_CAPTURE_BALL,
+);
 const allyHpPercent = ref(100);
 const opponentHpPercent = ref(100);
 const opponentSearchQuery = ref("");
@@ -267,7 +281,7 @@ const opponentPet = computed(() =>
 
 const hasBothPets = computed(() => Boolean(allyPet.value && opponentPet.value));
 
-const allyBattleSpeed = computed(() => {
+const allyBaseBattleSpeed = computed(() => {
     if (!allyPet.value) {
         return 0;
     }
@@ -283,7 +297,7 @@ const allyBattleSpeed = computed(() => {
     );
 });
 
-const opponentBattleSpeed = computed(() => {
+const opponentBaseBattleSpeed = computed(() => {
     if (!opponentPet.value) {
         return 0;
     }
@@ -299,6 +313,30 @@ const opponentBattleSpeed = computed(() => {
     );
 });
 
+const allyBattleSpeed = computed(() =>
+    applyMeteorBugCaptureBallSpeed(
+        allyBaseBattleSpeed.value,
+        allyPetId.value,
+        allyMeteorBallKey.value,
+    ),
+);
+
+const opponentBattleSpeed = computed(() =>
+    applyMeteorBugCaptureBallSpeed(
+        opponentBaseBattleSpeed.value,
+        opponentPetId.value,
+        opponentMeteorBallKey.value,
+    ),
+);
+
+const allyMeteorBallOption = computed(() =>
+    getMeteorBugCaptureBallOption(allyMeteorBallKey.value),
+);
+
+const opponentMeteorBallOption = computed(() =>
+    getMeteorBugCaptureBallOption(opponentMeteorBallKey.value),
+);
+
 const opponentSpeedPreviewItems = computed(() => {
     if (!opponentPet.value) {
         return [];
@@ -311,10 +349,14 @@ const opponentSpeedPreviewItems = computed(() => {
         { label: "减速", individual: 0, modifier: -0.1 as NatureModifier },
     ].map((item) => ({
         ...item,
-        speed: calculateBattleStat(
-            opponentPet.value!.base_spd,
-            item.individual,
-            item.modifier,
+        speed: applyMeteorBugCaptureBallSpeed(
+            calculateBattleStat(
+                opponentPet.value!.base_spd,
+                item.individual,
+                item.modifier,
+            ),
+            opponentPetId.value,
+            opponentMeteorBallKey.value,
         ),
     }));
 });
@@ -810,13 +852,16 @@ function selectTeamAlly(slot: SavedTeamBuildSlot) {
     allyPetId.value = slot.friendId;
     selectedAllyTeamSlot.value = slot;
     allyProfilePreset.value = "saved";
+    allyMeteorBallKey.value = DEFAULT_METEOR_BUG_CAPTURE_BALL;
     allyHpPercent.value = 100;
 }
 
 function selectManualAlly(petId: number) {
     allyPetId.value = petId;
     selectedAllyTeamSlot.value = null;
-    allyProfilePreset.value = "none";
+    allyProfilePreset.value =
+        petId === METEOR_BUG_PET_ID ? "maxSpeed" : "none";
+    allyMeteorBallKey.value = DEFAULT_METEOR_BUG_CAPTURE_BALL;
     allyHpPercent.value = 100;
     allySearchQuery.value = "";
     showManualAllySearch.value = false;
@@ -825,7 +870,9 @@ function selectManualAlly(petId: number) {
 
 function selectOpponent(petId: number) {
     opponentPetId.value = petId;
-    opponentProfilePreset.value = "none";
+    opponentProfilePreset.value =
+        petId === METEOR_BUG_PET_ID ? "maxSpeed" : "none";
+    opponentMeteorBallKey.value = DEFAULT_METEOR_BUG_CAPTURE_BALL;
     opponentHpPercent.value = 100;
     opponentSearchQuery.value = "";
     blurActiveElement();
@@ -846,6 +893,7 @@ function swapSides() {
         allyProfilePreset.value,
     );
     const nextAllyHpPercent = opponentHpPercent.value;
+    const nextAllyMeteorBallKey = opponentMeteorBallKey.value;
 
     opponentPetId.value = allyPetId.value;
     allyPetId.value = nextAllyPetId;
@@ -853,6 +901,8 @@ function swapSides() {
     opponentProfilePreset.value = nextOpponentPreset;
     opponentHpPercent.value = allyHpPercent.value;
     allyHpPercent.value = nextAllyHpPercent;
+    opponentMeteorBallKey.value = allyMeteorBallKey.value;
+    allyMeteorBallKey.value = nextAllyMeteorBallKey;
     selectedAllyTeamSlot.value = null;
 }
 
@@ -862,6 +912,8 @@ function resetAll() {
     selectedAllyTeamSlot.value = null;
     allyProfilePreset.value = "saved";
     opponentProfilePreset.value = "none";
+    allyMeteorBallKey.value = DEFAULT_METEOR_BUG_CAPTURE_BALL;
+    opponentMeteorBallKey.value = DEFAULT_METEOR_BUG_CAPTURE_BALL;
     allyHpPercent.value = 100;
     opponentHpPercent.value = 100;
     opponentSearchQuery.value = "";
@@ -1603,6 +1655,35 @@ document.title = "对战助手 - 洛克王国工具箱";
                                     <p class="mt-2 text-xs font-semibold text-slate-600">
                                         实战速度 {{ allyBattleSpeed }}
                                     </p>
+                                    <div
+                                        v-if="allyPet.id === METEOR_BUG_PET_ID"
+                                        class="mt-3 rounded-[16px] border border-emerald-200 bg-white/80 p-2 text-left"
+                                    >
+                                        <label class="text-[11px] font-black text-emerald-800">
+                                            陨星虫捕捉球
+                                        </label>
+                                        <select
+                                            v-model="allyMeteorBallKey"
+                                            class="mt-1 h-9 w-full rounded-[10px] border border-emerald-200 bg-white px-2 text-xs font-bold text-slate-900"
+                                        >
+                                            <option
+                                                v-for="ball in METEOR_BUG_CAPTURE_BALL_OPTIONS"
+                                                :key="ball.key"
+                                                :value="ball.key"
+                                            >
+                                                {{ ball.label }}
+                                            </option>
+                                        </select>
+                                        <p class="mt-1 text-[11px] leading-4 text-slate-600">
+                                            {{ allyMeteorBallOption.description }}
+                                        </p>
+                                        <p
+                                            v-if="allyBattleSpeed !== allyBaseBattleSpeed"
+                                            class="mt-1 text-[11px] font-bold text-emerald-700"
+                                        >
+                                            速度已计入：{{ allyBaseBattleSpeed }} → {{ allyBattleSpeed }}
+                                        </p>
+                                    </div>
                                     <div class="mt-3 grid grid-cols-2 gap-1.5">
                                         <button
                                             v-for="preset in allyProfilePresetItems"
@@ -1676,6 +1757,35 @@ document.title = "对战助手 - 洛克王国工具箱";
                                     <p class="mt-2 text-xs font-semibold text-slate-600">
                                         实战速度 {{ opponentBattleSpeed }}
                                     </p>
+                                    <div
+                                        v-if="opponentPet.id === METEOR_BUG_PET_ID"
+                                        class="mt-3 rounded-[16px] border border-rose-200 bg-white/80 p-2 text-left"
+                                    >
+                                        <label class="text-[11px] font-black text-rose-800">
+                                            陨星虫捕捉球
+                                        </label>
+                                        <select
+                                            v-model="opponentMeteorBallKey"
+                                            class="mt-1 h-9 w-full rounded-[10px] border border-rose-200 bg-white px-2 text-xs font-bold text-slate-900"
+                                        >
+                                            <option
+                                                v-for="ball in METEOR_BUG_CAPTURE_BALL_OPTIONS"
+                                                :key="ball.key"
+                                                :value="ball.key"
+                                            >
+                                                {{ ball.label }}
+                                            </option>
+                                        </select>
+                                        <p class="mt-1 text-[11px] leading-4 text-slate-600">
+                                            {{ opponentMeteorBallOption.description }}
+                                        </p>
+                                        <p
+                                            v-if="opponentBattleSpeed !== opponentBaseBattleSpeed"
+                                            class="mt-1 text-[11px] font-bold text-rose-700"
+                                        >
+                                            速度已计入：{{ opponentBaseBattleSpeed }} → {{ opponentBattleSpeed }}
+                                        </p>
+                                    </div>
                                     <div class="mt-3 grid grid-cols-2 gap-1.5">
                                         <button
                                             v-for="preset in OPPONENT_PROFILE_PRESETS"
@@ -2324,7 +2434,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                         </div>
                     </div>
                     <p class="text-xs leading-5 text-slate-500">
-                        速度参考未考虑技能特效、先制、天气、异常、护盾和换人博弈。
+                        已计入陨星虫捕捉球的确定速度效果；棱镜球因随机结果不计入。其余技能特效、先制、天气、异常、护盾和换人博弈暂未考虑。
                     </p>
                 </div>
             </details>
