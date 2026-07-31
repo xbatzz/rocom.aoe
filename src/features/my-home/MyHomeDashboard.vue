@@ -162,9 +162,9 @@ const moreTools: ToolLink[] = [
         >
             <div class="absolute inset-x-0 top-0 h-1 bg-primary" />
 
-            <div class="relative px-4 py-6 md:px-7 md:py-8 xl:px-9 xl:py-10">
-                <div class="grid gap-6 xl:grid-cols-[1.15fr_0.85fr] xl:items-center">
-                    <div class="max-w-3xl space-y-5">
+            <div class="relative px-4 py-5 md:px-7 md:py-8 xl:px-9 xl:py-10">
+                <div class="grid gap-4 md:gap-6 xl:grid-cols-[1.15fr_0.85fr] xl:items-center">
+                    <div class="max-w-3xl space-y-4 md:space-y-5">
                         <Badge
                             variant="outline"
                             class="border-primary/25 bg-primary/10 text-primary"
@@ -203,7 +203,7 @@ const moreTools: ToolLink[] = [
                     </div>
 
                     <div
-                        class="rounded-[14px] border border-border bg-background/45 p-4 shadow-sm md:p-5"
+                        class="rounded-[14px] border border-border bg-background/45 p-3 shadow-sm md:p-5"
                     >
                         <div class="flex items-start justify-between gap-3">
                             <div class="space-y-1">
@@ -219,7 +219,7 @@ const moreTools: ToolLink[] = [
                             </div>
                         </div>
 
-                        <div class="mt-5 space-y-2">
+                        <div class="mt-3 space-y-2 md:mt-5">
                             <div class="flex items-center justify-between text-xs">
                                 <span class="text-muted-foreground">阵容进度</span>
                                 <span class="font-semibold text-foreground">
@@ -234,7 +234,7 @@ const moreTools: ToolLink[] = [
                             </div>
                         </div>
 
-                        <div class="mt-5 grid grid-cols-2 gap-2">
+                        <div class="mt-5 hidden grid-cols-2 gap-2 md:grid">
                             <Button as-child variant="secondary" class="rounded-[10px]">
                                 <RouterLink to="/team">继续编辑</RouterLink>
                             </Button>
@@ -253,7 +253,7 @@ const moreTools: ToolLink[] = [
                 v-for="action in coreActions"
                 :key="action.title"
                 :to="action.to"
-                class="group flex min-h-[250px] flex-col justify-between rounded-[10px] border border-border bg-card p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-lg"
+                class="group flex flex-col justify-between rounded-[10px] border border-border bg-card p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-lg lg:min-h-[250px]"
                 :class="action.to ? 'cursor-pointer' : 'cursor-default opacity-95'"
             >
                 <div class="space-y-4">
@@ -281,7 +281,7 @@ const moreTools: ToolLink[] = [
                         </p>
                     </div>
 
-                    <div class="flex flex-wrap gap-2">
+                    <div class="hidden flex-wrap gap-2 sm:flex">
                         <span
                             v-for="point in action.points"
                             :key="point"
@@ -292,7 +292,7 @@ const moreTools: ToolLink[] = [
                     </div>
                 </div>
 
-                <div class="mt-6 flex items-center justify-between text-sm">
+                <div class="mt-3 flex items-center justify-between text-sm lg:mt-6">
                     <span class="font-medium text-foreground">
                         开始使用
                     </span>

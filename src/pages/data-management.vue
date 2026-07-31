@@ -166,9 +166,9 @@ document.title = "数据管理 - 洛克王国工具箱";
                                 本地用户数据
                             </span>
                         </div>
-                        <CardTitle class="text-2xl font-black text-foreground md:text-3xl">
+                        <h1 class="text-2xl font-black text-foreground md:text-3xl">
                             数据管理
-                        </CardTitle>
+                        </h1>
                         <p class="text-sm leading-6 text-muted-foreground">
                             一次备份全部配队、图鉴进度和主题设置，可在 Windows、Mac、iPhone 或 iPad 之间迁移。
                         </p>
@@ -176,22 +176,22 @@ document.title = "数据管理 - 洛克王国工具箱";
                     <MonitorSmartphone class="h-10 w-10 text-primary/70" />
                 </div>
 
-                <div class="grid gap-3 sm:grid-cols-3">
-                    <div class="rounded-[18px] border border-border bg-muted/40 p-4">
+                <div class="grid grid-cols-3 gap-1.5 sm:gap-3">
+                    <div class="min-w-0 rounded-[14px] border border-border bg-muted/40 p-2.5 sm:rounded-[18px] sm:p-4">
                         <p class="text-xs text-muted-foreground">已保存队伍</p>
-                        <p class="mt-1 text-2xl font-black text-foreground">
+                        <p class="mt-1 text-lg font-black text-foreground sm:text-2xl">
                             {{ currentSummary.teamCount }}
                         </p>
                     </div>
-                    <div class="rounded-[18px] border border-border bg-muted/40 p-4">
+                    <div class="min-w-0 rounded-[14px] border border-border bg-muted/40 p-2.5 sm:rounded-[18px] sm:p-4">
                         <p class="text-xs text-muted-foreground">已收集图鉴</p>
-                        <p class="mt-1 text-2xl font-black text-foreground">
+                        <p class="mt-1 text-lg font-black text-foreground sm:text-2xl">
                             {{ currentSummary.collectedCount }}
                         </p>
                     </div>
-                    <div class="rounded-[18px] border border-border bg-muted/40 p-4">
-                        <p class="text-xs text-muted-foreground">已完成课题</p>
-                        <p class="mt-1 text-2xl font-black text-foreground">
+                    <div class="min-w-0 rounded-[14px] border border-border bg-muted/40 p-2.5 sm:rounded-[18px] sm:p-4">
+                        <p class="truncate text-xs text-muted-foreground">图鉴课题</p>
+                        <p class="mt-1 text-lg font-black text-foreground sm:text-2xl">
                             {{ currentSummary.completedTopicCount }}
                         </p>
                     </div>

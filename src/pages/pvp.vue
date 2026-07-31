@@ -988,17 +988,17 @@ document.title = "PVP 对位助手 - 洛克王国工具箱";
                     class="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between"
                 >
                     <div class="space-y-2">
-                        <CardTitle
-                            class="text-2xl tracking-tight text-foreground md:text-3xl"
+                        <h1
+                            class="text-2xl font-semibold tracking-tight text-foreground md:text-3xl"
                         >
                             PVP 对位助手
-                        </CardTitle>
+                        </h1>
                         <CardDescription class="max-w-3xl text-sm leading-6">
-                            基于属性、实战速度和种族值的轻量对位参考，不包含伤害与胜率预测。
+                            基于属性、实战速度、种族值与固定威力技能的纸面伤害参考，不预测胜率与技能特殊效果。
                         </CardDescription>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-3 md:grid-cols-4">
+                    <div v-if="hasBothPets" class="grid grid-cols-2 gap-3 md:grid-cols-4">
                         <div
                             v-for="item in summaryCards"
                             :key="item.label"
@@ -1307,6 +1307,14 @@ document.title = "PVP 对位助手 - 洛克王国工具箱";
                 </Card>
             </div>
 
+            <div
+                v-if="!hasBothPets"
+                class="rounded-[10px] border border-dashed border-border bg-card px-4 py-6 text-center text-sm text-muted-foreground"
+            >
+                选择双方宠物后，将显示速度、属性、联防、种族值和纸面伤害分析。
+            </div>
+
+            <template v-else>
             <div class="flex flex-wrap items-center gap-2">
                 <Button
                     variant="outline"
@@ -2268,12 +2276,7 @@ document.title = "PVP 对位助手 - 洛克王国工具箱";
                 </CardContent>
             </Card>
 
-            <div
-                v-if="!hasBothPets"
-                class="rounded-[10px] border border-dashed border-border bg-card px-4 py-10 text-center text-sm text-muted-foreground"
-            >
-                请选择我方和对方宠物，开始查看属性倍率、速度差和种族值对比。
-            </div>
+            </template>
         </template>
     </section>
 </template>

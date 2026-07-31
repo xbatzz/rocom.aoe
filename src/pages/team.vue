@@ -63,6 +63,7 @@ import {
     Swords,
     Trash2,
     WandSparkles,
+    X,
     Zap,
 } from "lucide-vue-next";
 
@@ -167,6 +168,7 @@ const autoPreferenceAttackStyle = ref("all");
 const isLoading = ref(false);
 const errorMessage = ref("");
 const shareDialogOpen = ref(false);
+const mobilePanelOpen = ref(false);
 const shareFeedback = ref("");
 const isHydrated = ref(false);
 const isSwitchingTeam = ref(false);
@@ -1799,6 +1801,7 @@ function getSelectValue(value: number | null) {
 function selectSlot(slotId: number) {
     activeSlotId.value = slotId;
     activePanelTab.value = "friends";
+    mobilePanelOpen.value = true;
     shareFeedback.value = "";
 }
 
@@ -2736,7 +2739,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                     class="rounded-[10px] border border-border bg-muted px-3 py-1 text-foreground">
                                     <Sparkles
                                         class="h-3.5 w-3.5 text-primary" />
-                                    Team Builder
+                                    配队构筑
                                 </Badge>
                                 <Badge
                                     variant="secondary"
@@ -2747,10 +2750,10 @@ document.title = "配队工具 - 洛克王国工具箱";
                             </div>
 
                             <div class="space-y-2">
-                                <CardTitle
-                                    class="text-2xl tracking-tight text-foreground md:text-3xl">
+                                <h1
+                                    class="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
                                     配队
-                                </CardTitle>
+                                </h1>
                             </div>
                         </div>
 
@@ -3586,18 +3589,33 @@ document.title = "配队工具 - 洛克王国工具箱";
         </div>
 
         <Card
-            class="sticky top-4 h-fit border-border bg-card shadow-md">
+            :class="[
+                'border-border bg-card shadow-md xl:sticky xl:top-4 xl:h-fit',
+                mobilePanelOpen
+                    ? 'fixed inset-x-3 inset-y-3 z-50 block overflow-x-hidden overflow-y-auto'
+                    : 'hidden xl:block',
+            ]">
             <CardHeader class="gap-4 pb-4">
-                <div class="space-y-1">
-                    <CardTitle class="text-foreground">
-                        面板 · 槽位 {{ activeSlot.slotId }}
-                    </CardTitle>
-                    <CardDescription class="text-foreground">
-                        {{
-                            activeFriend?.localized.zh.name ??
-                            "先从候选列表选择一只精灵"
-                        }}
-                    </CardDescription>
+                <div class="flex items-start justify-between gap-3">
+                    <div class="space-y-1">
+                        <CardTitle class="text-foreground">
+                            面板 · 槽位 {{ activeSlot.slotId }}
+                        </CardTitle>
+                        <CardDescription class="text-foreground">
+                            {{
+                                activeFriend?.localized.zh.name ??
+                                "先从候选列表选择一只精灵"
+                            }}
+                        </CardDescription>
+                    </div>
+                    <Button
+                        variant="ghost"
+                        class="h-9 shrink-0 rounded-[10px] px-2.5 xl:hidden"
+                        aria-label="关闭槽位面板"
+                        @click="mobilePanelOpen = false">
+                        完成
+                        <X class="h-4 w-4" />
+                    </Button>
                 </div>
 
                 <Tabs v-model="activePanelTab" class="gap-3">

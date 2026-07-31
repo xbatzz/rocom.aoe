@@ -298,17 +298,17 @@ document.title = "实战属性计算器 - 洛克王国工具箱";
                     class="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between"
                 >
                     <div class="space-y-2">
-                        <CardTitle
-                            class="text-2xl tracking-tight text-foreground md:text-3xl"
+                        <h1
+                            class="text-2xl font-semibold tracking-tight text-foreground md:text-3xl"
                         >
                             实战属性计算器
-                        </CardTitle>
+                        </h1>
                         <CardDescription class="max-w-3xl text-sm leading-6">
                             根据种族值、个体值和性格修正估算 PVP 实战属性。
                         </CardDescription>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-3 md:grid-cols-4">
+                    <div v-if="selectedPet" class="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
                         <div
                             class="rounded-[10px] border border-border bg-muted px-4 py-3 shadow-sm"
                         >
@@ -369,7 +369,12 @@ document.title = "实战属性计算器 - 洛克王国工具箱";
         </div>
 
         <template v-else>
-            <div class="grid gap-3 xl:grid-cols-[0.9fr_1.1fr]">
+            <div
+                :class="[
+                    'grid gap-3',
+                    selectedPet ? 'xl:grid-cols-[0.9fr_1.1fr]' : '',
+                ]"
+            >
                 <Card class="border-border bg-card shadow-sm">
                     <CardHeader>
                         <CardTitle class="text-lg">宠物选择</CardTitle>
@@ -486,7 +491,7 @@ document.title = "实战属性计算器 - 洛克王国工具箱";
                     </CardContent>
                 </Card>
 
-                <div class="space-y-3">
+                <div v-if="selectedPet" class="space-y-3">
                     <Card class="border-border bg-card shadow-sm">
                         <CardHeader>
                             <CardTitle class="text-lg">基础种族值</CardTitle>
@@ -646,7 +651,7 @@ document.title = "实战属性计算器 - 洛克王国工具箱";
                 </div>
             </div>
 
-            <Card class="border-border bg-card shadow-sm">
+            <Card v-if="selectedPet" class="border-border bg-card shadow-sm">
                 <CardHeader>
                     <CardTitle class="text-lg">计算结果</CardTitle>
                     <CardDescription>
@@ -723,7 +728,7 @@ document.title = "实战属性计算器 - 洛克王国工具箱";
                 </CardContent>
             </Card>
 
-            <Card class="border-border bg-card shadow-sm">
+            <Card v-if="selectedPet" class="border-border bg-card shadow-sm">
                 <CardHeader>
                     <div class="flex items-center gap-2">
                         <Calculator class="h-4 w-4 text-primary" />

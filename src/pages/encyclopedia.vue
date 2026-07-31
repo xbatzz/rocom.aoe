@@ -67,6 +67,7 @@ const bloodlineIndex = ref<IPetBloodlineIndexEntry[]>([]);
 const isLoading = ref(false);
 const hasLoadedPets = ref(false);
 const errorMessage = ref("");
+const filtersExpanded = ref(false);
 const route = useRoute();
 const router = useRouter();
 const encyclopediaState = reactive<EncyclopediaState>({ ...DEFAULT_STATE });
@@ -779,24 +780,24 @@ document.title = "图鉴 - 洛克王国工具箱";
                 <div
                     class="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between"
                 >
-                    <CardTitle
-                        class="text-2xl tracking-tight text-foreground md:text-3xl"
+                    <h1
+                        class="text-2xl font-semibold tracking-tight text-foreground md:text-3xl"
                     >
                         图鉴
-                    </CardTitle>
+                    </h1>
 
-                    <div class="grid grid-cols-2 gap-3 md:grid-cols-4">
+                    <div class="grid grid-cols-4 gap-1.5 md:gap-3">
                         <div
                             v-for="item in summaryItems"
                             :key="item.label"
-                            class="rounded-[10px] border border-border bg-muted px-4 py-3 shadow-sm "
+                            class="min-w-0 rounded-[10px] border border-border bg-muted px-2 py-2 shadow-sm md:px-4 md:py-3"
                         >
                             <p
-                                class="text-xs tracking-[0.2em] text-foreground uppercase"
+                                class="truncate text-[9px] tracking-wide text-foreground uppercase md:text-xs md:tracking-[0.2em]"
                             >
                                 {{ item.label }}
                             </p>
-                            <p class="mt-2 text-2xl font-semibold text-foreground">
+                            <p class="mt-1 text-lg font-semibold text-foreground md:mt-2 md:text-2xl">
                                 {{ item.value }}
                             </p>
                         </div>
@@ -807,8 +808,8 @@ document.title = "图鉴 - 洛克王国工具箱";
             <CardContent class="space-y-4 px-4 pb-6">
                 <Separator class="bg-white/10" />
 
-                <div class="grid gap-3 xl:grid-cols-[2fr_repeat(5,1fr)]">
-                    <div class="relative xl:col-span-2">
+                <div class="space-y-2">
+                    <div class="relative">
                         <Search
                             class="pointer-events-none absolute left-4 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-foreground"
                         />
@@ -819,6 +820,28 @@ document.title = "图鉴 - 洛克王国工具箱";
                             class="h-10 rounded-[10px] border-border bg-card pl-11 text-sm text-foreground placeholder:text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
                         />
                     </div>
+
+                    <Button
+                        variant="outline"
+                        class="h-10 w-full justify-between rounded-[10px] xl:hidden"
+                        :aria-expanded="filtersExpanded"
+                        @click="filtersExpanded = !filtersExpanded"
+                    >
+                        <span class="inline-flex items-center gap-2">
+                            <SlidersHorizontal class="h-4 w-4" />
+                            筛选与排序
+                        </span>
+                        <span class="text-xs text-muted-foreground">
+                            {{ hasActiveFilters ? "已启用" : "可选" }}
+                        </span>
+                    </Button>
+
+                    <div
+                        :class="[
+                            'grid-cols-2 gap-2 xl:grid xl:grid-cols-5 xl:gap-3',
+                            filtersExpanded ? 'grid' : 'hidden',
+                        ]"
+                    >
 
                     <Select v-model="selectedType">
                         <SelectTrigger
@@ -918,6 +941,7 @@ document.title = "图鉴 - 洛克王国工具箱";
                             <SelectItem value="name">按名称排序</SelectItem>
                         </SelectContent>
                     </Select>
+                    </div>
                 </div>
 
                 <div

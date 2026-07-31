@@ -1222,11 +1222,12 @@ onBeforeUnmount(() => {
                         </div>
                     </div>
                 </div>
-                <div class="mt-5 flex flex-wrap gap-3">
-                    <div
+                <div class="mt-4 grid grid-cols-6 gap-2 sm:grid-cols-9 md:mt-5 md:flex md:flex-wrap md:gap-3">
+                    <button
                         v-for="type in typeEntries"
                         :key="type.id"
-                        class="type-badge cursor-pointer flex flex-col items-center rounded-[10px] p-3 text-left"
+                        type="button"
+                        class="type-badge flex min-h-10 items-center justify-center rounded-[10px] p-2 text-left md:p-3"
                         :style="getBadgeStyle(type, currentTypeId === type.id)"
                         @mouseenter="previewType(type.id)"
                         @mouseleave="clearPreview"
@@ -1234,10 +1235,10 @@ onBeforeUnmount(() => {
                         @blur="clearPreview"
                         @click="selectType(type.id)"
                     >
-                        <span class="text-lg font-black leading-none">
+                        <span class="text-sm font-black leading-none md:text-lg">
                             {{ type.shortLabel }}
                         </span>
-                    </div>
+                    </button>
                 </div>
                 <div class="mt-6">
                     <div
@@ -1253,13 +1254,34 @@ onBeforeUnmount(() => {
                         </div>
                         <button
                             type="button"
-                            class="mt-2 inline-flex w-fit items-center rounded-[10px] border border-border bg-muted px-3 py-2 text-sm font-semibold text-foreground transition hover:bg-accent sm:mt-0"
+                            class="mt-2 hidden w-fit items-center rounded-[10px] border border-border bg-muted px-3 py-2 text-sm font-semibold text-foreground transition hover:bg-accent sm:mt-0 md:inline-flex"
                             @click="selectSecondaryType(null)"
                         >
                             清除副属性
                         </button>
                     </div>
-                    <div class="mt-4 flex flex-wrap gap-3">
+                    <select
+                        :value="secondaryTypeId === null ? 'none' : String(secondaryTypeId)"
+                        class="mt-3 h-11 w-full rounded-[10px] border border-border bg-card px-3 text-sm font-semibold text-foreground outline-none focus:border-primary/60 md:hidden"
+                        aria-label="选择副属性"
+                        @change="
+                            selectSecondaryType(
+                                ($event.target as HTMLSelectElement).value === 'none'
+                                    ? null
+                                    : Number(($event.target as HTMLSelectElement).value),
+                            )
+                        "
+                    >
+                        <option value="none">无副属性</option>
+                        <option
+                            v-for="type in typeEntries"
+                            :key="`secondary-option-${type.id}`"
+                            :value="String(type.id)"
+                        >
+                            {{ type.label }}
+                        </option>
+                    </select>
+                    <div class="mt-4 hidden flex-wrap gap-3 md:flex">
                         <button
                             type="button"
                             class="type-badge rounded-[10px] border border-border bg-muted px-4 py-3 text-sm font-black text-foreground transition hover:bg-accent"
