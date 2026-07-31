@@ -101,6 +101,7 @@ type BattleProfilePreset =
     | "maxSpeed"
     | "maxHp";
 type PreferredAttackStat = "phyAtk" | "magAtk";
+type DamageDirection = "allyToOpponent" | "opponentToAlly";
 
 interface BattleProfile {
     preset: BattleProfilePreset;
@@ -169,6 +170,7 @@ const opponentSearchQuery = ref("");
 const allySearchQuery = ref("");
 const damageSearchQuery = ref("");
 const selectedDamageMoveId = ref<number | null>(null);
+const damageDirection = ref<DamageDirection>("allyToOpponent");
 const selectedDamageEffectKey = ref<string | null>(null);
 const swarmPowerDevotionCount = ref(0);
 const swarmHitDevotionCount = ref(0);
@@ -242,9 +244,57 @@ const moveAliasMap = computed(() => {
     return aliases;
 });
 
-const allyPetDetailMoves = computed(() => {
-    const detail =
-        allyPetId.value === null ? null : petDetails.value[allyPetId.value];
+const damageAttackerPet = computed(() =>
+    damageDirection.value === "allyToOpponent"
+        ? allyPet.value
+        : opponentPet.value,
+);
+
+const damageDefenderPet = computed(() =>
+    damageDirection.value === "allyToOpponent"
+        ? opponentPet.value
+        : allyPet.value,
+);
+
+const damageAttackerPetId = computed(() => damageAttackerPet.value?.id ?? null);
+
+const damageAttackerProfile = computed(() =>
+    damageDirection.value === "allyToOpponent"
+        ? allyBattleProfile.value
+        : opponentBattleProfile.value,
+);
+
+const damageDefenderProfile = computed(() =>
+    damageDirection.value === "allyToOpponent"
+        ? opponentBattleProfile.value
+        : allyBattleProfile.value,
+);
+
+const damageAttackerLabel = computed(() =>
+    damageDirection.value === "allyToOpponent" ? "我方" : "对方",
+);
+
+const damageDefenderLabel = computed(() =>
+    damageDirection.value === "allyToOpponent" ? "对方" : "我方",
+);
+
+const damageAttackerHpPercent = computed({
+    get: () =>
+        damageDirection.value === "allyToOpponent"
+            ? allyHpPercent.value
+            : opponentHpPercent.value,
+    set: (value: number) => {
+        if (damageDirection.value === "allyToOpponent") {
+            allyHpPercent.value = value;
+        } else {
+            opponentHpPercent.value = value;
+        }
+    },
+});
+
+const damageAttackerDetailMoves = computed(() => {
+    const petId = damageAttackerPetId.value;
+    const detail = petId === null ? null : petDetails.value[petId];
     const detailMoves = [
         ...(detail?.move_pool ?? []),
         ...(detail?.move_stones ?? []),
@@ -393,6 +443,10 @@ const allyProfilePresetItems = computed(() => {
 });
 
 const configuredDamageMoves = computed(() => {
+    if (damageDirection.value !== "allyToOpponent") {
+        return [] as DamageMove[];
+    }
+
     const slot = allyDamageBuildSlot.value;
 
     if (!slot) {
@@ -412,9 +466,13 @@ const damageSearchResults = computed(() => {
         return [] as DamageMove[];
     }
 
+    const candidateMoves =
+        damageDirection.value === "opponentToAlly"
+            ? damageAttackerDetailMoves.value
+            : [...damageAttackerDetailMoves.value, ...moves.value];
     const searchableMoves = Array.from(
         new Map(
-            [...allyPetDetailMoves.value, ...moves.value].map((move) => [
+            candidateMoves.map((move) => [
                 move.id,
                 move,
             ]),
@@ -432,7 +490,10 @@ const selectedDamageMove = computed(() => {
         return null;
     }
 
-    return getDamageMoveById(selectedDamageMoveId.value, allyPetId.value);
+    return getDamageMoveById(
+        selectedDamageMoveId.value,
+        damageAttackerPetId.value,
+    );
 });
 
 const isSelectedSwarmMove = computed(
@@ -460,14 +521,16 @@ const selectedDamageEffect = computed(() => {
 
 const selectedDamagePowerBonus = computed(
     () =>
-        (selectedDamageEffect.value?.getPowerBonus(allyHpPercent.value) ?? 0) +
+        (selectedDamageEffect.value?.getPowerBonus(
+            damageAttackerHpPercent.value,
+        ) ?? 0) +
         (isSelectedSwarmMove.value ? swarmPowerDevotionCount.value * 20 : 0),
 );
 
 const selectedDamagePowerBoostPercent = computed(
     () =>
         selectedDamageEffect.value?.getPowerBoostPercent(
-            allyHpPercent.value,
+            damageAttackerHpPercent.value,
         ) ?? 0,
 );
 
@@ -477,8 +540,8 @@ const selectedDamageHitCount = computed(() =>
 
 const selectedDamageOption = computed<DamageOption | null>(() => {
     if (
-        !allyPet.value ||
-        !opponentPet.value ||
+        !damageAttackerPet.value ||
+        !damageDefenderPet.value ||
         !selectedDamageMove.value
     ) {
         return null;
@@ -670,10 +733,31 @@ const conclusion = computed(() => {
     }
 
     if (damage >= 100) {
-        tags.push("纸面伤害可观");
+        tags.push(
+            damageDirection.value === "allyToOpponent"
+                ? "我方伤害可观"
+                : "对方伤害较高",
+        );
     }
 
-    if (damage >= 100 && speedDiff.value >= 0) {
+    if (
+        damageDirection.value === "opponentToAlly" &&
+        damage >= 100
+    ) {
+        return {
+            text:
+                speedDiff.value <= 0
+                    ? "当前对位风险较高：对方速度不落后，所选技能对我方伤害较高。"
+                    : "当前对位存在威胁：对方所选技能对我方伤害较高，注意换人与联防。",
+            tags,
+        };
+    }
+
+    if (
+        damageDirection.value === "allyToOpponent" &&
+        damage >= 100 &&
+        speedDiff.value >= 0
+    ) {
         return {
             text: "当前对位偏进攻：速度参考不落后，所选技能纸面伤害较高。",
             tags,
@@ -716,14 +800,18 @@ watch(opponentBattleTypes, (battleTypes) => {
 });
 
 watch(
-    allyPetId,
-    (petId) => {
+    [damageDirection, allyPetId, opponentPetId],
+    () => {
         selectedDamageMoveId.value = null;
         selectedDamageEffectKey.value = null;
         damageSearchQuery.value = "";
 
-        if (petId !== null) {
-            void ensurePetDetail(petId);
+        if (allyPetId.value !== null) {
+            void ensurePetDetail(allyPetId.value);
+        }
+
+        if (opponentPetId.value !== null) {
+            void ensurePetDetail(opponentPetId.value);
         }
     },
 );
@@ -919,6 +1007,7 @@ function resetAll() {
     opponentSearchQuery.value = "";
     allySearchQuery.value = "";
     damageSearchQuery.value = "";
+    damageDirection.value = "allyToOpponent";
     selectedDamageMoveId.value = null;
     selectedDamageEffectKey.value = null;
     swarmPowerDevotionCount.value = 0;
@@ -938,14 +1027,16 @@ function calculateDamage(
     hitCount = 1,
 ) {
     return calculatePaperDamage({
-        attackerPet: allyPet.value!,
-        defenderPet: opponentPet.value!,
+        attackerPet: damageAttackerPet.value!,
+        defenderPet: damageDefenderPet.value!,
         move,
         typeMap: typeMap.value,
-        attackerIndividualValues: allyBattleProfile.value.individualValues,
-        defenderIndividualValues: opponentBattleProfile.value.individualValues,
-        attackerNature: allyBattleProfile.value.nature,
-        defenderNature: opponentBattleProfile.value.nature,
+        attackerIndividualValues:
+            damageAttackerProfile.value.individualValues,
+        defenderIndividualValues:
+            damageDefenderProfile.value.individualValues,
+        attackerNature: damageAttackerProfile.value.nature,
+        defenderNature: damageDefenderProfile.value.nature,
         powerBonus,
         powerBoostPercent,
         hitCount,
@@ -1305,7 +1396,16 @@ function getDamageEffectOptions(
 }
 
 function getSelectedDamageEffectStatus() {
-    return selectedDamageEffect.value?.getStatus?.(allyHpPercent.value) ?? "";
+    return (
+        selectedDamageEffect.value?.getStatus?.(
+            damageAttackerHpPercent.value,
+        ) ?? ""
+    );
+}
+
+function selectDamageDirection(direction: DamageDirection) {
+    damageDirection.value = direction;
+    blurActiveElement();
 }
 
 function getCurrentMovePower() {
@@ -1923,12 +2023,39 @@ document.title = "对战助手 - 洛克王国工具箱";
                                 伤害技能
                             </p>
                             <p class="text-xs text-slate-500">
-                                选择配队已装备技能，或搜索其他技能进行估算
+                                切换攻击方，选择其技能计算对目标造成的伤害
                             </p>
                         </div>
                         <Badge class="rounded-full bg-orange-100 text-orange-700 hover:bg-orange-100">
-                            纸面估算
+                            {{ damageAttackerLabel }} → {{ damageDefenderLabel }}
                         </Badge>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 rounded-[20px] bg-slate-100 p-1.5">
+                        <button
+                            type="button"
+                            class="rounded-[15px] px-3 py-2.5 text-sm font-black transition"
+                            :class="
+                                damageDirection === 'allyToOpponent'
+                                    ? 'bg-orange-500 text-white shadow-sm'
+                                    : 'text-slate-600 hover:bg-white'
+                            "
+                            @click="selectDamageDirection('allyToOpponent')"
+                        >
+                            我方攻击对方
+                        </button>
+                        <button
+                            type="button"
+                            class="rounded-[15px] px-3 py-2.5 text-sm font-black transition"
+                            :class="
+                                damageDirection === 'opponentToAlly'
+                                    ? 'bg-rose-600 text-white shadow-sm'
+                                    : 'text-slate-600 hover:bg-white'
+                            "
+                            @click="selectDamageDirection('opponentToAlly')"
+                        >
+                            对方攻击我方
+                        </button>
                     </div>
 
                     <div
@@ -1970,10 +2097,21 @@ document.title = "对战助手 - 洛克王国工具箱";
                     </div>
 
                     <div
-                        v-else-if="hasBothPets && allyDamageBuildSlot"
+                        v-else-if="
+                            hasBothPets &&
+                            damageDirection === 'allyToOpponent' &&
+                            allyDamageBuildSlot
+                        "
                         class="rounded-[20px] border border-dashed border-slate-200 bg-slate-50 px-3 py-3 text-xs font-semibold text-slate-600"
                     >
                         当前槽位没有装备可计算的伤害技能，可在下方搜索选择。
+                    </div>
+
+                    <div
+                        v-else-if="hasBothPets && damageDirection === 'opponentToAlly'"
+                        class="rounded-[20px] border border-dashed border-rose-200 bg-rose-50 px-3 py-3 text-xs font-semibold text-rose-700"
+                    >
+                        对方没有配队装备记录，请在下方搜索该精灵可学习的伤害技能。
                     </div>
 
                     <div
@@ -2002,7 +2140,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                         <div class="mt-4 grid grid-cols-2 gap-2">
                             <div class="rounded-[18px] bg-white px-3 py-3">
                                 <p class="text-xs font-semibold text-slate-500">
-                                    目标最大生命占比
+                                    {{ damageDefenderLabel }}最大生命占比
                                 </p>
                                 <p class="mt-1 text-2xl font-black text-orange-700">
                                     {{ selectedDamageOption.result.damagePercent }}%
@@ -2176,11 +2314,11 @@ document.title = "对战助手 - 洛克王国工具箱";
                                 class="block rounded-[16px] bg-orange-50 px-3 py-2"
                             >
                                 <span class="flex items-center justify-between gap-3 text-xs font-black text-orange-900">
-                                    <span>我方当前生命</span>
-                                    <span>{{ allyHpPercent }}%</span>
+                                    <span>{{ damageAttackerLabel }}当前生命</span>
+                                    <span>{{ damageAttackerHpPercent }}%</span>
                                 </span>
                                 <input
-                                    v-model.number="allyHpPercent"
+                                    v-model.number="damageAttackerHpPercent"
                                     type="range"
                                     min="0"
                                     max="100"
@@ -2203,7 +2341,9 @@ document.title = "对战助手 - 洛克王国工具箱";
                     >
                         {{
                             hasBothPets
-                                ? "请选择已装备的伤害技能，或在下方搜索技能。"
+                                ? damageDirection === "opponentToAlly"
+                                    ? "请在下方搜索对方精灵可学习的伤害技能。"
+                                    : "请选择已装备的伤害技能，或在下方搜索技能。"
                                 : "选择双方后查看技能伤害。"
                         }}
                     </div>
@@ -2215,11 +2355,19 @@ document.title = "对战助手 - 洛克王国工具箱";
                         <Input
                             v-model="damageSearchQuery"
                             type="search"
-                            placeholder="手动搜索技能"
+                            :placeholder="
+                                damageDirection === 'opponentToAlly'
+                                    ? '搜索对方可学习的技能'
+                                    : '手动搜索技能'
+                            "
                             class="h-10 rounded-full border-slate-200 bg-white text-slate-950"
                         />
                         <p class="px-1 text-xs text-slate-500">
-                            搜索当前精灵可学技能和全局技能，点击结果后计算伤害。
+                            {{
+                                damageDirection === "opponentToAlly"
+                                    ? "仅搜索对方当前精灵可学习的技能，点击结果后计算其对我方的伤害。"
+                                    : "搜索当前精灵可学技能和全局技能，点击结果后计算伤害。"
+                            }}
                         </p>
                         <div
                             v-if="damageSearchResults.length"
@@ -2252,7 +2400,11 @@ document.title = "对战助手 - 洛克王国工具箱";
                             v-if="damageSearchQuery.trim() && !damageSearchResults.length"
                             class="px-1 text-xs font-semibold text-slate-500"
                         >
-                            没有找到可计算技能。
+                            {{
+                                damageDirection === "opponentToAlly"
+                                    ? "对方精灵的可学习技能中没有找到匹配结果。"
+                                    : "没有找到可计算技能。"
+                            }}
                         </p>
                     </div>
                 </CardContent>
