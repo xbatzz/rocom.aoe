@@ -2,12 +2,9 @@
 import { ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import {
-    Table,
     TableProperties,
     Gamepad2,
     HeartPulse,
-    Egg,
-    Sparkle,
     Menu,
     X,
     LifeBuoy,
@@ -15,8 +12,6 @@ import {
     ListTodo,
     Sparkles,
     Swords,
-    Target,
-    Calculator,
     Database,
     Moon,
     Sun,
@@ -39,23 +34,53 @@ watch(
     },
 );
 
-const navItems = [
-    { name: "首页", path: "/", icon: Gamepad2 },
-    { name: "图鉴", path: "/encyclopedia", icon: TableProperties },
-    { name: "技能", path: "/skills", icon: Sparkles },
-    { name: "对战助手", path: "/pvp-lite", icon: Swords },
-    { name: "PVP 详细版", path: "/pvp", icon: Target },
-    { name: "实战属性", path: "/stats", icon: Calculator },
-    { name: "图鉴进度", path: "/handbook-progress", icon: ListTodo },
-    { name: "数据管理", path: "/data-management", icon: Database },
-    { name: "表格", path: "/table", icon: Table },
-    { name: "配队", path: "/team", icon: Gamepad2 },
-    { name: "配种", path: "/breeding", icon: HeartPulse },
-    { name: "孵蛋", path: "/incubate", icon: Egg },
-    { name: "星图", path: "/egggroup", icon: Sparkle },
-    { name: "属性", path: "/attributes", icon: LifeBuoy },
-    { name: "道具", path: "/items", icon: Package },
+const navGroups = [
+    {
+        label: "核心工具",
+        items: [
+            { name: "首页", path: "/", icon: Gamepad2 },
+            { name: "对战助手", path: "/pvp-lite", icon: Swords },
+            { name: "配队", path: "/team", icon: Gamepad2 },
+            { name: "图鉴", path: "/encyclopedia", icon: TableProperties },
+            { name: "技能", path: "/skills", icon: Sparkles },
+            { name: "属性", path: "/attributes", icon: LifeBuoy },
+        ],
+    },
+    {
+        label: "资料与收集",
+        items: [
+            { name: "高级筛选", path: "/table", icon: TableProperties },
+            { name: "图鉴进度", path: "/handbook-progress", icon: ListTodo },
+            { name: "道具", path: "/items", icon: Package },
+        ],
+    },
+    {
+        label: "培育",
+        items: [
+            { name: "培育工具", path: "/breeding", icon: HeartPulse },
+        ],
+    },
 ];
+
+function isNavActive(path: string) {
+    if (path === "/") {
+        return route.path === path;
+    }
+
+    if (path === "/encyclopedia" && route.path.startsWith("/pets/")) {
+        return true;
+    }
+
+    if (path === "/pvp-lite") {
+        return ["/pvp-lite", "/pvp", "/stats"].includes(route.path);
+    }
+
+    if (path === "/breeding") {
+        return ["/breeding", "/incubate", "/egggroup"].includes(route.path);
+    }
+
+    return route.path === path;
+}
 </script>
 
 <template>
@@ -81,31 +106,47 @@ const navItems = [
             </router-link>
         </div>
 
-        <div class="flex-1 overflow-auto py-4 flex flex-col gap-1 px-3">
-            <router-link
-                v-for="item in navItems"
-                :key="item.path"
-                :to="item.path"
-                :class="
-                    cn(
-                        'group flex items-center gap-3 rounded-[10px] px-3 py-2.5 text-sm font-medium transition-colors relative overflow-hidden',
-                        route.path === item.path
-                            ? 'bg-accent text-accent-foreground'
-                            : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground',
-                    )
-                "
-            >
-                <component :is="item.icon" class="h-5 w-5 shrink-0" />
-                <span>{{ item.name }}</span>
-
-                <div
-                    v-if="route.path === item.path"
-                    class="absolute left-0 top-1/2 h-1/2 w-1 -translate-y-1/2 rounded-r-full bg-primary"
-                />
-            </router-link>
+        <div class="flex flex-1 flex-col gap-4 overflow-auto px-3 py-4">
+            <section v-for="group in navGroups" :key="group.label" class="space-y-1">
+                <p class="px-3 pb-1 text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
+                    {{ group.label }}
+                </p>
+                <router-link
+                    v-for="item in group.items"
+                    :key="item.path"
+                    :to="item.path"
+                    :class="
+                        cn(
+                            'group relative flex items-center gap-3 overflow-hidden rounded-[10px] px-3 py-2.5 text-sm font-medium transition-colors',
+                            isNavActive(item.path)
+                                ? 'bg-accent text-accent-foreground'
+                                : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground',
+                        )
+                    "
+                >
+                    <component :is="item.icon" class="h-5 w-5 shrink-0" />
+                    <span>{{ item.name }}</span>
+                    <div
+                        v-if="isNavActive(item.path)"
+                        class="absolute left-0 top-1/2 h-1/2 w-1 -translate-y-1/2 rounded-r-full bg-primary"
+                    />
+                </router-link>
+            </section>
         </div>
 
-        <div class="border-t border-border p-3">
+        <div class="space-y-1 border-t border-border p-3">
+            <router-link
+                to="/data-management"
+                :class="cn(
+                    'flex w-full items-center gap-3 rounded-[10px] px-3 py-2.5 text-sm font-medium transition-colors',
+                    isNavActive('/data-management')
+                        ? 'bg-accent text-accent-foreground'
+                        : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground',
+                )"
+            >
+                <Database class="h-5 w-5 shrink-0" />
+                <span>数据管理</span>
+            </router-link>
             <button
                 type="button"
                 class="flex w-full items-center gap-3 rounded-[10px] px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent/50 hover:text-foreground"
@@ -156,23 +197,31 @@ const navItems = [
         v-if="isMobileMenuOpen"
         class="md:hidden fixed inset-0 top-14 z-50 bg-background/95 flex flex-col p-4 overflow-y-auto duration-300 animate-in fade-in slide-in-from-top-4"
     >
-        <div class="flex-1 flex flex-col gap-2">
+        <div class="flex flex-1 flex-col gap-5">
+            <section v-for="group in navGroups" :key="group.label" class="space-y-1">
+                <p class="px-4 pb-1 text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">
+                    {{ group.label }}
+                </p>
+                <router-link
+                    v-for="item in group.items"
+                    :key="item.path"
+                    :to="item.path"
+                    class="flex items-center gap-3 rounded-[10px] px-4 py-3 text-base font-medium transition-colors"
+                    :class="isNavActive(item.path) ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground'"
+                    @click="isMobileMenuOpen = false"
+                >
+                    <component :is="item.icon" class="h-6 w-6 shrink-0" />
+                    <span>{{ item.name }}</span>
+                </router-link>
+            </section>
             <router-link
-                v-for="item in navItems"
-                :key="item.path"
-                :to="item.path"
+                to="/data-management"
+                class="flex items-center gap-3 rounded-[10px] border border-border px-4 py-3 text-base font-medium"
+                :class="isNavActive('/data-management') ? 'bg-primary/10 text-primary' : 'text-muted-foreground'"
                 @click="isMobileMenuOpen = false"
-                :class="
-                    cn(
-                        'flex items-center gap-3 rounded-[10px] px-4 py-3 text-base font-medium transition-colors',
-                        route.path === item.path
-                            ? 'bg-primary/10 text-primary'
-                            : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground',
-                    )
-                "
             >
-                <component :is="item.icon" class="h-6 w-6 shrink-0" />
-                <span>{{ item.name }}</span>
+                <Database class="h-6 w-6 shrink-0" />
+                <span>数据管理</span>
             </router-link>
         </div>
     </div>

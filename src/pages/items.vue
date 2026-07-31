@@ -293,9 +293,9 @@ onBeforeUnmount(() => {
             class="overflow-hidden border-border bg-card py-0 shadow-lg">
             <CardHeader class="gap-3 px-4 py-4">
                 <div class="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
-                    <CardTitle class="text-2xl tracking-tight text-foreground md:text-3xl">
+                    <h1 class="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
                         道具图鉴
-                    </CardTitle>
+                    </h1>
 
                     <div class="grid grid-cols-2 gap-3 md:grid-cols-4">
                         <div v-for="item in summaryItems" :key="item.label"

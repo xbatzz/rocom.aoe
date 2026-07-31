@@ -8,6 +8,8 @@ import {
     Zap,
 } from "lucide-vue-next";
 import FriendPortrait from "@/components/FriendPortrait.vue";
+import SectionModeNav from "@/components/SectionModeNav.vue";
+import { BATTLE_MODE_ITEMS } from "@/lib/toolModeNavigation";
 import type {
     IMonsterTypeDetail,
     IPersonality,
@@ -977,11 +979,12 @@ function getMultiplierTone(multiplier: number) {
     return "border-border bg-muted text-foreground";
 }
 
-document.title = "PVP 对位助手 - 洛克王国工具箱";
+document.title = "对战详细参数 - 洛克王国工具箱";
 </script>
 
 <template>
     <section class="space-y-3">
+        <SectionModeNav label="对战工具模式" :items="BATTLE_MODE_ITEMS" />
         <Card class="overflow-hidden border-border bg-card py-0 shadow-lg">
             <CardHeader class="gap-3 px-4 py-4">
                 <div
@@ -991,7 +994,7 @@ document.title = "PVP 对位助手 - 洛克王国工具箱";
                         <h1
                             class="text-2xl font-semibold tracking-tight text-foreground md:text-3xl"
                         >
-                            PVP 对位助手
+                            对战详细参数
                         </h1>
                         <CardDescription class="max-w-3xl text-sm leading-6">
                             基于属性、实战速度、种族值与固定威力技能的纸面伤害参考，不预测胜率与技能特殊效果。

@@ -472,11 +472,11 @@ onMounted(async () => {
                 <div
                     class="flex flex-wrap items-center gap-x-2 gap-y-1"
                 >
-                    <CardTitle
+                    <h1
                         class="text-base font-semibold tracking-tight text-foreground sm:text-lg"
                     >
                         图鉴进度
-                    </CardTitle>
+                    </h1>
 
                     <span
                         class="text-[11px] tabular-nums text-foreground/70"
@@ -497,25 +497,25 @@ onMounted(async () => {
                         <Button
                             variant="outline"
                             size="sm"
-                            title="导出进度"
+                            title="仅导出图鉴进度"
                             class="h-7 w-7 rounded-md border-border bg-white/5 p-0 text-foreground hover:bg-accent sm:w-auto sm:px-2"
                             @click="exportProgress"
                         >
                             <Download class="h-3.5 w-3.5" />
                             <span class="hidden sm:ml-1 sm:inline sm:text-xs">
-                                导出
+                                导出图鉴
                             </span>
                         </Button>
                         <Button
                             variant="outline"
                             size="sm"
-                            title="导入进度"
+                            title="仅导入图鉴进度"
                             class="h-7 w-7 rounded-md border-border bg-white/5 p-0 text-foreground hover:bg-accent sm:w-auto sm:px-2"
                             @click="triggerImportFilePicker"
                         >
                             <Upload class="h-3.5 w-3.5" />
                             <span class="hidden sm:ml-1 sm:inline sm:text-xs">
-                                导入
+                                导入图鉴
                             </span>
                         </Button>
                         <input
@@ -525,6 +525,14 @@ onMounted(async () => {
                             class="hidden"
                             @change="handleImportFileChange"
                         />
+                        <Button
+                            as-child
+                            variant="ghost"
+                            size="sm"
+                            class="h-7 rounded-md px-2 text-[11px] text-muted-foreground"
+                        >
+                            <RouterLink to="/data-management">完整备份</RouterLink>
+                        </Button>
                     </div>
                 </div>
 

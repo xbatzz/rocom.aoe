@@ -16,6 +16,7 @@ import {
     Sparkles,
 } from "lucide-vue-next";
 import FriendPortrait from "@/components/FriendPortrait.vue";
+import PetFilterResultCard from "@/features/table/PetFilterResultCard.vue";
 import { Table as UiTable } from "@/components/ui/table";
 import { formatEggGroup } from "@/lib/eggGroups";
 import type {
@@ -194,6 +195,7 @@ const petSkillCatalogEntries = ref<IPetSkillCatalogEntry[]>([]);
 const isLoading = ref(false);
 const errorMessage = ref("");
 const skillPickerOpen = ref(false);
+const filtersExpanded = ref(false);
 const tableState = reactive<TableState>({ ...DEFAULT_STATE });
 
 let controller: AbortController | null = null;
@@ -1067,11 +1069,14 @@ document.title = "表格 - 洛克王国工具箱";
                 >
                     <div class="space-y-2">
                         <div class="space-y-1">
-                            <CardTitle
-                                class="text-2xl tracking-tight text-foreground md:text-2xl"
+                            <h1
+                                class="text-2xl font-semibold tracking-tight text-foreground"
                             >
-                                表格
-                            </CardTitle>
+                                高级筛选
+                            </h1>
+                            <p class="text-sm text-muted-foreground">
+                                组合属性、蛋组、定位和技能条件定位精灵。
+                            </p>
                         </div>
                     </div>
 
@@ -1093,10 +1098,8 @@ document.title = "表格 - 洛克王国工具箱";
                     </div>
                 </div>
 
-                <div
-                    class="grid gap-2 md:grid-cols-2 xl:grid-cols-5 2xl:grid-cols-14"
-                >
-                    <div class="relative md:col-span-2 xl:col-span-2 2xl:col-span-3">
+                <div class="space-y-2">
+                    <div class="relative">
                         <Search
                             class="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-foreground"
                         />
@@ -1106,6 +1109,28 @@ document.title = "表格 - 洛克王国工具箱";
                             placeholder="搜索名称、编号、属性"
                         />
                     </div>
+
+                    <Button
+                        variant="outline"
+                        class="h-9 w-full justify-between rounded-[10px] md:hidden"
+                        :aria-expanded="filtersExpanded"
+                        @click="filtersExpanded = !filtersExpanded"
+                    >
+                        <span class="inline-flex items-center gap-2">
+                            <Filter class="h-4 w-4" />
+                            组合筛选
+                        </span>
+                        <span class="text-xs text-muted-foreground">
+                            {{ hasActiveFilters ? "已启用" : "可选" }}
+                        </span>
+                    </Button>
+
+                    <div
+                        :class="[
+                            'grid-cols-2 gap-2 md:grid md:grid-cols-2 xl:grid-cols-5 2xl:grid-cols-11',
+                            filtersExpanded ? 'grid' : 'hidden',
+                        ]"
+                    >
 
                     <Select v-model="typeModel">
                         <SelectTrigger
@@ -1222,7 +1247,7 @@ document.title = "表格 - 洛克王国工具箱";
                         <PopoverTrigger as-child>
                             <Button
                                 variant="outline"
-                                class="h-9 justify-between rounded-[10px] border-border bg-muted text-sm text-foreground hover:bg-accent xl:col-span-2 2xl:col-span-3"
+                                class="col-span-2 h-9 justify-between rounded-[10px] border-border bg-muted text-sm text-foreground hover:bg-accent md:col-span-1 xl:col-span-2 2xl:col-span-3"
                             >
                                 <span class="truncate text-left">
                                     {{ selectedSkillLabel }}
@@ -1362,6 +1387,7 @@ document.title = "表格 - 洛克王国工具箱";
                         <RotateCcw class="h-4 w-4" />
                         重置
                     </Button>
+                    </div>
                 </div>
             </CardHeader>
         </Card>
@@ -1415,8 +1441,27 @@ document.title = "表格 - 洛克王国工具箱";
             </CardHeader>
 
             <CardContent class="space-y-0 p-0">
+                <div class="space-y-2 px-4 pb-4 md:hidden">
+                    <p
+                        v-if="!paginatedPets.length"
+                        class="rounded-[10px] border border-dashed border-border px-4 py-6 text-center text-sm text-muted-foreground"
+                    >
+                        没有匹配结果，调整筛选条件后再试。
+                    </p>
+                    <PetFilterResultCard
+                        v-for="pet in paginatedPets"
+                        :key="`mobile-${pet.id}`"
+                        :pet="pet"
+                        :attack-style="getAttackStyleLabel(pet.preferred_attack_style)"
+                        :type-label="getTypeLabel(pet)"
+                        :egg-group-label="formatEggGroupSummary(pet)"
+                        :total-stats="getTotalStats(pet)"
+                        :peak-stat="getPeakStat(pet)"
+                    />
+                </div>
+
                 <div
-                    class="mx-4 overflow-hidden rounded-[10px] border border-border"
+                    class="mx-4 hidden overflow-hidden rounded-[10px] border border-border md:block"
                 >
                     <UiTable class="min-w-345 text-xs md:text-sm">
                         <TableHeader class="bg-muted">

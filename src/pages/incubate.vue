@@ -10,6 +10,8 @@ import {
 } from "lucide-vue-next";
 import type { LocationQuery, LocationQueryRaw } from "vue-router";
 import FriendPortrait from "@/components/FriendPortrait.vue";
+import SectionModeNav from "@/components/SectionModeNav.vue";
+import { BREEDING_MODE_ITEMS } from "@/lib/toolModeNavigation";
 import type { IPets, IPetsBreedingVariant } from "@/lib/interface";
 import {
     formatPetEggGroupSummary,
@@ -689,6 +691,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
 
 <template>
     <section class="space-y-3">
+        <SectionModeNav label="培育工具模式" :items="BREEDING_MODE_ITEMS" />
         <Card class="relative overflow-hidden border-border">
             <CardContent class="relative">
                 <div

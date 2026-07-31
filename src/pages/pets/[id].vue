@@ -1401,13 +1401,26 @@ async function getFriendDetail(idParam: string | string[]) {
                         <FriendPortrait
                             :name="friend.name"
                             :alt="friend.localized.zh.name"
-                            class="aspect-square w-full rounded-[10px]"
+                            class="mx-auto h-40 w-40 rounded-[10px] xl:aspect-square xl:h-auto xl:w-full"
                             img-class="object-contain p-4"
                             eager
                         />
 
+                        <Button
+                            as-child
+                            variant="outline"
+                            class="w-full rounded-[10px] xl:hidden"
+                        >
+                            <RouterLink
+                                :to="`/handbook-progress?species=${friend.species.id}`"
+                            >
+                                <ListTodo class="h-4 w-4" />
+                                图鉴任务 {{ completedPetTopicCount }}/{{ petTopics.length }}
+                            </RouterLink>
+                        </Button>
+
                         <div
-                            class="rounded-[10px] border border-border bg-card p-4"
+                            class="hidden rounded-[10px] border border-border bg-card p-4 xl:block"
                         >
                             <p
                                 class="flex items-center gap-2 text-[11px] tracking-[0.18em] text-foreground uppercase"
@@ -1618,20 +1631,29 @@ async function getFriendDetail(idParam: string | string[]) {
                                 </div>
                             </div>
 
-                            <Button
-                                variant="outline"
-                                class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
-                                as-child
-                            >
-                                <RouterLink to="/encyclopedia"
-                                    >返回图鉴</RouterLink
+                            <div class="flex flex-wrap gap-2">
+                                <Button
+                                    variant="outline"
+                                    class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
+                                    as-child
                                 >
-                            </Button>
+                                    <RouterLink :to="`/stats?pet=${friend.id}`">
+                                        计算实战属性
+                                    </RouterLink>
+                                </Button>
+                                <Button
+                                    variant="outline"
+                                    class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
+                                    as-child
+                                >
+                                    <RouterLink to="/encyclopedia">返回图鉴</RouterLink>
+                                </Button>
+                            </div>
                         </div>
 
                         <Separator class="bg-white/10" />
 
-                        <div class="grid gap-2 md:grid-cols-2 xl:grid-cols-4">
+                        <div class="grid grid-cols-2 gap-2 xl:grid-cols-4">
                             <div
                                 class="rounded-[10px] border border-border bg-muted px-3 py-2.5"
                             >
@@ -2225,6 +2247,12 @@ async function getFriendDetail(idParam: string | string[]) {
                         概览
                     </TabsTrigger>
                     <TabsTrigger
+                        value="battle"
+                        class="rounded-[10px] px-3 py-1.5"
+                    >
+                        战斗资料
+                    </TabsTrigger>
+                    <TabsTrigger
                         value="moves"
                         class="rounded-[10px] px-3 py-1.5"
                     >
@@ -2416,6 +2444,9 @@ async function getFriendDetail(idParam: string | string[]) {
                         </CardContent>
                     </Card>
 
+                </TabsContent>
+
+                <TabsContent value="battle" class="space-y-4">
                     <div class="grid gap-4 2xl:grid-cols-[1.08fr_0.92fr]">
                         <Card class="border-border bg-card shadow-sm">
                             <CardHeader class="pb-3">

@@ -51,6 +51,7 @@ declare module 'vue' {
     PopoverTrigger: typeof import('./components/ui/popover/PopoverTrigger.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SectionModeNav: typeof import('./components/SectionModeNav.vue')['default']
     Select: typeof import('./components/ui/select/Select.vue')['default']
     SelectContent: typeof import('./components/ui/select/SelectContent.vue')['default']
     SelectGroup: typeof import('./components/ui/select/SelectGroup.vue')['default']

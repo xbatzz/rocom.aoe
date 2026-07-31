@@ -7,6 +7,8 @@ import {
 import { init, use, type ComposeOption, type ECharts } from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
 import { RotateCcw, Search, X } from "lucide-vue-next";
+import SectionModeNav from "@/components/SectionModeNav.vue";
+import { BREEDING_MODE_ITEMS } from "@/lib/toolModeNavigation";
 import {
     formatEggGroup,
     formatEggGroupSummary,
@@ -1424,6 +1426,7 @@ function escapeXml(value: string) {
 
 <template>
     <section class="space-y-3">
+        <SectionModeNav label="培育工具模式" :items="BREEDING_MODE_ITEMS" />
         <Card
             class="overflow-hidden border-border bg-card py-0 shadow-md"
         >
@@ -1437,9 +1440,9 @@ function escapeXml(value: string) {
                         >
                             蛋组星图
                         </p>
-                        <CardTitle class="text-2xl tracking-tight text-foreground">
+                        <h1 class="text-2xl font-semibold tracking-tight text-foreground">
                             {{ viewTitle }}
-                        </CardTitle>
+                        </h1>
                         <CardDescription class="max-w-3xl text-foreground">
                             当前显示 {{ visiblePetCount }} 只精灵、{{
                                 visibleGroupCount

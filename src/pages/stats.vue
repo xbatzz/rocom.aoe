@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Calculator, RotateCcw, Search, SlidersHorizontal } from "lucide-vue-next";
 import FriendPortrait from "@/components/FriendPortrait.vue";
+import SectionModeNav from "@/components/SectionModeNav.vue";
+import { BATTLE_MODE_ITEMS } from "@/lib/toolModeNavigation";
 import type { IPets } from "@/lib/interface";
 import { isPetImplemented } from "@/lib/petImplementation";
 import {
@@ -51,6 +53,7 @@ const natureOptions = [
 const PET_PICKER_RESULT_LIMIT = 50;
 
 const pets = ref<IPets[]>([]);
+const route = useRoute();
 const selectedPetId = ref<number | null>(null);
 const searchQuery = ref("");
 const individualValues = ref<BattleIndividualValues>({
@@ -184,6 +187,21 @@ async function loadPets() {
         }
 
         pets.value = (await response.json()) as IPets[];
+
+        const queryValue = Array.isArray(route.query.pet)
+            ? route.query.pet[0]
+            : route.query.pet;
+        const queryPetId = Number(queryValue);
+
+        if (
+            Number.isInteger(queryPetId) &&
+            queryPetId > 0 &&
+            pets.value.some(
+                (pet) => pet.id === queryPetId && isPetImplemented(pet),
+            )
+        ) {
+            selectedPetId.value = queryPetId;
+        }
     } catch (error) {
         if (error instanceof DOMException && error.name === "AbortError") {
             return;
@@ -292,6 +310,7 @@ document.title = "实战属性计算器 - 洛克王国工具箱";
 
 <template>
     <section class="space-y-3">
+        <SectionModeNav label="对战工具模式" :items="BATTLE_MODE_ITEMS" />
         <Card class="overflow-hidden border-border bg-card py-0 shadow-lg">
             <CardHeader class="gap-3 px-4 py-4">
                 <div

@@ -12,6 +12,8 @@ import {
     Zap,
 } from "lucide-vue-next";
 import FriendPortrait from "@/components/FriendPortrait.vue";
+import SectionModeNav from "@/components/SectionModeNav.vue";
+import { BATTLE_MODE_ITEMS } from "@/lib/toolModeNavigation";
 import type {
     IMonsterTypeDetail,
     IPersonality,
@@ -2417,6 +2419,7 @@ document.title = "对战助手 - 洛克王国工具箱";
     <section
         class="pvp-lite-theme mx-auto max-w-5xl space-y-3 rounded-[28px] bg-gradient-to-b from-cyan-50 via-white to-orange-50 p-3 pb-4 text-slate-950 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 dark:text-foreground md:p-5 md:pb-8"
     >
+        <SectionModeNav label="对战工具模式" :items="BATTLE_MODE_ITEMS" />
         <div
             class="rounded-[24px] border border-white/80 bg-white/85 px-4 py-4 shadow-sm backdrop-blur md:px-6"
         >
@@ -2899,7 +2902,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                             class="flex items-center gap-2 rounded-[12px] bg-slate-950 px-3 py-2.5 text-sm font-semibold text-white dark:bg-white dark:text-slate-950"
                         >
                             <Swords class="h-4 w-4" />
-                            详细版
+                            高级参数
                         </RouterLink>
                     </div>
                 </aside>

@@ -10,6 +10,8 @@ import {
     Sparkles,
 } from "lucide-vue-next";
 import FriendPortrait from "@/components/FriendPortrait.vue";
+import SectionModeNav from "@/components/SectionModeNav.vue";
+import { BREEDING_MODE_ITEMS } from "@/lib/toolModeNavigation";
 import {
     formatEggGroup,
     formatEggGroupSummary,
@@ -574,17 +576,18 @@ document.title = "精灵配种 - 洛克王国工具箱";
 
 <template>
     <section class="space-y-3">
+        <SectionModeNav label="培育工具模式" :items="BREEDING_MODE_ITEMS" />
         <Card>
             <CardHeader>
                 <div
                     class="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between"
                 >
                     <div class="max-w-3xl space-y-3">
-                        <CardTitle
-                            class="text-2xl tracking-tight text-foreground md:text-3xl"
+                        <h1
+                            class="text-2xl font-semibold tracking-tight text-foreground md:text-3xl"
                         >
                             精灵配种
-                        </CardTitle>
+                        </h1>
                     </div>
 
                     <div class="grid gap-3 sm:grid-cols-3">

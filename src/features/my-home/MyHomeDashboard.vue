@@ -35,6 +35,12 @@ interface ToolLink {
     icon: typeof Swords;
 }
 
+interface ToolGroup {
+    label: string;
+    description: string;
+    tools: ToolLink[];
+}
+
 const coreActions: CoreAction[] = [
     {
         title: "属性查询",
@@ -91,66 +97,84 @@ onMounted(() => {
     };
 });
 
-const moreTools: ToolLink[] = [
+const toolGroups: ToolGroup[] = [
     {
-        title: "PVP 详细版",
-        description: "完整参数面板，查看速度线、属性倍率、纸面伤害和详细计算。",
-        to: "/pvp",
-        icon: Target,
+        label: "对战进阶",
+        description: "需要核对公式或精细参数时再进入。",
+        tools: [
+            {
+                title: "详细参数",
+                description: "查看完整速度线、属性倍率与纸面伤害过程。",
+                to: "/pvp",
+                icon: Target,
+            },
+            {
+                title: "实战属性",
+                description: "计算种族值、个体值与性格修正后的面板。",
+                to: "/stats",
+                icon: Calculator,
+            },
+        ],
     },
     {
-        title: "实战属性",
-        description: "种族值、个体值与性格修正计算。",
-        to: "/stats",
-        icon: Calculator,
+        label: "资料与收集",
+        description: "面向高级筛选、道具查询和收藏进度。",
+        tools: [
+            {
+                title: "高级筛选",
+                description: "组合筛选属性、种族值、蛋组和技能。",
+                to: "/table",
+                icon: TableProperties,
+            },
+            {
+                title: "道具",
+                description: "查询道具分类、品质、来源和关联宠物。",
+                to: "/items",
+                icon: Package,
+            },
+            {
+                title: "图鉴进度",
+                description: "记录已收集宠物与图鉴课题完成情况。",
+                to: "/handbook-progress",
+                icon: ListChecks,
+            },
+        ],
     },
     {
-        title: "配队",
-        description: "围绕技能、性格与定位构建六人阵容。",
-        to: "/team",
-        icon: Swords,
+        label: "培育工具",
+        description: "围绕配种判断、查蛋和蛋组关系连续使用。",
+        tools: [
+            {
+                title: "配种判断",
+                description: "判断蛋组重叠、父母体资格与孵化结果。",
+                to: "/breeding",
+                icon: GitBranch,
+            },
+            {
+                title: "孵蛋 / 查蛋",
+                description: "通过体型、体重和进化链反查候选。",
+                to: "/incubate",
+                icon: Egg,
+            },
+            {
+                title: "蛋组关系",
+                description: "用关系图探索宠物与蛋组连接。",
+                to: "/egggroup",
+                icon: Compass,
+            },
+        ],
     },
     {
-        title: "配种",
-        description: "判断蛋组重叠、父母体资格与孵化结果。",
-        to: "/breeding",
-        icon: GitBranch,
-    },
-    {
-        title: "孵蛋 / 查蛋",
-        description: "通过蛋体型、体重和进化链反查孵化结果。",
-        to: "/incubate",
-        icon: Egg,
-    },
-    {
-        title: "星图",
-        description: "用关系图查看宠物与蛋组的连接结构。",
-        to: "/egggroup",
-        icon: Compass,
-    },
-    {
-        title: "宠物表格",
-        description: "高级筛选宠物属性、种族值、蛋组和技能。",
-        to: "/table",
-        icon: TableProperties,
-    },
-    {
-        title: "道具",
-        description: "查询道具分类、品质、来源和关联宠物。",
-        to: "/items",
-        icon: Package,
-    },
-    {
-        title: "图鉴进度",
-        description: "记录已收集宠物与图鉴课题完成情况。",
-        to: "/handbook-progress",
-        icon: ListChecks,
-    },
-    {
-        title: "数据管理",
-        description: "导出或导入全部配队、图鉴进度和主题设置。",
-        to: "/data-management",
-        icon: Database,
+        label: "系统",
+        description: "备份和迁移本地数据。",
+        tools: [
+            {
+                title: "数据管理",
+                description: "导出或导入全部配队、图鉴进度和主题设置。",
+                to: "/data-management",
+                icon: Database,
+            },
+        ],
     },
 ];
 </script>
@@ -323,31 +347,43 @@ const moreTools: ToolLink[] = [
                 </p>
             </div>
 
-            <div class="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
-                <RouterLink
-                    v-for="tool in moreTools"
-                    :key="tool.to"
-                    :to="tool.to"
-                    class="group rounded-[10px] border border-border bg-background/35 p-3 transition-all hover:border-primary/40 hover:bg-accent"
+            <div class="grid gap-3 xl:grid-cols-2">
+                <section
+                    v-for="group in toolGroups"
+                    :key="group.label"
+                    class="rounded-[10px] border border-border bg-background/25 p-3"
                 >
-                    <div class="flex items-start gap-3">
-                        <div
-                            class="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] border border-border bg-muted text-foreground"
-                        >
-                            <component :is="tool.icon" class="h-4 w-4" />
-                        </div>
-                        <div class="min-w-0 space-y-1">
-                            <h3 class="font-semibold text-foreground">
-                                {{ tool.title }}
-                            </h3>
-                            <p
-                                class="text-sm leading-5 text-muted-foreground"
-                            >
-                                {{ tool.description }}
-                            </p>
-                        </div>
+                    <div class="mb-3">
+                        <h3 class="font-semibold text-foreground">{{ group.label }}</h3>
+                        <p class="mt-1 text-xs leading-5 text-muted-foreground">
+                            {{ group.description }}
+                        </p>
                     </div>
-                </RouterLink>
+                    <div class="grid gap-2 sm:grid-cols-2">
+                        <RouterLink
+                            v-for="tool in group.tools"
+                            :key="tool.to"
+                            :to="tool.to"
+                            class="group rounded-[10px] border border-border bg-card p-3 transition-all hover:border-primary/40 hover:bg-accent"
+                        >
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] border border-border bg-muted text-foreground"
+                                >
+                                    <component :is="tool.icon" class="h-4 w-4" />
+                                </div>
+                                <div class="min-w-0 space-y-1">
+                                    <h4 class="font-semibold text-foreground">
+                                        {{ tool.title }}
+                                    </h4>
+                                    <p class="text-sm leading-5 text-muted-foreground">
+                                        {{ tool.description }}
+                                    </p>
+                                </div>
+                            </div>
+                        </RouterLink>
+                    </div>
+                </section>
             </div>
         </div>
     </section>
