@@ -177,17 +177,8 @@ const BATTLE_PROFILE_LABELS: Record<BattleProfilePreset, string> = {
 
 const BATTLE_QUESTION_SUGGESTIONS = [
     "对方比我快吗？",
-    "对方生命值多少？",
-    "对方速度种族值多少？",
-    "我方攻击种族值多少？",
-    "我方防御多少？",
     "我方使用虫群能打对方多少血？",
-    "我方克制对方吗？",
-    "对方用什么属性打我最疼？",
-    "这个技能是否能一击？",
-    "我应该换哪只精灵联防？",
-    "对方最快配置是多少？",
-    "我的哪个技能伤害最高？",
+    "对方使用超级糖果能打我多少？",
 ];
 
 const pets = ref<IPets[]>([]);
