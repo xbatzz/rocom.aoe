@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {
     ArrowRight,
-    BadgeInfo,
     BookOpen,
     Calculator,
     Compass,
@@ -17,6 +16,7 @@ import {
     Target,
 } from "lucide-vue-next";
 import { RouterLink } from "vue-router";
+import { getActiveTeam, getSavedTeamBuildSlots } from "@/lib/teamStorage";
 
 interface CoreAction {
     title: string;
@@ -38,41 +38,58 @@ interface ToolLink {
 const coreActions: CoreAction[] = [
     {
         title: "属性查询",
-        description: "先看进攻、防守与倍率关系，战斗前快速确认优势面。",
+        description: "查看进攻、防守与克制倍率，快速判断对位优势。",
         to: "/attributes",
-        status: "高频查询",
+        status: "克制速查",
         icon: Shield,
         tone: "border-emerald-300/30 bg-emerald-300/10 text-emerald-100",
         points: ["单属性关系", "进攻/防守", "倍率判断"],
     },
     {
         title: "图鉴",
-        description: "按名称、编号、属性和血脉技能定位宠物，再进入详情页。",
+        description: "按名称、编号、属性和血脉定位宠物，查看完整资料。",
         to: "/encyclopedia",
-        status: "资料核心",
+        status: "宠物资料",
         icon: BookOpen,
         tone: "border-sky-300/30 bg-sky-300/10 text-sky-100",
         points: ["名称编号", "属性筛选", "宠物详情"],
     },
     {
         title: "技能查询",
-        description: "直接查询技能名称、属性、分类、能耗、威力和描述。",
+        description: "查询技能属性、分类、能耗、威力与完整效果描述。",
         to: "/skills",
-        status: "技能入口",
+        status: "技能资料",
         icon: Sparkles,
         tone: "border-amber-300/30 bg-amber-300/10 text-amber-100",
         points: ["名称描述", "属性分类", "能耗威力"],
     },
     {
         title: "对战助手",
-        description: "手机优先，一眼看速度、克制、推荐技能和纸面伤害。",
+        description: "选择双方宠物与技能，查看速度、克制和预计伤害。",
         to: "/pvp-lite",
-        status: "轻量版",
+        status: "伤害估算",
         icon: Target,
         tone: "border-rose-300/30 bg-rose-300/10 text-rose-100",
         points: ["当前队伍", "推荐技能", "联防候选"],
     },
 ];
+
+const activeTeamSummary = ref({
+    name: "默认队伍",
+    petCount: 0,
+});
+
+const teamProgress = computed(() =>
+    `${Math.min(activeTeamSummary.value.petCount, 6) / 6 * 100}%`,
+);
+
+onMounted(() => {
+    const activeTeam = getActiveTeam();
+    activeTeamSummary.value = {
+        name: activeTeam.name || "默认队伍",
+        petCount: getSavedTeamBuildSlots().length,
+    };
+});
 
 const moreTools: ToolLink[] = [
     {
@@ -125,7 +142,7 @@ const moreTools: ToolLink[] = [
     },
     {
         title: "图鉴进度",
-        description: "保留原项目收集进度能力，按需使用。",
+        description: "记录已收集宠物与图鉴课题完成情况。",
         to: "/handbook-progress",
         icon: ListChecks,
     },
@@ -145,52 +162,85 @@ const moreTools: ToolLink[] = [
         >
             <div class="absolute inset-x-0 top-0 h-1 bg-primary" />
 
-            <div class="relative px-4 py-6 md:px-7 md:py-8 xl:px-9">
-                <div class="grid gap-6 xl:grid-cols-[1.05fr_0.95fr] xl:items-end">
-                    <div class="max-w-3xl space-y-4">
+            <div class="relative px-4 py-6 md:px-7 md:py-8 xl:px-9 xl:py-10">
+                <div class="grid gap-6 xl:grid-cols-[1.15fr_0.85fr] xl:items-center">
+                    <div class="max-w-3xl space-y-5">
                         <Badge
                             variant="outline"
-                            class="border-border bg-muted text-foreground"
+                            class="border-primary/25 bg-primary/10 text-primary"
                         >
-                            <BadgeInfo class="h-3.5 w-3.5" />
-                            个人版战斗资料助手
+                            洛克王国世界 · 战斗工具箱
                         </Badge>
 
                         <div class="space-y-3">
                             <h1
                                 class="text-3xl font-semibold leading-tight text-foreground md:text-5xl"
                             >
-                                洛克王国世界战斗资料助手
+                                查询、配队、对战，一站完成
                             </h1>
                             <p
                                 class="max-w-2xl text-sm leading-6 text-muted-foreground md:text-base"
                             >
-                                把属性克制、图鉴与技能查询放到第一屏。PVP
-                                对位工具先保留入口，后续再接入队伍导入与倍率分析。
+                                查克制、找技能、组队伍，或直接计算一场对位伤害。
+                                选择你现在要做的事，即刻开始。
                             </p>
+                        </div>
+
+                        <div class="flex flex-col gap-2 sm:flex-row">
+                            <Button as-child class="rounded-[10px]">
+                                <RouterLink to="/pvp-lite">
+                                    <Target class="mr-2 h-4 w-4" />
+                                    开始对战分析
+                                </RouterLink>
+                            </Button>
+                            <Button as-child variant="outline" class="rounded-[10px] border-border">
+                                <RouterLink to="/team">
+                                    <Swords class="mr-2 h-4 w-4" />
+                                    管理我的队伍
+                                </RouterLink>
+                            </Button>
                         </div>
                     </div>
 
                     <div
-                        class="grid gap-3 rounded-[10px] border border-border bg-background/35 p-3 sm:grid-cols-3"
+                        class="rounded-[14px] border border-border bg-background/45 p-4 shadow-sm md:p-5"
                     >
-                        <div class="space-y-1 rounded-[10px] bg-muted p-3">
-                            <p class="text-xs text-muted-foreground">优先</p>
-                            <p class="text-sm font-semibold text-foreground">
-                                属性 / 图鉴 / 技能
-                            </p>
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="space-y-1">
+                                <p class="text-xs font-medium text-muted-foreground">
+                                    当前配队
+                                </p>
+                                <p class="text-lg font-semibold text-foreground">
+                                    {{ activeTeamSummary.name }}
+                                </p>
+                            </div>
+                            <div class="flex h-10 w-10 items-center justify-center rounded-[10px] bg-primary/10 text-primary">
+                                <Swords class="h-5 w-5" />
+                            </div>
                         </div>
-                        <div class="space-y-1 rounded-[10px] bg-muted p-3">
-                            <p class="text-xs text-muted-foreground">多端</p>
-                            <p class="text-sm font-semibold text-foreground">
-                                PC / iPad / iPhone
-                            </p>
+
+                        <div class="mt-5 space-y-2">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-muted-foreground">阵容进度</span>
+                                <span class="font-semibold text-foreground">
+                                    {{ activeTeamSummary.petCount }} / 6
+                                </span>
+                            </div>
+                            <div class="h-2 overflow-hidden rounded-full bg-muted">
+                                <div
+                                    class="h-full rounded-full bg-primary transition-all"
+                                    :style="{ width: teamProgress }"
+                                />
+                            </div>
                         </div>
-                        <div class="space-y-1 rounded-[10px] bg-muted p-3">
-                            <p class="text-xs text-muted-foreground">后续</p>
-                            <p class="text-sm font-semibold text-foreground">
-                                PVP 对位分析
-                            </p>
+
+                        <div class="mt-5 grid grid-cols-2 gap-2">
+                            <Button as-child variant="secondary" class="rounded-[10px]">
+                                <RouterLink to="/team">继续编辑</RouterLink>
+                            </Button>
+                            <Button as-child variant="ghost" class="rounded-[10px]">
+                                <RouterLink to="/data-management">备份数据</RouterLink>
+                            </Button>
                         </div>
                     </div>
                 </div>
@@ -244,7 +294,7 @@ const moreTools: ToolLink[] = [
 
                 <div class="mt-6 flex items-center justify-between text-sm">
                     <span class="font-medium text-foreground">
-                        {{ action.to ? "进入查询" : "规划中" }}
+                        开始使用
                     </span>
                     <ArrowRight
                         v-if="action.to"
@@ -262,14 +312,14 @@ const moreTools: ToolLink[] = [
             >
                 <div>
                     <p class="text-sm font-medium text-muted-foreground">
-                        更多工具
+                        全部工具
                     </p>
                     <h2 class="text-2xl font-semibold text-foreground">
-                        保留原项目能力，按需进入
+                        按你的使用场景继续
                     </h2>
                 </div>
                 <p class="max-w-xl text-sm leading-6 text-muted-foreground">
-                    这些入口不会从项目中移除，只是不再占据首页第一优先级。
+                    配队构筑、详细计算、孵蛋查询和进度管理，都可以从这里快速进入。
                 </p>
             </div>
 
