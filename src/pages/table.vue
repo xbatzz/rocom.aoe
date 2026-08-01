@@ -20,6 +20,7 @@ import PetFilterResultCard from "@/features/table/PetFilterResultCard.vue";
 import { Table as UiTable } from "@/components/ui/table";
 import { formatEggGroup } from "@/lib/eggGroups";
 import type {
+    IPetBloodlineIndexEntry,
     IPetSkillCatalogEntry,
     IPetSkillIndexEntry,
     IPetSkillIndexPayload,
@@ -54,7 +55,7 @@ type SortKey =
     | "magDef"
     | "speed";
 type SortDirection = "asc" | "desc";
-type SkillSourceFilter = "all" | "pool" | "stone";
+type SkillSourceFilter = "all" | "pool" | "stone" | "legacy";
 
 interface StatColumn {
     key:
@@ -167,6 +168,7 @@ const skillSourceOptions = [
     { label: "全部技能", value: "all" },
     { label: "自有技能", value: "pool" },
     { label: "学习技能", value: "stone" },
+    { label: "遗传技能", value: "legacy" },
 ] as const satisfies ReadonlyArray<{
     label: string;
     value: SkillSourceFilter;
@@ -192,6 +194,7 @@ const router = useRouter();
 const pets = ref<IPets[]>([]);
 const petSkillIndexEntries = ref<IPetSkillIndexEntry[]>([]);
 const petSkillCatalogEntries = ref<IPetSkillCatalogEntry[]>([]);
+const petBloodlineIndexEntries = ref<IPetBloodlineIndexEntry[]>([]);
 const isLoading = ref(false);
 const errorMessage = ref("");
 const skillPickerOpen = ref(false);
@@ -360,8 +363,31 @@ const petSkillIndexMap = computed(() => {
     );
 });
 
+const petBloodlineIndexMap = computed(() => {
+    return new Map(
+        petBloodlineIndexEntries.value.map((entry) => [entry.pet_id, entry]),
+    );
+});
+
 const availableSkillOptions = computed<SkillOption[]>(() => {
-    return petSkillCatalogEntries.value
+    const catalogById = new Map(
+        petSkillCatalogEntries.value.map((skill) => [skill.id, skill]),
+    );
+
+    for (const entry of petBloodlineIndexEntries.value) {
+        for (const move of entry.bloodline_moves) {
+            if (!catalogById.has(move.move_id)) {
+                catalogById.set(move.move_id, {
+                    id: move.move_id,
+                    name: move.move_name,
+                    type_label: move.type_label,
+                    move_category: move.move_category,
+                });
+            }
+        }
+    }
+
+    return [...catalogById.values()]
         .map((skill) => ({
             id: skill.id,
             label: skill.name,
@@ -445,8 +471,10 @@ const filteredPets = computed(() => {
             tableState.implementation,
         );
         const skillEntry = petSkillIndexMap.value.get(pet.id);
+        const bloodlineEntry = petBloodlineIndexMap.value.get(pet.id);
         const matchesSkill = matchesSkillFilter(
             skillEntry,
+            bloodlineEntry,
             tableState.skillId,
             tableState.skillSource,
         );
@@ -960,6 +988,7 @@ function buildSkillSearchText(move: {
 
 function matchesSkillFilter(
     skillEntry: IPetSkillIndexEntry | undefined,
+    bloodlineEntry: IPetBloodlineIndexEntry | undefined,
     skillId: string,
     skillSource: SkillSourceFilter,
 ) {
@@ -975,6 +1004,8 @@ function matchesSkillFilter(
 
     const movePoolIds = skillEntry?.move_pool_ids ?? [];
     const moveStoneIds = skillEntry?.move_stone_ids ?? [];
+    const legacyMoveIds =
+        bloodlineEntry?.bloodline_moves.map((move) => move.move_id) ?? [];
 
     if (skillSource === "pool") {
         return movePoolIds.includes(targetSkillId);
@@ -984,9 +1015,14 @@ function matchesSkillFilter(
         return moveStoneIds.includes(targetSkillId);
     }
 
+    if (skillSource === "legacy") {
+        return legacyMoveIds.includes(targetSkillId);
+    }
+
     return (
         movePoolIds.includes(targetSkillId) ||
-        moveStoneIds.includes(targetSkillId)
+        moveStoneIds.includes(targetSkillId) ||
+        legacyMoveIds.includes(targetSkillId)
     );
 }
 
@@ -1010,14 +1046,18 @@ async function getTableData() {
     errorMessage.value = "";
 
     try {
-        const [petsResponse, petSkillIndexResponse] = await Promise.all([
-            fetch("/data/Pets.json", {
-                signal: controller.signal,
-            }),
-            fetch("/data/PetSkillIndex.json", {
-                signal: controller.signal,
-            }),
-        ]);
+        const [petsResponse, petSkillIndexResponse, bloodlineIndexResponse] =
+            await Promise.all([
+                fetch("/data/Pets.json", {
+                    signal: controller.signal,
+                }),
+                fetch("/data/PetSkillIndex.json", {
+                    signal: controller.signal,
+                }),
+                fetch("/data/bloodline_index.json", {
+                    signal: controller.signal,
+                }),
+            ]);
 
         if (!petsResponse.ok) {
             throw new Error(`Pets.json 请求失败: ${petsResponse.status}`);
@@ -1029,10 +1069,18 @@ async function getTableData() {
             );
         }
 
-        const [petsPayload, petSkillIndexPayload] = await Promise.all([
-            petsResponse.json(),
-            petSkillIndexResponse.json(),
-        ]);
+        if (!bloodlineIndexResponse.ok) {
+            throw new Error(
+                `bloodline_index.json 请求失败: ${bloodlineIndexResponse.status}`,
+            );
+        }
+
+        const [petsPayload, petSkillIndexPayload, bloodlineIndexPayload] =
+            await Promise.all([
+                petsResponse.json(),
+                petSkillIndexResponse.json(),
+                bloodlineIndexResponse.json(),
+            ]);
 
         pets.value = petsPayload;
         petSkillIndexEntries.value = (
@@ -1041,6 +1089,8 @@ async function getTableData() {
         petSkillCatalogEntries.value = (
             petSkillIndexPayload as IPetSkillIndexPayload
         ).skills;
+        petBloodlineIndexEntries.value =
+            bloodlineIndexPayload as IPetBloodlineIndexEntry[];
     } catch (error) {
         if (error instanceof DOMException && error.name === "AbortError") {
             return;
@@ -1050,6 +1100,7 @@ async function getTableData() {
         pets.value = [];
         petSkillIndexEntries.value = [];
         petSkillCatalogEntries.value = [];
+        petBloodlineIndexEntries.value = [];
     } finally {
         isLoading.value = false;
     }
