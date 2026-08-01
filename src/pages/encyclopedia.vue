@@ -35,6 +35,7 @@ type SortKey = "id" | "power" | "speed" | "name";
 interface EncyclopediaState {
     keyword: string;
     type: string;
+    type2: string;
     style: string;
     special: string;
     implementation: PetImplementationFilter;
@@ -54,6 +55,7 @@ const SORT_KEY_OPTIONS: SortKey[] = ["id", "power", "speed", "name"];
 const DEFAULT_STATE: EncyclopediaState = {
     keyword: "",
     type: "all",
+    type2: "all",
     style: "all",
     special: "all",
     implementation: "implemented",
@@ -120,6 +122,16 @@ const selectedType = computed({
     set: (value: string) => {
         applyStatePatch({
             type: value,
+            currentPage: 1,
+        });
+    },
+});
+
+const selectedSecondType = computed({
+    get: () => encyclopediaState.type2,
+    set: (value: string) => {
+        applyStatePatch({
+            type2: value,
             currentPage: 1,
         });
     },
@@ -257,10 +269,13 @@ const filteredPets = computed(() => {
             (!isHandbookNumberQuery(keyword) &&
                 bloodlineMatchMap.value.has(pet.id));
 
-        const matchesType =
+        const petTypeIds = [pet.main_type.id, pet.sub_type?.id];
+        const matchesFirstType =
             encyclopediaState.type === "all" ||
-            pet.main_type.id === Number(encyclopediaState.type) ||
-            pet.sub_type?.id === Number(encyclopediaState.type);
+            petTypeIds.includes(Number(encyclopediaState.type));
+        const matchesSecondType =
+            encyclopediaState.type2 === "all" ||
+            petTypeIds.includes(Number(encyclopediaState.type2));
 
         const matchesAttackStyle =
             encyclopediaState.style === "all" ||
@@ -285,7 +300,8 @@ const filteredPets = computed(() => {
 
         return (
             matchesKeyword &&
-            matchesType &&
+            matchesFirstType &&
+            matchesSecondType &&
             matchesAttackStyle &&
             matchesSpecial &&
             matchesImplementation
@@ -647,6 +663,7 @@ function parseRouteQuery(query: LocationQuery): EncyclopediaState {
     return {
         keyword: getQueryValue(query.q).trim(),
         type: getQueryValue(query.type) || DEFAULT_STATE.type,
+        type2: getQueryValue(query.type2) || DEFAULT_STATE.type2,
         style: getQueryValue(query.style) || DEFAULT_STATE.style,
         special: getQueryValue(query.special) || DEFAULT_STATE.special,
         implementation:
@@ -670,6 +687,10 @@ function buildRouteQuery(state: EncyclopediaState): LocationQueryRaw {
 
     if (state.type !== DEFAULT_STATE.type) {
         query.type = state.type;
+    }
+
+    if (state.type2 !== DEFAULT_STATE.type2) {
+        query.type2 = state.type2;
     }
 
     if (state.style !== DEFAULT_STATE.style) {
@@ -838,7 +859,7 @@ document.title = "图鉴 - 洛克王国工具箱";
 
                     <div
                         :class="[
-                            'grid-cols-2 gap-2 xl:grid xl:grid-cols-5 xl:gap-3',
+                            'grid-cols-2 gap-2 xl:grid xl:grid-cols-6 xl:gap-3',
                             filtersExpanded ? 'grid' : 'hidden',
                         ]"
                     >
@@ -847,12 +868,32 @@ document.title = "图鉴 - 洛克王国工具箱";
                         <SelectTrigger
                             class="h-10 w-full rounded-[10px] border-border bg-card text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
                         >
-                            <SelectValue placeholder="全部属性" />
+                            <SelectValue placeholder="属性一（不限）" />
                         </SelectTrigger>
                         <SelectContent
                             class="border-border bg-slate-950/95 text-foreground"
                         >
-                            <SelectItem value="all">全部属性</SelectItem>
+                            <SelectItem value="all">属性一（不限）</SelectItem>
+                            <SelectItem
+                                v-for="option in typeOptions"
+                                :key="option.value"
+                                :value="option.value"
+                            >
+                                {{ option.label }}
+                            </SelectItem>
+                        </SelectContent>
+                    </Select>
+
+                    <Select v-model="selectedSecondType">
+                        <SelectTrigger
+                            class="h-10 w-full rounded-[10px] border-border bg-card text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
+                        >
+                            <SelectValue placeholder="属性二（不限）" />
+                        </SelectTrigger>
+                        <SelectContent
+                            class="border-border bg-slate-950/95 text-foreground"
+                        >
+                            <SelectItem value="all">属性二（不限）</SelectItem>
                             <SelectItem
                                 v-for="option in typeOptions"
                                 :key="option.value"
