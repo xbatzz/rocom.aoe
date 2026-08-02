@@ -1,4 +1,4 @@
-const CACHE_VERSION = "rocom-pwa-v2";
+const CACHE_VERSION = "rocom-pwa-v3";
 const APP_SHELL_CACHE = `${CACHE_VERSION}-app-shell`;
 const CORE_DATA_CACHE = `${CACHE_VERSION}-core-data`;
 const PET_DETAIL_CACHE = `${CACHE_VERSION}-pet-details`;

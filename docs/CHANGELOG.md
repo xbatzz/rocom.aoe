@@ -3,6 +3,7 @@
 ## 2026-08-02
 
 - 修复 `/skills` 中 `#7000341` 及后续新技能缺少描述、能耗、威力和图标的问题；`PetSkillIndex.json.skills` 现由 `SKILL_CONF` 同步生成完整技能详情，`moves.json` 继续作为旧技能整理信息与同名合并来源。
+- 修正 FModel 技能图标导入路径：严格按 `SKILL_CONF.icon` 从 `BattleUI/Raw/Atlas/SkillIcon` 导入正方形素材，不再误用 `Common/Icon/SkillBase` 的 `512×256` 横向插画；新增正方形校验和 `--overwrite-skills` 定向覆盖参数，并升级 PWA 图片缓存版本以淘汰旧横图。
 
 ## 2026-08-01
 

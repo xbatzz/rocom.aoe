@@ -292,17 +292,25 @@ public/assets/webp/friends/JL_xxx.webp
 public/assets/webp/items/{icon_id}.webp
 ```
 
-FModel 的 `SkillBase` 文件名通常是：
+必须以 `SKILL_CONF.icon` 的实际资源引用为准。普通战斗技能通常指向：
 
 ```text
-101065_png.png
+/Game/NewRoco/Modules/System/BattleUI/Raw/Atlas/SkillIcon/101065
 ```
 
-应转换为：
+FModel 应导出到：
+
+```text
+NRC/Content/NewRoco/Modules/System/BattleUI/Raw/Atlas/SkillIcon/101065.png
+```
+
+再转换为：
 
 ```text
 101065.webp
 ```
+
+`Common/Icon/SkillBase/*_png.png` 是战斗界面使用的 `512×256` 横向技能插画，不是技能列表所需的正方形图标，禁止用它补齐 `SkillIcon`。正确的 `SkillIcon` 原图通常为 `128×128`；导入脚本会拒绝非正方形源图，避免横图被静默写入 `public/assets/webp/items/`。
 
 ### 7.3 特性图片
 
@@ -328,7 +336,7 @@ public/assets/webp/items/{icon_id}.webp
 
 ### 7.4 自动导入
 
-把 `Pet1024/`、`SkillBase/` 和 `FeatureIcon/` 放到本文约定的 `NRC` 路径后运行：
+把 `Pet1024/`、`SkillIcon/` 和 `FeatureIcon/` 放到本文约定的 `NRC` 路径后运行：
 
 ```bash
 yarn import:fmodel-icons
@@ -338,10 +346,11 @@ yarn import:fmodel-icons
 
 - 从当前 `PETBASE_CONF` 和 `SKILL_CONF` 收集实际引用。
 - 保留精灵形态后缀。
-- 去掉技能图的 `_png` 导出后缀。
-- 按 `SKILL_CONF.icon` 的资源路径区分战斗技能和特性图标。
+- 按 `SKILL_CONF.icon` 的完整 `/Game/...` 路径定位 FModel 导出文件，不再将技能引用映射到 `SkillBase`。
+- 按资源路径区分战斗技能和特性图标，并在同一资源键指向不同路径时直接报错。
+- 校验所有待转换图标均为正方形，拒绝 `512×256` 等横向插画。
 - 转换为带透明通道的 WebP。
-- 默认只补缺失文件，不覆盖现有图片。
+- 默认跳过已有的正方形图片；若已有 WebP 不是正方形，会自动从正确源路径重新生成。
 - 汇报仍然缺少的源文件。
 
 确实需要重新压缩全部现有图片时才使用：
@@ -349,6 +358,14 @@ yarn import:fmodel-icons
 ```bash
 yarn import:fmodel-icons --overwrite
 ```
+
+只需要用重新导出的方形素材覆盖战斗技能图标时使用：
+
+```bash
+yarn import:fmodel-icons --overwrite-skills
+```
+
+该参数不会覆盖宠物头像或特性图标，适合每赛季补齐和纠正 `SkillIcon`。
 
 ## 8. 验收清单
 
@@ -368,8 +385,9 @@ yarn build
 3. 升级技能、技能石与技能描述不为空。
 4. 普通、异色、首领和地区形态读取各自图片。
 5. 技能页的新技能图标不显示文字占位。
-6. 道具页仍有正常数量和中文名称。
-7. `git status` 中不出现 `NRC/`。
+6. 抽查新技能的源 PNG 与目标 WebP 均为 1:1；如果脚本报告“图标源图必须为正方形”，应检查是否误导出了 `SkillBase` 横向插画。
+7. 道具页仍有正常数量和中文名称。
+8. `git status` 中不出现 `NRC/`。
 
 如果低文件句柄环境运行 Vite 时出现：
 

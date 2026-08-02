@@ -29,6 +29,7 @@
 - `public/data/bloodline_index.json`：图鉴列表用于血脉技能关键词命中。
 - `public/data/handbook-topic-skill-names.json`：图鉴任务文本中技能 ID 到技能名的映射。
 - `public/assets/webp/items/{icon_id}.webp`：`SkillIcon.vue` 使用的技能/特性图标资源。
+- 技能方形图标的 FModel 来源必须与 `SKILL_CONF.icon` 一致，通常为 `BattleUI/Raw/Atlas/SkillIcon/{icon_id}.png`；`Common/Icon/SkillBase` 是横向技能插画，不可作为图标来源。
 
 ## 当前技能搜索/筛选能力
 

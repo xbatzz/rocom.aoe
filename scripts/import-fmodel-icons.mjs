@@ -6,10 +6,9 @@ import sharp from "sharp";
 
 const currentFilePath = fileURLToPath(import.meta.url);
 const rootDir = path.resolve(path.dirname(currentFilePath), "..");
+const fmodelContentDir = path.join(rootDir, "NRC", "Content");
 const fmodelIconDir = path.join(
-    rootDir,
-    "NRC",
-    "Content",
+    fmodelContentDir,
     "NewRoco",
     "Modules",
     "System",
@@ -17,23 +16,11 @@ const fmodelIconDir = path.join(
     "Icon",
 );
 const petSourceDir = path.join(fmodelIconDir, "Pet1024");
-const skillSourceDir = path.join(fmodelIconDir, "SkillBase");
-const featureSourceDir = path.join(
-    rootDir,
-    "NRC",
-    "Content",
-    "NewRoco",
-    "Modules",
-    "System",
-    "BattleUI",
-    "Raw",
-    "Atlas",
-    "FeatureIcon",
-);
 const petOutputDir = path.join(rootDir, "public", "assets", "webp", "friends");
 const skillOutputDir = path.join(rootDir, "public", "assets", "webp", "items");
 const binDataDir = path.join(rootDir, "public", "data", "BinData");
-const overwrite = process.argv.includes("--overwrite");
+const overwriteAll = process.argv.includes("--overwrite");
+const overwriteSkills = process.argv.includes("--overwrite-skills");
 
 async function main() {
     const [petTable, skillTable] = await Promise.all([
@@ -56,15 +43,15 @@ async function main() {
         }
     }
 
-    const skillKeys = new Set();
-    const featureKeys = new Set();
+    const skillReferences = new Map();
+    const featureReferences = new Map();
     for (const row of getRows(skillTable)) {
-        const key = extractTextureKey(row?.icon);
-        if (key) {
+        const reference = extractTextureReference(row?.icon);
+        if (reference) {
             if (row.icon.includes("/FeatureIcon/")) {
-                featureKeys.add(key);
+                registerTextureReference(featureReferences, reference);
             } else {
-                skillKeys.add(key);
+                registerTextureReference(skillReferences, reference);
             }
         }
     }
@@ -73,23 +60,23 @@ async function main() {
         importReferencedIcons({
             label: "精灵",
             keys: petKeys,
-            sourceDir: petSourceDir,
             outputDir: petOutputDir,
-            sourceName: (key) => `${key}.png`,
+            resolveSourcePath: (key) => path.join(petSourceDir, `${key}.png`),
+            overwriteExisting: overwriteAll,
         }),
         importReferencedIcons({
             label: "战斗技能",
-            keys: skillKeys,
-            sourceDir: skillSourceDir,
+            keys: new Set(skillReferences.keys()),
             outputDir: skillOutputDir,
-            sourceName: (key) => `${key}_png.png`,
+            resolveSourcePath: (key) => skillReferences.get(key),
+            overwriteExisting: overwriteAll || overwriteSkills,
         }),
         importReferencedIcons({
             label: "特性",
-            keys: featureKeys,
-            sourceDir: featureSourceDir,
+            keys: new Set(featureReferences.keys()),
             outputDir: skillOutputDir,
-            sourceName: (key) => `${key}.png`,
+            resolveSourcePath: (key) => featureReferences.get(key),
+            overwriteExisting: overwriteAll,
         }),
     ]);
 
@@ -105,9 +92,9 @@ async function main() {
 async function importReferencedIcons({
     label,
     keys,
-    sourceDir,
     outputDir,
-    sourceName,
+    resolveSourcePath,
+    overwriteExisting,
 }) {
     await fs.mkdir(outputDir, { recursive: true });
 
@@ -117,12 +104,17 @@ async function importReferencedIcons({
     const missing = [];
 
     for (const key of [...keys].sort()) {
-        const sourcePath = path.join(sourceDir, sourceName(key));
+        const sourcePath = resolveSourcePath(key);
         const outputPath = path.join(outputDir, `${key}.webp`);
+        const outputExists = await exists(outputPath);
 
-        if (!overwrite && (await exists(outputPath))) {
-            skipped += 1;
-            continue;
+        if (!overwriteExisting && outputExists) {
+            if (await isSquareImage(outputPath)) {
+                skipped += 1;
+                continue;
+            }
+
+            console.log(`${label}图标比例异常，将重新生成：${outputPath}`);
         }
 
         if (!(await exists(sourcePath))) {
@@ -131,7 +123,20 @@ async function importReferencedIcons({
         }
 
         try {
-            await sharp(sourcePath)
+            const sourceImage = sharp(sourcePath);
+            const metadata = await sourceImage.metadata();
+
+            if (
+                !metadata.width ||
+                !metadata.height ||
+                metadata.width !== metadata.height
+            ) {
+                throw new Error(
+                    `图标源图必须为正方形，实际为 ${metadata.width ?? "?"}x${metadata.height ?? "?"}`,
+                );
+            }
+
+            await sourceImage
                 .webp({
                     quality: 85,
                     alphaQuality: 100,
@@ -186,10 +191,58 @@ function extractTextureKey(value) {
     return match?.[1] ?? null;
 }
 
+function extractTextureReference(value) {
+    if (typeof value !== "string") {
+        return null;
+    }
+
+    const match = value.match(
+        /\/Game\/(?<directory>.+)\/(?<key>[^/.'"]+)\.\k<key>(?:'|")?$/,
+    );
+
+    if (!match?.groups) {
+        return null;
+    }
+
+    return {
+        key: match.groups.key,
+        sourcePath: path.join(
+            fmodelContentDir,
+            ...match.groups.directory.split("/"),
+            `${match.groups.key}.png`,
+        ),
+    };
+}
+
+function registerTextureReference(references, reference) {
+    const existing = references.get(reference.key);
+
+    if (existing && existing !== reference.sourcePath) {
+        throw new Error(
+            `图标资源键 ${reference.key} 同时指向 ${existing} 和 ${reference.sourcePath}`,
+        );
+    }
+
+    references.set(reference.key, reference.sourcePath);
+}
+
 async function exists(filePath) {
     try {
         await fs.access(filePath);
         return true;
+    } catch {
+        return false;
+    }
+}
+
+async function isSquareImage(filePath) {
+    try {
+        const metadata = await sharp(filePath).metadata();
+        return Boolean(
+            metadata.width &&
+                metadata.height &&
+                metadata.width === metadata.height,
+        );
     } catch {
         return false;
     }
