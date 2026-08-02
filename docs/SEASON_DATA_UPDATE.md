@@ -42,12 +42,11 @@ NRC/Content/ScriptC/Data/Bin/BinLocalize/dev_CN/
 
 ```text
 NRC/Content/NewRoco/Modules/System/Common/Icon/Pet1024/
-NRC/Content/NewRoco/Modules/System/Common/Icon/SkillBase/
+NRC/Content/NewRoco/Modules/System/BattleUI/Raw/Atlas/SkillIcon/
 NRC/Content/NewRoco/Modules/System/BattleUI/Raw/Atlas/FeatureIcon/
 ```
 
-FModel 可能把技能图片导出成 `101065_png.png`。图片导入脚本会把它规范化为 `101065.webp`。
-特性图片通常直接导出成 `200308.png`，脚本会把它转换为 `200308.webp`。
+FModel 应保留资源原始目录，例如技能图片导出为 `SkillIcon/101065.png`，特性图片导出为 `FeatureIcon/200308.png`。导入脚本会按 `SKILL_CONF.icon` 的完整路径找到它们，再转换为同名 WebP。
 
 Lua 的 `unluac` 设置只影响 Lua 反编译，不参与宠物、技能和图片导出。
 
