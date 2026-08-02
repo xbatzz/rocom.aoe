@@ -85,11 +85,16 @@ export function normalizeMove(
     const name = move?.name ?? catalog?.name ?? "";
     const zhName = move?.localized.zh.name ?? catalog?.name ?? name;
     const description =
-        move?.localized.zh.description || move?.description || "";
+        move?.localized.zh.description ||
+        move?.description ||
+        catalog?.description ||
+        "";
     const typeLabel =
         move?.move_type !== undefined
             ? getMoveTypeLabel(move.move_type)
             : catalog?.type_label ?? "无固定属性";
+    const typeId = move?.move_type?.id ?? catalog?.type_id ?? null;
+    const typeName = move?.move_type?.name ?? catalog?.type_name ?? null;
     const category = move?.move_category ?? catalog?.move_category ?? "";
     const categoryLabel = getSkillCategoryLabel(category);
 
@@ -98,14 +103,14 @@ export function normalizeMove(
         name,
         zhName,
         description,
-        typeId: move?.move_type?.id ?? null,
-        typeName: move?.move_type?.name ?? null,
+        typeId,
+        typeName,
         typeLabel,
         category,
         categoryLabel,
-        energyCost: move?.energy_cost ?? null,
-        power: move?.power ?? null,
-        iconId: move?.icon_id ?? iconId ?? null,
+        energyCost: move?.energy_cost ?? catalog?.energy_cost ?? null,
+        power: move?.power ?? catalog?.power ?? null,
+        iconId: move?.icon_id ?? catalog?.icon_id ?? iconId ?? null,
         learnedPetCount: learnedPetIds.length,
         learnedPetIds,
         sourceInfo: normalizedSourceInfo,
@@ -115,7 +120,7 @@ export function normalizeMove(
             zhName,
             description,
             typeLabel,
-            typeName: move?.move_type?.name ?? "",
+            typeName: typeName ?? "",
             category,
             categoryLabel,
             aliasIds,
@@ -166,7 +171,9 @@ export function getSkillIdsForIconLookup(
     petSkillIndex?: IPetSkillIndexPayload | null,
 ): string[] {
     const catalogIds =
-        petSkillIndex?.skills.map((skill) => normalizeSkillId(skill.id)) ?? [];
+        petSkillIndex?.skills
+            .filter((skill) => !skill.icon_id)
+            .map((skill) => normalizeSkillId(skill.id)) ?? [];
     const moveIdsWithoutIcon = moves
         .filter((move) => !move.icon_id)
         .map((move) => normalizeSkillId(move.id));
@@ -409,6 +416,8 @@ function buildMergedSkillSearchItem(
     }
 
     const iconId =
+        group.primaryMove?.icon_id ??
+        group.primaryCatalog?.icon_id ??
         getIconForSkill(source.id, getSourceZhName(source), iconMap) ??
         group.ids
             .map((id) => getIconForSkill(id, group.key, iconMap))

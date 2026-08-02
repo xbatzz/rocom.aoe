@@ -15,7 +15,7 @@
 | `public/data/tables/*.json` | 从 `BinData` 镜像出来的公开表 | 高 |
 | `public/data/pets/*.json` | 每只宠物详情，由同步脚本生成 | 极高 |
 | `public/data/Pets.json` | 宠物列表索引，由同步脚本生成 | 极高 |
-| `public/data/PetSkillIndex.json` | 宠物技能筛选索引，由同步脚本生成 | 极高 |
+| `public/data/PetSkillIndex.json` | 宠物技能筛选索引和完整技能目录，由同步脚本从 `LEVEL_SKILL_CONF` / `SKILL_CONF` 生成 | 极高 |
 | `public/data/bloodline_index.json` | 血脉技能索引，由同步脚本生成 | 极高 |
 | `public/data/items.json` | 道具索引，由同步脚本生成 | 极高 |
 | `public/data/handbook-rewards.json` | 图鉴任务奖励索引，由同步脚本生成 | 极高 |

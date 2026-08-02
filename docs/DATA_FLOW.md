@@ -53,7 +53,7 @@
 | 文件 | 作用 | 读取页面/模块 |
 | --- | --- | --- |
 | `public/data/Pets.json` | 宠物列表索引，含基础属性、种族值、实现状态、繁育概要等 | 图鉴 `src/pages/encyclopedia.vue`、宠物表 `src/pages/table.vue`、蛋组 `src/pages/egggroup.vue`、孵化 `src/pages/incubate.vue`、繁育 `src/pages/breeding.vue`、配队 `src/pages/team.vue`、宠物详情 `src/pages/pets/[id].vue`、图鉴进度目录 `src/lib/handbookProgress/catalog.ts` |
-| `public/data/PetSkillIndex.json` | 宠物技能筛选索引和技能目录 | 宠物表 `src/pages/table.vue` |
+| `public/data/PetSkillIndex.json` | 宠物技能筛选索引和完整技能目录；技能目录由 `SKILL_CONF` 生成图标、属性、分类、描述、能耗和威力 | 技能页 `src/pages/skills.vue`、高级筛选 `src/pages/table.vue`、PVP 页面 |
 | `public/data/bloodline_index.json` | 每只宠物的血脉技能摘要索引 | 图鉴 `src/pages/encyclopedia.vue` |
 | `public/data/breeding.json` | 旧繁育数据/说明型数据 | 当前源码中没有直接 `fetch` |
 | `public/data/game_terms.json` | 游戏术语 | 当前源码中没有直接 `fetch` |
@@ -208,3 +208,4 @@ public/data/pets/{petId}.json
   - `public/data/tables/*.json` 中已有且在 `BinData/` 有同名来源的文件
 - 手工维护个人数据时，应放在新目录或浏览器存储中，避免放入任何会被脚本覆盖的生成文件。
 - 如果要更新游戏数据，优先更新 `public/data/BinData/`，再运行 `yarn sync:pet-data` 生成前端消费层。
+- `moves.json` 是静态整理数据，不保证覆盖最新游戏技能；全量新技能详情以同步脚本从 `SKILL_CONF` 生成的 `PetSkillIndex.json.skills` 为准。

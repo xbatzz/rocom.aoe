@@ -95,6 +95,12 @@ export interface IPetSkillCatalogEntry {
     name: string;
     type_label: string;
     move_category: string;
+    icon_id?: string | null;
+    type_id?: number | null;
+    type_name?: string | null;
+    description?: string;
+    energy_cost?: number | null;
+    power?: number | null;
 }
 
 export interface IPetSkillIndexPayload {

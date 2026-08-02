@@ -19,7 +19,7 @@
 | 查蛋 | 当前无独立路由；能力集中在 `/incubate` | `src/pages/incubate.vue` | `Pets.json` 中的 `breeding`、`evolves_from_id`、身高体重与孵化数据 | 否，建议并入孵蛋/更多工具 | 是 | 低 |
 | 孵蛋 | `/incubate` | `src/pages/incubate.vue`、`src/components/FriendPortrait.vue`、`src/lib/petImplementation.ts` | `Pets.json` | 否，除非个人高频使用 | 是 | 中 |
 | 星图 | `/egggroup` | `src/pages/egggroup.vue`、`src/lib/eggGroups.ts`、`src/lib/petHandbook.ts` | `Pets.json`，ECharts 图布局 | 否 | 是 | 中 |
-| 表格 | `/table` | `src/pages/table.vue`、`src/components/FriendPortrait.vue`、`src/lib/petHandbook.ts`、`src/lib/petImplementation.ts`、`src/lib/eggGroups.ts` | `Pets.json`、`PetSkillIndex.json` | 否，偏高级筛选 | 是 | 高 |
+| 表格 | `/table` | `src/pages/table.vue`、`src/components/FriendPortrait.vue`、`src/lib/petHandbook.ts`、`src/lib/petImplementation.ts`、`src/lib/eggGroups.ts` | `Pets.json`、`PetSkillIndex.json`、`bloodline_index.json` | 否，偏高级筛选 | 是 | 高 |
 | 图鉴进度 | `/handbook-progress` | `src/pages/handbook-progress.vue`、`src/lib/handbookProgress/*` | `tables/PET_HANDBOOK.json`、`Pets.json`、`handbook-rewards.json`、`handbook-topic-skill-names.json`、`localStorage: rocom_handbook_progress` | 否，个人路线图暂不以打卡/进度为核心 | 是 | 中 |
 | 数据管理 | `/data-management` | `src/pages/data-management.vue`、`src/lib/userDataBackup.ts`、`src/lib/teamStorage.ts`、`src/lib/handbookProgress/*` | `localStorage: rocom.team-builder.v2`、`rocom_handbook_progress`、`rocom.theme.v1` | 否，作为跨设备迁移入口 | 是 | 中 |
 | 道具 | `/items` | `src/pages/items.vue` | `items.json`、`public/assets/webp/items/` | 否 | 是 | 低 |
@@ -34,11 +34,11 @@
 
 项目当前已有第一版独立 `/skills` 页面，用于查询技能本身信息。其他技能相关能力仍分布在：
 
-- `/table`：通过 `PetSkillIndex.json` 做技能来源筛选，支持自有技能、学习技能和技能列表搜索。
+- `/table`：通过 `PetSkillIndex.json` 和 `bloodline_index.json` 做技能来源筛选，支持自有技能、学习技能、遗传技能和技能列表搜索。
 - `/pets/:id`：展示单个宠物的自有技能、学习技能、遗传技能、技能覆盖属性和高威力技能。
 - `/team`：选择队伍宠物技能，并基于技能类别、覆盖和描述识别定位。
 
-`/skills` 第一版只读取并展示技能本身，不展示拥有该技能的宠物完整列表，避免把技能池、技能石和血脉技能来源混在一起造成误导。当前已新增 `src/features/skills/skillAdapter.ts` 作为独立技能查询页的数据适配层，可将 `moves.json` 与 `PetSkillIndex.json` 整理为可搜索、可筛选的技能结果。
+`/skills` 第一版只读取并展示技能本身，不展示拥有该技能的宠物完整列表，避免把技能池、技能石和血脉技能来源混在一起造成误导。`src/features/skills/skillAdapter.ts` 会合并静态整理的 `moves.json` 与由 `SKILL_CONF` 生成的完整 `PetSkillIndex.json.skills`；旧技能可沿用整理信息，新技能可直接展示解包后的描述、能耗、威力和图标。
 
 ## PVP 对位助手现状
 
@@ -76,7 +76,7 @@
 - `public/data/pets/{id}.json`：宠物详情和配队按需加载的详情。
 - `public/data/types.json`：属性基础数据。
 - `public/data/moves.json`：技能列表。
-- `public/data/PetSkillIndex.json`：技能筛选索引。
+- `public/data/PetSkillIndex.json`：技能筛选索引及从 `SKILL_CONF` 生成的完整技能目录。
 - `public/data/items.json`：道具列表。
 - `public/data/tables/*.json`：从 `BinData` 镜像出的部分原始表。
 - `public/data/BinData/*.json`：上游/游戏包原始 JSON 表。

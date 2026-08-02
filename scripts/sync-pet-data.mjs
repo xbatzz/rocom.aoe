@@ -1107,9 +1107,16 @@ function registerPetSkillCatalog(moves, catalogById) {
         catalogById.set(move.id, {
             id: move.id,
             name: move.localized?.zh?.name ?? move.name ?? `技能 ${move.id}`,
+            icon_id: move.icon_id ?? null,
+            type_id: move.move_type?.id ?? UNKNOWN_TYPE_ID,
+            type_name: move.move_type?.name ?? UNKNOWN_TYPE.name,
             type_label:
                 move.move_type?.localized?.zh ?? UNKNOWN_TYPE.localized.zh,
             move_category: move.move_category,
+            description:
+                move.localized?.zh?.description ?? move.description ?? "",
+            energy_cost: move.energy_cost ?? null,
+            power: move.power ?? null,
         });
     }
 }
