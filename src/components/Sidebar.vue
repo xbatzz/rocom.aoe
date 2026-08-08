@@ -72,7 +72,7 @@ function isNavActive(path: string) {
     }
 
     if (path === "/pvp-lite") {
-        return ["/pvp-lite", "/pvp", "/stats"].includes(route.path);
+        return route.path === path;
     }
 
     if (path === "/breeding") {

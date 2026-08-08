@@ -1637,15 +1637,6 @@ async function getFriendDetail(idParam: string | string[]) {
                                     class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
                                     as-child
                                 >
-                                    <RouterLink :to="`/stats?pet=${friend.id}`">
-                                        计算实战属性
-                                    </RouterLink>
-                                </Button>
-                                <Button
-                                    variant="outline"
-                                    class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
-                                    as-child
-                                >
                                     <RouterLink to="/encyclopedia">返回图鉴</RouterLink>
                                 </Button>
                             </div>

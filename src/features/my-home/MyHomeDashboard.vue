@@ -2,7 +2,6 @@
 import {
     ArrowRight,
     BookOpen,
-    Calculator,
     Compass,
     Database,
     Egg,
@@ -98,24 +97,6 @@ onMounted(() => {
 });
 
 const toolGroups: ToolGroup[] = [
-    {
-        label: "对战进阶",
-        description: "需要核对公式或精细参数时再进入。",
-        tools: [
-            {
-                title: "详细参数",
-                description: "查看完整速度线、属性倍率与纸面伤害过程。",
-                to: "/pvp",
-                icon: Target,
-            },
-            {
-                title: "实战属性",
-                description: "计算种族值、个体值与性格修正后的面板。",
-                to: "/stats",
-                icon: Calculator,
-            },
-        ],
-    },
     {
         label: "资料与收集",
         description: "面向高级筛选、道具查询和收藏进度。",

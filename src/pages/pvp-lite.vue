@@ -12,8 +12,6 @@ import {
     Zap,
 } from "lucide-vue-next";
 import FriendPortrait from "@/components/FriendPortrait.vue";
-import SectionModeNav from "@/components/SectionModeNav.vue";
-import { BATTLE_MODE_ITEMS } from "@/lib/toolModeNavigation";
 import type {
     IMonsterTypeDetail,
     IPersonality,
@@ -128,7 +126,7 @@ const INFO_PANEL_ITEMS: Array<{
     label: string;
     icon: typeof Zap;
 }> = [
-    { key: "speed", label: "速度", icon: Zap },
+    { key: "speed", label: "属性", icon: Zap },
     { key: "matchup", label: "克制", icon: Target },
     { key: "defense", label: "联防", icon: ShieldCheck },
     { key: "damage", label: "伤害", icon: Swords },
@@ -145,6 +143,18 @@ const BASE_STAT_ITEMS: Array<{
     { key: "base_phy_def", label: "物防" },
     { key: "base_mag_def", label: "魔防" },
     { key: "base_spd", label: "速度" },
+];
+
+const BATTLE_STAT_ITEMS: Array<{
+    key: BattleStatKey;
+    label: string;
+}> = [
+    { key: "hp", label: "生命" },
+    { key: "phyAtk", label: "物攻" },
+    { key: "magAtk", label: "魔攻" },
+    { key: "phyDef", label: "物防" },
+    { key: "magDef", label: "魔防" },
+    { key: "speed", label: "速度" },
 ];
 
 type BattleProfilePreset =
@@ -519,6 +529,57 @@ const allyBattleProfile = computed<BattleProfile>(() =>
 const opponentBattleProfile = computed<BattleProfile>(() =>
     createBattleProfile(opponentPet.value, opponentProfilePreset.value),
 );
+
+const allyBattleStats = computed(() => {
+    if (!allyPet.value) {
+        return null;
+    }
+
+    return {
+        ...calculateBattleStats(
+            allyPet.value,
+            allyBattleProfile.value.individualValues,
+            allyBattleProfile.value.nature,
+        ),
+        speed: allyBattleSpeed.value,
+    };
+});
+
+const opponentBattleStats = computed(() => {
+    if (!opponentPet.value) {
+        return null;
+    }
+
+    return {
+        ...calculateBattleStats(
+            opponentPet.value,
+            opponentBattleProfile.value.individualValues,
+            opponentBattleProfile.value.nature,
+        ),
+        speed: opponentBattleSpeed.value,
+    };
+});
+
+const battleStatComparisons = computed(() => {
+    const allyStats = allyBattleStats.value;
+    const opponentStats = opponentBattleStats.value;
+
+    if (!allyStats || !opponentStats) {
+        return [];
+    }
+
+    return BATTLE_STAT_ITEMS.map((item) => {
+        const allyValue = allyStats[item.key];
+        const opponentValue = opponentStats[item.key];
+
+        return {
+            ...item,
+            allyValue,
+            opponentValue,
+            difference: allyValue - opponentValue,
+        };
+    });
+});
 
 const allyProfilePresetItems = computed(() => {
     return allyDamageBuildSlot.value
@@ -2419,7 +2480,6 @@ document.title = "对战助手 - 洛克王国工具箱";
     <section
         class="pvp-lite-theme mx-auto max-w-5xl space-y-3 rounded-[28px] bg-gradient-to-b from-cyan-50 via-white to-orange-50 p-3 pb-4 text-slate-950 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 dark:text-foreground md:p-5 md:pb-8"
     >
-        <SectionModeNav label="对战工具模式" :items="BATTLE_MODE_ITEMS" />
         <div
             class="rounded-[24px] border border-white/80 bg-white/85 px-4 py-4 shadow-sm backdrop-blur md:px-6"
         >
@@ -2897,13 +2957,6 @@ document.title = "对战助手 - 洛克王国工具箱";
                             <RotateCcw class="h-4 w-4" />
                             重置
                         </Button>
-                        <RouterLink
-                            to="/pvp"
-                            class="flex items-center gap-2 rounded-[12px] bg-slate-950 px-3 py-2.5 text-sm font-semibold text-white dark:bg-white dark:text-slate-950"
-                        >
-                            <Swords class="h-4 w-4" />
-                            高级参数
-                        </RouterLink>
                     </div>
                 </aside>
 
@@ -3695,33 +3748,90 @@ document.title = "对战助手 - 洛克王国工具箱";
                 class="rounded-[20px] border border-sky-100 bg-white/80 p-4 shadow-sm"
                 :class="activePanel === 'speed' ? '' : 'hidden'"
             >
-                <h2 class="text-sm font-black text-slate-950">速度对比</h2>
-                <div class="mt-3 space-y-3">
-                    <div class="rounded-[18px] bg-sky-50 px-3 py-2 text-sm text-slate-700">
-                        我方 {{ allyBattleSpeed }} / 对方 {{ opponentBattleSpeed }}
-                        · 差值 {{ speedDiff > 0 ? `+${speedDiff}` : speedDiff }}
+                <div class="flex flex-wrap items-end justify-between gap-2">
+                    <div>
+                        <h2 class="text-sm font-black text-slate-950">
+                            实战属性对比
+                        </h2>
+                        <p class="mt-1 text-xs leading-5 text-slate-500">
+                            按双方当前选择的构筑、个体值与性格计算
+                        </p>
                     </div>
                     <div
-                        v-if="opponentSpeedPreviewItems.length"
-                        class="grid grid-cols-2 gap-2"
+                        v-if="hasBothPets"
+                        class="rounded-full bg-sky-50 px-3 py-1 text-[11px] font-bold text-sky-800"
+                    >
+                        {{ allyBattleProfile.label }} vs
+                        {{ opponentBattleProfile.label }}
+                    </div>
+                </div>
+
+                <div v-if="battleStatComparisons.length" class="mt-3 space-y-2">
+                    <div
+                        class="grid grid-cols-[minmax(0,1fr)_88px_minmax(0,1fr)] items-center gap-2 px-2 text-center text-xs font-black"
+                    >
+                        <span class="text-emerald-700">我方</span>
+                        <span class="text-slate-500">属性 / 差值</span>
+                        <span class="text-rose-700">对方</span>
+                    </div>
+                    <div
+                        v-for="item in battleStatComparisons"
+                        :key="item.key"
+                        class="grid grid-cols-[minmax(0,1fr)_88px_minmax(0,1fr)] items-stretch gap-2"
                     >
                         <div
-                            v-for="item in opponentSpeedPreviewItems"
-                            :key="item.label"
-                            class="rounded-[18px] bg-slate-50 px-3 py-2"
+                            class="flex items-center justify-center rounded-[18px] border px-3 py-3 text-xl font-black"
+                            :class="
+                                item.difference > 0
+                                    ? 'border-emerald-200 bg-emerald-50 text-emerald-800'
+                                    : 'border-slate-100 bg-slate-50 text-slate-700'
+                            "
                         >
-                            <p class="text-xs text-slate-500">{{ item.label }}</p>
-                            <p class="text-lg font-bold text-slate-950">
-                                {{ item.speed }}
+                            {{ item.allyValue }}
+                        </div>
+                        <div class="flex flex-col items-center justify-center text-center">
+                            <p class="text-xs font-black text-slate-950">
+                                {{ item.label }}
                             </p>
-                            <p class="text-[11px] text-slate-500">
-                                {{ item.description }}
+                            <p
+                                class="mt-1 text-[11px] font-bold"
+                                :class="
+                                    item.difference > 0
+                                        ? 'text-emerald-700'
+                                        : item.difference < 0
+                                          ? 'text-rose-700'
+                                          : 'text-slate-500'
+                                "
+                            >
+                                {{
+                                    item.difference === 0
+                                        ? "持平"
+                                        : item.difference > 0
+                                          ? `我方 +${item.difference}`
+                                          : `对方 +${Math.abs(item.difference)}`
+                                }}
                             </p>
+                        </div>
+                        <div
+                            class="flex items-center justify-center rounded-[18px] border px-3 py-3 text-xl font-black"
+                            :class="
+                                item.difference < 0
+                                    ? 'border-rose-200 bg-rose-50 text-rose-800'
+                                    : 'border-slate-100 bg-slate-50 text-slate-700'
+                            "
+                        >
+                            {{ item.opponentValue }}
                         </div>
                     </div>
                     <p class="text-xs leading-5 text-slate-500">
-                        已计入陨星虫捕捉球的确定速度效果；棱镜球因随机结果不计入。其余技能特效、先制、天气、异常、护盾和换人博弈暂未考虑。
+                        生命显示当前构筑的最大生命。速度已计入陨星虫捕捉球的确定效果；棱镜球因随机结果不计入。技能特效、天气、异常与临时强化等战斗内变化暂未考虑。
                     </p>
+                </div>
+                <div
+                    v-else
+                    class="mt-3 rounded-[18px] border border-dashed border-sky-200 bg-sky-50 px-4 py-5 text-center text-sm font-semibold text-sky-800"
+                >
+                    选择双方精灵后查看当前构筑的实战属性对比。
                 </div>
             </section>
 
@@ -3919,19 +4029,13 @@ document.title = "对战助手 - 洛克王国工具箱";
                         </p>
                     </div>
                 </div>
-                <RouterLink
-                    to="/pvp"
-                    class="mt-4 inline-flex rounded-full bg-slate-950 px-4 py-2 text-sm font-semibold text-white"
-                >
-                    打开详细版
-                </RouterLink>
             </details>
 
                 </div>
             </div>
 
             <div
-                class="grid grid-cols-3 gap-2 rounded-[18px] border border-slate-100 bg-white/90 p-2 shadow-sm dark:border-slate-700 dark:bg-slate-900/90 md:hidden"
+                class="grid grid-cols-2 gap-2 rounded-[18px] border border-slate-100 bg-white/90 p-2 shadow-sm dark:border-slate-700 dark:bg-slate-900/90 md:hidden"
             >
                 <Button
                     variant="ghost"
@@ -3949,13 +4053,6 @@ document.title = "对战助手 - 洛克王国工具箱";
                     <RotateCcw class="h-4 w-4" />
                     重置
                 </Button>
-                <RouterLink
-                    to="/pvp"
-                    class="inline-flex items-center justify-center gap-1 rounded-full bg-slate-950 px-3 py-2 text-sm font-semibold text-white"
-                >
-                    <Swords class="h-4 w-4" />
-                    详细版
-                </RouterLink>
             </div>
         </template>
     </section>

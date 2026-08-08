@@ -97,13 +97,6 @@ declare module 'vue-router/auto-routes' {
       { id: ParamValue<false> },
       | never
     >,
-    '/pvp': RouteRecordInfo<
-      '/pvp',
-      '/pvp',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
     '/pvp-lite': RouteRecordInfo<
       '/pvp-lite',
       '/pvp-lite',
@@ -114,13 +107,6 @@ declare module 'vue-router/auto-routes' {
     '/skills': RouteRecordInfo<
       '/skills',
       '/skills',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/stats': RouteRecordInfo<
-      '/stats',
-      '/stats',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -212,12 +198,6 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/pvp.vue': {
-      routes:
-        | '/pvp'
-      views:
-        | never
-    }
     'src/pages/pvp-lite.vue': {
       routes:
         | '/pvp-lite'
@@ -227,12 +207,6 @@ declare module 'vue-router/auto-routes' {
     'src/pages/skills.vue': {
       routes:
         | '/skills'
-      views:
-        | never
-    }
-    'src/pages/stats.vue': {
-      routes:
-        | '/stats'
       views:
         | never
     }
