@@ -10,6 +10,12 @@ import Components from "unplugin-vue-components/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
+    optimizeDeps: {
+        // PaddleOCR ships a module worker and WASM assets that must retain their
+        // package-relative URLs instead of being flattened by Vite pre-bundling.
+        exclude: ["@paddleocr/paddleocr-js", "onnxruntime-web"],
+        include: ["clipper-lib", "@techstark/opencv-js"],
+    },
     plugins: [
         vue(),
         vueDevTools(),

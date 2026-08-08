@@ -14,6 +14,8 @@ import {
     DialogTitle,
 } from "@/components/ui/dialog";
 import FriendPortrait from "@/components/FriendPortrait.vue";
+import TeamImageImportDialog from "@/features/team-image-import/TeamImageImportDialog.vue";
+import type { TeamImageImportPayload } from "@/features/team-image-import/types";
 import type {
     IPets,
     IPetsDetail,
@@ -2555,6 +2557,24 @@ async function createNewStoredTeam() {
     shareFeedback.value = `已创建 ${activeStoredTeam.value?.name ?? "新队伍"}。`;
 }
 
+async function importStoredTeamFromImage(payload: TeamImageImportPayload) {
+    if (storedTeams.value.length >= MAX_TEAM_COUNT) {
+        shareFeedback.value = `最多保存 ${MAX_TEAM_COUNT} 支队伍。`;
+        return;
+    }
+
+    saveCurrentTeamToStorage();
+    createStoredTeam(payload.name);
+    teamStorageState.value = updateActiveTeamState({
+        name: payload.name,
+        magicItemId: null,
+        slots: payload.slots,
+    });
+    await applyActiveStoredTeam();
+    activePanelTab.value = "build";
+    shareFeedback.value = `已从图片创建 ${payload.name}。`;
+}
+
 function renameCurrentStoredTeam() {
     if (typeof window === "undefined" || !activeStoredTeam.value) {
         return;
@@ -2830,6 +2850,14 @@ document.title = "配队工具 - 洛克王国工具箱";
                         </div>
 
                         <div class="flex flex-wrap gap-2">
+                            <TeamImageImportDialog
+                                :friends="friends"
+                                :personalities="personalities"
+                                :types="typeDetails"
+                                :load-pet-detail="ensureFriendDetail"
+                                :disabled="storedTeams.length >= MAX_TEAM_COUNT"
+                                @import="importStoredTeamFromImage"
+                            />
                             <Button
                                 variant="outline"
                                 class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"

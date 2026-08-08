@@ -14,6 +14,7 @@
         "test:pet-data-quality": "node ./scripts/test-pet-data-quality.mjs"
     },
     "dependencies": {
+        "@paddleocr/paddleocr-js": "^0.4.2",
         "@tailwindcss/vite": "^4.2.2",
         "@vueuse/core": "^14.2.1",
         "class-variance-authority": "^0.7.1",
@@ -21,6 +22,7 @@
         "echarts": "^6.0.0",
         "echarts-gl": "^2.0.9",
         "lucide-vue-next": "^1.0.0",
+        "onnxruntime-web": "1.24.3",
         "reka-ui": "^2.9.6",
         "tailwind-merge": "^3.5.0",
         "tailwindcss": "^4.2.2",
