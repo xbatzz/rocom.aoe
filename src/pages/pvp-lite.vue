@@ -163,7 +163,8 @@ type BattleProfilePreset =
     | "none"
     | "maxAttack"
     | "maxSpeed"
-    | "maxHp";
+    | "maxHp"
+    | "custom";
 type PreferredAttackStat = "phyAtk" | "magAtk";
 type DamageDirection = "allyToOpponent" | "opponentToAlly";
 type BattleQuestionSide = "ally" | "opponent";
@@ -178,6 +179,11 @@ interface BattleProfile {
     label: string;
     individualValues: BattleIndividualValues;
     nature: BattleNatureSelection;
+}
+
+interface CustomBattleProfile {
+    individualValues: BattleIndividualValues;
+    natureUpStat: BattleStatKey | null;
 }
 
 const EXCLUDED_BATTLE_TYPE_NAMES = new Set(["Leader"]);
@@ -196,6 +202,7 @@ const ALLY_PROFILE_PRESETS: Array<{
     { key: "maxAttack", label: "极限攻击" },
     { key: "maxSpeed", label: "极速" },
     { key: "maxHp", label: "极限生命" },
+    { key: "custom", label: "自定义" },
 ];
 
 const OPPONENT_PROFILE_PRESETS: Array<{
@@ -206,6 +213,7 @@ const OPPONENT_PROFILE_PRESETS: Array<{
     { key: "maxAttack", label: "极限攻击" },
     { key: "maxSpeed", label: "极速" },
     { key: "maxHp", label: "极限生命" },
+    { key: "custom", label: "自定义" },
 ];
 
 const BATTLE_PROFILE_LABELS: Record<BattleProfilePreset, string> = {
@@ -214,6 +222,7 @@ const BATTLE_PROFILE_LABELS: Record<BattleProfilePreset, string> = {
     maxAttack: "极限攻击",
     maxSpeed: "极速",
     maxHp: "极限生命",
+    custom: "自定义",
 };
 
 const BATTLE_QUESTION_SUGGESTIONS = [
@@ -236,6 +245,10 @@ const opponentPetId = ref<number | null>(null);
 const selectedAllyTeamSlot = ref<SavedTeamBuildSlot | null>(null);
 const allyProfilePreset = ref<BattleProfilePreset>("saved");
 const opponentProfilePreset = ref<BattleProfilePreset>("none");
+const allyCustomProfile = ref<CustomBattleProfile>(createEmptyCustomProfile());
+const opponentCustomProfile = ref<CustomBattleProfile>(
+    createEmptyCustomProfile(),
+);
 const allyMeteorBallKey = ref<MeteorBugCaptureBallKey>(
     DEFAULT_METEOR_BUG_CAPTURE_BALL,
 );
@@ -525,11 +538,25 @@ const allyBattleProfile = computed<BattleProfile>(() =>
         allyPet.value,
         allyProfilePreset.value,
         allyDamageBuildSlot.value,
+        allyCustomProfile.value,
     ),
 );
 
 const opponentBattleProfile = computed<BattleProfile>(() =>
-    createBattleProfile(opponentPet.value, opponentProfilePreset.value),
+    createBattleProfile(
+        opponentPet.value,
+        opponentProfilePreset.value,
+        null,
+        opponentCustomProfile.value,
+    ),
+);
+
+const allyCustomActiveStatCount = computed(() =>
+    getCustomActiveStatCount(allyCustomProfile.value),
+);
+
+const opponentCustomActiveStatCount = computed(() =>
+    getCustomActiveStatCount(opponentCustomProfile.value),
 );
 
 const allyBattleStats = computed(() => {
@@ -1095,6 +1122,7 @@ function selectTeamAlly(slot: SavedTeamBuildSlot) {
     allyPetId.value = slot.friendId;
     selectedAllyTeamSlot.value = slot;
     allyProfilePreset.value = "saved";
+    resetCustomProfile("ally");
     allyMeteorBallKey.value = DEFAULT_METEOR_BUG_CAPTURE_BALL;
     allyHpPercent.value = 100;
 }
@@ -1104,6 +1132,7 @@ function selectManualAlly(petId: number) {
     selectedAllyTeamSlot.value = null;
     allyProfilePreset.value =
         petId === METEOR_BUG_PET_ID ? "maxSpeed" : "none";
+    resetCustomProfile("ally");
     allyMeteorBallKey.value = DEFAULT_METEOR_BUG_CAPTURE_BALL;
     allyHpPercent.value = 100;
     allySearchQuery.value = "";
@@ -1115,6 +1144,7 @@ function selectOpponent(petId: number) {
     opponentPetId.value = petId;
     opponentProfilePreset.value =
         petId === METEOR_BUG_PET_ID ? "maxSpeed" : "none";
+    resetCustomProfile("opponent");
     opponentMeteorBallKey.value = DEFAULT_METEOR_BUG_CAPTURE_BALL;
     opponentHpPercent.value = 100;
     opponentSearchQuery.value = "";
@@ -1154,11 +1184,94 @@ function focusInfoPanel(panel: InfoPanel) {
 
 function selectDamageProfilePreset(preset: BattleProfilePreset) {
     if (damageDirection.value === "allyToOpponent") {
-        allyProfilePreset.value = preset;
+        selectAllyProfilePreset(preset);
         return;
     }
 
+    selectOpponentProfilePreset(preset);
+}
+
+function selectAllyProfilePreset(preset: BattleProfilePreset) {
+    if (
+        preset === "custom" &&
+        allyProfilePreset.value !== "custom" &&
+        allyProfilePreset.value !== "none"
+    ) {
+        allyCustomProfile.value = createCustomProfileFromBattleProfile(
+            allyBattleProfile.value,
+        );
+    }
+
+    allyProfilePreset.value = preset;
+}
+
+function selectOpponentProfilePreset(preset: BattleProfilePreset) {
+    if (
+        preset === "custom" &&
+        opponentProfilePreset.value !== "custom" &&
+        opponentProfilePreset.value !== "none"
+    ) {
+        opponentCustomProfile.value = createCustomProfileFromBattleProfile(
+            opponentBattleProfile.value,
+        );
+    }
+
     opponentProfilePreset.value = preset;
+}
+
+function resetCustomProfile(side: "ally" | "opponent") {
+    const profile = createEmptyCustomProfile();
+
+    if (side === "ally") {
+        allyCustomProfile.value = profile;
+    } else {
+        opponentCustomProfile.value = profile;
+    }
+}
+
+function toggleCustomIndividualValue(
+    side: "ally" | "opponent",
+    statKey: BattleStatKey,
+) {
+    const profile =
+        side === "ally" ? allyCustomProfile.value : opponentCustomProfile.value;
+    const currentValue = profile.individualValues[statKey];
+
+    if (currentValue === 0 && getCustomActiveStatCount(profile) >= 3) {
+        return;
+    }
+
+    const nextProfile = {
+        ...profile,
+        individualValues: {
+            ...profile.individualValues,
+            [statKey]: currentValue > 0 ? 0 : 10,
+        },
+    };
+
+    if (side === "ally") {
+        allyCustomProfile.value = nextProfile;
+    } else {
+        opponentCustomProfile.value = nextProfile;
+    }
+}
+
+function selectCustomNatureUpStat(
+    side: "ally" | "opponent",
+    statKey: BattleStatKey,
+) {
+    const profile =
+        side === "ally" ? allyCustomProfile.value : opponentCustomProfile.value;
+    const nextProfile = {
+        ...profile,
+        natureUpStat: profile.natureUpStat === statKey ? null : statKey,
+    };
+
+    if (side === "ally") {
+        allyCustomProfile.value = nextProfile;
+    } else {
+        opponentCustomProfile.value = nextProfile;
+    }
 }
 
 function swapSides() {
@@ -1167,6 +1280,13 @@ function swapSides() {
     const nextOpponentPreset = normalizeOpponentProfilePreset(
         allyProfilePreset.value,
     );
+    const nextAllyCustomProfile = cloneCustomProfile(
+        opponentCustomProfile.value,
+    );
+    const nextOpponentCustomProfile =
+        allyProfilePreset.value === "saved"
+            ? createCustomProfileFromBattleProfile(allyBattleProfile.value)
+            : cloneCustomProfile(allyCustomProfile.value);
     const nextAllyHpPercent = opponentHpPercent.value;
     const nextAllyMeteorBallKey = opponentMeteorBallKey.value;
 
@@ -1174,6 +1294,8 @@ function swapSides() {
     allyPetId.value = nextAllyPetId;
     allyProfilePreset.value = nextAllyPreset;
     opponentProfilePreset.value = nextOpponentPreset;
+    allyCustomProfile.value = nextAllyCustomProfile;
+    opponentCustomProfile.value = nextOpponentCustomProfile;
     opponentHpPercent.value = allyHpPercent.value;
     allyHpPercent.value = nextAllyHpPercent;
     opponentMeteorBallKey.value = allyMeteorBallKey.value;
@@ -1187,6 +1309,8 @@ function resetAll() {
     selectedAllyTeamSlot.value = null;
     allyProfilePreset.value = "saved";
     opponentProfilePreset.value = "none";
+    allyCustomProfile.value = createEmptyCustomProfile();
+    opponentCustomProfile.value = createEmptyCustomProfile();
     allyMeteorBallKey.value = DEFAULT_METEOR_BUG_CAPTURE_BALL;
     opponentMeteorBallKey.value = DEFAULT_METEOR_BUG_CAPTURE_BALL;
     allyHpPercent.value = 100;
@@ -1364,6 +1488,7 @@ function createBattleProfile(
     pet: IPets | null,
     preset: BattleProfilePreset,
     savedSlot: SavedTeamBuildSlot | null = null,
+    customProfile: CustomBattleProfile | null = null,
 ): BattleProfile {
     if (preset === "saved" && savedSlot) {
         const personality = savedSlot.personalityId
@@ -1383,6 +1508,22 @@ function createBattleProfile(
     }
 
     const attackStat = getPreferredAttackStat(pet);
+
+    if (preset === "custom") {
+        return {
+            preset,
+            label: BATTLE_PROFILE_LABELS.custom,
+            individualValues: {
+                ...(customProfile?.individualValues ??
+                    EMPTY_INDIVIDUAL_VALUES),
+            },
+            nature: createCustomNature(
+                customProfile?.natureUpStat ?? null,
+                attackStat,
+            ),
+        };
+    }
+
     const individualValues = createPresetIndividualValues(preset, attackStat);
 
     return {
@@ -1390,6 +1531,50 @@ function createBattleProfile(
         label: BATTLE_PROFILE_LABELS[preset],
         individualValues,
         nature: createPresetNature(preset, attackStat),
+    };
+}
+
+function createEmptyCustomProfile(): CustomBattleProfile {
+    return {
+        individualValues: { ...EMPTY_INDIVIDUAL_VALUES },
+        natureUpStat: null,
+    };
+}
+
+function createCustomProfileFromBattleProfile(
+    profile: BattleProfile,
+): CustomBattleProfile {
+    return {
+        individualValues: { ...profile.individualValues },
+        natureUpStat: profile.nature.upStat,
+    };
+}
+
+function cloneCustomProfile(profile: CustomBattleProfile): CustomBattleProfile {
+    return {
+        individualValues: { ...profile.individualValues },
+        natureUpStat: profile.natureUpStat,
+    };
+}
+
+function getCustomActiveStatCount(profile: CustomBattleProfile) {
+    return Object.values(profile.individualValues).filter((value) => value > 0)
+        .length;
+}
+
+function createCustomNature(
+    upStat: BattleStatKey | null,
+    attackStat: PreferredAttackStat,
+): BattleNatureSelection {
+    if (!upStat) {
+        return { ...NEUTRAL_BATTLE_NATURE };
+    }
+
+    const attackDumpStat = getAttackDumpStat(attackStat);
+
+    return {
+        upStat,
+        downStat: upStat === attackDumpStat ? attackStat : attackDumpStat,
     };
 }
 
@@ -2467,8 +2652,14 @@ function getBattleProfileSummary(profile: BattleProfile) {
         .filter(([, , value]) => Number(value) > 0)
         .map(([, label, value]) => `${label}${value}`);
     const valuesText = activeValues.length ? activeValues.join(" / ") : "个体均为 0";
+    const natureUpLabel = BATTLE_STAT_ITEMS.find(
+        (item) => item.key === profile.nature.upStat,
+    )?.label;
+    const natureText = natureUpLabel
+        ? `性格 +${natureUpLabel}`
+        : "性格无加成";
 
-    return `当前：${profile.label} · ${valuesText}`;
+    return `当前：${profile.label} · ${natureText} · ${valuesText}`;
 }
 
 function getTeamSlotForPet(petId: number) {
@@ -2699,13 +2890,65 @@ document.title = "对战助手 - 洛克王国工具箱";
                                                         ? 'bg-emerald-700 text-white shadow-sm'
                                                         : 'bg-emerald-50 text-emerald-700'
                                                 "
-                                                @click="allyProfilePreset = preset.key"
+                                                @click="selectAllyProfilePreset(preset.key)"
                                             >
                                                 {{ preset.label }}
                                             </button>
                                             <p class="col-span-2 text-[11px] leading-4 text-slate-500">
                                                 {{ getBattleProfileSummary(allyBattleProfile) }}
                                             </p>
+                                            <div
+                                                v-if="allyProfilePreset === 'custom'"
+                                                class="col-span-2 space-y-3 rounded-[12px] border border-emerald-100 bg-emerald-50/70 p-2"
+                                            >
+                                                <div>
+                                                    <p class="text-[11px] font-bold text-emerald-800">
+                                                        性格增加的属性（选择 1 项）
+                                                    </p>
+                                                    <div class="mt-1.5 grid grid-cols-3 gap-1">
+                                                        <button
+                                                            v-for="item in BATTLE_STAT_ITEMS"
+                                                            :key="`ally-nature-${item.key}`"
+                                                            type="button"
+                                                            class="rounded-full px-1.5 py-1 text-[10px] font-bold transition"
+                                                            :class="
+                                                                allyCustomProfile.natureUpStat === item.key
+                                                                    ? 'bg-emerald-700 text-white'
+                                                                    : 'bg-white text-emerald-700'
+                                                            "
+                                                            @click="selectCustomNatureUpStat('ally', item.key)"
+                                                        >
+                                                            {{ item.label }} +20%
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="flex items-center justify-between gap-2 text-[11px]">
+                                                        <span class="font-bold text-emerald-800">个体值 +10（选择 3 项）</span>
+                                                        <span class="text-slate-500">{{ allyCustomActiveStatCount }} / 3</span>
+                                                    </div>
+                                                    <div class="mt-1.5 grid grid-cols-3 gap-1">
+                                                        <button
+                                                            v-for="item in BATTLE_STAT_ITEMS"
+                                                            :key="`ally-individual-${item.key}`"
+                                                            type="button"
+                                                            class="rounded-full px-1.5 py-1 text-[10px] font-bold transition disabled:cursor-not-allowed disabled:opacity-40"
+                                                            :class="
+                                                                allyCustomProfile.individualValues[item.key] > 0
+                                                                    ? 'bg-emerald-700 text-white'
+                                                                    : 'bg-white text-emerald-700'
+                                                            "
+                                                            :disabled="
+                                                                allyCustomProfile.individualValues[item.key] === 0 &&
+                                                                allyCustomActiveStatCount >= 3
+                                                            "
+                                                            @click="toggleCustomIndividualValue('ally', item.key)"
+                                                        >
+                                                            {{ item.label }} +10
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </details>
                                 </div>
@@ -2810,13 +3053,65 @@ document.title = "对战助手 - 洛克王国工具箱";
                                                         ? 'bg-rose-700 text-white shadow-sm'
                                                         : 'bg-rose-50 text-rose-700'
                                                 "
-                                                @click="opponentProfilePreset = preset.key"
+                                                @click="selectOpponentProfilePreset(preset.key)"
                                             >
                                                 {{ preset.label }}
                                             </button>
                                             <p class="col-span-2 text-[11px] leading-4 text-slate-500">
                                                 {{ getBattleProfileSummary(opponentBattleProfile) }}
                                             </p>
+                                            <div
+                                                v-if="opponentProfilePreset === 'custom'"
+                                                class="col-span-2 space-y-3 rounded-[12px] border border-rose-100 bg-rose-50/70 p-2"
+                                            >
+                                                <div>
+                                                    <p class="text-[11px] font-bold text-rose-800">
+                                                        性格增加的属性（选择 1 项）
+                                                    </p>
+                                                    <div class="mt-1.5 grid grid-cols-3 gap-1">
+                                                        <button
+                                                            v-for="item in BATTLE_STAT_ITEMS"
+                                                            :key="`opponent-nature-${item.key}`"
+                                                            type="button"
+                                                            class="rounded-full px-1.5 py-1 text-[10px] font-bold transition"
+                                                            :class="
+                                                                opponentCustomProfile.natureUpStat === item.key
+                                                                    ? 'bg-rose-700 text-white'
+                                                                    : 'bg-white text-rose-700'
+                                                            "
+                                                            @click="selectCustomNatureUpStat('opponent', item.key)"
+                                                        >
+                                                            {{ item.label }} +20%
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="flex items-center justify-between gap-2 text-[11px]">
+                                                        <span class="font-bold text-rose-800">个体值 +10（选择 3 项）</span>
+                                                        <span class="text-slate-500">{{ opponentCustomActiveStatCount }} / 3</span>
+                                                    </div>
+                                                    <div class="mt-1.5 grid grid-cols-3 gap-1">
+                                                    <button
+                                                        v-for="item in BATTLE_STAT_ITEMS"
+                                                        :key="`opponent-individual-${item.key}`"
+                                                        type="button"
+                                                        class="rounded-full px-1.5 py-1 text-[10px] font-bold transition disabled:cursor-not-allowed disabled:opacity-40"
+                                                        :class="
+                                                            opponentCustomProfile.individualValues[item.key] > 0
+                                                                ? 'bg-rose-700 text-white'
+                                                                : 'bg-white text-rose-700'
+                                                        "
+                                                        :disabled="
+                                                            opponentCustomProfile.individualValues[item.key] === 0 &&
+                                                            opponentCustomActiveStatCount >= 3
+                                                        "
+                                                        @click="toggleCustomIndividualValue('opponent', item.key)"
+                                                    >
+                                                        {{ item.label }} +10
+                                                    </button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </details>
                                 </div>
