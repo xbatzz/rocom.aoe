@@ -26,6 +26,7 @@ import {
     formatPetHandbookNo,
     matchesPetKeyword,
 } from "@/lib/petHandbook";
+import { collapseDuplicateLeaderConfigurations } from "@/lib/petPresentation";
 import {
     getPetTypes,
     getTypeMultiplier,
@@ -278,8 +279,9 @@ const typeMap = computed(() => {
 });
 
 const implementedPets = computed(() =>
-    pets.value
-        .filter((pet) => isPetImplemented(pet))
+    collapseDuplicateLeaderConfigurations(
+        pets.value.filter((pet) => isPetImplemented(pet)),
+    )
         .sort(
             (left, right) =>
                 Number(formatPetHandbookNo(left, { padded: false })) -

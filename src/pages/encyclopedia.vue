@@ -29,6 +29,7 @@ import {
     isHandbookNumberQuery,
     matchesPetKeyword,
 } from "@/lib/petHandbook";
+import { collapseDuplicateLeaderConfigurations } from "@/lib/petPresentation";
 
 type SortKey = "id" | "power" | "speed" | "name";
 
@@ -538,53 +539,6 @@ function getPetFormLabel(pet: IPets) {
     }
 
     return form;
-}
-
-function getLeaderPresentationKey(pet: IPets) {
-    return [
-        pet.species_id,
-        pet.localized.zh.name.trim(),
-        pet.name.trim(),
-    ].join("\u0000");
-}
-
-function shouldReplaceLeaderRepresentative(
-    candidate: IPets,
-    current: IPets,
-) {
-    if (isPetImplemented(candidate) !== isPetImplemented(current)) {
-        return isPetImplemented(candidate);
-    }
-
-    const candidateStats = getTotalStats(candidate);
-    const currentStats = getTotalStats(current);
-
-    if ((candidateStats > 0) !== (currentStats > 0)) {
-        return candidateStats > 0;
-    }
-
-    return candidate.id < current.id;
-}
-
-function collapseDuplicateLeaderConfigurations(entries: IPets[]) {
-    const regularPets: IPets[] = [];
-    const leaderByPresentation = new Map<string, IPets>();
-
-    for (const pet of entries) {
-        if (!pet.is_leader_form) {
-            regularPets.push(pet);
-            continue;
-        }
-
-        const key = getLeaderPresentationKey(pet);
-        const current = leaderByPresentation.get(key);
-
-        if (!current || shouldReplaceLeaderRepresentative(pet, current)) {
-            leaderByPresentation.set(key, pet);
-        }
-    }
-
-    return [...regularPets, ...leaderByPresentation.values()];
 }
 
 function getPeakStat(friend: IPets) {
