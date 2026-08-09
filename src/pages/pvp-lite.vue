@@ -2478,7 +2478,7 @@ document.title = "对战助手 - 洛克王国工具箱";
 
 <template>
     <section
-        class="pvp-lite-theme mx-auto max-w-5xl space-y-3 rounded-[28px] bg-gradient-to-b from-cyan-50 via-white to-orange-50 p-3 pb-4 text-slate-950 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 dark:text-foreground md:p-5 md:pb-8"
+        class="pvp-lite-theme mx-auto max-w-[1600px] space-y-3 rounded-[28px] bg-gradient-to-b from-cyan-50 via-white to-orange-50 p-3 pb-4 text-slate-950 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 dark:text-foreground md:p-5 md:pb-8"
     >
         <div
             class="rounded-[24px] border border-white/80 bg-white/85 px-4 py-4 shadow-sm backdrop-blur md:px-6"
@@ -2509,7 +2509,11 @@ document.title = "对战助手 - 洛克王国工具箱";
         </div>
 
         <template v-else>
-            <Card class="rounded-[24px] border-cyan-100 bg-white/92 shadow-sm">
+            <div
+                class="grid gap-3 min-[1400px]:grid-cols-[minmax(500px,0.9fr)_minmax(0,1.1fr)] min-[1400px]:items-start"
+            >
+                <div class="min-w-0 space-y-3 min-[1400px]:sticky min-[1400px]:top-3">
+                    <Card class="rounded-[24px] border-cyan-100 bg-white/92 shadow-sm">
                 <CardContent class="space-y-3 p-3 md:p-4">
                     <div class="flex items-center justify-between gap-3 px-1">
                         <div>
@@ -2875,10 +2879,10 @@ document.title = "对战助手 - 洛克王国工具箱";
                         </p>
                     </div>
                 </CardContent>
-            </Card>
+                    </Card>
 
-            <Card class="rounded-[20px] border-amber-200 bg-amber-50/90 shadow-sm dark:border-amber-900 dark:bg-amber-950/40">
-                <CardContent class="flex flex-col gap-3 p-3 sm:flex-row sm:items-center sm:justify-between md:p-4">
+                    <Card class="rounded-[20px] border-amber-200 bg-amber-50/90 shadow-sm dark:border-amber-900 dark:bg-amber-950/40">
+                <CardContent class="flex flex-col gap-3 p-3 sm:flex-row sm:items-center sm:justify-between md:p-4 min-[1400px]:items-stretch">
                     <div class="flex shrink-0 items-center justify-between gap-3 sm:justify-start">
                         <div class="flex items-center gap-2 text-amber-900 dark:text-amber-200">
                             <Target class="h-5 w-5" />
@@ -2901,9 +2905,10 @@ document.title = "对战助手 - 洛克王国工具箱";
                         </span>
                     </div>
                 </CardContent>
-            </Card>
+                    </Card>
+                </div>
 
-            <div>
+                <div class="min-w-0">
                 <aside
                     class="sticky top-[60px] z-30 rounded-[18px] border border-white/80 bg-white/95 p-1.5 shadow-lg backdrop-blur dark:border-slate-700 dark:bg-slate-900/95 md:top-3 md:flex md:items-center md:gap-2 md:p-2"
                 >
@@ -4031,6 +4036,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                 </div>
             </details>
 
+                </div>
                 </div>
             </div>
 
