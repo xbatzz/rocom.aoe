@@ -111,6 +111,12 @@ function getTypeTagStyle(type: ITypeEntry) {
                             class="inline-flex rounded-[10px] border px-2.5 py-1 text-xs font-semibold"
                             :style="getTypeTagStyle(coverage.attackType)"
                         >
+                            <TypeIcon
+                                :type-id="coverage.attackType.id"
+                                :label="coverage.attackType.label"
+                                :size="16"
+                                class="mr-1"
+                            />
                             {{ coverage.attackType.label }}技能
                         </span>
                         <h3 class="mt-3 text-lg font-black text-foreground">
@@ -135,6 +141,12 @@ function getTypeTagStyle(type: ITypeEntry) {
                         class="inline-flex items-center rounded-[10px] border px-2.5 py-1 text-sm font-semibold"
                         :style="getTypeTagStyle(type)"
                     >
+                        <TypeIcon
+                            :type-id="type.id"
+                            :label="type.shortLabel"
+                            :size="16"
+                            class="mr-1"
+                        />
                         {{ type.shortLabel }}系
                     </span>
                 </div>
@@ -177,6 +189,12 @@ function getTypeTagStyle(type: ITypeEntry) {
                         class="inline-flex items-center rounded-[10px] border px-2.5 py-1 text-sm font-semibold"
                         :style="getTypeTagStyle(type)"
                     >
+                        <TypeIcon
+                            :type-id="type.id"
+                            :label="type.shortLabel"
+                            :size="16"
+                            class="mr-1"
+                        />
                         {{ type.shortLabel }}系
                     </span>
                 </div>

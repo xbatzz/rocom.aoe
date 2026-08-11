@@ -41,4 +41,59 @@ export const TYPE_ICON_BY_ID = new Map(
     ),
 );
 
+let typeIconSymbolMapPromise: Promise<ReadonlyMap<number, string>> | null = null;
+
+export function loadTypeIconSymbolMap() {
+    if (!typeIconSymbolMapPromise) {
+        typeIconSymbolMapPromise = createTypeIconSymbolMap();
+    }
+
+    return typeIconSymbolMapPromise;
+}
+
+async function createTypeIconSymbolMap() {
+    const atlas = await loadAtlasImage();
+    const symbols = new Map<number, string>();
+
+    for (const item of TYPE_ICON_ATLAS_ITEMS) {
+        if (item.typeId === null) {
+            continue;
+        }
+
+        const canvas = document.createElement("canvas");
+        canvas.width = TYPE_ICON_CELL_WIDTH - 2;
+        canvas.height = TYPE_ICON_CELL_HEIGHT - 2;
+        const context = canvas.getContext("2d");
+
+        if (!context) {
+            continue;
+        }
+
+        context.drawImage(
+            atlas,
+            item.column * TYPE_ICON_CELL_WIDTH + 1,
+            item.row * TYPE_ICON_CELL_HEIGHT + 1,
+            TYPE_ICON_CELL_WIDTH - 2,
+            TYPE_ICON_CELL_HEIGHT - 2,
+            0,
+            0,
+            canvas.width,
+            canvas.height,
+        );
+        symbols.set(item.typeId, `image://${canvas.toDataURL("image/png")}`);
+    }
+
+    return symbols;
+}
+
+function loadAtlasImage() {
+    return new Promise<HTMLImageElement>((resolve, reject) => {
+        const image = new Image();
+        image.decoding = "async";
+        image.onload = () => resolve(image);
+        image.onerror = () => reject(new Error("属性图标图集加载失败。"));
+        image.src = typeIconAtlasUrl;
+    });
+}
+
 export { typeIconAtlasUrl };

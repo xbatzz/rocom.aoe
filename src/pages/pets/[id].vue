@@ -2940,11 +2940,13 @@ async function getFriendDetail(idParam: string | string[]) {
                                 <div
                                     class="mt-2 flex flex-wrap items-center gap-2 md:hidden"
                                 >
-                                    <Badge
-                                        class="rounded-[10px] bg-white/10 text-foreground"
+                                    <TypeBadge
+                                        :type-id="move.move_type.id"
+                                        :label="move.move_type.localized.zh"
+                                        class="border-transparent bg-white/10 text-foreground"
                                     >
                                         {{ move.move_type.localized.zh }}
-                                    </Badge>
+                                    </TypeBadge>
                                     <Badge
                                         variant="outline"
                                         class="rounded-[10px] border-border bg-card text-foreground"
@@ -3110,11 +3112,13 @@ async function getFriendDetail(idParam: string | string[]) {
                                     <div
                                         class="hidden flex-wrap gap-2 md:flex md:pt-0.5"
                                     >
-                                        <Badge
-                                            class="rounded-[10px] bg-white/10 text-foreground"
+                                        <TypeBadge
+                                            :type-id="move.move_type.id"
+                                            :label="move.move_type.localized.zh"
+                                            class="border-transparent bg-white/10 text-foreground"
                                         >
                                             {{ move.move_type.localized.zh }}
-                                        </Badge>
+                                        </TypeBadge>
                                         <Badge
                                             variant="outline"
                                             class="rounded-[10px] border-border bg-card text-foreground"
@@ -3143,11 +3147,13 @@ async function getFriendDetail(idParam: string | string[]) {
                                 <div
                                     class="mt-2 flex flex-wrap items-center gap-2 md:hidden"
                                 >
-                                    <Badge
-                                        class="rounded-[10px] bg-white/10 text-foreground"
+                                    <TypeBadge
+                                        :type-id="move.move_type.id"
+                                        :label="move.move_type.localized.zh"
+                                        class="border-transparent bg-white/10 text-foreground"
                                     >
                                         {{ move.move_type.localized.zh }}
-                                    </Badge>
+                                    </TypeBadge>
                                     <Badge
                                         variant="outline"
                                         class="rounded-[10px] border-border bg-card text-foreground"

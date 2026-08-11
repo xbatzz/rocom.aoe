@@ -129,6 +129,12 @@ function formatMultiplier(multiplier: DefenseMultiplier) {
                     class="inline-flex items-center rounded-[10px] border px-3 py-1.5 text-sm font-bold"
                     :style="getTypeTagStyle(type)"
                 >
+                    <TypeIcon
+                        :type-id="type.id"
+                        :label="type.label"
+                        :size="18"
+                        class="mr-1.5"
+                    />
                     {{ type.label }}
                 </span>
             </div>
@@ -171,6 +177,12 @@ function formatMultiplier(multiplier: DefenseMultiplier) {
                         class="inline-flex items-center rounded-[10px] border px-2.5 py-1 text-sm font-semibold"
                         :style="getTypeTagStyle(type)"
                     >
+                        <TypeIcon
+                            :type-id="type.id"
+                            :label="type.shortLabel"
+                            :size="16"
+                            class="mr-1"
+                        />
                         {{ type.shortLabel }}系
                     </span>
                 </div>
@@ -201,6 +213,12 @@ function formatMultiplier(multiplier: DefenseMultiplier) {
                     class="inline-flex items-center rounded-[10px] border px-2.5 py-1 text-xs font-semibold"
                     :style="getTypeTagStyle(type)"
                 >
+                    <TypeIcon
+                        :type-id="type.id"
+                        :label="type.shortLabel"
+                        :size="14"
+                        class="mr-1"
+                    />
                     {{ type.shortLabel }}系
                 </span>
             </div>

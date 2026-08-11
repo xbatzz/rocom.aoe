@@ -674,10 +674,10 @@ function getEggGroupSummary(pet: IPets) {
     return formatPetEggGroupSummary(pet);
 }
 
-function getTypeLabel(pet: IPets) {
-    return pet.sub_type
-        ? `${pet.main_type.localized.zh} / ${pet.sub_type.localized.zh}`
-        : pet.main_type.localized.zh;
+function getPetTypes(pet: IPets) {
+    return [pet.main_type, pet.sub_type].filter(
+        (type): type is IPets["main_type"] => Boolean(type),
+    );
 }
 
 function getMatchSourceLabel(result: IIncubateMatchResult) {
@@ -963,13 +963,13 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                         </div>
 
                                         <div class="flex flex-wrap gap-2">
-                                            <Badge variant="secondary">
-                                                {{
-                                                    getTypeLabel(
-                                                        topMatch.rootPet,
-                                                    )
-                                                }}
-                                            </Badge>
+                                            <TypeBadge
+                                                v-for="type in getPetTypes(topMatch.rootPet)"
+                                                :key="type.id"
+                                                :type-id="type.id"
+                                                :label="type.localized.zh"
+                                                class="border-transparent bg-secondary text-secondary-foreground"
+                                            />
                                             <Badge
                                                 variant="outline"
                                                 class="border-border text-foreground"
@@ -1137,15 +1137,16 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                                                 .name
                                                         }}
                                                     </h3>
-                                                    <p
-                                                        class="text-sm text-foreground"
-                                                    >
-                                                        {{
-                                                            getTypeLabel(
-                                                                result.rootPet,
-                                                            )
-                                                        }}
-                                                    </p>
+                                                    <div class="mt-1 flex flex-wrap gap-1">
+                                                        <TypeBadge
+                                                            v-for="type in getPetTypes(result.rootPet)"
+                                                            :key="type.id"
+                                                            :type-id="type.id"
+                                                            :label="type.localized.zh"
+                                                            :icon-size="13"
+                                                            class="border-transparent bg-white/5 px-1.5 py-0 text-[10px]"
+                                                        />
+                                                    </div>
                                                 </div>
 
                                                 <div

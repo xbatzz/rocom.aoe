@@ -429,6 +429,12 @@ function getTypeLabel(pet: IPets) {
     return typeLabels.join(" / ");
 }
 
+function getPetTypes(pet: IPets) {
+    return [pet.main_type, pet.sub_type].filter(
+        (type): type is IPets["main_type"] => Boolean(type),
+    );
+}
+
 function formatDuration(seconds: number | null) {
     if (seconds === null || seconds <= 0) {
         return "暂无数据";
@@ -836,16 +842,16 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                                                 </p>
                                                             </div>
                                                         </div>
-                                                        <p
-                                                            class="truncate text-xs text-foreground"
-                                                        >
-                                                            {{
-                                                                getTypeLabel(
-                                                                    row.data
-                                                                        .pet,
-                                                                )
-                                                            }}
-                                                        </p>
+                                                        <div class="flex flex-wrap gap-1">
+                                                            <TypeBadge
+                                                                v-for="type in getPetTypes(row.data.pet)"
+                                                                :key="type.id"
+                                                                :type-id="type.id"
+                                                                :label="type.localized.zh"
+                                                                :icon-size="12"
+                                                                class="border-transparent bg-white/5 px-1.5 py-0 text-[10px]"
+                                                            />
+                                                        </div>
                                                         <p
                                                             :class="[
                                                                 'truncate text-xs',
@@ -906,14 +912,13 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                             v-if="selectedMother"
                                             class="flex flex-wrap gap-2"
                                         >
-                                            <Badge
-                                                variant="outline"
-                                                class="rounded-[10px] border-border/20 bg-card hover:bg-accent/10 text-foreground"
-                                            >
-                                                {{
-                                                    getTypeLabel(selectedMother)
-                                                }}
-                                            </Badge>
+                                            <TypeBadge
+                                                v-for="type in getPetTypes(selectedMother)"
+                                                :key="type.id"
+                                                :type-id="type.id"
+                                                :label="type.localized.zh"
+                                                class="border-border/20 bg-card text-foreground"
+                                            />
                                             <Badge
                                                 v-if="
                                                     !isPetImplemented(
@@ -1161,16 +1166,16 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                                                 </p>
                                                             </div>
                                                         </div>
-                                                        <p
-                                                            class="truncate text-xs text-foreground"
-                                                        >
-                                                            {{
-                                                                getTypeLabel(
-                                                                    row.data
-                                                                        .pet,
-                                                                )
-                                                            }}
-                                                        </p>
+                                                        <div class="flex flex-wrap gap-1">
+                                                            <TypeBadge
+                                                                v-for="type in getPetTypes(row.data.pet)"
+                                                                :key="type.id"
+                                                                :type-id="type.id"
+                                                                :label="type.localized.zh"
+                                                                :icon-size="12"
+                                                                class="border-transparent bg-white/5 px-1.5 py-0 text-[10px]"
+                                                            />
+                                                        </div>
                                                         <p
                                                             :class="[
                                                                 'truncate text-xs',
@@ -1231,14 +1236,13 @@ document.title = "精灵配种 - 洛克王国工具箱";
                                             v-if="selectedFather"
                                             class="flex flex-wrap gap-2"
                                         >
-                                            <Badge
-                                                variant="outline"
-                                                class="rounded-[10px] border-sky-300/20 bg-sky-300/10 text-sky-100"
-                                            >
-                                                {{
-                                                    getTypeLabel(selectedFather)
-                                                }}
-                                            </Badge>
+                                            <TypeBadge
+                                                v-for="type in getPetTypes(selectedFather)"
+                                                :key="type.id"
+                                                :type-id="type.id"
+                                                :label="type.localized.zh"
+                                                class="border-sky-300/20 bg-sky-300/10 text-sky-100"
+                                            />
                                             <Badge
                                                 v-if="
                                                     !isPetImplemented(

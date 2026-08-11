@@ -2797,10 +2797,17 @@ document.title = "对战助手 - 洛克王国工具箱";
                                 <p class="truncate text-sm font-semibold text-slate-950">
                                     {{ getPetDisplayName(pet) }}
                                 </p>
-                                <p class="text-xs text-slate-500">
-                                    No. {{ formatPetHandbookNo(pet) }} ·
-                                    {{ formatTypes(pet).map((type) => type.localized.zh).join(" / ") }}
-                                </p>
+                                <div class="mt-1 flex flex-wrap items-center gap-1 text-xs text-slate-500">
+                                    <span>No. {{ formatPetHandbookNo(pet) }}</span>
+                                    <TypeBadge
+                                        v-for="type in formatTypes(pet)"
+                                        :key="type.id"
+                                        :type-id="type.id"
+                                        :label="type.localized.zh"
+                                        :icon-size="12"
+                                        class="border-slate-100 bg-white px-1.5 py-0 text-[10px] text-slate-600"
+                                    />
+                                </div>
                             </button>
                         </div>
                     </div>
@@ -3174,10 +3181,17 @@ document.title = "对战助手 - 洛克王国工具箱";
                                 <p class="truncate text-sm font-semibold text-slate-950">
                                     {{ getPetDisplayName(pet) }}
                                 </p>
-                                <p class="text-xs text-slate-500">
-                                    No. {{ formatPetHandbookNo(pet) }} ·
-                                    {{ formatTypes(pet).map((type) => type.localized.zh).join(" / ") }}
-                                </p>
+                                <div class="mt-1 flex flex-wrap items-center gap-1 text-xs text-slate-500">
+                                    <span>No. {{ formatPetHandbookNo(pet) }}</span>
+                                    <TypeBadge
+                                        v-for="type in formatTypes(pet)"
+                                        :key="type.id"
+                                        :type-id="type.id"
+                                        :label="type.localized.zh"
+                                        :icon-size="12"
+                                        class="border-slate-100 bg-white px-1.5 py-0 text-[10px] text-slate-600"
+                                    />
+                                </div>
                             </button>
                         </div>
                         <p

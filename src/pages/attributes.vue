@@ -16,6 +16,7 @@ import {
     groupDualDefenseMatchups,
 } from "@/features/battle-query/typeDefenseMatchup";
 import type { IMonsterTypeDetail } from "@/lib/interface";
+import { loadTypeIconSymbolMap } from "@/lib/typeIcons";
 
 use([TooltipComponent, GraphChart, CanvasRenderer]);
 
@@ -81,6 +82,7 @@ interface IChartNode {
     x: number;
     y: number;
     symbolSize: number;
+    symbol?: string;
     z: number;
     tooltipTitle: string;
     tooltipBody: string;
@@ -93,12 +95,16 @@ interface IChartNode {
     };
     label: {
         show: boolean;
-        position: "inside";
+        position: "inside" | "bottom";
         formatter: string;
         fontSize: number;
         fontWeight: number;
         color: string;
         lineHeight: number;
+        distance?: number;
+        backgroundColor?: string;
+        borderRadius?: number;
+        padding?: number[];
     };
 }
 
@@ -209,6 +215,7 @@ const chartViewport = ref<IChartViewport>({
     width: 0,
     height: 0,
 });
+const typeIconSymbols = shallowRef<ReadonlyMap<number, string>>(new Map());
 
 let controller: AbortController | null = null;
 let chartInstance: ECharts | null = null;
@@ -393,6 +400,7 @@ const chartScene = computed(() => {
         typeEntries.value,
         pairRelationLookup.value,
         chartViewport.value,
+        typeIconSymbols.value,
     );
 });
 
@@ -664,6 +672,7 @@ function buildChartScene(
     types: ITypeEntry[],
     relationLookup: Map<number, ITypePairRelation>,
     viewport: IChartViewport,
+    iconSymbols: ReadonlyMap<number, string>,
 ): IChartScene {
     if (!activeType) {
         return {
@@ -698,6 +707,7 @@ function buildChartScene(
             78,
             true,
             `${activeType.label}<br/>${currentTypeSummary.value}`,
+            iconSymbols.get(activeType.id),
         ),
     ];
     const links: IChartLink[] = [];
@@ -723,6 +733,7 @@ function buildChartScene(
                 54,
                 false,
                 buildPairSummary(activeType, type, relation),
+                iconSymbols.get(type.id),
             ),
         );
 
@@ -821,6 +832,7 @@ function buildChartNode(
     symbolSize: number,
     isActive: boolean,
     tooltipBody: string,
+    iconSymbol?: string,
 ): IChartNode {
     return {
         id: String(type.id),
@@ -828,6 +840,7 @@ function buildChartNode(
         x,
         y,
         symbolSize,
+        symbol: iconSymbol,
         z: isActive ? 4 : 2,
         tooltipTitle: isActive ? `${type.label} · 当前聚焦` : type.label,
         tooltipBody,
@@ -840,12 +853,20 @@ function buildChartNode(
         },
         label: {
             show: true,
-            position: "inside",
+            position: iconSymbol ? "bottom" : "inside",
             formatter: type.shortLabel,
             fontSize: type.shortLabel.length > 1 ? 12 : 13,
             fontWeight: isActive ? 700 : 600,
-            color: getReadableTextColor(type.color),
+            color: iconSymbol ? "#f8fafc" : getReadableTextColor(type.color),
             lineHeight: 15,
+            ...(iconSymbol
+                ? {
+                      distance: 4,
+                      backgroundColor: "rgba(15, 23, 42, 0.82)",
+                      borderRadius: 4,
+                      padding: [2, 4],
+                  }
+                : {}),
         },
     };
 }
@@ -1107,6 +1128,7 @@ watch(
         chartViewport.value.width,
         chartViewport.value.height,
         typeEntries.value.length,
+        typeIconSymbols.value.size,
     ],
     async () => {
         await nextTick();
@@ -1119,6 +1141,13 @@ watch(
 
 onMounted(() => {
     void loadTypeData();
+    void loadTypeIconSymbolMap()
+        .then((symbols) => {
+            typeIconSymbols.value = symbols;
+        })
+        .catch(() => {
+            typeIconSymbols.value = new Map();
+        });
 });
 
 onBeforeUnmount(() => {
@@ -1187,11 +1216,22 @@ onBeforeUnmount(() => {
                         :style="getBadgeStyle(currentType, true)"
                     >
                         当前选择 ·
-                        {{
-                            isDualDefenseMode && secondaryType
-                                ? `${currentType.label} + ${secondaryType.label}`
-                                : currentType.label
-                        }}
+                        <TypeIcon
+                            :type-id="currentType.id"
+                            :label="currentType.shortLabel"
+                            :size="18"
+                            class="ml-1.5"
+                        />
+                        {{ currentType.label }}
+                        <template v-if="isDualDefenseMode && secondaryType">
+                            <span>+</span>
+                            <TypeIcon
+                                :type-id="secondaryType.id"
+                                :label="secondaryType.shortLabel"
+                                :size="18"
+                            />
+                            {{ secondaryType.label }}
+                        </template>
                     </span>
                     <span
                         class="inline-flex items-center rounded-[10px] border border-border px-4 py-2 font-semibold"
@@ -1227,7 +1267,7 @@ onBeforeUnmount(() => {
                         v-for="type in typeEntries"
                         :key="type.id"
                         type="button"
-                        class="type-badge flex min-h-10 items-center justify-center rounded-[10px] p-2 text-left md:p-3"
+                        class="type-badge flex min-h-14 flex-col items-center justify-center gap-1 rounded-[10px] p-1.5 text-left md:min-h-10 md:flex-row md:p-3"
                         :style="getBadgeStyle(type, currentTypeId === type.id)"
                         @mouseenter="previewType(type.id)"
                         @mouseleave="clearPreview"
@@ -1235,7 +1275,12 @@ onBeforeUnmount(() => {
                         @blur="clearPreview"
                         @click="selectType(type.id)"
                     >
-                        <span class="text-sm font-black leading-none md:text-lg">
+                        <TypeIcon
+                            :type-id="type.id"
+                            :label="type.shortLabel"
+                            :size="20"
+                        />
+                        <span class="text-xs font-black leading-none md:text-base">
                             {{ type.shortLabel }}
                         </span>
                     </button>
@@ -1298,13 +1343,18 @@ onBeforeUnmount(() => {
                             v-for="type in typeEntries"
                             :key="type.id"
                             type="button"
-                            class="type-badge flex flex-col items-center rounded-[10px] p-3 text-left"
+                            class="type-badge flex flex-col items-center gap-1 rounded-[10px] p-3 text-left"
                             :style="
                                 getBadgeStyle(type, secondaryTypeId === type.id)
                             "
                             @click="selectSecondaryType(type.id)"
                         >
-                            <span class="text-lg font-black leading-none">
+                            <TypeIcon
+                                :type-id="type.id"
+                                :label="type.shortLabel"
+                                :size="24"
+                            />
+                            <span class="text-sm font-black leading-none">
                                 {{ type.shortLabel }}
                             </span>
                         </button>
