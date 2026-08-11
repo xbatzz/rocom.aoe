@@ -42,9 +42,13 @@ function formatValue(value: number | null | undefined) {
         </div>
 
         <div class="mt-4 flex flex-wrap gap-2">
-            <Badge class="rounded-[10px] bg-white/10 text-foreground">
+            <TypeBadge
+                :type-id="skill.typeId"
+                :label="skill.typeLabel"
+                class="border-transparent bg-white/10 text-foreground"
+            >
                 {{ skill.typeLabel }}
-            </Badge>
+            </TypeBadge>
             <Badge
                 variant="outline"
                 class="rounded-[10px] border-border bg-muted text-foreground"

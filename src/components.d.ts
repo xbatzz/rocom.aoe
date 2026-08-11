@@ -79,5 +79,7 @@ declare module 'vue' {
     TabsContent: typeof import('./components/ui/tabs/TabsContent.vue')['default']
     TabsList: typeof import('./components/ui/tabs/TabsList.vue')['default']
     TabsTrigger: typeof import('./components/ui/tabs/TabsTrigger.vue')['default']
+    TypeBadge: typeof import('./components/TypeBadge.vue')['default']
+    TypeIcon: typeof import('./components/TypeIcon.vue')['default']
   }
 }

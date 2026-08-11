@@ -1,7 +1,6 @@
 import type { OcrResult } from "@paddleocr/paddleocr-js";
 import ortWasmModuleUrl from "onnxruntime-web/ort-wasm-simd-threaded.mjs?url";
 import ortWasmUrl from "onnxruntime-web/ort-wasm-simd-threaded.wasm?url";
-import speciesAtlasUrl from "./assets/Species.png?url";
 import type { IPets, IPetsDetail, IPetsMove } from "@/lib/interface";
 import { isPetImplemented } from "@/lib/petImplementation";
 import {
@@ -9,6 +8,12 @@ import {
     type BattleIndividualValues,
     type BattleStatKey,
 } from "@/lib/statCalculator";
+import {
+    TYPE_ICON_ATLAS_ITEMS,
+    TYPE_ICON_CELL_HEIGHT,
+    TYPE_ICON_CELL_WIDTH,
+    typeIconAtlasUrl,
+} from "@/lib/typeIcons";
 import type {
     TeamImageImportCandidate,
     TeamImageImportContext,
@@ -47,34 +52,6 @@ const PERSONALITY_MOD_KEYS: Record<BattleStatKey, keyof TeamImageImportContext["
     magDef: "mag_def_mod_pct",
     speed: "spd_mod_pct",
 };
-
-const SPECIES_ATLAS_ITEMS: Array<{
-    row: number;
-    column: number;
-    typeId: number | null;
-    label: string;
-    pollution?: boolean;
-}> = [
-    { row: 0, column: 0, typeId: 2, label: "草" },
-    { row: 0, column: 1, typeId: 1, label: "普通" },
-    { row: 0, column: 2, typeId: 8, label: "龙" },
-    { row: 0, column: 3, typeId: 9, label: "电" },
-    { row: 0, column: 4, typeId: 15, label: "幽" },
-    { row: 1, column: 0, typeId: 3, label: "火" },
-    { row: 1, column: 1, typeId: 14, label: "萌" },
-    { row: 1, column: 3, typeId: 10, label: "毒" },
-    { row: 1, column: 4, typeId: 16, label: "恶" },
-    { row: 2, column: 0, typeId: 4, label: "水" },
-    { row: 2, column: 1, typeId: 12, label: "武" },
-    { row: 2, column: 2, typeId: null, label: "污染", pollution: true },
-    { row: 2, column: 3, typeId: 11, label: "虫" },
-    { row: 2, column: 4, typeId: 17, label: "机械" },
-    { row: 3, column: 0, typeId: 5, label: "光" },
-    { row: 3, column: 1, typeId: 7, label: "冰" },
-    { row: 3, column: 2, typeId: 18, label: "幻" },
-    { row: 3, column: 3, typeId: 6, label: "地" },
-    { row: 3, column: 4, typeId: 13, label: "翼" },
-];
 
 interface CropRect {
     x: number;
@@ -646,20 +623,20 @@ async function matchLegacyType(
     const target = cropCanvas(source, rect, 1.5);
     const targetFeature = getIconFeature(target);
     const atlas = await getAtlasImage();
-    const candidates = SPECIES_ATLAS_ITEMS.map((item) => {
+    const candidates = TYPE_ICON_ATLAS_ITEMS.map((item) => {
         const cell = document.createElement("canvas");
-        cell.width = 56;
-        cell.height = 58;
+        cell.width = TYPE_ICON_CELL_WIDTH;
+        cell.height = TYPE_ICON_CELL_HEIGHT;
         getCanvasContext(cell).drawImage(
             atlas,
-            item.column * 56,
-            item.row * 58,
-            56,
-            58,
+            item.column * TYPE_ICON_CELL_WIDTH,
+            item.row * TYPE_ICON_CELL_HEIGHT,
+            TYPE_ICON_CELL_WIDTH,
+            TYPE_ICON_CELL_HEIGHT,
             0,
             0,
-            56,
-            58,
+            TYPE_ICON_CELL_WIDTH,
+            TYPE_ICON_CELL_HEIGHT,
         );
         return {
             item,
@@ -778,7 +755,7 @@ function compareIconFeatures(left: IconFeature, right: IconFeature) {
 
 async function getAtlasImage() {
     if (!atlasImagePromise) {
-        atlasImagePromise = loadImageElement(speciesAtlasUrl);
+        atlasImagePromise = loadImageElement(typeIconAtlasUrl);
     }
 
     return await atlasImagePromise;

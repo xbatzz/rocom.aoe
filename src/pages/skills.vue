@@ -62,6 +62,20 @@ const typeOptions = computed(() => {
     );
 });
 
+const typeOptionEntries = computed(() => {
+    const typeMap = new Map<string, number | null>();
+
+    for (const skill of skillItems.value) {
+        if (!typeMap.has(skill.typeLabel) || skill.typeId !== null) {
+            typeMap.set(skill.typeLabel, skill.typeId);
+        }
+    }
+
+    return [...typeMap.entries()]
+        .map(([label, id]) => ({ id, label }))
+        .sort((left, right) => left.label.localeCompare(right.label, "zh-CN"));
+});
+
 const categoryOptions = computed(() => {
     const categoryMap = new Map<string, string>();
 
@@ -410,11 +424,16 @@ document.title = "技能 - 洛克王国工具箱";
                         >
                             <SelectItem value="all">全部属性</SelectItem>
                             <SelectItem
-                                v-for="type in typeOptions"
-                                :key="type"
-                                :value="type"
+                                v-for="type in typeOptionEntries"
+                                :key="type.label"
+                                :value="type.label"
                             >
-                                {{ type }}
+                                <TypeIcon
+                                    :type-id="type.id"
+                                    :label="type.label"
+                                    :size="16"
+                                />
+                                {{ type.label }}
                             </SelectItem>
                         </SelectContent>
                     </Select>
@@ -478,6 +497,11 @@ document.title = "技能 - 洛克王国工具箱";
                             variant="outline"
                             class="rounded-[10px] border-border bg-white/5 px-3 py-1 text-foreground"
                         >
+                            <TypeIcon
+                                :type-id="typeOptionEntries.find((item) => item.label === selectedType)?.id"
+                                :label="selectedType"
+                                :size="16"
+                            />
                             属性 {{ selectedType }}
                         </Badge>
                         <Badge

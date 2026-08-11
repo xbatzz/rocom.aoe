@@ -2963,6 +2963,11 @@ document.title = "配队工具 - 洛克王国工具箱";
                                             'inline-flex items-center rounded-[10px] border px-2 py-0.5 text-xs font-medium',
                                             getTypeTone(type.name),
                                         ]">
+                                        <TypeIcon
+                                            :type-id="type.id"
+                                            :label="type.localized.zh"
+                                            :size="14"
+                                            class="mr-1" />
                                         {{ type.localized.zh }}
                                     </span>
                                     <span
@@ -3266,6 +3271,10 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                 v-for="option in typeOptions"
                                                 :key="option.value"
                                                 :value="option.value">
+                                                <TypeIcon
+                                                    :type-id="Number(option.value)"
+                                                    :label="option.label"
+                                                    :size="16" />
                                                 {{ option.label }}
                                             </SelectItem>
                                         </SelectContent>
@@ -3315,6 +3324,10 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                 v-for="option in typeOptions"
                                                 :key="option.value"
                                                 :value="option.value">
+                                                <TypeIcon
+                                                    :type-id="Number(option.value)"
+                                                    :label="option.label"
+                                                    :size="16" />
                                                 {{ option.label }}
                                             </SelectItem>
                                         </SelectContent>
@@ -3410,7 +3423,12 @@ document.title = "配队工具 - 洛克王国工具箱";
                                             8,
                                         )"
                                         :key="type.id"
-                                        class="rounded-[10px] border border-border bg-card px-2 py-0.5 text-xs text-foreground">
+                                        class="inline-flex items-center rounded-[10px] border border-border bg-card px-2 py-0.5 text-xs text-foreground">
+                                        <TypeIcon
+                                            :type-id="type.id"
+                                            :label="type.label"
+                                            :size="14"
+                                            class="mr-1" />
                                         {{ type.label }}
                                     </span>
                                     <span
@@ -3675,6 +3693,10 @@ document.title = "配队工具 - 洛克王国工具箱";
                                         v-for="option in typeOptions"
                                         :key="option.value"
                                         :value="option.value">
+                                        <TypeIcon
+                                            :type-id="Number(option.value)"
+                                            :label="option.label"
+                                            :size="16" />
                                         {{ option.label }}
                                     </SelectItem>
                                 </SelectContent>
@@ -3807,6 +3829,11 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                         'inline-flex items-center rounded-[10px] border px-2 py-0.5 text-[11px]',
                                                         getTypeTone(type.name),
                                                     ]">
+                                                    <TypeIcon
+                                                        :type-id="type.id"
+                                                        :label="type.localized.zh"
+                                                        :size="13"
+                                                        class="mr-1" />
                                                     {{ type.localized.zh }}
                                                 </span>
                                             </div>
@@ -3876,6 +3903,11 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                     'inline-flex items-center rounded-[10px] border px-2 py-0.5 text-xs font-medium',
                                                     getTypeTone(type.name),
                                                 ]">
+                                                <TypeIcon
+                                                    :type-id="type.id"
+                                                    :label="type.localized.zh"
+                                                    :size="14"
+                                                    class="mr-1" />
                                                 {{ type.localized.zh }}
                                             </span>
                                         </div>
@@ -4183,7 +4215,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                             </span>
                                                             <span
                                                                 :class="[
-                                                                    'rounded-[10px] border px-2 py-0.5 text-[11px]',
+                                                                    'inline-flex items-center rounded-[10px] border px-2 py-0.5 text-[11px]',
                                                                     getTypeTone(
                                                                         option
                                                                             .move
@@ -4191,6 +4223,11 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                                             .name,
                                                                     ),
                                                                 ]">
+                                                                <TypeIcon
+                                                                    :type-id="option.move.move_type.id"
+                                                                    :label="option.move.move_type.localized.zh"
+                                                                    :size="13"
+                                                                    class="mr-1" />
                                                                 {{
                                                                     option.move
                                                                         .move_type

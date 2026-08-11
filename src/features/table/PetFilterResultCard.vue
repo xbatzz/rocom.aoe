@@ -8,7 +8,6 @@ import { isPetImplemented } from "@/lib/petImplementation";
 defineProps<{
     pet: IPets;
     attackStyle: string;
-    typeLabel: string;
     eggGroupLabel: string;
     totalStats: number;
     peakStat: { label: string; value: number };
@@ -42,7 +41,17 @@ defineProps<{
                     </Badge>
                 </div>
                 <div class="mt-2 flex flex-wrap gap-1.5">
-                    <Badge variant="secondary">{{ typeLabel }}</Badge>
+                    <TypeBadge
+                        :type-id="pet.main_type.id"
+                        :label="pet.main_type.localized.zh"
+                        class="border-transparent bg-secondary text-secondary-foreground"
+                    />
+                    <TypeBadge
+                        v-if="pet.sub_type"
+                        :type-id="pet.sub_type.id"
+                        :label="pet.sub_type.localized.zh"
+                        class="border-transparent bg-secondary text-secondary-foreground"
+                    />
                     <Badge variant="outline">{{ eggGroupLabel }}</Badge>
                 </div>
             </div>

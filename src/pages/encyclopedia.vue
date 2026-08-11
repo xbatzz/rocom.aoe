@@ -833,6 +833,11 @@ document.title = "图鉴 - 洛克王国工具箱";
                                 :key="option.value"
                                 :value="option.value"
                             >
+                                <TypeIcon
+                                    :type-id="Number(option.value)"
+                                    :label="option.label"
+                                    :size="16"
+                                />
                                 {{ option.label }}
                             </SelectItem>
                         </SelectContent>
@@ -853,6 +858,11 @@ document.title = "图鉴 - 洛克王国工具箱";
                                 :key="option.value"
                                 :value="option.value"
                             >
+                                <TypeIcon
+                                    :type-id="Number(option.value)"
+                                    :label="option.label"
+                                    :size="16"
+                                />
                                 {{ option.label }}
                             </SelectItem>
                         </SelectContent>
@@ -1101,27 +1111,31 @@ document.title = "图鉴 - 洛克王国工具箱";
                                     >
                                         {{ getPetFormLabel(pet) }}
                                     </Badge>
-                                    <Badge
-                                        class="rounded-[10px] bg-white/10 text-foreground"
+                                    <TypeBadge
+                                        :type-id="pet.main_type.id"
+                                        :label="pet.main_type.localized.zh"
+                                        class="border-transparent bg-white/10 text-foreground"
                                     >
                                         {{ pet.main_type.localized.zh }}
-                                    </Badge>
-                                    <Badge
+                                    </TypeBadge>
+                                    <TypeBadge
                                         v-if="pet.sub_type"
-                                        variant="secondary"
-                                        class="rounded-[10px] bg-slate-700/60 text-foreground"
+                                        :type-id="pet.sub_type.id"
+                                        :label="pet.sub_type.localized.zh"
+                                        class="border-transparent bg-slate-700/60 text-foreground"
                                     >
                                         {{ pet.sub_type.localized.zh }}
-                                    </Badge>
-                                    <Badge
-                                        variant="outline"
+                                    </TypeBadge>
+                                    <TypeBadge
+                                        :type-id="pet.default_legacy_type.id"
+                                        :label="`${pet.default_legacy_type.localized.zh}遗传`"
                                         class="rounded-[10px] border-sky-400/20 bg-sky-400/10 text-sky-200"
                                     >
                                         {{
                                             pet.default_legacy_type.localized
                                                 .zh
                                         }}遗传
-                                    </Badge>
+                                    </TypeBadge>
                                 </div>
                             </div>
                         </div>

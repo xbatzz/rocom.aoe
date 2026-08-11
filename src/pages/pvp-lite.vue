@@ -2829,8 +2829,14 @@ document.title = "对战助手 - 洛克王国工具箱";
                                         <span
                                             v-for="type in formatTypes(allyPet)"
                                             :key="type.id"
-                                            class="rounded-full bg-emerald-600 px-2.5 py-1 text-xs font-bold text-white shadow-sm"
+                                            class="inline-flex items-center rounded-full bg-emerald-600 px-2.5 py-1 text-xs font-bold text-white shadow-sm"
                                         >
+                                            <TypeIcon
+                                                :type-id="type.id"
+                                                :label="type.localized.zh"
+                                                :size="14"
+                                                class="mr-1"
+                                            />
                                             {{ type.localized.zh }}
                                         </span>
                                     </div>
@@ -2992,8 +2998,14 @@ document.title = "对战助手 - 洛克王国工具箱";
                                         <span
                                             v-for="type in formatTypes(opponentPet)"
                                             :key="type.id"
-                                            class="rounded-full bg-rose-600 px-2.5 py-1 text-xs font-bold text-white shadow-sm"
+                                            class="inline-flex items-center rounded-full bg-rose-600 px-2.5 py-1 text-xs font-bold text-white shadow-sm"
                                         >
+                                            <TypeIcon
+                                                :type-id="type.id"
+                                                :label="type.localized.zh"
+                                                :size="14"
+                                                class="mr-1"
+                                            />
                                             {{ type.localized.zh }}
                                         </span>
                                     </div>
@@ -3618,7 +3630,13 @@ document.title = "对战助手 - 洛克王国工具箱";
                         </div>
 
                         <div class="mt-3 flex flex-wrap gap-2 text-xs font-bold text-slate-700">
-                            <span class="rounded-full bg-white px-3 py-1.5">
+                            <span class="inline-flex items-center rounded-full bg-white px-3 py-1.5">
+                                <TypeIcon
+                                    :type-id="selectedDamageOption.move.move_type?.id"
+                                    :label="selectedDamageOption.move.move_type?.localized.zh ?? '属性'"
+                                    :size="16"
+                                    class="mr-1"
+                                />
                                 {{ selectedDamageOption.move.move_type?.localized.zh }}
                             </span>
                             <span class="rounded-full bg-white px-3 py-1.5">
@@ -3852,7 +3870,13 @@ document.title = "对战助手 - 洛克王国工具箱";
                                         <span class="block truncate text-sm font-black text-slate-950">
                                             {{ getMoveDisplayName(move) }}
                                         </span>
-                                        <span class="text-xs font-semibold text-slate-500">
+                                        <span class="inline-flex items-center text-xs font-semibold text-slate-500">
+                                            <TypeIcon
+                                                :type-id="move.move_type?.id"
+                                                :label="move.move_type?.localized.zh ?? '属性'"
+                                                :size="14"
+                                                class="mr-1"
+                                            />
                                             {{ move.move_type?.localized.zh }} ·
                                             {{ getMoveCategoryLabel(move.move_category) }}
                                         </span>
@@ -4157,7 +4181,13 @@ document.title = "对战助手 - 洛克王国工具箱";
                                 :key="`ally-${item.type.id}`"
                                 class="flex items-center justify-between rounded-[14px] bg-white px-3 py-2 text-sm"
                             >
-                                <span class="font-semibold text-slate-700">
+                                <span class="inline-flex items-center font-semibold text-slate-700">
+                                    <TypeIcon
+                                        :type-id="item.type.id"
+                                        :label="item.type.localized.zh"
+                                        :size="16"
+                                        class="mr-1.5"
+                                    />
                                     {{ item.type.localized.zh }}
                                 </span>
                                 <span class="font-black text-slate-950">
@@ -4176,7 +4206,13 @@ document.title = "对战助手 - 洛克王国工具箱";
                                 :key="`opponent-${item.type.id}`"
                                 class="flex items-center justify-between rounded-[14px] bg-white px-3 py-2 text-sm"
                             >
-                                <span class="font-semibold text-slate-700">
+                                <span class="inline-flex items-center font-semibold text-slate-700">
+                                    <TypeIcon
+                                        :type-id="item.type.id"
+                                        :label="item.type.localized.zh"
+                                        :size="16"
+                                        class="mr-1.5"
+                                    />
                                     {{ item.type.localized.zh }}
                                 </span>
                                 <span class="font-black text-slate-950">
@@ -4206,7 +4242,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                             v-for="type in opponentBattleTypes"
                             :key="type.id"
                             type="button"
-                            class="rounded-full px-3 py-1 text-xs font-semibold"
+                            class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold"
                             :class="
                                 selectedDefenseType?.name === type.name
                                     ? 'bg-emerald-600 text-white'
@@ -4214,6 +4250,12 @@ document.title = "对战助手 - 洛克王国工具箱";
                             "
                             @click="selectedDefenseTypeName = type.name"
                         >
+                            <TypeIcon
+                                :type-id="type.id"
+                                :label="type.localized.zh"
+                                :size="14"
+                                class="mr-1"
+                            />
                             {{ type.localized.zh }}
                         </button>
                     </div>
@@ -4239,8 +4281,14 @@ document.title = "对战助手 - 洛克王国工具箱";
                                 <span
                                     v-for="type in formatTypes(candidate.pet)"
                                     :key="type.id"
-                                    class="rounded-full bg-white px-2 py-0.5 text-xs text-slate-600"
+                                    class="inline-flex items-center rounded-full bg-white px-2 py-0.5 text-xs text-slate-600"
                                 >
+                                    <TypeIcon
+                                        :type-id="type.id"
+                                        :label="type.localized.zh"
+                                        :size="13"
+                                        class="mr-1"
+                                    />
                                     {{ type.localized.zh }}
                                 </span>
                             </div>

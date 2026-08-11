@@ -1568,27 +1568,31 @@ async function getFriendDetail(idParam: string | string[]) {
                                     >
                                         No.{{ formatPetHandbookNo(friend) }}
                                     </Badge>
-                                    <Badge
-                                        class="rounded-[10px] bg-white/10 text-foreground"
+                                    <TypeBadge
+                                        :type-id="friend.main_type.id"
+                                        :label="friend.main_type.localized.zh"
+                                        class="border-transparent bg-white/10 text-foreground"
                                     >
                                         {{ friend.main_type.localized.zh }}
-                                    </Badge>
-                                    <Badge
+                                    </TypeBadge>
+                                    <TypeBadge
                                         v-if="friend.sub_type"
-                                        variant="secondary"
-                                        class="rounded-[10px] bg-slate-700/60 text-foreground"
+                                        :type-id="friend.sub_type.id"
+                                        :label="friend.sub_type.localized.zh"
+                                        class="border-transparent bg-slate-700/60 text-foreground"
                                     >
                                         {{ friend.sub_type.localized.zh }}
-                                    </Badge>
-                                    <Badge
-                                        variant="outline"
+                                    </TypeBadge>
+                                    <TypeBadge
+                                        :type-id="friend.default_legacy_type.id"
+                                        :label="`${friend.default_legacy_type.localized.zh}遗传`"
                                         class="rounded-[10px] border-sky-400/20 bg-sky-400/10 text-sky-200"
                                     >
                                         {{
                                             friend.default_legacy_type.localized
                                                 .zh
                                         }}遗传
-                                    </Badge>
+                                    </TypeBadge>
                                     <Badge
                                         v-if="friend.is_leader_form"
                                         class="rounded-[10px] border-0 bg-card hover:bg-accent/15 text-foreground"
@@ -2569,14 +2573,15 @@ async function getFriendDetail(idParam: string | string[]) {
                                         技能覆盖属性
                                     </p>
                                     <div class="flex flex-wrap gap-2">
-                                        <Badge
+                                        <TypeBadge
                                             v-for="type in moveCoverageTypes"
                                             :key="type.id"
-                                            variant="outline"
+                                            :type-id="type.id"
+                                            :label="type.label"
                                             class="rounded-[10px] border-sky-400/20 bg-sky-400/10 text-sky-200"
                                         >
                                             {{ type.label }}
-                                        </Badge>
+                                        </TypeBadge>
                                     </div>
                                 </div>
 
@@ -2605,14 +2610,17 @@ async function getFriendDetail(idParam: string | string[]) {
                                                 <div
                                                     class="mt-1 flex flex-wrap items-center gap-1.5"
                                                 >
-                                                    <Badge
-                                                        class="rounded-[10px] bg-white/10 px-2 py-0 text-[11px] text-foreground"
+                                                    <TypeBadge
+                                                        :type-id="move.move_type.id"
+                                                        :label="move.move_type.localized.zh"
+                                                        :icon-size="14"
+                                                        class="border-transparent bg-white/10 px-2 py-0 text-[11px] text-foreground"
                                                     >
                                                         {{
                                                             move.move_type
                                                                 .localized.zh
                                                         }}
-                                                    </Badge>
+                                                    </TypeBadge>
                                                     <Badge
                                                         variant="outline"
                                                         class="rounded-[10px] border-border bg-card px-2 py-0 text-[11px] text-foreground"
@@ -2897,11 +2905,13 @@ async function getFriendDetail(idParam: string | string[]) {
                                     <div
                                         class="hidden flex-wrap gap-2 md:flex md:pt-0.5"
                                     >
-                                        <Badge
-                                            class="rounded-[10px] bg-white/10 text-foreground"
+                                        <TypeBadge
+                                            :type-id="move.move_type.id"
+                                            :label="move.move_type.localized.zh"
+                                            class="border-transparent bg-white/10 text-foreground"
                                         >
                                             {{ move.move_type.localized.zh }}
-                                        </Badge>
+                                        </TypeBadge>
                                         <Badge
                                             variant="outline"
                                             class="rounded-[10px] border-border bg-card text-foreground"

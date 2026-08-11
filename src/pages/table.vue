@@ -93,6 +93,7 @@ interface PageItem {
 interface SkillOption {
     id: number;
     label: string;
+    typeId: number | null;
     typeLabel: string;
     categoryLabel: string;
     searchText: string;
@@ -391,6 +392,7 @@ const availableSkillOptions = computed<SkillOption[]>(() => {
         .map((skill) => ({
             id: skill.id,
             label: skill.name,
+            typeId: skill.type_id ?? null,
             typeLabel: skill.type_label,
             categoryLabel: getMoveCategoryLabel(skill.move_category),
             searchText: buildSkillSearchText(skill),
@@ -1196,6 +1198,11 @@ document.title = "表格 - 洛克王国工具箱";
                                 :key="option.value"
                                 :value="option.value"
                             >
+                                <TypeIcon
+                                    :type-id="Number(option.value)"
+                                    :label="option.label"
+                                    :size="16"
+                                />
                                 {{ option.label }}
                             </SelectItem>
                         </SelectContent>
@@ -1392,8 +1399,13 @@ document.title = "表格 - 洛克王国工具箱";
                                                     class="flex flex-wrap items-center gap-1.5 text-xs text-foreground"
                                                 >
                                                     <span
-                                                        class="rounded-[10px] border border-border bg-white/5 px-2 py-0.5"
+                                                        class="inline-flex items-center gap-1 rounded-[10px] border border-border bg-white/5 px-2 py-0.5"
                                                     >
+                                                        <TypeIcon
+                                                            :type-id="option.typeId"
+                                                            :label="option.typeLabel"
+                                                            :size="14"
+                                                        />
                                                         {{ option.typeLabel }}
                                                     </span>
                                                     <span
@@ -1504,7 +1516,6 @@ document.title = "表格 - 洛克王国工具箱";
                         :key="`mobile-${pet.id}`"
                         :pet="pet"
                         :attack-style="getAttackStyleLabel(pet.preferred_attack_style)"
-                        :type-label="getTypeLabel(pet)"
                         :egg-group-label="formatEggGroupSummary(pet)"
                         :total-stats="getTotalStats(pet)"
                         :peak-stat="getPeakStat(pet)"
@@ -1795,24 +1806,29 @@ document.title = "表格 - 洛克王国工具箱";
                                             <div
                                                 class="flex flex-wrap gap-1.5 lg:hidden"
                                             >
-                                                <Badge
-                                                    class="rounded-[10px] bg-white/10 px-1.5 py-0 text-[10px] text-foreground"
+                                                <TypeBadge
+                                                    :type-id="pet.main_type.id"
+                                                    :label="pet.main_type.localized.zh"
+                                                    :icon-size="13"
+                                                    class="border-transparent bg-white/10 px-1.5 py-0 text-[10px] text-foreground"
                                                 >
                                                     {{
                                                         pet.main_type.localized
                                                             .zh
                                                     }}
-                                                </Badge>
-                                                <Badge
+                                                </TypeBadge>
+                                                <TypeBadge
                                                     v-if="pet.sub_type"
-                                                    variant="secondary"
-                                                    class="rounded-[10px] bg-slate-700/70 px-1.5 py-0 text-[10px] text-foreground"
+                                                    :type-id="pet.sub_type.id"
+                                                    :label="pet.sub_type.localized.zh"
+                                                    :icon-size="13"
+                                                    class="border-transparent bg-slate-700/70 px-1.5 py-0 text-[10px] text-foreground"
                                                 >
                                                     {{
                                                         pet.sub_type.localized
                                                             .zh
                                                     }}
-                                                </Badge>
+                                                </TypeBadge>
                                             </div>
                                         </div>
                                     </div>
@@ -1848,35 +1864,39 @@ document.title = "表格 - 洛克王国工具箱";
 
                                 <TableCell class="hidden lg:table-cell">
                                     <div class="flex flex-wrap gap-1.5">
-                                        <Badge
-                                            class="rounded-[10px] bg-white/10 text-foreground cursor-pointer hover:bg-accent"
+                                        <TypeBadge
+                                            :type-id="pet.main_type.id"
+                                            :label="pet.main_type.localized.zh"
+                                            class="border-transparent bg-white/10 text-foreground cursor-pointer hover:bg-accent"
                                             @click="
                                                 tableState.type =
                                                     pet.main_type.id.toString()
                                             "
                                         >
                                             {{ pet.main_type.localized.zh }}
-                                        </Badge>
-                                        <Badge
+                                        </TypeBadge>
+                                        <TypeBadge
                                             v-if="pet.sub_type"
-                                            variant="secondary"
-                                            class="rounded-[10px] bg-slate-700/70 text-foreground cursor-pointer hover:bg-accent"
+                                            :type-id="pet.sub_type.id"
+                                            :label="pet.sub_type.localized.zh"
+                                            class="border-transparent bg-slate-700/70 text-foreground cursor-pointer hover:bg-accent"
                                             @click="
                                                 tableState.type =
                                                     pet.sub_type.id.toString()
                                             "
                                         >
                                             {{ pet.sub_type.localized.zh }}
-                                        </Badge>
-                                        <Badge
-                                            variant="outline"
+                                        </TypeBadge>
+                                        <TypeBadge
+                                            :type-id="pet.default_legacy_type.id"
+                                            :label="`${pet.default_legacy_type.localized.zh}遗传`"
                                             class="rounded-[10px] border-border bg-card text-foreground"
                                         >
                                             {{
                                                 pet.default_legacy_type
                                                     .localized.zh
                                             }}遗传
-                                        </Badge>
+                                        </TypeBadge>
                                     </div>
                                 </TableCell>
 
