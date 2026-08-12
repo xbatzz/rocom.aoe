@@ -39,7 +39,7 @@ const navGroups = [
         label: "核心工具",
         items: [
             { name: "首页", path: "/", icon: Gamepad2 },
-            { name: "对战助手", path: "/pvp-lite", icon: Swords },
+            { name: "对战", path: "/pvp-lite", icon: Swords },
             { name: "配队", path: "/team", icon: Gamepad2 },
             { name: "图鉴", path: "/encyclopedia", icon: TableProperties },
             { name: "技能", path: "/skills", icon: Sparkles },
