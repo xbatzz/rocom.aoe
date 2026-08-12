@@ -109,6 +109,13 @@ declare module 'vue-router/auto-routes' {
       '/skills',
       Record<never, never>,
       Record<never, never>,
+      | '/skills/[id]'
+    >,
+    '/skills/[id]': RouteRecordInfo<
+      '/skills/[id]',
+      '/skills/:id',
+      { id: ParamValue<true> },
+      { id: ParamValue<false> },
       | never
     >,
     '/table': RouteRecordInfo<
@@ -207,6 +214,13 @@ declare module 'vue-router/auto-routes' {
     'src/pages/skills.vue': {
       routes:
         | '/skills'
+        | '/skills/[id]'
+      views:
+        | 'default'
+    }
+    'src/pages/skills/[id].vue': {
+      routes:
+        | '/skills/[id]'
       views:
         | never
     }

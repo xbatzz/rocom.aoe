@@ -168,8 +168,8 @@ const moveCategoryLabels: Record<string, string> = {
 const skillSourceOptions = [
     { label: "全部技能", value: "all" },
     { label: "自有技能", value: "pool" },
-    { label: "学习技能", value: "stone" },
-    { label: "遗传技能", value: "legacy" },
+    { label: "技能石", value: "stone" },
+    { label: "血脉技能", value: "legacy" },
 ] as const satisfies ReadonlyArray<{
     label: string;
     value: SkillSourceFilter;

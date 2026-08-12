@@ -108,6 +108,16 @@ export interface IPetSkillIndexPayload {
     skills: IPetSkillCatalogEntry[];
 }
 
+export type SkillAcquisitionSource = "pool" | "stone" | "bloodline";
+
+export interface ISkillAcquisitionEntry {
+    skill_id: number;
+    skill_name: string;
+    alias_ids: number[];
+    pet_ids: number[];
+    sources_by_pet: Record<string, SkillAcquisitionSource[]>;
+}
+
 export interface IPetsBreedingVariant {
     id: number | null;
     pet_id: number | null;

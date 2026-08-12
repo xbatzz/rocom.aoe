@@ -19,6 +19,7 @@ import {
     type SkillMoveSource,
 } from "@/features/skills/skillAdapter";
 import type { IPetsDetail, IPetSkillIndexPayload } from "@/lib/interface";
+import type { ISkillAcquisitionEntry } from "@/lib/interface";
 
 interface PageItem {
     key: string;
@@ -36,19 +37,51 @@ const pageSize = ref<(typeof PAGE_SIZE_OPTIONS)[number]>(24);
 const moves = ref<SkillMoveSource[]>([]);
 const petSkillIndex = ref<IPetSkillIndexPayload | null>(null);
 const skillIconMap = ref<SkillIconMap>(new Map());
+const skillAcquisitionIndex = ref<ISkillAcquisitionEntry[]>([]);
 const isLoading = ref(false);
 const errorMessage = ref("");
 const filtersExpanded = ref(false);
+const route = useRoute();
+
+const hasSkillRouteId = computed(() => {
+    const params = route.params as { id?: string | string[] };
+    return Boolean(params.id);
+});
 
 let controller: AbortController | null = null;
 
-const skillItems = computed(() =>
-    buildSkillSearchItems(
+const skillItems = computed(() => {
+    const items = buildSkillSearchItems(
         moves.value,
         petSkillIndex.value,
         skillIconMap.value,
-    ),
-);
+    );
+    const acquisitionById = new Map<number, ISkillAcquisitionEntry>();
+    const acquisitionByName = new Map<string, ISkillAcquisitionEntry>();
+    for (const entry of skillAcquisitionIndex.value) {
+        for (const id of entry.alias_ids) acquisitionById.set(id, entry);
+        acquisitionByName.set(normalizeSkillName(entry.skill_name), entry);
+    }
+    return items.map((item) => {
+        const acquisition = acquisitionById.get(item.id) ?? acquisitionByName.get(normalizeSkillName(item.zhName));
+        return acquisition
+            ? {
+                  ...item,
+                  learnedPetCount: acquisition.pet_ids.length,
+                  learnedPetIds: acquisition.pet_ids,
+                  sourceInfo: {
+                      ...item.sourceInfo,
+                      canonicalId: acquisition.skill_id,
+                      petSkillIds: acquisition.alias_ids,
+                  },
+              }
+            : item;
+    });
+});
+
+function normalizeSkillName(value: string) {
+    return value.trim().toLowerCase().replace(/\s+/g, "");
+}
 
 const typeOptions = computed(() => {
     const typeMap = new Map<string, string>();
@@ -265,11 +298,14 @@ async function loadSkillData() {
     errorMessage.value = "";
 
     try {
-        const [movesResponse, petSkillIndexResponse] = await Promise.all([
+        const [movesResponse, petSkillIndexResponse, acquisitionResponse] = await Promise.all([
             fetch("/data/moves.json", {
                 signal: controller.signal,
             }),
             fetch("/data/PetSkillIndex.json", {
+                signal: controller.signal,
+            }).catch(() => null),
+            fetch("/data/SkillAcquisitionIndex.json", {
                 signal: controller.signal,
             }).catch(() => null),
         ]);
@@ -279,6 +315,9 @@ async function loadSkillData() {
         }
 
         moves.value = (await movesResponse.json()) as SkillMoveSource[];
+        skillAcquisitionIndex.value = acquisitionResponse?.ok
+            ? ((await acquisitionResponse.json()) as ISkillAcquisitionEntry[])
+            : [];
 
         if (petSkillIndexResponse?.ok) {
             petSkillIndex.value =
@@ -300,6 +339,7 @@ async function loadSkillData() {
         moves.value = [];
         petSkillIndex.value = null;
         skillIconMap.value = new Map();
+        skillAcquisitionIndex.value = [];
         errorMessage.value = "技能数据加载失败，请稍后重试。";
     } finally {
         isLoading.value = false;
@@ -344,7 +384,8 @@ document.title = "技能 - 洛克王国工具箱";
 </script>
 
 <template>
-    <section class="space-y-3">
+    <RouterView v-if="hasSkillRouteId" />
+    <section v-else class="space-y-3">
         <Card class="overflow-hidden border-border bg-card py-0 shadow-lg">
             <CardHeader class="gap-3 px-4 py-4">
                 <div

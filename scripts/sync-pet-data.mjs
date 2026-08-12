@@ -12,6 +12,10 @@ const petsDetailDir = path.join(publicDataDir, "pets");
 const typesPath = path.join(publicDataDir, "types.json");
 const bloodlineIndexPath = path.join(publicDataDir, "bloodline_index.json");
 const petSkillIndexPath = path.join(publicDataDir, "PetSkillIndex.json");
+const skillAcquisitionIndexPath = path.join(
+    publicDataDir,
+    "SkillAcquisitionIndex.json",
+);
 const itemsIndexPath = path.join(publicDataDir, "items.json");
 const handbookRewardsPath = path.join(publicDataDir, "handbook-rewards.json");
 const handbookTopicSkillNamesPath = path.join(
@@ -394,6 +398,11 @@ async function main() {
         (left, right) =>
             left.name.localeCompare(right.name, "zh-CN") || left.id - right.id,
     );
+    const skillAcquisitionIndexEntries = buildSkillAcquisitionIndex(
+        petSkillIndexEntries,
+        bloodlineIndexEntries,
+        petSkillCatalogEntries,
+    );
 
     const itemLabelTypeTable = await readTable("ITEM_LABLE_TYPE_CONF.json");
     const itemCategories = buildItemCategories(getRows(itemLabelTypeTable));
@@ -432,6 +441,7 @@ async function main() {
         entries: petSkillIndexEntries,
         skills: petSkillCatalogEntries,
     });
+    await writeJson(skillAcquisitionIndexPath, skillAcquisitionIndexEntries);
     await Promise.all([
         ...details.map((detail) => {
             return writeJson(
@@ -447,6 +457,97 @@ async function main() {
     console.log(
         `Generated ${indexEntries.length} pet index entries, ${details.length} pet detail files, and ${itemEntries.length} item entries from BinData.`,
     );
+}
+
+function buildSkillAcquisitionIndex(skillEntries, bloodlineEntries, catalog) {
+    const catalogById = new Map(catalog.map((skill) => [skill.id, skill]));
+    const skillIdsByName = new Map();
+
+    for (const skill of catalog) {
+        const key = normalizeSkillName(skill.name);
+        const ids = skillIdsByName.get(key) ?? [];
+        ids.push(skill.id);
+        skillIdsByName.set(key, ids);
+    }
+
+    for (const entry of bloodlineEntries) {
+        for (const move of entry.bloodline_moves) {
+            const key = normalizeSkillName(move.move_name);
+            const ids = skillIdsByName.get(key) ?? [];
+
+            if (!ids.includes(move.move_id)) {
+                ids.push(move.move_id);
+            }
+
+            skillIdsByName.set(key, ids);
+        }
+    }
+
+    const sourceBySkillId = new Map();
+    const addSource = (skillId, petId, source) => {
+        const petSources = sourceBySkillId.get(skillId) ?? new Map();
+        const sources = petSources.get(petId) ?? new Set();
+        sources.add(source);
+        petSources.set(petId, sources);
+        sourceBySkillId.set(skillId, petSources);
+    };
+
+    for (const entry of skillEntries) {
+        for (const skillId of entry.move_pool_ids) {
+            addSource(skillId, entry.pet_id, "pool");
+        }
+        for (const skillId of entry.move_stone_ids) {
+            addSource(skillId, entry.pet_id, "stone");
+        }
+    }
+
+    for (const entry of bloodlineEntries) {
+        for (const move of entry.bloodline_moves) {
+            addSource(move.move_id, entry.pet_id, "bloodline");
+        }
+    }
+
+    return [...skillIdsByName.entries()]
+        .map(([nameKey, ids]) => {
+            const aliasIds = [...new Set(ids)].sort((left, right) => left - right);
+            const canonicalSkill = aliasIds
+                .map((id) => catalogById.get(id))
+                .find(Boolean);
+            const sourcesByPet = new Map();
+
+            for (const skillId of aliasIds) {
+                for (const [petId, sources] of sourceBySkillId.get(skillId) ?? []) {
+                    const mergedSources = sourcesByPet.get(petId) ?? new Set();
+                    for (const source of sources) {
+                        mergedSources.add(source);
+                    }
+                    sourcesByPet.set(petId, mergedSources);
+                }
+            }
+
+            const sourceOrder = ["pool", "stone", "bloodline"];
+            const normalizedSources = Object.fromEntries(
+                [...sourcesByPet.entries()]
+                    .sort(([left], [right]) => left - right)
+                    .map(([petId, sources]) => [
+                        String(petId),
+                        sourceOrder.filter((source) => sources.has(source)),
+                    ]),
+            );
+
+            return {
+                skill_id: canonicalSkill?.id ?? aliasIds[0],
+                skill_name: canonicalSkill?.name ?? nameKey,
+                alias_ids: aliasIds,
+                pet_ids: [...sourcesByPet.keys()].sort((left, right) => left - right),
+                sources_by_pet: normalizedSources,
+            };
+        })
+        .sort((left, right) => left.skill_id - right.skill_id);
+}
+
+function normalizeSkillName(value) {
+    return String(value ?? "").trim().toLowerCase().replace(/\s+/gu, "");
 }
 
 async function readJson(filePath) {

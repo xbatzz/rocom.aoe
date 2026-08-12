@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ArrowRight } from "lucide-vue-next";
 import SkillIcon from "@/components/SkillIcon.vue";
 import type { SkillSearchItem } from "@/features/skills/skillAdapter";
 
@@ -72,5 +73,18 @@ function formatValue(value: number | null | undefined) {
         <p class="mt-4 flex-1 text-sm leading-6 text-muted-foreground">
             {{ skill.description || "暂无技能描述。" }}
         </p>
+
+        <div class="mt-4 flex items-center justify-between border-t border-border pt-3">
+            <span class="text-xs text-muted-foreground">
+                {{ skill.learnedPetCount }} 只精灵可获得
+            </span>
+            <RouterLink
+                :to="`/skills/${skill.sourceInfo.canonicalId ?? skill.id}`"
+                class="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+            >
+                查看精灵
+                <ArrowRight class="h-3.5 w-3.5" />
+            </RouterLink>
+        </div>
     </article>
 </template>

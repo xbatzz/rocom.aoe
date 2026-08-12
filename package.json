@@ -11,7 +11,8 @@
         "type-check": "vue-tsc --build",
         "sync:pet-data": "node ./scripts/sync-pet-data.mjs",
         "import:fmodel-icons": "node ./scripts/import-fmodel-icons.mjs",
-        "test:pet-data-quality": "node ./scripts/test-pet-data-quality.mjs"
+        "test:pet-data-quality": "node ./scripts/test-pet-data-quality.mjs",
+        "test:skill-acquisition": "node ./scripts/test-skill-acquisition-index.mjs"
     },
     "dependencies": {
         "@paddleocr/paddleocr-js": "^0.4.2",
