@@ -3264,7 +3264,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                             @click="activePanel = item.key"
                         >
                             <component :is="item.icon" class="h-4 w-4 shrink-0" />
-                            <span>{{ item.label }}</span>
+                            <span class="whitespace-nowrap">{{ item.label }}</span>
                         </button>
                     </nav>
 
