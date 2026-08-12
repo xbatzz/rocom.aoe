@@ -11,9 +11,21 @@ import type {
 } from "@/lib/interface";
 import { matchesPetKeyword } from "@/lib/petHandbook";
 import { matchesPetImplementationFilter, type PetImplementationFilter } from "@/lib/petImplementation";
+import {
+    buildPetSkillFamilies,
+    type PetSkillFamily,
+} from "@/lib/petEvolutionFamilies";
 
 type SourceFilter = "all" | SkillAcquisitionSource;
-type FormFilter = "all" | "default" | "special";
+type DisplayMode = "highest" | "all";
+
+interface SkillPetResult {
+    key: string;
+    pet: IPets;
+    sources: SkillAcquisitionSource[];
+    memberIds: number[];
+    acquiredMembers: IPets[];
+}
 
 const route = useRoute();
 const router = useRouter();
@@ -26,7 +38,7 @@ const keyword = ref(readQuery("q"));
 const source = ref<SourceFilter>(parseSource(readQuery("source")));
 const type = ref(readQuery("type") || "all");
 const implementation = ref<PetImplementationFilter>(parseImplementation(readQuery("implementation")));
-const form = ref<FormFilter>(parseForm(readQuery("form")));
+const displayMode = ref<DisplayMode>(parseDisplayMode(readQuery("view")));
 
 const routeSkillId = computed(() => {
     const params = route.params as { id?: string | string[] };
@@ -46,36 +58,71 @@ const skill = computed(() => {
 });
 const petById = computed(() => new Map(pets.value.map((pet) => [pet.id, pet])));
 const acquisitionPets = computed(() => (acquisition.value?.pet_ids ?? []).map((id) => petById.value.get(id)).filter((pet): pet is IPets => Boolean(pet)));
+const familyResults = computed<PetSkillFamily[]>(() =>
+    buildPetSkillFamilies(
+        pets.value,
+        acquisition.value?.pet_ids ?? [],
+        acquisition.value?.sources_by_pet ?? {},
+    ),
+);
+const displayResults = computed<SkillPetResult[]>(() => {
+    if (displayMode.value === "highest") {
+        return familyResults.value.map((family) => ({
+            key: family.key,
+            pet: family.representative,
+            sources: family.sources,
+            memberIds: family.memberIds,
+            acquiredMembers: family.acquiredMembers,
+        }));
+    }
+
+    return acquisitionPets.value.map((pet) => ({
+        key: `pet:${pet.id}`,
+        pet,
+        sources: getSources(pet.id),
+        memberIds: [pet.id],
+        acquiredMembers: [pet],
+    }));
+});
 const sourceCounts = computed(() => ({
-    all: acquisitionPets.value.length,
-    pool: countSource("pool"),
-    stone: countSource("stone"),
-    bloodline: countSource("bloodline"),
+    all: resultsWithoutSourceFilter.value.length,
+    pool: countSource(resultsWithoutSourceFilter.value, "pool"),
+    stone: countSource(resultsWithoutSourceFilter.value, "stone"),
+    bloodline: countSource(resultsWithoutSourceFilter.value, "bloodline"),
 }));
 const typeOptions = computed(() => {
     const options = new Map<number, string>();
-    for (const pet of acquisitionPets.value) {
+    for (const { pet } of displayResults.value) {
         options.set(pet.main_type.id, pet.main_type.localized.zh);
         if (pet.sub_type) options.set(pet.sub_type.id, pet.sub_type.localized.zh);
     }
     return [...options.entries()].sort(([a], [b]) => a - b);
 });
-const filteredPets = computed(() => acquisitionPets.value.filter((pet) => {
-    const sources = getSources(pet.id);
-    const matchesSource = source.value === "all" || sources.includes(source.value);
-    const matchesType = type.value === "all" || pet.main_type.id === Number(type.value) || pet.sub_type?.id === Number(type.value);
-    const matchesForm = form.value === "all" || (form.value === "default" ? pet.form === "default" : pet.form !== "default");
-    return matchesSource && matchesType && matchesForm && matchesPetImplementationFilter(pet, implementation.value) && matchesPetKeyword(pet, keyword.value);
-}).sort((left, right) => left.species_id - right.species_id || left.id - right.id));
-const hasFilters = computed(() => keyword.value.trim() || source.value !== "all" || type.value !== "all" || implementation.value !== "all" || form.value !== "all");
+const resultsWithoutSourceFilter = computed(() =>
+    displayResults.value.filter((result) => matchesResult(result, false)),
+);
+const filteredResults = computed(() =>
+    resultsWithoutSourceFilter.value
+        .filter((result) => source.value === "all" || result.sources.includes(source.value))
+        .sort((left, right) => left.pet.species_id - right.pet.species_id || left.pet.id - right.pet.id),
+);
+const hasFilters = computed(() => keyword.value.trim() || source.value !== "all" || type.value !== "all" || implementation.value !== "implemented" || displayMode.value !== "highest");
 
-watch([keyword, source, type, implementation, form], () => {
+function matchesResult(result: SkillPetResult, includeSource = true) {
+    const { pet, sources, acquiredMembers } = result;
+    const matchesSource = !includeSource || source.value === "all" || sources.includes(source.value);
+    const matchesType = type.value === "all" || pet.main_type.id === Number(type.value) || pet.sub_type?.id === Number(type.value);
+    const matchesKeyword = matchesPetKeyword(pet, keyword.value) || acquiredMembers.some((member) => matchesPetKeyword(member, keyword.value));
+    return matchesSource && matchesType && matchesPetImplementationFilter(pet, implementation.value) && matchesKeyword;
+}
+
+watch([keyword, source, type, implementation, displayMode], () => {
     const query: Record<string, string> = {};
     if (keyword.value.trim()) query.q = keyword.value.trim();
     if (source.value !== "all") query.source = source.value;
     if (type.value !== "all") query.type = type.value;
-    if (implementation.value !== "all") query.implementation = implementation.value;
-    if (form.value !== "all") query.form = form.value;
+    if (implementation.value !== "implemented") query.implementation = implementation.value;
+    if (displayMode.value !== "highest") query.view = displayMode.value;
     void router.replace({ query });
 });
 
@@ -104,13 +151,13 @@ async function loadData() {
 }
 
 function getSources(petId: number) { return acquisition.value?.sources_by_pet[String(petId)] ?? []; }
-function countSource(target: SkillAcquisitionSource) { return acquisitionPets.value.filter((pet) => getSources(pet.id).includes(target)).length; }
+function countSource(results: SkillPetResult[], target: SkillAcquisitionSource) { return results.filter((result) => result.sources.includes(target)).length; }
 function readQuery(key: string) { const value = route.query[key]; return typeof value === "string" ? value : ""; }
 function parseSource(value: string): SourceFilter { return ["pool", "stone", "bloodline"].includes(value) ? value as SourceFilter : "all"; }
-function parseImplementation(value: string): PetImplementationFilter { return ["implemented", "unimplemented"].includes(value) ? value as PetImplementationFilter : "all"; }
-function parseForm(value: string): FormFilter { return ["default", "special"].includes(value) ? value as FormFilter : "all"; }
+function parseImplementation(value: string): PetImplementationFilter { return ["all", "unimplemented"].includes(value) ? value as PetImplementationFilter : "implemented"; }
+function parseDisplayMode(value: string): DisplayMode { return value === "all" ? "all" : "highest"; }
 function normalizeSkillName(value: string) { return value.trim().toLowerCase().replace(/\s+/g, ""); }
-function resetFilters() { keyword.value = ""; source.value = "all"; type.value = "all"; implementation.value = "all"; form.value = "all"; }
+function resetFilters() { keyword.value = ""; source.value = "all"; type.value = "all"; implementation.value = "implemented"; displayMode.value = "highest"; }
 </script>
 
 <template>
@@ -146,7 +193,7 @@ function resetFilters() { keyword.value = ""; source.value = "all"; type.value =
             <Card class="border-border bg-card shadow-md">
                 <CardHeader>
                     <CardTitle>可获得该技能的精灵</CardTitle>
-                    <CardDescription>同一精灵仅显示一次，多种获得方式会同时标注。</CardDescription>
+                    <CardDescription>默认按最终进化形态归并精灵家族，并汇总家族成员的获得方式。</CardDescription>
                 </CardHeader>
                 <CardContent class="space-y-4">
                     <div class="grid grid-cols-2 gap-2 md:grid-cols-4">
@@ -161,14 +208,21 @@ function resetFilters() { keyword.value = ""; source.value = "all"; type.value =
                         </div>
                         <Select v-model="type"><SelectTrigger class="h-10"><SelectValue placeholder="全部属性" /></SelectTrigger><SelectContent><SelectItem value="all">全部属性</SelectItem><SelectItem v-for="option in typeOptions" :key="option[0]" :value="String(option[0])">{{ option[1] }}</SelectItem></SelectContent></Select>
                         <Select v-model="implementation"><SelectTrigger class="h-10"><SelectValue placeholder="实装状态" /></SelectTrigger><SelectContent><SelectItem value="all">全部状态</SelectItem><SelectItem value="implemented">已实装</SelectItem><SelectItem value="unimplemented">未实装</SelectItem></SelectContent></Select>
-                        <Select v-model="form"><SelectTrigger class="h-10"><SelectValue placeholder="全部形态" /></SelectTrigger><SelectContent><SelectItem value="all">全部形态</SelectItem><SelectItem value="default">默认形态</SelectItem><SelectItem value="special">特殊形态</SelectItem></SelectContent></Select>
+                        <Select v-model="displayMode"><SelectTrigger class="h-10"><SelectValue placeholder="展示方式" /></SelectTrigger><SelectContent><SelectItem value="highest">最高形态（按家族）</SelectItem><SelectItem value="all">全部形态</SelectItem></SelectContent></Select>
                     </div>
-                    <div class="flex items-center justify-between gap-3 text-sm text-muted-foreground"><span>找到 {{ filteredPets.length }} 只精灵</span><Button v-if="hasFilters" variant="outline" size="sm" @click="resetFilters"><RotateCcw class="h-3.5 w-3.5" />重置筛选</Button></div>
+                    <div class="flex items-center justify-between gap-3 text-sm text-muted-foreground"><span>找到 {{ filteredResults.length }} 个{{ displayMode === "highest" ? "精灵家族" : "精灵形态" }}</span><Button v-if="hasFilters" variant="outline" size="sm" @click="resetFilters"><RotateCcw class="h-3.5 w-3.5" />恢复默认</Button></div>
                 </CardContent>
             </Card>
 
-            <div v-if="filteredPets.length" class="grid gap-3 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-                <SkillPetResultCard v-for="pet in filteredPets" :key="pet.id" :pet="pet" :sources="getSources(pet.id)" />
+            <div v-if="filteredResults.length" class="grid gap-3 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+                <SkillPetResultCard
+                    v-for="result in filteredResults"
+                    :key="result.key"
+                    :pet="result.pet"
+                    :sources="result.sources"
+                    :family-member-count="displayMode === 'highest' ? result.memberIds.length : undefined"
+                    :acquired-members="displayMode === 'highest' ? result.acquiredMembers : undefined"
+                />
             </div>
             <div v-else class="rounded-[12px] border border-dashed border-border bg-card p-10 text-center text-muted-foreground">当前条件下没有匹配精灵，请调整筛选条件。</div>
         </template>

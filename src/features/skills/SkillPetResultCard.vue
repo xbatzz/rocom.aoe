@@ -5,7 +5,12 @@ import type { IPets, SkillAcquisitionSource } from "@/lib/interface";
 import { formatPetCatalogIdentifier } from "@/lib/petHandbook";
 import { isPetImplemented } from "@/lib/petImplementation";
 
-defineProps<{ pet: IPets; sources: SkillAcquisitionSource[] }>();
+defineProps<{
+    pet: IPets;
+    sources: SkillAcquisitionSource[];
+    familyMemberCount?: number;
+    acquiredMembers?: IPets[];
+}>();
 
 const sourceLabels: Record<SkillAcquisitionSource, string> = {
     pool: "自有技能",
@@ -38,6 +43,9 @@ const sourceLabels: Record<SkillAcquisitionSource, string> = {
                 <div class="mt-2 flex flex-wrap gap-1.5">
                     <TypeBadge :type-id="pet.main_type.id" :label="pet.main_type.localized.zh" />
                     <TypeBadge v-if="pet.sub_type" :type-id="pet.sub_type.id" :label="pet.sub_type.localized.zh" />
+                    <Badge v-if="familyMemberCount && familyMemberCount > 1" variant="outline">
+                        精灵家族 · {{ familyMemberCount }} 个形态
+                    </Badge>
                 </div>
             </div>
         </div>
@@ -51,5 +59,13 @@ const sourceLabels: Record<SkillAcquisitionSource, string> = {
                 {{ sourceLabels[source] }}
             </Badge>
         </div>
+        <p
+            v-if="acquiredMembers?.length"
+            class="mt-2 text-xs leading-5 text-muted-foreground"
+        >
+            家族中由
+            {{ acquiredMembers.map((member) => member.localized.zh.name).join("、") }}
+            获得
+        </p>
     </article>
 </template>
