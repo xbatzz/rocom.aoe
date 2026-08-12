@@ -72,7 +72,9 @@ Service Worker 位于 `public/sw.js`。安装时会尝试预缓存应用壳、�
 - `/data/moves.json`
 - `/data/PetSkillIndex.json`
 
-这些数据覆盖属性页、图鉴列表和技能查询第一版的基础离线能力。
+这些数据覆盖属性页、图鉴列表和技能百科列表的基础离线能力。
+
+`/skills/:id` 的精灵反查还依赖 `/data/SkillAcquisitionIndex.json`。该文件当前未列入 Service Worker 核心预缓存，因此离线环境只保证技能列表与已缓存资源可用，不保证首次打开技能反查详情成功。若要把反查纳入完整离线范围，应同时把该索引加入 `public/sw.js` 的 `CORE_DATA_URLS` 并升级缓存版本。
 
 ## Runtime Cache
 
@@ -123,7 +125,7 @@ Service Worker 位于 `public/sw.js`。安装时会尝试预缓存应用壳、�
 
 - 首次安装或首次访问必须联网，让 Service Worker 完成安装和核心数据缓存。
 - `/attributes` 离线依赖属性 JSON 已缓存。
-- `/skills` 离线依赖技能 JSON 和技能索引已缓存；部分技能图标来自访问过的宠物详情或图片缓存，未缓存时可缺图但不应影响文字查询。
+- `/skills` 技能列表离线依赖技能 JSON、`PetSkillIndex.json` 和 `Pets.json` 已缓存；部分技能图标未缓存时可缺图但不应影响文字查询。`/skills/:id` 的精灵反查当前不属于完整离线保证范围。
 - `/encyclopedia` 图鉴列表离线依赖 `Pets.json` 和 `bloodline_index.json` 已缓存。
 - 未访问过的 `/pets/:id` 详情页离线时允许失败或显示现有错误提示。
 - 第三方统计脚本和外部接口不纳入离线能力范围；原项目 Google AdSense 广告脚本已移除。

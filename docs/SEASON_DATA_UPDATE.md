@@ -12,7 +12,7 @@
   -> 校验补丁层和中文本地化
   -> 更新 public/data/BinData/*.json
   -> yarn sync:pet-data
-  -> 生成 Pets.json、pets/*.json、PetSkillIndex.json 等
+  -> 生成 Pets.json、pets/*.json、PetSkillIndex.json、SkillAcquisitionIndex.json 等
   -> yarn import:fmodel-icons
   -> 生成 friends/*.webp 和 items/*.webp
   -> 测试、类型检查、构建和人工抽查
@@ -215,6 +215,7 @@ Generated 1128 pet index entries, 1128 pet detail files, and 4119 item entries f
 ```text
 public/data/Pets.json
 public/data/PetSkillIndex.json
+public/data/SkillAcquisitionIndex.json
 public/data/bloodline_index.json
 public/data/items.json
 public/data/handbook-rewards.json
@@ -405,7 +406,16 @@ git status
 git diff --stat
 git diff -- public/data/Pets.json
 git diff -- public/data/PetSkillIndex.json
+git diff -- public/data/SkillAcquisitionIndex.json
 ```
+
+技能相关表发生变化时还要执行：
+
+```bash
+yarn test:skill-acquisition
+```
+
+该测试确认技能池、技能石和血脉技能的每条正向关系都存在于反向索引中。
 
 提交说明应包含：
 

@@ -16,6 +16,7 @@
 | `public/data/pets/*.json` | 每只宠物详情，由同步脚本生成 | 极高 |
 | `public/data/Pets.json` | 宠物列表索引，由同步脚本生成 | 极高 |
 | `public/data/PetSkillIndex.json` | 宠物技能筛选索引和完整技能目录，由同步脚本从 `LEVEL_SKILL_CONF` / `SKILL_CONF` 生成 | 极高 |
+| `public/data/SkillAcquisitionIndex.json` | 技能到精灵的反向索引，汇总技能池、技能石和血脉技能来源 | 极高 |
 | `public/data/bloodline_index.json` | 血脉技能索引，由同步脚本生成 | 极高 |
 | `public/data/items.json` | 道具索引，由同步脚本生成 | 极高 |
 | `public/data/handbook-rewards.json` | 图鉴任务奖励索引，由同步脚本生成 | 极高 |
@@ -67,6 +68,7 @@
 - `public/data/Pets.json`
 - `public/data/bloodline_index.json`
 - `public/data/PetSkillIndex.json`
+- `public/data/SkillAcquisitionIndex.json`
 - `public/data/items.json`
 - `public/data/handbook-rewards.json`
 - `public/data/handbook-topic-skill-names.json`
@@ -313,6 +315,7 @@ src/features/pet-data/itemAdapter.ts
 - `public/data/pets/`
 - `public/data/Pets.json`
 - `public/data/PetSkillIndex.json`
+- `public/data/SkillAcquisitionIndex.json`
 - `public/data/bloodline_index.json`
 - `public/data/items.json`
 - `public/data/handbook-rewards.json`
@@ -359,13 +362,14 @@ yarn build
 
 ```bash
 yarn sync:pet-data
+yarn test:skill-acquisition
 ```
 
 然后检查是否产生预期数据变更：
 
 ```bash
 git status
-git diff -- public/data/Pets.json public/data/pets public/data/tables
+git diff -- public/data/Pets.json public/data/PetSkillIndex.json public/data/SkillAcquisitionIndex.json public/data/pets public/data/tables
 ```
 
 推荐提交拆分：

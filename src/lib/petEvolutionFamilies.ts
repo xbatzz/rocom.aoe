@@ -18,11 +18,15 @@ export function buildPetSkillFamilies(
     pets: IPets[],
     acquiredPetIds: number[],
     sourcesByPet: Record<string, SkillAcquisitionSource[]>,
+    options: { includeLeaderForms?: boolean } = {},
 ): PetSkillFamily[] {
-    const petById = new Map(pets.map((pet) => [pet.id, pet]));
+    const eligiblePets = options.includeLeaderForms
+        ? pets
+        : pets.filter((pet) => !pet.is_leader_form);
+    const petById = new Map(eligiblePets.map((pet) => [pet.id, pet]));
     const childrenById = new Map<number, IPets[]>();
 
-    for (const pet of pets) {
+    for (const pet of eligiblePets) {
         if (pet.evolves_from_id === null) {
             continue;
         }
@@ -74,7 +78,16 @@ export function buildPetSkillFamilies(
             };
 
             family.representatives.push(...representatives);
-            family.acquiredMembers.set(acquiredPet.id, acquiredPet);
+            const existingMember = family.acquiredMembers.get(
+                acquiredPet.species_id,
+            );
+
+            if (!existingMember || preferPet(acquiredPet, existingMember)) {
+                family.acquiredMembers.set(
+                    acquiredPet.species_id,
+                    acquiredPet,
+                );
+            }
             for (const memberId of collectLineageMemberIds(
                 representatives,
                 petById,
@@ -173,6 +186,18 @@ function selectRepresentative(pets: IPets[]) {
     }
 
     return representative;
+}
+
+function preferPet(candidate: IPets, current: IPets) {
+    if (candidate.implemented !== current.implemented) {
+        return candidate.implemented;
+    }
+
+    if ((candidate.form === "default") !== (current.form === "default")) {
+        return candidate.form === "default";
+    }
+
+    return candidate.id < current.id;
 }
 
 function comparePets(left: IPets, right: IPets) {

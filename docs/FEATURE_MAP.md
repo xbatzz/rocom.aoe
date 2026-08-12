@@ -10,7 +10,7 @@
 | 图鉴 | `/encyclopedia` | `src/pages/encyclopedia.vue`、`src/components/FriendPortrait.vue`、`src/components/TypeBadge.vue`、`src/lib/petHandbook.ts`、`src/lib/bloodline.ts`、`src/lib/petImplementation.ts` | `public/data/Pets.json`、`public/data/bloodline_index.json`、`public/assets/webp/friends/` | 是 | 否 | 高 |
 | 宠物详情 | `/pets/:id` | `src/pages/pets/[id].vue`、`src/components/FriendPortrait.vue`、`src/components/SkillIcon.vue`、`src/lib/handbookProgress/*` | `public/data/pets/{id}.json`、`Pets.json`、`types.json`、`moves.json`、`items.json`、`handbook-rewards.json`、`handbook-topic-skill-names.json`、`tables/PET_HANDBOOK.json` | 否，作为图鉴详情页 | 否 | 高 |
 | 属性关系/属性克制 | `/attributes` | `src/pages/attributes.vue`、`src/components/TypeIcon.vue`、`src/lib/typeIcons.ts`、`src/features/battle-query/TypeRelationCards.vue`、`src/features/battle-query/DualDefenseMatchupCards.vue`、`src/features/battle-query/DualOffensiveCoverageCards.vue`、`src/features/battle-query/typeDefenseMatchup.ts` | `public/data/types.json`、`public/data/BinData/TYPE_DICTIONARY.json` | 是，高频战斗查询 | 可保留入口 | 中 |
-| 技能 | `/skills`；相关能力也分布在 `/table`、`/pets/:id`、`/team` | `src/pages/skills.vue`、`src/features/skills/SkillResultCard.vue`、`src/features/skills/skillAdapter.ts`、`src/pages/table.vue`、`src/pages/pets/[id].vue`、`src/pages/team.vue`、`src/components/SkillIcon.vue`、`src/components/TypeIcon.vue` | `public/data/moves.json`、`public/data/PetSkillIndex.json`、`public/data/pets/{id}.json` | 是 | 可同时归入更多工具 | 中 |
+| 技能 | `/skills`、`/skills/:id`；相关能力也分布在 `/table`、`/pets/:id`、`/team` | `src/pages/skills.vue`、`src/pages/skills/[id].vue`、`src/features/skills/SkillResultCard.vue`、`src/features/skills/SkillPetResultCard.vue`、`src/features/skills/skillAdapter.ts`、`src/lib/petEvolutionFamilies.ts` | `public/data/moves.json`、`public/data/PetSkillIndex.json`、`public/data/SkillAcquisitionIndex.json`、`public/data/Pets.json` | 是 | 可同时归入更多工具 | 中 |
 | 对战助手 | `/pvp-lite` | `src/pages/pvp-lite.vue`、`src/lib/teamStorage.ts`、`src/lib/teamAnalysis.ts`、`src/lib/statCalculator.ts`、`src/lib/damageCalculator.ts` | `public/data/Pets.json`、`public/data/types.json`、`public/data/personalities.json`、`public/data/moves.json`、`public/data/PetSkillIndex.json`、`localStorage: rocom.team-builder.v2` | 是 | 否 | 中 |
 | 配队/配对规划 | `/team` | `src/pages/team.vue`、`src/lib/teamAnalysis.ts`、`src/lib/statCalculator.ts`、`src/lib/teamStorage.ts` | `Pets.json`、`personalities.json`、`magic_items.json`、`types.json`、`moves.json`、`pets/{id}.json`、`localStorage: rocom.team-builder.v2` | 可作为核心入口 | 否 | 高 |
 | 配种 | `/breeding` | `src/pages/breeding.vue`、`src/lib/eggGroups.ts`、`src/lib/petImplementation.ts` | `Pets.json`、`tables/HOME_PET_LAY_EGG_RATE_CONF.json` | 可保留 | 否 | 中 |
@@ -30,13 +30,15 @@
 
 ## 技能功能现状
 
-项目当前已有第一版独立 `/skills` 页面，用于查询技能本身信息。其他技能相关能力仍分布在：
+项目当前使用 `/skills` 查询技能本身，并通过 `/skills/:id` 反查可获得该技能的精灵。其他技能相关能力仍分布在：
 
-- `/table`：通过 `PetSkillIndex.json` 和 `bloodline_index.json` 做技能来源筛选，支持自有技能、学习技能、遗传技能和技能列表搜索。
-- `/pets/:id`：展示单个宠物的自有技能、学习技能、遗传技能、技能覆盖属性和高威力技能。
+- `/table`：通过 `PetSkillIndex.json` 和 `bloodline_index.json` 做技能来源筛选，支持自有技能、技能石、血脉技能和技能列表搜索。
+- `/pets/:id`：展示单个宠物的自有技能、技能石、血脉技能、技能覆盖属性和高威力技能。
 - `/team`：选择队伍宠物技能，并基于技能类别、覆盖和描述识别定位。
 
-`/skills` 第一版只读取并展示技能本身，不展示拥有该技能的宠物完整列表，避免把技能池、技能石和血脉技能来源混在一起造成误导。`src/features/skills/skillAdapter.ts` 会合并静态整理的 `moves.json` 与由 `SKILL_CONF` 生成的完整 `PetSkillIndex.json.skills`；旧技能可沿用整理信息，新技能可直接展示解包后的描述、能耗、威力和图标。
+`src/features/skills/skillAdapter.ts` 会合并静态整理的 `moves.json` 与由 `SKILL_CONF` 生成的完整 `PetSkillIndex.json.skills`；`SkillAcquisitionIndex.json` 再统一技能池、技能石和血脉技能来源。详情页支持来源、精灵关键词、属性、实装状态和展示方式筛选，条件同步到 URL。
+
+默认结果口径为“已实装、非首领、最终进化形态”：`src/lib/petEvolutionFamilies.ts` 沿 `evolves_from_id` 找到终点，以最终形态的 `species_id` 作为家族键，同一最终图鉴形态只显示一次；分支进化的不同终点分别成家。家族来源汇总各进化阶段，成员说明按图鉴形态去重。技能卡片的“X 只精灵可获得”与详情页默认家族数量一致；切换“全部形态（含首领）”后才逐配置展示。
 
 ## PVP 对位助手现状
 
@@ -67,13 +69,15 @@
 - `public/data/types.json`：属性基础数据。
 - `public/data/moves.json`：技能列表。
 - `public/data/PetSkillIndex.json`：技能筛选索引及从 `SKILL_CONF` 生成的完整技能目录。
+- `public/data/SkillAcquisitionIndex.json`：技能到精灵的反向索引及获得来源。
 - `public/data/items.json`：道具列表。
 - `public/data/tables/*.json`：从 `BinData` 镜像出的部分原始表。
 - `public/data/BinData/*.json`：上游/游戏包原始 JSON 表。
 
 脚本：
 
-- `scripts/sync-pet-data.mjs`：由 `yarn sync:pet-data` 调用，从 `BinData` 和 `types.json` 生成 `Pets.json`、`pets/*.json`、`items.json`、图鉴奖励与技能索引等。
+- `scripts/sync-pet-data.mjs`：由 `yarn sync:pet-data` 调用，从 `BinData` 和 `types.json` 生成 `Pets.json`、`pets/*.json`、`items.json`、图鉴奖励、技能目录与技能反向索引等。
+- `scripts/test-skill-acquisition-index.mjs`：校验所有技能池、技能石和血脉技能关系均能从反向索引查回。
 - `scripts/export_pet_json.py`：从本地游戏 `Data/Bin` 解包导出 JSON 的辅助脚本。
 - `scripts/png_to_webp.py`：图片格式转换辅助脚本。
 - `scripts/test-handbook-progress.mjs`：图鉴进度合并逻辑的轻量测试。

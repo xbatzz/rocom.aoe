@@ -3,7 +3,9 @@
 | 文件名              | 说明     |
 | ------------------- | -------- |
 | Pets.json           | 精灵列表 |
-| PetSkillIndex.json  | 精灵技能筛选索引 |
+| PetSkillIndex.json  | 精灵技能池、技能石索引与完整技能目录 |
+| SkillAcquisitionIndex.json | 技能到精灵的反向索引，按精灵记录自有、技能石、血脉来源 |
+| bloodline_index.json | 精灵血脉技能索引 |
 | magic_items.json    | 血脉魔法 |
 | moves.json          | 技能列表 |
 | personalities.json  | 性格列表 |

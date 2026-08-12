@@ -18,8 +18,9 @@ import {
     type SkillIconMap,
     type SkillMoveSource,
 } from "@/features/skills/skillAdapter";
-import type { IPetsDetail, IPetSkillIndexPayload } from "@/lib/interface";
+import type { IPets, IPetsDetail, IPetSkillIndexPayload } from "@/lib/interface";
 import type { ISkillAcquisitionEntry } from "@/lib/interface";
+import { buildPetSkillFamilies } from "@/lib/petEvolutionFamilies";
 
 interface PageItem {
     key: string;
@@ -38,6 +39,7 @@ const moves = ref<SkillMoveSource[]>([]);
 const petSkillIndex = ref<IPetSkillIndexPayload | null>(null);
 const skillIconMap = ref<SkillIconMap>(new Map());
 const skillAcquisitionIndex = ref<ISkillAcquisitionEntry[]>([]);
+const pets = ref<IPets[]>([]);
 const isLoading = ref(false);
 const errorMessage = ref("");
 const filtersExpanded = ref(false);
@@ -58,16 +60,28 @@ const skillItems = computed(() => {
     );
     const acquisitionById = new Map<number, ISkillAcquisitionEntry>();
     const acquisitionByName = new Map<string, ISkillAcquisitionEntry>();
+    const defaultPetCountBySkillId = new Map<number, number>();
     for (const entry of skillAcquisitionIndex.value) {
         for (const id of entry.alias_ids) acquisitionById.set(id, entry);
         acquisitionByName.set(normalizeSkillName(entry.skill_name), entry);
+        const defaultPetCount = buildPetSkillFamilies(
+            pets.value,
+            entry.pet_ids,
+            entry.sources_by_pet,
+            { includeLeaderForms: false },
+        ).filter((family) => family.representative.implemented).length;
+
+        for (const id of entry.alias_ids) {
+            defaultPetCountBySkillId.set(id, defaultPetCount);
+        }
     }
     return items.map((item) => {
         const acquisition = acquisitionById.get(item.id) ?? acquisitionByName.get(normalizeSkillName(item.zhName));
         return acquisition
             ? {
                   ...item,
-                  learnedPetCount: acquisition.pet_ids.length,
+                  learnedPetCount:
+                      defaultPetCountBySkillId.get(acquisition.skill_id) ?? 0,
                   learnedPetIds: acquisition.pet_ids,
                   sourceInfo: {
                       ...item.sourceInfo,
@@ -298,7 +312,7 @@ async function loadSkillData() {
     errorMessage.value = "";
 
     try {
-        const [movesResponse, petSkillIndexResponse, acquisitionResponse] = await Promise.all([
+        const [movesResponse, petSkillIndexResponse, acquisitionResponse, petsResponse] = await Promise.all([
             fetch("/data/moves.json", {
                 signal: controller.signal,
             }),
@@ -308,13 +322,17 @@ async function loadSkillData() {
             fetch("/data/SkillAcquisitionIndex.json", {
                 signal: controller.signal,
             }).catch(() => null),
+            fetch("/data/Pets.json", {
+                signal: controller.signal,
+            }),
         ]);
 
-        if (!movesResponse.ok) {
-            throw new Error(`moves.json 请求失败: ${movesResponse.status}`);
+        if (!movesResponse.ok || !petsResponse.ok) {
+            throw new Error("技能或精灵数据请求失败");
         }
 
         moves.value = (await movesResponse.json()) as SkillMoveSource[];
+        pets.value = (await petsResponse.json()) as IPets[];
         skillAcquisitionIndex.value = acquisitionResponse?.ok
             ? ((await acquisitionResponse.json()) as ISkillAcquisitionEntry[])
             : [];
@@ -340,6 +358,7 @@ async function loadSkillData() {
         petSkillIndex.value = null;
         skillIconMap.value = new Map();
         skillAcquisitionIndex.value = [];
+        pets.value = [];
         errorMessage.value = "技能数据加载失败，请稍后重试。";
     } finally {
         isLoading.value = false;

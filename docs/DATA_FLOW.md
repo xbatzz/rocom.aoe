@@ -43,7 +43,7 @@
   -> scripts/export_pet_json.py
   -> public/data/BinData/*.json
   -> yarn sync:pet-data
-  -> public/data/Pets.json、pets/*.json、items.json、handbook-rewards.json 等前端数据
+  -> public/data/Pets.json、pets/*.json、PetSkillIndex.json、SkillAcquisitionIndex.json 等前端数据
 ```
 
 ## 3. `public/data` 下有哪些 JSON 文件？分别对应哪些页面？
@@ -54,7 +54,8 @@
 | --- | --- | --- |
 | `public/data/Pets.json` | 宠物列表索引，含基础属性、种族值、实现状态、繁育概要等 | 图鉴 `src/pages/encyclopedia.vue`、宠物表 `src/pages/table.vue`、蛋组 `src/pages/egggroup.vue`、孵化 `src/pages/incubate.vue`、繁育 `src/pages/breeding.vue`、配队 `src/pages/team.vue`、宠物详情 `src/pages/pets/[id].vue`、图鉴进度目录 `src/lib/handbookProgress/catalog.ts` |
 | `public/data/PetSkillIndex.json` | 宠物技能筛选索引和完整技能目录；技能目录由 `SKILL_CONF` 生成图标、属性、分类、描述、能耗和威力 | 技能页 `src/pages/skills.vue`、高级筛选 `src/pages/table.vue`、PVP 页面 |
-| `public/data/bloodline_index.json` | 每只宠物的血脉技能摘要索引 | 图鉴 `src/pages/encyclopedia.vue` |
+| `public/data/SkillAcquisitionIndex.json` | 技能反向索引；按同名技能组保存关联 ID、可获得精灵以及每只精灵的自有/技能石/血脉来源 | 技能列表 `src/pages/skills.vue`、技能详情 `src/pages/skills/[id].vue` |
+| `public/data/bloodline_index.json` | 每只宠物的血脉技能摘要索引 | 图鉴 `src/pages/encyclopedia.vue`、高级筛选、技能反向索引生成 |
 | `public/data/breeding.json` | 旧繁育数据/说明型数据 | 当前源码中没有直接 `fetch` |
 | `public/data/game_terms.json` | 游戏术语 | 当前源码中没有直接 `fetch` |
 | `public/data/handbook-rewards.json` | 图鉴任务奖励映射 | 图鉴进度 `src/pages/handbook-progress.vue`、宠物详情 `src/pages/pets/[id].vue` |
@@ -67,7 +68,7 @@
 
 ### `public/data/pets/*.json`
 
-当前有 1065 个宠物详情 JSON。路径形如：
+当前有 1128 个宠物详情 JSON。路径形如：
 
 ```text
 public/data/pets/{petId}.json
@@ -154,7 +155,7 @@ public/data/pets/{petId}.json
 
 - `public/data/BinData/`：原始游戏表，后续更新会替换。
 - `public/data/tables/`：由 `BinData` 镜像，可能被 `sync:pet-data` 覆盖。
-- `public/data/Pets.json`、`public/data/pets/*.json`、`public/data/items.json`、`public/data/handbook-rewards.json`、`public/data/handbook-topic-skill-names.json`、`public/data/bloodline_index.json`、`public/data/PetSkillIndex.json`：生成文件，运行脚本可能覆盖。
+- `public/data/Pets.json`、`public/data/pets/*.json`、`public/data/items.json`、`public/data/handbook-rewards.json`、`public/data/handbook-topic-skill-names.json`、`public/data/bloodline_index.json`、`public/data/PetSkillIndex.json`、`public/data/SkillAcquisitionIndex.json`：生成文件，运行脚本可能覆盖。
 
 推荐新增独立的个人数据层，例如：
 
@@ -201,6 +202,7 @@ public/data/pets/{petId}.json
   - `public/data/Pets.json`
   - `public/data/bloodline_index.json`
   - `public/data/PetSkillIndex.json`
+  - `public/data/SkillAcquisitionIndex.json`
   - `public/data/items.json`
   - `public/data/handbook-rewards.json`
   - `public/data/handbook-topic-skill-names.json`
@@ -209,3 +211,4 @@ public/data/pets/{petId}.json
 - 手工维护个人数据时，应放在新目录或浏览器存储中，避免放入任何会被脚本覆盖的生成文件。
 - 如果要更新游戏数据，优先更新 `public/data/BinData/`，再运行 `yarn sync:pet-data` 生成前端消费层。
 - `moves.json` 是静态整理数据，不保证覆盖最新游戏技能；全量新技能详情以同步脚本从 `SKILL_CONF` 生成的 `PetSkillIndex.json.skills` 为准。
+- 技能反查关系不要手工编辑；运行 `yarn sync:pet-data` 后执行 `yarn test:skill-acquisition`，确认技能池、技能石和血脉技能的正向记录都能在反向索引中找到。

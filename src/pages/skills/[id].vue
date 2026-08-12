@@ -63,6 +63,7 @@ const familyResults = computed<PetSkillFamily[]>(() =>
         pets.value,
         acquisition.value?.pet_ids ?? [],
         acquisition.value?.sources_by_pet ?? {},
+        { includeLeaderForms: false },
     ),
 );
 const displayResults = computed<SkillPetResult[]>(() => {
@@ -208,7 +209,7 @@ function resetFilters() { keyword.value = ""; source.value = "all"; type.value =
                         </div>
                         <Select v-model="type"><SelectTrigger class="h-10"><SelectValue placeholder="全部属性" /></SelectTrigger><SelectContent><SelectItem value="all">全部属性</SelectItem><SelectItem v-for="option in typeOptions" :key="option[0]" :value="String(option[0])">{{ option[1] }}</SelectItem></SelectContent></Select>
                         <Select v-model="implementation"><SelectTrigger class="h-10"><SelectValue placeholder="实装状态" /></SelectTrigger><SelectContent><SelectItem value="all">全部状态</SelectItem><SelectItem value="implemented">已实装</SelectItem><SelectItem value="unimplemented">未实装</SelectItem></SelectContent></Select>
-                        <Select v-model="displayMode"><SelectTrigger class="h-10"><SelectValue placeholder="展示方式" /></SelectTrigger><SelectContent><SelectItem value="highest">最高形态（按家族）</SelectItem><SelectItem value="all">全部形态</SelectItem></SelectContent></Select>
+                        <Select v-model="displayMode"><SelectTrigger class="h-10"><SelectValue placeholder="展示方式" /></SelectTrigger><SelectContent><SelectItem value="highest">最高形态（不含首领）</SelectItem><SelectItem value="all">全部形态（含首领）</SelectItem></SelectContent></Select>
                     </div>
                     <div class="flex items-center justify-between gap-3 text-sm text-muted-foreground"><span>找到 {{ filteredResults.length }} 个{{ displayMode === "highest" ? "精灵家族" : "精灵形态" }}</span><Button v-if="hasFilters" variant="outline" size="sm" @click="resetFilters"><RotateCcw class="h-3.5 w-3.5" />恢复默认</Button></div>
                 </CardContent>
