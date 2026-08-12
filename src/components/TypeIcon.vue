@@ -6,6 +6,10 @@ import {
     TYPE_ICON_BY_ID,
     TYPE_ICON_CELL_HEIGHT,
     TYPE_ICON_CELL_WIDTH,
+    TYPE_ICON_CROP_HEIGHT,
+    TYPE_ICON_CROP_WIDTH,
+    TYPE_ICON_CROP_X,
+    TYPE_ICON_CROP_Y,
     typeIconAtlasUrl,
 } from "@/lib/typeIcons";
 import { cn } from "@/lib/utils";
@@ -39,14 +43,14 @@ const fallbackText = computed(() => props.label.trim().slice(0, 1) || "?");
 
 <template>
     <span
-        :class="cn('inline-flex shrink-0 items-center justify-center overflow-hidden rounded-[4px]', props.class)"
+        :class="cn('inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full', props.class)"
         :style="wrapperStyle"
         aria-hidden="true"
     >
         <svg
             v-if="icon"
             class="block h-full w-full"
-            viewBox="1 1 54 56"
+            :viewBox="`${TYPE_ICON_CROP_X} ${TYPE_ICON_CROP_Y} ${TYPE_ICON_CROP_WIDTH} ${TYPE_ICON_CROP_HEIGHT}`"
             preserveAspectRatio="xMidYMid meet"
         >
             <image

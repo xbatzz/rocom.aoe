@@ -1262,13 +1262,16 @@ onBeforeUnmount(() => {
                         </div>
                     </div>
                 </div>
-                <div class="mt-4 grid grid-cols-6 gap-2 sm:grid-cols-9 md:mt-5 md:flex md:flex-wrap md:gap-3">
+                <div
+                    class="mt-4 grid grid-cols-6 gap-2 sm:grid-cols-9 md:mt-5 md:flex md:flex-wrap md:gap-3"
+                >
                     <button
                         v-for="type in typeEntries"
                         :key="type.id"
                         type="button"
                         class="type-badge flex min-h-14 flex-col items-center justify-center gap-1 rounded-[10px] p-1.5 text-left md:min-h-10 md:flex-row md:p-3"
                         :style="getBadgeStyle(type, currentTypeId === type.id)"
+                        :aria-pressed="currentTypeId === type.id"
                         @mouseenter="previewType(type.id)"
                         @mouseleave="clearPreview"
                         @focus="previewType(type.id)"
@@ -1305,36 +1308,20 @@ onBeforeUnmount(() => {
                             清除副属性
                         </button>
                     </div>
-                    <select
-                        :value="secondaryTypeId === null ? 'none' : String(secondaryTypeId)"
-                        class="mt-3 h-11 w-full rounded-[10px] border border-border bg-card px-3 text-sm font-semibold text-foreground outline-none focus:border-primary/60 md:hidden"
+                    <div
+                        class="mt-4 grid grid-cols-6 gap-2 sm:grid-cols-9 md:mt-5 md:flex md:flex-wrap md:gap-3"
+                        role="group"
                         aria-label="选择副属性"
-                        @change="
-                            selectSecondaryType(
-                                ($event.target as HTMLSelectElement).value === 'none'
-                                    ? null
-                                    : Number(($event.target as HTMLSelectElement).value),
-                            )
-                        "
                     >
-                        <option value="none">无副属性</option>
-                        <option
-                            v-for="type in typeEntries"
-                            :key="`secondary-option-${type.id}`"
-                            :value="String(type.id)"
-                        >
-                            {{ type.label }}
-                        </option>
-                    </select>
-                    <div class="mt-4 hidden flex-wrap gap-3 md:flex">
                         <button
                             type="button"
-                            class="type-badge rounded-[10px] border border-border bg-muted px-4 py-3 text-sm font-black text-foreground transition hover:bg-accent"
+                            class="type-badge flex min-h-14 items-center justify-center rounded-[10px] border border-border bg-muted p-1.5 text-xs font-black leading-none text-foreground transition hover:bg-accent md:min-h-10 md:px-4 md:py-3 md:text-base"
                             :class="
                                 secondaryTypeId === null
                                     ? 'ring-2 ring-foreground/20'
                                     : ''
                             "
+                            :aria-pressed="secondaryTypeId === null"
                             @click="selectSecondaryType(null)"
                         >
                             无
@@ -1343,18 +1330,19 @@ onBeforeUnmount(() => {
                             v-for="type in typeEntries"
                             :key="type.id"
                             type="button"
-                            class="type-badge flex flex-col items-center gap-1 rounded-[10px] p-3 text-left"
+                            class="type-badge flex min-h-14 flex-col items-center justify-center gap-1 rounded-[10px] p-1.5 text-left md:min-h-10 md:flex-row md:p-3"
                             :style="
                                 getBadgeStyle(type, secondaryTypeId === type.id)
                             "
+                            :aria-pressed="secondaryTypeId === type.id"
                             @click="selectSecondaryType(type.id)"
                         >
                             <TypeIcon
                                 :type-id="type.id"
                                 :label="type.shortLabel"
-                                :size="24"
+                                :size="20"
                             />
-                            <span class="text-sm font-black leading-none">
+                            <span class="text-xs font-black leading-none md:text-base">
                                 {{ type.shortLabel }}
                             </span>
                         </button>

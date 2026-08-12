@@ -12,6 +12,12 @@ export const TYPE_ICON_CELL_WIDTH = 56;
 export const TYPE_ICON_CELL_HEIGHT = 58;
 export const TYPE_ICON_ATLAS_WIDTH = 512;
 export const TYPE_ICON_ATLAS_HEIGHT = 256;
+// The atlas contains a few pixels of colour from the neighbouring cell around
+// each icon. Keep the crop inside the real badge so those seams never render.
+export const TYPE_ICON_CROP_X = 3;
+export const TYPE_ICON_CROP_Y = 2;
+export const TYPE_ICON_CROP_WIDTH = 52;
+export const TYPE_ICON_CROP_HEIGHT = 54;
 
 export const TYPE_ICON_ATLAS_ITEMS: readonly TypeIconAtlasItem[] = [
     { row: 0, column: 0, typeId: 2, label: "草" },
@@ -61,8 +67,8 @@ async function createTypeIconSymbolMap() {
         }
 
         const canvas = document.createElement("canvas");
-        canvas.width = TYPE_ICON_CELL_WIDTH - 2;
-        canvas.height = TYPE_ICON_CELL_HEIGHT - 2;
+        canvas.width = TYPE_ICON_CROP_WIDTH;
+        canvas.height = TYPE_ICON_CROP_HEIGHT;
         const context = canvas.getContext("2d");
 
         if (!context) {
@@ -71,10 +77,10 @@ async function createTypeIconSymbolMap() {
 
         context.drawImage(
             atlas,
-            item.column * TYPE_ICON_CELL_WIDTH + 1,
-            item.row * TYPE_ICON_CELL_HEIGHT + 1,
-            TYPE_ICON_CELL_WIDTH - 2,
-            TYPE_ICON_CELL_HEIGHT - 2,
+            item.column * TYPE_ICON_CELL_WIDTH + TYPE_ICON_CROP_X,
+            item.row * TYPE_ICON_CELL_HEIGHT + TYPE_ICON_CROP_Y,
+            TYPE_ICON_CROP_WIDTH,
+            TYPE_ICON_CROP_HEIGHT,
             0,
             0,
             canvas.width,
