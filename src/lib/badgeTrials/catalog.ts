@@ -12,6 +12,10 @@ export interface BadgeTrialPet {
     petId: number;
     speciesId: number;
     isLeader: boolean;
+    variantLabel: string;
+    familyKey: string;
+    familyName: string;
+    stageDepth: number;
     representative: IPets;
     searchText: string;
 }
@@ -72,7 +76,8 @@ export function buildBadgeTrialFamilies(pets: IPets[]): BadgeTrialFamily[] {
 }
 
 export function buildBadgeTrialPetCatalog(pets: IPets[]): BadgeTrialPet[] {
-    const normalBySpecies = new Map<number, IPets[]>();
+    const petById = new Map(pets.map((pet) => [pet.id, pet]));
+    const normalGroups = new Map<string, IPets[]>();
     const leaderGroups = new Map<string, IPets[]>();
 
     for (const pet of pets) {
@@ -86,21 +91,27 @@ export function buildBadgeTrialPetCatalog(pets: IPets[]): BadgeTrialPet[] {
             entries.push(pet);
             leaderGroups.set(groupKey, entries);
         } else {
-            const entries = normalBySpecies.get(pet.species_id) ?? [];
+            const groupKey = `${pet.species_id}:${pet.localized.zh.name}:${pet.name}:${pet.form}`;
+            const entries = normalGroups.get(groupKey) ?? [];
             entries.push(pet);
-            normalBySpecies.set(pet.species_id, entries);
+            normalGroups.set(groupKey, entries);
         }
     }
 
-    const normalEntries = [...normalBySpecies.entries()].map(
-        ([speciesId, entries]) => {
+    const normalEntries = [...normalGroups.values()].map(
+        (entries) => {
             const representative = selectPreferredPet(entries);
+            const root = findLowestAncestor(representative, petById);
 
             return {
                 key: `pet:${representative.id}`,
                 petId: representative.id,
-                speciesId,
+                speciesId: representative.species_id,
                 isLeader: false,
+                variantLabel: "一般形态",
+                familyKey: `species:${root.species_id}`,
+                familyName: `${root.localized.zh.name}家族`,
+                stageDepth: getEvolutionDepth(representative, petById),
                 representative,
                 searchText: buildPetSearchText(entries),
             };
@@ -108,16 +119,51 @@ export function buildBadgeTrialPetCatalog(pets: IPets[]): BadgeTrialPet[] {
     );
     const leaderEntries = [...leaderGroups.values()].map((entries) => {
         const representative = selectPreferredPet(entries);
+        const root = findLowestAncestor(representative, petById);
 
         return {
             key: `pet:${representative.id}`,
             petId: representative.id,
             speciesId: representative.species_id,
             isLeader: true,
+            variantLabel: "首领形态",
+            familyKey: `species:${root.species_id}`,
+            familyName: `${root.localized.zh.name}家族`,
+            stageDepth: getEvolutionDepth(representative, petById),
             representative,
             searchText: buildPetSearchText(entries),
         };
     });
+
+    const normalCountBySpecies = new Map<number, number>();
+    const primaryNormalIdBySpecies = new Map<number, number>();
+
+    for (const entry of normalEntries) {
+        normalCountBySpecies.set(
+            entry.speciesId,
+            (normalCountBySpecies.get(entry.speciesId) ?? 0) + 1,
+        );
+        primaryNormalIdBySpecies.set(
+            entry.speciesId,
+            Math.min(
+                primaryNormalIdBySpecies.get(entry.speciesId) ??
+                    Number.POSITIVE_INFINITY,
+                entry.petId,
+            ),
+        );
+    }
+
+    for (const entry of normalEntries) {
+        if (
+            (normalCountBySpecies.get(entry.speciesId) ?? 0) > 1 &&
+            entry.petId !== primaryNormalIdBySpecies.get(entry.speciesId)
+        ) {
+            entry.variantLabel =
+                entry.representative.form !== "default"
+                    ? entry.representative.form
+                    : `地区形态 · #${entry.petId}`;
+        }
+    }
 
     return [...normalEntries, ...leaderEntries]
         .sort(
@@ -135,6 +181,7 @@ function buildPetSearchText(pets: IPets[]) {
             pet.name,
             String(pet.id),
             String(pet.species_id),
+            pet.form,
             pet.is_leader_form ? "首领" : "一般 普通",
         ])
         .join(" ")
@@ -160,6 +207,29 @@ function findLowestAncestor(pet: IPets, petById: Map<number, IPets>) {
     }
 
     return current;
+}
+
+function getEvolutionDepth(pet: IPets, petById: Map<number, IPets>) {
+    let current = pet;
+    let depth = 0;
+    const visited = new Set<number>();
+
+    while (
+        current.evolves_from_id !== null &&
+        !visited.has(current.id)
+    ) {
+        visited.add(current.id);
+        const parent = petById.get(current.evolves_from_id);
+
+        if (!parent) {
+            break;
+        }
+
+        current = parent;
+        depth += 1;
+    }
+
+    return depth;
 }
 
 function selectPreferredPet(pets: IPets[]) {

@@ -109,7 +109,7 @@ const pagedFamilies = computed(() => {
 
     return filteredFamilies.value.slice(start, start + FAMILY_PAGE_SIZE);
 });
-const footprintSuggestions = computed(() => {
+const footprintSuggestionGroups = computed(() => {
     const query = footprintKeyword.value
         .trim()
         .toLocaleLowerCase("zh-CN");
@@ -118,10 +118,34 @@ const footprintSuggestions = computed(() => {
         return [];
     }
 
-    return petCatalog.value
+    const directMatches = petCatalog.value
         .filter((entry) => entry.searchText.includes(query))
-        .sort((left, right) => suggestionScore(left, query) - suggestionScore(right, query))
-        .slice(0, 12);
+        .sort(
+            (left, right) =>
+                suggestionScore(left, query) - suggestionScore(right, query) ||
+                left.stageDepth - right.stageDepth ||
+                left.petId - right.petId,
+        );
+    const familyKeys = [
+        ...new Set(directMatches.map((entry) => entry.familyKey)),
+    ].slice(0, 6);
+
+    return familyKeys.map((familyKey) => {
+        const entries = petCatalog.value
+            .filter((entry) => entry.familyKey === familyKey)
+            .sort(
+                (left, right) =>
+                    left.stageDepth - right.stageDepth ||
+                    Number(left.isLeader) - Number(right.isLeader) ||
+                    left.petId - right.petId,
+            );
+
+        return {
+            key: familyKey,
+            name: entries[0]?.familyName ?? "精灵家族",
+            entries,
+        };
+    });
 });
 const recordedPets = computed(() =>
     Object.keys(activeFootprints.value)
@@ -226,11 +250,13 @@ function suggestionScore(pet: BadgeTrialPet, query: string) {
 
 function migrateLegacyFootprintKeys() {
     let changed = false;
-    const normalPetBySpecies = new Map(
-        petCatalog.value
-            .filter((pet) => !pet.isLeader)
-            .map((pet) => [pet.speciesId, pet] as const),
-    );
+    const normalPetBySpecies = new Map<number, BadgeTrialPet>();
+
+    for (const pet of petCatalog.value) {
+        if (!pet.isLeader && !normalPetBySpecies.has(pet.speciesId)) {
+            normalPetBySpecies.set(pet.speciesId, pet);
+        }
+    }
     const nextProgress: BadgeTrialProgressState = {
         ...progress.value,
         trials: Object.fromEntries(
@@ -576,39 +602,52 @@ onMounted(async () => {
                         />
                     </div>
 
-                    <div
-                        v-if="footprintKeyword.trim()"
-                        class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3"
-                    >
-                        <button
-                            v-for="pet in footprintSuggestions"
-                            :key="pet.key"
-                            type="button"
-                            class="flex items-center gap-3 rounded-[10px] border p-2 text-left transition-colors"
-                            :class="isFootprintLit(pet) ? 'border-primary/40 bg-primary/5' : 'border-border bg-background hover:bg-accent'"
-                            :disabled="isFootprintLit(pet)"
-                            @click="addFootprint(pet)"
+                    <div v-if="footprintKeyword.trim()" class="space-y-3">
+                        <section
+                            v-for="group in footprintSuggestionGroups"
+                            :key="group.key"
+                            class="space-y-2"
                         >
-                            <FriendPortrait
-                                :name="pet.representative.name"
-                                :alt="pet.representative.localized.zh.name"
-                                class="h-12 w-12 shrink-0"
-                                :img-class="isFootprintLit(pet) ? 'object-contain' : 'object-contain grayscale opacity-45'"
-                            />
-                            <span class="min-w-0 flex-1">
-                                <span class="block truncate text-sm font-semibold text-foreground">
-                                    {{ pet.representative.localized.zh.name }}
+                            <div class="flex items-center justify-between gap-2">
+                                <h3 class="text-xs font-semibold text-foreground">
+                                    {{ group.name }}
+                                </h3>
+                                <span class="text-[11px] text-muted-foreground">
+                                    {{ group.entries.length }} 个阶级/形态
                                 </span>
-                                <span class="mt-0.5 block text-xs text-muted-foreground">
-                                    {{ pet.isLeader ? "首领形态" : `No.${String(pet.speciesId).padStart(3, "0")}` }}
-                                </span>
-                            </span>
-                            <Check v-if="isFootprintLit(pet)" class="h-4 w-4 text-primary" />
-                            <Plus v-else class="h-4 w-4 text-muted-foreground" />
-                        </button>
+                            </div>
+                            <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                                <button
+                                    v-for="pet in group.entries"
+                                    :key="pet.key"
+                                    type="button"
+                                    class="flex items-center gap-3 rounded-[10px] border p-2 text-left transition-colors"
+                                    :class="isFootprintLit(pet) ? 'border-primary/40 bg-primary/5' : 'border-border bg-background hover:bg-accent'"
+                                    :disabled="isFootprintLit(pet)"
+                                    @click="addFootprint(pet)"
+                                >
+                                    <FriendPortrait
+                                        :name="pet.representative.name"
+                                        :alt="pet.representative.localized.zh.name"
+                                        class="h-12 w-12 shrink-0"
+                                        :img-class="isFootprintLit(pet) ? 'object-contain' : 'object-contain grayscale opacity-45'"
+                                    />
+                                    <span class="min-w-0 flex-1">
+                                        <span class="block truncate text-sm font-semibold text-foreground">
+                                            {{ pet.representative.localized.zh.name }}
+                                        </span>
+                                        <span class="mt-0.5 block text-xs text-muted-foreground">
+                                            {{ pet.variantLabel }} · No.{{ String(pet.speciesId).padStart(3, "0") }}
+                                        </span>
+                                    </span>
+                                    <Check v-if="isFootprintLit(pet)" class="h-4 w-4 text-primary" />
+                                    <Plus v-else class="h-4 w-4 text-muted-foreground" />
+                                </button>
+                            </div>
+                        </section>
                         <p
-                            v-if="footprintSuggestions.length === 0"
-                            class="col-span-full py-5 text-center text-sm text-muted-foreground"
+                            v-if="footprintSuggestionGroups.length === 0"
+                            class="py-5 text-center text-sm text-muted-foreground"
                         >
                             没有找到匹配的已实装精灵。
                         </p>
@@ -672,11 +711,12 @@ onMounted(async () => {
                         {{ pet.representative.localized.zh.name }}
                     </span>
                     <Badge
-                        v-if="pet.isLeader"
+                        v-if="pet.isLeader || pet.variantLabel !== '一般形态'"
                         variant="outline"
-                        class="border-amber-400/35 bg-amber-400/10 text-[10px] text-amber-600 dark:text-amber-200"
+                        class="text-[10px]"
+                        :class="pet.isLeader ? 'border-amber-400/35 bg-amber-400/10 text-amber-600 dark:text-amber-200' : 'border-sky-400/35 bg-sky-400/10 text-sky-600 dark:text-sky-200'"
                     >
-                        首领形态
+                        {{ pet.variantLabel }}
                     </Badge>
                     <span class="flex items-center gap-1 text-xs text-primary">
                         <Check class="h-3.5 w-3.5" />
