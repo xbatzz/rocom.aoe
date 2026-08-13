@@ -26,6 +26,7 @@ export type GrassTrialLocationId =
 export interface BadgeTrialTypeProgress {
     familyMedals: Record<string, string>;
     footprints: Record<string, Record<string, string>>;
+    unlitFootprints: Record<string, Record<string, string>>;
 }
 
 export interface BadgeTrialProgressState {
@@ -33,4 +34,3 @@ export interface BadgeTrialProgressState {
     updatedAt: string;
     trials: Record<string, BadgeTrialTypeProgress>;
 }
-

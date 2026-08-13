@@ -6,7 +6,6 @@ import {
     LayoutGrid,
     List,
     MapPin,
-    Plus,
     Search,
     X,
 } from "lucide-vue-next";
@@ -31,6 +30,8 @@ type PageMode = "families" | "footprints";
 type FamilyFilter = "all" | "lit" | "unlit";
 type FamilyLayout = "grid" | "list";
 type FootprintFormFilter = "all" | "normal" | "leader";
+type FootprintStatus = "lit" | "unlit";
+type FootprintStatusFilter = "all" | FootprintStatus;
 
 const FAMILY_PAGE_SIZE = 24;
 
@@ -41,6 +42,7 @@ const familyKeyword = ref("");
 const familyPage = ref(1);
 const footprintKeyword = ref("");
 const footprintFormFilter = ref<FootprintFormFilter>("all");
+const footprintStatusFilter = ref<FootprintStatusFilter>("all");
 const activeLocationId = ref<GrassTrialLocationId>("somia");
 const pets = ref<IPets[]>([]);
 const progress = ref<BadgeTrialProgressState>(
@@ -72,8 +74,18 @@ const activeLocation = computed(
 const activeFootprints = computed(
     () => grassProgress.value.footprints[activeLocationId.value] ?? {},
 );
+const activeUnlitFootprints = computed(
+    () => grassProgress.value.unlitFootprints[activeLocationId.value] ?? {},
+);
 const activeFootprintCount = computed(
     () => Object.keys(activeFootprints.value).length,
+);
+const activeRecordedFootprintCount = computed(
+    () =>
+        new Set([
+            ...Object.keys(activeFootprints.value),
+            ...Object.keys(activeUnlitFootprints.value),
+        ]).size,
 );
 const completedFamilyCount = computed(
     () => Object.keys(grassProgress.value.familyMedals).length,
@@ -148,7 +160,10 @@ const footprintSuggestionGroups = computed(() => {
     });
 });
 const recordedPets = computed(() =>
-    Object.keys(activeFootprints.value)
+    [...new Set([
+        ...Object.keys(activeFootprints.value),
+        ...Object.keys(activeUnlitFootprints.value),
+    ])]
         .map((key) => petByKey.value.get(key))
         .filter((entry): entry is BadgeTrialPet => Boolean(entry))
         .filter(
@@ -158,11 +173,20 @@ const recordedPets = computed(() =>
                     ? entry.isLeader
                     : !entry.isLeader),
         )
+        .map((pet) => ({
+            pet,
+            status: (isFootprintLit(pet) ? "lit" : "unlit") as FootprintStatus,
+        }))
+        .filter(
+            (entry) =>
+                footprintStatusFilter.value === "all" ||
+                entry.status === footprintStatusFilter.value,
+        )
         .sort(
             (left, right) =>
-                left.speciesId - right.speciesId ||
-                Number(left.isLeader) - Number(right.isLeader) ||
-                left.petId - right.petId,
+                left.pet.speciesId - right.pet.speciesId ||
+                Number(left.pet.isLeader) - Number(right.pet.isLeader) ||
+                left.pet.petId - right.pet.petId,
         ),
 );
 
@@ -174,8 +198,19 @@ function isFootprintLit(pet: BadgeTrialPet) {
     return Boolean(activeFootprints.value[pet.key]);
 }
 
+function isFootprintUnlit(pet: BadgeTrialPet) {
+    return Boolean(activeUnlitFootprints.value[pet.key]);
+}
+
 function locationFootprintCount(locationId: GrassTrialLocationId) {
     return Object.keys(grassProgress.value.footprints[locationId] ?? {}).length;
+}
+
+function locationRecordedFootprintCount(locationId: GrassTrialLocationId) {
+    return new Set([
+        ...Object.keys(grassProgress.value.footprints[locationId] ?? {}),
+        ...Object.keys(grassProgress.value.unlitFootprints[locationId] ?? {}),
+    ]).size;
 }
 
 function toggleFamily(family: BadgeTrialFamily) {
@@ -188,17 +223,33 @@ function toggleFamily(family: BadgeTrialFamily) {
     });
 }
 
-function addFootprint(pet: BadgeTrialPet) {
-    if (isFootprintLit(pet)) {
+function setFootprintStatus(pet: BadgeTrialPet, status: FootprintStatus) {
+    if (
+        (status === "lit" && isFootprintLit(pet)) ||
+        (status === "unlit" && isFootprintUnlit(pet))
+    ) {
         return;
     }
 
     updateGrassProgress((trial) => {
-        const location = {
+        const litLocation = {
             ...(trial.footprints[activeLocationId.value] ?? {}),
         };
-        location[pet.key] = new Date().toISOString();
-        trial.footprints[activeLocationId.value] = location;
+        const unlitLocation = {
+            ...(trial.unlitFootprints[activeLocationId.value] ?? {}),
+        };
+        const timestamp = new Date().toISOString();
+
+        if (status === "lit") {
+            litLocation[pet.key] = timestamp;
+            delete unlitLocation[pet.key];
+        } else {
+            unlitLocation[pet.key] = timestamp;
+            delete litLocation[pet.key];
+        }
+
+        trial.footprints[activeLocationId.value] = litLocation;
+        trial.unlitFootprints[activeLocationId.value] = unlitLocation;
     });
 }
 
@@ -207,8 +258,13 @@ function removeFootprint(pet: BadgeTrialPet) {
         const location = {
             ...(trial.footprints[activeLocationId.value] ?? {}),
         };
+        const unlitLocation = {
+            ...(trial.unlitFootprints[activeLocationId.value] ?? {}),
+        };
         delete location[pet.key];
+        delete unlitLocation[pet.key];
         trial.footprints[activeLocationId.value] = location;
+        trial.unlitFootprints[activeLocationId.value] = unlitLocation;
     });
 }
 
@@ -220,6 +276,11 @@ function updateGrassProgress(
         familyMedals: { ...currentTrial.familyMedals },
         footprints: Object.fromEntries(
             Object.entries(currentTrial.footprints).map(
+                ([locationId, entries]) => [locationId, { ...entries }],
+            ),
+        ),
+        unlitFootprints: Object.fromEntries(
+            Object.entries(currentTrial.unlitFootprints).map(
                 ([locationId, entries]) => [locationId, { ...entries }],
             ),
         ),
@@ -289,6 +350,11 @@ function migrateLegacyFootprintKeys() {
                             },
                         ),
                     ),
+                    unlitFootprints: Object.fromEntries(
+                        Object.entries(trial.unlitFootprints).map(
+                            ([locationId, entries]) => [locationId, { ...entries }],
+                        ),
+                    ),
                 },
             ]),
         ),
@@ -355,7 +421,7 @@ onMounted(async () => {
                     </div>
                     <div class="text-right text-xs text-muted-foreground">
                         <p>{{ completedFamilyCount }} 个家族已点亮</p>
-                        <p>{{ allFootprintCount }} / 726 个地点足迹已录入</p>
+                        <p>{{ allFootprintCount }} / 726 个地点足迹已点亮</p>
                     </div>
                 </div>
 
@@ -570,7 +636,7 @@ onMounted(async () => {
                             {{ location.name }}
                         </span>
                         <span class="mt-1 block text-xs text-muted-foreground">
-                            {{ locationFootprintCount(location.id) }} / {{ location.total }} 已录入
+                            {{ locationFootprintCount(location.id) }} / {{ location.total }} 已点亮 · {{ locationRecordedFootprintCount(location.id) }} 已录入
                         </span>
                     </span>
                 </button>
@@ -584,11 +650,11 @@ onMounted(async () => {
                                 {{ activeLocation.name }}
                             </h2>
                             <p class="mt-1 text-xs text-muted-foreground">
-                                搜索遇到的精灵并手动添加；这里只展示已经录入的足迹。
+                                搜索精灵后录入为已点亮或未点亮；两种状态都会显示在下方。
                             </p>
                         </div>
                         <span class="text-sm tabular-nums text-foreground">
-                            {{ activeFootprintCount }} / {{ activeLocation.total }}
+                            {{ activeFootprintCount }} / {{ activeLocation.total }} 已点亮 · {{ activeRecordedFootprintCount }} 已录入
                         </span>
                     </div>
 
@@ -617,14 +683,11 @@ onMounted(async () => {
                                 </span>
                             </div>
                             <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-                                <button
+                                <div
                                     v-for="pet in group.entries"
                                     :key="pet.key"
-                                    type="button"
                                     class="flex items-center gap-3 rounded-[10px] border p-2 text-left transition-colors"
-                                    :class="isFootprintLit(pet) ? 'border-primary/40 bg-primary/5' : 'border-border bg-background hover:bg-accent'"
-                                    :disabled="isFootprintLit(pet)"
-                                    @click="addFootprint(pet)"
+                                    :class="isFootprintLit(pet) ? 'border-primary/40 bg-primary/5' : isFootprintUnlit(pet) ? 'border-border bg-muted/50' : 'border-border bg-background'"
                                 >
                                     <FriendPortrait
                                         :name="pet.representative.name"
@@ -640,9 +703,25 @@ onMounted(async () => {
                                             {{ pet.variantLabel }} · No.{{ String(pet.speciesId).padStart(3, "0") }}
                                         </span>
                                     </span>
-                                    <Check v-if="isFootprintLit(pet)" class="h-4 w-4 text-primary" />
-                                    <Plus v-else class="h-4 w-4 text-muted-foreground" />
-                                </button>
+                                    <span class="flex shrink-0 flex-col gap-1">
+                                        <button
+                                            type="button"
+                                            class="rounded-[7px] border px-2 py-1 text-[11px] transition-colors"
+                                            :class="isFootprintLit(pet) ? 'border-primary/50 bg-primary/10 text-primary' : 'border-border text-muted-foreground hover:text-foreground'"
+                                            @click="setFootprintStatus(pet, 'lit')"
+                                        >
+                                            已点亮
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="rounded-[7px] border px-2 py-1 text-[11px] transition-colors"
+                                            :class="isFootprintUnlit(pet) ? 'border-muted-foreground/40 bg-muted text-foreground' : 'border-border text-muted-foreground hover:text-foreground'"
+                                            @click="setFootprintStatus(pet, 'unlit')"
+                                        >
+                                            未点亮
+                                        </button>
+                                    </span>
+                                </div>
                             </div>
                         </section>
                         <p
@@ -655,25 +734,43 @@ onMounted(async () => {
                 </CardContent>
             </Card>
 
-            <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex flex-wrap items-center justify-between gap-3">
                 <p class="text-xs text-muted-foreground">
                     已录入精灵 · {{ recordedPets.length }} 个匹配当前筛选
                 </p>
-                <div class="flex items-center gap-1.5">
-                    <button
-                        v-for="option in [
-                            { value: 'all', label: '全部' },
-                            { value: 'normal', label: '一般形态' },
-                            { value: 'leader', label: '首领形态' },
-                        ] as const"
-                        :key="option.value"
-                        type="button"
-                        class="h-9 rounded-[9px] border px-3 text-xs transition-colors"
-                        :class="footprintFormFilter === option.value ? 'border-primary/50 bg-primary/10 text-primary' : 'border-border bg-card text-muted-foreground hover:text-foreground'"
-                        @click="footprintFormFilter = option.value"
-                    >
-                        {{ option.label }}
-                    </button>
+                <div class="flex flex-wrap items-center justify-end gap-2">
+                    <div class="flex items-center gap-1.5">
+                        <button
+                            v-for="option in [
+                                { value: 'all', label: '全部状态' },
+                                { value: 'lit', label: '已点亮' },
+                                { value: 'unlit', label: '未点亮' },
+                            ] as const"
+                            :key="option.value"
+                            type="button"
+                            class="h-9 rounded-[9px] border px-3 text-xs transition-colors"
+                            :class="footprintStatusFilter === option.value ? 'border-primary/50 bg-primary/10 text-primary' : 'border-border bg-card text-muted-foreground hover:text-foreground'"
+                            @click="footprintStatusFilter = option.value"
+                        >
+                            {{ option.label }}
+                        </button>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <button
+                            v-for="option in [
+                                { value: 'all', label: '全部形态' },
+                                { value: 'normal', label: '一般形态' },
+                                { value: 'leader', label: '首领形态' },
+                            ] as const"
+                            :key="option.value"
+                            type="button"
+                            class="h-9 rounded-[9px] border px-3 text-xs transition-colors"
+                            :class="footprintFormFilter === option.value ? 'border-primary/50 bg-primary/10 text-primary' : 'border-border bg-card text-muted-foreground hover:text-foreground'"
+                            @click="footprintFormFilter = option.value"
+                        >
+                            {{ option.label }}
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -689,39 +786,45 @@ onMounted(async () => {
                 class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6"
             >
                 <div
-                    v-for="pet in recordedPets"
-                    :key="pet.key"
-                    class="relative flex min-h-36 flex-col items-center justify-center gap-2 rounded-[12px] border border-primary/45 bg-primary/5 p-3 text-center shadow-sm"
+                    v-for="entry in recordedPets"
+                    :key="entry.pet.key"
+                    class="relative flex min-h-36 flex-col items-center justify-center gap-2 rounded-[12px] border p-3 text-center shadow-sm"
+                    :class="entry.status === 'lit' ? 'border-primary/45 bg-primary/5' : 'border-border bg-muted/40'"
                 >
                     <button
                         type="button"
                         class="absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive"
-                        :aria-label="`移除${pet.representative.localized.zh.name}足迹`"
-                        @click="removeFootprint(pet)"
+                        :aria-label="`移除${entry.pet.representative.localized.zh.name}足迹`"
+                        @click="removeFootprint(entry.pet)"
                     >
                         <X class="h-4 w-4" />
                     </button>
                     <FriendPortrait
-                        :name="pet.representative.name"
-                        :alt="pet.representative.localized.zh.name"
+                        :name="entry.pet.representative.name"
+                        :alt="entry.pet.representative.localized.zh.name"
                         class="h-20 w-20"
-                        img-class="object-contain"
+                        :img-class="entry.status === 'lit' ? 'object-contain' : 'object-contain grayscale opacity-45'"
                     />
                     <span class="line-clamp-1 text-sm font-semibold text-foreground">
-                        {{ pet.representative.localized.zh.name }}
+                        {{ entry.pet.representative.localized.zh.name }}
                     </span>
                     <Badge
-                        v-if="pet.isLeader || pet.variantLabel !== '一般形态'"
+                        v-if="entry.pet.isLeader || entry.pet.variantLabel !== '一般形态'"
                         variant="outline"
                         class="text-[10px]"
-                        :class="pet.isLeader ? 'border-amber-400/35 bg-amber-400/10 text-amber-600 dark:text-amber-200' : 'border-sky-400/35 bg-sky-400/10 text-sky-600 dark:text-sky-200'"
+                        :class="entry.pet.isLeader ? 'border-amber-400/35 bg-amber-400/10 text-amber-600 dark:text-amber-200' : 'border-sky-400/35 bg-sky-400/10 text-sky-600 dark:text-sky-200'"
                     >
-                        {{ pet.variantLabel }}
+                        {{ entry.pet.variantLabel }}
                     </Badge>
-                    <span class="flex items-center gap-1 text-xs text-primary">
-                        <Check class="h-3.5 w-3.5" />
-                        已点亮
-                    </span>
+                    <button
+                        type="button"
+                        class="flex items-center gap-1 rounded-full px-2 py-1 text-xs transition-colors"
+                        :class="entry.status === 'lit' ? 'bg-primary/10 text-primary' : 'bg-muted text-muted-foreground hover:text-foreground'"
+                        @click="setFootprintStatus(entry.pet, entry.status === 'lit' ? 'unlit' : 'lit')"
+                    >
+                        <Check v-if="entry.status === 'lit'" class="h-3.5 w-3.5" />
+                        {{ entry.status === "lit" ? "已点亮" : "未点亮" }}
+                    </button>
                 </div>
             </div>
         </template>

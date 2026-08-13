@@ -17,6 +17,7 @@ export function createEmptyBadgeTrialTypeProgress(): BadgeTrialTypeProgress {
     return {
         familyMedals: {},
         footprints: {},
+        unlitFootprints: {},
     };
 }
 
@@ -43,6 +44,7 @@ export function parseBadgeTrialProgressState(
         }
 
         const footprints: BadgeTrialTypeProgress["footprints"] = {};
+        const unlitFootprints: BadgeTrialTypeProgress["unlitFootprints"] = {};
 
         for (const [locationId, entries] of Object.entries(trial.footprints)) {
             if (!isStringRecord(entries)) {
@@ -52,9 +54,26 @@ export function parseBadgeTrialProgressState(
             footprints[locationId] = entries;
         }
 
+        if (trial.unlitFootprints !== undefined) {
+            if (!isRecord(trial.unlitFootprints)) {
+                return null;
+            }
+
+            for (const [locationId, entries] of Object.entries(
+                trial.unlitFootprints,
+            )) {
+                if (!isStringRecord(entries)) {
+                    return null;
+                }
+
+                unlitFootprints[locationId] = entries;
+            }
+        }
+
         trials[badgeId] = {
             familyMedals: trial.familyMedals,
             footprints,
+            unlitFootprints,
         };
     }
 
@@ -124,14 +143,42 @@ export function mergeBadgeTrialProgressStates(
         const locationIds = new Set([
             ...Object.keys(currentTrial.footprints),
             ...Object.keys(incomingTrial.footprints),
+            ...Object.keys(currentTrial.unlitFootprints),
+            ...Object.keys(incomingTrial.unlitFootprints),
         ]);
         const footprints: BadgeTrialTypeProgress["footprints"] = {};
+        const unlitFootprints: BadgeTrialTypeProgress["unlitFootprints"] = {};
 
         for (const locationId of locationIds) {
-            footprints[locationId] = mergeTimestampRecords(
+            const mergedLit = mergeTimestampRecords(
                 currentTrial.footprints[locationId] ?? {},
                 incomingTrial.footprints[locationId] ?? {},
             );
+            const mergedUnlit = mergeTimestampRecords(
+                currentTrial.unlitFootprints[locationId] ?? {},
+                incomingTrial.unlitFootprints[locationId] ?? {},
+            );
+
+            for (const key of new Set([
+                ...Object.keys(mergedLit),
+                ...Object.keys(mergedUnlit),
+            ])) {
+                if (!mergedLit[key] || !mergedUnlit[key]) {
+                    continue;
+                }
+
+                if (
+                    getTimestamp(mergedLit[key]) >=
+                    getTimestamp(mergedUnlit[key])
+                ) {
+                    delete mergedUnlit[key];
+                } else {
+                    delete mergedLit[key];
+                }
+            }
+
+            footprints[locationId] = mergedLit;
+            unlitFootprints[locationId] = mergedUnlit;
         }
 
         trials[badgeId] = {
@@ -140,6 +187,7 @@ export function mergeBadgeTrialProgressStates(
                 incomingTrial.familyMedals,
             ),
             footprints,
+            unlitFootprints,
         };
     }
 
@@ -181,6 +229,11 @@ function mergeTimestampRecords(
     return merged;
 }
 
+function getTimestamp(value: string) {
+    const timestamp = new Date(value).getTime();
+    return Number.isFinite(timestamp) ? timestamp : 0;
+}
+
 function isRecord(value: unknown): value is Record<string, unknown> {
     return Boolean(value) && typeof value === "object" && !Array.isArray(value);
 }
@@ -191,4 +244,3 @@ function isStringRecord(value: unknown): value is Record<string, string> {
         Object.values(value).every((entry) => typeof entry === "string")
     );
 }
-

@@ -61,9 +61,18 @@ function readCurrentSummary() {
     const badgeFootprintCount = Object.values(badgeTrials.trials).reduce(
         (total, trial) =>
             total +
-            Object.values(trial.footprints).reduce(
-                (trialTotal, entries) =>
-                    trialTotal + Object.keys(entries).length,
+            [...new Set([
+                ...Object.keys(trial.footprints),
+                ...Object.keys(trial.unlitFootprints),
+            ])].reduce(
+                (trialTotal, locationId) =>
+                    trialTotal +
+                    new Set([
+                        ...Object.keys(trial.footprints[locationId] ?? {}),
+                        ...Object.keys(
+                            trial.unlitFootprints[locationId] ?? {},
+                        ),
+                    ]).size,
                 0,
             ),
         0,
