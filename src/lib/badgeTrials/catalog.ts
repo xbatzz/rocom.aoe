@@ -8,7 +8,10 @@ export interface BadgeTrialFamily {
 }
 
 export interface BadgeTrialPet {
+    key: string;
+    petId: number;
     speciesId: number;
+    isLeader: boolean;
     representative: IPets;
     searchText: string;
 }
@@ -69,41 +72,73 @@ export function buildBadgeTrialFamilies(pets: IPets[]): BadgeTrialFamily[] {
 }
 
 export function buildBadgeTrialPetCatalog(pets: IPets[]): BadgeTrialPet[] {
-    const bySpecies = new Map<number, IPets[]>();
+    const normalBySpecies = new Map<number, IPets[]>();
+    const leaderGroups = new Map<string, IPets[]>();
 
     for (const pet of pets) {
-        if (!pet.implemented || pet.is_leader_form) {
+        if (!pet.implemented) {
             continue;
         }
 
-        const entries = bySpecies.get(pet.species_id) ?? [];
-        entries.push(pet);
-        bySpecies.set(pet.species_id, entries);
+        if (pet.is_leader_form) {
+            const groupKey = `${pet.species_id}:${pet.localized.zh.name}:${pet.name}`;
+            const entries = leaderGroups.get(groupKey) ?? [];
+            entries.push(pet);
+            leaderGroups.set(groupKey, entries);
+        } else {
+            const entries = normalBySpecies.get(pet.species_id) ?? [];
+            entries.push(pet);
+            normalBySpecies.set(pet.species_id, entries);
+        }
     }
 
-    return [...bySpecies.entries()]
-        .map(([speciesId, entries]) => {
+    const normalEntries = [...normalBySpecies.entries()].map(
+        ([speciesId, entries]) => {
             const representative = selectPreferredPet(entries);
 
             return {
+                key: `pet:${representative.id}`,
+                petId: representative.id,
                 speciesId,
+                isLeader: false,
                 representative,
-                searchText: entries
-                    .flatMap((pet) => [
-                        pet.localized.zh.name,
-                        pet.name,
-                        String(pet.id),
-                        String(pet.species_id),
-                    ])
-                    .join(" ")
-                    .toLocaleLowerCase("zh-CN"),
+                searchText: buildPetSearchText(entries),
             };
-        })
+        },
+    );
+    const leaderEntries = [...leaderGroups.values()].map((entries) => {
+        const representative = selectPreferredPet(entries);
+
+        return {
+            key: `pet:${representative.id}`,
+            petId: representative.id,
+            speciesId: representative.species_id,
+            isLeader: true,
+            representative,
+            searchText: buildPetSearchText(entries),
+        };
+    });
+
+    return [...normalEntries, ...leaderEntries]
         .sort(
             (left, right) =>
                 left.speciesId - right.speciesId ||
+                Number(left.isLeader) - Number(right.isLeader) ||
                 left.representative.id - right.representative.id,
         );
+}
+
+function buildPetSearchText(pets: IPets[]) {
+    return pets
+        .flatMap((pet) => [
+            pet.localized.zh.name,
+            pet.name,
+            String(pet.id),
+            String(pet.species_id),
+            pet.is_leader_form ? "首领" : "一般 普通",
+        ])
+        .join(" ")
+        .toLocaleLowerCase("zh-CN");
 }
 
 function findLowestAncestor(pet: IPets, petById: Map<number, IPets>) {
@@ -148,4 +183,3 @@ function selectPreferredPet(pets: IPets[]) {
 
     return selected;
 }
-

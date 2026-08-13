@@ -20,6 +20,9 @@ if (!Array.isArray(pets)) {
 const lineagePets = pets.filter((pet) => !pet.is_leader_form);
 const petById = new Map(lineagePets.map((pet) => [pet.id, pet]));
 const eligiblePets = lineagePets.filter((pet) => pet.implemented);
+const leaderPets = pets.filter(
+    (pet) => pet.implemented && pet.is_leader_form,
+);
 const families = new Map();
 
 for (const pet of eligiblePets) {
@@ -51,12 +54,25 @@ for (const [key, representative] of families) {
     }
 }
 
+for (const leader of leaderPets) {
+    const portraitPath = path.join(
+        portraitDirectory,
+        `JL_${leader.name}.webp`,
+    );
+
+    if (!fs.existsSync(portraitPath)) {
+        problems.push(
+            `首领形态 ${leader.id}（${leader.localized?.zh?.name ?? leader.name}）缺少头像 ${path.relative(projectRoot, portraitPath)}`,
+        );
+    }
+}
+
 if (problems.length > 0) {
     throw new Error(`徽章家族数据检查失败：\n${problems.join("\n")}`);
 }
 
 console.log(
-    `徽章家族数据检查通过：${eligiblePets.length} 个已实装非首领形态，${families.size} 个最低阶家族，头像完整。`,
+    `徽章数据检查通过：${eligiblePets.length} 个已实装一般形态，${leaderPets.length} 个已实装首领配置，${families.size} 个最低阶家族，头像完整。`,
 );
 
 function findLowestAncestor(pet, entriesById) {
@@ -91,4 +107,3 @@ function preferPet(candidate, current) {
 
     return candidate.id < current.id;
 }
-

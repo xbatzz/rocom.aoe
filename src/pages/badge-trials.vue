@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import {
     Check,
+    ChevronLeft,
+    ChevronRight,
     LayoutGrid,
     List,
     MapPin,
@@ -28,12 +30,17 @@ import {
 type PageMode = "families" | "footprints";
 type FamilyFilter = "all" | "lit" | "unlit";
 type FamilyLayout = "grid" | "list";
+type FootprintFormFilter = "all" | "normal" | "leader";
+
+const FAMILY_PAGE_SIZE = 24;
 
 const pageMode = ref<PageMode>("families");
 const familyFilter = ref<FamilyFilter>("all");
 const familyLayout = ref<FamilyLayout>("grid");
 const familyKeyword = ref("");
+const familyPage = ref(1);
 const footprintKeyword = ref("");
+const footprintFormFilter = ref<FootprintFormFilter>("all");
 const activeLocationId = ref<GrassTrialLocationId>("somia");
 const pets = ref<IPets[]>([]);
 const progress = ref<BadgeTrialProgressState>(
@@ -45,10 +52,10 @@ const persistEnabled = ref(true);
 
 const families = computed(() => buildBadgeTrialFamilies(pets.value));
 const petCatalog = computed(() => buildBadgeTrialPetCatalog(pets.value));
-const petBySpecies = computed(
+const petByKey = computed(
     () =>
         new Map(
-            petCatalog.value.map((entry) => [entry.speciesId, entry] as const),
+            petCatalog.value.map((entry) => [entry.key, entry] as const),
         ),
 );
 const grassProgress = computed(
@@ -64,6 +71,9 @@ const activeLocation = computed(
 );
 const activeFootprints = computed(
     () => grassProgress.value.footprints[activeLocationId.value] ?? {},
+);
+const activeFootprintCount = computed(
+    () => Object.keys(activeFootprints.value).length,
 );
 const completedFamilyCount = computed(
     () => Object.keys(grassProgress.value.familyMedals).length,
@@ -91,6 +101,14 @@ const filteredFamilies = computed(() => {
         );
     });
 });
+const familyPageCount = computed(() =>
+    Math.max(1, Math.ceil(filteredFamilies.value.length / FAMILY_PAGE_SIZE)),
+);
+const pagedFamilies = computed(() => {
+    const start = (familyPage.value - 1) * FAMILY_PAGE_SIZE;
+
+    return filteredFamilies.value.slice(start, start + FAMILY_PAGE_SIZE);
+});
 const footprintSuggestions = computed(() => {
     const query = footprintKeyword.value
         .trim()
@@ -107,17 +125,29 @@ const footprintSuggestions = computed(() => {
 });
 const recordedPets = computed(() =>
     Object.keys(activeFootprints.value)
-        .map((speciesId) => petBySpecies.value.get(Number(speciesId)))
+        .map((key) => petByKey.value.get(key))
         .filter((entry): entry is BadgeTrialPet => Boolean(entry))
-        .sort((left, right) => left.speciesId - right.speciesId),
+        .filter(
+            (entry) =>
+                footprintFormFilter.value === "all" ||
+                (footprintFormFilter.value === "leader"
+                    ? entry.isLeader
+                    : !entry.isLeader),
+        )
+        .sort(
+            (left, right) =>
+                left.speciesId - right.speciesId ||
+                Number(left.isLeader) - Number(right.isLeader) ||
+                left.petId - right.petId,
+        ),
 );
 
 function isFamilyLit(family: BadgeTrialFamily) {
     return Boolean(grassProgress.value.familyMedals[family.key]);
 }
 
-function isFootprintLit(speciesId: number) {
-    return Boolean(activeFootprints.value[String(speciesId)]);
+function isFootprintLit(pet: BadgeTrialPet) {
+    return Boolean(activeFootprints.value[pet.key]);
 }
 
 function locationFootprintCount(locationId: GrassTrialLocationId) {
@@ -135,7 +165,7 @@ function toggleFamily(family: BadgeTrialFamily) {
 }
 
 function addFootprint(pet: BadgeTrialPet) {
-    if (isFootprintLit(pet.speciesId)) {
+    if (isFootprintLit(pet)) {
         return;
     }
 
@@ -143,7 +173,7 @@ function addFootprint(pet: BadgeTrialPet) {
         const location = {
             ...(trial.footprints[activeLocationId.value] ?? {}),
         };
-        location[String(pet.speciesId)] = new Date().toISOString();
+        location[pet.key] = new Date().toISOString();
         trial.footprints[activeLocationId.value] = location;
     });
 }
@@ -153,7 +183,7 @@ function removeFootprint(pet: BadgeTrialPet) {
         const location = {
             ...(trial.footprints[activeLocationId.value] ?? {}),
         };
-        delete location[String(pet.speciesId)];
+        delete location[pet.key];
         trial.footprints[activeLocationId.value] = location;
     });
 }
@@ -194,6 +224,64 @@ function suggestionScore(pet: BadgeTrialPet, query: string) {
     return name.startsWith(query) ? 1 : 2;
 }
 
+function migrateLegacyFootprintKeys() {
+    let changed = false;
+    const normalPetBySpecies = new Map(
+        petCatalog.value
+            .filter((pet) => !pet.isLeader)
+            .map((pet) => [pet.speciesId, pet] as const),
+    );
+    const nextProgress: BadgeTrialProgressState = {
+        ...progress.value,
+        trials: Object.fromEntries(
+            Object.entries(progress.value.trials).map(([badgeId, trial]) => [
+                badgeId,
+                {
+                    familyMedals: { ...trial.familyMedals },
+                    footprints: Object.fromEntries(
+                        Object.entries(trial.footprints).map(
+                            ([locationId, entries]) => {
+                                const migratedEntries: Record<string, string> = {};
+
+                                for (const [key, timestamp] of Object.entries(entries)) {
+                                    if (key.startsWith("pet:")) {
+                                        migratedEntries[key] = timestamp;
+                                        continue;
+                                    }
+
+                                    const pet = normalPetBySpecies.get(Number(key));
+
+                                    if (pet) {
+                                        migratedEntries[pet.key] = timestamp;
+                                        changed = true;
+                                    } else {
+                                        migratedEntries[key] = timestamp;
+                                    }
+                                }
+
+                                return [locationId, migratedEntries];
+                            },
+                        ),
+                    ),
+                },
+            ]),
+        ),
+    };
+
+    if (changed) {
+        progress.value = nextProgress;
+        persistEnabled.value = writeBadgeTrialProgressState(nextProgress);
+    }
+}
+
+watch([familyKeyword, familyFilter, familyLayout], () => {
+    familyPage.value = 1;
+});
+
+watch(familyPageCount, (pageCount) => {
+    familyPage.value = Math.min(familyPage.value, pageCount);
+});
+
 onMounted(async () => {
     document.title = "八大徽章 - 洛克王国工具箱";
 
@@ -211,6 +299,7 @@ onMounted(async () => {
         }
 
         pets.value = payload as IPets[];
+        migrateLegacyFootprintKeys();
     } catch (error) {
         errorMessage.value =
             error instanceof Error
@@ -352,7 +441,7 @@ onMounted(async () => {
                 class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6"
             >
                 <button
-                    v-for="family in filteredFamilies"
+                    v-for="family in pagedFamilies"
                     :key="family.key"
                     type="button"
                     class="group flex min-h-40 flex-col items-center justify-center gap-2 rounded-[12px] border bg-card p-3 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
@@ -381,7 +470,7 @@ onMounted(async () => {
 
             <div v-else class="grid gap-2">
                 <button
-                    v-for="family in filteredFamilies"
+                    v-for="family in pagedFamilies"
                     :key="family.key"
                     type="button"
                     class="grid grid-cols-[3.5rem_1fr_auto] items-center gap-3 rounded-[12px] border bg-card p-2.5 text-left shadow-sm transition-colors hover:bg-accent"
@@ -407,6 +496,36 @@ onMounted(async () => {
                     </span>
                 </button>
             </div>
+
+            <nav
+                v-if="familyPageCount > 1"
+                class="flex flex-wrap items-center justify-center gap-2 rounded-[12px] border border-border bg-card p-3 shadow-sm"
+                aria-label="家族奖牌分页"
+            >
+                <Button
+                    variant="outline"
+                    size="sm"
+                    class="h-9 rounded-[9px] border-border"
+                    :disabled="familyPage === 1"
+                    @click="familyPage -= 1"
+                >
+                    <ChevronLeft class="mr-1 h-4 w-4" />
+                    上一页
+                </Button>
+                <span class="min-w-20 text-center text-sm tabular-nums text-muted-foreground">
+                    {{ familyPage }} / {{ familyPageCount }}
+                </span>
+                <Button
+                    variant="outline"
+                    size="sm"
+                    class="h-9 rounded-[9px] border-border"
+                    :disabled="familyPage === familyPageCount"
+                    @click="familyPage += 1"
+                >
+                    下一页
+                    <ChevronRight class="ml-1 h-4 w-4" />
+                </Button>
+            </nav>
         </template>
 
         <template v-else>
@@ -443,7 +562,7 @@ onMounted(async () => {
                             </p>
                         </div>
                         <span class="text-sm tabular-nums text-foreground">
-                            {{ recordedPets.length }} / {{ activeLocation.total }}
+                            {{ activeFootprintCount }} / {{ activeLocation.total }}
                         </span>
                     </div>
 
@@ -463,28 +582,28 @@ onMounted(async () => {
                     >
                         <button
                             v-for="pet in footprintSuggestions"
-                            :key="pet.speciesId"
+                            :key="pet.key"
                             type="button"
                             class="flex items-center gap-3 rounded-[10px] border p-2 text-left transition-colors"
-                            :class="isFootprintLit(pet.speciesId) ? 'border-primary/40 bg-primary/5' : 'border-border bg-background hover:bg-accent'"
-                            :disabled="isFootprintLit(pet.speciesId)"
+                            :class="isFootprintLit(pet) ? 'border-primary/40 bg-primary/5' : 'border-border bg-background hover:bg-accent'"
+                            :disabled="isFootprintLit(pet)"
                             @click="addFootprint(pet)"
                         >
                             <FriendPortrait
                                 :name="pet.representative.name"
                                 :alt="pet.representative.localized.zh.name"
                                 class="h-12 w-12 shrink-0"
-                                :img-class="isFootprintLit(pet.speciesId) ? 'object-contain' : 'object-contain grayscale opacity-45'"
+                                :img-class="isFootprintLit(pet) ? 'object-contain' : 'object-contain grayscale opacity-45'"
                             />
                             <span class="min-w-0 flex-1">
                                 <span class="block truncate text-sm font-semibold text-foreground">
                                     {{ pet.representative.localized.zh.name }}
                                 </span>
                                 <span class="mt-0.5 block text-xs text-muted-foreground">
-                                    No.{{ String(pet.speciesId).padStart(3, "0") }}
+                                    {{ pet.isLeader ? "首领形态" : `No.${String(pet.speciesId).padStart(3, "0")}` }}
                                 </span>
                             </span>
-                            <Check v-if="isFootprintLit(pet.speciesId)" class="h-4 w-4 text-primary" />
+                            <Check v-if="isFootprintLit(pet)" class="h-4 w-4 text-primary" />
                             <Plus v-else class="h-4 w-4 text-muted-foreground" />
                         </button>
                         <p
@@ -497,11 +616,33 @@ onMounted(async () => {
                 </CardContent>
             </Card>
 
+            <div class="flex flex-wrap items-center justify-between gap-2">
+                <p class="text-xs text-muted-foreground">
+                    已录入精灵 · {{ recordedPets.length }} 个匹配当前筛选
+                </p>
+                <div class="flex items-center gap-1.5">
+                    <button
+                        v-for="option in [
+                            { value: 'all', label: '全部' },
+                            { value: 'normal', label: '一般形态' },
+                            { value: 'leader', label: '首领形态' },
+                        ] as const"
+                        :key="option.value"
+                        type="button"
+                        class="h-9 rounded-[9px] border px-3 text-xs transition-colors"
+                        :class="footprintFormFilter === option.value ? 'border-primary/50 bg-primary/10 text-primary' : 'border-border bg-card text-muted-foreground hover:text-foreground'"
+                        @click="footprintFormFilter = option.value"
+                    >
+                        {{ option.label }}
+                    </button>
+                </div>
+            </div>
+
             <div
                 v-if="recordedPets.length === 0"
                 class="rounded-[12px] border border-dashed border-border bg-card px-4 py-14 text-center text-sm text-muted-foreground"
             >
-                当前地点还没有录入足迹。
+                {{ activeFootprintCount === 0 ? "当前地点还没有录入足迹。" : "当前筛选下没有已录入精灵。" }}
             </div>
 
             <div
@@ -510,7 +651,7 @@ onMounted(async () => {
             >
                 <div
                     v-for="pet in recordedPets"
-                    :key="pet.speciesId"
+                    :key="pet.key"
                     class="relative flex min-h-36 flex-col items-center justify-center gap-2 rounded-[12px] border border-primary/45 bg-primary/5 p-3 text-center shadow-sm"
                 >
                     <button
@@ -530,6 +671,13 @@ onMounted(async () => {
                     <span class="line-clamp-1 text-sm font-semibold text-foreground">
                         {{ pet.representative.localized.zh.name }}
                     </span>
+                    <Badge
+                        v-if="pet.isLeader"
+                        variant="outline"
+                        class="border-amber-400/35 bg-amber-400/10 text-[10px] text-amber-600 dark:text-amber-200"
+                    >
+                        首领形态
+                    </Badge>
                     <span class="flex items-center gap-1 text-xs text-primary">
                         <Check class="h-3.5 w-3.5" />
                         已点亮
