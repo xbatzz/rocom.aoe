@@ -13,6 +13,7 @@ import {
     Sparkles,
     Swords,
     Database,
+    Medal,
     Moon,
     Sun,
 } from "lucide-vue-next";
@@ -50,6 +51,7 @@ const navGroups = [
         label: "资料与收集",
         items: [
             { name: "高级筛选", path: "/table", icon: TableProperties },
+            { name: "八大徽章", path: "/badge-trials", icon: Medal },
             { name: "图鉴进度", path: "/handbook-progress", icon: ListTodo },
             { name: "道具", path: "/items", icon: Package },
         ],

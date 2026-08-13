@@ -18,9 +18,19 @@ import {
     THEME_STORAGE_KEY,
     type AppTheme,
 } from "@/lib/theme";
+import {
+    createEmptyBadgeTrialProgressState,
+    mergeBadgeTrialProgressStates,
+    parseBadgeTrialProgressState,
+    readBadgeTrialProgressState,
+    replaceBadgeTrialProgressState,
+    writeBadgeTrialProgressState,
+    type BadgeTrialProgressState,
+} from "@/lib/badgeTrials";
 
 export const USER_DATA_BACKUP_FORMAT = "rocom-user-data";
-export const USER_DATA_BACKUP_VERSION = 1 as const;
+export const USER_DATA_BACKUP_VERSION = 2 as const;
+const LEGACY_USER_DATA_BACKUP_VERSION = 1 as const;
 
 export type UserDataImportMode = "merge" | "replace";
 
@@ -31,6 +41,7 @@ export interface UserDataBackup {
     data: {
         teams: TeamStorageState;
         handbookProgress: HandbookProgressState;
+        badgeTrials: BadgeTrialProgressState;
         theme: AppTheme;
     };
 }
@@ -39,6 +50,8 @@ export interface UserDataImportSummary {
     teamCount: number;
     collectedCount: number;
     completedTopicCount: number;
+    badgeFamilyMedalCount: number;
+    badgeFootprintCount: number;
     theme: AppTheme;
 }
 
@@ -50,6 +63,7 @@ export function createUserDataBackup(): UserDataBackup {
         data: {
             teams: getTeamStorageState(),
             handbookProgress: readHandbookProgressState(),
+            badgeTrials: readBadgeTrialProgressState(),
             theme: readStoredTheme(),
         },
     };
@@ -69,7 +83,8 @@ export function parseUserDataBackup(raw: unknown): UserDataBackup | null {
 
     if (
         value.format !== USER_DATA_BACKUP_FORMAT ||
-        value.version !== USER_DATA_BACKUP_VERSION ||
+        (value.version !== USER_DATA_BACKUP_VERSION &&
+            value.version !== LEGACY_USER_DATA_BACKUP_VERSION) ||
         typeof value.exportedAt !== "string" ||
         !value.data ||
         typeof value.data !== "object" ||
@@ -80,6 +95,7 @@ export function parseUserDataBackup(raw: unknown): UserDataBackup | null {
 
     const data = value.data as {
         handbookProgress?: unknown;
+        badgeTrials?: unknown;
         teams?: unknown;
         theme?: unknown;
     };
@@ -87,9 +103,13 @@ export function parseUserDataBackup(raw: unknown): UserDataBackup | null {
     const handbookProgress = parseHandbookProgressState(
         data.handbookProgress,
     );
+    const badgeTrials =
+        value.version === LEGACY_USER_DATA_BACKUP_VERSION
+            ? createEmptyBadgeTrialProgressState()
+            : parseBadgeTrialProgressState(data.badgeTrials);
     const theme = parseTheme(data.theme);
 
-    if (!teams || !handbookProgress || !theme) {
+    if (!teams || !handbookProgress || !badgeTrials || !theme) {
         return null;
     }
 
@@ -100,6 +120,7 @@ export function parseUserDataBackup(raw: unknown): UserDataBackup | null {
         data: {
             teams,
             handbookProgress,
+            badgeTrials,
             theme,
         },
     };
@@ -111,6 +132,7 @@ export function importUserDataBackup(
 ): UserDataImportSummary {
     const currentTeams = getTeamStorageState();
     const currentProgress = readHandbookProgressState();
+    const currentBadgeTrials = readBadgeTrialProgressState();
     const currentTheme = readStoredTheme();
     const teams =
         mode === "merge"
@@ -123,6 +145,13 @@ export function importUserDataBackup(
                   backup.data.handbookProgress,
               )
             : replaceHandbookProgressState(backup.data.handbookProgress);
+    const badgeTrials =
+        mode === "merge"
+            ? mergeBadgeTrialProgressStates(
+                  currentBadgeTrials,
+                  backup.data.badgeTrials,
+              )
+            : replaceBadgeTrialProgressState(backup.data.badgeTrials);
 
     try {
         saveTeamStorageState(teams);
@@ -131,11 +160,16 @@ export function importUserDataBackup(
             throw new Error("图鉴进度写入失败，请检查浏览器存储权限。");
         }
 
+        if (!writeBadgeTrialProgressState(badgeTrials)) {
+            throw new Error("徽章进度写入失败，请检查浏览器存储权限。");
+        }
+
         setTheme(backup.data.theme);
     } catch (error) {
         try {
             saveTeamStorageState(currentTeams);
             writeHandbookProgressState(currentProgress);
+            writeBadgeTrialProgressState(currentBadgeTrials);
             setTheme(currentTheme);
         } catch {
             // Keep the original import error when rollback is unavailable.
@@ -144,7 +178,12 @@ export function importUserDataBackup(
         throw error;
     }
 
-    return summarizeUserData(teams, handbookProgress, backup.data.theme);
+    return summarizeUserData(
+        teams,
+        handbookProgress,
+        badgeTrials,
+        backup.data.theme,
+    );
 }
 
 export function getUserDataBackupFilename() {
@@ -185,6 +224,7 @@ function mergeTeamStorageStates(
 function summarizeUserData(
     teams: TeamStorageState,
     progress: HandbookProgressState,
+    badgeTrials: BadgeTrialProgressState,
     theme: AppTheme,
 ): UserDataImportSummary {
     return {
@@ -192,6 +232,21 @@ function summarizeUserData(
         collectedCount: Object.keys(progress.collected).length,
         completedTopicCount: Object.values(progress.topics).reduce(
             (total, topics) => total + Object.keys(topics).length,
+            0,
+        ),
+        badgeFamilyMedalCount: Object.values(badgeTrials.trials).reduce(
+            (total, trial) =>
+                total + Object.keys(trial.familyMedals).length,
+            0,
+        ),
+        badgeFootprintCount: Object.values(badgeTrials.trials).reduce(
+            (total, trial) =>
+                total +
+                Object.values(trial.footprints).reduce(
+                    (trialTotal, entries) =>
+                        trialTotal + Object.keys(entries).length,
+                    0,
+                ),
             0,
         ),
         theme,

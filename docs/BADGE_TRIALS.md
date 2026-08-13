@@ -1,0 +1,86 @@
+# 八大徽章功能与数据维护
+
+本文说明 `/badge-trials` 的草系徽章功能、数据口径和新精灵上线后的维护步骤。功能代码不维护一份手写家族名单；家族和足迹搜索目录都在运行时从 `public/data/Pets.json` 生成。
+
+## 当前功能
+
+- 家族奖牌：按最低阶精灵归并，支持宫格/列表显示、搜索和已点亮/未点亮筛选。
+- 精灵足迹：当前没有三个地点的完整遭遇名单，因此按地点搜索全量已实装精灵并手动添加。
+- 三个地点总数固定为：记忆中的索米亚草原 210、记忆中的巨石阵 317、记忆中的普拉塔草原 199。
+- 草系属性图标复用 `TypeIcon.vue` 的属性 ID `2`，精灵头像复用 `FriendPortrait.vue`。
+- 个人进度保存在浏览器 `localStorage`，并包含在数据管理页的完整备份中。
+
+## 代码与数据位置
+
+| 内容 | 位置 |
+| --- | --- |
+| 页面 | `src/pages/badge-trials.vue` |
+| 家族与精灵目录生成 | `src/lib/badgeTrials/catalog.ts` |
+| 本地状态解析、读写与合并 | `src/lib/badgeTrials/storage.ts` |
+| 地点、数量和类型定义 | `src/lib/badgeTrials/types.ts` |
+| 数据完整性检查 | `scripts/test-badge-trial-data.mjs` |
+| 完整备份 | `src/lib/userDataBackup.ts` |
+| 基础精灵数据 | `public/data/Pets.json` |
+| 精灵头像 | `public/assets/webp/friends/JL_{internal_name}.webp` |
+
+## 家族口径
+
+1. 只把 `implemented: true` 且 `is_leader_form: false` 的形态列入可操作目录。
+2. 沿 `evolves_from_id` 向上查找最早祖先，以祖先的 `species_id` 生成稳定键 `species:{id}`。
+3. 页面只显示最低阶精灵名称和头像，不显示中间或最终进化阶段。
+4. 搜索索引仍包含家族全部已实装成员的中文名、内部名、配置 ID 和图鉴编号，因此可以用进化后名称定位最低阶家族。
+5. 分支进化如果拥有同一个最低阶祖先，会归为同一个家族。
+6. 这套口径与技能页按最终进化形态归并的口径不同，不应直接改用 `petEvolutionFamilies.ts`。
+
+## 新精灵上线后的更新步骤
+
+正常情况下不需要修改徽章页面代码：
+
+1. 按仓库既有流程更新上游 `public/data/BinData`。
+2. 运行 `yarn sync:pet-data` 重新生成 `Pets.json`、宠物详情和相关索引。
+3. 检查 `public/data/Pets.json` 中新精灵的 `implemented`、`species_id`、`evolves_from_id`、`is_leader_form`、内部名和中文名。
+4. 确认最低阶代表拥有 `public/assets/webp/friends/JL_{internal_name}.webp` 头像。
+5. 运行 `yarn test:badge-trials`。脚本会报告当前已实装非首领形态数、最低阶家族数，并检查所有家族头像。
+6. 运行 `yarn type-check` 和 `yarn build`。
+7. 打开 `/badge-trials`，搜索新精灵。新最低阶会自动新增家族；现有家族的新进化形态会自动加入搜索索引，不会产生额外家族卡片。
+
+如果新精灵错误地成为独立家族，优先检查 `evolves_from_id` 是否指向正确的上一阶段，不要在徽章功能中添加硬编码例外。
+
+## 足迹目录的后续处理
+
+当前只知道地点总数，没有每个地点对应的完整精灵名单。因此：
+
+- 搜索范围是 `Pets.json` 中全部已实装、非首领图鉴形态。
+- 用户选择地点后手动添加遇到的精灵，同一精灵可在不同地点分别记录。
+- 未录入精灵不会批量生成灰色占位，页面只展示已录入足迹。
+- 新精灵同步进入 `Pets.json` 后，会自动出现在足迹搜索结果中。
+
+如果以后获得官方地点精灵名单，应新增独立的基础目录文件或生成脚本，并以 `species_id` 关联。不要覆盖 `localStorage` 中已有的手动足迹；基础名单只负责限制搜索、展示未知项和计算奖励进度。
+
+## 本地状态与备份
+
+存储键为 `rocom.badge-trials.v1`，主体结构如下：
+
+```json
+{
+    "version": 1,
+    "updatedAt": "2026-08-13T00:00:00.000Z",
+    "trials": {
+        "grass": {
+            "familyMedals": {
+                "species:5": "2026-08-13T00:00:00.000Z"
+            },
+            "footprints": {
+                "somia": {
+                    "5": "2026-08-13T00:00:00.000Z"
+                }
+            }
+        }
+    }
+}
+```
+
+- 家族键使用最低阶 `species_id`；足迹键使用精灵 `species_id`。
+- 时间戳用于完整备份的合并，合并时保留较新的完成记录。
+- 完整用户备份格式已升级为版本 2；版本 1 备份仍可导入，并会以空徽章进度迁移。
+- 扩展其他属性徽章时，在 `trials` 下新增属性 ID，并补充对应地点配置，不要新建互不兼容的存储键。

@@ -187,6 +187,7 @@ public/data/pets/{petId}.json
 如果个人数据只属于当前浏览器，不需要提交到仓库，更推荐使用 `localStorage` 或导入/导出 JSON。项目已有两个类似模式：
 
 - 图鉴进度：`localStorage` 键名 `rocom_handbook_progress`
+- 八大徽章：`localStorage` 键名 `rocom.badge-trials.v1`；家族和足迹搜索目录运行时从 `Pets.json` 生成
 - 配队：`localStorage` 键名 `rocom.team-builder.v2`（兼容迁移 `rocom.team-builder.v1`）
 
 建议新增个人收藏备注时使用独立命名空间，例如：

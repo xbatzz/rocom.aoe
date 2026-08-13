@@ -7,6 +7,7 @@ import {
     Egg,
     GitBranch,
     ListChecks,
+    Medal,
     Package,
     Shield,
     Sparkles,
@@ -114,6 +115,12 @@ const toolGroups: ToolGroup[] = [
                 icon: Package,
             },
             {
+                title: "八大徽章",
+                description: "记录家族奖牌和试炼地点精灵足迹。",
+                to: "/badge-trials",
+                icon: Medal,
+            },
+            {
                 title: "图鉴进度",
                 description: "记录已收集宠物与图鉴课题完成情况。",
                 to: "/handbook-progress",
@@ -151,7 +158,7 @@ const toolGroups: ToolGroup[] = [
         tools: [
             {
                 title: "数据管理",
-                description: "导出或导入全部配队、图鉴进度和主题设置。",
+                description: "导出或导入配队、图鉴、徽章进度和主题设置。",
                 to: "/data-management",
                 icon: Database,
             },

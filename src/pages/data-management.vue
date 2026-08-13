@@ -6,6 +6,7 @@ import {
     Download,
     FileJson,
     MonitorSmartphone,
+    Medal,
     ShieldCheck,
     Upload,
 } from "lucide-vue-next";
@@ -19,6 +20,7 @@ import {
 } from "@/components/ui/dialog";
 import { getTeamStorageState } from "@/lib/teamStorage";
 import { readHandbookProgressState } from "@/lib/handbookProgress";
+import { readBadgeTrialProgressState } from "@/lib/badgeTrials";
 import {
     createUserDataBackup,
     getUserDataBackupFilename,
@@ -51,6 +53,21 @@ onMounted(() => {
 function readCurrentSummary() {
     const teams = getTeamStorageState();
     const progress = readHandbookProgressState();
+    const badgeTrials = readBadgeTrialProgressState();
+    const badgeFamilyMedalCount = Object.values(badgeTrials.trials).reduce(
+        (total, trial) => total + Object.keys(trial.familyMedals).length,
+        0,
+    );
+    const badgeFootprintCount = Object.values(badgeTrials.trials).reduce(
+        (total, trial) =>
+            total +
+            Object.values(trial.footprints).reduce(
+                (trialTotal, entries) =>
+                    trialTotal + Object.keys(entries).length,
+                0,
+            ),
+        0,
+    );
 
     return {
         teamCount: teams.teams.length,
@@ -59,6 +76,8 @@ function readCurrentSummary() {
             (total, topics) => total + Object.keys(topics).length,
             0,
         ),
+        badgeFamilyMedalCount,
+        badgeFootprintCount,
     };
 }
 
@@ -124,7 +143,7 @@ function confirmImport() {
             pendingBackup.value,
             importMode.value,
         );
-        const message = `导入成功：${summary.teamCount} 支队伍、${summary.collectedCount} 个已收集图鉴、${summary.completedTopicCount} 项已完成课题。`;
+        const message = `导入成功：${summary.teamCount} 支队伍、${summary.collectedCount} 个已收集图鉴、${summary.completedTopicCount} 项已完成课题、${summary.badgeFamilyMedalCount} 个家族奖牌、${summary.badgeFootprintCount} 个精灵足迹。`;
 
         try {
             window.sessionStorage.setItem(IMPORT_FEEDBACK_KEY, message);
@@ -170,13 +189,13 @@ document.title = "数据管理 - 洛克王国工具箱";
                             数据管理
                         </h1>
                         <p class="text-sm leading-6 text-muted-foreground">
-                            一次备份全部配队、图鉴进度和主题设置，可在 Windows、Mac、iPhone 或 iPad 之间迁移。
+                            一次备份全部配队、图鉴进度、徽章进度和主题设置，可在 Windows、Mac、iPhone 或 iPad 之间迁移。
                         </p>
                     </div>
                     <MonitorSmartphone class="h-10 w-10 text-primary/70" />
                 </div>
 
-                <div class="grid grid-cols-3 gap-1.5 sm:gap-3">
+                <div class="grid grid-cols-2 gap-1.5 sm:grid-cols-4 sm:gap-3">
                     <div class="min-w-0 rounded-[14px] border border-border bg-muted/40 p-2.5 sm:rounded-[18px] sm:p-4">
                         <p class="text-xs text-muted-foreground">已保存队伍</p>
                         <p class="mt-1 text-lg font-black text-foreground sm:text-2xl">
@@ -193,6 +212,18 @@ document.title = "数据管理 - 洛克王国工具箱";
                         <p class="truncate text-xs text-muted-foreground">图鉴课题</p>
                         <p class="mt-1 text-lg font-black text-foreground sm:text-2xl">
                             {{ currentSummary.completedTopicCount }}
+                        </p>
+                    </div>
+                    <div class="min-w-0 rounded-[14px] border border-border bg-muted/40 p-2.5 sm:rounded-[18px] sm:p-4">
+                        <div class="flex items-center gap-1.5 text-xs text-muted-foreground">
+                            <Medal class="h-3.5 w-3.5" />
+                            <span>徽章记录</span>
+                        </div>
+                        <p class="mt-1 text-lg font-black text-foreground sm:text-2xl">
+                            {{ currentSummary.badgeFamilyMedalCount }}
+                            <span class="text-xs font-medium text-muted-foreground">
+                                / {{ currentSummary.badgeFootprintCount }} 足迹
+                            </span>
                         </p>
                     </div>
                 </div>
@@ -276,8 +307,8 @@ document.title = "数据管理 - 洛克王国工具箱";
                     </CardTitle>
                 </div>
                 <ul class="space-y-2 text-sm leading-6 text-muted-foreground">
-                    <li>• 合并：同 ID 队伍保留更新时间较新的版本，其他队伍追加；图鉴完成记录按时间戳合并。</li>
-                    <li>• 替换：使用备份完整覆盖本机配队和图鉴进度，适合新设备首次恢复。</li>
+                    <li>• 合并：同 ID 队伍保留更新时间较新的版本；图鉴与徽章完成记录按时间戳合并。</li>
+                    <li>• 替换：使用备份完整覆盖本机配队、图鉴和徽章进度，适合新设备首次恢复。</li>
                     <li>• 文件只包含构筑与进度编号，不包含账号、密码或游戏登录信息。</li>
                     <li>• 建议在大量修改前和切换设备前各导出一次备份。</li>
                 </ul>

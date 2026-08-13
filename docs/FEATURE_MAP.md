@@ -19,12 +19,13 @@
 | 星图 | `/egggroup` | `src/pages/egggroup.vue`、`src/lib/eggGroups.ts`、`src/lib/petHandbook.ts` | `Pets.json`，ECharts 图布局 | 否 | 是 | 中 |
 | 表格 | `/table` | `src/pages/table.vue`、`src/components/FriendPortrait.vue`、`src/lib/petHandbook.ts`、`src/lib/petImplementation.ts`、`src/lib/eggGroups.ts` | `Pets.json`、`PetSkillIndex.json`、`bloodline_index.json` | 否，偏高级筛选 | 是 | 高 |
 | 图鉴进度 | `/handbook-progress` | `src/pages/handbook-progress.vue`、`src/lib/handbookProgress/*` | `tables/PET_HANDBOOK.json`、`Pets.json`、`handbook-rewards.json`、`handbook-topic-skill-names.json`、`localStorage: rocom_handbook_progress` | 否，个人路线图暂不以打卡/进度为核心 | 是 | 中 |
+| 八大徽章 | `/badge-trials` | `src/pages/badge-trials.vue`、`src/lib/badgeTrials/*`、`src/components/FriendPortrait.vue`、`src/components/TypeIcon.vue` | `Pets.json`、精灵头像、`localStorage: rocom.badge-trials.v1` | 否，作为资料与收集工具 | 是 | 低 |
 | 数据管理 | `/data-management` | `src/pages/data-management.vue`、`src/lib/userDataBackup.ts`、`src/lib/teamStorage.ts`、`src/lib/handbookProgress/*` | `localStorage: rocom.team-builder.v2`、`rocom_handbook_progress`、`rocom.theme.v1` | 否，作为跨设备迁移入口 | 是 | 中 |
 | 道具 | `/items` | `src/pages/items.vue` | `items.json`、`public/assets/webp/items/` | 否 | 是 | 低 |
 
 ## 首页与导航现状
 
-首页 `src/pages/index.vue` 当前通过 `src/features/my-home/MyHomeDashboard.vue` 突出四个核心入口：属性查询、图鉴、技能查询、对战助手；“更多工具”区域保留配队、配种、孵蛋/查蛋、星图、宠物表格、道具、图鉴进度和数据管理。侧边栏 `src/components/Sidebar.vue` 暴露全部站内页面，包括 `/data-management` 完整备份入口。
+首页 `src/pages/index.vue` 当前通过 `src/features/my-home/MyHomeDashboard.vue` 突出四个核心入口：属性查询、图鉴、技能查询、对战助手；“更多工具”区域保留配队、配种、孵蛋/查蛋、星图、宠物表格、道具、八大徽章、图鉴进度和数据管理。侧边栏 `src/components/Sidebar.vue` 暴露全部站内页面，包括 `/data-management` 完整备份入口。
 
 按 `docs/MY_ROADMAP.md` 的个人版方向，首页更适合优先放“属性克制、图鉴搜索、技能搜索”。配队/PVP 可以作为核心或 Coming Soon 入口；配种、孵蛋、查蛋、星图、表格、道具、图鉴进度更适合收进“更多工具”。
 

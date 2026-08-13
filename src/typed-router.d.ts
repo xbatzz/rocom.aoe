@@ -41,6 +41,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/badge-trials': RouteRecordInfo<
+      '/badge-trials',
+      '/badge-trials',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/breeding': RouteRecordInfo<
       '/breeding',
       '/breeding',
@@ -154,6 +161,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/attributes.vue': {
       routes:
         | '/attributes'
+      views:
+        | never
+    }
+    'src/pages/badge-trials.vue': {
+      routes:
+        | '/badge-trials'
       views:
         | never
     }
