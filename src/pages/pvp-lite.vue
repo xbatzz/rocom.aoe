@@ -4367,6 +4367,17 @@ document.title = "对战助手 - 洛克王国工具箱";
                         </p>
                     </div>
                     <div class="rounded-[18px] bg-slate-50 px-3 py-2">
+                        <p class="text-xs text-slate-500">系数</p>
+                        <p class="font-bold text-slate-950">
+                            {{
+                                selectedDamageOption.result.damageCoefficient ==
+                                null
+                                    ? "-"
+                                    : `${selectedDamageOption.result.damageCoefficient.toFixed(4)}x`
+                            }}
+                        </p>
+                    </div>
+                    <div class="rounded-[18px] bg-slate-50 px-3 py-2">
                         <p class="text-xs text-slate-500">等级系数</p>
                         <p class="font-bold text-slate-950">
                             {{

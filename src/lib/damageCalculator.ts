@@ -75,6 +75,7 @@ export interface PaperDamageResult {
     effectivePower?: number;
     levelCoefficient?: number;
     displayPower?: number;
+    damageCoefficient?: number | null;
     singleHitDamage?: number;
     totalDamage?: number;
     defenderHp?: number;
@@ -230,6 +231,8 @@ export function calculatePaperDamage(
         finalDamage,
     );
     const totalDamage = singleHitDamage * hitCount;
+    const damageCoefficient =
+        displayPower > 0 ? totalDamage / displayPower : null;
     const damagePercent = Number(((totalDamage / defenderHp) * 100).toFixed(1));
 
     return {
@@ -247,6 +250,7 @@ export function calculatePaperDamage(
         effectivePower,
         levelCoefficient,
         displayPower,
+        damageCoefficient,
         singleHitDamage,
         totalDamage,
         defenderHp,
