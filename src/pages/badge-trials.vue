@@ -734,11 +734,39 @@ onMounted(async () => {
                 </CardContent>
             </Card>
 
-            <div class="flex flex-wrap items-center justify-between gap-3">
+            <div class="space-y-2 md:flex md:items-center md:justify-between md:gap-3 md:space-y-0">
                 <p class="text-xs text-muted-foreground">
                     已录入精灵 · {{ recordedPets.length }} 个匹配当前筛选
                 </p>
-                <div class="flex flex-wrap items-center justify-end gap-2">
+                <div class="grid grid-cols-2 gap-2 md:hidden">
+                    <Select v-model="footprintStatusFilter">
+                        <SelectTrigger
+                            class="h-10 w-full border-border bg-card text-xs"
+                            aria-label="筛选足迹点亮状态"
+                        >
+                            <SelectValue placeholder="全部状态" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="all">全部状态</SelectItem>
+                            <SelectItem value="lit">已点亮</SelectItem>
+                            <SelectItem value="unlit">未点亮</SelectItem>
+                        </SelectContent>
+                    </Select>
+                    <Select v-model="footprintFormFilter">
+                        <SelectTrigger
+                            class="h-10 w-full border-border bg-card text-xs"
+                            aria-label="筛选精灵形态"
+                        >
+                            <SelectValue placeholder="全部形态" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="all">全部形态</SelectItem>
+                            <SelectItem value="normal">一般形态</SelectItem>
+                            <SelectItem value="leader">首领形态</SelectItem>
+                        </SelectContent>
+                    </Select>
+                </div>
+                <div class="hidden items-center justify-end gap-2 md:flex">
                     <div class="flex items-center gap-1.5">
                         <button
                             v-for="option in [
