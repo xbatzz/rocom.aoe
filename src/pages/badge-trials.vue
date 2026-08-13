@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import {
     Check,
+    ChevronDown,
     ChevronLeft,
     ChevronRight,
+    ChevronUp,
     LayoutGrid,
     List,
     MapPin,
@@ -41,8 +43,10 @@ const familyLayout = ref<FamilyLayout>("grid");
 const familyKeyword = ref("");
 const familyPage = ref(1);
 const footprintKeyword = ref("");
+const recordedFootprintKeyword = ref("");
 const footprintFormFilter = ref<FootprintFormFilter>("all");
 const footprintStatusFilter = ref<FootprintStatusFilter>("all");
+const isFootprintEntryOpen = ref(false);
 const activeLocationId = ref<GrassTrialLocationId>("somia");
 const pets = ref<IPets[]>([]);
 const progress = ref<BadgeTrialProgressState>(
@@ -166,6 +170,13 @@ const recordedPets = computed(() =>
     ])]
         .map((key) => petByKey.value.get(key))
         .filter((entry): entry is BadgeTrialPet => Boolean(entry))
+        .filter((entry) => {
+            const query = recordedFootprintKeyword.value
+                .trim()
+                .toLocaleLowerCase("zh-CN");
+
+            return !query || entry.searchText.includes(query);
+        })
         .filter(
             (entry) =>
                 footprintFormFilter.value === "all" ||
@@ -307,6 +318,11 @@ function suggestionScore(pet: BadgeTrialPet, query: string) {
     }
 
     return name.startsWith(query) ? 1 : 2;
+}
+
+function closeFootprintEntry() {
+    isFootprintEntryOpen.value = false;
+    footprintKeyword.value = "";
 }
 
 function migrateLegacyFootprintKeys() {
@@ -642,7 +658,18 @@ onMounted(async () => {
                 </button>
             </div>
 
-            <Card class="border-border bg-card py-0 shadow-sm">
+            <div v-if="!isFootprintEntryOpen" class="flex justify-end">
+                <Button
+                    variant="outline"
+                    class="h-10 w-full rounded-[10px] border-border bg-card sm:w-auto"
+                    @click="isFootprintEntryOpen = true"
+                >
+                    录入或修改足迹
+                    <ChevronDown class="ml-2 h-4 w-4" />
+                </Button>
+            </div>
+
+            <Card v-else class="border-border bg-card py-0 shadow-sm">
                 <CardContent class="space-y-3 p-4">
                     <div class="flex flex-wrap items-end justify-between gap-3">
                         <div>
@@ -653,9 +680,20 @@ onMounted(async () => {
                                 搜索精灵后录入为已点亮或未点亮；两种状态都会显示在下方。
                             </p>
                         </div>
-                        <span class="text-sm tabular-nums text-foreground">
-                            {{ activeFootprintCount }} / {{ activeLocation.total }} 已点亮 · {{ activeRecordedFootprintCount }} 已录入
-                        </span>
+                        <div class="flex items-center gap-3">
+                            <span class="text-sm tabular-nums text-foreground">
+                                {{ activeFootprintCount }} / {{ activeLocation.total }} 已点亮 · {{ activeRecordedFootprintCount }} 已录入
+                            </span>
+                            <Button
+                                variant="ghost"
+                                size="sm"
+                                class="h-8 rounded-[8px] px-2 text-xs text-muted-foreground"
+                                @click="closeFootprintEntry"
+                            >
+                                收起
+                                <ChevronUp class="ml-1 h-4 w-4" />
+                            </Button>
+                        </div>
                     </div>
 
                     <div class="relative">
@@ -734,6 +772,16 @@ onMounted(async () => {
                 </CardContent>
             </Card>
 
+            <div class="relative md:max-w-sm">
+                <Search class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                <Input
+                    v-model="recordedFootprintKeyword"
+                    type="search"
+                    placeholder="搜索已录入精灵名称或图鉴编号"
+                    class="h-10 border-border bg-card pl-9"
+                />
+            </div>
+
             <div class="space-y-2 md:flex md:items-center md:justify-between md:gap-3 md:space-y-0">
                 <p class="text-xs text-muted-foreground">
                     已录入精灵 · {{ recordedPets.length }} 个匹配当前筛选
@@ -806,7 +854,7 @@ onMounted(async () => {
                 v-if="recordedPets.length === 0"
                 class="rounded-[12px] border border-dashed border-border bg-card px-4 py-14 text-center text-sm text-muted-foreground"
             >
-                {{ activeFootprintCount === 0 ? "当前地点还没有录入足迹。" : "当前筛选下没有已录入精灵。" }}
+                {{ activeRecordedFootprintCount === 0 ? "当前地点还没有录入足迹。" : recordedFootprintKeyword.trim() ? "没有找到名称或编号匹配的已录入精灵。" : "当前筛选下没有已录入精灵。" }}
             </div>
 
             <div
