@@ -20,6 +20,7 @@ import {
     buildBadgeTrialFamilies,
     buildBadgeTrialPetCatalog,
     createEmptyBadgeTrialTypeProgress,
+    matchesBadgeTrialFamilySearch,
     readBadgeTrialProgressState,
     writeBadgeTrialProgressState,
     type BadgeTrialFamily,
@@ -104,8 +105,6 @@ const allFootprintCount = computed(() =>
     ),
 );
 const filteredFamilies = computed(() => {
-    const query = familyKeyword.value.trim().toLocaleLowerCase("zh-CN");
-
     return families.value.filter((family) => {
         const lit = isFamilyLit(family);
         const matchesFilter =
@@ -113,7 +112,8 @@ const filteredFamilies = computed(() => {
             (familyFilter.value === "lit" ? lit : !lit);
 
         return (
-            matchesFilter && (!query || family.searchText.includes(query))
+            matchesFilter &&
+            matchesBadgeTrialFamilySearch(family, familyKeyword.value)
         );
     });
 });

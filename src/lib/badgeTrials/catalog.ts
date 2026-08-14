@@ -1,9 +1,14 @@
 import type { IPets } from "@/lib/interface";
+import {
+    isHandbookNumberQuery,
+    matchesPetHandbookNumber,
+} from "@/lib/petHandbook";
 
 export interface BadgeTrialFamily {
     key: string;
     representative: IPets;
     memberIds: number[];
+    speciesIds: number[];
     searchText: string;
 }
 
@@ -46,6 +51,9 @@ export function buildBadgeTrialFamilies(pets: IPets[]): BadgeTrialFamily[] {
             const representative = selectPreferredPet(family.roots);
             const memberIds = [...new Set(family.members.map((pet) => pet.id))]
                 .sort((left, right) => left - right);
+            const speciesIds = [
+                ...new Set(family.members.map((pet) => pet.species_id)),
+            ].sort((left, right) => left - right);
             const searchText = family.members
                 .flatMap((pet) => [
                     pet.localized.zh.name,
@@ -64,6 +72,7 @@ export function buildBadgeTrialFamilies(pets: IPets[]): BadgeTrialFamily[] {
                 key,
                 representative,
                 memberIds,
+                speciesIds,
                 searchText,
             };
         })
@@ -73,6 +82,28 @@ export function buildBadgeTrialFamilies(pets: IPets[]): BadgeTrialFamily[] {
                 "zh-CN",
             ),
         );
+}
+
+export function matchesBadgeTrialFamilySearch(
+    family: BadgeTrialFamily,
+    keyword: string,
+) {
+    const query = keyword.trim().toLocaleLowerCase("zh-CN");
+
+    if (!query) {
+        return true;
+    }
+
+    if (isHandbookNumberQuery(query)) {
+        return family.speciesIds.some((speciesId) =>
+            matchesPetHandbookNumber(
+                { species_id: speciesId, id: speciesId },
+                query,
+            ),
+        );
+    }
+
+    return family.searchText.includes(query);
 }
 
 export function buildBadgeTrialPetCatalog(pets: IPets[]): BadgeTrialPet[] {

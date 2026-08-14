@@ -14,6 +14,7 @@ import {
     DESTINED_HERO_BADGE_ID,
     buildBadgeTrialFamilies,
     createEmptyBadgeTrialTypeProgress,
+    matchesBadgeTrialFamilySearch,
     readBadgeTrialProgressState,
     writeBadgeTrialProgressState,
     type BadgeTrialFamily,
@@ -53,15 +54,16 @@ const completionRate = computed(() =>
         : 0,
 );
 const filteredFamilies = computed(() => {
-    const query = familyKeyword.value.trim().toLocaleLowerCase("zh-CN");
-
     return families.value.filter((family) => {
         const obtained = isFamilyObtained(family);
         const matchesFilter =
             familyFilter.value === "all" ||
             (familyFilter.value === "obtained" ? obtained : !obtained);
 
-        return matchesFilter && (!query || family.searchText.includes(query));
+        return (
+            matchesFilter &&
+            matchesBadgeTrialFamilySearch(family, familyKeyword.value)
+        );
     });
 });
 const familyPageCount = computed(() =>
