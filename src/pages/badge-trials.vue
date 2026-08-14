@@ -37,12 +37,14 @@ type FootprintStatus = "lit" | "unlit";
 type FootprintStatusFilter = "all" | FootprintStatus;
 
 const FAMILY_PAGE_SIZE = 24;
+const FOOTPRINT_PAGE_SIZE = 24;
 
 const pageMode = ref<PageMode>("families");
 const familyFilter = ref<FamilyFilter>("all");
 const familyLayout = ref<FamilyLayout>("grid");
 const familyKeyword = ref("");
 const familyPage = ref(1);
+const recordedFootprintPage = ref(1);
 const footprintKeyword = ref("");
 const recordedFootprintKeyword = ref("");
 const footprintFormFilter = ref<FootprintFormFilter>("all");
@@ -200,6 +202,14 @@ const recordedPets = computed(() =>
                 left.pet.petId - right.pet.petId,
         ),
 );
+const recordedFootprintPageCount = computed(() =>
+    Math.max(1, Math.ceil(recordedPets.value.length / FOOTPRINT_PAGE_SIZE)),
+);
+const pagedRecordedPets = computed(() => {
+    const start = (recordedFootprintPage.value - 1) * FOOTPRINT_PAGE_SIZE;
+
+    return recordedPets.value.slice(start, start + FOOTPRINT_PAGE_SIZE);
+});
 
 function isFamilyLit(family: BadgeTrialFamily) {
     return Boolean(grassProgress.value.familyMedals[family.key]);
@@ -390,6 +400,25 @@ watch(familyPageCount, (pageCount) => {
     familyPage.value = Math.min(familyPage.value, pageCount);
 });
 
+watch(
+    [
+        recordedFootprintKeyword,
+        footprintStatusFilter,
+        footprintFormFilter,
+        activeLocationId,
+    ],
+    () => {
+        recordedFootprintPage.value = 1;
+    },
+);
+
+watch(recordedFootprintPageCount, (pageCount) => {
+    recordedFootprintPage.value = Math.min(
+        recordedFootprintPage.value,
+        pageCount,
+    );
+});
+
 onMounted(async () => {
     document.title = "八大徽章 - 洛克王国工具箱";
 
@@ -470,7 +499,7 @@ onMounted(async () => {
         </Card>
 
         <template v-if="isLoading">
-            <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
+            <div class="grid grid-cols-3 gap-2 sm:gap-3 lg:grid-cols-5 xl:grid-cols-6">
                 <Skeleton v-for="index in 12" :key="index" class="h-40 rounded-[12px]" />
             </div>
         </template>
@@ -546,13 +575,13 @@ onMounted(async () => {
 
             <div
                 v-else-if="familyLayout === 'grid'"
-                class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6"
+                class="grid grid-cols-3 gap-2 sm:gap-3 lg:grid-cols-5 xl:grid-cols-6"
             >
                 <button
                     v-for="family in pagedFamilies"
                     :key="family.key"
                     type="button"
-                    class="group flex min-h-40 flex-col items-center justify-center gap-2 rounded-[12px] border bg-card p-3 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+                    class="group flex min-h-32 flex-col items-center justify-center gap-1.5 rounded-[10px] border bg-card p-2 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md sm:min-h-40 sm:gap-2 sm:rounded-[12px] sm:p-3"
                     :class="isFamilyLit(family) ? 'border-primary/45 bg-primary/5' : 'border-border'"
                     :aria-pressed="isFamilyLit(family)"
                     @click="toggleFamily(family)"
@@ -560,14 +589,14 @@ onMounted(async () => {
                     <FriendPortrait
                         :name="family.representative.name"
                         :alt="family.representative.localized.zh.name"
-                        class="h-24 w-24 transition-all"
+                        class="h-16 w-16 transition-all sm:h-24 sm:w-24"
                         :img-class="isFamilyLit(family) ? 'object-contain' : 'object-contain grayscale opacity-35'"
                     />
-                    <span class="line-clamp-1 text-sm font-semibold text-foreground">
+                    <span class="line-clamp-1 w-full text-xs font-semibold text-foreground sm:text-sm">
                         {{ family.representative.localized.zh.name }}家族
                     </span>
                     <span
-                        class="flex items-center gap-1 text-xs"
+                        class="flex items-center gap-1 text-[11px] sm:text-xs"
                         :class="isFamilyLit(family) ? 'text-primary' : 'text-muted-foreground'"
                     >
                         <Check v-if="isFamilyLit(family)" class="h-3.5 w-3.5" />
@@ -859,17 +888,17 @@ onMounted(async () => {
 
             <div
                 v-else
-                class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6"
+                class="grid grid-cols-3 gap-2 sm:gap-3 lg:grid-cols-5 xl:grid-cols-6"
             >
                 <div
-                    v-for="entry in recordedPets"
+                    v-for="entry in pagedRecordedPets"
                     :key="entry.pet.key"
-                    class="relative flex min-h-36 flex-col items-center justify-center gap-2 rounded-[12px] border p-3 text-center shadow-sm"
+                    class="relative flex min-h-32 flex-col items-center justify-center gap-1.5 rounded-[10px] border p-2 text-center shadow-sm sm:min-h-36 sm:gap-2 sm:rounded-[12px] sm:p-3"
                     :class="entry.status === 'lit' ? 'border-primary/45 bg-primary/5' : 'border-border bg-muted/40'"
                 >
                     <button
                         type="button"
-                        class="absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive"
+                        class="absolute right-1 top-1 flex h-6 w-6 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive sm:right-2 sm:top-2 sm:h-7 sm:w-7"
                         :aria-label="`移除${entry.pet.representative.localized.zh.name}足迹`"
                         @click="removeFootprint(entry.pet)"
                     >
@@ -878,23 +907,23 @@ onMounted(async () => {
                     <FriendPortrait
                         :name="entry.pet.representative.name"
                         :alt="entry.pet.representative.localized.zh.name"
-                        class="h-20 w-20"
+                        class="h-16 w-16 sm:h-20 sm:w-20"
                         :img-class="entry.status === 'lit' ? 'object-contain' : 'object-contain grayscale opacity-45'"
                     />
-                    <span class="line-clamp-1 text-sm font-semibold text-foreground">
+                    <span class="line-clamp-1 w-full text-xs font-semibold text-foreground sm:text-sm">
                         {{ entry.pet.representative.localized.zh.name }}
                     </span>
                     <Badge
                         v-if="entry.pet.isLeader || entry.pet.variantLabel !== '一般形态'"
                         variant="outline"
-                        class="text-[10px]"
+                        class="max-w-full truncate px-1 text-[9px] sm:px-2 sm:text-[10px]"
                         :class="entry.pet.isLeader ? 'border-amber-400/35 bg-amber-400/10 text-amber-600 dark:text-amber-200' : 'border-sky-400/35 bg-sky-400/10 text-sky-600 dark:text-sky-200'"
                     >
                         {{ entry.pet.variantLabel }}
                     </Badge>
                     <button
                         type="button"
-                        class="flex items-center gap-1 rounded-full px-2 py-1 text-xs transition-colors"
+                        class="flex items-center gap-1 rounded-full px-1.5 py-1 text-[11px] transition-colors sm:px-2 sm:text-xs"
                         :class="entry.status === 'lit' ? 'bg-primary/10 text-primary' : 'bg-muted text-muted-foreground hover:text-foreground'"
                         @click="setFootprintStatus(entry.pet, entry.status === 'lit' ? 'unlit' : 'lit')"
                     >
@@ -903,6 +932,36 @@ onMounted(async () => {
                     </button>
                 </div>
             </div>
+
+            <nav
+                v-if="recordedFootprintPageCount > 1"
+                class="flex flex-wrap items-center justify-center gap-2 rounded-[12px] border border-border bg-card p-3 shadow-sm"
+                aria-label="精灵足迹分页"
+            >
+                <Button
+                    variant="outline"
+                    size="sm"
+                    class="h-9 rounded-[9px] border-border"
+                    :disabled="recordedFootprintPage === 1"
+                    @click="recordedFootprintPage -= 1"
+                >
+                    <ChevronLeft class="mr-1 h-4 w-4" />
+                    上一页
+                </Button>
+                <span class="min-w-20 text-center text-sm tabular-nums text-muted-foreground">
+                    {{ recordedFootprintPage }} / {{ recordedFootprintPageCount }}
+                </span>
+                <Button
+                    variant="outline"
+                    size="sm"
+                    class="h-9 rounded-[9px] border-border"
+                    :disabled="recordedFootprintPage === recordedFootprintPageCount"
+                    @click="recordedFootprintPage += 1"
+                >
+                    下一页
+                    <ChevronRight class="ml-1 h-4 w-4" />
+                </Button>
+            </nav>
         </template>
     </section>
 </template>
