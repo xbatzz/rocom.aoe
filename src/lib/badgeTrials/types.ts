@@ -1,6 +1,7 @@
 export const BADGE_TRIAL_PROGRESS_STORAGE_KEY = "rocom.badge-trials.v1";
 export const BADGE_TRIAL_PROGRESS_VERSION = 1 as const;
 export const GRASS_BADGE_ID = "grass";
+export const DESTINED_HERO_BADGE_ID = "destined-hero";
 
 export const GRASS_TRIAL_LOCATIONS = [
     {

@@ -20,6 +20,7 @@
 | 表格 | `/table` | `src/pages/table.vue`、`src/components/FriendPortrait.vue`、`src/lib/petHandbook.ts`、`src/lib/petImplementation.ts`、`src/lib/eggGroups.ts` | `Pets.json`、`PetSkillIndex.json`、`bloodline_index.json` | 否，偏高级筛选 | 是 | 高 |
 | 图鉴进度 | `/handbook-progress` | `src/pages/handbook-progress.vue`、`src/lib/handbookProgress/*` | `tables/PET_HANDBOOK.json`、`Pets.json`、`handbook-rewards.json`、`handbook-topic-skill-names.json`、`localStorage: rocom_handbook_progress` | 否，个人路线图暂不以打卡/进度为核心 | 是 | 中 |
 | 八大徽章 | `/badge-trials` | `src/pages/badge-trials.vue`、`src/lib/badgeTrials/*`、`src/components/FriendPortrait.vue`、`src/components/TypeIcon.vue` | `Pets.json`、精灵头像、`localStorage: rocom.badge-trials.v1` | 否，作为资料与收集工具 | 是 | 低 |
+| 命定勇者徽章 | `/destined-hero-badge` | `src/pages/destined-hero-badge.vue`、`src/lib/badgeTrials/*`、`src/components/FriendPortrait.vue` | `Pets.json`、精灵头像、`localStorage: rocom.badge-trials.v1` | 否，作为家族徽章统计工具 | 是 | 低 |
 | 数据管理 | `/data-management` | `src/pages/data-management.vue`、`src/lib/userDataBackup.ts`、`src/lib/teamStorage.ts`、`src/lib/handbookProgress/*` | `localStorage: rocom.team-builder.v2`、`rocom_handbook_progress`、`rocom.theme.v1` | 否，作为跨设备迁移入口 | 是 | 中 |
 | 道具 | `/items` | `src/pages/items.vue` | `items.json`、`public/assets/webp/items/` | 否 | 是 | 低 |
 

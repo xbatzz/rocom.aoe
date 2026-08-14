@@ -121,6 +121,12 @@ const toolGroups: ToolGroup[] = [
                 icon: Medal,
             },
             {
+                title: "命定勇者",
+                description: "统计已获得和未获得命定勇者徽章的精灵家族。",
+                to: "/destined-hero-badge",
+                icon: Medal,
+            },
+            {
                 title: "图鉴进度",
                 description: "记录已收集宠物与图鉴课题完成情况。",
                 to: "/handbook-progress",

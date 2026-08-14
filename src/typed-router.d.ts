@@ -62,6 +62,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/destined-hero-badge': RouteRecordInfo<
+      '/destined-hero-badge',
+      '/destined-hero-badge',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/egggroup': RouteRecordInfo<
       '/egggroup',
       '/egggroup',
@@ -179,6 +186,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/data-management.vue': {
       routes:
         | '/data-management'
+      views:
+        | never
+    }
+    'src/pages/destined-hero-badge.vue': {
+      routes:
+        | '/destined-hero-badge'
       views:
         | never
     }
