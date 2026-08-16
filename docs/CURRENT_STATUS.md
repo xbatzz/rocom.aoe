@@ -12,7 +12,7 @@
 - 排除“首领”血脉：属性页、属性选择器、图谱、防守面和打击面均不把“首领”作为普通战斗属性。
 - `/skills` 技能查询与反查：支持技能名称、ID、描述、属性、分类搜索；技能详情可按来源、精灵关键词、属性、实装状态和展示方式筛选可获得该技能的精灵。
 - 完整技能目录：`PetSkillIndex.json.skills` 由 `SKILL_CONF` 生成名称、图标、属性、分类、描述、能耗和威力，`#7000341` 及后续新技能不再依赖旧版 `moves.json` 才能显示详情。
-- 技能图标与重复技能合并：`/skills` 复用 `SkillIcon.vue`；同名但不同 ID 的技能会合并，优先保留 `moves.json` 的整理信息，并以 `PetSkillIndex` 完整目录覆盖新技能和补充来源 ID。
+- 技能图标与重复技能合并：`/skills` 复用 `SkillIcon.vue`；同名但不同 ID 的技能会合并，技能数值和描述优先采用 `PetSkillIndex` 的当前游戏配置，`moves.json` 仅保留短 ID、英文名和缺失技能兜底。
 - 技能获得索引：`SkillAcquisitionIndex.json` 汇总自有技能、技能石和血脉技能，并保留同名技能的关联 ID；`yarn test:skill-acquisition` 校验正反索引一致性。
 - 精灵家族口径：技能反查默认只显示已实装、非首领的最终进化形态，同一最终图鉴形态视为一个家族；技能卡片数量与详情默认结果一致。
 - PWA 第一版：新增 manifest、主屏幕图标和 service worker，支持应用壳、核心路由与核心 JSON 的基础离线缓存。

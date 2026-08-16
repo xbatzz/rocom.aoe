@@ -14,7 +14,7 @@
 
 | 数据 | 作用 |
 | --- | --- |
-| `public/data/moves.json` | 旧技能整理信息，包括内部名、中文描述、属性、分类、能耗和威力 |
+| `public/data/moves.json` | 旧技能整理信息，保留短 ID、英文内部名，并作为当前目录缺失时的兼容兜底 |
 | `public/data/PetSkillIndex.json` | 完整技能目录，以及每只精灵的技能池和技能石 ID |
 | `public/data/bloodline_index.json` | 每只精灵的血脉技能摘要 |
 | `public/data/SkillAcquisitionIndex.json` | 技能到精灵的反向索引，记录关联技能 ID 和每只精灵的获得来源 |
@@ -28,8 +28,8 @@
 `src/features/skills/skillAdapter.ts` 合并 `moves.json` 与 `PetSkillIndex.json.skills`：
 
 1. 同名技能归为一个展示项，同时保留关联 ID。
-2. 旧技能优先使用 `moves.json` 的整理信息。
-3. 新技能可直接使用 `SKILL_CONF` 生成的完整目录字段。
+2. 名称、描述、属性、分类、能耗和威力优先使用 `SKILL_CONF` 生成的 `PetSkillIndex.json.skills` 当前数据。
+3. `moves.json` 保留旧版短 ID、英文内部名，并仅在当前目录缺少对应技能时提供详情兜底。
 4. 搜索文本包含展示 ID、关联 ID、名称、描述、属性和分类。
 5. 详情跳转使用 `SkillAcquisitionIndex.json` 中的规范技能 ID，避免前端短 ID 与游戏技能 ID 不一致。
 

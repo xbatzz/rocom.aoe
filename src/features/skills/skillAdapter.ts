@@ -68,9 +68,12 @@ export function normalizeMove(
     iconId?: string | null,
     detailMove?: SkillMoveSource | null,
     aliasIds: number[] = [],
+    catalogOverride?: IPetSkillCatalogEntry | null,
 ): SkillSearchItem {
     const move = isSkillMoveSource(source) ? source : detailMove ?? null;
-    const catalog = isSkillMoveSource(source) ? null : source;
+    const catalog = isSkillMoveSource(source)
+        ? catalogOverride ?? null
+        : source;
     const id = Number(source.id);
     const learnedPetIds = getUniqueSortedNumbers([
         ...sourceInfo.poolPetIds,
@@ -83,19 +86,24 @@ export function normalizeMove(
         petSkillIds: getUniqueSortedNumbers(sourceInfo.petSkillIds ?? []),
     };
     const name = move?.name ?? catalog?.name ?? "";
-    const zhName = move?.localized.zh.name ?? catalog?.name ?? name;
+    const zhName = catalog?.name ?? move?.localized.zh.name ?? name;
     const description =
-        move?.localized.zh.description ||
-        move?.description ||
-        catalog?.description ||
+        catalog?.description ??
+        move?.localized.zh.description ??
+        move?.description ??
         "";
     const typeLabel =
-        move?.move_type !== undefined
+        catalog?.type_label ??
+        (move?.move_type !== undefined
             ? getMoveTypeLabel(move.move_type)
-            : catalog?.type_label ?? "无固定属性";
-    const typeId = move?.move_type?.id ?? catalog?.type_id ?? null;
-    const typeName = move?.move_type?.name ?? catalog?.type_name ?? null;
-    const category = move?.move_category ?? catalog?.move_category ?? "";
+            : "无固定属性");
+    const typeId = catalog
+        ? catalog.type_id ?? null
+        : move?.move_type?.id ?? null;
+    const typeName = catalog
+        ? catalog.type_name ?? null
+        : move?.move_type?.name ?? null;
+    const category = catalog?.move_category ?? move?.move_category ?? "";
     const categoryLabel = getSkillCategoryLabel(category);
 
     return {
@@ -108,9 +116,11 @@ export function normalizeMove(
         typeLabel,
         category,
         categoryLabel,
-        energyCost: move?.energy_cost ?? catalog?.energy_cost ?? null,
-        power: move?.power ?? catalog?.power ?? null,
-        iconId: move?.icon_id ?? catalog?.icon_id ?? iconId ?? null,
+        energyCost: catalog
+            ? catalog.energy_cost ?? null
+            : move?.energy_cost ?? null,
+        power: catalog ? catalog.power ?? null : move?.power ?? null,
+        iconId: catalog?.icon_id ?? move?.icon_id ?? iconId ?? null,
         learnedPetCount: learnedPetIds.length,
         learnedPetIds,
         sourceInfo: normalizedSourceInfo,
@@ -435,6 +445,7 @@ function buildMergedSkillSearchItem(
         iconId,
         group.detailMove,
         group.ids,
+        group.primaryCatalog,
     );
 }
 
