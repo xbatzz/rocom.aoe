@@ -603,10 +603,6 @@ function buildPairRelationLookup(
     }
 
     for (const type of types) {
-        if (type.id === activeType.id) {
-            continue;
-        }
-
         relationMap.set(type.id, {
             attackAdvantage: type.vulnerable_to.includes(activeType.name),
             attackResisted: type.resistant_to.includes(activeType.name),
