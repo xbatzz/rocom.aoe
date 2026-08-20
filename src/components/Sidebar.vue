@@ -99,7 +99,7 @@ function isNavActive(path: string) {
                 <div
                     class="flex h-8 w-8 items-center justify-center rounded-[10px] text-primary-foreground shadow-sm"
                 >
-                    <img src="/favicon.ico" alt="Logo" class="h-8 w-8" />
+                    <img src="/favicon.ico?v=4" alt="Logo" class="h-8 w-8" />
                 </div>
                 <span
                     class="font-bold tracking-tight inline-block text-lg text-foreground"
@@ -169,7 +169,7 @@ function isNavActive(path: string) {
         class="md:hidden flex h-14 items-center justify-between border-b border-border bg-background/80 bg-card shadow-lg px-4 shrink-0 z-40 sticky top-0"
     >
         <router-link to="/" class="flex items-center gap-3">
-            <img src="/favicon.ico" alt="Logo" class="h-8 w-8" />
+            <img src="/favicon.ico?v=4" alt="Logo" class="h-8 w-8" />
             <span class="font-bold text-lg tracking-tight">洛克王国工具箱</span>
         </router-link>
         <div class="-mr-2 flex items-center">

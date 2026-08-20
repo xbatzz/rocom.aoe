@@ -42,7 +42,7 @@ Manifest 文件位于 `public/manifest.webmanifest`。
 - `scope`: `/`
 - `theme_color`: `#020617`
 - `background_color`: `#020617`
-- 图标复用现有 `favicon.ico` 派生出的 PNG：
+- 图标使用 No.011 鸭吉吉（蓬松的样子）的立绘 `JL_yajiji.webp` 派生：
   - `/icons/pwa-192.png`
   - `/icons/pwa-512.png`
   - `/icons/apple-touch-icon.png`
@@ -96,7 +96,7 @@ Service Worker 位于 `public/sw.js`。安装时会尝试预缓存应用壳、�
 
 当站点发布新版本时，浏览器会在后续访问中发现新的 `sw.js`，安装新缓存并清理旧缓存。若用户一直停留在旧窗口中，可能需要关闭并重新打开 PWA 才能看到最新资源。
 
-当前缓存版本为 `rocom-pwa-v3-*`。升级后会清理旧的 `rocom-pwa-v1-*`、`rocom-pwa-v2-*` 缓存，避免继续使用旧 app-shell 或已被纠正的技能图片。
+当前缓存版本为 `rocom-pwa-v4-*`。升级后会清理旧的 `rocom-pwa-v1-*`、`rocom-pwa-v2-*`、`rocom-pwa-v3-*` 缓存，避免继续使用旧 app-shell、旧图标或已被纠正的技能图片。
 
 ## Vercel SPA Fallback
 
@@ -113,8 +113,8 @@ Service Worker 位于 `public/sw.js`。安装时会尝试预缓存应用壳、�
 
 如果 iPhone 添加到主屏幕后，飞行模式打开出现白屏，优先检查：
 
-1. DevTools > Application > Cache Storage 是否出现 `rocom-pwa-v3-app-shell`。
-2. `rocom-pwa-v3-app-shell` 中是否包含 `/index.html` 或站点完整 URL 对应的 `index.html`。
+1. DevTools > Application > Cache Storage 是否出现 `rocom-pwa-v4-app-shell`。
+2. `rocom-pwa-v4-app-shell` 中是否包含 `/index.html` 或站点完整 URL 对应的 `index.html`。
 3. `sw.js` 请求是否 200，不能被 Vercel fallback 成 `/index.html`，也不能 404。
 4. `/manifest.webmanifest`、`/icons/*`、`/assets/*`、`/data/*` 是否返回真实资源。
 5. 飞行模式前是否至少联网打开过一次 PWA，让新 service worker 完成安装和缓存。
@@ -137,7 +137,7 @@ Service Worker 位于 `public/sw.js`。安装时会尝试预缓存应用壳、�
 3. 在浏览器打开站点，确认 DevTools Application 面板能看到 Manifest 和 Service Worker。
 4. 访问 `/`、`/attributes`、`/encyclopedia`、`/skills`，等待核心数据加载完成。
 5. 在 DevTools Network 面板切换 Offline。
-6. 确认 Cache Storage 中出现 `rocom-pwa-v3-app-shell`，并且其中有 `/index.html`。
+6. 确认 Cache Storage 中出现 `rocom-pwa-v4-app-shell`，并且其中有 `/index.html`。
 7. 刷新 `/attributes`、`/skills`、`/encyclopedia`，确认页面可以打开并读取已缓存数据。
 8. 在线访问某个宠物详情后再切换 Offline，刷新该详情页，确认访问过的详情可回退到缓存。
 9. 尝试离线打开未访问过的宠物详情，允许显示现有错误或降级提示，但不能导致整个 App 白屏。

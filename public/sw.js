@@ -1,4 +1,4 @@
-const CACHE_VERSION = "rocom-pwa-v3";
+const CACHE_VERSION = "rocom-pwa-v4";
 const APP_SHELL_CACHE = `${CACHE_VERSION}-app-shell`;
 const CORE_DATA_CACHE = `${CACHE_VERSION}-core-data`;
 const PET_DETAIL_CACHE = `${CACHE_VERSION}-pet-details`;
@@ -9,10 +9,10 @@ const APP_SHELL_URLS = [
     "/",
     "/index.html",
     "/manifest.webmanifest",
-    "/favicon.ico",
-    "/icons/apple-touch-icon.png",
-    "/icons/pwa-192.png",
-    "/icons/pwa-512.png",
+    "/favicon.ico?v=4",
+    "/icons/apple-touch-icon.png?v=4",
+    "/icons/pwa-192.png?v=4",
+    "/icons/pwa-512.png?v=4",
 ];
 
 const CORE_DATA_URLS = [
