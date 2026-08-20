@@ -1358,7 +1358,7 @@
                         "id": 4089,
                         "species_id": 286,
                         "name": "shengjianX_shouling",
-                        "form": "圣剑骑士",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "圣剑骑士"
@@ -1402,7 +1402,7 @@
                         "id": 8120,
                         "species_id": 286,
                         "name": "shengjianX_shouling",
-                        "form": "圣剑骑士",
+                        "form": "草系徽章-首领形态",
                         "localized": {
                             "zh": {
                                 "name": "圣剑骑士"

@@ -1,7 +1,7 @@
 {
     "id": 13000170,
     "name": "gaomaoyuzhe",
-    "form": "高帽鹬者",
+    "form": "领地试炼用",
     "main_type": {
         "id": 13,
         "name": "Flying",
@@ -1430,7 +1430,7 @@
                         "id": 13000170,
                         "species_id": 233,
                         "name": "gaomaoyuzhe",
-                        "form": "高帽鹬者",
+                        "form": "领地试炼用",
                         "localized": {
                             "zh": {
                                 "name": "高帽鹬者"

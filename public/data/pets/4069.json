@@ -1,7 +1,7 @@
 {
     "id": 4069,
     "name": "4069",
-    "form": "default",
+    "form": "首领形态",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -1263,7 +1263,7 @@
                         "id": 4069,
                         "species_id": 4069,
                         "name": "4069",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "首领-锤头鹳"
@@ -1297,7 +1297,7 @@
                         "id": 4069,
                         "species_id": 4069,
                         "name": "4069",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "首领-锤头鹳"

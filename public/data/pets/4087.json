@@ -1,7 +1,7 @@
 {
     "id": 4087,
     "name": "qimengmi_shouling",
-    "form": "奇梦咪",
+    "form": "首领形态",
     "main_type": {
         "id": 14,
         "name": "Cute",
@@ -1236,7 +1236,7 @@
                         "id": 4096,
                         "species_id": 200,
                         "name": "qimengmi_shouling",
-                        "form": "奇梦咪",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "奇梦咪"
@@ -1263,7 +1263,7 @@
                         "id": 4097,
                         "species_id": 200,
                         "name": "qimengmi_shouling",
-                        "form": "奇梦咪",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "奇梦咪"
@@ -1290,7 +1290,7 @@
                         "id": 4087,
                         "species_id": 200,
                         "name": "qimengmi_shouling",
-                        "form": "奇梦咪",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "奇梦咪"
@@ -1339,7 +1339,7 @@
                         "id": 8118,
                         "species_id": 200,
                         "name": "qimengmi_shouling",
-                        "form": "奇梦咪",
+                        "form": "草系徽章-首领形态",
                         "localized": {
                             "zh": {
                                 "name": "奇梦咪"

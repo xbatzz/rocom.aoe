@@ -1,7 +1,7 @@
 {
     "id": 8004,
     "name": "8004",
-    "form": "default",
+    "form": "草地附近的样子",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -1147,7 +1147,7 @@
                         "id": 8004,
                         "species_id": 8004,
                         "name": "8004",
-                        "form": "default",
+                        "form": "草地附近的样子",
                         "localized": {
                             "zh": {
                                 "name": "道馆丢丢"

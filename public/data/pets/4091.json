@@ -1,7 +1,7 @@
 {
     "id": 4091,
     "name": "4091",
-    "form": "default",
+    "form": "首领形态",
     "main_type": {
         "id": 10,
         "name": "Poison",
@@ -64,7 +64,7 @@
                         "id": 4091,
                         "species_id": 4091,
                         "name": "4091",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "裘卡老师"
@@ -92,7 +92,7 @@
                         "id": 4091,
                         "species_id": 4091,
                         "name": "4091",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "裘卡老师"

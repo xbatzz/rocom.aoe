@@ -1,7 +1,7 @@
 {
     "id": 6027,
     "name": "bulaikeyan_shouling",
-    "form": "中级",
+    "form": "首领形态",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -1191,7 +1191,7 @@
                         "id": 6027,
                         "species_id": 6027,
                         "name": "bulaikeyan_shouling",
-                        "form": "中级",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "玛努斯（中级）"
@@ -1219,7 +1219,7 @@
                         "id": 6027,
                         "species_id": 6027,
                         "name": "bulaikeyan_shouling",
-                        "form": "中级",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "玛努斯（中级）"

@@ -1,7 +1,7 @@
 {
     "id": 4092,
     "name": "lihaixiuluo",
-    "form": "default",
+    "form": "首领形态",
     "main_type": {
         "id": 10,
         "name": "Poison",
@@ -1175,7 +1175,7 @@
                         "id": 4092,
                         "species_id": 4092,
                         "name": "lihaixiuluo",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "首领-厉毒修萝"
@@ -1211,7 +1211,7 @@
                         "id": 4092,
                         "species_id": 4092,
                         "name": "lihaixiuluo",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "首领-厉毒修萝"

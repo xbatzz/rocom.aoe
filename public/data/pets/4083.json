@@ -1,7 +1,7 @@
 {
     "id": 4083,
     "name": "heimaowushi_shouling",
-    "form": "黑猫密探",
+    "form": "首领形态",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -1270,7 +1270,7 @@
                         "id": 4083,
                         "species_id": 122,
                         "name": "heimaowushi_shouling",
-                        "form": "黑猫密探",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "黑猫密探"
@@ -1312,7 +1312,7 @@
                         "id": 8114,
                         "species_id": 122,
                         "name": "heimaowushi_shouling",
-                        "form": "黑猫密探",
+                        "form": "草系徽章-首领形态",
                         "localized": {
                             "zh": {
                                 "name": "黑猫密探"

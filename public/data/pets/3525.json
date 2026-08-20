@@ -1,7 +1,7 @@
 {
     "id": 3525,
     "name": "awasha",
-    "form": "default",
+    "form": "虎纹的样子",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -53,7 +53,7 @@
                         "id": 3525,
                         "species_id": 3525,
                         "name": "awasha",
-                        "form": "default",
+                        "form": "虎纹的样子",
                         "localized": {
                             "zh": {
                                 "name": "阿瓦鲨"

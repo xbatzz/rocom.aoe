@@ -1,7 +1,7 @@
 {
     "id": 3511,
     "name": "boboluo_yidi",
-    "form": "异地形态",
+    "form": "被污染的样子",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -1334,7 +1334,7 @@
                         "id": 3511,
                         "species_id": 171,
                         "name": "boboluo_yidi",
-                        "form": "异地形态",
+                        "form": "被污染的样子",
                         "localized": {
                             "zh": {
                                 "name": "波波螺"
@@ -1396,7 +1396,7 @@
                         "id": 3512,
                         "species_id": 172,
                         "name": "xiaoboluo_yidi",
-                        "form": "异地形态",
+                        "form": "被污染的样子",
                         "localized": {
                             "zh": {
                                 "name": "消波螺"
@@ -1460,7 +1460,7 @@
                         "id": 3513,
                         "species_id": 173,
                         "name": "shiboluo_yidi",
-                        "form": "异地形态",
+                        "form": "被污染的样子",
                         "localized": {
                             "zh": {
                                 "name": "嗜波螺"

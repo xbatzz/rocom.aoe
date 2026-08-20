@@ -1,7 +1,7 @@
 {
     "id": 4084,
     "name": "yishijuxiang_shouling",
-    "form": "祭礼巨像",
+    "form": "首领形态",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -1323,7 +1323,7 @@
                         "id": 4084,
                         "species_id": 115,
                         "name": "yishijuxiang_shouling",
-                        "form": "祭礼巨像",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "祭礼巨像"
@@ -1377,7 +1377,7 @@
                         "id": 8115,
                         "species_id": 115,
                         "name": "yishijuxiang_shouling",
-                        "form": "祭礼巨像",
+                        "form": "草系徽章-首领形态",
                         "localized": {
                             "zh": {
                                 "name": "祭礼巨像"

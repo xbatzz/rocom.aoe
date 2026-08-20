@@ -1,7 +1,7 @@
 {
     "id": 4082,
     "name": "4082",
-    "form": "default",
+    "form": "首领形态",
     "main_type": {
         "id": 13,
         "name": "Flying",
@@ -1219,7 +1219,7 @@
                         "id": 4082,
                         "species_id": 4082,
                         "name": "4082",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "首领-魔眷鸟"
@@ -1253,7 +1253,7 @@
                         "id": 4082,
                         "species_id": 4082,
                         "name": "4082",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "首领-魔眷鸟"

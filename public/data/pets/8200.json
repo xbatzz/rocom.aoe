@@ -1,7 +1,7 @@
 {
     "id": 8200,
     "name": "8200",
-    "form": "default",
+    "form": "草系徽章-专属精灵",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -64,7 +64,7 @@
                         "id": 8200,
                         "species_id": 8200,
                         "name": "8200",
-                        "form": "default",
+                        "form": "草系徽章-专属精灵",
                         "localized": {
                             "zh": {
                                 "name": "赫拉"

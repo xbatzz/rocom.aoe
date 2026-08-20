@@ -1,7 +1,7 @@
 {
     "id": 6002,
     "name": "bengbenghua_shouling",
-    "form": "初级",
+    "form": "首领形态",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -1373,7 +1373,7 @@
                         "id": 6002,
                         "species_id": 6002,
                         "name": "bengbenghua_shouling",
-                        "form": "初级",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "卡图斯（初级）"
@@ -1407,7 +1407,7 @@
                         "id": 6002,
                         "species_id": 6002,
                         "name": "bengbenghua_shouling",
-                        "form": "初级",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "卡图斯（初级）"

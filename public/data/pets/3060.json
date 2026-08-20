@@ -1240,7 +1240,7 @@
                         "id": 3061,
                         "species_id": 55,
                         "name": "youlinglian",
-                        "form": "default",
+                        "form": "睁眼的样子",
                         "localized": {
                             "zh": {
                                 "name": "暗影灵面"
@@ -1267,7 +1267,7 @@
                         "id": 3481,
                         "species_id": 55,
                         "name": "youlinglian_biyan",
-                        "form": "default",
+                        "form": "闭眼的样子",
                         "localized": {
                             "zh": {
                                 "name": "暗影灵面"
@@ -1300,7 +1300,7 @@
                         "id": 3405,
                         "species_id": 56,
                         "name": "youmingzhiyan",
-                        "form": "default",
+                        "form": "睁眼的样子",
                         "localized": {
                             "zh": {
                                 "name": "幽冥眼"
@@ -1324,7 +1324,7 @@
                         "id": 3482,
                         "species_id": 56,
                         "name": "youmingzhiyan_biyan",
-                        "form": "default",
+                        "form": "闭眼的样子",
                         "localized": {
                             "zh": {
                                 "name": "幽冥眼"

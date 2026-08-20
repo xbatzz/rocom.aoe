@@ -1,7 +1,7 @@
 {
     "id": 3446,
     "name": "xuemaojiaolinyang_wanjiao",
-    "form": "default",
+    "form": "卷角的样子",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -70,7 +70,7 @@
                         "id": 3445,
                         "species_id": 3445,
                         "name": "xuemaojiaolinyang",
-                        "form": "default",
+                        "form": "本来的样子",
                         "localized": {
                             "zh": {
                                 "name": "雪毛角羚牛"
@@ -97,7 +97,7 @@
                         "id": 3446,
                         "species_id": 3446,
                         "name": "xuemaojiaolinyang_wanjiao",
-                        "form": "default",
+                        "form": "卷角的样子",
                         "localized": {
                             "zh": {
                                 "name": "雪毛角羚牛"
@@ -124,7 +124,7 @@
                         "id": 3447,
                         "species_id": 3447,
                         "name": "xuemaojiaolinyang_huanjiao",
-                        "form": "default",
+                        "form": "换角时的样子",
                         "localized": {
                             "zh": {
                                 "name": "雪毛角羚牛"

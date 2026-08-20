@@ -139,7 +139,10 @@ export function buildBadgeTrialPetCatalog(pets: IPets[]): BadgeTrialPet[] {
                 petId: representative.id,
                 speciesId: representative.species_id,
                 isLeader: false,
-                variantLabel: "一般形态",
+                variantLabel:
+                    representative.form !== "default"
+                        ? representative.form
+                        : "一般形态",
                 familyKey: `species:${root.species_id}`,
                 familyName: `${root.localized.zh.name}家族`,
                 stageDepth: getEvolutionDepth(representative, petById),
@@ -187,12 +190,10 @@ export function buildBadgeTrialPetCatalog(pets: IPets[]): BadgeTrialPet[] {
     for (const entry of normalEntries) {
         if (
             (normalCountBySpecies.get(entry.speciesId) ?? 0) > 1 &&
-            entry.petId !== primaryNormalIdBySpecies.get(entry.speciesId)
+            entry.petId !== primaryNormalIdBySpecies.get(entry.speciesId) &&
+            entry.variantLabel === "一般形态"
         ) {
-            entry.variantLabel =
-                entry.representative.form !== "default"
-                    ? entry.representative.form
-                    : `地区形态 · #${entry.petId}`;
+            entry.variantLabel = `地区形态 · #${entry.petId}`;
         }
     }
 

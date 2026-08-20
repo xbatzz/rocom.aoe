@@ -1,7 +1,7 @@
 {
     "id": 3432,
     "name": "haizhizhi_yanghongshading",
-    "form": "default",
+    "form": "洋红沙丁",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -1219,7 +1219,7 @@
                         "id": 3430,
                         "species_id": 220,
                         "name": "haizhizhi_bilanshanhu",
-                        "form": "default",
+                        "form": "碧蓝珊瑚",
                         "localized": {
                             "zh": {
                                 "name": "海枝枝"
@@ -1246,7 +1246,7 @@
                         "id": 3431,
                         "species_id": 220,
                         "name": "haizhizhi_xinghuangbaihe",
-                        "form": "default",
+                        "form": "杏黄百合",
                         "localized": {
                             "zh": {
                                 "name": "海枝枝"
@@ -1273,7 +1273,7 @@
                         "id": 3432,
                         "species_id": 220,
                         "name": "haizhizhi_yanghongshading",
-                        "form": "default",
+                        "form": "洋红沙丁",
                         "localized": {
                             "zh": {
                                 "name": "海枝枝"
@@ -1300,7 +1300,7 @@
                         "id": 3433,
                         "species_id": 220,
                         "name": "haizhizhi_cuilvlunbu",
-                        "form": "default",
+                        "form": "翠绿纶布",
                         "localized": {
                             "zh": {
                                 "name": "海枝枝"

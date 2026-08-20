@@ -1,7 +1,7 @@
 {
     "id": 3777,
     "name": "youlingshu",
-    "form": "default",
+    "form": "突变的样子",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -1180,7 +1180,7 @@
                         "id": 3777,
                         "species_id": 35,
                         "name": "youlingshu",
-                        "form": "default",
+                        "form": "突变的样子",
                         "localized": {
                             "zh": {
                                 "name": "幽影树"
@@ -1214,7 +1214,7 @@
                         "id": 4064,
                         "species_id": 35,
                         "name": "youyingshu_shouling",
-                        "form": "幻影荆棘",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "幻影荆棘"
@@ -1268,7 +1268,7 @@
                         "id": 8109,
                         "species_id": 35,
                         "name": "youyingshu_shouling",
-                        "form": "幻影荆棘",
+                        "form": "草系徽章-首领形态",
                         "localized": {
                             "zh": {
                                 "name": "幻影荆棘"

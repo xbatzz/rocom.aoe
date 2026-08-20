@@ -1145,7 +1145,7 @@
         "id": 3012,
         "species_id": 11,
         "name": "yajiji",
-        "form": "default",
+        "form": "蓬松的样子",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -1552,7 +1552,7 @@
         "id": 3017,
         "species_id": 63,
         "name": "bengbengzhongzi",
-        "form": "default",
+        "form": "海神球形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -1718,7 +1718,7 @@
         "id": 3018,
         "species_id": 64,
         "name": "bengbengcao",
-        "form": "default",
+        "form": "海神球形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -1771,7 +1771,7 @@
         "id": 3019,
         "species_id": 65,
         "name": "bengbenghua",
-        "form": "default",
+        "form": "海神球形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -1824,7 +1824,7 @@
         "id": 3020,
         "species_id": 277,
         "name": "dishu",
-        "form": "default",
+        "form": "枯水期的样子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -1968,7 +1968,7 @@
         "id": 3021,
         "species_id": 278,
         "name": "dunshu",
-        "form": "default",
+        "form": "枯水期的样子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -2015,7 +2015,7 @@
         "id": 3022,
         "species_id": 279,
         "name": "dundishu",
-        "form": "default",
+        "form": "枯水期的样子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -2421,7 +2421,7 @@
         "id": 3028,
         "species_id": 19,
         "name": "dongyuque",
-        "form": "default",
+        "form": "本来的样子",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -3038,7 +3038,7 @@
         "id": 3036,
         "species_id": 11,
         "name": "yaji",
-        "form": "default",
+        "form": "紧实的样子",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -3134,7 +3134,7 @@
         "id": 3037,
         "species_id": 20,
         "name": "lanniao",
-        "form": "default",
+        "form": "本来的样子",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -3347,7 +3347,7 @@
         "id": 3040,
         "species_id": 44,
         "name": "diudiu",
-        "form": "default",
+        "form": "草地附近的样子",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -3459,7 +3459,7 @@
         "id": 3041,
         "species_id": 45,
         "name": "kakachong",
-        "form": "default",
+        "form": "草地附近的样子",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -3506,7 +3506,7 @@
         "id": 3042,
         "species_id": 46,
         "name": "kawachong",
-        "form": "default",
+        "form": "草地附近的样子",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -4529,7 +4529,7 @@
         "id": 3055,
         "species_id": 12,
         "name": "banbanke",
-        "form": "default",
+        "form": "本来的样子",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -4641,7 +4641,7 @@
         "id": 3056,
         "species_id": 13,
         "name": "kakake",
-        "form": "default",
+        "form": "本来的样子",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -4688,7 +4688,7 @@
         "id": 3057,
         "species_id": 14,
         "name": "shuipaoke",
-        "form": "default",
+        "form": "本来的样子",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -5068,7 +5068,7 @@
         "id": 3061,
         "species_id": 55,
         "name": "youlinglian",
-        "form": "default",
+        "form": "睁眼的样子",
         "main_type": {
             "id": 15,
             "name": "Ghost",
@@ -8660,7 +8660,7 @@
         "id": 3106,
         "species_id": 24,
         "name": "huociyanxiyi",
-        "form": "default",
+        "form": "本来的样子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -8805,7 +8805,7 @@
         "id": 3107,
         "species_id": 25,
         "name": "conglinluxiyi",
-        "form": "default",
+        "form": "本来的样子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -8853,7 +8853,7 @@
         "id": 3108,
         "species_id": 26,
         "name": "shihuacixiyi",
-        "form": "default",
+        "form": "本来的样子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -10624,7 +10624,7 @@
         "id": 3127,
         "species_id": 165,
         "name": "xiaoshijiu",
-        "form": "default",
+        "form": "崖间地的样子",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -10769,7 +10769,7 @@
         "id": 3128,
         "species_id": 166,
         "name": "shenshengshijiu",
-        "form": "default",
+        "form": "崖间地的样子",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -10817,7 +10817,7 @@
         "id": 3129,
         "species_id": 167,
         "name": "huangjiashijiu",
-        "form": "default",
+        "form": "崖间地的样子",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -11468,7 +11468,7 @@
         "id": 3138,
         "species_id": 34,
         "name": "huadie",
-        "form": "default",
+        "form": "平常的样子",
         "main_type": {
             "id": 11,
             "name": "Bug",
@@ -15696,7 +15696,7 @@
         "id": 3193,
         "species_id": 80,
         "name": "xiaoxingguang",
-        "form": "default",
+        "form": "星光能量的样子",
         "main_type": {
             "id": 9,
             "name": "Electric",
@@ -15824,7 +15824,7 @@
         "id": 3194,
         "species_id": 81,
         "name": "xingguangsh",
-        "form": "default",
+        "form": "星光能量的样子",
         "main_type": {
             "id": 9,
             "name": "Electric",
@@ -18571,7 +18571,7 @@
         "id": 3233,
         "species_id": 417,
         "name": "heihuajiaer",
-        "form": "default",
+        "form": "黑化的样子",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -21789,7 +21789,7 @@
         "id": 3279,
         "species_id": 18,
         "name": "xuerongniao_chun",
-        "form": "default",
+        "form": "春天的样子",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -21917,7 +21917,7 @@
         "id": 3280,
         "species_id": 18,
         "name": "xuerongniao_xia",
-        "form": "default",
+        "form": "夏天的样子",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -22045,7 +22045,7 @@
         "id": 3281,
         "species_id": 18,
         "name": "xuerongniao_qiu",
-        "form": "秋日形态",
+        "form": "秋天的样子",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -22173,7 +22173,7 @@
         "id": 3282,
         "species_id": 19,
         "name": "dongyuque_chun",
-        "form": "default",
+        "form": "春天的样子",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -22220,7 +22220,7 @@
         "id": 3283,
         "species_id": 19,
         "name": "dongyuque_xia",
-        "form": "default",
+        "form": "夏天的样子",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -22267,7 +22267,7 @@
         "id": 3284,
         "species_id": 19,
         "name": "dongyuque_qiu",
-        "form": "秋日形态",
+        "form": "秋天的样子",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -22314,7 +22314,7 @@
         "id": 3285,
         "species_id": 20,
         "name": "lanniao_chun",
-        "form": "default",
+        "form": "春天的样子",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -22361,7 +22361,7 @@
         "id": 3286,
         "species_id": 20,
         "name": "lanniao_xia",
-        "form": "default",
+        "form": "夏天的样子",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -22408,7 +22408,7 @@
         "id": 3287,
         "species_id": 20,
         "name": "lanniao_qiu",
-        "form": "秋日形态",
+        "form": "秋天的样子",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -22455,7 +22455,7 @@
         "id": 3288,
         "species_id": 44,
         "name": "diudiu_huoshan",
-        "form": "火山形态",
+        "form": "火山附近的样子",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -22557,7 +22557,7 @@
         "id": 3289,
         "species_id": 44,
         "name": "diudiu_shamo",
-        "form": "default",
+        "form": "沙地附近的样子",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -22659,7 +22659,7 @@
         "id": 3290,
         "species_id": 44,
         "name": "diudiu_xueshan",
-        "form": "雪山形态",
+        "form": "雪山附近的样子",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -22761,7 +22761,7 @@
         "id": 3291,
         "species_id": 45,
         "name": "kakachong_huoshan",
-        "form": "火山形态",
+        "form": "火山附近的样子",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -22814,7 +22814,7 @@
         "id": 3292,
         "species_id": 45,
         "name": "kakachong_shamo",
-        "form": "default",
+        "form": "沙地附近的样子",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -22867,7 +22867,7 @@
         "id": 3293,
         "species_id": 45,
         "name": "kakachong_xueshan",
-        "form": "雪山形态",
+        "form": "雪山附近的样子",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -22920,7 +22920,7 @@
         "id": 3294,
         "species_id": 46,
         "name": "kawachong_huoshan",
-        "form": "火山形态",
+        "form": "火山附近的样子",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -22973,7 +22973,7 @@
         "id": 3295,
         "species_id": 46,
         "name": "kawachong_shamo",
-        "form": "default",
+        "form": "沙地附近的样子",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -23026,7 +23026,7 @@
         "id": 3296,
         "species_id": 46,
         "name": "kawachong_xueshan",
-        "form": "雪山形态",
+        "form": "雪山附近的样子",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -23079,7 +23079,7 @@
         "id": 3297,
         "species_id": 63,
         "name": "bengbengzhongzi_caiyuqiu",
-        "form": "default",
+        "form": "彩玉球形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -23213,7 +23213,7 @@
         "id": 3298,
         "species_id": 63,
         "name": "bengbengzhongzi_duanmaoqiu",
-        "form": "default",
+        "form": "短毛球形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -23347,7 +23347,7 @@
         "id": 3299,
         "species_id": 63,
         "name": "bengbengzhongzi_xiangyaqiu",
-        "form": "default",
+        "form": "象牙球形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -23481,7 +23481,7 @@
         "id": 3300,
         "species_id": 64,
         "name": "bengbengcao_caiyuqiu",
-        "form": "default",
+        "form": "彩玉球形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -23534,7 +23534,7 @@
         "id": 3301,
         "species_id": 64,
         "name": "bengbengcao_duanmaoqiu",
-        "form": "default",
+        "form": "短毛球形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -23587,7 +23587,7 @@
         "id": 3302,
         "species_id": 64,
         "name": "bengbengcao_xiangyaqiu",
-        "form": "default",
+        "form": "象牙球形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -23640,7 +23640,7 @@
         "id": 3303,
         "species_id": 65,
         "name": "bengbenghua_caiyuqiu",
-        "form": "default",
+        "form": "彩玉球形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -23693,7 +23693,7 @@
         "id": 3304,
         "species_id": 65,
         "name": "bengbenghua_duanmaoqiu",
-        "form": "default",
+        "form": "短毛球形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -23746,7 +23746,7 @@
         "id": 3305,
         "species_id": 65,
         "name": "bengbenghua_xiangyaqiu",
-        "form": "default",
+        "form": "象牙球形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -23982,7 +23982,7 @@
         "id": 3308,
         "species_id": 40,
         "name": "jingshiwo",
-        "form": "default",
+        "form": "西瓜碧玺的样子",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -25212,7 +25212,7 @@
         "id": 3330,
         "species_id": 76,
         "name": "haikuichong",
-        "form": "default",
+        "form": "本来的样子",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -25427,7 +25427,7 @@
         "id": 3331,
         "species_id": 77,
         "name": "cikuichong",
-        "form": "default",
+        "form": "本来的样子",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -25481,7 +25481,7 @@
         "id": 3332,
         "species_id": 78,
         "name": "qianjikui",
-        "form": "default",
+        "form": "本来的样子",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -28490,7 +28490,7 @@
         "id": 3376,
         "species_id": 118,
         "name": "xuanyanchong",
-        "form": "default",
+        "form": "金黄的样子",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -28641,7 +28641,7 @@
         "id": 3377,
         "species_id": 120,
         "name": "fenggunmuchong",
-        "form": "default",
+        "form": "金黄的样子",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -30697,7 +30697,7 @@
         "id": 3405,
         "species_id": 56,
         "name": "youmingzhiyan",
-        "form": "default",
+        "form": "睁眼的样子",
         "main_type": {
             "id": 15,
             "name": "Ghost",
@@ -32419,7 +32419,7 @@
         "id": 3430,
         "species_id": 220,
         "name": "haizhizhi_bilanshanhu",
-        "form": "default",
+        "form": "碧蓝珊瑚",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -32554,7 +32554,7 @@
         "id": 3431,
         "species_id": 220,
         "name": "haizhizhi_xinghuangbaihe",
-        "form": "default",
+        "form": "杏黄百合",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -32673,7 +32673,7 @@
         "id": 3432,
         "species_id": 220,
         "name": "haizhizhi_yanghongshading",
-        "form": "default",
+        "form": "洋红沙丁",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -32776,7 +32776,7 @@
         "id": 3433,
         "species_id": 220,
         "name": "haizhizhi_cuilvlunbu",
-        "form": "default",
+        "form": "翠绿纶布",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -33287,7 +33287,7 @@
         "id": 3438,
         "species_id": 57,
         "name": "menhyou",
-        "form": "default",
+        "form": "穿旧睡衣的样子",
         "main_type": {
             "id": 15,
             "name": "Ghost",
@@ -33416,7 +33416,7 @@
         "id": 3439,
         "species_id": 58,
         "name": "mengyouyou",
-        "form": "default",
+        "form": "穿旧睡衣的样子",
         "main_type": {
             "id": 15,
             "name": "Ghost",
@@ -33464,7 +33464,7 @@
         "id": 3440,
         "species_id": 57,
         "name": "mengyou_pink",
-        "form": "粉色形态",
+        "form": "穿星星睡衣的样子",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -33583,7 +33583,7 @@
         "id": 3441,
         "species_id": 58,
         "name": "mengyouyou_pink",
-        "form": "粉色形态",
+        "form": "穿星星睡衣的样子",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -33637,7 +33637,7 @@
         "id": 3442,
         "species_id": 80,
         "name": "xiaoxingguang_yueguang",
-        "form": "月光形态",
+        "form": "月光能量的样子",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -33739,7 +33739,7 @@
         "id": 3443,
         "species_id": 81,
         "name": "xingguangshi_yueguang",
-        "form": "月光形态",
+        "form": "月光能量的样子",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -33911,7 +33911,7 @@
         "id": 3445,
         "species_id": 3445,
         "name": "xuemaojiaolinyang",
-        "form": "default",
+        "form": "本来的样子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -34011,7 +34011,7 @@
         "id": 3446,
         "species_id": 3446,
         "name": "xuemaojiaolinyang_wanjiao",
-        "form": "default",
+        "form": "卷角的样子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -34111,7 +34111,7 @@
         "id": 3447,
         "species_id": 3447,
         "name": "xuemaojiaolinyang_huanjiao",
-        "form": "default",
+        "form": "换角时的样子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -34162,7 +34162,7 @@
         "id": 3448,
         "species_id": 40,
         "name": "jingshiwo_yidi3",
-        "form": "异地形态",
+        "form": "莲花刚玉的样子",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -34216,7 +34216,7 @@
         "id": 3449,
         "species_id": 40,
         "name": "jingshiwo_yidi5",
-        "form": "异地形态",
+        "form": "星彩榴石的样子",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -34270,7 +34270,7 @@
         "id": 3450,
         "species_id": 40,
         "name": "jingshiwo_yidi1",
-        "form": "异地形态",
+        "form": "火山琉璃的样子",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -34324,7 +34324,7 @@
         "id": 3451,
         "species_id": 40,
         "name": "jingshiwo_yidi2",
-        "form": "异地形态",
+        "form": "蓝锥矿的样子",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -34378,7 +34378,7 @@
         "id": 3452,
         "species_id": 11,
         "name": "yajiji_jijiya",
-        "form": "default",
+        "form": "急急急鸭",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -34474,7 +34474,7 @@
         "id": 3453,
         "species_id": 11,
         "name": "dengyidengya",
-        "form": "default",
+        "form": "等一等鸭",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -34570,7 +34570,7 @@
         "id": 3454,
         "species_id": 277,
         "name": "dishu_xushui",
-        "form": "蓄水形态",
+        "form": "储水时的样子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -34698,7 +34698,7 @@
         "id": 3455,
         "species_id": 278,
         "name": "dunshu_xushui",
-        "form": "蓄水形态",
+        "form": "储水时的样子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -34745,7 +34745,7 @@
         "id": 3456,
         "species_id": 279,
         "name": "dundishu_xushui",
-        "form": "蓄水形态",
+        "form": "储水时的样子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -34959,7 +34959,7 @@
         "id": 3458,
         "species_id": 236,
         "name": "shuangqiudingding_yingtaocaomei",
-        "form": "default",
+        "form": "樱桃草莓口味",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -35007,7 +35007,7 @@
         "id": 3459,
         "species_id": 236,
         "name": "shuangqiudingding_yingtaomocha",
-        "form": "default",
+        "form": "樱桃抹茶口味",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -35055,7 +35055,7 @@
         "id": 3460,
         "species_id": 236,
         "name": "shuangqiudingding_lanmeiqiaokeli",
-        "form": "default",
+        "form": "蓝莓巧克力口味",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -35103,7 +35103,7 @@
         "id": 3461,
         "species_id": 236,
         "name": "shuangqiudingding_lanmeicaomei",
-        "form": "default",
+        "form": "蓝莓草莓口味",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -35151,7 +35151,7 @@
         "id": 3462,
         "species_id": 236,
         "name": "shuangqiudingding_lanmeimocha",
-        "form": "default",
+        "form": "蓝莓抹茶口味",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -35199,7 +35199,7 @@
         "id": 3463,
         "species_id": 236,
         "name": "shuangqiudingding_yangtaoqiaokeli",
-        "form": "default",
+        "form": "杨桃巧克力口味",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -35247,7 +35247,7 @@
         "id": 3464,
         "species_id": 236,
         "name": "shuangqiudingding_yangtaocaomei",
-        "form": "default",
+        "form": "杨桃草莓口味",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -35295,7 +35295,7 @@
         "id": 3465,
         "species_id": 236,
         "name": "shuangqiudingding_yangtaomocha",
-        "form": "default",
+        "form": "杨桃抹茶口味",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -35446,7 +35446,7 @@
         "id": 3467,
         "species_id": 165,
         "name": "xiaoshijiu_gaoshan",
-        "form": "高山形态",
+        "form": "高山地的样子",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -35543,7 +35543,7 @@
         "id": 3468,
         "species_id": 166,
         "name": "shenshengshijiu_gaoshan",
-        "form": "高山形态",
+        "form": "高山地的样子",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -35591,7 +35591,7 @@
         "id": 3469,
         "species_id": 167,
         "name": "huangjiashijiu_gaoshan",
-        "form": "高山形态",
+        "form": "高山地的样子",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -35639,7 +35639,7 @@
         "id": 3470,
         "species_id": 34,
         "name": "huadie_youmingzhiyan",
-        "form": "default",
+        "form": "幽冥眼的样子",
         "main_type": {
             "id": 11,
             "name": "Bug",
@@ -35693,7 +35693,7 @@
         "id": 3471,
         "species_id": 34,
         "name": "huadie_miaomiao",
-        "form": "default",
+        "form": "喵喵的样子",
         "main_type": {
             "id": 11,
             "name": "Bug",
@@ -35747,7 +35747,7 @@
         "id": 3472,
         "species_id": 34,
         "name": "huadie_qilihua",
-        "form": "default",
+        "form": "奇丽花的样子",
         "main_type": {
             "id": 11,
             "name": "Bug",
@@ -35944,7 +35944,7 @@
         "id": 3475,
         "species_id": 76,
         "name": "haikuichong_yidi",
-        "form": "异地形态",
+        "form": "磨损的样子",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -35998,7 +35998,7 @@
         "id": 3476,
         "species_id": 77,
         "name": "cikuichong_yidi",
-        "form": "异地形态",
+        "form": "磨损的样子",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -36052,7 +36052,7 @@
         "id": 3477,
         "species_id": 78,
         "name": "qianjikui_yidi",
-        "form": "异地形态",
+        "form": "磨损的样子",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -36106,7 +36106,7 @@
         "id": 3478,
         "species_id": 235,
         "name": "dingding_yangtao",
-        "form": "default",
+        "form": "杨桃饰品",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -36154,7 +36154,7 @@
         "id": 3479,
         "species_id": 235,
         "name": "dingding_lanmei",
-        "form": "default",
+        "form": "蓝莓饰品",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -36202,7 +36202,7 @@
         "id": 3480,
         "species_id": 3480,
         "name": "shengyuyiwang",
-        "form": "default",
+        "form": "被噩梦侵蚀的样子",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -36249,7 +36249,7 @@
         "id": 3481,
         "species_id": 55,
         "name": "youlinglian_biyan",
-        "form": "default",
+        "form": "闭眼的样子",
         "main_type": {
             "id": 15,
             "name": "Ghost",
@@ -36296,7 +36296,7 @@
         "id": 3482,
         "species_id": 56,
         "name": "youmingzhiyan_biyan",
-        "form": "default",
+        "form": "闭眼的样子",
         "main_type": {
             "id": 15,
             "name": "Ghost",
@@ -36343,7 +36343,7 @@
         "id": 3483,
         "species_id": 119,
         "name": "pengyechong",
-        "form": "default",
+        "form": "金黄的样子",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -36602,7 +36602,7 @@
         "id": 3486,
         "species_id": 40,
         "name": "jingshiwo_yidi4",
-        "form": "异地形态",
+        "form": "烧蓝黄金的样子",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -37310,7 +37310,7 @@
         "id": 3495,
         "species_id": 11,
         "name": "yajiji_ranleya",
-        "form": "default",
+        "form": "燃了鸭",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -37406,7 +37406,7 @@
         "id": 3496,
         "species_id": 118,
         "name": "xuanyechong_yidi",
-        "form": "异地形态",
+        "form": "枯叶的样子",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -37541,7 +37541,7 @@
         "id": 3497,
         "species_id": 119,
         "name": "pengyechong_yidi",
-        "form": "异地形态",
+        "form": "枯叶的样子",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -37595,7 +37595,7 @@
         "id": 3498,
         "species_id": 120,
         "name": "fengguanmuchong_yidi",
-        "form": "异地形态",
+        "form": "枯叶的样子",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -37809,7 +37809,7 @@
         "id": 3500,
         "species_id": 24,
         "name": "shifuxi_yidi",
-        "form": "异地形态",
+        "form": "球球尾巴的样子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -37890,7 +37890,7 @@
         "id": 3501,
         "species_id": 25,
         "name": "shicixi_yidi",
-        "form": "异地形态",
+        "form": "球球尾巴的样子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -37938,7 +37938,7 @@
         "id": 3502,
         "species_id": 26,
         "name": "shiguanwangxi_yidi",
-        "form": "异地形态",
+        "form": "球球尾巴的样子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -38569,7 +38569,7 @@
         "id": 3511,
         "species_id": 171,
         "name": "boboluo_yidi",
-        "form": "异地形态",
+        "form": "被污染的样子",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -38672,7 +38672,7 @@
         "id": 3512,
         "species_id": 172,
         "name": "xiaoboluo_yidi",
-        "form": "异地形态",
+        "form": "被污染的样子",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -38726,7 +38726,7 @@
         "id": 3513,
         "species_id": 173,
         "name": "shiboluo_yidi",
-        "form": "异地形态",
+        "form": "被污染的样子",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -38882,7 +38882,7 @@
         "id": 3516,
         "species_id": 12,
         "name": "banbanke_tuipi",
-        "form": "蜕皮形态",
+        "form": "蜕皮时的样子",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -38929,7 +38929,7 @@
         "id": 3517,
         "species_id": 13,
         "name": "kakake_tuipi",
-        "form": "蜕皮形态",
+        "form": "蜕皮时的样子",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -38976,7 +38976,7 @@
         "id": 3518,
         "species_id": 14,
         "name": "shuipaoke_tuipi",
-        "form": "蜕皮形态",
+        "form": "蜕皮时的样子",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -39426,7 +39426,7 @@
         "id": 3525,
         "species_id": 3525,
         "name": "awasha",
-        "form": "default",
+        "form": "虎纹的样子",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -39983,7 +39983,7 @@
         "id": 3533,
         "species_id": 18,
         "name": "xuerongniao_dong",
-        "form": "default",
+        "form": "本来的样子",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -40334,7 +40334,7 @@
         "id": 3536,
         "species_id": 258,
         "name": "wuda",
-        "form": "default",
+        "form": "极昼的样子",
         "main_type": {
             "id": 3,
             "name": "Fire",
@@ -40452,7 +40452,7 @@
         "id": 3537,
         "species_id": 259,
         "name": "miniwu",
-        "form": "default",
+        "form": "极昼的样子",
         "main_type": {
             "id": 3,
             "name": "Fire",
@@ -40505,7 +40505,7 @@
         "id": 3538,
         "species_id": 260,
         "name": "wulata",
-        "form": "default",
+        "form": "极昼的样子",
         "main_type": {
             "id": 3,
             "name": "Fire",
@@ -40558,7 +40558,7 @@
         "id": 3539,
         "species_id": 258,
         "name": "wuda_yidi",
-        "form": "异地形态",
+        "form": "极夜的样子",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -40660,7 +40660,7 @@
         "id": 3540,
         "species_id": 259,
         "name": "miniwu_yidi",
-        "form": "异地形态",
+        "form": "极夜的样子",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -40713,7 +40713,7 @@
         "id": 3541,
         "species_id": 260,
         "name": "wulata_yidi",
-        "form": "异地形态",
+        "form": "极夜的样子",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -41299,7 +41299,7 @@
         "id": 3550,
         "species_id": 188,
         "name": "qiqi",
-        "form": "default",
+        "form": "白子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -41465,7 +41465,7 @@
         "id": 3551,
         "species_id": 189,
         "name": "qiqishi",
-        "form": "default",
+        "form": "白子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -41518,7 +41518,7 @@
         "id": 3552,
         "species_id": 192,
         "name": "qiqihou",
-        "form": "default",
+        "form": "白子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -41571,7 +41571,7 @@
         "id": 3553,
         "species_id": 190,
         "name": "qiqilei",
-        "form": "default",
+        "form": "白子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -41624,7 +41624,7 @@
         "id": 3554,
         "species_id": 191,
         "name": "qiqidu",
-        "form": "default",
+        "form": "白子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -41677,7 +41677,7 @@
         "id": 3555,
         "species_id": 188,
         "name": "qiqi_yidi",
-        "form": "异地形态",
+        "form": "黑子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -41811,7 +41811,7 @@
         "id": 3556,
         "species_id": 189,
         "name": "qiqishi_yidi",
-        "form": "异地形态",
+        "form": "黑子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -41864,7 +41864,7 @@
         "id": 3557,
         "species_id": 192,
         "name": "qiqihou_yidi",
-        "form": "异地形态",
+        "form": "黑子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -41917,7 +41917,7 @@
         "id": 3558,
         "species_id": 190,
         "name": "qiqilei_yidi",
-        "form": "异地形态",
+        "form": "黑子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -41970,7 +41970,7 @@
         "id": 3559,
         "species_id": 191,
         "name": "qiqidu_yidi",
-        "form": "异地形态",
+        "form": "黑子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -43424,7 +43424,7 @@
         "id": 3582,
         "species_id": 237,
         "name": "ciluntuo_yidi",
-        "form": "异地形态",
+        "form": "上弦的样子",
         "main_type": {
             "id": 10,
             "name": "Poison",
@@ -43558,7 +43558,7 @@
         "id": 3583,
         "species_id": 238,
         "name": "yueliangtuo_yidi",
-        "form": "异地形态",
+        "form": "上弦的样子",
         "main_type": {
             "id": 10,
             "name": "Poison",
@@ -43611,7 +43611,7 @@
         "id": 3584,
         "species_id": 237,
         "name": "ciluntuo",
-        "form": "default",
+        "form": "下弦的样子",
         "main_type": {
             "id": 10,
             "name": "Poison",
@@ -43729,7 +43729,7 @@
         "id": 3585,
         "species_id": 238,
         "name": "yueliangtuo",
-        "form": "default",
+        "form": "下弦的样子",
         "main_type": {
             "id": 10,
             "name": "Poison",
@@ -46371,7 +46371,7 @@
         "id": 3621,
         "species_id": 3621,
         "name": "guzhongshe_yidi",
-        "form": "异地形态",
+        "form": "本命年的样子",
         "main_type": {
             "id": 10,
             "name": "Poison",
@@ -46490,7 +46490,7 @@
         "id": 3622,
         "species_id": 3622,
         "name": "hanyinshe_yidi",
-        "form": "异地形态",
+        "form": "本命年的样子",
         "main_type": {
             "id": 10,
             "name": "Poison",
@@ -46883,7 +46883,7 @@
         "id": 3630,
         "species_id": 3630,
         "name": "songzai",
-        "form": "default",
+        "form": "单头的样子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -46928,7 +46928,7 @@
         "id": 3631,
         "species_id": 3631,
         "name": "songzai",
-        "form": "default",
+        "form": "多头的样子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -52065,7 +52065,7 @@
         "id": 3720,
         "species_id": 3720,
         "name": "songzai",
-        "form": "default",
+        "form": "悲鸣的样子",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -52118,7 +52118,7 @@
         "id": 3721,
         "species_id": 3721,
         "name": "yesongyang",
-        "form": "default",
+        "form": "悲鸣的样子",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -52171,7 +52171,7 @@
         "id": 3722,
         "species_id": 3722,
         "name": "zhenyexunlin",
-        "form": "default",
+        "form": "悲鸣的样子",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -52224,7 +52224,7 @@
         "id": 3723,
         "species_id": 3723,
         "name": "shuidishe",
-        "form": "default",
+        "form": "悲鸣的样子",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -52278,7 +52278,7 @@
         "id": 3724,
         "species_id": 3724,
         "name": "shuishesuo",
-        "form": "default",
+        "form": "悲鸣的样子",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -52332,7 +52332,7 @@
         "id": 3725,
         "species_id": 3725,
         "name": "youshemoshi",
-        "form": "default",
+        "form": "悲鸣的样子",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -52386,7 +52386,7 @@
         "id": 3726,
         "species_id": 3726,
         "name": "xiaoyongshi",
-        "form": "default",
+        "form": "悲鸣的样子",
         "main_type": {
             "id": 3,
             "name": "Fire",
@@ -52439,7 +52439,7 @@
         "id": 3727,
         "species_id": 3727,
         "name": "chiyanshi",
-        "form": "default",
+        "form": "悲鸣的样子",
         "main_type": {
             "id": 3,
             "name": "Fire",
@@ -52492,7 +52492,7 @@
         "id": 3728,
         "species_id": 3728,
         "name": "chixinyongshi",
-        "form": "default",
+        "form": "悲鸣的样子",
         "main_type": {
             "id": 3,
             "name": "Fire",
@@ -53247,7 +53247,7 @@
         "id": 3738,
         "species_id": 3738,
         "name": "xiaosongmao_yidi",
-        "form": "异地形态",
+        "form": "山间竹林的样子",
         "main_type": {
             "id": 12,
             "name": "Fighting",
@@ -53344,7 +53344,7 @@
         "id": 3739,
         "species_id": 3739,
         "name": "numusongmao_yidi",
-        "form": "异地形态",
+        "form": "山间竹林的样子",
         "main_type": {
             "id": 12,
             "name": "Fighting",
@@ -53551,7 +53551,7 @@
         "id": 3742,
         "species_id": 11,
         "name": "yajiji_qilaiya",
-        "form": "default",
+        "form": "起来鸭",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -53647,7 +53647,7 @@
         "id": 3743,
         "species_id": 361,
         "name": "jiayouxiedanzhi",
-        "form": "default",
+        "form": "单只海葵的样子",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -55812,7 +55812,7 @@
         "id": 3777,
         "species_id": 35,
         "name": "youlingshu",
-        "form": "default",
+        "form": "突变的样子",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -56571,7 +56571,7 @@
         "id": 4005,
         "species_id": 10,
         "name": "shuiling_shouling",
-        "form": "圣水守护",
+        "form": "首领形态",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -56616,7 +56616,7 @@
         "id": 4006,
         "species_id": 7,
         "name": "huoshen_shouling",
-        "form": "烈火战神",
+        "form": "首领形态",
         "main_type": {
             "id": 3,
             "name": "Fire",
@@ -56661,7 +56661,7 @@
         "id": 4007,
         "species_id": 4,
         "name": "molimiao_shouling",
-        "form": "叶冕",
+        "form": "首领形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -56706,7 +56706,7 @@
         "id": 4011,
         "species_id": 131,
         "name": "emolang_shouling",
-        "form": "王",
+        "form": "首领形态",
         "main_type": {
             "id": 16,
             "name": "Dark",
@@ -56751,7 +56751,7 @@
         "id": 4012,
         "species_id": 11,
         "name": "yajiji_shouling",
-        "form": "国王",
+        "form": "首领形态",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -56796,7 +56796,7 @@
         "id": 4019,
         "species_id": 65,
         "name": "bengbenghua_shouling",
-        "form": "蹦蹦果",
+        "form": "首领形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -56847,7 +56847,7 @@
         "id": 4020,
         "species_id": 78,
         "name": "qianjikui_shouling",
-        "form": "千棘海针",
+        "form": "首领形态",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -56898,7 +56898,7 @@
         "id": 4021,
         "species_id": 84,
         "name": "huakuifenghou_shouling",
-        "form": "女王蜂",
+        "form": "首领形态",
         "main_type": {
             "id": 11,
             "name": "Bug",
@@ -56949,7 +56949,7 @@
         "id": 4022,
         "species_id": 43,
         "name": "qilihua_boss",
-        "form": "奇丽果",
+        "form": "首领形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -56994,7 +56994,7 @@
         "id": 4050,
         "species_id": 4050,
         "name": "4050",
-        "form": "default",
+        "form": "首领形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -57039,7 +57039,7 @@
         "id": 4064,
         "species_id": 35,
         "name": "youyingshu_shouling",
-        "form": "幻影荆棘",
+        "form": "首领形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -57090,7 +57090,7 @@
         "id": 4069,
         "species_id": 4069,
         "name": "4069",
-        "form": "default",
+        "form": "首领形态",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -57141,7 +57141,7 @@
         "id": 4070,
         "species_id": 4070,
         "name": "4070",
-        "form": "default",
+        "form": "首领形态",
         "main_type": {
             "id": 3,
             "name": "Fire",
@@ -57192,7 +57192,7 @@
         "id": 4071,
         "species_id": 4071,
         "name": "4071",
-        "form": "default",
+        "form": "首领形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -57243,7 +57243,7 @@
         "id": 4072,
         "species_id": 29,
         "name": "bulaikeyan_shouling",
-        "form": "迷嶂布莱克",
+        "form": "首领形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -57288,7 +57288,7 @@
         "id": 4073,
         "species_id": 110,
         "name": "caidiesha_shouling",
-        "form": "神谕鲨",
+        "form": "首领形态",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -57339,7 +57339,7 @@
         "id": 4074,
         "species_id": 20,
         "name": "lanniao_shouling",
-        "form": "霜翼领主",
+        "form": "首领形态",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -57384,7 +57384,7 @@
         "id": 4075,
         "species_id": 4075,
         "name": "4075",
-        "form": "default",
+        "form": "首领形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -57435,7 +57435,7 @@
         "id": 4076,
         "species_id": 117,
         "name": "yilisi",
-        "form": "伊里斯",
+        "form": "首领形态",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -57486,7 +57486,7 @@
         "id": 4077,
         "species_id": 4077,
         "name": "4077",
-        "form": "default",
+        "form": "首领形态",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -57531,7 +57531,7 @@
         "id": 4078,
         "species_id": 48,
         "name": "yinsuquan_shouling",
-        "form": "风暴战犬",
+        "form": "首领形态",
         "main_type": {
             "id": 3,
             "name": "Fire",
@@ -57576,7 +57576,7 @@
         "id": 4079,
         "species_id": 40,
         "name": "jingshiwo_shouling",
-        "form": "钻石蜗",
+        "form": "首领形态",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -57627,7 +57627,7 @@
         "id": 4080,
         "species_id": 4080,
         "name": "4080",
-        "form": "default",
+        "form": "首领形态",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -57678,7 +57678,7 @@
         "id": 4081,
         "species_id": 4081,
         "name": "4081",
-        "form": "default",
+        "form": "首领形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -57729,7 +57729,7 @@
         "id": 4082,
         "species_id": 4082,
         "name": "4082",
-        "form": "default",
+        "form": "首领形态",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -57780,7 +57780,7 @@
         "id": 4083,
         "species_id": 122,
         "name": "heimaowushi_shouling",
-        "form": "黑猫密探",
+        "form": "首领形态",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -57825,7 +57825,7 @@
         "id": 4084,
         "species_id": 115,
         "name": "yishijuxiang_shouling",
-        "form": "祭礼巨像",
+        "form": "首领形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -57876,7 +57876,7 @@
         "id": 4085,
         "species_id": 144,
         "name": "xueyingwawa_shouling",
-        "form": "雪影冰灵",
+        "form": "首领形态",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -57927,7 +57927,7 @@
         "id": 4086,
         "species_id": 189,
         "name": "qiqibixia",
-        "form": "棋契陛下",
+        "form": "首领形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -57978,7 +57978,7 @@
         "id": 4087,
         "species_id": 200,
         "name": "qimengmi_shouling",
-        "form": "奇梦咪",
+        "form": "首领形态",
         "main_type": {
             "id": 14,
             "name": "Cute",
@@ -58023,7 +58023,7 @@
         "id": 4088,
         "species_id": 228,
         "name": "jueshilu_shouling",
-        "form": "波普鹿",
+        "form": "首领形态",
         "main_type": {
             "id": 9,
             "name": "Electric",
@@ -58068,7 +58068,7 @@
         "id": 4089,
         "species_id": 286,
         "name": "shengjianX_shouling",
-        "form": "圣剑骑士",
+        "form": "首领形态",
         "main_type": {
             "id": 17,
             "name": "Mechanical",
@@ -58113,7 +58113,7 @@
         "id": 4090,
         "species_id": 204,
         "name": "yilanyalong_shouling",
-        "form": "伊兰龙",
+        "form": "首领形态",
         "main_type": {
             "id": 8,
             "name": "Dragon",
@@ -58158,7 +58158,7 @@
         "id": 4091,
         "species_id": 4091,
         "name": "4091",
-        "form": "default",
+        "form": "首领形态",
         "main_type": {
             "id": 10,
             "name": "Poison",
@@ -58203,7 +58203,7 @@
         "id": 4092,
         "species_id": 4092,
         "name": "lihaixiuluo",
-        "form": "default",
+        "form": "首领形态",
         "main_type": {
             "id": 10,
             "name": "Poison",
@@ -58254,7 +58254,7 @@
         "id": 4093,
         "species_id": 4093,
         "name": "gongpingge",
-        "form": "default",
+        "form": "首领形态",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -58299,7 +58299,7 @@
         "id": 4094,
         "species_id": 4094,
         "name": "liulishuimu",
-        "form": "default",
+        "form": "首领形态",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -58350,7 +58350,7 @@
         "id": 4095,
         "species_id": 4095,
         "name": "4095",
-        "form": "default",
+        "form": "首领形态",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -58395,7 +58395,7 @@
         "id": 4096,
         "species_id": 200,
         "name": "qimengmi_shouling",
-        "form": "奇梦咪",
+        "form": "首领形态",
         "main_type": {
             "id": 14,
             "name": "Cute",
@@ -58440,7 +58440,7 @@
         "id": 4097,
         "species_id": 200,
         "name": "qimengmi_shouling",
-        "form": "奇梦咪",
+        "form": "首领形态",
         "main_type": {
             "id": 14,
             "name": "Cute",
@@ -58485,7 +58485,7 @@
         "id": 4098,
         "species_id": 144,
         "name": "xueyingwawa_shouling",
-        "form": "雪影冰灵",
+        "form": "首领形态",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -58536,7 +58536,7 @@
         "id": 4099,
         "species_id": 144,
         "name": "xueyingwawa_shouling",
-        "form": "雪影冰灵",
+        "form": "首领形态",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -58587,7 +58587,7 @@
         "id": 4100,
         "species_id": 4100,
         "name": "xueyingwawa_shouling",
-        "form": "default",
+        "form": "首领形态",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -58638,7 +58638,7 @@
         "id": 4101,
         "species_id": 120,
         "name": "fenggunmuchong_shouling",
-        "form": "暮风隐者",
+        "form": "首领形态",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -58689,7 +58689,7 @@
         "id": 4102,
         "species_id": 288,
         "name": "nihouya_shouling",
-        "form": "淤泥乌泽",
+        "form": "首领形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -58740,7 +58740,7 @@
         "id": 4103,
         "species_id": 4103,
         "name": "xueyingwawa_shouling",
-        "form": "default",
+        "form": "首领形态",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -58791,7 +58791,7 @@
         "id": 4104,
         "species_id": 329,
         "name": "anyeluzhu",
-        "form": "暗夜颅主",
+        "form": "首领形态",
         "main_type": {
             "id": 15,
             "name": "Ghost",
@@ -58836,7 +58836,7 @@
         "id": 4105,
         "species_id": 31,
         "name": "anyingemo",
-        "form": "暗影恶魔",
+        "form": "首领形态",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -58887,7 +58887,7 @@
         "id": 4106,
         "species_id": 206,
         "name": "kula_shouling",
-        "form": "风暴",
+        "form": "首领形态",
         "main_type": {
             "id": 9,
             "name": "Electric",
@@ -61875,7 +61875,7 @@
         "id": 6001,
         "species_id": 6001,
         "name": "yinsuquan_shouling",
-        "form": "default",
+        "form": "首领形态",
         "main_type": {
             "id": 3,
             "name": "Fire",
@@ -61920,7 +61920,7 @@
         "id": 6002,
         "species_id": 6002,
         "name": "bengbenghua_shouling",
-        "form": "初级",
+        "form": "首领形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -61971,7 +61971,7 @@
         "id": 6003,
         "species_id": 6003,
         "name": "bengbenghua_shouling",
-        "form": "中级",
+        "form": "首领形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -62022,7 +62022,7 @@
         "id": 6004,
         "species_id": 6004,
         "name": "bengbenghua_shouling",
-        "form": "高级",
+        "form": "首领形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -62073,7 +62073,7 @@
         "id": 6005,
         "species_id": 6005,
         "name": "jingshiwo_shouling",
-        "form": "初级",
+        "form": "首领形态",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -62124,7 +62124,7 @@
         "id": 6006,
         "species_id": 6006,
         "name": "jingshiwo_shouling",
-        "form": "中级",
+        "form": "首领形态",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -62175,7 +62175,7 @@
         "id": 6007,
         "species_id": 6007,
         "name": "jingshiwo_shouling",
-        "form": "高级",
+        "form": "首领形态",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -62226,7 +62226,7 @@
         "id": 6008,
         "species_id": 6008,
         "name": "6008",
-        "form": "初级",
+        "form": "首领形态",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -62277,7 +62277,7 @@
         "id": 6009,
         "species_id": 6009,
         "name": "6009",
-        "form": "中级",
+        "form": "首领形态",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -62328,7 +62328,7 @@
         "id": 6010,
         "species_id": 6010,
         "name": "6010",
-        "form": "高级",
+        "form": "首领形态",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -62379,7 +62379,7 @@
         "id": 6011,
         "species_id": 6011,
         "name": "6011",
-        "form": "初级",
+        "form": "首领形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -62424,7 +62424,7 @@
         "id": 6012,
         "species_id": 6012,
         "name": "6012",
-        "form": "中级",
+        "form": "首领形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -62469,7 +62469,7 @@
         "id": 6013,
         "species_id": 6013,
         "name": "6013",
-        "form": "高级",
+        "form": "首领形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -62514,7 +62514,7 @@
         "id": 6014,
         "species_id": 6014,
         "name": "6014",
-        "form": "初级",
+        "form": "首领形态",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -62559,7 +62559,7 @@
         "id": 6015,
         "species_id": 6015,
         "name": "6015",
-        "form": "中级",
+        "form": "首领形态",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -62604,7 +62604,7 @@
         "id": 6016,
         "species_id": 6016,
         "name": "6016",
-        "form": "高级",
+        "form": "首领形态",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -62649,7 +62649,7 @@
         "id": 6017,
         "species_id": 6017,
         "name": "yishijuxiang_shouling",
-        "form": "初级",
+        "form": "首领形态",
         "main_type": {
             "id": 17,
             "name": "Mechanical",
@@ -62694,7 +62694,7 @@
         "id": 6018,
         "species_id": 6018,
         "name": "yishijuxiang_shouling",
-        "form": "中级",
+        "form": "首领形态",
         "main_type": {
             "id": 17,
             "name": "Mechanical",
@@ -62739,7 +62739,7 @@
         "id": 6019,
         "species_id": 6019,
         "name": "yishijuxiang_shouling",
-        "form": "高级",
+        "form": "首领形态",
         "main_type": {
             "id": 17,
             "name": "Mechanical",
@@ -62784,7 +62784,7 @@
         "id": 6020,
         "species_id": 6020,
         "name": "heimaowushi_shouling",
-        "form": "初级",
+        "form": "首领形态",
         "main_type": {
             "id": 11,
             "name": "Bug",
@@ -62829,7 +62829,7 @@
         "id": 6021,
         "species_id": 6021,
         "name": "heimaowushi_shouling",
-        "form": "中级",
+        "form": "首领形态",
         "main_type": {
             "id": 11,
             "name": "Bug",
@@ -62874,7 +62874,7 @@
         "id": 6022,
         "species_id": 6022,
         "name": "heimaowushi_shouling",
-        "form": "高级",
+        "form": "首领形态",
         "main_type": {
             "id": 11,
             "name": "Bug",
@@ -62919,7 +62919,7 @@
         "id": 6023,
         "species_id": 6023,
         "name": "yinsuquan_shouling",
-        "form": "初级",
+        "form": "首领形态",
         "main_type": {
             "id": 3,
             "name": "Fire",
@@ -62964,7 +62964,7 @@
         "id": 6024,
         "species_id": 6024,
         "name": "yinsuquan_shouling",
-        "form": "中级",
+        "form": "首领形态",
         "main_type": {
             "id": 3,
             "name": "Fire",
@@ -63009,7 +63009,7 @@
         "id": 6025,
         "species_id": 6025,
         "name": "yinsuquan_shouling",
-        "form": "高级",
+        "form": "首领形态",
         "main_type": {
             "id": 3,
             "name": "Fire",
@@ -63054,7 +63054,7 @@
         "id": 6026,
         "species_id": 6026,
         "name": "bulaikeyan_shouling",
-        "form": "初级",
+        "form": "首领形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -63099,7 +63099,7 @@
         "id": 6027,
         "species_id": 6027,
         "name": "bulaikeyan_shouling",
-        "form": "中级",
+        "form": "首领形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -63144,7 +63144,7 @@
         "id": 6028,
         "species_id": 6028,
         "name": "bulaikeyan_shouling",
-        "form": "高级",
+        "form": "首领形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -63696,7 +63696,7 @@
         "id": 8004,
         "species_id": 8004,
         "name": "8004",
-        "form": "default",
+        "form": "草地附近的样子",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -64891,7 +64891,7 @@
         "id": 8101,
         "species_id": 10,
         "name": "shuiling_shouling",
-        "form": "圣水守护",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -64936,7 +64936,7 @@
         "id": 8102,
         "species_id": 7,
         "name": "huoshen_shouling",
-        "form": "烈火战神",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 3,
             "name": "Fire",
@@ -64981,7 +64981,7 @@
         "id": 8103,
         "species_id": 4,
         "name": "molimiao_shouling",
-        "form": "叶冕",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -65026,7 +65026,7 @@
         "id": 8104,
         "species_id": 131,
         "name": "emolang_shouling",
-        "form": "王",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 16,
             "name": "Dark",
@@ -65071,7 +65071,7 @@
         "id": 8105,
         "species_id": 65,
         "name": "bengbenghua_shouling",
-        "form": "蹦蹦果",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -65122,7 +65122,7 @@
         "id": 8106,
         "species_id": 78,
         "name": "qianjikui_shouling",
-        "form": "千棘海针",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -65173,7 +65173,7 @@
         "id": 8107,
         "species_id": 84,
         "name": "huakuifenghou_shouling",
-        "form": "女王蜂",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 11,
             "name": "Bug",
@@ -65224,7 +65224,7 @@
         "id": 8108,
         "species_id": 43,
         "name": "qilihua_boss",
-        "form": "奇丽果",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -65269,7 +65269,7 @@
         "id": 8109,
         "species_id": 35,
         "name": "youyingshu_shouling",
-        "form": "幻影荆棘",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -65320,7 +65320,7 @@
         "id": 8110,
         "species_id": 29,
         "name": "bulaikeyan_shouling",
-        "form": "迷嶂布莱克",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -65365,7 +65365,7 @@
         "id": 8111,
         "species_id": 20,
         "name": "lanniao_shouling",
-        "form": "霜翼领主",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -65410,7 +65410,7 @@
         "id": 8112,
         "species_id": 48,
         "name": "yinsuquan_shouling",
-        "form": "风暴战犬",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 3,
             "name": "Fire",
@@ -65455,7 +65455,7 @@
         "id": 8113,
         "species_id": 40,
         "name": "jingshiwo_shouling",
-        "form": "钻石蜗",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 5,
             "name": "Light",
@@ -65506,7 +65506,7 @@
         "id": 8114,
         "species_id": 122,
         "name": "heimaowushi_shouling",
-        "form": "黑猫密探",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -65551,7 +65551,7 @@
         "id": 8115,
         "species_id": 115,
         "name": "yishijuxiang_shouling",
-        "form": "祭礼巨像",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -65602,7 +65602,7 @@
         "id": 8116,
         "species_id": 144,
         "name": "xueyingwawa_shouling",
-        "form": "雪影冰灵",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 7,
             "name": "Ice",
@@ -65653,7 +65653,7 @@
         "id": 8117,
         "species_id": 189,
         "name": "qiqibixia",
-        "form": "棋契陛下",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -65704,7 +65704,7 @@
         "id": 8118,
         "species_id": 200,
         "name": "qimengmi_shouling",
-        "form": "奇梦咪",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 14,
             "name": "Cute",
@@ -65749,7 +65749,7 @@
         "id": 8119,
         "species_id": 228,
         "name": "jueshilu_shouling",
-        "form": "波普鹿",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 9,
             "name": "Electric",
@@ -65794,7 +65794,7 @@
         "id": 8120,
         "species_id": 286,
         "name": "shengjianX_shouling",
-        "form": "圣剑骑士",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 17,
             "name": "Mechanical",
@@ -65839,7 +65839,7 @@
         "id": 8121,
         "species_id": 204,
         "name": "yilanyalong_shouling",
-        "form": "伊兰龙",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 8,
             "name": "Dragon",
@@ -65884,7 +65884,7 @@
         "id": 8122,
         "species_id": 107,
         "name": "shenyuanluoyin",
-        "form": "深渊",
+        "form": "草系徽章-首领形态",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -65935,7 +65935,7 @@
         "id": 8200,
         "species_id": 8200,
         "name": "8200",
-        "form": "default",
+        "form": "草系徽章-专属精灵",
         "main_type": {
             "id": 2,
             "name": "Grass",
@@ -70486,7 +70486,7 @@
         "id": 440307,
         "species_id": 440307,
         "name": "440307",
-        "form": "default",
+        "form": "首领形态",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -70576,7 +70576,7 @@
         "id": 440309,
         "species_id": 440309,
         "name": "440309",
-        "form": "default",
+        "form": "首领形态",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -71863,7 +71863,7 @@
         "id": 13000167,
         "species_id": 13000167,
         "name": "caidiesha_shouling",
-        "form": "default",
+        "form": "领地试炼用",
         "main_type": {
             "id": 4,
             "name": "Water",
@@ -71914,7 +71914,7 @@
         "id": 13000168,
         "species_id": 13000168,
         "name": "yajiji_shouling",
-        "form": "default",
+        "form": "领地试炼用",
         "main_type": {
             "id": 1,
             "name": "Normal",
@@ -71959,7 +71959,7 @@
         "id": 13000169,
         "species_id": 107,
         "name": "shenyuanluoyin",
-        "form": "深渊",
+        "form": "领地试炼用",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -72010,7 +72010,7 @@
         "id": 13000170,
         "species_id": 233,
         "name": "gaomaoyuzhe",
-        "form": "高帽鹬者",
+        "form": "领地试炼用",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -72055,7 +72055,7 @@
         "id": 13000171,
         "species_id": 206,
         "name": "kula_shouling",
-        "form": "风暴",
+        "form": "领地试炼用",
         "main_type": {
             "id": 9,
             "name": "Electric",
@@ -72100,7 +72100,7 @@
         "id": 13000172,
         "species_id": 31,
         "name": "anyingemo",
-        "form": "恶魔男爵",
+        "form": "领地试炼用",
         "main_type": {
             "id": 13,
             "name": "Flying",
@@ -72627,7 +72627,7 @@
         "id": 16000003,
         "species_id": 16000003,
         "name": "dishu",
-        "form": "default",
+        "form": "枯水期的样子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -72960,7 +72960,7 @@
         "id": 17000004,
         "species_id": 17000004,
         "name": "shifuxi_yidi",
-        "form": "异地形态",
+        "form": "球球尾巴的样子",
         "main_type": {
             "id": 6,
             "name": "Ground",
@@ -73008,7 +73008,7 @@
         "id": 18000001,
         "species_id": 18000001,
         "name": "huadie_miaomiao",
-        "form": "default",
+        "form": "喵喵的样子",
         "main_type": {
             "id": 11,
             "name": "Bug",
@@ -73598,7 +73598,7 @@
         "id": 19000010,
         "species_id": 417,
         "name": "heihuajiaer",
-        "form": "default",
+        "form": "黑化的样子（团体战特殊id）",
         "main_type": {
             "id": 1,
             "name": "Normal",

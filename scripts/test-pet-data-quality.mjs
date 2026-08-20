@@ -6,7 +6,15 @@ import { fileURLToPath } from "node:url";
 const currentFilePath = fileURLToPath(import.meta.url);
 const rootDir = path.resolve(path.dirname(currentFilePath), "..");
 const petsPath = path.join(rootDir, "public", "data", "Pets.json");
+const petBasePath = path.join(
+    rootDir,
+    "public",
+    "data",
+    "BinData",
+    "PETBASE_CONF.json",
+);
 const pets = JSON.parse(await fs.readFile(petsPath, "utf8"));
+const petBaseTable = JSON.parse(await fs.readFile(petBasePath, "utf8"));
 const petById = new Map(pets.map((pet) => [pet.id, pet]));
 
 function getTotalStats(pet) {
@@ -43,6 +51,21 @@ assert.deepEqual(
     invalidImplementedLeaders.map((pet) => pet.id),
     [],
     "零种族值的首领占位记录不能标记为已实装",
+);
+
+const formMismatches = Object.values(petBaseTable.RocoDataRows ?? {})
+    .filter((row) => typeof row?.form === "string" && row.form.trim())
+    .filter((row) => petById.get(row.id)?.form !== row.form.trim())
+    .map((row) => ({
+        id: row.id,
+        expected: row.form.trim(),
+        actual: petById.get(row.id)?.form ?? null,
+    }));
+
+assert.deepEqual(
+    formMismatches,
+    [],
+    "PETBASE_CONF 中明确配置的 form 必须原样保留到 Pets.json",
 );
 
 for (const id of [5010, 5017]) {

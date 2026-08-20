@@ -1,7 +1,7 @@
 {
     "id": 8117,
     "name": "qiqibixia",
-    "form": "棋契陛下",
+    "form": "草系徽章-首领形态",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -1219,7 +1219,7 @@
                         "id": 3550,
                         "species_id": 188,
                         "name": "qiqi",
-                        "form": "default",
+                        "form": "白子",
                         "localized": {
                             "zh": {
                                 "name": "棋棋"
@@ -1246,7 +1246,7 @@
                         "id": 3555,
                         "species_id": 188,
                         "name": "qiqi_yidi",
-                        "form": "异地形态",
+                        "form": "黑子",
                         "localized": {
                             "zh": {
                                 "name": "棋棋"
@@ -1279,7 +1279,7 @@
                         "id": 3551,
                         "species_id": 189,
                         "name": "qiqishi",
-                        "form": "default",
+                        "form": "白子",
                         "localized": {
                             "zh": {
                                 "name": "棋骑士"
@@ -1310,7 +1310,7 @@
                         "id": 3552,
                         "species_id": 192,
                         "name": "qiqihou",
-                        "form": "default",
+                        "form": "白子",
                         "localized": {
                             "zh": {
                                 "name": "棋绮后"
@@ -1341,7 +1341,7 @@
                         "id": 3553,
                         "species_id": 190,
                         "name": "qiqilei",
-                        "form": "default",
+                        "form": "白子",
                         "localized": {
                             "zh": {
                                 "name": "棋齐垒"
@@ -1372,7 +1372,7 @@
                         "id": 3554,
                         "species_id": 191,
                         "name": "qiqidu",
-                        "form": "default",
+                        "form": "白子",
                         "localized": {
                             "zh": {
                                 "name": "棋祈督"
@@ -1403,7 +1403,7 @@
                         "id": 3556,
                         "species_id": 189,
                         "name": "qiqishi_yidi",
-                        "form": "异地形态",
+                        "form": "黑子",
                         "localized": {
                             "zh": {
                                 "name": "棋骑士"
@@ -1434,7 +1434,7 @@
                         "id": 3557,
                         "species_id": 192,
                         "name": "qiqihou_yidi",
-                        "form": "异地形态",
+                        "form": "黑子",
                         "localized": {
                             "zh": {
                                 "name": "棋绮后"
@@ -1465,7 +1465,7 @@
                         "id": 3558,
                         "species_id": 190,
                         "name": "qiqilei_yidi",
-                        "form": "异地形态",
+                        "form": "黑子",
                         "localized": {
                             "zh": {
                                 "name": "棋齐垒"
@@ -1496,7 +1496,7 @@
                         "id": 3559,
                         "species_id": 191,
                         "name": "qiqidu_yidi",
-                        "form": "异地形态",
+                        "form": "黑子",
                         "localized": {
                             "zh": {
                                 "name": "棋祈督"
@@ -1534,7 +1534,7 @@
                         "id": 4086,
                         "species_id": 189,
                         "name": "qiqibixia",
-                        "form": "棋契陛下",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "棋契陛下"
@@ -1615,7 +1615,7 @@
                         "id": 8117,
                         "species_id": 189,
                         "name": "qiqibixia",
-                        "form": "棋契陛下",
+                        "form": "草系徽章-首领形态",
                         "localized": {
                             "zh": {
                                 "name": "棋契陛下"

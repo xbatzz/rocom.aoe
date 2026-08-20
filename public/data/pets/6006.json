@@ -1,7 +1,7 @@
 {
     "id": 6006,
     "name": "jingshiwo_shouling",
-    "form": "中级",
+    "form": "首领形态",
     "main_type": {
         "id": 5,
         "name": "Light",
@@ -1307,7 +1307,7 @@
                         "id": 6006,
                         "species_id": 6006,
                         "name": "jingshiwo_shouling",
-                        "form": "中级",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "戴蒙德（中级）"
@@ -1341,7 +1341,7 @@
                         "id": 6006,
                         "species_id": 6006,
                         "name": "jingshiwo_shouling",
-                        "form": "中级",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "戴蒙德（中级）"

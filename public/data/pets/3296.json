@@ -1,7 +1,7 @@
 {
     "id": 3296,
     "name": "kawachong_xueshan",
-    "form": "雪山形态",
+    "form": "雪山附近的样子",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -1175,7 +1175,7 @@
                         "id": 3040,
                         "species_id": 44,
                         "name": "diudiu",
-                        "form": "default",
+                        "form": "草地附近的样子",
                         "localized": {
                             "zh": {
                                 "name": "丢丢"
@@ -1196,7 +1196,7 @@
                         "id": 3288,
                         "species_id": 44,
                         "name": "diudiu_huoshan",
-                        "form": "火山形态",
+                        "form": "火山附近的样子",
                         "localized": {
                             "zh": {
                                 "name": "丢丢"
@@ -1223,7 +1223,7 @@
                         "id": 3289,
                         "species_id": 44,
                         "name": "diudiu_shamo",
-                        "form": "default",
+                        "form": "沙地附近的样子",
                         "localized": {
                             "zh": {
                                 "name": "丢丢"
@@ -1250,7 +1250,7 @@
                         "id": 3290,
                         "species_id": 44,
                         "name": "diudiu_xueshan",
-                        "form": "雪山形态",
+                        "form": "雪山附近的样子",
                         "localized": {
                             "zh": {
                                 "name": "丢丢"
@@ -1283,7 +1283,7 @@
                         "id": 3041,
                         "species_id": 45,
                         "name": "kakachong",
-                        "form": "default",
+                        "form": "草地附近的样子",
                         "localized": {
                             "zh": {
                                 "name": "卡卡虫"
@@ -1309,7 +1309,7 @@
                         "id": 3291,
                         "species_id": 45,
                         "name": "kakachong_huoshan",
-                        "form": "火山形态",
+                        "form": "火山附近的样子",
                         "localized": {
                             "zh": {
                                 "name": "卡卡虫"
@@ -1338,7 +1338,7 @@
                         "id": 3292,
                         "species_id": 45,
                         "name": "kakachong_shamo",
-                        "form": "default",
+                        "form": "沙地附近的样子",
                         "localized": {
                             "zh": {
                                 "name": "卡卡虫"
@@ -1370,7 +1370,7 @@
                         "id": 3293,
                         "species_id": 45,
                         "name": "kakachong_xueshan",
-                        "form": "雪山形态",
+                        "form": "雪山附近的样子",
                         "localized": {
                             "zh": {
                                 "name": "卡卡虫"
@@ -1408,7 +1408,7 @@
                         "id": 3042,
                         "species_id": 46,
                         "name": "kawachong",
-                        "form": "default",
+                        "form": "草地附近的样子",
                         "localized": {
                             "zh": {
                                 "name": "卡瓦重"
@@ -1434,7 +1434,7 @@
                         "id": 3294,
                         "species_id": 46,
                         "name": "kawachong_huoshan",
-                        "form": "火山形态",
+                        "form": "火山附近的样子",
                         "localized": {
                             "zh": {
                                 "name": "卡瓦重"
@@ -1463,7 +1463,7 @@
                         "id": 3295,
                         "species_id": 46,
                         "name": "kawachong_shamo",
-                        "form": "default",
+                        "form": "沙地附近的样子",
                         "localized": {
                             "zh": {
                                 "name": "卡瓦重"
@@ -1495,7 +1495,7 @@
                         "id": 3296,
                         "species_id": 46,
                         "name": "kawachong_xueshan",
-                        "form": "雪山形态",
+                        "form": "雪山附近的样子",
                         "localized": {
                             "zh": {
                                 "name": "卡瓦重"

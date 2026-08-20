@@ -1,7 +1,7 @@
 {
     "id": 4102,
     "name": "nihouya_shouling",
-    "form": "淤泥乌泽",
+    "form": "首领形态",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -1288,7 +1288,7 @@
                         "id": 4102,
                         "species_id": 288,
                         "name": "nihouya_shouling",
-                        "form": "淤泥乌泽",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "淤泥乌泽"

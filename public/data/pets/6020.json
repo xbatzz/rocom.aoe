@@ -1,7 +1,7 @@
 {
     "id": 6020,
     "name": "heimaowushi_shouling",
-    "form": "初级",
+    "form": "首领形态",
     "main_type": {
         "id": 11,
         "name": "Bug",
@@ -1213,7 +1213,7 @@
                         "id": 6020,
                         "species_id": 6020,
                         "name": "heimaowushi_shouling",
-                        "form": "初级",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "艾诺菈（初级）"
@@ -1241,7 +1241,7 @@
                         "id": 6020,
                         "species_id": 6020,
                         "name": "heimaowushi_shouling",
-                        "form": "初级",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "艾诺菈（初级）"

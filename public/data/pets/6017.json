@@ -1,7 +1,7 @@
 {
     "id": 6017,
     "name": "yishijuxiang_shouling",
-    "form": "初级",
+    "form": "首领形态",
     "main_type": {
         "id": 17,
         "name": "Mechanical",
@@ -1213,7 +1213,7 @@
                         "id": 6017,
                         "species_id": 6017,
                         "name": "yishijuxiang_shouling",
-                        "form": "初级",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "希巴尔巴（初级）"
@@ -1241,7 +1241,7 @@
                         "id": 6017,
                         "species_id": 6017,
                         "name": "yishijuxiang_shouling",
-                        "form": "初级",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "希巴尔巴（初级）"

@@ -1,7 +1,7 @@
 {
     "id": 4101,
     "name": "fenggunmuchong_shouling",
-    "form": "暮风隐者",
+    "form": "首领形态",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -1219,7 +1219,7 @@
                         "id": 3376,
                         "species_id": 118,
                         "name": "xuanyanchong",
-                        "form": "default",
+                        "form": "金黄的样子",
                         "localized": {
                             "zh": {
                                 "name": "旋叶虫"
@@ -1246,7 +1246,7 @@
                         "id": 3496,
                         "species_id": 118,
                         "name": "xuanyechong_yidi",
-                        "form": "异地形态",
+                        "form": "枯叶的样子",
                         "localized": {
                             "zh": {
                                 "name": "旋叶虫"
@@ -1279,7 +1279,7 @@
                         "id": 3483,
                         "species_id": 119,
                         "name": "pengyechong",
-                        "form": "default",
+                        "form": "金黄的样子",
                         "localized": {
                             "zh": {
                                 "name": "蓬叶虫"
@@ -1308,7 +1308,7 @@
                         "id": 3497,
                         "species_id": 119,
                         "name": "pengyechong_yidi",
-                        "form": "异地形态",
+                        "form": "枯叶的样子",
                         "localized": {
                             "zh": {
                                 "name": "蓬叶虫"
@@ -1343,7 +1343,7 @@
                         "id": 3377,
                         "species_id": 120,
                         "name": "fenggunmuchong",
-                        "form": "default",
+                        "form": "金黄的样子",
                         "localized": {
                             "zh": {
                                 "name": "风滚暮虫"
@@ -1372,7 +1372,7 @@
                         "id": 3498,
                         "species_id": 120,
                         "name": "fengguanmuchong_yidi",
-                        "form": "异地形态",
+                        "form": "枯叶的样子",
                         "localized": {
                             "zh": {
                                 "name": "风滚暮虫"
@@ -1408,7 +1408,7 @@
                         "id": 4101,
                         "species_id": 120,
                         "name": "fenggunmuchong_shouling",
-                        "form": "暮风隐者",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "暮风隐者"

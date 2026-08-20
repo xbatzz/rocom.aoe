@@ -1,7 +1,7 @@
 {
     "id": 4070,
     "name": "4070",
-    "form": "default",
+    "form": "首领形态",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -1263,7 +1263,7 @@
                         "id": 4070,
                         "species_id": 4070,
                         "name": "4070",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "首领-火羽"
@@ -1297,7 +1297,7 @@
                         "id": 4070,
                         "species_id": 4070,
                         "name": "4070",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "首领-火羽"

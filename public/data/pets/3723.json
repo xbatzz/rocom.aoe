@@ -1,7 +1,7 @@
 {
     "id": 3723,
     "name": "shuidishe",
-    "form": "default",
+    "form": "悲鸣的样子",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -91,7 +91,7 @@
                         "id": 3723,
                         "species_id": 3723,
                         "name": "shuidishe",
-                        "form": "default",
+                        "form": "悲鸣的样子",
                         "localized": {
                             "zh": {
                                 "name": "水滴蛇"
@@ -153,7 +153,7 @@
                         "id": 3724,
                         "species_id": 3724,
                         "name": "shuishesuo",
-                        "form": "default",
+                        "form": "悲鸣的样子",
                         "localized": {
                             "zh": {
                                 "name": "水蛇锁"
@@ -217,7 +217,7 @@
                         "id": 3725,
                         "species_id": 3725,
                         "name": "youshemoshi",
-                        "form": "default",
+                        "form": "悲鸣的样子",
                         "localized": {
                             "zh": {
                                 "name": "游蛇魔使"

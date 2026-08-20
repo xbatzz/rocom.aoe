@@ -1,7 +1,7 @@
 {
     "id": 3468,
     "name": "shenshengshijiu_gaoshan",
-    "form": "高山形态",
+    "form": "高山地的样子",
     "main_type": {
         "id": 13,
         "name": "Flying",
@@ -1191,7 +1191,7 @@
                         "id": 3127,
                         "species_id": 165,
                         "name": "xiaoshijiu",
-                        "form": "default",
+                        "form": "崖间地的样子",
                         "localized": {
                             "zh": {
                                 "name": "小狮鹫"
@@ -1212,7 +1212,7 @@
                         "id": 3467,
                         "species_id": 165,
                         "name": "xiaoshijiu_gaoshan",
-                        "form": "高山形态",
+                        "form": "高山地的样子",
                         "localized": {
                             "zh": {
                                 "name": "小狮鹫"
@@ -1239,7 +1239,7 @@
                         "id": 3128,
                         "species_id": 166,
                         "name": "shenshengshijiu",
-                        "form": "default",
+                        "form": "崖间地的样子",
                         "localized": {
                             "zh": {
                                 "name": "神圣狮鹫"
@@ -1262,7 +1262,7 @@
                         "id": 3468,
                         "species_id": 166,
                         "name": "shenshengshijiu_gaoshan",
-                        "form": "高山形态",
+                        "form": "高山地的样子",
                         "localized": {
                             "zh": {
                                 "name": "神圣狮鹫"
@@ -1291,7 +1291,7 @@
                         "id": 3129,
                         "species_id": 167,
                         "name": "huangjiashijiu",
-                        "form": "default",
+                        "form": "崖间地的样子",
                         "localized": {
                             "zh": {
                                 "name": "皇家狮鹫"
@@ -1314,7 +1314,7 @@
                         "id": 3469,
                         "species_id": 167,
                         "name": "huangjiashijiu_gaoshan",
-                        "form": "高山形态",
+                        "form": "高山地的样子",
                         "localized": {
                             "zh": {
                                 "name": "皇家狮鹫"

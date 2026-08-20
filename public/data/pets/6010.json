@@ -1,7 +1,7 @@
 {
     "id": 6010,
     "name": "6010",
-    "form": "高级",
+    "form": "首领形态",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -1219,7 +1219,7 @@
                         "id": 6010,
                         "species_id": 6010,
                         "name": "6010",
-                        "form": "高级",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "阿克娅（高级）"
@@ -1253,7 +1253,7 @@
                         "id": 6010,
                         "species_id": 6010,
                         "name": "6010",
-                        "form": "高级",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "阿克娅（高级）"

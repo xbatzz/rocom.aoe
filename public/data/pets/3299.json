@@ -1,7 +1,7 @@
 {
     "id": 3299,
     "name": "bengbengzhongzi_xiangyaqiu",
-    "form": "default",
+    "form": "象牙球形态",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -1373,7 +1373,7 @@
                         "id": 3017,
                         "species_id": 63,
                         "name": "bengbengzhongzi",
-                        "form": "default",
+                        "form": "海神球形态",
                         "localized": {
                             "zh": {
                                 "name": "蹦蹦种子"
@@ -1400,7 +1400,7 @@
                         "id": 3297,
                         "species_id": 63,
                         "name": "bengbengzhongzi_caiyuqiu",
-                        "form": "default",
+                        "form": "彩玉球形态",
                         "localized": {
                             "zh": {
                                 "name": "蹦蹦种子"
@@ -1427,7 +1427,7 @@
                         "id": 3298,
                         "species_id": 63,
                         "name": "bengbengzhongzi_duanmaoqiu",
-                        "form": "default",
+                        "form": "短毛球形态",
                         "localized": {
                             "zh": {
                                 "name": "蹦蹦种子"
@@ -1454,7 +1454,7 @@
                         "id": 3299,
                         "species_id": 63,
                         "name": "bengbengzhongzi_xiangyaqiu",
-                        "form": "default",
+                        "form": "象牙球形态",
                         "localized": {
                             "zh": {
                                 "name": "蹦蹦种子"
@@ -1487,7 +1487,7 @@
                         "id": 3018,
                         "species_id": 64,
                         "name": "bengbengcao",
-                        "form": "default",
+                        "form": "海神球形态",
                         "localized": {
                             "zh": {
                                 "name": "蹦蹦草"
@@ -1519,7 +1519,7 @@
                         "id": 3300,
                         "species_id": 64,
                         "name": "bengbengcao_caiyuqiu",
-                        "form": "default",
+                        "form": "彩玉球形态",
                         "localized": {
                             "zh": {
                                 "name": "蹦蹦草"
@@ -1551,7 +1551,7 @@
                         "id": 3301,
                         "species_id": 64,
                         "name": "bengbengcao_duanmaoqiu",
-                        "form": "default",
+                        "form": "短毛球形态",
                         "localized": {
                             "zh": {
                                 "name": "蹦蹦草"
@@ -1583,7 +1583,7 @@
                         "id": 3302,
                         "species_id": 64,
                         "name": "bengbengcao_xiangyaqiu",
-                        "form": "default",
+                        "form": "象牙球形态",
                         "localized": {
                             "zh": {
                                 "name": "蹦蹦草"
@@ -1621,7 +1621,7 @@
                         "id": 3019,
                         "species_id": 65,
                         "name": "bengbenghua",
-                        "form": "default",
+                        "form": "海神球形态",
                         "localized": {
                             "zh": {
                                 "name": "蹦蹦花"
@@ -1652,7 +1652,7 @@
                         "id": 3303,
                         "species_id": 65,
                         "name": "bengbenghua_caiyuqiu",
-                        "form": "default",
+                        "form": "彩玉球形态",
                         "localized": {
                             "zh": {
                                 "name": "蹦蹦花"
@@ -1683,7 +1683,7 @@
                         "id": 3304,
                         "species_id": 65,
                         "name": "bengbenghua_duanmaoqiu",
-                        "form": "default",
+                        "form": "短毛球形态",
                         "localized": {
                             "zh": {
                                 "name": "蹦蹦花"
@@ -1714,7 +1714,7 @@
                         "id": 3305,
                         "species_id": 65,
                         "name": "bengbenghua_xiangyaqiu",
-                        "form": "default",
+                        "form": "象牙球形态",
                         "localized": {
                             "zh": {
                                 "name": "蹦蹦花"

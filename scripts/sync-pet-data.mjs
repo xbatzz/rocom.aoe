@@ -828,6 +828,12 @@ function isLeaderForm(petBase, portraitKey) {
 }
 
 function extractForm(context) {
+    const configuredForm = cleanText(context.petBase?.form);
+
+    if (configuredForm) {
+        return configuredForm;
+    }
+
     const handbookName = cleanText(context.handbookRow?.name);
     const displayName = context.displayName;
     const wrapped = displayName.match(/[（(]([^）)]+)[）)]/u);

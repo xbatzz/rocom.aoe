@@ -1164,7 +1164,7 @@
                         "id": 3308,
                         "species_id": 40,
                         "name": "jingshiwo",
-                        "form": "default",
+                        "form": "西瓜碧玺的样子",
                         "localized": {
                             "zh": {
                                 "name": "晶石蜗"
@@ -1194,7 +1194,7 @@
                         "id": 3448,
                         "species_id": 40,
                         "name": "jingshiwo_yidi3",
-                        "form": "异地形态",
+                        "form": "莲花刚玉的样子",
                         "localized": {
                             "zh": {
                                 "name": "晶石蜗"
@@ -1224,7 +1224,7 @@
                         "id": 3449,
                         "species_id": 40,
                         "name": "jingshiwo_yidi5",
-                        "form": "异地形态",
+                        "form": "星彩榴石的样子",
                         "localized": {
                             "zh": {
                                 "name": "晶石蜗"
@@ -1254,7 +1254,7 @@
                         "id": 3450,
                         "species_id": 40,
                         "name": "jingshiwo_yidi1",
-                        "form": "异地形态",
+                        "form": "火山琉璃的样子",
                         "localized": {
                             "zh": {
                                 "name": "晶石蜗"
@@ -1284,7 +1284,7 @@
                         "id": 3451,
                         "species_id": 40,
                         "name": "jingshiwo_yidi2",
-                        "form": "异地形态",
+                        "form": "蓝锥矿的样子",
                         "localized": {
                             "zh": {
                                 "name": "晶石蜗"
@@ -1314,7 +1314,7 @@
                         "id": 3486,
                         "species_id": 40,
                         "name": "jingshiwo_yidi4",
-                        "form": "异地形态",
+                        "form": "烧蓝黄金的样子",
                         "localized": {
                             "zh": {
                                 "name": "晶石蜗"

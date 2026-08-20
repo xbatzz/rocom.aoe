@@ -1,7 +1,7 @@
 {
     "id": 3028,
     "name": "dongyuque",
-    "form": "default",
+    "form": "本来的样子",
     "main_type": {
         "id": 13,
         "name": "Flying",
@@ -1191,7 +1191,7 @@
                         "id": 3279,
                         "species_id": 18,
                         "name": "xuerongniao_chun",
-                        "form": "default",
+                        "form": "春天的样子",
                         "localized": {
                             "zh": {
                                 "name": "雪绒鸟"
@@ -1212,7 +1212,7 @@
                         "id": 3280,
                         "species_id": 18,
                         "name": "xuerongniao_xia",
-                        "form": "default",
+                        "form": "夏天的样子",
                         "localized": {
                             "zh": {
                                 "name": "雪绒鸟"
@@ -1233,7 +1233,7 @@
                         "id": 3281,
                         "species_id": 18,
                         "name": "xuerongniao_qiu",
-                        "form": "秋日形态",
+                        "form": "秋天的样子",
                         "localized": {
                             "zh": {
                                 "name": "雪绒鸟"
@@ -1254,7 +1254,7 @@
                         "id": 3533,
                         "species_id": 18,
                         "name": "xuerongniao_dong",
-                        "form": "default",
+                        "form": "本来的样子",
                         "localized": {
                             "zh": {
                                 "name": "雪绒鸟"
@@ -1281,7 +1281,7 @@
                         "id": 3028,
                         "species_id": 19,
                         "name": "dongyuque",
-                        "form": "default",
+                        "form": "本来的样子",
                         "localized": {
                             "zh": {
                                 "name": "冬羽雀"
@@ -1304,7 +1304,7 @@
                         "id": 3282,
                         "species_id": 19,
                         "name": "dongyuque_chun",
-                        "form": "default",
+                        "form": "春天的样子",
                         "localized": {
                             "zh": {
                                 "name": "冬羽雀"
@@ -1327,7 +1327,7 @@
                         "id": 3283,
                         "species_id": 19,
                         "name": "dongyuque_xia",
-                        "form": "default",
+                        "form": "夏天的样子",
                         "localized": {
                             "zh": {
                                 "name": "冬羽雀"
@@ -1350,7 +1350,7 @@
                         "id": 3284,
                         "species_id": 19,
                         "name": "dongyuque_qiu",
-                        "form": "秋日形态",
+                        "form": "秋天的样子",
                         "localized": {
                             "zh": {
                                 "name": "冬羽雀"
@@ -1379,7 +1379,7 @@
                         "id": 3037,
                         "species_id": 20,
                         "name": "lanniao",
-                        "form": "default",
+                        "form": "本来的样子",
                         "localized": {
                             "zh": {
                                 "name": "岚鸟"
@@ -1405,7 +1405,7 @@
                         "id": 3285,
                         "species_id": 20,
                         "name": "lanniao_chun",
-                        "form": "default",
+                        "form": "春天的样子",
                         "localized": {
                             "zh": {
                                 "name": "岚鸟"
@@ -1431,7 +1431,7 @@
                         "id": 3286,
                         "species_id": 20,
                         "name": "lanniao_xia",
-                        "form": "default",
+                        "form": "夏天的样子",
                         "localized": {
                             "zh": {
                                 "name": "岚鸟"
@@ -1457,7 +1457,7 @@
                         "id": 3287,
                         "species_id": 20,
                         "name": "lanniao_qiu",
-                        "form": "秋日形态",
+                        "form": "秋天的样子",
                         "localized": {
                             "zh": {
                                 "name": "岚鸟"

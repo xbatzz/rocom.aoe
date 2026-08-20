@@ -1,7 +1,7 @@
 {
     "id": 3463,
     "name": "shuangqiudingding_yangtaoqiaokeli",
-    "form": "default",
+    "form": "杨桃巧克力口味",
     "main_type": {
         "id": 7,
         "name": "Ice",
@@ -1374,7 +1374,7 @@
                         "id": 3478,
                         "species_id": 235,
                         "name": "dingding_yangtao",
-                        "form": "default",
+                        "form": "杨桃饰品",
                         "localized": {
                             "zh": {
                                 "name": "香草甜甜"
@@ -1398,7 +1398,7 @@
                         "id": 3479,
                         "species_id": 235,
                         "name": "dingding_lanmei",
-                        "form": "default",
+                        "form": "蓝莓饰品",
                         "localized": {
                             "zh": {
                                 "name": "香草甜甜"
@@ -1452,7 +1452,7 @@
                         "id": 3458,
                         "species_id": 236,
                         "name": "shuangqiudingding_yingtaocaomei",
-                        "form": "default",
+                        "form": "樱桃草莓口味",
                         "localized": {
                             "zh": {
                                 "name": "圣代甜甜"
@@ -1476,7 +1476,7 @@
                         "id": 3459,
                         "species_id": 236,
                         "name": "shuangqiudingding_yingtaomocha",
-                        "form": "default",
+                        "form": "樱桃抹茶口味",
                         "localized": {
                             "zh": {
                                 "name": "圣代甜甜"
@@ -1500,7 +1500,7 @@
                         "id": 3460,
                         "species_id": 236,
                         "name": "shuangqiudingding_lanmeiqiaokeli",
-                        "form": "default",
+                        "form": "蓝莓巧克力口味",
                         "localized": {
                             "zh": {
                                 "name": "圣代甜甜"
@@ -1524,7 +1524,7 @@
                         "id": 3461,
                         "species_id": 236,
                         "name": "shuangqiudingding_lanmeicaomei",
-                        "form": "default",
+                        "form": "蓝莓草莓口味",
                         "localized": {
                             "zh": {
                                 "name": "圣代甜甜"
@@ -1548,7 +1548,7 @@
                         "id": 3462,
                         "species_id": 236,
                         "name": "shuangqiudingding_lanmeimocha",
-                        "form": "default",
+                        "form": "蓝莓抹茶口味",
                         "localized": {
                             "zh": {
                                 "name": "圣代甜甜"
@@ -1572,7 +1572,7 @@
                         "id": 3463,
                         "species_id": 236,
                         "name": "shuangqiudingding_yangtaoqiaokeli",
-                        "form": "default",
+                        "form": "杨桃巧克力口味",
                         "localized": {
                             "zh": {
                                 "name": "圣代甜甜"
@@ -1596,7 +1596,7 @@
                         "id": 3464,
                         "species_id": 236,
                         "name": "shuangqiudingding_yangtaocaomei",
-                        "form": "default",
+                        "form": "杨桃草莓口味",
                         "localized": {
                             "zh": {
                                 "name": "圣代甜甜"
@@ -1620,7 +1620,7 @@
                         "id": 3465,
                         "species_id": 236,
                         "name": "shuangqiudingding_yangtaomocha",
-                        "form": "default",
+                        "form": "杨桃抹茶口味",
                         "localized": {
                             "zh": {
                                 "name": "圣代甜甜"

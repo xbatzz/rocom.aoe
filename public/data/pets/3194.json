@@ -1,7 +1,7 @@
 {
     "id": 3194,
     "name": "xingguangsh",
-    "form": "default",
+    "form": "星光能量的样子",
     "main_type": {
         "id": 9,
         "name": "Electric",
@@ -1257,7 +1257,7 @@
                         "id": 3193,
                         "species_id": 80,
                         "name": "xiaoxingguang",
-                        "form": "default",
+                        "form": "星光能量的样子",
                         "localized": {
                             "zh": {
                                 "name": "小星光"
@@ -1278,7 +1278,7 @@
                         "id": 3442,
                         "species_id": 80,
                         "name": "xiaoxingguang_yueguang",
-                        "form": "月光形态",
+                        "form": "月光能量的样子",
                         "localized": {
                             "zh": {
                                 "name": "小星光"
@@ -1311,7 +1311,7 @@
                         "id": 3194,
                         "species_id": 81,
                         "name": "xingguangsh",
-                        "form": "default",
+                        "form": "星光能量的样子",
                         "localized": {
                             "zh": {
                                 "name": "星光狮"
@@ -1334,7 +1334,7 @@
                         "id": 3443,
                         "species_id": 81,
                         "name": "xingguangshi_yueguang",
-                        "form": "月光形态",
+                        "form": "月光能量的样子",
                         "localized": {
                             "zh": {
                                 "name": "星光狮"

@@ -1,7 +1,7 @@
 {
     "id": 3108,
     "name": "shihuacixiyi",
-    "form": "default",
+    "form": "本来的样子",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -1257,7 +1257,7 @@
                         "id": 3106,
                         "species_id": 24,
                         "name": "huociyanxiyi",
-                        "form": "default",
+                        "form": "本来的样子",
                         "localized": {
                             "zh": {
                                 "name": "石肤蜥"
@@ -1278,7 +1278,7 @@
                         "id": 3500,
                         "species_id": 24,
                         "name": "shifuxi_yidi",
-                        "form": "异地形态",
+                        "form": "球球尾巴的样子",
                         "localized": {
                             "zh": {
                                 "name": "石肤蜥"
@@ -1305,7 +1305,7 @@
                         "id": 3107,
                         "species_id": 25,
                         "name": "conglinluxiyi",
-                        "form": "default",
+                        "form": "本来的样子",
                         "localized": {
                             "zh": {
                                 "name": "石刺蜥"
@@ -1328,7 +1328,7 @@
                         "id": 3501,
                         "species_id": 25,
                         "name": "shicixi_yidi",
-                        "form": "异地形态",
+                        "form": "球球尾巴的样子",
                         "localized": {
                             "zh": {
                                 "name": "石刺蜥"
@@ -1357,7 +1357,7 @@
                         "id": 3108,
                         "species_id": 26,
                         "name": "shihuacixiyi",
-                        "form": "default",
+                        "form": "本来的样子",
                         "localized": {
                             "zh": {
                                 "name": "石冠王蜥"
@@ -1380,7 +1380,7 @@
                         "id": 3502,
                         "species_id": 26,
                         "name": "shiguanwangxi_yidi",
-                        "form": "异地形态",
+                        "form": "球球尾巴的样子",
                         "localized": {
                             "zh": {
                                 "name": "石冠王蜥"

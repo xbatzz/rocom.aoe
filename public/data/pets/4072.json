@@ -1,7 +1,7 @@
 {
     "id": 4072,
     "name": "bulaikeyan_shouling",
-    "form": "迷嶂布莱克",
+    "form": "首领形态",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -1277,7 +1277,7 @@
                         "id": 4072,
                         "species_id": 29,
                         "name": "bulaikeyan_shouling",
-                        "form": "迷嶂布莱克",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "迷嶂布莱克"
@@ -1319,7 +1319,7 @@
                         "id": 8110,
                         "species_id": 29,
                         "name": "bulaikeyan_shouling",
-                        "form": "迷嶂布莱克",
+                        "form": "草系徽章-首领形态",
                         "localized": {
                             "zh": {
                                 "name": "迷嶂布莱克"

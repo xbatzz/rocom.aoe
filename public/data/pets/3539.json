@@ -1,7 +1,7 @@
 {
     "id": 3539,
     "name": "wuda_yidi",
-    "form": "异地形态",
+    "form": "极夜的样子",
     "main_type": {
         "id": 7,
         "name": "Ice",
@@ -1241,7 +1241,7 @@
                         "id": 3536,
                         "species_id": 258,
                         "name": "wuda",
-                        "form": "default",
+                        "form": "极昼的样子",
                         "localized": {
                             "zh": {
                                 "name": "乌达"
@@ -1268,7 +1268,7 @@
                         "id": 3539,
                         "species_id": 258,
                         "name": "wuda_yidi",
-                        "form": "异地形态",
+                        "form": "极夜的样子",
                         "localized": {
                             "zh": {
                                 "name": "乌达"
@@ -1301,7 +1301,7 @@
                         "id": 3537,
                         "species_id": 259,
                         "name": "miniwu",
-                        "form": "default",
+                        "form": "极昼的样子",
                         "localized": {
                             "zh": {
                                 "name": "迷你乌"
@@ -1331,7 +1331,7 @@
                         "id": 3540,
                         "species_id": 259,
                         "name": "miniwu_yidi",
-                        "form": "异地形态",
+                        "form": "极夜的样子",
                         "localized": {
                             "zh": {
                                 "name": "迷你乌"
@@ -1367,7 +1367,7 @@
                         "id": 3538,
                         "species_id": 260,
                         "name": "wulata",
-                        "form": "default",
+                        "form": "极昼的样子",
                         "localized": {
                             "zh": {
                                 "name": "乌拉塔"
@@ -1397,7 +1397,7 @@
                         "id": 3541,
                         "species_id": 260,
                         "name": "wulata_yidi",
-                        "form": "异地形态",
+                        "form": "极夜的样子",
                         "localized": {
                             "zh": {
                                 "name": "乌拉塔"

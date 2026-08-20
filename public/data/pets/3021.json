@@ -1,7 +1,7 @@
 {
     "id": 3021,
     "name": "dunshu",
-    "form": "default",
+    "form": "枯水期的样子",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -1213,7 +1213,7 @@
                         "id": 3020,
                         "species_id": 277,
                         "name": "dishu",
-                        "form": "default",
+                        "form": "枯水期的样子",
                         "localized": {
                             "zh": {
                                 "name": "地鼠"
@@ -1234,7 +1234,7 @@
                         "id": 3454,
                         "species_id": 277,
                         "name": "dishu_xushui",
-                        "form": "蓄水形态",
+                        "form": "储水时的样子",
                         "localized": {
                             "zh": {
                                 "name": "地鼠"
@@ -1261,7 +1261,7 @@
                         "id": 3021,
                         "species_id": 278,
                         "name": "dunshu",
-                        "form": "default",
+                        "form": "枯水期的样子",
                         "localized": {
                             "zh": {
                                 "name": "遁鼠"
@@ -1284,7 +1284,7 @@
                         "id": 3455,
                         "species_id": 278,
                         "name": "dunshu_xushui",
-                        "form": "蓄水形态",
+                        "form": "储水时的样子",
                         "localized": {
                             "zh": {
                                 "name": "遁鼠"
@@ -1313,7 +1313,7 @@
                         "id": 3022,
                         "species_id": 279,
                         "name": "dundishu",
-                        "form": "default",
+                        "form": "枯水期的样子",
                         "localized": {
                             "zh": {
                                 "name": "遁地鼠"
@@ -1336,7 +1336,7 @@
                         "id": 3456,
                         "species_id": 279,
                         "name": "dundishu_xushui",
-                        "form": "蓄水形态",
+                        "form": "储水时的样子",
                         "localized": {
                             "zh": {
                                 "name": "遁地鼠"

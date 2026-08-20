@@ -1,7 +1,7 @@
 {
     "id": 8122,
     "name": "shenyuanluoyin",
-    "form": "深渊",
+    "form": "草系徽章-首领形态",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -1366,7 +1366,7 @@
                         "id": 8122,
                         "species_id": 107,
                         "name": "shenyuanluoyin",
-                        "form": "深渊",
+                        "form": "草系徽章-首领形态",
                         "localized": {
                             "zh": {
                                 "name": "深渊罗隐"
@@ -1393,7 +1393,7 @@
                         "id": 13000169,
                         "species_id": 107,
                         "name": "shenyuanluoyin",
-                        "form": "深渊",
+                        "form": "领地试炼用",
                         "localized": {
                             "zh": {
                                 "name": "深渊罗隐"

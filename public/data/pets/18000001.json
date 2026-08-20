@@ -1,7 +1,7 @@
 {
     "id": 18000001,
     "name": "huadie_miaomiao",
-    "form": "default",
+    "form": "喵喵的样子",
     "main_type": {
         "id": 11,
         "name": "Bug",
@@ -1268,7 +1268,7 @@
                         "id": 18000001,
                         "species_id": 18000001,
                         "name": "huadie_miaomiao",
-                        "form": "default",
+                        "form": "喵喵的样子",
                         "localized": {
                             "zh": {
                                 "name": "化蝶"
@@ -1339,7 +1339,7 @@
                         "id": 3138,
                         "species_id": 34,
                         "name": "huadie",
-                        "form": "default",
+                        "form": "平常的样子",
                         "localized": {
                             "zh": {
                                 "name": "化蝶"
@@ -1369,7 +1369,7 @@
                         "id": 3470,
                         "species_id": 34,
                         "name": "huadie_youmingzhiyan",
-                        "form": "default",
+                        "form": "幽冥眼的样子",
                         "localized": {
                             "zh": {
                                 "name": "化蝶"
@@ -1399,7 +1399,7 @@
                         "id": 3471,
                         "species_id": 34,
                         "name": "huadie_miaomiao",
-                        "form": "default",
+                        "form": "喵喵的样子",
                         "localized": {
                             "zh": {
                                 "name": "化蝶"
@@ -1429,7 +1429,7 @@
                         "id": 3472,
                         "species_id": 34,
                         "name": "huadie_qilihua",
-                        "form": "default",
+                        "form": "奇丽花的样子",
                         "localized": {
                             "zh": {
                                 "name": "化蝶"

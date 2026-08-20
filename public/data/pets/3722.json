@@ -1,7 +1,7 @@
 {
     "id": 3722,
     "name": "zhenyexunlin",
-    "form": "default",
+    "form": "悲鸣的样子",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -97,7 +97,7 @@
                         "id": 3720,
                         "species_id": 3720,
                         "name": "songzai",
-                        "form": "default",
+                        "form": "悲鸣的样子",
                         "localized": {
                             "zh": {
                                 "name": "松仔"
@@ -160,7 +160,7 @@
                         "id": 3721,
                         "species_id": 3721,
                         "name": "yesongyang",
-                        "form": "default",
+                        "form": "悲鸣的样子",
                         "localized": {
                             "zh": {
                                 "name": "松叶羊"
@@ -195,7 +195,7 @@
                         "id": 3722,
                         "species_id": 3722,
                         "name": "zhenyexunlin",
-                        "form": "default",
+                        "form": "悲鸣的样子",
                         "localized": {
                             "zh": {
                                 "name": "针叶巡林"

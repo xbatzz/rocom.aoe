@@ -1,7 +1,7 @@
 {
     "id": 3056,
     "name": "kakake",
-    "form": "default",
+    "form": "本来的样子",
     "main_type": {
         "id": 4,
         "name": "Water",
@@ -1147,7 +1147,7 @@
                         "id": 3055,
                         "species_id": 12,
                         "name": "banbanke",
-                        "form": "default",
+                        "form": "本来的样子",
                         "localized": {
                             "zh": {
                                 "name": "板板壳"
@@ -1168,7 +1168,7 @@
                         "id": 3516,
                         "species_id": 12,
                         "name": "banbanke_tuipi",
-                        "form": "蜕皮形态",
+                        "form": "蜕皮时的样子",
                         "localized": {
                             "zh": {
                                 "name": "板板壳"
@@ -1195,7 +1195,7 @@
                         "id": 3056,
                         "species_id": 13,
                         "name": "kakake",
-                        "form": "default",
+                        "form": "本来的样子",
                         "localized": {
                             "zh": {
                                 "name": "咔咔壳"
@@ -1221,7 +1221,7 @@
                         "id": 3517,
                         "species_id": 13,
                         "name": "kakake_tuipi",
-                        "form": "蜕皮形态",
+                        "form": "蜕皮时的样子",
                         "localized": {
                             "zh": {
                                 "name": "咔咔壳"
@@ -1250,7 +1250,7 @@
                         "id": 3057,
                         "species_id": 14,
                         "name": "shuipaoke",
-                        "form": "default",
+                        "form": "本来的样子",
                         "localized": {
                             "zh": {
                                 "name": "水泡壳"
@@ -1276,7 +1276,7 @@
                         "id": 3518,
                         "species_id": 14,
                         "name": "shuipaoke_tuipi",
-                        "form": "蜕皮形态",
+                        "form": "蜕皮时的样子",
                         "localized": {
                             "zh": {
                                 "name": "水泡壳"

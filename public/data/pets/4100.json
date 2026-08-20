@@ -1,7 +1,7 @@
 {
     "id": 4100,
     "name": "xueyingwawa_shouling",
-    "form": "default",
+    "form": "首领形态",
     "main_type": {
         "id": 7,
         "name": "Ice",
@@ -1219,7 +1219,7 @@
                         "id": 4100,
                         "species_id": 4100,
                         "name": "xueyingwawa_shouling",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "古齿帝牙"
@@ -1253,7 +1253,7 @@
                         "id": 4100,
                         "species_id": 4100,
                         "name": "xueyingwawa_shouling",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "古齿帝牙"

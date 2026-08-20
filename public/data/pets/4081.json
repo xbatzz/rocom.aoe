@@ -1,7 +1,7 @@
 {
     "id": 4081,
     "name": "4081",
-    "form": "default",
+    "form": "首领形态",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -1175,7 +1175,7 @@
                         "id": 4081,
                         "species_id": 4081,
                         "name": "4081",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "首领-獠牙猪"
@@ -1209,7 +1209,7 @@
                         "id": 4081,
                         "species_id": 4081,
                         "name": "4081",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "首领-獠牙猪"

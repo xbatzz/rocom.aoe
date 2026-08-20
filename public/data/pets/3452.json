@@ -1,7 +1,7 @@
 {
     "id": 3452,
     "name": "yajiji_jijiya",
-    "form": "default",
+    "form": "急急急鸭",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -1191,7 +1191,7 @@
                         "id": 3012,
                         "species_id": 11,
                         "name": "yajiji",
-                        "form": "default",
+                        "form": "蓬松的样子",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉"
@@ -1212,7 +1212,7 @@
                         "id": 3036,
                         "species_id": 11,
                         "name": "yaji",
-                        "form": "default",
+                        "form": "紧实的样子",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉"
@@ -1233,7 +1233,7 @@
                         "id": 3452,
                         "species_id": 11,
                         "name": "yajiji_jijiya",
-                        "form": "default",
+                        "form": "急急急鸭",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉"
@@ -1254,7 +1254,7 @@
                         "id": 3453,
                         "species_id": 11,
                         "name": "dengyidengya",
-                        "form": "default",
+                        "form": "等一等鸭",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉"
@@ -1275,7 +1275,7 @@
                         "id": 3495,
                         "species_id": 11,
                         "name": "yajiji_ranleya",
-                        "form": "default",
+                        "form": "燃了鸭",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉"
@@ -1296,7 +1296,7 @@
                         "id": 3742,
                         "species_id": 11,
                         "name": "yajiji_qilaiya",
-                        "form": "default",
+                        "form": "起来鸭",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉"
@@ -1324,7 +1324,7 @@
                         "id": 4012,
                         "species_id": 11,
                         "name": "yajiji_shouling",
-                        "form": "国王",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "鸭吉吉国王"

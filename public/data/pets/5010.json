@@ -1239,7 +1239,7 @@
                         "id": 4005,
                         "species_id": 10,
                         "name": "shuiling_shouling",
-                        "form": "圣水守护",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "圣水守护"
@@ -1281,7 +1281,7 @@
                         "id": 8101,
                         "species_id": 10,
                         "name": "shuiling_shouling",
-                        "form": "圣水守护",
+                        "form": "草系徽章-首领形态",
                         "localized": {
                             "zh": {
                                 "name": "圣水守护"

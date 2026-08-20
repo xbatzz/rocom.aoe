@@ -1,7 +1,7 @@
 {
     "id": 3727,
     "name": "chiyanshi",
-    "form": "default",
+    "form": "悲鸣的样子",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -93,7 +93,7 @@
                         "id": 3726,
                         "species_id": 3726,
                         "name": "xiaoyongshi",
-                        "form": "default",
+                        "form": "悲鸣的样子",
                         "localized": {
                             "zh": {
                                 "name": "小勇狮"
@@ -149,7 +149,7 @@
                         "id": 3727,
                         "species_id": 3727,
                         "name": "chiyanshi",
-                        "form": "default",
+                        "form": "悲鸣的样子",
                         "localized": {
                             "zh": {
                                 "name": "炽焰狮"
@@ -184,7 +184,7 @@
                         "id": 3728,
                         "species_id": 3728,
                         "name": "chixinyongshi",
-                        "form": "default",
+                        "form": "悲鸣的样子",
                         "localized": {
                             "zh": {
                                 "name": "炽心勇狮"

@@ -1,7 +1,7 @@
 {
     "id": 6001,
     "name": "yinsuquan_shouling",
-    "form": "default",
+    "form": "首领形态",
     "main_type": {
         "id": 3,
         "name": "Fire",
@@ -1125,7 +1125,7 @@
                         "id": 6001,
                         "species_id": 6001,
                         "name": "yinsuquan_shouling",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "小咪"
@@ -1153,7 +1153,7 @@
                         "id": 6001,
                         "species_id": 6001,
                         "name": "yinsuquan_shouling",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "小咪"

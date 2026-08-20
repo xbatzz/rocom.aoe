@@ -1,7 +1,7 @@
 {
     "id": 6012,
     "name": "6012",
-    "form": "中级",
+    "form": "首领形态",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -1169,7 +1169,7 @@
                         "id": 6012,
                         "species_id": 6012,
                         "name": "6012",
-                        "form": "中级",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "朵蕾丝（中级）"
@@ -1197,7 +1197,7 @@
                         "id": 6012,
                         "species_id": 6012,
                         "name": "6012",
-                        "form": "中级",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "朵蕾丝（中级）"

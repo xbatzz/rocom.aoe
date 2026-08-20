@@ -1,7 +1,7 @@
 {
     "id": 4071,
     "name": "4071",
-    "form": "default",
+    "form": "首领形态",
     "main_type": {
         "id": 2,
         "name": "Grass",
@@ -1329,7 +1329,7 @@
                         "id": 4071,
                         "species_id": 4071,
                         "name": "4071",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "首领-蒲公英"
@@ -1363,7 +1363,7 @@
                         "id": 4071,
                         "species_id": 4071,
                         "name": "4071",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "首领-蒲公英"

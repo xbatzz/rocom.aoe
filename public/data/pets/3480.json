@@ -1,7 +1,7 @@
 {
     "id": 3480,
     "name": "shengyuyiwang",
-    "form": "default",
+    "form": "被噩梦侵蚀的样子",
     "main_type": {
         "id": 13,
         "name": "Flying",
@@ -1279,7 +1279,7 @@
                         "id": 3480,
                         "species_id": 3480,
                         "name": "shengyuyiwang",
-                        "form": "default",
+                        "form": "被噩梦侵蚀的样子",
                         "localized": {
                             "zh": {
                                 "name": "圣羽翼王"

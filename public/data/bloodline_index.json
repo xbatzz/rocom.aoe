@@ -1933,7 +1933,7 @@
     {
         "pet_id": 3012,
         "pet_name": "鸭吉吉",
-        "form": "default",
+        "form": "蓬松的样子",
         "implemented": true,
         "main_type_id": 1,
         "sub_type_id": null,
@@ -2893,7 +2893,7 @@
     {
         "pet_id": 3017,
         "pet_name": "蹦蹦种子",
-        "form": "default",
+        "form": "海神球形态",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 10,
@@ -3085,7 +3085,7 @@
     {
         "pet_id": 3018,
         "pet_name": "蹦蹦草",
-        "form": "default",
+        "form": "海神球形态",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 10,
@@ -3277,7 +3277,7 @@
     {
         "pet_id": 3019,
         "pet_name": "蹦蹦花",
-        "form": "default",
+        "form": "海神球形态",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 10,
@@ -3469,7 +3469,7 @@
     {
         "pet_id": 3020,
         "pet_name": "地鼠",
-        "form": "default",
+        "form": "枯水期的样子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -3661,7 +3661,7 @@
     {
         "pet_id": 3021,
         "pet_name": "遁鼠",
-        "form": "default",
+        "form": "枯水期的样子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -3853,7 +3853,7 @@
     {
         "pet_id": 3022,
         "pet_name": "遁地鼠",
-        "form": "default",
+        "form": "枯水期的样子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -4643,7 +4643,7 @@
     {
         "pet_id": 3028,
         "pet_name": "冬羽雀",
-        "form": "default",
+        "form": "本来的样子",
         "implemented": true,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -6179,7 +6179,7 @@
     {
         "pet_id": 3036,
         "pet_name": "鸭吉吉",
-        "form": "default",
+        "form": "紧实的样子",
         "implemented": true,
         "main_type_id": 1,
         "sub_type_id": null,
@@ -6371,7 +6371,7 @@
     {
         "pet_id": 3037,
         "pet_name": "岚鸟",
-        "form": "default",
+        "form": "本来的样子",
         "implemented": true,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -6947,7 +6947,7 @@
     {
         "pet_id": 3040,
         "pet_name": "丢丢",
-        "form": "default",
+        "form": "草地附近的样子",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": null,
@@ -7139,7 +7139,7 @@
     {
         "pet_id": 3041,
         "pet_name": "卡卡虫",
-        "form": "default",
+        "form": "草地附近的样子",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": null,
@@ -7331,7 +7331,7 @@
     {
         "pet_id": 3042,
         "pet_name": "卡瓦重",
-        "form": "default",
+        "form": "草地附近的样子",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": null,
@@ -9284,7 +9284,7 @@
     {
         "pet_id": 3055,
         "pet_name": "板板壳",
-        "form": "default",
+        "form": "本来的样子",
         "implemented": true,
         "main_type_id": 4,
         "sub_type_id": null,
@@ -9476,7 +9476,7 @@
     {
         "pet_id": 3056,
         "pet_name": "咔咔壳",
-        "form": "default",
+        "form": "本来的样子",
         "implemented": true,
         "main_type_id": 4,
         "sub_type_id": null,
@@ -9668,7 +9668,7 @@
     {
         "pet_id": 3057,
         "pet_name": "水泡壳",
-        "form": "default",
+        "form": "本来的样子",
         "implemented": true,
         "main_type_id": 4,
         "sub_type_id": null,
@@ -10436,7 +10436,7 @@
     {
         "pet_id": 3061,
         "pet_name": "暗影灵面",
-        "form": "default",
+        "form": "睁眼的样子",
         "implemented": true,
         "main_type_id": 15,
         "sub_type_id": null,
@@ -18511,7 +18511,7 @@
     {
         "pet_id": 3106,
         "pet_name": "石肤蜥",
-        "form": "default",
+        "form": "本来的样子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -18703,7 +18703,7 @@
     {
         "pet_id": 3107,
         "pet_name": "石刺蜥",
-        "form": "default",
+        "form": "本来的样子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -18895,7 +18895,7 @@
     {
         "pet_id": 3108,
         "pet_name": "石冠王蜥",
-        "form": "default",
+        "form": "本来的样子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -22543,7 +22543,7 @@
     {
         "pet_id": 3127,
         "pet_name": "小狮鹫",
-        "form": "default",
+        "form": "崖间地的样子",
         "implemented": true,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -22735,7 +22735,7 @@
     {
         "pet_id": 3128,
         "pet_name": "神圣狮鹫",
-        "form": "default",
+        "form": "崖间地的样子",
         "implemented": true,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -22927,7 +22927,7 @@
     {
         "pet_id": 3129,
         "pet_name": "皇家狮鹫",
-        "form": "default",
+        "form": "崖间地的样子",
         "implemented": true,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -24112,7 +24112,7 @@
     {
         "pet_id": 3138,
         "pet_name": "化蝶",
-        "form": "default",
+        "form": "平常的样子",
         "implemented": true,
         "main_type_id": 11,
         "sub_type_id": 14,
@@ -33564,7 +33564,7 @@
     {
         "pet_id": 3193,
         "pet_name": "小星光",
-        "form": "default",
+        "form": "星光能量的样子",
         "implemented": true,
         "main_type_id": 9,
         "sub_type_id": null,
@@ -33756,7 +33756,7 @@
     {
         "pet_id": 3194,
         "pet_name": "星光狮",
-        "form": "default",
+        "form": "星光能量的样子",
         "implemented": true,
         "main_type_id": 9,
         "sub_type_id": null,
@@ -39730,7 +39730,7 @@
     {
         "pet_id": 3233,
         "pet_name": "黑化加尔",
-        "form": "default",
+        "form": "黑化的样子",
         "implemented": true,
         "main_type_id": 1,
         "sub_type_id": 15,
@@ -45770,7 +45770,7 @@
     {
         "pet_id": 3279,
         "pet_name": "雪绒鸟",
-        "form": "default",
+        "form": "春天的样子",
         "implemented": true,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -45962,7 +45962,7 @@
     {
         "pet_id": 3280,
         "pet_name": "雪绒鸟",
-        "form": "default",
+        "form": "夏天的样子",
         "implemented": true,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -46154,7 +46154,7 @@
     {
         "pet_id": 3281,
         "pet_name": "雪绒鸟",
-        "form": "秋日形态",
+        "form": "秋天的样子",
         "implemented": true,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -46346,7 +46346,7 @@
     {
         "pet_id": 3282,
         "pet_name": "冬羽雀",
-        "form": "default",
+        "form": "春天的样子",
         "implemented": true,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -46538,7 +46538,7 @@
     {
         "pet_id": 3283,
         "pet_name": "冬羽雀",
-        "form": "default",
+        "form": "夏天的样子",
         "implemented": true,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -46730,7 +46730,7 @@
     {
         "pet_id": 3284,
         "pet_name": "冬羽雀",
-        "form": "秋日形态",
+        "form": "秋天的样子",
         "implemented": true,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -46922,7 +46922,7 @@
     {
         "pet_id": 3285,
         "pet_name": "岚鸟",
-        "form": "default",
+        "form": "春天的样子",
         "implemented": true,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -47114,7 +47114,7 @@
     {
         "pet_id": 3286,
         "pet_name": "岚鸟",
-        "form": "default",
+        "form": "夏天的样子",
         "implemented": true,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -47306,7 +47306,7 @@
     {
         "pet_id": 3287,
         "pet_name": "岚鸟",
-        "form": "秋日形态",
+        "form": "秋天的样子",
         "implemented": true,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -47498,7 +47498,7 @@
     {
         "pet_id": 3288,
         "pet_name": "丢丢",
-        "form": "火山形态",
+        "form": "火山附近的样子",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 3,
@@ -47690,7 +47690,7 @@
     {
         "pet_id": 3289,
         "pet_name": "丢丢",
-        "form": "default",
+        "form": "沙地附近的样子",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 6,
@@ -47882,7 +47882,7 @@
     {
         "pet_id": 3290,
         "pet_name": "丢丢",
-        "form": "雪山形态",
+        "form": "雪山附近的样子",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 7,
@@ -48074,7 +48074,7 @@
     {
         "pet_id": 3291,
         "pet_name": "卡卡虫",
-        "form": "火山形态",
+        "form": "火山附近的样子",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 3,
@@ -48266,7 +48266,7 @@
     {
         "pet_id": 3292,
         "pet_name": "卡卡虫",
-        "form": "default",
+        "form": "沙地附近的样子",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 6,
@@ -48458,7 +48458,7 @@
     {
         "pet_id": 3293,
         "pet_name": "卡卡虫",
-        "form": "雪山形态",
+        "form": "雪山附近的样子",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 7,
@@ -48650,7 +48650,7 @@
     {
         "pet_id": 3294,
         "pet_name": "卡瓦重",
-        "form": "火山形态",
+        "form": "火山附近的样子",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 3,
@@ -48842,7 +48842,7 @@
     {
         "pet_id": 3295,
         "pet_name": "卡瓦重",
-        "form": "default",
+        "form": "沙地附近的样子",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 6,
@@ -49034,7 +49034,7 @@
     {
         "pet_id": 3296,
         "pet_name": "卡瓦重",
-        "form": "雪山形态",
+        "form": "雪山附近的样子",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 7,
@@ -49226,7 +49226,7 @@
     {
         "pet_id": 3297,
         "pet_name": "蹦蹦种子",
-        "form": "default",
+        "form": "彩玉球形态",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 10,
@@ -49418,7 +49418,7 @@
     {
         "pet_id": 3298,
         "pet_name": "蹦蹦种子",
-        "form": "default",
+        "form": "短毛球形态",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 10,
@@ -49610,7 +49610,7 @@
     {
         "pet_id": 3299,
         "pet_name": "蹦蹦种子",
-        "form": "default",
+        "form": "象牙球形态",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 10,
@@ -49802,7 +49802,7 @@
     {
         "pet_id": 3300,
         "pet_name": "蹦蹦草",
-        "form": "default",
+        "form": "彩玉球形态",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 10,
@@ -49994,7 +49994,7 @@
     {
         "pet_id": 3301,
         "pet_name": "蹦蹦草",
-        "form": "default",
+        "form": "短毛球形态",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 10,
@@ -50186,7 +50186,7 @@
     {
         "pet_id": 3302,
         "pet_name": "蹦蹦草",
-        "form": "default",
+        "form": "象牙球形态",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 10,
@@ -50378,7 +50378,7 @@
     {
         "pet_id": 3303,
         "pet_name": "蹦蹦花",
-        "form": "default",
+        "form": "彩玉球形态",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 10,
@@ -50570,7 +50570,7 @@
     {
         "pet_id": 3304,
         "pet_name": "蹦蹦花",
-        "form": "default",
+        "form": "短毛球形态",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 10,
@@ -50762,7 +50762,7 @@
     {
         "pet_id": 3305,
         "pet_name": "蹦蹦花",
-        "form": "default",
+        "form": "象牙球形态",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 10,
@@ -51146,7 +51146,7 @@
     {
         "pet_id": 3308,
         "pet_name": "晶石蜗",
-        "form": "default",
+        "form": "西瓜碧玺的样子",
         "implemented": true,
         "main_type_id": 5,
         "sub_type_id": 6,
@@ -53516,7 +53516,7 @@
     {
         "pet_id": 3330,
         "pet_name": "海盔虫",
-        "form": "default",
+        "form": "本来的样子",
         "implemented": true,
         "main_type_id": 4,
         "sub_type_id": 10,
@@ -53708,7 +53708,7 @@
     {
         "pet_id": 3331,
         "pet_name": "刺盔虫",
-        "form": "default",
+        "form": "本来的样子",
         "implemented": true,
         "main_type_id": 4,
         "sub_type_id": 10,
@@ -53900,7 +53900,7 @@
     {
         "pet_id": 3332,
         "pet_name": "千棘盔",
-        "form": "default",
+        "form": "本来的样子",
         "implemented": true,
         "main_type_id": 4,
         "sub_type_id": 10,
@@ -60165,7 +60165,7 @@
     {
         "pet_id": 3376,
         "pet_name": "旋叶虫",
-        "form": "default",
+        "form": "金黄的样子",
         "implemented": true,
         "main_type_id": 1,
         "sub_type_id": 11,
@@ -60357,7 +60357,7 @@
     {
         "pet_id": 3377,
         "pet_name": "风滚暮虫",
-        "form": "default",
+        "form": "金黄的样子",
         "implemented": true,
         "main_type_id": 1,
         "sub_type_id": 11,
@@ -64614,7 +64614,7 @@
     {
         "pet_id": 3405,
         "pet_name": "幽冥眼",
-        "form": "default",
+        "form": "睁眼的样子",
         "implemented": true,
         "main_type_id": 15,
         "sub_type_id": null,
@@ -67209,7 +67209,7 @@
     {
         "pet_id": 3430,
         "pet_name": "海枝枝",
-        "form": "default",
+        "form": "碧蓝珊瑚",
         "implemented": true,
         "main_type_id": 4,
         "sub_type_id": 15,
@@ -67401,7 +67401,7 @@
     {
         "pet_id": 3431,
         "pet_name": "海枝枝",
-        "form": "default",
+        "form": "杏黄百合",
         "implemented": true,
         "main_type_id": 4,
         "sub_type_id": 15,
@@ -67593,7 +67593,7 @@
     {
         "pet_id": 3432,
         "pet_name": "海枝枝",
-        "form": "default",
+        "form": "洋红沙丁",
         "implemented": true,
         "main_type_id": 4,
         "sub_type_id": 15,
@@ -67785,7 +67785,7 @@
     {
         "pet_id": 3433,
         "pet_name": "海枝枝",
-        "form": "default",
+        "form": "翠绿纶布",
         "implemented": true,
         "main_type_id": 4,
         "sub_type_id": 15,
@@ -68745,7 +68745,7 @@
     {
         "pet_id": 3438,
         "pet_name": "梦游",
-        "form": "default",
+        "form": "穿旧睡衣的样子",
         "implemented": true,
         "main_type_id": 15,
         "sub_type_id": null,
@@ -68937,7 +68937,7 @@
     {
         "pet_id": 3439,
         "pet_name": "梦悠悠",
-        "form": "default",
+        "form": "穿旧睡衣的样子",
         "implemented": true,
         "main_type_id": 15,
         "sub_type_id": null,
@@ -69129,7 +69129,7 @@
     {
         "pet_id": 3440,
         "pet_name": "梦游",
-        "form": "粉色形态",
+        "form": "穿星星睡衣的样子",
         "implemented": true,
         "main_type_id": 5,
         "sub_type_id": 15,
@@ -69321,7 +69321,7 @@
     {
         "pet_id": 3441,
         "pet_name": "梦悠悠",
-        "form": "粉色形态",
+        "form": "穿星星睡衣的样子",
         "implemented": true,
         "main_type_id": 5,
         "sub_type_id": 15,
@@ -69513,7 +69513,7 @@
     {
         "pet_id": 3442,
         "pet_name": "小星光",
-        "form": "月光形态",
+        "form": "月光能量的样子",
         "implemented": true,
         "main_type_id": 5,
         "sub_type_id": 9,
@@ -69705,7 +69705,7 @@
     {
         "pet_id": 3443,
         "pet_name": "星光狮",
-        "form": "月光形态",
+        "form": "月光能量的样子",
         "implemented": true,
         "main_type_id": 5,
         "sub_type_id": 9,
@@ -70089,7 +70089,7 @@
     {
         "pet_id": 3445,
         "pet_name": "雪毛角羚牛",
-        "form": "default",
+        "form": "本来的样子",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": 7,
@@ -70100,7 +70100,7 @@
     {
         "pet_id": 3446,
         "pet_name": "雪毛角羚牛",
-        "form": "default",
+        "form": "卷角的样子",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": 7,
@@ -70111,7 +70111,7 @@
     {
         "pet_id": 3447,
         "pet_name": "雪毛角羚牛",
-        "form": "default",
+        "form": "换角时的样子",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": 7,
@@ -70122,7 +70122,7 @@
     {
         "pet_id": 3448,
         "pet_name": "晶石蜗",
-        "form": "异地形态",
+        "form": "莲花刚玉的样子",
         "implemented": true,
         "main_type_id": 5,
         "sub_type_id": 6,
@@ -70314,7 +70314,7 @@
     {
         "pet_id": 3449,
         "pet_name": "晶石蜗",
-        "form": "异地形态",
+        "form": "星彩榴石的样子",
         "implemented": true,
         "main_type_id": 5,
         "sub_type_id": 6,
@@ -70506,7 +70506,7 @@
     {
         "pet_id": 3450,
         "pet_name": "晶石蜗",
-        "form": "异地形态",
+        "form": "火山琉璃的样子",
         "implemented": true,
         "main_type_id": 5,
         "sub_type_id": 6,
@@ -70698,7 +70698,7 @@
     {
         "pet_id": 3451,
         "pet_name": "晶石蜗",
-        "form": "异地形态",
+        "form": "蓝锥矿的样子",
         "implemented": true,
         "main_type_id": 5,
         "sub_type_id": 6,
@@ -70890,7 +70890,7 @@
     {
         "pet_id": 3452,
         "pet_name": "鸭吉吉",
-        "form": "default",
+        "form": "急急急鸭",
         "implemented": true,
         "main_type_id": 1,
         "sub_type_id": null,
@@ -71082,7 +71082,7 @@
     {
         "pet_id": 3453,
         "pet_name": "鸭吉吉",
-        "form": "default",
+        "form": "等一等鸭",
         "implemented": true,
         "main_type_id": 1,
         "sub_type_id": null,
@@ -71274,7 +71274,7 @@
     {
         "pet_id": 3454,
         "pet_name": "地鼠",
-        "form": "蓄水形态",
+        "form": "储水时的样子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -71466,7 +71466,7 @@
     {
         "pet_id": 3455,
         "pet_name": "遁鼠",
-        "form": "蓄水形态",
+        "form": "储水时的样子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -71658,7 +71658,7 @@
     {
         "pet_id": 3456,
         "pet_name": "遁地鼠",
-        "form": "蓄水形态",
+        "form": "储水时的样子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -72042,7 +72042,7 @@
     {
         "pet_id": 3458,
         "pet_name": "圣代甜甜",
-        "form": "default",
+        "form": "樱桃草莓口味",
         "implemented": true,
         "main_type_id": 7,
         "sub_type_id": null,
@@ -72234,7 +72234,7 @@
     {
         "pet_id": 3459,
         "pet_name": "圣代甜甜",
-        "form": "default",
+        "form": "樱桃抹茶口味",
         "implemented": true,
         "main_type_id": 7,
         "sub_type_id": null,
@@ -72426,7 +72426,7 @@
     {
         "pet_id": 3460,
         "pet_name": "圣代甜甜",
-        "form": "default",
+        "form": "蓝莓巧克力口味",
         "implemented": true,
         "main_type_id": 7,
         "sub_type_id": null,
@@ -72618,7 +72618,7 @@
     {
         "pet_id": 3461,
         "pet_name": "圣代甜甜",
-        "form": "default",
+        "form": "蓝莓草莓口味",
         "implemented": true,
         "main_type_id": 7,
         "sub_type_id": null,
@@ -72810,7 +72810,7 @@
     {
         "pet_id": 3462,
         "pet_name": "圣代甜甜",
-        "form": "default",
+        "form": "蓝莓抹茶口味",
         "implemented": true,
         "main_type_id": 7,
         "sub_type_id": null,
@@ -73002,7 +73002,7 @@
     {
         "pet_id": 3463,
         "pet_name": "圣代甜甜",
-        "form": "default",
+        "form": "杨桃巧克力口味",
         "implemented": true,
         "main_type_id": 7,
         "sub_type_id": null,
@@ -73194,7 +73194,7 @@
     {
         "pet_id": 3464,
         "pet_name": "圣代甜甜",
-        "form": "default",
+        "form": "杨桃草莓口味",
         "implemented": true,
         "main_type_id": 7,
         "sub_type_id": null,
@@ -73386,7 +73386,7 @@
     {
         "pet_id": 3465,
         "pet_name": "圣代甜甜",
-        "form": "default",
+        "form": "杨桃抹茶口味",
         "implemented": true,
         "main_type_id": 7,
         "sub_type_id": null,
@@ -73770,7 +73770,7 @@
     {
         "pet_id": 3467,
         "pet_name": "小狮鹫",
-        "form": "高山形态",
+        "form": "高山地的样子",
         "implemented": true,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -73962,7 +73962,7 @@
     {
         "pet_id": 3468,
         "pet_name": "神圣狮鹫",
-        "form": "高山形态",
+        "form": "高山地的样子",
         "implemented": true,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -74154,7 +74154,7 @@
     {
         "pet_id": 3469,
         "pet_name": "皇家狮鹫",
-        "form": "高山形态",
+        "form": "高山地的样子",
         "implemented": true,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -74346,7 +74346,7 @@
     {
         "pet_id": 3470,
         "pet_name": "化蝶",
-        "form": "default",
+        "form": "幽冥眼的样子",
         "implemented": true,
         "main_type_id": 11,
         "sub_type_id": 14,
@@ -74538,7 +74538,7 @@
     {
         "pet_id": 3471,
         "pet_name": "化蝶",
-        "form": "default",
+        "form": "喵喵的样子",
         "implemented": true,
         "main_type_id": 11,
         "sub_type_id": 14,
@@ -74730,7 +74730,7 @@
     {
         "pet_id": 3472,
         "pet_name": "化蝶",
-        "form": "default",
+        "form": "奇丽花的样子",
         "implemented": true,
         "main_type_id": 11,
         "sub_type_id": 14,
@@ -75306,7 +75306,7 @@
     {
         "pet_id": 3475,
         "pet_name": "海盔虫",
-        "form": "异地形态",
+        "form": "磨损的样子",
         "implemented": true,
         "main_type_id": 4,
         "sub_type_id": 10,
@@ -75498,7 +75498,7 @@
     {
         "pet_id": 3476,
         "pet_name": "刺盔虫",
-        "form": "异地形态",
+        "form": "磨损的样子",
         "implemented": true,
         "main_type_id": 4,
         "sub_type_id": 10,
@@ -75690,7 +75690,7 @@
     {
         "pet_id": 3477,
         "pet_name": "千棘盔",
-        "form": "异地形态",
+        "form": "磨损的样子",
         "implemented": true,
         "main_type_id": 4,
         "sub_type_id": 10,
@@ -75882,7 +75882,7 @@
     {
         "pet_id": 3478,
         "pet_name": "香草甜甜",
-        "form": "default",
+        "form": "杨桃饰品",
         "implemented": true,
         "main_type_id": 7,
         "sub_type_id": null,
@@ -76074,7 +76074,7 @@
     {
         "pet_id": 3479,
         "pet_name": "香草甜甜",
-        "form": "default",
+        "form": "蓝莓饰品",
         "implemented": true,
         "main_type_id": 7,
         "sub_type_id": null,
@@ -76266,7 +76266,7 @@
     {
         "pet_id": 3480,
         "pet_name": "圣羽翼王",
-        "form": "default",
+        "form": "被噩梦侵蚀的样子",
         "implemented": false,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -76458,7 +76458,7 @@
     {
         "pet_id": 3481,
         "pet_name": "暗影灵面",
-        "form": "default",
+        "form": "闭眼的样子",
         "implemented": true,
         "main_type_id": 15,
         "sub_type_id": null,
@@ -76650,7 +76650,7 @@
     {
         "pet_id": 3482,
         "pet_name": "幽冥眼",
-        "form": "default",
+        "form": "闭眼的样子",
         "implemented": true,
         "main_type_id": 15,
         "sub_type_id": null,
@@ -76842,7 +76842,7 @@
     {
         "pet_id": 3483,
         "pet_name": "蓬叶虫",
-        "form": "default",
+        "form": "金黄的样子",
         "implemented": true,
         "main_type_id": 1,
         "sub_type_id": 11,
@@ -77418,7 +77418,7 @@
     {
         "pet_id": 3486,
         "pet_name": "晶石蜗",
-        "form": "异地形态",
+        "form": "烧蓝黄金的样子",
         "implemented": true,
         "main_type_id": 5,
         "sub_type_id": 6,
@@ -78784,7 +78784,7 @@
     {
         "pet_id": 3495,
         "pet_name": "鸭吉吉",
-        "form": "default",
+        "form": "燃了鸭",
         "implemented": true,
         "main_type_id": 1,
         "sub_type_id": null,
@@ -78976,7 +78976,7 @@
     {
         "pet_id": 3496,
         "pet_name": "旋叶虫",
-        "form": "异地形态",
+        "form": "枯叶的样子",
         "implemented": true,
         "main_type_id": 1,
         "sub_type_id": 11,
@@ -79168,7 +79168,7 @@
     {
         "pet_id": 3497,
         "pet_name": "蓬叶虫",
-        "form": "异地形态",
+        "form": "枯叶的样子",
         "implemented": true,
         "main_type_id": 1,
         "sub_type_id": 11,
@@ -79360,7 +79360,7 @@
     {
         "pet_id": 3498,
         "pet_name": "风滚暮虫",
-        "form": "异地形态",
+        "form": "枯叶的样子",
         "implemented": true,
         "main_type_id": 1,
         "sub_type_id": 11,
@@ -79744,7 +79744,7 @@
     {
         "pet_id": 3500,
         "pet_name": "石肤蜥",
-        "form": "异地形态",
+        "form": "球球尾巴的样子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -79936,7 +79936,7 @@
     {
         "pet_id": 3501,
         "pet_name": "石刺蜥",
-        "form": "异地形态",
+        "form": "球球尾巴的样子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -80128,7 +80128,7 @@
     {
         "pet_id": 3502,
         "pet_name": "石冠王蜥",
-        "form": "异地形态",
+        "form": "球球尾巴的样子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -81313,7 +81313,7 @@
     {
         "pet_id": 3511,
         "pet_name": "波波螺",
-        "form": "异地形态",
+        "form": "被污染的样子",
         "implemented": true,
         "main_type_id": 4,
         "sub_type_id": 6,
@@ -81505,7 +81505,7 @@
     {
         "pet_id": 3512,
         "pet_name": "消波螺",
-        "form": "异地形态",
+        "form": "被污染的样子",
         "implemented": true,
         "main_type_id": 4,
         "sub_type_id": 6,
@@ -81697,7 +81697,7 @@
     {
         "pet_id": 3513,
         "pet_name": "嗜波螺",
-        "form": "异地形态",
+        "form": "被污染的样子",
         "implemented": true,
         "main_type_id": 4,
         "sub_type_id": 6,
@@ -82273,7 +82273,7 @@
     {
         "pet_id": 3516,
         "pet_name": "板板壳",
-        "form": "蜕皮形态",
+        "form": "蜕皮时的样子",
         "implemented": true,
         "main_type_id": 4,
         "sub_type_id": null,
@@ -82465,7 +82465,7 @@
     {
         "pet_id": 3517,
         "pet_name": "咔咔壳",
-        "form": "蜕皮形态",
+        "form": "蜕皮时的样子",
         "implemented": true,
         "main_type_id": 4,
         "sub_type_id": null,
@@ -82657,7 +82657,7 @@
     {
         "pet_id": 3518,
         "pet_name": "水泡壳",
-        "form": "蜕皮形态",
+        "form": "蜕皮时的样子",
         "implemented": true,
         "main_type_id": 4,
         "sub_type_id": null,
@@ -83458,7 +83458,7 @@
     {
         "pet_id": 3525,
         "pet_name": "阿瓦鲨",
-        "form": "default",
+        "form": "虎纹的样子",
         "implemented": false,
         "main_type_id": 4,
         "sub_type_id": null,
@@ -84813,7 +84813,7 @@
     {
         "pet_id": 3533,
         "pet_name": "雪绒鸟",
-        "form": "default",
+        "form": "本来的样子",
         "implemented": true,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -85389,7 +85389,7 @@
     {
         "pet_id": 3536,
         "pet_name": "乌达",
-        "form": "default",
+        "form": "极昼的样子",
         "implemented": true,
         "main_type_id": 3,
         "sub_type_id": 16,
@@ -85581,7 +85581,7 @@
     {
         "pet_id": 3537,
         "pet_name": "迷你乌",
-        "form": "default",
+        "form": "极昼的样子",
         "implemented": true,
         "main_type_id": 3,
         "sub_type_id": 16,
@@ -85773,7 +85773,7 @@
     {
         "pet_id": 3538,
         "pet_name": "乌拉塔",
-        "form": "default",
+        "form": "极昼的样子",
         "implemented": true,
         "main_type_id": 3,
         "sub_type_id": 16,
@@ -85965,7 +85965,7 @@
     {
         "pet_id": 3539,
         "pet_name": "乌达",
-        "form": "异地形态",
+        "form": "极夜的样子",
         "implemented": true,
         "main_type_id": 7,
         "sub_type_id": 16,
@@ -86157,7 +86157,7 @@
     {
         "pet_id": 3540,
         "pet_name": "迷你乌",
-        "form": "异地形态",
+        "form": "极夜的样子",
         "implemented": true,
         "main_type_id": 7,
         "sub_type_id": 16,
@@ -86349,7 +86349,7 @@
     {
         "pet_id": 3541,
         "pet_name": "乌拉塔",
-        "form": "异地形态",
+        "form": "极夜的样子",
         "implemented": true,
         "main_type_id": 7,
         "sub_type_id": 16,
@@ -87534,7 +87534,7 @@
     {
         "pet_id": 3550,
         "pet_name": "棋棋",
-        "form": "default",
+        "form": "白子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": 12,
@@ -87726,7 +87726,7 @@
     {
         "pet_id": 3551,
         "pet_name": "棋骑士",
-        "form": "default",
+        "form": "白子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": 12,
@@ -87918,7 +87918,7 @@
     {
         "pet_id": 3552,
         "pet_name": "棋绮后",
-        "form": "default",
+        "form": "白子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": 12,
@@ -88110,7 +88110,7 @@
     {
         "pet_id": 3553,
         "pet_name": "棋齐垒",
-        "form": "default",
+        "form": "白子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": 12,
@@ -88302,7 +88302,7 @@
     {
         "pet_id": 3554,
         "pet_name": "棋祈督",
-        "form": "default",
+        "form": "白子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": 12,
@@ -88494,7 +88494,7 @@
     {
         "pet_id": 3555,
         "pet_name": "棋棋",
-        "form": "异地形态",
+        "form": "黑子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": 12,
@@ -88686,7 +88686,7 @@
     {
         "pet_id": 3556,
         "pet_name": "棋骑士",
-        "form": "异地形态",
+        "form": "黑子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": 12,
@@ -88878,7 +88878,7 @@
     {
         "pet_id": 3557,
         "pet_name": "棋绮后",
-        "form": "异地形态",
+        "form": "黑子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": 12,
@@ -89070,7 +89070,7 @@
     {
         "pet_id": 3558,
         "pet_name": "棋齐垒",
-        "form": "异地形态",
+        "form": "黑子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": 12,
@@ -89262,7 +89262,7 @@
     {
         "pet_id": 3559,
         "pet_name": "棋祈督",
-        "form": "异地形态",
+        "form": "黑子",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": 12,
@@ -91687,7 +91687,7 @@
     {
         "pet_id": 3582,
         "pet_name": "刺轮砣",
-        "form": "异地形态",
+        "form": "上弦的样子",
         "implemented": true,
         "main_type_id": 10,
         "sub_type_id": 14,
@@ -91879,7 +91879,7 @@
     {
         "pet_id": 3583,
         "pet_name": "月亮砣",
-        "form": "异地形态",
+        "form": "上弦的样子",
         "implemented": true,
         "main_type_id": 10,
         "sub_type_id": 14,
@@ -92071,7 +92071,7 @@
     {
         "pet_id": 3584,
         "pet_name": "刺轮砣",
-        "form": "default",
+        "form": "下弦的样子",
         "implemented": true,
         "main_type_id": 10,
         "sub_type_id": 14,
@@ -92263,7 +92263,7 @@
     {
         "pet_id": 3585,
         "pet_name": "月亮砣",
-        "form": "default",
+        "form": "下弦的样子",
         "implemented": true,
         "main_type_id": 10,
         "sub_type_id": 14,
@@ -98632,7 +98632,7 @@
     {
         "pet_id": 3621,
         "pet_name": "古钟蛇",
-        "form": "异地形态",
+        "form": "本命年的样子",
         "implemented": false,
         "main_type_id": 10,
         "sub_type_id": 14,
@@ -98824,7 +98824,7 @@
     {
         "pet_id": 3622,
         "pet_name": "寒音蛇",
-        "form": "异地形态",
+        "form": "本命年的样子",
         "implemented": false,
         "main_type_id": 10,
         "sub_type_id": 14,
@@ -99093,7 +99093,7 @@
     {
         "pet_id": 3630,
         "pet_name": "地银链",
-        "form": "default",
+        "form": "单头的样子",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -99104,7 +99104,7 @@
     {
         "pet_id": 3631,
         "pet_name": "地银链",
-        "form": "default",
+        "form": "多头的样子",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -103703,7 +103703,7 @@
     {
         "pet_id": 3720,
         "pet_name": "松仔",
-        "form": "default",
+        "form": "悲鸣的样子",
         "implemented": false,
         "main_type_id": 2,
         "sub_type_id": 12,
@@ -103714,7 +103714,7 @@
     {
         "pet_id": 3721,
         "pet_name": "松叶羊",
-        "form": "default",
+        "form": "悲鸣的样子",
         "implemented": false,
         "main_type_id": 2,
         "sub_type_id": 12,
@@ -103725,7 +103725,7 @@
     {
         "pet_id": 3722,
         "pet_name": "针叶巡林",
-        "form": "default",
+        "form": "悲鸣的样子",
         "implemented": false,
         "main_type_id": 2,
         "sub_type_id": 12,
@@ -103736,7 +103736,7 @@
     {
         "pet_id": 3723,
         "pet_name": "水滴蛇",
-        "form": "default",
+        "form": "悲鸣的样子",
         "implemented": false,
         "main_type_id": 4,
         "sub_type_id": 12,
@@ -103747,7 +103747,7 @@
     {
         "pet_id": 3724,
         "pet_name": "水蛇锁",
-        "form": "default",
+        "form": "悲鸣的样子",
         "implemented": false,
         "main_type_id": 4,
         "sub_type_id": 12,
@@ -103758,7 +103758,7 @@
     {
         "pet_id": 3725,
         "pet_name": "游蛇魔使",
-        "form": "default",
+        "form": "悲鸣的样子",
         "implemented": false,
         "main_type_id": 4,
         "sub_type_id": 12,
@@ -103769,7 +103769,7 @@
     {
         "pet_id": 3726,
         "pet_name": "小勇狮",
-        "form": "default",
+        "form": "悲鸣的样子",
         "implemented": false,
         "main_type_id": 3,
         "sub_type_id": 12,
@@ -103780,7 +103780,7 @@
     {
         "pet_id": 3727,
         "pet_name": "炽焰狮",
-        "form": "default",
+        "form": "悲鸣的样子",
         "implemented": false,
         "main_type_id": 3,
         "sub_type_id": 12,
@@ -103791,7 +103791,7 @@
     {
         "pet_id": 3728,
         "pet_name": "炽心勇狮",
-        "form": "default",
+        "form": "悲鸣的样子",
         "implemented": false,
         "main_type_id": 3,
         "sub_type_id": 12,
@@ -105168,7 +105168,7 @@
     {
         "pet_id": 3738,
         "pet_name": "小怂猫",
-        "form": "异地形态",
+        "form": "山间竹林的样子",
         "implemented": false,
         "main_type_id": 12,
         "sub_type_id": null,
@@ -105360,7 +105360,7 @@
     {
         "pet_id": 3739,
         "pet_name": "怒目怂猫",
-        "form": "异地形态",
+        "form": "山间竹林的样子",
         "implemented": false,
         "main_type_id": 12,
         "sub_type_id": null,
@@ -105936,7 +105936,7 @@
     {
         "pet_id": 3742,
         "pet_name": "鸭吉吉",
-        "form": "default",
+        "form": "起来鸭",
         "implemented": true,
         "main_type_id": 1,
         "sub_type_id": null,
@@ -106128,7 +106128,7 @@
     {
         "pet_id": 3743,
         "pet_name": "加油蟹",
-        "form": "default",
+        "form": "单只海葵的样子",
         "implemented": true,
         "main_type_id": 4,
         "sub_type_id": 14,
@@ -112656,7 +112656,7 @@
     {
         "pet_id": 3777,
         "pet_name": "幽影树",
-        "form": "default",
+        "form": "突变的样子",
         "implemented": true,
         "main_type_id": 2,
         "sub_type_id": 15,
@@ -115728,7 +115728,7 @@
     {
         "pet_id": 4005,
         "pet_name": "圣水守护",
-        "form": "圣水守护",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 4,
         "sub_type_id": null,
@@ -115920,7 +115920,7 @@
     {
         "pet_id": 4006,
         "pet_name": "烈火战神",
-        "form": "烈火战神",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 3,
         "sub_type_id": null,
@@ -116112,7 +116112,7 @@
     {
         "pet_id": 4007,
         "pet_name": "叶冕魔力猫",
-        "form": "叶冕",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 2,
         "sub_type_id": null,
@@ -116304,7 +116304,7 @@
     {
         "pet_id": 4011,
         "pet_name": "恶魔狼王",
-        "form": "王",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 16,
         "sub_type_id": null,
@@ -116496,7 +116496,7 @@
     {
         "pet_id": 4012,
         "pet_name": "鸭吉吉国王",
-        "form": "国王",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 1,
         "sub_type_id": null,
@@ -116688,7 +116688,7 @@
     {
         "pet_id": 4019,
         "pet_name": "蹦蹦果",
-        "form": "蹦蹦果",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 2,
         "sub_type_id": 10,
@@ -116880,7 +116880,7 @@
     {
         "pet_id": 4020,
         "pet_name": "千棘海针",
-        "form": "千棘海针",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 4,
         "sub_type_id": 10,
@@ -117072,7 +117072,7 @@
     {
         "pet_id": 4021,
         "pet_name": "女王蜂",
-        "form": "女王蜂",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 11,
         "sub_type_id": 13,
@@ -117264,7 +117264,7 @@
     {
         "pet_id": 4022,
         "pet_name": "奇丽果",
-        "form": "奇丽果",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 2,
         "sub_type_id": null,
@@ -117456,7 +117456,7 @@
     {
         "pet_id": 4050,
         "pet_name": "首领-记忆石",
-        "form": "default",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -117648,7 +117648,7 @@
     {
         "pet_id": 4064,
         "pet_name": "幻影荆棘",
-        "form": "幻影荆棘",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 2,
         "sub_type_id": 15,
@@ -117840,7 +117840,7 @@
     {
         "pet_id": 4069,
         "pet_name": "首领-锤头鹳",
-        "form": "default",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 4,
         "sub_type_id": 13,
@@ -118032,7 +118032,7 @@
     {
         "pet_id": 4070,
         "pet_name": "首领-火羽",
-        "form": "default",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 3,
         "sub_type_id": 13,
@@ -118224,7 +118224,7 @@
     {
         "pet_id": 4071,
         "pet_name": "首领-蒲公英",
-        "form": "default",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 2,
         "sub_type_id": 14,
@@ -118416,7 +118416,7 @@
     {
         "pet_id": 4072,
         "pet_name": "迷嶂布莱克",
-        "form": "迷嶂布莱克",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -118608,7 +118608,7 @@
     {
         "pet_id": 4073,
         "pet_name": "神谕鲨",
-        "form": "神谕鲨",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 4,
         "sub_type_id": 13,
@@ -118800,7 +118800,7 @@
     {
         "pet_id": 4074,
         "pet_name": "霜翼领主",
-        "form": "霜翼领主",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -118992,7 +118992,7 @@
     {
         "pet_id": 4075,
         "pet_name": "首领-罗隐",
-        "form": "default",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": 16,
@@ -119184,7 +119184,7 @@
     {
         "pet_id": 4076,
         "pet_name": "伊里斯",
-        "form": "伊里斯",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 5,
         "sub_type_id": 13,
@@ -119195,7 +119195,7 @@
     {
         "pet_id": 4077,
         "pet_name": "噜噜",
-        "form": "default",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 1,
         "sub_type_id": null,
@@ -119387,7 +119387,7 @@
     {
         "pet_id": 4078,
         "pet_name": "风暴战犬",
-        "form": "风暴战犬",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 3,
         "sub_type_id": null,
@@ -119579,7 +119579,7 @@
     {
         "pet_id": 4079,
         "pet_name": "钻石蜗",
-        "form": "钻石蜗",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 5,
         "sub_type_id": 6,
@@ -119771,7 +119771,7 @@
     {
         "pet_id": 4080,
         "pet_name": "首领-瞌睡王",
-        "form": "default",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 1,
         "sub_type_id": 12,
@@ -119963,7 +119963,7 @@
     {
         "pet_id": 4081,
         "pet_name": "首领-獠牙猪",
-        "form": "default",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": 7,
@@ -120155,7 +120155,7 @@
     {
         "pet_id": 4082,
         "pet_name": "首领-魔眷鸟",
-        "form": "default",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 13,
         "sub_type_id": 14,
@@ -120347,7 +120347,7 @@
     {
         "pet_id": 4083,
         "pet_name": "黑猫密探",
-        "form": "黑猫密探",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 1,
         "sub_type_id": null,
@@ -120539,7 +120539,7 @@
     {
         "pet_id": 4084,
         "pet_name": "祭礼巨像",
-        "form": "祭礼巨像",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": 18,
@@ -120731,7 +120731,7 @@
     {
         "pet_id": 4085,
         "pet_name": "雪影冰灵",
-        "form": "雪影冰灵",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 7,
         "sub_type_id": 14,
@@ -120923,7 +120923,7 @@
     {
         "pet_id": 4086,
         "pet_name": "棋契陛下",
-        "form": "棋契陛下",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": 12,
@@ -121115,7 +121115,7 @@
     {
         "pet_id": 4087,
         "pet_name": "奇梦咪",
-        "form": "奇梦咪",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 14,
         "sub_type_id": null,
@@ -121307,7 +121307,7 @@
     {
         "pet_id": 4088,
         "pet_name": "波普鹿",
-        "form": "波普鹿",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 9,
         "sub_type_id": null,
@@ -121499,7 +121499,7 @@
     {
         "pet_id": 4089,
         "pet_name": "圣剑骑士",
-        "form": "圣剑骑士",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 17,
         "sub_type_id": null,
@@ -121691,7 +121691,7 @@
     {
         "pet_id": 4090,
         "pet_name": "伊兰龙",
-        "form": "伊兰龙",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 8,
         "sub_type_id": null,
@@ -121883,7 +121883,7 @@
     {
         "pet_id": 4091,
         "pet_name": "裘卡老师",
-        "form": "default",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 10,
         "sub_type_id": null,
@@ -121894,7 +121894,7 @@
     {
         "pet_id": 4092,
         "pet_name": "首领-厉毒修萝",
-        "form": "default",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 10,
         "sub_type_id": 16,
@@ -122086,7 +122086,7 @@
     {
         "pet_id": 4093,
         "pet_name": "公平鸽",
-        "form": "default",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 1,
         "sub_type_id": null,
@@ -122278,7 +122278,7 @@
     {
         "pet_id": 4094,
         "pet_name": "琉璃君主",
-        "form": "default",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 4,
         "sub_type_id": 10,
@@ -122470,7 +122470,7 @@
     {
         "pet_id": 4095,
         "pet_name": "饮雪狂兽",
-        "form": "default",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 7,
         "sub_type_id": null,
@@ -122662,7 +122662,7 @@
     {
         "pet_id": 4096,
         "pet_name": "奇梦咪",
-        "form": "奇梦咪",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 14,
         "sub_type_id": null,
@@ -122854,7 +122854,7 @@
     {
         "pet_id": 4097,
         "pet_name": "奇梦咪",
-        "form": "奇梦咪",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 14,
         "sub_type_id": null,
@@ -123046,7 +123046,7 @@
     {
         "pet_id": 4098,
         "pet_name": "雪影冰灵",
-        "form": "雪影冰灵",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 7,
         "sub_type_id": 14,
@@ -123238,7 +123238,7 @@
     {
         "pet_id": 4099,
         "pet_name": "雪影冰灵",
-        "form": "雪影冰灵",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 7,
         "sub_type_id": 14,
@@ -123430,7 +123430,7 @@
     {
         "pet_id": 4100,
         "pet_name": "古齿帝牙",
-        "form": "default",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 7,
         "sub_type_id": 14,
@@ -123622,7 +123622,7 @@
     {
         "pet_id": 4101,
         "pet_name": "暮风隐者",
-        "form": "暮风隐者",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 1,
         "sub_type_id": 11,
@@ -123814,7 +123814,7 @@
     {
         "pet_id": 4102,
         "pet_name": "淤泥乌泽",
-        "form": "淤泥乌泽",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": 13,
@@ -124006,7 +124006,7 @@
     {
         "pet_id": 4103,
         "pet_name": "卷发巨獭",
-        "form": "default",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 7,
         "sub_type_id": 14,
@@ -124198,7 +124198,7 @@
     {
         "pet_id": 4104,
         "pet_name": "暗夜颅主",
-        "form": "暗夜颅主",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 15,
         "sub_type_id": null,
@@ -124390,7 +124390,7 @@
     {
         "pet_id": 4105,
         "pet_name": "暗影恶魔",
-        "form": "暗影恶魔",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 13,
         "sub_type_id": 16,
@@ -124582,7 +124582,7 @@
     {
         "pet_id": 4106,
         "pet_name": "风暴酷拉",
-        "form": "风暴",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 9,
         "sub_type_id": null,
@@ -136486,7 +136486,7 @@
     {
         "pet_id": 6001,
         "pet_name": "小咪",
-        "form": "default",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 3,
         "sub_type_id": null,
@@ -136678,7 +136678,7 @@
     {
         "pet_id": 6002,
         "pet_name": "卡图斯（初级）",
-        "form": "初级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 2,
         "sub_type_id": 10,
@@ -136870,7 +136870,7 @@
     {
         "pet_id": 6003,
         "pet_name": "卡图斯（中级）",
-        "form": "中级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 2,
         "sub_type_id": 10,
@@ -137062,7 +137062,7 @@
     {
         "pet_id": 6004,
         "pet_name": "卡图斯（高级）",
-        "form": "高级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 2,
         "sub_type_id": 10,
@@ -137254,7 +137254,7 @@
     {
         "pet_id": 6005,
         "pet_name": "戴蒙德（初级）",
-        "form": "初级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 5,
         "sub_type_id": 6,
@@ -137446,7 +137446,7 @@
     {
         "pet_id": 6006,
         "pet_name": "戴蒙德（中级）",
-        "form": "中级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 5,
         "sub_type_id": 6,
@@ -137638,7 +137638,7 @@
     {
         "pet_id": 6007,
         "pet_name": "戴蒙德（高级）",
-        "form": "高级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 5,
         "sub_type_id": 6,
@@ -137830,7 +137830,7 @@
     {
         "pet_id": 6008,
         "pet_name": "阿克娅（初级）",
-        "form": "初级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 4,
         "sub_type_id": 10,
@@ -138022,7 +138022,7 @@
     {
         "pet_id": 6009,
         "pet_name": "阿克娅（中级）",
-        "form": "中级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 4,
         "sub_type_id": 10,
@@ -138214,7 +138214,7 @@
     {
         "pet_id": 6010,
         "pet_name": "阿克娅（高级）",
-        "form": "高级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 4,
         "sub_type_id": 10,
@@ -138406,7 +138406,7 @@
     {
         "pet_id": 6011,
         "pet_name": "朵蕾丝（初级）",
-        "form": "初级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 2,
         "sub_type_id": null,
@@ -138598,7 +138598,7 @@
     {
         "pet_id": 6012,
         "pet_name": "朵蕾丝（中级）",
-        "form": "中级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 2,
         "sub_type_id": null,
@@ -138790,7 +138790,7 @@
     {
         "pet_id": 6013,
         "pet_name": "朵蕾丝（高级）",
-        "form": "高级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 2,
         "sub_type_id": null,
@@ -138982,7 +138982,7 @@
     {
         "pet_id": 6014,
         "pet_name": "希尔（初级）",
-        "form": "初级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -139174,7 +139174,7 @@
     {
         "pet_id": 6015,
         "pet_name": "希尔（中级）",
-        "form": "中级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -139366,7 +139366,7 @@
     {
         "pet_id": 6016,
         "pet_name": "希尔（高级）",
-        "form": "高级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -139558,7 +139558,7 @@
     {
         "pet_id": 6017,
         "pet_name": "希巴尔巴（初级）",
-        "form": "初级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 17,
         "sub_type_id": null,
@@ -139750,7 +139750,7 @@
     {
         "pet_id": 6018,
         "pet_name": "希巴尔巴（中级）",
-        "form": "中级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 17,
         "sub_type_id": null,
@@ -139942,7 +139942,7 @@
     {
         "pet_id": 6019,
         "pet_name": "希巴尔巴（高级）",
-        "form": "高级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 17,
         "sub_type_id": null,
@@ -140134,7 +140134,7 @@
     {
         "pet_id": 6020,
         "pet_name": "艾诺菈（初级）",
-        "form": "初级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 11,
         "sub_type_id": null,
@@ -140326,7 +140326,7 @@
     {
         "pet_id": 6021,
         "pet_name": "艾诺菈（中级）",
-        "form": "中级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 11,
         "sub_type_id": null,
@@ -140518,7 +140518,7 @@
     {
         "pet_id": 6022,
         "pet_name": "艾诺菈（高级）",
-        "form": "高级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 11,
         "sub_type_id": null,
@@ -140710,7 +140710,7 @@
     {
         "pet_id": 6023,
         "pet_name": "斯皮德（初级）",
-        "form": "初级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 3,
         "sub_type_id": null,
@@ -140902,7 +140902,7 @@
     {
         "pet_id": 6024,
         "pet_name": "斯皮德（中级）",
-        "form": "中级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 3,
         "sub_type_id": null,
@@ -141094,7 +141094,7 @@
     {
         "pet_id": 6025,
         "pet_name": "斯皮德（高级）",
-        "form": "高级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 3,
         "sub_type_id": null,
@@ -141286,7 +141286,7 @@
     {
         "pet_id": 6026,
         "pet_name": "玛努斯（初级）",
-        "form": "初级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -141478,7 +141478,7 @@
     {
         "pet_id": 6027,
         "pet_name": "玛努斯（中级）",
-        "form": "中级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -141670,7 +141670,7 @@
     {
         "pet_id": 6028,
         "pet_name": "玛努斯（高级）",
-        "form": "高级",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -143793,7 +143793,7 @@
     {
         "pet_id": 8004,
         "pet_name": "道馆丢丢",
-        "form": "default",
+        "form": "草地附近的样子",
         "implemented": false,
         "main_type_id": 2,
         "sub_type_id": null,
@@ -146783,7 +146783,7 @@
     {
         "pet_id": 8101,
         "pet_name": "圣水守护",
-        "form": "圣水守护",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 4,
         "sub_type_id": null,
@@ -146975,7 +146975,7 @@
     {
         "pet_id": 8102,
         "pet_name": "烈火战神",
-        "form": "烈火战神",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 3,
         "sub_type_id": null,
@@ -147167,7 +147167,7 @@
     {
         "pet_id": 8103,
         "pet_name": "叶冕魔力猫",
-        "form": "叶冕",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 2,
         "sub_type_id": null,
@@ -147359,7 +147359,7 @@
     {
         "pet_id": 8104,
         "pet_name": "恶魔狼王",
-        "form": "王",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 16,
         "sub_type_id": null,
@@ -147551,7 +147551,7 @@
     {
         "pet_id": 8105,
         "pet_name": "蹦蹦果",
-        "form": "蹦蹦果",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 2,
         "sub_type_id": 10,
@@ -147743,7 +147743,7 @@
     {
         "pet_id": 8106,
         "pet_name": "千棘海针",
-        "form": "千棘海针",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 4,
         "sub_type_id": 10,
@@ -147935,7 +147935,7 @@
     {
         "pet_id": 8107,
         "pet_name": "女王蜂",
-        "form": "女王蜂",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 11,
         "sub_type_id": 13,
@@ -148127,7 +148127,7 @@
     {
         "pet_id": 8108,
         "pet_name": "奇丽果",
-        "form": "奇丽果",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 2,
         "sub_type_id": null,
@@ -148319,7 +148319,7 @@
     {
         "pet_id": 8109,
         "pet_name": "幻影荆棘",
-        "form": "幻影荆棘",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 2,
         "sub_type_id": 15,
@@ -148511,7 +148511,7 @@
     {
         "pet_id": 8110,
         "pet_name": "迷嶂布莱克",
-        "form": "迷嶂布莱克",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -148703,7 +148703,7 @@
     {
         "pet_id": 8111,
         "pet_name": "霜翼领主",
-        "form": "霜翼领主",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -148895,7 +148895,7 @@
     {
         "pet_id": 8112,
         "pet_name": "风暴战犬",
-        "form": "风暴战犬",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 3,
         "sub_type_id": null,
@@ -149087,7 +149087,7 @@
     {
         "pet_id": 8113,
         "pet_name": "钻石蜗",
-        "form": "钻石蜗",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 5,
         "sub_type_id": 6,
@@ -149279,7 +149279,7 @@
     {
         "pet_id": 8114,
         "pet_name": "黑猫密探",
-        "form": "黑猫密探",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 1,
         "sub_type_id": null,
@@ -149471,7 +149471,7 @@
     {
         "pet_id": 8115,
         "pet_name": "祭礼巨像",
-        "form": "祭礼巨像",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": 18,
@@ -149663,7 +149663,7 @@
     {
         "pet_id": 8116,
         "pet_name": "雪影冰灵",
-        "form": "雪影冰灵",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 7,
         "sub_type_id": 14,
@@ -149855,7 +149855,7 @@
     {
         "pet_id": 8117,
         "pet_name": "棋契陛下",
-        "form": "棋契陛下",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": 12,
@@ -150047,7 +150047,7 @@
     {
         "pet_id": 8118,
         "pet_name": "奇梦咪",
-        "form": "奇梦咪",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 14,
         "sub_type_id": null,
@@ -150239,7 +150239,7 @@
     {
         "pet_id": 8119,
         "pet_name": "波普鹿",
-        "form": "波普鹿",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 9,
         "sub_type_id": null,
@@ -150431,7 +150431,7 @@
     {
         "pet_id": 8120,
         "pet_name": "圣剑骑士",
-        "form": "圣剑骑士",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 17,
         "sub_type_id": null,
@@ -150623,7 +150623,7 @@
     {
         "pet_id": 8121,
         "pet_name": "伊兰龙",
-        "form": "伊兰龙",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 8,
         "sub_type_id": null,
@@ -150815,7 +150815,7 @@
     {
         "pet_id": 8122,
         "pet_name": "深渊罗隐",
-        "form": "深渊",
+        "form": "草系徽章-首领形态",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": 16,
@@ -151007,7 +151007,7 @@
     {
         "pet_id": 8200,
         "pet_name": "赫拉",
-        "form": "default",
+        "form": "草系徽章-专属精灵",
         "implemented": false,
         "main_type_id": 2,
         "sub_type_id": null,
@@ -156813,7 +156813,7 @@
     {
         "pet_id": 440307,
         "pet_name": "麦克达克",
-        "form": "default",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 1,
         "sub_type_id": null,
@@ -157016,7 +157016,7 @@
     {
         "pet_id": 440309,
         "pet_name": "法瑞莎莎",
-        "form": "default",
+        "form": "首领形态",
         "implemented": false,
         "main_type_id": 4,
         "sub_type_id": 13,
@@ -160933,7 +160933,7 @@
     {
         "pet_id": 13000167,
         "pet_name": "法瑞莎莎",
-        "form": "default",
+        "form": "领地试炼用",
         "implemented": false,
         "main_type_id": 4,
         "sub_type_id": 13,
@@ -161125,7 +161125,7 @@
     {
         "pet_id": 13000168,
         "pet_name": "麦克达克",
-        "form": "default",
+        "form": "领地试炼用",
         "implemented": false,
         "main_type_id": 1,
         "sub_type_id": null,
@@ -161317,7 +161317,7 @@
     {
         "pet_id": 13000169,
         "pet_name": "深渊罗隐",
-        "form": "深渊",
+        "form": "领地试炼用",
         "implemented": true,
         "main_type_id": 6,
         "sub_type_id": 16,
@@ -161509,7 +161509,7 @@
     {
         "pet_id": 13000170,
         "pet_name": "高帽鹬者",
-        "form": "高帽鹬者",
+        "form": "领地试炼用",
         "implemented": true,
         "main_type_id": 13,
         "sub_type_id": null,
@@ -161701,7 +161701,7 @@
     {
         "pet_id": 13000171,
         "pet_name": "风暴酷拉",
-        "form": "风暴",
+        "form": "领地试炼用",
         "implemented": true,
         "main_type_id": 9,
         "sub_type_id": null,
@@ -161893,7 +161893,7 @@
     {
         "pet_id": 13000172,
         "pet_name": "恶魔男爵",
-        "form": "恶魔男爵",
+        "form": "领地试炼用",
         "implemented": true,
         "main_type_id": 13,
         "sub_type_id": 16,
@@ -164005,7 +164005,7 @@
     {
         "pet_id": 16000003,
         "pet_name": "地鼠-A2拾遗变形任务用",
-        "form": "default",
+        "form": "枯水期的样子",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -165168,7 +165168,7 @@
     {
         "pet_id": 17000004,
         "pet_name": "石肤蜥-极化钝化测试用",
-        "form": "异地形态",
+        "form": "球球尾巴的样子",
         "implemented": false,
         "main_type_id": 6,
         "sub_type_id": null,
@@ -165360,7 +165360,7 @@
     {
         "pet_id": 18000001,
         "pet_name": "化蝶",
-        "form": "default",
+        "form": "喵喵的样子",
         "implemented": false,
         "main_type_id": 11,
         "sub_type_id": 14,
@@ -167664,7 +167664,7 @@
     {
         "pet_id": 19000010,
         "pet_name": "黑化加尔",
-        "form": "default",
+        "form": "黑化的样子（团体战特殊id）",
         "implemented": false,
         "main_type_id": 1,
         "sub_type_id": 15,

@@ -1,7 +1,7 @@
 {
     "id": 3584,
     "name": "ciluntuo",
-    "form": "default",
+    "form": "下弦的样子",
     "main_type": {
         "id": 10,
         "name": "Poison",
@@ -1307,7 +1307,7 @@
                         "id": 3582,
                         "species_id": 237,
                         "name": "ciluntuo_yidi",
-                        "form": "异地形态",
+                        "form": "上弦的样子",
                         "localized": {
                             "zh": {
                                 "name": "刺轮砣"
@@ -1334,7 +1334,7 @@
                         "id": 3584,
                         "species_id": 237,
                         "name": "ciluntuo",
-                        "form": "default",
+                        "form": "下弦的样子",
                         "localized": {
                             "zh": {
                                 "name": "刺轮砣"
@@ -1367,7 +1367,7 @@
                         "id": 3583,
                         "species_id": 238,
                         "name": "yueliangtuo_yidi",
-                        "form": "异地形态",
+                        "form": "上弦的样子",
                         "localized": {
                             "zh": {
                                 "name": "月亮砣"
@@ -1397,7 +1397,7 @@
                         "id": 3585,
                         "species_id": 238,
                         "name": "yueliangtuo",
-                        "form": "default",
+                        "form": "下弦的样子",
                         "localized": {
                             "zh": {
                                 "name": "月亮砣"

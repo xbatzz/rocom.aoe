@@ -1,7 +1,7 @@
 {
     "id": 440307,
     "name": "440307",
-    "form": "default",
+    "form": "首领形态",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -1180,7 +1180,7 @@
                         "id": 440307,
                         "species_id": 440307,
                         "name": "440307",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "麦克达克"
@@ -1208,7 +1208,7 @@
                         "id": 440307,
                         "species_id": 440307,
                         "name": "440307",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "麦克达克"

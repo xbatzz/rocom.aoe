@@ -1,7 +1,7 @@
 {
     "id": 3441,
     "name": "mengyouyou_pink",
-    "form": "粉色形态",
+    "form": "穿星星睡衣的样子",
     "main_type": {
         "id": 5,
         "name": "Light",
@@ -1219,7 +1219,7 @@
                         "id": 3438,
                         "species_id": 57,
                         "name": "menhyou",
-                        "form": "default",
+                        "form": "穿旧睡衣的样子",
                         "localized": {
                             "zh": {
                                 "name": "梦游"
@@ -1240,7 +1240,7 @@
                         "id": 3440,
                         "species_id": 57,
                         "name": "mengyou_pink",
-                        "form": "粉色形态",
+                        "form": "穿星星睡衣的样子",
                         "localized": {
                             "zh": {
                                 "name": "梦游"
@@ -1273,7 +1273,7 @@
                         "id": 3439,
                         "species_id": 58,
                         "name": "mengyouyou",
-                        "form": "default",
+                        "form": "穿旧睡衣的样子",
                         "localized": {
                             "zh": {
                                 "name": "梦悠悠"
@@ -1296,7 +1296,7 @@
                         "id": 3441,
                         "species_id": 58,
                         "name": "mengyouyou_pink",
-                        "form": "粉色形态",
+                        "form": "穿星星睡衣的样子",
                         "localized": {
                             "zh": {
                                 "name": "梦悠悠"

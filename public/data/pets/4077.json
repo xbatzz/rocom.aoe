@@ -1,7 +1,7 @@
 {
     "id": 4077,
     "name": "4077",
-    "form": "default",
+    "form": "首领形态",
     "main_type": {
         "id": 1,
         "name": "Normal",
@@ -1191,7 +1191,7 @@
                         "id": 4077,
                         "species_id": 4077,
                         "name": "4077",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "噜噜"
@@ -1219,7 +1219,7 @@
                         "id": 4077,
                         "species_id": 4077,
                         "name": "4077",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "噜噜"

@@ -53,7 +53,7 @@
                         "id": 3630,
                         "species_id": 3630,
                         "name": "songzai",
-                        "form": "default",
+                        "form": "单头的样子",
                         "localized": {
                             "zh": {
                                 "name": "地银链"
@@ -74,7 +74,7 @@
                         "id": 3631,
                         "species_id": 3631,
                         "name": "songzai",
-                        "form": "default",
+                        "form": "多头的样子",
                         "localized": {
                             "zh": {
                                 "name": "地银链"

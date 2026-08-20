@@ -1,7 +1,7 @@
 {
     "id": 4050,
     "name": "4050",
-    "form": "default",
+    "form": "首领形态",
     "main_type": {
         "id": 6,
         "name": "Ground",
@@ -1213,7 +1213,7 @@
                         "id": 4050,
                         "species_id": 4050,
                         "name": "4050",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "首领-记忆石"
@@ -1241,7 +1241,7 @@
                         "id": 4050,
                         "species_id": 4050,
                         "name": "4050",
-                        "form": "default",
+                        "form": "首领形态",
                         "localized": {
                             "zh": {
                                 "name": "首领-记忆石"
