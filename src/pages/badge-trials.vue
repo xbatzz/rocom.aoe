@@ -32,6 +32,7 @@ import {
 type PageMode = "families" | "footprints";
 type FamilyFilter = "all" | "lit" | "unlit";
 type FamilyLayout = "grid" | "list";
+type TypeFilter = "all" | `${number}`;
 type FootprintFormFilter = "all" | "normal" | "leader";
 type FootprintStatus = "lit" | "unlit";
 type FootprintStatusFilter = "all" | FootprintStatus;
@@ -43,10 +44,12 @@ const pageMode = ref<PageMode>("families");
 const familyFilter = ref<FamilyFilter>("all");
 const familyLayout = ref<FamilyLayout>("grid");
 const familyKeyword = ref("");
+const familyTypeFilter = ref<TypeFilter>("all");
 const familyPage = ref(1);
 const recordedFootprintPage = ref(1);
 const footprintKeyword = ref("");
 const recordedFootprintKeyword = ref("");
+const footprintTypeFilter = ref<TypeFilter>("all");
 const footprintFormFilter = ref<FootprintFormFilter>("all");
 const footprintStatusFilter = ref<FootprintStatusFilter>("all");
 const isFootprintEntryOpen = ref(false);
@@ -61,6 +64,21 @@ const persistEnabled = ref(true);
 
 const families = computed(() => buildBadgeTrialFamilies(pets.value));
 const petCatalog = computed(() => buildBadgeTrialPetCatalog(pets.value));
+const typeOptions = computed(() => {
+    const typeMap = new Map<number, string>();
+
+    for (const pet of pets.value) {
+        typeMap.set(pet.main_type.id, pet.main_type.localized.zh);
+
+        if (pet.sub_type) {
+            typeMap.set(pet.sub_type.id, pet.sub_type.localized.zh);
+        }
+    }
+
+    return [...typeMap.entries()]
+        .map(([id, label]) => ({ id, label }))
+        .sort((left, right) => left.id - right.id);
+});
 const petByKey = computed(
     () =>
         new Map(
@@ -112,9 +130,13 @@ const filteredFamilies = computed(() => {
         const matchesFilter =
             familyFilter.value === "all" ||
             (familyFilter.value === "lit" ? lit : !lit);
+        const matchesType =
+            familyTypeFilter.value === "all" ||
+            family.typeIds.includes(Number(familyTypeFilter.value));
 
         return (
             matchesFilter &&
+            matchesType &&
             matchesBadgeTrialFamilySearch(family, familyKeyword.value)
         );
     });
@@ -179,6 +201,7 @@ const recordedPets = computed(() =>
 
             return !query || entry.searchText.includes(query);
         })
+        .filter((entry) => matchesPetType(entry, footprintTypeFilter.value))
         .filter(
             (entry) =>
                 footprintFormFilter.value === "all" ||
@@ -213,6 +236,19 @@ const pagedRecordedPets = computed(() => {
 
 function isFamilyLit(family: BadgeTrialFamily) {
     return Boolean(grassProgress.value.familyMedals[family.key]);
+}
+
+function matchesPetType(pet: BadgeTrialPet, typeFilter: TypeFilter) {
+    if (typeFilter === "all") {
+        return true;
+    }
+
+    const typeId = Number(typeFilter);
+
+    return (
+        pet.representative.main_type.id === typeId ||
+        pet.representative.sub_type?.id === typeId
+    );
 }
 
 function isFootprintLit(pet: BadgeTrialPet) {
@@ -392,7 +428,7 @@ function migrateLegacyFootprintKeys() {
     }
 }
 
-watch([familyKeyword, familyFilter, familyLayout], () => {
+watch([familyKeyword, familyFilter, familyTypeFilter, familyLayout], () => {
     familyPage.value = 1;
 });
 
@@ -405,6 +441,7 @@ watch(
         recordedFootprintKeyword,
         footprintStatusFilter,
         footprintFormFilter,
+        footprintTypeFilter,
         activeLocationId,
     ],
     () => {
@@ -524,6 +561,29 @@ onMounted(async () => {
                                 class="h-10 border-border bg-background pl-9"
                             />
                         </div>
+                        <Select v-model="familyTypeFilter">
+                            <SelectTrigger
+                                class="h-10 w-full border-border bg-background text-xs lg:w-36"
+                                aria-label="筛选家族属性"
+                            >
+                                <SelectValue placeholder="全部属性" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="all">全部属性</SelectItem>
+                                <SelectItem
+                                    v-for="option in typeOptions"
+                                    :key="option.id"
+                                    :value="String(option.id)"
+                                >
+                                    <TypeIcon
+                                        :type-id="option.id"
+                                        :label="option.label"
+                                        :size="16"
+                                    />
+                                    {{ option.label }}
+                                </SelectItem>
+                            </SelectContent>
+                        </Select>
                         <div class="flex flex-wrap items-center gap-1.5">
                             <button
                                 v-for="option in [
@@ -801,14 +861,39 @@ onMounted(async () => {
                 </CardContent>
             </Card>
 
-            <div class="relative md:max-w-sm">
-                <Search class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                <Input
-                    v-model="recordedFootprintKeyword"
-                    type="search"
-                    placeholder="搜索已录入精灵名称或图鉴编号"
-                    class="h-10 border-border bg-card pl-9"
-                />
+            <div class="grid gap-2 sm:grid-cols-[minmax(0,24rem)_9rem]">
+                <div class="relative">
+                    <Search class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                    <Input
+                        v-model="recordedFootprintKeyword"
+                        type="search"
+                        placeholder="搜索已录入精灵名称或图鉴编号"
+                        class="h-10 border-border bg-card pl-9"
+                    />
+                </div>
+                <Select v-model="footprintTypeFilter">
+                    <SelectTrigger
+                        class="h-10 w-full border-border bg-card text-xs"
+                        aria-label="筛选足迹精灵属性"
+                    >
+                        <SelectValue placeholder="全部属性" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="all">全部属性</SelectItem>
+                        <SelectItem
+                            v-for="option in typeOptions"
+                            :key="option.id"
+                            :value="String(option.id)"
+                        >
+                            <TypeIcon
+                                :type-id="option.id"
+                                :label="option.label"
+                                :size="16"
+                            />
+                            {{ option.label }}
+                        </SelectItem>
+                    </SelectContent>
+                </Select>
             </div>
 
             <div class="space-y-2 md:flex md:items-center md:justify-between md:gap-3 md:space-y-0">

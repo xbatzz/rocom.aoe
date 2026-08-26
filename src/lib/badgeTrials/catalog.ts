@@ -9,6 +9,7 @@ export interface BadgeTrialFamily {
     representative: IPets;
     memberIds: number[];
     speciesIds: number[];
+    typeIds: number[];
     searchText: string;
 }
 
@@ -54,6 +55,14 @@ export function buildBadgeTrialFamilies(pets: IPets[]): BadgeTrialFamily[] {
             const speciesIds = [
                 ...new Set(family.members.map((pet) => pet.species_id)),
             ].sort((left, right) => left - right);
+            const typeIds = [
+                ...new Set(
+                    family.members.flatMap((pet) => [
+                        pet.main_type.id,
+                        ...(pet.sub_type ? [pet.sub_type.id] : []),
+                    ]),
+                ),
+            ].sort((left, right) => left - right);
             const searchText = family.members
                 .flatMap((pet) => [
                     pet.localized.zh.name,
@@ -73,6 +82,7 @@ export function buildBadgeTrialFamilies(pets: IPets[]): BadgeTrialFamily[] {
                 representative,
                 memberIds,
                 speciesIds,
+                typeIds,
                 searchText,
             };
         })
