@@ -134,6 +134,9 @@ const INFO_PANEL_ITEMS: Array<{
     { key: "profile", label: "资料", icon: BarChart3 },
 ];
 
+const BLAZING_TRAIT_PET_ID = 5017;
+const BLAZING_TRAIT_STAGE_STEP = 3;
+
 const BASE_STAT_ITEMS: Array<{
     key: "base_hp" | "base_phy_atk" | "base_mag_atk" | "base_phy_def" | "base_mag_def" | "base_spd";
     label: string;
@@ -263,6 +266,7 @@ const damageSearchQuery = ref("");
 const selectedDamageMoveId = ref<number | null>(null);
 const damageDirection = ref<DamageDirection>("allyToOpponent");
 const selectedDamageEffectKey = ref<string | null>(null);
+const blazingTraitStage = ref(0);
 const swarmPowerDevotionCount = ref(0);
 const swarmHitDevotionCount = ref(0);
 const selectedDefenseTypeName = ref("");
@@ -724,6 +728,16 @@ const selectedDamageHitCount = computed(() =>
     isSelectedSwarmMove.value ? 1 + swarmHitDevotionCount.value : 1,
 );
 
+const hasBlazingTraitDamageBoost = computed(
+    () => damageAttackerPet.value?.id === BLAZING_TRAIT_PET_ID,
+);
+
+const blazingTraitAttackMultiplier = computed(() =>
+    hasBlazingTraitDamageBoost.value
+        ? 1 + blazingTraitStage.value / 10
+        : 1,
+);
+
 const selectedDamageOption = computed<DamageOption | null>(() => {
     if (
         !damageAttackerPet.value ||
@@ -738,6 +752,7 @@ const selectedDamageOption = computed<DamageOption | null>(() => {
         selectedDamagePowerBonus.value,
         selectedDamagePowerBoostPercent.value,
         selectedDamageHitCount.value,
+        blazingTraitAttackMultiplier.value,
     );
 
     return result.valid
@@ -979,6 +994,7 @@ watch(
         selectedDamageMoveId.value = null;
         selectedDamageEffectKey.value = null;
         damageSearchQuery.value = "";
+        blazingTraitStage.value = 0;
 
         if (allyPetId.value !== null) {
             void ensurePetDetail(allyPetId.value);
@@ -1321,6 +1337,7 @@ function resetAll() {
     damageDirection.value = "allyToOpponent";
     selectedDamageMoveId.value = null;
     selectedDamageEffectKey.value = null;
+    blazingTraitStage.value = 0;
     swarmPowerDevotionCount.value = 0;
     swarmHitDevotionCount.value = 0;
     selectedDefenseTypeName.value = "";
@@ -1337,6 +1354,7 @@ function calculateDamage(
     powerBonus = 0,
     powerBoostPercent = 0,
     hitCount = 1,
+    attackDefenseStageMultiplier = 1,
 ) {
     return calculatePaperDamage({
         attackerPet: damageAttackerPet.value!,
@@ -1352,6 +1370,7 @@ function calculateDamage(
         powerBonus,
         powerBoostPercent,
         hitCount,
+        attackDefenseStageMultiplier,
     });
 }
 
@@ -2115,6 +2134,10 @@ async function getAllyHighestDamageMoveAnswer() {
                 powerBonus: effect?.getPowerBonus(allyHpPercent.value) ?? 0,
                 powerBoostPercent:
                     effect?.getPowerBoostPercent(allyHpPercent.value) ?? 0,
+                attackDefenseStageMultiplier:
+                    allyPet.value!.id === BLAZING_TRAIT_PET_ID
+                        ? 1 + blazingTraitStage.value / 10
+                        : 1,
             });
 
             return result.valid ? { move, result } : null;
@@ -2487,6 +2510,10 @@ function adjustSwarmDevotion(
             : swarmHitDevotionCount;
 
     counter.value = Math.min(20, Math.max(0, counter.value + delta));
+}
+
+function adjustBlazingTraitStage(delta: number) {
+    blazingTraitStage.value = Math.max(0, blazingTraitStage.value + delta);
 }
 
 function getChoiceFlatPowerBonus(choiceDescription: string) {
@@ -3665,11 +3692,56 @@ document.title = "对战助手 - 洛克王国工具箱";
                             >
                                 当前 {{ selectedDamageHitCount }} 连击
                             </span>
+                            <span
+                                v-if="hasBlazingTraitDamageBoost && blazingTraitStage > 0"
+                                class="rounded-full bg-white px-3 py-1.5"
+                            >
+                                爆燃 {{ blazingTraitStage }} 层 · 双攻 +{{ blazingTraitStage * 10 }}%
+                            </span>
                         </div>
 
                         <p class="mt-3 text-xs leading-5 text-slate-600">
                             {{ selectedDamageOption.move.localized.zh.description }}
                         </p>
+
+                        <div
+                            v-if="hasBlazingTraitDamageBoost"
+                            class="mt-4 space-y-3 rounded-[20px] border border-red-200 bg-red-50/90 p-3"
+                        >
+                            <div>
+                                <p class="text-xs font-black text-red-900">
+                                    爆燃 · 被动增幅
+                                </p>
+                                <p class="mt-1 text-xs leading-5 text-red-800">
+                                    每次使用火系技能获得 3 层（双攻 +30%），当前增幅会计入伤害。
+                                </p>
+                            </div>
+                            <div class="flex items-center justify-between gap-3 rounded-[16px] bg-white p-3">
+                                <button
+                                    type="button"
+                                    class="h-9 w-9 rounded-full bg-red-100 text-lg font-black text-red-900 disabled:opacity-40"
+                                    :disabled="blazingTraitStage === 0"
+                                    @click="adjustBlazingTraitStage(-BLAZING_TRAIT_STAGE_STEP)"
+                                >
+                                    −
+                                </button>
+                                <div class="text-center">
+                                    <p class="text-xl font-black text-slate-950">
+                                        {{ blazingTraitStage }} 层
+                                    </p>
+                                    <p class="text-[11px] text-slate-500">
+                                        双攻 +{{ blazingTraitStage * 10 }}% · {{ blazingTraitAttackMultiplier }}x
+                                    </p>
+                                </div>
+                                <button
+                                    type="button"
+                                    class="h-9 w-9 rounded-full bg-red-600 text-lg font-black text-white"
+                                    @click="adjustBlazingTraitStage(BLAZING_TRAIT_STAGE_STEP)"
+                                >
+                                    +
+                                </button>
+                            </div>
+                        </div>
 
                         <div
                             v-if="isSelectedSwarmMove"
