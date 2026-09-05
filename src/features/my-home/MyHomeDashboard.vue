@@ -17,6 +17,7 @@ import {
 } from "lucide-vue-next";
 import { RouterLink } from "vue-router";
 import { getActiveTeam, getSavedTeamBuildSlots } from "@/lib/teamStorage";
+import { semanticToneClasses } from "@/lib/uiTones";
 
 interface CoreAction {
     title: string;
@@ -48,7 +49,7 @@ const coreActions: CoreAction[] = [
         to: "/attributes",
         status: "克制速查",
         icon: Shield,
-        tone: "border-emerald-300/30 bg-emerald-300/10 text-emerald-100",
+        tone: semanticToneClasses.emerald,
         points: ["单属性关系", "进攻/防守", "倍率判断"],
     },
     {
@@ -57,7 +58,7 @@ const coreActions: CoreAction[] = [
         to: "/encyclopedia",
         status: "宠物资料",
         icon: BookOpen,
-        tone: "border-sky-300/30 bg-sky-300/10 text-sky-100",
+        tone: semanticToneClasses.sky,
         points: ["名称编号", "属性筛选", "宠物详情"],
     },
     {
@@ -66,7 +67,7 @@ const coreActions: CoreAction[] = [
         to: "/skills",
         status: "技能资料",
         icon: Sparkles,
-        tone: "border-amber-300/30 bg-amber-300/10 text-amber-100",
+        tone: semanticToneClasses.amber,
         points: ["名称描述", "属性分类", "能耗威力"],
     },
     {
@@ -75,7 +76,7 @@ const coreActions: CoreAction[] = [
         to: "/pvp-lite",
         status: "伤害估算",
         icon: Target,
-        tone: "border-rose-300/30 bg-rose-300/10 text-rose-100",
+        tone: semanticToneClasses.rose,
         points: ["当前队伍", "推荐技能", "联防候选"],
     },
 ];
@@ -180,9 +181,9 @@ const toolGroups: ToolGroup[] = [
         >
             <div class="absolute inset-x-0 top-0 h-1 bg-primary" />
 
-            <div class="relative px-4 py-5 md:px-7 md:py-8 xl:px-9 xl:py-10">
-                <div class="grid gap-4 md:gap-6 xl:grid-cols-[1.15fr_0.85fr] xl:items-center">
-                    <div class="max-w-3xl space-y-4 md:space-y-5">
+            <div class="relative px-4 py-4 md:px-6 md:py-6 xl:px-8 xl:py-7">
+                <div class="grid gap-3 md:gap-4 xl:grid-cols-[1.15fr_0.85fr] xl:items-center">
+                    <div class="max-w-3xl space-y-3 md:space-y-4">
                         <Badge
                             variant="outline"
                             class="border-primary/25 bg-primary/10 text-primary"
@@ -190,9 +191,9 @@ const toolGroups: ToolGroup[] = [
                             洛克王国世界 · 战斗工具箱
                         </Badge>
 
-                        <div class="space-y-3">
+                        <div class="space-y-2">
                             <h1
-                                class="text-3xl font-semibold leading-tight text-foreground md:text-5xl"
+                                class="text-3xl font-semibold leading-tight text-foreground md:text-4xl"
                             >
                                 查询、配队、对战，一站完成
                             </h1>
@@ -200,7 +201,6 @@ const toolGroups: ToolGroup[] = [
                                 class="max-w-2xl text-sm leading-6 text-muted-foreground md:text-base"
                             >
                                 查克制、找技能、组队伍，或直接计算一场对位伤害。
-                                选择你现在要做的事，即刻开始。
                             </p>
                         </div>
 
@@ -221,7 +221,7 @@ const toolGroups: ToolGroup[] = [
                     </div>
 
                     <div
-                        class="rounded-[14px] border border-border bg-background/45 p-3 shadow-sm md:p-5"
+                        class="rounded-[14px] border border-border bg-background/45 p-3 shadow-sm md:p-4"
                     >
                         <div class="flex items-start justify-between gap-3">
                             <div class="space-y-1">
@@ -232,12 +232,12 @@ const toolGroups: ToolGroup[] = [
                                     {{ activeTeamSummary.name }}
                                 </p>
                             </div>
-                            <div class="flex h-10 w-10 items-center justify-center rounded-[10px] bg-primary/10 text-primary">
+                            <div class="flex h-9 w-9 items-center justify-center rounded-[10px] bg-primary/10 text-primary">
                                 <Swords class="h-5 w-5" />
                             </div>
                         </div>
 
-                        <div class="mt-3 space-y-2 md:mt-5">
+                        <div class="mt-3 space-y-1.5">
                             <div class="flex items-center justify-between text-xs">
                                 <span class="text-muted-foreground">阵容进度</span>
                                 <span class="font-semibold text-foreground">
@@ -252,11 +252,11 @@ const toolGroups: ToolGroup[] = [
                             </div>
                         </div>
 
-                        <div class="mt-5 hidden grid-cols-2 gap-2 md:grid">
-                            <Button as-child variant="secondary" class="rounded-[10px]">
+                        <div class="mt-3 hidden grid-cols-2 gap-2 md:grid">
+                            <Button as-child variant="secondary" size="sm" class="rounded-[10px]">
                                 <RouterLink to="/team">继续编辑</RouterLink>
                             </Button>
-                            <Button as-child variant="ghost" class="rounded-[10px]">
+                            <Button as-child variant="ghost" size="sm" class="rounded-[10px]">
                                 <RouterLink to="/data-management">备份数据</RouterLink>
                             </Button>
                         </div>
@@ -265,41 +265,41 @@ const toolGroups: ToolGroup[] = [
             </div>
         </div>
 
-        <div class="grid gap-3 lg:grid-cols-4">
+        <div class="grid grid-cols-2 gap-3 lg:grid-cols-4">
             <component
                 :is="action.to ? RouterLink : 'div'"
                 v-for="action in coreActions"
                 :key="action.title"
                 :to="action.to"
-                class="group flex flex-col justify-between rounded-[10px] border border-border bg-card p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-lg lg:min-h-[250px]"
+                class="group flex min-h-32 flex-col justify-between rounded-[10px] border border-border bg-card p-3 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-lg sm:min-h-52 sm:p-4 lg:min-h-[210px]"
                 :class="action.to ? 'cursor-pointer' : 'cursor-default opacity-95'"
             >
-                <div class="space-y-4">
+                <div class="space-y-3">
                     <div class="flex items-start justify-between gap-3">
                         <div
-                            class="flex h-12 w-12 items-center justify-center rounded-[10px] border"
+                            class="flex h-10 w-10 items-center justify-center rounded-[10px] border sm:h-11 sm:w-11"
                             :class="action.tone"
                         >
                             <component :is="action.icon" class="h-5 w-5" />
                         </div>
                         <Badge
                             variant="outline"
-                            class="border-border bg-muted text-muted-foreground"
+                            class="hidden border-border bg-muted text-muted-foreground sm:inline-flex"
                         >
                             {{ action.status }}
                         </Badge>
                     </div>
 
                     <div class="space-y-2">
-                        <h2 class="text-xl font-semibold text-foreground">
+                        <h2 class="text-lg font-semibold text-foreground sm:text-xl">
                             {{ action.title }}
                         </h2>
-                        <p class="text-sm leading-6 text-muted-foreground">
+                        <p class="hidden text-sm leading-6 text-muted-foreground sm:block">
                             {{ action.description }}
                         </p>
                     </div>
 
-                    <div class="hidden flex-wrap gap-2 sm:flex">
+                    <div class="hidden flex-wrap gap-1.5 xl:flex">
                         <span
                             v-for="point in action.points"
                             :key="point"
@@ -310,10 +310,7 @@ const toolGroups: ToolGroup[] = [
                     </div>
                 </div>
 
-                <div class="mt-3 flex items-center justify-between text-sm lg:mt-6">
-                    <span class="font-medium text-foreground">
-                        开始使用
-                    </span>
+                <div class="mt-2 flex items-center justify-end text-sm sm:mt-4">
                     <ArrowRight
                         v-if="action.to"
                         class="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1"

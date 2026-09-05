@@ -30,6 +30,7 @@ import {
     matchesPetKeyword,
 } from "@/lib/petHandbook";
 import { collapseDuplicateLeaderConfigurations } from "@/lib/petPresentation";
+import { semanticToneClasses } from "@/lib/uiTones";
 
 type SortKey = "id" | "power" | "speed" | "name";
 
@@ -1129,7 +1130,7 @@ document.title = "图鉴 - 洛克王国工具箱";
                                     <TypeBadge
                                         :type-id="pet.default_legacy_type.id"
                                         :label="`${pet.default_legacy_type.localized.zh}遗传`"
-                                        class="rounded-[10px] border-sky-400/20 bg-sky-400/10 text-sky-200"
+                                        :class="semanticToneClasses.sky"
                                     >
                                         {{
                                             pet.default_legacy_type.localized
@@ -1192,7 +1193,7 @@ document.title = "图鉴 - 洛克王国工具箱";
                             <Badge
                                 v-if="getBloodlineMatchCount(pet) > 0"
                                 variant="outline"
-                                class="rounded-[10px] border-sky-400/20 bg-sky-400/10 px-2.5 py-1 text-sky-200"
+                                :class="semanticToneClasses.sky"
                             >
                                 血脉命中 {{ getBloodlineMatchCount(pet) }}
                             </Badge>
@@ -1200,7 +1201,10 @@ document.title = "图鉴 - 洛克王国工具箱";
 
                         <div
                             v-if="getBloodlineMatchCount(pet) > 0"
-                            class="mt-3 rounded-[10px] border border-sky-400/15 bg-sky-400/8 px-3 py-2.5 text-xs leading-5 text-sky-100"
+                            :class="[
+                                'mt-3 rounded-[10px] border px-3 py-2.5 text-xs leading-5',
+                                semanticToneClasses.sky,
+                            ]"
                         >
                             血脉技能：{{ getBloodlineMatchLabel(pet) }}
                         </div>

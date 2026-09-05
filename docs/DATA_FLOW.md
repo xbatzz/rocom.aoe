@@ -34,13 +34,13 @@
 是否需要本地游戏数据包，要分两步看：
 
 - 运行 `yarn sync:pet-data`：不需要本地游戏数据包，只需要 `public/data/BinData/` 已经存在并且表结构符合脚本预期。
-- 更新/重新导出 `public/data/BinData/`：需要本地游戏数据包。`scripts/export_pet_json.py` 的默认输入是 `Data/Bin`，并要求里面有 `BinConf/`、`BinDataCompressed/`、`BinLocalize/`；它会解析 `.bytes` 和表结构，导出 JSON。
+- 更新/重新导出 `public/data/BinData/`：需要本地游戏数据包。`yarn export:bin-data` 默认读取 `NRC/Content/ScriptC/Data/Bin` 下的 `BinConf/`、`BinDataCompressed/` 和 `BinLocalize/dev_CN/`，并生成同步流程需要的 17 张标准 `RocoDataRows` JSON；不同补丁层可通过来源清单逐表指定。`scripts/export_pet_json.py` 只保留为聚合宠物数据的辅助检查工具。
 
 维护链路可以理解为：
 
 ```text
 本地游戏 Data/Bin
-  -> scripts/export_pet_json.py
+  -> yarn export:bin-data
   -> public/data/BinData/*.json
   -> yarn sync:pet-data
   -> public/data/Pets.json、pets/*.json、PetSkillIndex.json、SkillAcquisitionIndex.json 等前端数据

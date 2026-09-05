@@ -57,13 +57,27 @@ def sanitize_data(value: Any) -> Any:
 
 
 class BinTableParser:
-    def __init__(self, bin_root: Path, table_name: str, language: str) -> None:
+    def __init__(
+        self,
+        bin_root: Path,
+        table_name: str,
+        language: str,
+        *,
+        conf_dir: Path | None = None,
+        data_dir: Path | None = None,
+        localize_dir: Path | None = None,
+        strict_refs: bool = False,
+    ) -> None:
         self.bin_root = bin_root
         self.table_name = table_name
         self.language = language
-        self.schema = read_json(bin_root / "BinConf" / f"{table_name}.json")
+        self.conf_dir = conf_dir or bin_root / "BinConf"
+        self.data_dir = data_dir or bin_root / "BinDataCompressed"
+        self.localize_dir = localize_dir or bin_root / "BinLocalize" / language
+        self.strict_refs = strict_refs
+        self.schema = read_json(self.conf_dir / f"{table_name}.json")
         self.properties = self.schema["Properties"]
-        self.data = (bin_root / "BinDataCompressed" / f"{table_name}.bytes").read_bytes()
+        self.data = (self.data_dir / f"{table_name}.bytes").read_bytes()
         self.meta = struct.unpack("<" + "I" * 16, self.data[-64:])
         self.row_count = self.meta[3]
         self.struct_size = self.meta[4]
@@ -86,7 +100,7 @@ class BinTableParser:
         return refs
 
     def _load_localized_refs(self) -> dict[int, bytes]:
-        localized_path = self.bin_root / "BinLocalize" / self.language / f"{self.table_name}.bytes"
+        localized_path = self.localize_dir / f"{self.table_name}.bytes"
         if not localized_path.exists():
             return {}
         localized_data = localized_path.read_bytes()
@@ -178,11 +192,37 @@ class BinTableParser:
         if prop_type == "ELocalizedString":
             ref_id = struct.unpack("<I", raw)[0]
             blob = self.localized_refs.get(ref_id)
-            return safe_decode_text(blob) if blob is not None else ref_id
+            if blob is not None:
+                value = safe_decode_text(blob)
+                if self.strict_refs and blob.strip(b"\x00") and not value:
+                    raise ValueError(
+                        f"{self.table_name}: invalid localized text for reference {ref_id} "
+                        f"in field {prop.get('Name', '<unknown>')}"
+                    )
+                return value
+            if ref_id == 0:
+                return None
+            if self.strict_refs:
+                raise ValueError(
+                    f"{self.table_name}: unresolved localized reference {ref_id} "
+                    f"for field {prop.get('Name', '<unknown>')} in {self.localize_dir}"
+                )
+            return ref_id
         if prop_type == "EString" or prop_type == "EStruct" or prop.get("DynamicArray"):
             ref_id = struct.unpack("<I", raw)[0]
             blob = self.refs.get(ref_id)
-            return self.decode_ref_blob(prop, blob) if blob is not None else ref_id
+            if blob is not None:
+                return self.decode_ref_blob(prop, blob)
+            if ref_id == 0:
+                if prop.get("DynamicArray"):
+                    return []
+                return None
+            if self.strict_refs:
+                raise ValueError(
+                    f"{self.table_name}: unresolved data reference {ref_id} "
+                    f"for field {prop.get('Name', '<unknown>')}"
+                )
+            return ref_id
         return self.read_primitive(prop_type, raw)
 
     def parse_row(self, row_index: int) -> dict[str, Any]:

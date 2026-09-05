@@ -156,6 +156,80 @@ html:not(.dark) [data-scroll-container] :where(
   border-color: var(--border);
 }
 
+/* Keep legacy accent text readable on light surfaces while pages migrate to semantic tones. */
+html:not(.dark) [data-scroll-container] :where(
+  [class~="text-amber-100"],
+  [class~="text-amber-200"],
+  [class~="text-amber-300"]
+) {
+  color: var(--color-amber-700);
+}
+
+html:not(.dark) [data-scroll-container] :where(
+  [class~="text-blue-100"],
+  [class~="text-blue-200"],
+  [class~="text-blue-300"]
+) {
+  color: var(--color-blue-700);
+}
+
+html:not(.dark) [data-scroll-container] :where(
+  [class~="text-emerald-100"],
+  [class~="text-emerald-200"],
+  [class~="text-emerald-300"]
+) {
+  color: var(--color-emerald-700);
+}
+
+html:not(.dark) [data-scroll-container] :where(
+  [class~="text-orange-100"],
+  [class~="text-orange-200"],
+  [class~="text-orange-300"]
+) {
+  color: var(--color-orange-700);
+}
+
+html:not(.dark) [data-scroll-container] :where(
+  [class~="text-purple-100"],
+  [class~="text-purple-200"],
+  [class~="text-purple-300"]
+) {
+  color: var(--color-purple-700);
+}
+
+html:not(.dark) [data-scroll-container] :where(
+  [class~="text-red-100"],
+  [class~="text-red-200"],
+  [class~="text-red-300"]
+) {
+  color: var(--color-red-700);
+}
+
+html:not(.dark) [data-scroll-container] :where(
+  [class~="text-rose-100"],
+  [class~="text-rose-100/90"],
+  [class~="text-rose-200"],
+  [class~="text-rose-300"]
+) {
+  color: var(--color-rose-700);
+}
+
+html:not(.dark) [data-scroll-container] :where(
+  [class~="text-sky-100"],
+  [class~="text-sky-200"],
+  [class~="text-sky-300"]
+) {
+  color: var(--color-sky-700);
+}
+
+html:not(.dark) [data-scroll-container] :where(
+  [class~="text-violet-100"],
+  [class~="text-violet-200"],
+  [class~="text-violet-300"]
+) {
+  color: var(--color-violet-700);
+}
+
 .dark .pvp-lite-theme :where(
   [class~="bg-white"],
   [class~="bg-white/65"],

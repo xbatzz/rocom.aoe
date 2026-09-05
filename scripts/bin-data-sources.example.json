@@ -1,0 +1,30 @@
+{
+  "defaults": {
+    "bin_root": "../NRC/layers/base/Content/ScriptC/Data/Bin",
+    "language": "dev_CN"
+  },
+  "tables": {
+    "PETBASE_CONF": {
+      "bin_root": "../NRC/layers/pakchunk_s4_2_P/Content/ScriptC/Data/Bin"
+    },
+    "SKILL_CONF": {
+      "conf_dir": "../NRC/layers/pakchunk_s4_1_P/Content/ScriptC/Data/Bin/BinConf",
+      "data_dir": "../NRC/layers/pakchunk_s4_3_P/Content/ScriptC/Data/Bin/BinDataCompressed",
+      "localize_dir": "../NRC/layers/pakchunk_s4_3_P/Content/ScriptC/Data/Bin/BinLocalize/dev_CN"
+    }
+  },
+  "checks": [
+    {
+      "table": "PETBASE_CONF",
+      "id": 3001,
+      "field": "name",
+      "equals": "喵喵"
+    },
+    {
+      "table": "BAG_ITEM_CONF",
+      "id": 100001,
+      "field": "name",
+      "equals": "一小箱金币"
+    }
+  ]
+}

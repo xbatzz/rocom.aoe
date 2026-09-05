@@ -26,6 +26,8 @@ yarn dev
 yarn build
 ```
 
+从 FModel Bin 导出原始表: `yarn export:bin-data --dry-run`，确认无误后运行 `yarn export:bin-data`
+
 本地重建精灵数据: `yarn sync:pet-data`
 
 技能获得索引校验: `yarn test:skill-acquisition`

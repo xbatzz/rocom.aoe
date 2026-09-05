@@ -33,6 +33,10 @@ import {
 } from "@/lib/teamAnalysis";
 import { isPetImplemented } from "@/lib/petImplementation";
 import {
+    semanticTextClasses,
+    semanticToneClasses,
+} from "@/lib/uiTones";
+import {
     formatPetHandbookNo,
     matchesPetKeyword,
 } from "@/lib/petHandbook";
@@ -244,34 +248,34 @@ const personalityModKeyMap: Record<StatKey, keyof IPersonality> = {
 };
 
 const typeToneMap: Record<string, string> = {
-    Bug: "border-lime-400/30 bg-lime-400/12 text-lime-100",
-    Cute: "border-pink-400/30 bg-card hover:bg-accent/12 text-pink-100",
-    Dark: "border-border/30 bg-slate-400/12 text-foreground",
-    Dragon: "border-violet-400/30 bg-card hover:bg-accent/12 text-violet-100",
-    Electric: "border-yellow-400/30 bg-card hover:bg-accent/12 text-yellow-100",
-    Fighting: "border-red-400/30 bg-red-400/12 text-red-100",
-    Fire: "border-orange-400/30 bg-card hover:bg-accent/12 text-orange-100",
-    Flying: "border-sky-400/30 bg-sky-400/12 text-sky-100",
-    Ghost: "border-indigo-400/30 bg-card hover:bg-accent/12 text-indigo-100",
-    Grass: "border-emerald-400/30 bg-card hover:bg-accent/12 text-emerald-100",
-    Ground: "border-border/30 bg-card hover:bg-accent/12 text-foreground",
-    Ice: "border-cyan-300/30 bg-card hover:bg-accent/12 text-cyan-50",
-    Illusion: "border-fuchsia-400/30 bg-card hover:bg-accent/12 text-fuchsia-100",
-    Leader: "border-border/35 bg-card hover:bg-accent/14 text-foreground",
-    Light: "border-border/30 bg-card hover:bg-accent/12 text-foreground",
-    Mechanical: "border-zinc-300/30 bg-zinc-300/12 text-zinc-100",
-    Normal: "border-stone-300/30 bg-stone-300/12 text-stone-100",
-    Poison: "border-purple-400/30 bg-card hover:bg-accent/12 text-purple-100",
-    Water: "border-blue-400/30 bg-blue-400/12 text-blue-100",
+    Bug: semanticToneClasses.lime,
+    Cute: semanticToneClasses.pink,
+    Dark: semanticToneClasses.slate,
+    Dragon: semanticToneClasses.violet,
+    Electric: semanticToneClasses.yellow,
+    Fighting: semanticToneClasses.red,
+    Fire: semanticToneClasses.orange,
+    Flying: semanticToneClasses.sky,
+    Ghost: semanticToneClasses.indigo,
+    Grass: semanticToneClasses.emerald,
+    Ground: semanticToneClasses.stone,
+    Ice: semanticToneClasses.cyan,
+    Illusion: semanticToneClasses.fuchsia,
+    Leader: semanticToneClasses.slate,
+    Light: semanticToneClasses.yellow,
+    Mechanical: semanticToneClasses.zinc,
+    Normal: semanticToneClasses.stone,
+    Poison: semanticToneClasses.purple,
+    Water: semanticToneClasses.blue,
 };
 
 const roleToneMap: Record<TeamRole, string> = {
-    辅助: "border-emerald-400/20 bg-card hover:bg-accent/10 text-emerald-100",
-    拦截: "border-rose-400/20 bg-rose-400/10 text-rose-100",
-    倾泻: "border-border/20 bg-card hover:bg-accent/10 text-foreground",
-    联攻: "border-sky-400/20 bg-sky-400/10 text-sky-100",
-    联防: "border-violet-400/20 bg-card hover:bg-accent/10 text-violet-100",
-    中转: "border-border/20 bg-slate-300/10 text-foreground",
+    辅助: semanticToneClasses.emerald,
+    拦截: semanticToneClasses.rose,
+    倾泻: semanticToneClasses.orange,
+    联攻: semanticToneClasses.sky,
+    联防: semanticToneClasses.violet,
+    中转: semanticToneClasses.slate,
 };
 
 const SPEED_REFERENCE_OPTIONS = [
@@ -2745,7 +2749,7 @@ document.title = "配队工具 - 洛克王国工具箱";
 </script>
 
 <template>
-    <section class="grid gap-4 xl:grid-cols-[minmax(0,1.22fr)_380px]">
+    <section class="grid gap-4 2xl:grid-cols-[minmax(0,1.22fr)_380px]">
         <div class="space-y-4">
             <Card
                 class="overflow-hidden border-border bg-card py-0 shadow-md">
@@ -2763,7 +2767,10 @@ document.title = "配队工具 - 洛克王国工具箱";
                                 </Badge>
                                 <Badge
                                     variant="secondary"
-                                    class="rounded-[10px] border border-emerald-400/15 bg-card hover:bg-accent/10 px-3 py-1 text-emerald-100">
+                                    :class="[
+                                        'rounded-[10px] border px-3 py-1',
+                                        semanticToneClasses.emerald,
+                                    ]">
                                     {{ filledSlotCount }}/{{ TEAM_SLOT_COUNT }}
                                     槽已占用
                                 </Badge>
@@ -2798,7 +2805,10 @@ document.title = "配队工具 - 洛克王国工具箱";
 
             <div
                 v-if="errorMessage"
-                class="rounded-[10px] border border-red-400/20 bg-red-400/10 px-4 py-3 text-sm text-red-100">
+                :class="[
+                    'rounded-[10px] border px-4 py-3 text-sm',
+                    semanticToneClasses.red,
+                ]">
                 {{ errorMessage }}
             </div>
 
@@ -3078,7 +3088,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                         :class="[
                                             'inline-flex h-5 w-5 items-center justify-center rounded-[10px] border text-[10px]',
                                             item.done
-                                                ? 'border-emerald-400/30 bg-card hover:bg-accent/15 text-emerald-100'
+                                                ? semanticToneClasses.emerald
                                                 : 'border-border bg-card text-foreground',
                                         ]">
                                         {{ item.done ? "✓" : "•" }}
@@ -3487,7 +3497,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                 <div
                                     class="flex items-center gap-2 text-sm font-medium text-foreground">
                                     <ShieldCheck
-                                        class="h-4 w-4 text-emerald-300" />
+                                        :class="['h-4 w-4', semanticTextClasses.emerald]" />
                                     抗性较多
                                 </div>
                                 <div
@@ -3495,7 +3505,10 @@ document.title = "配队工具 - 洛克王国工具箱";
                                     <span
                                         v-for="item in defenseSummary.resistances"
                                         :key="item.label"
-                                        class="rounded-[10px] border border-emerald-400/20 bg-card hover:bg-accent/10 px-2 py-0.5 text-xs text-emerald-100">
+                                        :class="[
+                                            'rounded-[10px] border px-2 py-0.5 text-xs',
+                                            semanticToneClasses.emerald,
+                                        ]">
                                         {{ item.label }} × {{ item.resist }}
                                     </span>
                                     <span
@@ -3513,7 +3526,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                 <div
                                     class="flex items-center gap-2 text-sm font-medium text-foreground">
                                     <ShieldAlert
-                                        class="h-4 w-4 text-rose-300" />
+                                        :class="['h-4 w-4', semanticTextClasses.rose]" />
                                     易被压制
                                 </div>
                                 <div
@@ -3521,7 +3534,10 @@ document.title = "配队工具 - 洛克王国工具箱";
                                     <span
                                         v-for="item in defenseSummary.weaknesses"
                                         :key="item.label"
-                                        class="rounded-[10px] border border-rose-400/20 bg-rose-400/10 px-2 py-0.5 text-xs text-rose-100">
+                                        :class="[
+                                            'rounded-[10px] border px-2 py-0.5 text-xs',
+                                            semanticToneClasses.rose,
+                                        ]">
                                         {{ item.label }} × {{ item.weak }}
                                     </span>
                                     <span
@@ -3540,7 +3556,8 @@ document.title = "配队工具 - 洛克王国工具箱";
                             <div class="space-y-3">
                                 <div
                                     class="flex items-center gap-2 text-sm font-medium text-foreground">
-                                    <Zap class="h-4 w-4 text-sky-300" />
+                                    <Zap
+                                        :class="['h-4 w-4', semanticTextClasses.sky]" />
                                     队伍速度线
                                 </div>
                                 <div
@@ -3577,7 +3594,8 @@ document.title = "配队工具 - 洛克王国工具箱";
                             <div class="space-y-3">
                                 <div
                                     class="flex items-center gap-2 text-sm font-medium text-foreground">
-                                    <ShieldAlert class="h-4 w-4 text-rose-300" />
+                                    <ShieldAlert
+                                        :class="['h-4 w-4', semanticTextClasses.rose]" />
                                     环境威胁
                                 </div>
                                 <div
@@ -3601,7 +3619,11 @@ document.title = "配队工具 - 洛克王国工具箱";
                                                 </p>
                                             </div>
                                             <div class="shrink-0 text-right">
-                                                <p class="text-sm font-semibold text-rose-100">
+                                                <p
+                                                    :class="[
+                                                        'text-sm font-semibold',
+                                                        semanticTextClasses.rose,
+                                                    ]">
                                                     {{ item.max_multiplier.toFixed(2) }}x
                                                 </p>
                                                 <p class="text-[11px] text-foreground">
@@ -3636,10 +3658,10 @@ document.title = "配队工具 - 洛克王国工具箱";
 
         <Card
             :class="[
-                'border-border bg-card shadow-md xl:sticky xl:top-4 xl:h-fit',
+                'border-border bg-card shadow-md 2xl:sticky 2xl:top-4 2xl:h-fit',
                 mobilePanelOpen
                     ? 'fixed inset-x-3 inset-y-3 z-50 block overflow-x-hidden overflow-y-auto'
-                    : 'hidden xl:block',
+                    : 'hidden 2xl:block',
             ]">
             <CardHeader class="gap-4 pb-4">
                 <div class="flex items-start justify-between gap-3">
@@ -3656,7 +3678,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                     </div>
                     <Button
                         variant="ghost"
-                        class="h-9 shrink-0 rounded-[10px] px-2.5 xl:hidden"
+                        class="h-9 shrink-0 rounded-[10px] px-2.5 2xl:hidden"
                         aria-label="关闭槽位面板"
                         @click="mobilePanelOpen = false">
                         完成
@@ -3678,7 +3700,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                     </TabsList>
 
                     <TabsContent value="friends" class="mt-0 space-y-4">
-                        <div class="grid gap-2 sm:grid-cols-3 xl:grid-cols-1">
+                        <div class="grid gap-2 sm:grid-cols-3 2xl:grid-cols-1">
                             <Select v-model="selectedTypeFilter">
                                 <SelectTrigger
                                     class="h-10 rounded-[10px] border-border bg-card text-foreground">

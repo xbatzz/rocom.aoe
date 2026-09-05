@@ -10,6 +10,8 @@
 游戏 Paks
   -> FModel 导出 NRC/Content/...
   -> 校验补丁层和中文本地化
+  -> yarn export:bin-data --dry-run
+  -> yarn export:bin-data
   -> 更新 public/data/BinData/*.json
   -> yarn sync:pet-data
   -> 生成 Pets.json、pets/*.json、PetSkillIndex.json、SkillAcquisitionIndex.json 等
@@ -63,6 +65,30 @@ Lua 的 `unluac` 设置只影响 Lua 反编译，不参与宠物、技能和图�
 - 不可把不同版本的本地化文件与最新数据盲目组合。
 
 如果使用分层导出，应保留原 pak 层目录，不要先把同路径文件全部压平成一个 `NRC/`。可参考 [Roco-Kingdom-World-Data](https://github.com/kikozz/Roco-Kingdom-World-Data) 的做法：各 pak 层分开保存，解码时记录 schema 和本地化来源。
+
+逐表来源可以写入 `scripts/bin-data-sources.example.json` 所示的清单。相对路径以清单文件所在目录为准；每张表既可以用一个 `bin_root`，也可以分别指定：
+
+```json
+{
+  "defaults": {
+    "bin_root": "../NRC/layers/base/Content/ScriptC/Data/Bin",
+    "language": "dev_CN"
+  },
+  "tables": {
+    "SKILL_CONF": {
+      "conf_dir": "../NRC/layers/s4_1_P/Content/ScriptC/Data/Bin/BinConf",
+      "data_dir": "../NRC/layers/s4_3_P/Content/ScriptC/Data/Bin/BinDataCompressed",
+      "localize_dir": "../NRC/layers/s4_3_P/Content/ScriptC/Data/Bin/BinLocalize/dev_CN"
+    }
+  },
+  "checks": [
+    {"table": "PETBASE_CONF", "id": 3001, "field": "name", "equals": "喵喵"},
+    {"table": "BAG_ITEM_CONF", "id": 100001, "field": "name", "equals": "一小箱金币"}
+  ]
+}
+```
+
+建议复制示例文件为 `NRC/bin-data-sources.s4.json`，避免把本机解包路径提交到仓库。
 
 ### 3.2 S3 已确认的来源层
 
@@ -150,6 +176,49 @@ public/data/BinData/
 ```
 
 不要直接手工编辑 `Pets.json` 或 `public/data/pets/*.json` 来补赛季数据；这些都是脚本生成结果，下次同步会被覆盖。
+
+### 4.1 从 `.bytes` 生成 17 张标准 JSON
+
+如果所有表来自同一个已经正确合并的 `Bin` 目录，先做不写盘校验：
+
+```bash
+yarn export:bin-data --dry-run
+```
+
+确认 17 张表全部解析成功、行数合理、没有未解析引用后再写入：
+
+```bash
+yarn export:bin-data
+```
+
+如果各表来自不同补丁层，使用逐表来源清单：
+
+```bash
+yarn export:bin-data \
+  --manifest NRC/bin-data-sources.s4.json \
+  --dry-run
+
+yarn export:bin-data \
+  --manifest NRC/bin-data-sources.s4.json
+```
+
+导出器会：
+
+- 默认解析本节列出的全部 17 张表，输出为 `{"RocoDataRows": {...}}`。
+- 用每行的 `id` 作为 JSON 键；没有 `id` 时回退到二进制行键。
+- 递归检查 schema；含本地化字段的表必须存在对应 `BinLocalize/dev_CN/*.bytes`。
+- 遇到非零普通引用或本地化引用无法解析、空表、重复键、缺文件时立即失败。
+- 执行来源清单中的 `checks` 哨兵断言；任一旧数据或 S4 新数据的字段不等于预期值时拒绝写入。
+- 先在内存中完成全部解析和校验，再暂存 JSON；不会因为中途某一张表失败而写入半套数据。
+- 写入时只替换目标 17 张 JSON，不删除 `public/data/BinData/` 中其他表。
+
+仅诊断损坏或不完整资源时才可以使用 `--allow-unresolved-refs`；正式赛季数据禁止使用该参数。只想调试单表时可重复传入 `--table`：
+
+```bash
+yarn export:bin-data --table PETBASE_CONF --table SKILL_CONF --dry-run
+```
+
+仓库原有的 `scripts/export_pet_json.py` 继续保留为聚合宠物数据的调试导出器；正式写入 `public/data/BinData/` 应使用 `yarn export:bin-data`。
 
 ## 5. 正确统计赛季精灵
 
@@ -374,6 +443,7 @@ yarn import:fmodel-icons --overwrite-skills
 依次运行：
 
 ```bash
+yarn test:bin-data-export
 node scripts/test-handbook-progress.mjs
 yarn test:pet-data-quality
 yarn type-check
