@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { IOffensiveCoverage } from "@/features/battle-query/typeDefenseMatchup";
 import type { IMonsterTypeDetail } from "@/lib/interface";
+import { semanticToneClasses } from "@/lib/uiTones";
+import { getTypeToneClasses } from "@/features/battle-query/typeToneClasses";
 
 interface ITypeEntry extends IMonsterTypeDetail {
     label: string;
@@ -71,13 +73,6 @@ function getPanelStyle(type: ITypeEntry) {
     };
 }
 
-function getTypeTagStyle(type: ITypeEntry) {
-    return {
-        color: "#0f172a",
-        borderColor: toRgba(type.color, 0.26),
-        backgroundColor: toRgba(type.color, 0.16),
-    };
-}
 </script>
 
 <template>
@@ -109,7 +104,7 @@ function getTypeTagStyle(type: ITypeEntry) {
                     <div>
                         <span
                             class="inline-flex rounded-[10px] border px-2.5 py-1 text-xs font-semibold"
-                            :style="getTypeTagStyle(coverage.attackType)"
+                            :class="getTypeToneClasses(coverage.attackType.name)"
                         >
                             <TypeIcon
                                 :type-id="coverage.attackType.id"
@@ -125,7 +120,7 @@ function getTypeTagStyle(type: ITypeEntry) {
                     </div>
                     <span
                         class="shrink-0 rounded-[10px] border px-2.5 py-1 text-xs font-black"
-                        :style="getTypeTagStyle(coverage.attackType)"
+                        :class="semanticToneClasses.emerald"
                     >
                         伤害 x2
                     </span>
@@ -139,7 +134,7 @@ function getTypeTagStyle(type: ITypeEntry) {
                         v-for="type in coverage.targets"
                         :key="type.id"
                         class="inline-flex items-center rounded-[10px] border px-2.5 py-1 text-sm font-semibold"
-                        :style="getTypeTagStyle(type)"
+                        :class="getTypeToneClasses(type.name)"
                     >
                         <TypeIcon
                             :type-id="type.id"
@@ -187,7 +182,7 @@ function getTypeTagStyle(type: ITypeEntry) {
                         v-for="type in combinedTargets"
                         :key="type.id"
                         class="inline-flex items-center rounded-[10px] border px-2.5 py-1 text-sm font-semibold"
-                        :style="getTypeTagStyle(type)"
+                        :class="getTypeToneClasses(type.name)"
                     >
                         <TypeIcon
                             :type-id="type.id"

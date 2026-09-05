@@ -4,6 +4,8 @@ import type {
     IDefenseMatchupGroup,
 } from "@/features/battle-query/typeDefenseMatchup";
 import type { IMonsterTypeDetail } from "@/lib/interface";
+import { semanticToneClasses } from "@/lib/uiTones";
+import { getTypeToneClasses } from "@/features/battle-query/typeToneClasses";
 
 interface ITypeEntry extends IMonsterTypeDetail {
     label: string;
@@ -76,21 +78,13 @@ function getGroupStyle(group: IDefenseMatchupGroup<ITypeEntry>) {
     };
 }
 
-function getBadgeStyle(group: IDefenseMatchupGroup<ITypeEntry>) {
-    return {
-        color: "#0f172a",
-        borderColor: toRgba(group.tone, 0.24),
-        backgroundColor: toRgba(group.tone, 0.14),
-    };
-}
-
-function getTypeTagStyle(type: ITypeEntry) {
-    return {
-        color: "#0f172a",
-        borderColor: toRgba(type.color, 0.26),
-        backgroundColor: toRgba(type.color, 0.16),
-    };
-}
+const defenseToneClasses: Record<DefenseMultiplier, string> = {
+    3: semanticToneClasses.rose,
+    2: semanticToneClasses.red,
+    0.5: semanticToneClasses.sky,
+    0.25: semanticToneClasses.cyan,
+    1: semanticToneClasses.slate,
+};
 
 function formatMultiplier(multiplier: DefenseMultiplier) {
     return `受伤 x${multiplier}`;
@@ -127,7 +121,7 @@ function formatMultiplier(multiplier: DefenseMultiplier) {
                     v-for="type in selectedTypes"
                     :key="type.id"
                     class="inline-flex items-center rounded-[10px] border px-3 py-1.5 text-sm font-bold"
-                    :style="getTypeTagStyle(type)"
+                    :class="getTypeToneClasses(type.name)"
                 >
                     <TypeIcon
                         :type-id="type.id"
@@ -151,7 +145,7 @@ function formatMultiplier(multiplier: DefenseMultiplier) {
                     <div>
                         <span
                             class="inline-flex rounded-[10px] border px-2.5 py-1 text-xs font-semibold"
-                            :style="getBadgeStyle(group)"
+                            :class="defenseToneClasses[group.multiplier]"
                         >
                             防守
                         </span>
@@ -161,7 +155,7 @@ function formatMultiplier(multiplier: DefenseMultiplier) {
                     </div>
                     <span
                         class="shrink-0 rounded-[10px] border px-2.5 py-1 text-xs font-black"
-                        :style="getBadgeStyle(group)"
+                        :class="defenseToneClasses[group.multiplier]"
                     >
                         {{ formatMultiplier(group.multiplier) }}
                     </span>
@@ -175,7 +169,7 @@ function formatMultiplier(multiplier: DefenseMultiplier) {
                         v-for="type in group.items"
                         :key="type.id"
                         class="inline-flex items-center rounded-[10px] border px-2.5 py-1 text-sm font-semibold"
-                        :style="getTypeTagStyle(type)"
+                        :class="getTypeToneClasses(type.name)"
                     >
                         <TypeIcon
                             :type-id="type.id"
@@ -211,7 +205,7 @@ function formatMultiplier(multiplier: DefenseMultiplier) {
                     v-for="type in neutralGroup.items"
                     :key="type.id"
                     class="inline-flex items-center rounded-[10px] border px-2.5 py-1 text-xs font-semibold"
-                    :style="getTypeTagStyle(type)"
+                    :class="getTypeToneClasses(type.name)"
                 >
                     <TypeIcon
                         :type-id="type.id"

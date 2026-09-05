@@ -17,6 +17,7 @@ import {
 } from "@/features/battle-query/typeDefenseMatchup";
 import type { IMonsterTypeDetail } from "@/lib/interface";
 import { loadTypeIconSymbolMap } from "@/lib/typeIcons";
+import { getTypeToneClasses } from "@/features/battle-query/typeToneClasses";
 
 use([TooltipComponent, GraphChart, CanvasRenderer]);
 
@@ -1043,10 +1044,12 @@ function resetSelection() {
 }
 
 function getBadgeStyle(type: ITypeEntry, isActive: boolean) {
-    const textColor = isActive ? getReadableTextColor(type.color) : "#0f172a";
+    if (!isActive) {
+        return {};
+    }
 
     return {
-        color: textColor,
+        color: getReadableTextColor(type.color),
         borderColor: toRgba(type.color, isActive ? 0.92 : 0.22),
         background: isActive ? toRgba(type.color, 1) : toRgba(type.color, 0.3),
         boxShadow: isActive
@@ -1266,6 +1269,7 @@ onBeforeUnmount(() => {
                         :key="type.id"
                         type="button"
                         class="type-badge flex min-h-14 flex-col items-center justify-center gap-1 rounded-[10px] p-1.5 text-left md:min-h-10 md:flex-row md:p-3"
+                        :class="getTypeToneClasses(type.name)"
                         :style="getBadgeStyle(type, currentTypeId === type.id)"
                         :aria-pressed="currentTypeId === type.id"
                         @mouseenter="previewType(type.id)"
@@ -1327,6 +1331,7 @@ onBeforeUnmount(() => {
                             :key="type.id"
                             type="button"
                             class="type-badge flex min-h-14 flex-col items-center justify-center gap-1 rounded-[10px] p-1.5 text-left md:min-h-10 md:flex-row md:p-3"
+                            :class="getTypeToneClasses(type.name)"
                             :style="
                                 getBadgeStyle(type, secondaryTypeId === type.id)
                             "

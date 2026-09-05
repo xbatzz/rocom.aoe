@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import type { IMonsterTypeDetail } from "@/lib/interface";
+import { semanticToneClasses } from "@/lib/uiTones";
+import { getTypeToneClasses } from "@/features/battle-query/typeToneClasses";
 
 interface ITypeEntry extends IMonsterTypeDetail {
     label: string;
@@ -83,21 +85,12 @@ function getSectionStyle(section: IRelationSection) {
     };
 }
 
-function getSectionBadgeStyle(section: IRelationSection) {
-    return {
-        color: "#0f172a",
-        borderColor: toRgba(section.tone, 0.24),
-        backgroundColor: toRgba(section.tone, 0.14),
-    };
-}
-
-function getTypeTagStyle(type: ITypeEntry) {
-    return {
-        color: "#0f172a",
-        borderColor: toRgba(type.color, 0.26),
-        backgroundColor: toRgba(type.color, 0.16),
-    };
-}
+const relationToneClasses: Record<string, string> = {
+    attackAdvantage: semanticToneClasses.emerald,
+    attackResisted: semanticToneClasses.amber,
+    defenseWeakness: semanticToneClasses.red,
+    defenseResistance: semanticToneClasses.sky,
+};
 </script>
 
 <template>
@@ -127,7 +120,7 @@ function getTypeTagStyle(type: ITypeEntry) {
                     v-for="type in selectedTypes"
                     :key="type.id"
                     class="inline-flex items-center rounded-[10px] border px-3 py-1.5 text-sm font-bold"
-                    :style="getTypeTagStyle(type)"
+                    :class="getTypeToneClasses(type.name)"
                 >
                     <TypeIcon
                         :type-id="type.id"
@@ -151,7 +144,7 @@ function getTypeTagStyle(type: ITypeEntry) {
                     <div>
                         <span
                             class="inline-flex rounded-[10px] border px-2.5 py-1 text-xs font-semibold"
-                            :style="getSectionBadgeStyle(section)"
+                            :class="relationToneClasses[section.key]"
                         >
                             {{ section.perspective }}
                         </span>
@@ -161,7 +154,7 @@ function getTypeTagStyle(type: ITypeEntry) {
                     </div>
                     <span
                         class="shrink-0 rounded-[10px] border px-2.5 py-1 text-xs font-black"
-                        :style="getSectionBadgeStyle(section)"
+                        :class="relationToneClasses[section.key]"
                     >
                         {{ section.multiplier }}
                     </span>
@@ -178,7 +171,7 @@ function getTypeTagStyle(type: ITypeEntry) {
                         v-for="type in section.items"
                         :key="type.id"
                         class="inline-flex items-center rounded-[10px] border px-2.5 py-1 text-sm font-semibold"
-                        :style="getTypeTagStyle(type)"
+                        :class="getTypeToneClasses(type.name)"
                     >
                         <TypeIcon
                             :type-id="type.id"
@@ -213,7 +206,7 @@ function getTypeTagStyle(type: ITypeEntry) {
                     v-for="type in neutralTypes"
                     :key="type.id"
                     class="inline-flex items-center rounded-[10px] border px-2.5 py-1 text-xs font-semibold"
-                    :style="getTypeTagStyle(type)"
+                    :class="getTypeToneClasses(type.name)"
                 >
                     <TypeIcon
                         :type-id="type.id"
