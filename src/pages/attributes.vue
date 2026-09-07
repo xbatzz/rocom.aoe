@@ -418,7 +418,7 @@ async function loadTypeData() {
                 controller.signal,
             ),
             fetchJSON<ITypeDictionaryResponse>(
-                "/data/BinData/TYPE_DICTIONARY.json",
+                "/data/type_dictionary.json",
                 controller.signal,
             ),
         ]);

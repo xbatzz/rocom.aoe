@@ -1,4 +1,4 @@
-const CACHE_VERSION = "rocom-pwa-v4";
+const CACHE_VERSION = "rocom-pwa-v5";
 const APP_SHELL_CACHE = `${CACHE_VERSION}-app-shell`;
 const CORE_DATA_CACHE = `${CACHE_VERSION}-core-data`;
 const PET_DETAIL_CACHE = `${CACHE_VERSION}-pet-details`;
@@ -17,7 +17,7 @@ const APP_SHELL_URLS = [
 
 const CORE_DATA_URLS = [
     "/data/types.json",
-    "/data/BinData/TYPE_DICTIONARY.json",
+    "/data/type_dictionary.json",
     "/data/Pets.json",
     "/data/bloodline_index.json",
     "/data/moves.json",

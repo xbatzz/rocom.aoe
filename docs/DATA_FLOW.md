@@ -107,9 +107,9 @@ public/data/pets/{petId}.json
 
 ### `public/data/BinData/*.json`
 
-当前有 745 个 JSON 原始表。它们是站点的数据母版，绝大多数页面不直接读取。当前前端直接读取的 `BinData` 文件只有：
+当前有 745 个 JSON 原始表。它们是站点的数据母版，前端不再通过 `/data/BinData/*` 直接读取。其中只有一张表需要发布为运行时数据：
 
-- `public/data/BinData/TYPE_DICTIONARY.json`：属性关系页 `src/pages/attributes.vue`
+- `public/data/BinData/TYPE_DICTIONARY.json`：属性关系页的数据源；开发时由 Vite 映射、构建时复制为 `/data/type_dictionary.json`
 
 `scripts/sync-pet-data.mjs` 还会读取多张 `BinData` 表来生成前端索引和详情，详见第 2 节。
 
@@ -145,7 +145,7 @@ public/data/pets/{petId}.json
 属性关系页 `src/pages/attributes.vue` 读取：
 
 - `/data/types.json`
-- `/data/BinData/TYPE_DICTIONARY.json`
+- `/data/type_dictionary.json`
 
 其中 `types.json` 提供属性基础条目，`TYPE_DICTIONARY.json` 提供属性克制/抗性关系数据。
 

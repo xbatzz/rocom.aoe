@@ -9,7 +9,6 @@ import VueRouter from "vue-router/vite";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 
-const DEPLOYED_BIN_DATA_FILES = new Set(["TYPE_DICTIONARY.json"]);
 const DEPLOYED_TABLE_FILES = new Set([
     "HOME_PET_LAY_EGG_RATE_CONF.json",
     "PET_HANDBOOK.json",
@@ -23,6 +22,19 @@ const EXCLUDED_PUBLIC_DATA_FILES = [
 
 function filterDeploymentData(): Plugin {
     let outputDirectory = "";
+    let publicDirectory = "";
+    let isProductionBuild = false;
+
+    const typeDictionaryUrl = "/data/type_dictionary.json";
+
+    function getTypeDictionarySourcePath() {
+        return path.join(
+            publicDirectory,
+            "data",
+            "BinData",
+            "TYPE_DICTIONARY.json",
+        );
+    }
 
     async function removeFilesExcept(
         directory: string,
@@ -44,16 +56,44 @@ function filterDeploymentData(): Plugin {
 
     return {
         name: "filter-deployment-data",
-        apply: "build",
         configResolved(config) {
             outputDirectory = path.resolve(config.root, config.build.outDir);
+            publicDirectory = config.publicDir;
+            isProductionBuild = config.command === "build";
+        },
+        configureServer(server) {
+            server.middlewares.use((request, response, next) => {
+                if (request.url?.split("?", 1)[0] !== typeDictionaryUrl) {
+                    next();
+                    return;
+                }
+
+                fs.readFile(getTypeDictionarySourcePath())
+                    .then((content) => {
+                        response.setHeader(
+                            "Content-Type",
+                            "application/json; charset=utf-8",
+                        );
+                        response.end(content);
+                    })
+                    .catch(next);
+            });
         },
         async closeBundle() {
+            if (!isProductionBuild) {
+                return;
+            }
+
+            await fs.copyFile(
+                getTypeDictionarySourcePath(),
+                path.join(outputDirectory, "data", "type_dictionary.json"),
+            );
+
             await Promise.all([
-                removeFilesExcept(
-                    path.join(outputDirectory, "data", "BinData"),
-                    DEPLOYED_BIN_DATA_FILES,
-                ),
+                fs.rm(path.join(outputDirectory, "data", "BinData"), {
+                    recursive: true,
+                    force: true,
+                }),
                 removeFilesExcept(
                     path.join(outputDirectory, "data", "tables"),
                     DEPLOYED_TABLE_FILES,

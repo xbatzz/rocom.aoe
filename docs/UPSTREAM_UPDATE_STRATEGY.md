@@ -150,7 +150,7 @@
 属性关系页面是 `src/pages/attributes.vue`，直接读取：
 
 - `/data/types.json`
-- `/data/BinData/TYPE_DICTIONARY.json`
+- `/data/type_dictionary.json`（构建时从 `BinData/TYPE_DICTIONARY.json` 生成）
 
 ### `types.json` 直接依赖字段
 
