@@ -464,7 +464,7 @@ onMounted(async () => {
 </script>
 
 <template>
-    <section class="space-y-1.5">
+    <section class="space-y-1.5 tabular-nums">
         <Card
             class="overflow-hidden border-border bg-card py-0 shadow-lg"
         >
@@ -745,12 +745,12 @@ onMounted(async () => {
 
         <div
             v-if="isLoading || !isReady"
-            class="space-y-3"
+            class="overflow-hidden rounded-lg border border-border bg-card/40"
         >
             <Skeleton
                 v-for="index in 6"
                 :key="index"
-                class="h-20 rounded-[10px] border border-border bg-muted"
+                class="h-20 rounded-none border-b border-border bg-muted last:border-b-0"
             />
         </div>
 
@@ -818,14 +818,15 @@ onMounted(async () => {
                                         @click.stop
                                     >
                                         <input
-                                            class="sr-only"
+                                            class="peer sr-only"
                                             type="checkbox"
+                                            :aria-label="`选择图鉴条目：${entry.name}`"
                                             :disabled="!persistEnabled"
                                             :checked="isSelected(entry.speciesId)"
                                             @change="handleSelectionChange(entry.speciesId, $event)"
                                         />
                                         <span
-                                            class="flex h-4 w-4 items-center justify-center rounded-md border transition-colors"
+                                            class="flex h-4 w-4 items-center justify-center rounded-md border transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-ring peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-background"
                                             :class="
                                                 isSelected(entry.speciesId)
                                                     ? 'border-primary/50 bg-primary/15 text-primary'
@@ -927,8 +928,9 @@ onMounted(async () => {
                                         ]"
                                     >
                                         <input
-                                            class="sr-only"
+                                            class="peer sr-only"
                                             type="checkbox"
+                                            :aria-label="`${entry.name}：${getTopicRequirementText(entry, topic)}`"
                                             :disabled="!persistEnabled"
                                             :checked="
                                                 isTopicCompleted(
@@ -946,7 +948,7 @@ onMounted(async () => {
                                         />
 
                                         <span
-                                            class="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-md border transition-colors sm:mt-0"
+                                            class="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-md border transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-ring peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-background sm:mt-0"
                                             :class="
                                                 isTopicCompleted(
                                                     entry.speciesId,

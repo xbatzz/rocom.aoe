@@ -1110,7 +1110,7 @@ function getMatchSourceLabel(result: IIncubateMatchResult) {
                                 <Card
                                     v-for="result in visibleMatches"
                                     :key="result.rootPet.id"
-                                    class="border-border bg-card py-0 shadow-md transition-transform hover:-translate-y-1"
+                                    class="border-border bg-card py-0 shadow-md transition-colors hover:bg-accent/10"
                                 >
                                     <CardContent class="space-y-4 px-5 py-5">
                                         <div class="flex items-start gap-4">

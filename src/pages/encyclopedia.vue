@@ -1014,7 +1014,7 @@ document.title = "图鉴 - 洛克王国工具箱";
 
         <div
             v-if="isLoading"
-            class="grid grid-cols-1 gap-4 md:grid-cols-2 2xl:grid-cols-3"
+            class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
         >
             <Skeleton
                 v-for="index in 6"
@@ -1048,7 +1048,7 @@ document.title = "图鉴 - 洛克王国工具箱";
                 class="group block"
             >
                 <Card
-                    class="h-full border-border bg-card py-0 shadow-md transition duration-300 group-hover:-translate-y-1 group-hover:border-primary/30 group-hover:shadow-xl"
+                    class="h-full border-border bg-card py-0 shadow-md transition-[background-color,border-color,box-shadow] duration-200 group-hover:border-primary/30 group-hover:shadow-lg"
                     style="
                         content-visibility: auto;
                         contain-intrinsic-size: 320px;
@@ -1060,7 +1060,7 @@ document.title = "图鉴 - 洛克王国工具箱";
                                 :name="pet.name"
                                 :alt="pet.localized.zh.name"
                                 class="h-24 w-24 shrink-0 rounded-[10px]"
-                                img-class="object-contain p-2 transition duration-300 group-hover:scale-105"
+                                img-class="object-contain p-2"
                             />
 
                             <div class="min-w-0 flex-1">

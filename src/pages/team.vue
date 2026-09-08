@@ -2749,7 +2749,7 @@ document.title = "配队工具 - 洛克王国工具箱";
 </script>
 
 <template>
-    <section class="grid gap-4 2xl:grid-cols-[minmax(0,1.22fr)_380px]">
+    <section class="grid gap-4 tabular-nums 2xl:grid-cols-[minmax(0,1.22fr)_380px]">
         <div class="space-y-4">
             <Card
                 class="overflow-hidden border-border bg-card py-0 shadow-md">
@@ -2899,12 +2899,11 @@ document.title = "配队工具 - 洛克王国工具箱";
             </Card>
 
             <div class="grid gap-3 md:grid-cols-2 2xl:grid-cols-3">
-                <button
+                <div
                     v-for="slot in teamState.slots"
                     :key="slot.slotId"
-                    type="button"
                     :class="[
-                        'group rounded-[1.6rem] border p-4 text-left transition-all duration-200',
+                        'group relative rounded-[1.6rem] border transition-[background-color,border-color,box-shadow] duration-200',
                         activeSlotId === slot.slotId
                             ? 'border-primary/50 bg-muted shadow-md'
                             : 'border-border bg-card hover:border-border hover:bg-muted',
@@ -2913,13 +2912,17 @@ document.title = "配队工具 - 洛克王国工具箱";
                             : '',
                     ]"
                     :draggable="Boolean(slot.friendId)"
-                    @click="selectSlot(slot.slotId)"
                     @dragstart="startSlotDrag(slot.slotId)"
                     @dragend="clearDragState"
                     @dragenter.prevent="setDragOverSlot(slot.slotId)"
                     @dragover.prevent="setDragOverSlot(slot.slotId)"
                     @dragleave="clearDragOverSlot(slot.slotId)"
                     @drop.prevent="handleSlotDrop(slot.slotId)">
+                    <button
+                        type="button"
+                        class="w-full rounded-[1.6rem] p-4 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                        :aria-label="`选择槽位 ${slot.slotId}${getSlotFriend(slot) ? `：${getSlotFriend(slot)?.localized.zh.name}` : ''}`"
+                        @click="selectSlot(slot.slotId)">
                     <div class="flex items-start gap-3">
                         <div class="relative shrink-0">
                             <FriendPortrait
@@ -2937,7 +2940,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                         </div>
 
                         <div class="min-w-0 flex-1 space-y-3">
-                            <div class="flex items-start justify-between gap-3">
+                            <div class="flex items-start justify-between gap-3 pr-9">
                                 <div class="min-w-0 space-y-1">
                                     <p
                                         class="text-[11px] tracking-[0.22em] text-foreground uppercase">
@@ -2952,14 +2955,6 @@ document.title = "配队工具 - 洛克王国工具箱";
                                     </h3>
                                 </div>
 
-                                <Button
-                                    v-if="slot.friendId"
-                                    variant="ghost"
-                                    size="icon-sm"
-                                    class="rounded-[10px] text-foreground hover:bg-accent hover:text-foreground"
-                                    @click.stop="clearSlot(slot.slotId)">
-                                    <Trash2 class="h-4 w-4" />
-                                </Button>
                             </div>
 
                             <div v-if="getSlotFriend(slot)" class="space-y-3">
@@ -3105,7 +3100,19 @@ document.title = "配队工具 - 洛克王国工具箱";
                             </div>
                         </div>
                     </div>
-                </button>
+                    </button>
+
+                    <Button
+                        v-if="slot.friendId"
+                        type="button"
+                        variant="ghost"
+                        size="icon-sm"
+                        class="absolute right-4 top-4 z-10 rounded-[10px] text-foreground hover:bg-accent hover:text-foreground"
+                        :aria-label="`删除槽位 ${slot.slotId} 中的精灵：${getSlotFriend(slot)?.localized.zh.name ?? ''}`"
+                        @click="clearSlot(slot.slotId)">
+                        <Trash2 class="h-4 w-4" />
+                    </Button>
+                </div>
             </div>
 
             <div
@@ -4738,7 +4745,7 @@ document.title = "配队工具 - 洛克王国工具箱";
 
         <Dialog v-model:open="shareDialogOpen">
             <DialogContent
-                class="border-border bg-slate-950 text-foreground sm:max-w-xl">
+                class="border-border bg-popover text-popover-foreground sm:max-w-xl">
                 <DialogHeader>
                     <DialogTitle class="text-foreground">分享配队</DialogTitle>
                     <DialogDescription class="text-foreground">

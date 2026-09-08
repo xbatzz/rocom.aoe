@@ -14,7 +14,7 @@ function formatValue(value: number | null | undefined) {
 
 <template>
     <article
-        class="flex h-full flex-col rounded-[10px] border border-border bg-card p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg"
+        class="flex h-full flex-col rounded-[10px] border border-border bg-card p-4 shadow-sm transition-[background-color,border-color,box-shadow] hover:border-primary/40 hover:bg-accent/10 hover:shadow-md"
     >
         <div class="flex gap-3">
             <SkillIcon

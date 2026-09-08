@@ -393,7 +393,7 @@ onBeforeUnmount(() => {
             </CardContent>
         </Card>
 
-        <div v-if="isLoading" class="grid grid-cols-1 gap-4 md:grid-cols-2 2xl:grid-cols-3">
+        <div v-if="isLoading" class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
             <Skeleton v-for="index in 6" :key="index"
                 class="h-48 rounded-[10px] border border-border bg-muted" />
         </div>
@@ -412,7 +412,7 @@ onBeforeUnmount(() => {
             <div v-for="entry in paginatedItems" :key="entry.id" :id="`item-${entry.id}`" class="group" @click="toggleExpand(entry.id)">
                 <Card
                     :class="[
-                        'h-full cursor-pointer py-0 shadow-md transition duration-300 group-hover:-translate-y-1 group-hover:shadow-xl',
+                        'h-full cursor-pointer py-0 shadow-md transition-[background-color,border-color,box-shadow] duration-200 group-hover:shadow-lg',
                         highlightedItemId === entry.id
                             ? 'border-border/40 bg-card ring-1 ring-amber-400/20 group-hover:border-border/50'
                             : 'border-border bg-card group-hover:border-primary/30',

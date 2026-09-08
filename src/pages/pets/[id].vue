@@ -3178,7 +3178,7 @@ async function getFriendDetail(idParam: string | string[]) {
 
             <Dialog v-model:open="petTopicDialogOpen">
                 <DialogContent
-                    class="border-border bg-slate-950 text-foreground sm:max-w-2xl"
+                    class="border-border bg-popover text-popover-foreground sm:max-w-2xl"
                 >
                     <DialogHeader>
                         <DialogTitle class="text-foreground">

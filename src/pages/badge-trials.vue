@@ -537,7 +537,7 @@ onMounted(async () => {
 
         <template v-if="isLoading">
             <div class="grid grid-cols-3 gap-2 sm:gap-3 lg:grid-cols-5 xl:grid-cols-6">
-                <Skeleton v-for="index in 12" :key="index" class="h-40 rounded-[12px]" />
+                <Skeleton v-for="index in 12" :key="index" class="h-32 rounded-[10px] sm:h-40 sm:rounded-[12px]" />
             </div>
         </template>
 
@@ -641,7 +641,7 @@ onMounted(async () => {
                     v-for="family in pagedFamilies"
                     :key="family.key"
                     type="button"
-                    class="group flex min-h-32 flex-col items-center justify-center gap-1.5 rounded-[10px] border bg-card p-2 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md sm:min-h-40 sm:gap-2 sm:rounded-[12px] sm:p-3"
+                    class="group flex min-h-32 flex-col items-center justify-center gap-1.5 rounded-[10px] border bg-card p-2 text-center shadow-sm transition-[background-color,border-color,box-shadow] hover:bg-accent/10 hover:shadow-md sm:min-h-40 sm:gap-2 sm:rounded-[12px] sm:p-3"
                     :class="isFamilyLit(family) ? 'border-primary/45 bg-primary/5' : 'border-border'"
                     :aria-pressed="isFamilyLit(family)"
                     @click="toggleFamily(family)"
@@ -649,7 +649,7 @@ onMounted(async () => {
                     <FriendPortrait
                         :name="family.representative.name"
                         :alt="family.representative.localized.zh.name"
-                        class="h-16 w-16 transition-all sm:h-24 sm:w-24"
+                        class="h-16 w-16 sm:h-24 sm:w-24"
                         :img-class="isFamilyLit(family) ? 'object-contain' : 'object-contain grayscale opacity-35'"
                     />
                     <span class="line-clamp-1 w-full text-xs font-semibold text-foreground sm:text-sm">

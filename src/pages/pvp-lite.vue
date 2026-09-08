@@ -2698,7 +2698,7 @@ document.title = "对战助手 - 洛克王国工具箱";
 
 <template>
     <section
-        class="pvp-lite-theme mx-auto max-w-[1600px] space-y-3 rounded-[28px] bg-gradient-to-b from-cyan-50 via-white to-orange-50 p-3 pb-4 text-slate-950 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 dark:text-foreground md:p-5 md:pb-8"
+        class="pvp-lite-theme mx-auto max-w-[1600px] space-y-3 rounded-[28px] bg-gradient-to-b from-cyan-50 via-white to-orange-50 p-3 pb-4 text-slate-950 tabular-nums dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 dark:text-foreground md:p-5 md:pb-8"
     >
         <div
             class="rounded-[24px] border border-white/80 bg-white/85 px-4 py-4 shadow-sm backdrop-blur md:px-6"
@@ -3282,7 +3282,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                             :aria-controls="`pvp-panel-${item.key}`"
                             :aria-selected="activePanel === item.key"
                             :tabindex="activePanel === item.key ? 0 : -1"
-                            class="flex min-w-0 flex-col items-center gap-1 rounded-[14px] px-1 py-2 text-[11px] font-black transition md:flex-1 md:flex-row md:justify-center md:gap-2 md:px-3 md:text-sm"
+                            class="flex min-w-0 flex-col items-center gap-1 rounded-[14px] px-1 py-2 text-[11px] font-black transition-colors md:flex-1 md:text-sm lg:flex-row lg:justify-center lg:gap-2 lg:px-3"
                             :class="
                                 activePanel === item.key
                                     ? 'bg-slate-950 text-white shadow-sm'
