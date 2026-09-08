@@ -1114,9 +1114,9 @@ document.title = "表格 - 洛克王国工具箱";
 <template>
     <section class="space-y-4">
         <Card
-            class="overflow-hidden border-border bg-card py-0 shadow-md"
+            class="overflow-hidden border-border bg-card py-0 shadow-sm"
         >
-            <CardHeader class="gap-4 px-4 py-4 md:px-5">
+            <CardHeader class="gap-3 px-4 py-3 md:px-5">
                 <div
                     class="flex flex-col gap-3 xl:flex-row xl:items-end xl:justify-between"
                 >
@@ -1137,10 +1137,10 @@ document.title = "表格 - 洛克王国工具箱";
                         <div
                             v-for="item in summaryItems"
                             :key="item.label"
-                            class="rounded-[10px] border border-border bg-muted px-3 py-2"
+                            class="rounded-[10px] border border-border/60 bg-muted/60 px-3 py-2"
                         >
                             <p
-                                class="text-[11px] tracking-[0.16em] text-foreground uppercase"
+                                class="text-xs text-muted-foreground"
                             >
                                 {{ item.label }}
                             </p>
@@ -1165,7 +1165,8 @@ document.title = "表格 - 洛克王国工具箱";
 
                     <Button
                         variant="outline"
-                        class="h-9 w-full justify-between rounded-[10px] md:hidden"
+                        size="compact"
+                        class="w-full justify-between md:hidden"
                         :aria-expanded="filtersExpanded"
                         @click="filtersExpanded = !filtersExpanded"
                     >
@@ -1180,14 +1181,15 @@ document.title = "表格 - 洛克王国工具箱";
 
                     <div
                         :class="[
-                            'grid-cols-2 gap-2 md:grid md:grid-cols-2 xl:grid-cols-5 2xl:grid-cols-11',
+                            'grid-cols-2 gap-2 md:grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-9',
                             filtersExpanded ? 'grid' : 'hidden',
                         ]"
                     >
 
                     <Select v-model="typeModel">
                         <SelectTrigger
-                            class="h-9 rounded-[10px] border-border bg-muted text-sm text-foreground"
+                            size="compact"
+                            class="w-full border-border text-foreground"
                         >
                             <SelectValue placeholder="全部属性" />
                         </SelectTrigger>
@@ -1210,7 +1212,8 @@ document.title = "表格 - 洛克王国工具箱";
 
                     <Select v-model="eggGroupModel">
                         <SelectTrigger
-                            class="h-9 rounded-[10px] border-border bg-muted text-sm text-foreground"
+                            size="compact"
+                            class="w-full border-border text-foreground"
                         >
                             <SelectValue placeholder="全部蛋组" />
                         </SelectTrigger>
@@ -1231,7 +1234,8 @@ document.title = "表格 - 洛克王国工具箱";
 
                     <Select v-model="styleModel">
                         <SelectTrigger
-                            class="h-9 rounded-[10px] border-border bg-muted text-sm text-foreground"
+                            size="compact"
+                            class="w-full border-border text-foreground"
                         >
                             <SelectValue placeholder="全部定位" />
                         </SelectTrigger>
@@ -1249,7 +1253,8 @@ document.title = "表格 - 洛克王国工具箱";
 
                     <Select v-model="specialModel">
                         <SelectTrigger
-                            class="h-9 rounded-[10px] border-border bg-muted text-sm text-foreground"
+                            size="compact"
+                            class="w-full border-border text-foreground"
                         >
                             <SelectValue placeholder="全部形态" />
                         </SelectTrigger>
@@ -1266,7 +1271,8 @@ document.title = "表格 - 洛克王国工具箱";
 
                     <Select v-model="implementationModel">
                         <SelectTrigger
-                            class="h-9 rounded-[10px] border-border bg-muted text-sm text-foreground"
+                            size="compact"
+                            class="w-full border-border text-foreground"
                         >
                             <SelectValue placeholder="是否实装" />
                         </SelectTrigger>
@@ -1286,7 +1292,8 @@ document.title = "表格 - 洛克王国工具箱";
                         :disabled="!tableState.skillId"
                     >
                         <SelectTrigger
-                            class="h-9 rounded-[10px] border-border bg-muted text-sm text-foreground disabled:cursor-not-allowed disabled:opacity-55"
+                            size="compact"
+                            class="w-full border-border text-foreground disabled:cursor-not-allowed disabled:opacity-55"
                         >
                             <SelectValue placeholder="技能来源" />
                         </SelectTrigger>
@@ -1305,7 +1312,8 @@ document.title = "表格 - 洛克王国工具箱";
                         <PopoverTrigger as-child>
                             <Button
                                 variant="outline"
-                                class="col-span-2 h-9 justify-between rounded-[10px] border-border bg-muted text-sm text-foreground hover:bg-accent md:col-span-1 xl:col-span-2 2xl:col-span-3"
+                                size="compact"
+                                class="col-span-2 justify-between border-border text-foreground md:col-span-1 lg:col-span-2 2xl:col-span-2"
                             >
                                 <span class="truncate text-left">
                                     {{ selectedSkillLabel }}
@@ -1316,7 +1324,7 @@ document.title = "表格 - 洛克王国工具箱";
                             </Button>
                         </PopoverTrigger>
                         <PopoverContent
-                            class="w-[min(92vw,420px)] border-border bg-slate-950/96 p-0"
+                            class="w-[min(92vw,420px)] border-border bg-popover p-0 text-popover-foreground"
                             align="start"
                         >
                             <Command
@@ -1426,7 +1434,8 @@ document.title = "表格 - 洛克王国工具箱";
 
                     <Select v-model="pageSizeModel">
                         <SelectTrigger
-                            class="h-9 rounded-[10px] border-border bg-muted text-sm text-foreground"
+                            size="compact"
+                            class="w-full border-border text-foreground"
                         >
                             <SelectValue placeholder="每页条数" />
                         </SelectTrigger>
@@ -1443,7 +1452,8 @@ document.title = "表格 - 洛克王国工具箱";
 
                     <Button
                         variant="outline"
-                        class="h-9 rounded-[10px] border-border bg-muted text-foreground hover:bg-accent"
+                        size="compact"
+                        class="border-border text-foreground"
                         :disabled="!hasActiveFilters"
                         @click="resetFilters"
                     >
@@ -1469,7 +1479,7 @@ document.title = "表格 - 洛克王国工具箱";
             {{ errorMessage }}
         </div>
 
-        <Card v-else class="border-border bg-card shadow-sm">
+        <Card v-else class="border-border bg-card shadow-none">
             <CardHeader class="gap-3 pb-3">
                 <div
                     class="flex flex-col gap-2 md:flex-row md:items-center md:justify-between"
@@ -1799,7 +1809,7 @@ document.title = "表格 - 洛克王国工具箱";
                                             <Badge
                                                 v-if="!isPetImplemented(pet)"
                                                 variant="outline"
-                                                class="rounded-[10px] border-border/20 bg-card hover:bg-accent/10 px-1.5 py-0 text-[10px] text-foreground"
+                                                class="rounded-[10px] border-border/20 bg-card hover:bg-accent/10 px-1.5 py-0 text-[11px] text-foreground"
                                             >
                                                 未实装
                                             </Badge>
@@ -1810,7 +1820,7 @@ document.title = "表格 - 洛克王国工具箱";
                                                     :type-id="pet.main_type.id"
                                                     :label="pet.main_type.localized.zh"
                                                     :icon-size="13"
-                                                    class="border-transparent bg-white/10 px-1.5 py-0 text-[10px] text-foreground"
+                                                    class="border-transparent bg-white/10 px-1.5 py-0 text-[11px] text-foreground"
                                                 >
                                                     {{
                                                         pet.main_type.localized
@@ -1822,7 +1832,7 @@ document.title = "表格 - 洛克王国工具箱";
                                                     :type-id="pet.sub_type.id"
                                                     :label="pet.sub_type.localized.zh"
                                                     :icon-size="13"
-                                                    class="border-transparent bg-slate-700/70 px-1.5 py-0 text-[10px] text-foreground"
+                                                    class="border-transparent bg-slate-700/70 px-1.5 py-0 text-[11px] text-foreground"
                                                 >
                                                     {{
                                                         pet.sub_type.localized

@@ -750,11 +750,11 @@ document.title = "图鉴 - 洛克王国工具箱";
 <template>
     <section class="space-y-3">
         <Card
-            class="overflow-hidden border-border bg-card py-0 shadow-lg"
+            class="overflow-hidden border-border bg-card py-0 shadow-sm"
         >
-            <CardHeader class="gap-3 px-4 py-4">
+            <CardHeader class="gap-2.5 px-4 py-3">
                 <div
-                    class="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between"
+                    class="flex flex-col gap-2.5 lg:flex-row lg:items-center lg:justify-between"
                 >
                     <h1
                         class="text-2xl font-semibold tracking-tight text-foreground md:text-3xl"
@@ -762,18 +762,18 @@ document.title = "图鉴 - 洛克王国工具箱";
                         图鉴
                     </h1>
 
-                    <div class="grid grid-cols-4 gap-1.5 md:gap-3">
+                    <div class="grid grid-cols-4 gap-1.5 md:gap-2">
                         <div
                             v-for="item in summaryItems"
                             :key="item.label"
-                            class="min-w-0 rounded-[10px] border border-border bg-muted px-2 py-2 shadow-sm md:px-4 md:py-3"
+                            class="min-w-0 rounded-[10px] border border-border/60 bg-muted/60 px-2.5 py-2 md:px-3"
                         >
                             <p
-                                class="truncate text-[9px] tracking-wide text-foreground uppercase md:text-xs md:tracking-[0.2em]"
+                                class="truncate text-[11px] leading-4 text-muted-foreground md:text-xs"
                             >
                                 {{ item.label }}
                             </p>
-                            <p class="mt-1 text-lg font-semibold text-foreground md:mt-2 md:text-2xl">
+                            <p class="mt-0.5 text-lg font-semibold tabular-nums text-foreground md:text-xl">
                                 {{ item.value }}
                             </p>
                         </div>
@@ -781,8 +781,8 @@ document.title = "图鉴 - 洛克王国工具箱";
                 </div>
             </CardHeader>
 
-            <CardContent class="space-y-4 px-4 pb-6">
-                <Separator class="bg-white/10" />
+            <CardContent class="space-y-3 px-4 pb-4">
+                <Separator class="bg-border" />
 
                 <div class="space-y-2">
                     <div class="relative">
@@ -793,13 +793,13 @@ document.title = "图鉴 - 洛克王国工具箱";
                             v-model="searchQuery"
                             type="search"
                             placeholder="搜索名称、编号、主副属性或血脉技能"
-                            class="h-10 rounded-[10px] border-border bg-card pl-11 text-sm text-foreground placeholder:text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
+                            class="border-border pl-11 text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
                         />
                     </div>
 
                     <Button
                         variant="outline"
-                        class="h-10 w-full justify-between rounded-[10px] xl:hidden"
+                        class="h-9 w-full justify-between lg:hidden"
                         :aria-expanded="filtersExpanded"
                         @click="filtersExpanded = !filtersExpanded"
                     >
@@ -814,19 +814,19 @@ document.title = "图鉴 - 洛克王国工具箱";
 
                     <div
                         :class="[
-                            'grid-cols-2 gap-2 xl:grid xl:grid-cols-6 xl:gap-3',
+                            'grid-cols-2 gap-2 lg:grid lg:grid-cols-3 xl:grid-cols-6',
                             filtersExpanded ? 'grid' : 'hidden',
                         ]"
                     >
 
                     <Select v-model="selectedType">
                         <SelectTrigger
-                            class="h-10 w-full rounded-[10px] border-border bg-card text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
+                            class="w-full border-border text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
                         >
                             <SelectValue placeholder="属性一（不限）" />
                         </SelectTrigger>
                         <SelectContent
-                            class="border-border bg-slate-950/95 text-foreground"
+                            class="border-border bg-popover text-popover-foreground"
                         >
                             <SelectItem value="all">属性一（不限）</SelectItem>
                             <SelectItem
@@ -846,12 +846,12 @@ document.title = "图鉴 - 洛克王国工具箱";
 
                     <Select v-model="selectedSecondType">
                         <SelectTrigger
-                            class="h-10 w-full rounded-[10px] border-border bg-card text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
+                            class="w-full border-border text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
                         >
                             <SelectValue placeholder="属性二（不限）" />
                         </SelectTrigger>
                         <SelectContent
-                            class="border-border bg-slate-950/95 text-foreground"
+                            class="border-border bg-popover text-popover-foreground"
                         >
                             <SelectItem value="all">属性二（不限）</SelectItem>
                             <SelectItem
@@ -871,12 +871,12 @@ document.title = "图鉴 - 洛克王国工具箱";
 
                     <Select v-model="selectedAttackStyle">
                         <SelectTrigger
-                            class="h-10 w-full rounded-[10px] border-border bg-card text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
+                            class="w-full border-border text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
                         >
                             <SelectValue placeholder="全部倾向" />
                         </SelectTrigger>
                         <SelectContent
-                            class="border-border bg-slate-950/95 text-foreground"
+                            class="border-border bg-popover text-popover-foreground"
                         >
                             <SelectItem value="all">全部倾向</SelectItem>
                             <SelectItem
@@ -891,12 +891,12 @@ document.title = "图鉴 - 洛克王国工具箱";
 
                     <Select v-model="selectedSpecial">
                         <SelectTrigger
-                            class="h-10 w-full rounded-[10px] border-border bg-card text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
+                            class="w-full border-border text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
                         >
                             <SelectValue placeholder="全部阶段" />
                         </SelectTrigger>
                         <SelectContent
-                            class="border-border bg-slate-950/95 text-foreground"
+                            class="border-border bg-popover text-popover-foreground"
                         >
                             <SelectItem value="all">全部阶段</SelectItem>
                             <SelectItem value="leader">首领形态</SelectItem>
@@ -913,12 +913,12 @@ document.title = "图鉴 - 洛克王国工具箱";
 
                     <Select v-model="selectedImplementation">
                         <SelectTrigger
-                            class="h-10 w-full rounded-[10px] border-border bg-card text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
+                            class="w-full border-border text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
                         >
                             <SelectValue placeholder="是否实装" />
                         </SelectTrigger>
                         <SelectContent
-                            class="border-border bg-slate-950/95 text-foreground"
+                            class="border-border bg-popover text-popover-foreground"
                         >
                             <SelectItem
                                 v-for="option in PET_IMPLEMENTATION_OPTIONS"
@@ -932,12 +932,12 @@ document.title = "图鉴 - 洛克王国工具箱";
 
                     <Select v-model="sortBy">
                         <SelectTrigger
-                            class="h-10 w-full rounded-[10px] border-border bg-card text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
+                            class="w-full border-border text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
                         >
                             <SelectValue placeholder="按编号排序" />
                         </SelectTrigger>
                         <SelectContent
-                            class="border-border bg-slate-950/95 text-foreground"
+                            class="border-border bg-popover text-popover-foreground"
                         >
                             <SelectItem value="id">按编号排序</SelectItem>
                             <SelectItem value="power"
@@ -981,12 +981,13 @@ document.title = "图鉴 - 洛克王国工具箱";
                     <div class="flex flex-wrap items-center gap-2">
                         <Select v-model="pageSizeModel">
                             <SelectTrigger
-                                class="h-10 w-34.5 rounded-[10px] border-border bg-card text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
+                                size="compact"
+                                class="w-34.5 border-border text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20"
                             >
                                 <SelectValue placeholder="每页显示" />
                             </SelectTrigger>
                             <SelectContent
-                                class="border-border bg-slate-950/95 text-foreground"
+                                class="border-border bg-popover text-popover-foreground"
                             >
                                 <SelectItem
                                     v-for="option in PAGE_SIZE_OPTIONS"
@@ -1001,7 +1002,8 @@ document.title = "图鉴 - 洛克王国工具箱";
                         <Button
                             v-if="hasActiveFilters"
                             variant="outline"
-                            class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
+                            size="compact"
+                            class="border-border text-foreground"
                             @click="resetFilters"
                         >
                             <RotateCcw class="h-3.5 w-3.5" />
@@ -1048,7 +1050,7 @@ document.title = "图鉴 - 洛克王国工具箱";
                 class="group block"
             >
                 <Card
-                    class="h-full border-border bg-card py-0 shadow-md transition-[background-color,border-color,box-shadow] duration-200 group-hover:border-primary/30 group-hover:shadow-lg"
+                    class="h-full border-border bg-card py-0 shadow-none transition-[background-color,border-color,box-shadow] duration-200 group-hover:border-primary/30 group-hover:shadow-sm"
                     style="
                         content-visibility: auto;
                         contain-intrinsic-size: 320px;
@@ -1069,7 +1071,7 @@ document.title = "图鉴 - 洛克王国工具箱";
                                 >
                                     <div class="min-w-0 space-y-1">
                                         <p
-                                            class="text-xs tracking-[0.22em] text-foreground uppercase"
+                                            class="text-xs text-muted-foreground"
                                         >
                                             {{ formatPetCatalogIdentifier(pet) }}
                                         </p>

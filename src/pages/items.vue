@@ -290,20 +290,20 @@ onBeforeUnmount(() => {
 <template>
     <section class="space-y-3">
         <Card
-            class="overflow-hidden border-border bg-card py-0 shadow-lg">
-            <CardHeader class="gap-3 px-4 py-4">
-                <div class="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
+            class="overflow-hidden border-border bg-card py-0 shadow-sm">
+            <CardHeader class="gap-2.5 px-4 py-3">
+                <div class="flex flex-col gap-2.5 lg:flex-row lg:items-center lg:justify-between">
                     <h1 class="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
                         道具图鉴
                     </h1>
 
-                    <div class="grid grid-cols-2 gap-3 md:grid-cols-4">
+                    <div class="grid grid-cols-2 gap-1.5 md:grid-cols-4 md:gap-2">
                         <div v-for="item in summaryItems" :key="item.label"
-                            class="rounded-[10px] border border-border bg-muted px-4 py-3 shadow-sm ">
-                            <p class="text-xs tracking-[0.2em] text-foreground uppercase">
+                            class="rounded-[10px] border border-border/60 bg-muted/60 px-2.5 py-2 md:px-3">
+                            <p class="text-xs text-muted-foreground">
                                 {{ item.label }}
                             </p>
-                            <p class="mt-2 text-2xl font-semibold text-foreground">
+                            <p class="mt-0.5 text-lg font-semibold tabular-nums text-foreground md:text-xl">
                                 {{ item.value }}
                             </p>
                         </div>
@@ -311,23 +311,23 @@ onBeforeUnmount(() => {
                 </div>
             </CardHeader>
 
-            <CardContent class="space-y-4 px-4 pb-6">
-                <Separator class="bg-white/10" />
+            <CardContent class="space-y-3 px-4 pb-4">
+                <Separator class="bg-border" />
 
-                <div class="grid gap-3 xl:grid-cols-[2fr_1fr_1fr]">
+                <div class="grid gap-2 lg:grid-cols-[minmax(0,2fr)_minmax(10rem,1fr)_minmax(10rem,1fr)]">
                     <div class="relative">
                         <Search
                             class="pointer-events-none absolute left-4 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-foreground" />
                         <Input v-model="searchQuery" type="search" placeholder="搜索道具名称、描述、编号或关联精灵"
-                            class="h-10 rounded-[10px] border-border bg-card pl-11 text-sm text-foreground placeholder:text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20" />
+                            class="border-border pl-11 text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20" />
                     </div>
 
                     <Select v-model="selectedCategory">
                         <SelectTrigger
-                            class="h-10 w-full rounded-[10px] border-border bg-card text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20">
+                            class="w-full border-border text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20">
                             <SelectValue placeholder="全部分类" />
                         </SelectTrigger>
-                        <SelectContent class="border-border bg-slate-950/95 text-foreground">
+                        <SelectContent class="border-border bg-popover text-popover-foreground">
                             <SelectItem value="all">全部分类</SelectItem>
                             <SelectItem v-for="category in categoryOptions" :key="category" :value="category">
                                 {{ category }}
@@ -337,10 +337,10 @@ onBeforeUnmount(() => {
 
                     <Select v-model="selectedQuality">
                         <SelectTrigger
-                            class="h-10 w-full rounded-[10px] border-border bg-card text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20">
+                            class="w-full border-border text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20">
                             <SelectValue placeholder="全部品质" />
                         </SelectTrigger>
-                        <SelectContent class="border-border bg-slate-950/95 text-foreground">
+                        <SelectContent class="border-border bg-popover text-popover-foreground">
                             <SelectItem v-for="option in QUALITY_OPTIONS" :key="option.value" :value="option.value">
                                 {{ option.label }}
                             </SelectItem>
@@ -372,10 +372,11 @@ onBeforeUnmount(() => {
                     <div class="flex flex-wrap items-center gap-2">
                         <Select v-model="pageSizeModel">
                             <SelectTrigger
-                                class="h-10 w-34.5 rounded-[10px] border-border bg-card text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20">
+                                size="compact"
+                                class="w-34.5 border-border text-foreground focus-visible:border-primary/60 focus-visible:ring-primary/20">
                                 <SelectValue placeholder="每页显示" />
                             </SelectTrigger>
-                            <SelectContent class="border-border bg-slate-950/95 text-foreground">
+                            <SelectContent class="border-border bg-popover text-popover-foreground">
                                 <SelectItem v-for="option in PAGE_SIZE_OPTIONS" :key="option" :value="String(option)">
                                     每页 {{ option }} 条
                                 </SelectItem>
@@ -383,7 +384,8 @@ onBeforeUnmount(() => {
                         </Select>
 
                         <Button v-if="hasActiveFilters" variant="outline"
-                            class="rounded-[10px] border-border bg-white/5 text-foreground hover:bg-accent"
+                            size="compact"
+                            class="border-border text-foreground"
                             @click="resetFilters">
                             <RotateCcw class="h-3.5 w-3.5" />
                             重置条件
@@ -412,7 +414,7 @@ onBeforeUnmount(() => {
             <div v-for="entry in paginatedItems" :key="entry.id" :id="`item-${entry.id}`" class="group" @click="toggleExpand(entry.id)">
                 <Card
                     :class="[
-                        'h-full cursor-pointer py-0 shadow-md transition-[background-color,border-color,box-shadow] duration-200 group-hover:shadow-lg',
+                        'h-full cursor-pointer py-0 shadow-none transition-[background-color,border-color,box-shadow] duration-200 group-hover:shadow-sm',
                         highlightedItemId === entry.id
                             ? 'border-border/40 bg-card ring-1 ring-amber-400/20 group-hover:border-border/50'
                             : 'border-border bg-card group-hover:border-primary/30',
@@ -444,7 +446,7 @@ onBeforeUnmount(() => {
                             <div class="min-w-0 flex-1">
                                 <div class="flex items-start justify-between gap-2">
                                     <div class="min-w-0 space-y-0.5">
-                                        <p class="text-xs tracking-[0.22em] text-foreground uppercase">
+                                        <p class="text-xs text-muted-foreground">
                                             #{{ entry.id }}
                                         </p>
                                         <h3 class="truncate text-lg font-semibold tracking-tight text-foreground">
@@ -524,7 +526,7 @@ onBeforeUnmount(() => {
                                         :class="recipe.can_craft
                                             ? 'border-border/15 bg-card hover:bg-accent/5'
                                             : 'border-white/8 bg-card opacity-60'">
-                                        <div v-if="!recipe.can_craft" class="mb-1.5 text-[10px] font-medium text-foreground">
+                                        <div v-if="!recipe.can_craft" class="mb-1.5 text-xs font-medium text-muted-foreground">
                                             暂不可合成
                                         </div>
                                         <div class="flex flex-wrap items-center gap-1.5">
@@ -535,19 +537,20 @@ onBeforeUnmount(() => {
                                                         <HoverCard :open-delay="200" :close-delay="100">
                                                             <HoverCardTrigger as-child>
                                                                 <button
-                                                                    class="inline-flex cursor-pointer items-center gap-1 rounded-[10px] border border-white/8 bg-white/4 px-2 py-1 transition hover:border-border/30 hover:bg-card hover:bg-accent/10"
+                                                                    type="button"
+                                                                    class="inline-flex cursor-pointer items-center gap-1 rounded-[10px] border border-border/60 bg-muted/50 px-2 py-1 transition-colors hover:border-border hover:bg-accent/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                                                                     @click="navigateToItem(mat.id)">
                                                                     <img v-if="getMaterialIconSrc(mat.icon_id)"
                                                                         :src="getMaterialIconSrc(mat.icon_id)!"
                                                                         :alt="mat.name"
                                                                         class="h-4 w-4 object-contain" />
-                                                                    <span class="text-[11px] text-foreground">{{ mat.name }}</span>
+                                                                    <span class="text-xs text-foreground">{{ mat.name }}</span>
                                                                 </button>
                                                             </HoverCardTrigger>
                                                             <HoverCardContent
                                                                 side="top"
                                                                 :side-offset="6"
-                                                                class="w-72 rounded-[10px] border-border bg-slate-950/95 p-0 shadow-xl backdrop-blur">
+                                                                class="w-72 rounded-[10px] border-border bg-popover p-0 text-popover-foreground shadow-lg">
                                                                 <template v-for="detail in ([getItemDetail(mat.id)] as IItem[])" :key="mat.id">
                                                                     <div class="flex gap-3 p-3">
                                                                         <div :class="[
@@ -568,7 +571,7 @@ onBeforeUnmount(() => {
                                                                             <div class="flex items-center gap-1.5">
                                                                                 <p class="truncate text-sm font-semibold text-foreground">{{ detail.name }}</p>
                                                                                 <Badge :class="[
-                                                                                    'shrink-0 rounded-[10px] border px-1.5 py-0.5 text-[10px]',
+                                                                                    'shrink-0 rounded-[10px] border px-1.5 py-0.5 text-[11px]',
                                                                                     getQualityStyle(detail.quality).border,
                                                                                     getQualityStyle(detail.quality).bg,
                                                                                     getQualityStyle(detail.quality).text,
@@ -577,19 +580,19 @@ onBeforeUnmount(() => {
                                                                                 </Badge>
                                                                             </div>
                                                                             <div class="mt-0.5 flex flex-wrap gap-1">
-                                                                                <span v-if="detail.category" class="text-[10px] text-foreground">{{ detail.category }}</span>
-                                                                                <span v-if="detail.category && detail.type_desc" class="text-[10px] text-foreground">·</span>
-                                                                                <span v-if="detail.type_desc" class="text-[10px] text-foreground">{{ detail.type_desc }}</span>
+                                                                                <span v-if="detail.category" class="text-[11px] text-muted-foreground">{{ detail.category }}</span>
+                                                                                <span v-if="detail.category && detail.type_desc" class="text-[11px] text-muted-foreground">·</span>
+                                                                                <span v-if="detail.type_desc" class="text-[11px] text-muted-foreground">{{ detail.type_desc }}</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="border-t border-white/8 px-3 py-2">
+                                                                    <div class="border-t border-border px-3 py-2">
                                                                         <p class="line-clamp-3 text-xs leading-5 text-foreground">{{ detail.description }}</p>
                                                                     </div>
-                                                                    <div v-if="detail.acquire_ways.length > 0" class="border-t border-white/8 px-3 py-2">
+                                                                    <div v-if="detail.acquire_ways.length > 0" class="border-t border-border px-3 py-2">
                                                                         <div class="flex flex-wrap gap-1">
                                                                             <Badge v-for="(way, wIdx) in detail.acquire_ways" :key="wIdx" variant="outline"
-                                                                                class="rounded-[10px] border-white/8 bg-white/4 px-2 py-0.5 text-[10px] text-foreground">
+                                                                                class="rounded-[10px] border-border/60 bg-muted/50 px-2 py-0.5 text-[11px] text-foreground">
                                                                                 {{ way }}
                                                                             </Badge>
                                                                         </div>
@@ -598,9 +601,9 @@ onBeforeUnmount(() => {
                                                             </HoverCardContent>
                                                         </HoverCard>
                                                         <span v-if="mIdx < group.options.length - 1"
-                                                            class="text-[10px] text-foreground">/</span>
+                                                            class="text-[11px] text-muted-foreground">/</span>
                                                     </template>
-                                                    <span class="text-[10px] font-medium text-foreground/80">x{{ group.count }}</span>
+                                                    <span class="text-[11px] font-medium tabular-nums text-foreground/80">x{{ group.count }}</span>
                                                 </div>
                                             </template>
                                         </div>
