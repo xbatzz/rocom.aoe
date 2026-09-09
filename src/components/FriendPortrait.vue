@@ -44,7 +44,7 @@ watch(
     <div
         :class="
             cn(
-                'relative overflow-hidden rounded-[10px] border border-border bg-linear-to-br from-slate-900 via-slate-950 to-slate-900 shadow-md',
+                'relative overflow-hidden rounded-[10px] border border-border bg-muted dark:bg-background',
                 props.class,
             )
         "
