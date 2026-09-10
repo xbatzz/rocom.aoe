@@ -1312,12 +1312,10 @@
         "type_desc": "栗鼠精灵",
         "description_habitat": "行踪神秘",
         "introduction": "会嗅来嗅去寻找花蜜，吃的花蜜越多，鼻子分泌的粘液越香甜，并且带着花香的味道。会用鼻子把身上的毒刺都涂满香甜粘液。毛毛舔过它们却不会中毒，真奇怪。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1333,8 +1331,8 @@
         "egg_groups": [
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

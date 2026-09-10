@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import ts from "typescript";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -6,6 +7,11 @@ const projectRoot = path.resolve(
     path.dirname(fileURLToPath(import.meta.url)),
     "..",
 );
+const portraitSource = fs.readFileSync(path.join(projectRoot, "src/lib/petPortrait.ts"), "utf8");
+const portraitModule = ts.transpileModule(portraitSource, {
+    compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 },
+}).outputText;
+const { getPetPortraitKey } = await import(`data:text/javascript;base64,${Buffer.from(portraitModule).toString("base64")}`);
 const petsPath = path.join(projectRoot, "public/data/Pets.json");
 const portraitDirectory = path.join(
     projectRoot,
@@ -50,7 +56,7 @@ for (const [key, representative] of families) {
 
     const portraitPath = path.join(
         portraitDirectory,
-        `JL_${representative.name}.webp`,
+        `${getPetPortraitKey(representative.name)}.webp`,
     );
 
     if (!fs.existsSync(portraitPath)) {
@@ -63,7 +69,7 @@ for (const [key, representative] of families) {
 for (const leader of leaderPets) {
     const portraitPath = path.join(
         portraitDirectory,
-        `JL_${leader.name}.webp`,
+        `${getPetPortraitKey(leader.name)}.webp`,
     );
 
     if (!fs.existsSync(portraitPath)) {
@@ -76,7 +82,7 @@ for (const leader of leaderPets) {
 for (const pet of eligiblePets) {
     const portraitPath = path.join(
         portraitDirectory,
-        `JL_${pet.name}.webp`,
+        `${getPetPortraitKey(pet.name)}.webp`,
     );
 
     if (!fs.existsSync(portraitPath)) {

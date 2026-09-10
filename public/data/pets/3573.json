@@ -49,12 +49,12 @@
     "trait": {
         "id": 200292,
         "name": "大火球",
-        "description": "自己​使用​2次​不同​的​火系​技​能​后，​下次技能无需蓄力​，​随后​特性​重置​。",
+        "description": "自己使用2次不同的火系技能后，下次技能无需蓄力，随后特性重置。",
         "icon_id": "200292",
         "localized": {
             "zh": {
                 "name": "大火球",
-                "description": "自己​使用​2次​不同​的​火系​技​能​后，​下次技能无需蓄力​，​随后​特性​重置​。"
+                "description": "自己使用2次不同的火系技能后，下次技能无需蓄力，随后特性重置。"
             }
         }
     },
@@ -183,13 +183,13 @@
             "localized": {
                 "zh": {
                     "name": "守护咒",
-                    "description": "减​伤90%，​应对攻击。​​​巧变：龙系​状态技能。"
+                    "description": "减伤90%，应对攻击。巧变：龙系状态技能。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 1,
             "power": null,
-            "description": "减​伤90%，​应对攻击。​​​巧变：龙系​状态技能。"
+            "description": "减伤90%，应对攻击。巧变：龙系状态技能。"
         },
         {
             "id": 7100220,
@@ -271,13 +271,13 @@
             "localized": {
                 "zh": {
                     "name": "流星火雨",
-                    "description": "造成物伤，每次击败敌方，本技能威力永久+75。"
+                    "description": "造成物伤，每次击败敌方，本技能威力永久+85。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 75,
-            "description": "造成物伤，每次击败敌方，本技能威力永久+75。"
+            "power": 85,
+            "description": "造成物伤，每次击败敌方，本技能威力永久+85。"
         },
         {
             "id": 7040680,
@@ -293,13 +293,13 @@
             "localized": {
                 "zh": {
                     "name": "焚尽",
-                    "description": "驱散​自己​所有印记，​每驱散1层，获得物攻+50%。​巧变：​火系​攻击​技​能​。"
+                    "description": "驱散自己所有印记，每驱散1层，获得物攻+50%。巧变：火系攻击技能。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "驱散​自己​所有印记，​每驱散1层，获得物攻+50%。​巧变：​火系​攻击​技​能​。"
+            "description": "驱散自己所有印记，每驱散1层，获得物攻+50%。巧变：火系攻击技能。"
         },
         {
             "id": 7040450,
@@ -1153,33 +1153,6 @@
                             }
                         },
                         "evolution_conditions": []
-                    },
-                    {
-                        "id": 3720,
-                        "species_id": 3720,
-                        "name": "songzai",
-                        "form": "悲鸣的样子",
-                        "localized": {
-                            "zh": {
-                                "name": "松仔"
-                            }
-                        },
-                        "is_leader_form": false,
-                        "main_type": {
-                            "id": 2,
-                            "name": "Grass",
-                            "localized": {
-                                "zh": "草"
-                            }
-                        },
-                        "sub_type": {
-                            "id": 12,
-                            "name": "Fighting",
-                            "localized": {
-                                "zh": "武"
-                            }
-                        },
-                        "evolution_conditions": []
                     }
                 ],
                 "is_leader_stage": false
@@ -1213,80 +1186,15 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "完成技能「流星火雨」相关试炼（参数 15）"
-                        ]
-                    },
-                    {
-                        "id": 3721,
-                        "species_id": 3721,
-                        "name": "yesongyang",
-                        "form": "悲鸣的样子",
-                        "localized": {
-                            "zh": {
-                                "name": "松叶羊"
-                            }
-                        },
-                        "is_leader_form": false,
-                        "main_type": {
-                            "id": 2,
-                            "name": "Grass",
-                            "localized": {
-                                "zh": "草"
-                            }
-                        },
-                        "sub_type": {
-                            "id": 12,
-                            "name": "Fighting",
-                            "localized": {
-                                "zh": "武"
-                            }
-                        },
-                        "evolution_conditions": [
-                            "等级达到 16 级"
-                        ]
-                    }
-                ],
-                "is_leader_stage": false
-            },
-            {
-                "depth": 2,
-                "monsters": [
-                    {
-                        "id": 3722,
-                        "species_id": 3722,
-                        "name": "zhenyexunlin",
-                        "form": "悲鸣的样子",
-                        "localized": {
-                            "zh": {
-                                "name": "针叶巡林"
-                            }
-                        },
-                        "is_leader_form": false,
-                        "main_type": {
-                            "id": 2,
-                            "name": "Grass",
-                            "localized": {
-                                "zh": "草"
-                            }
-                        },
-                        "sub_type": {
-                            "id": 12,
-                            "name": "Fighting",
-                            "localized": {
-                                "zh": "武"
-                            }
-                        },
-                        "evolution_conditions": [
-                            "等级达到 36 级"
+                            "等级达到 40 级"
                         ]
                     }
                 ],
                 "is_leader_stage": false
             }
         ],
-        "max_depth": 2,
-        "total_unique_monsters": 5,
+        "max_depth": 1,
+        "total_unique_monsters": 2,
         "species_id": 357,
         "current_monster_id": 3573
     },
@@ -1294,12 +1202,10 @@
         "type_desc": "大火球精灵",
         "description_habitat": "行踪神秘",
         "introduction": "腹部的爆焰囊扩张了三倍，蓄能时会使整个躯体膨胀如热气球，火焰甚至会从鳞片间隙逸散。古代文献记载，曾有爆焰喷喷在火山口蓄能三天三夜，最终喷射的龙焰照亮了整个夜空。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1315,8 +1221,8 @@
         "egg_groups": [
             1
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

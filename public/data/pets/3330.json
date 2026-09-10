@@ -271,13 +271,13 @@
             "localized": {
                 "zh": {
                     "name": "毒雾",
-                    "description": "将敌方所有增益，转化成中毒。"
+                    "description": "将敌方所有增益，转化为相同层数的中毒。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 7,
             "power": null,
-            "description": "将敌方所有增益，转化成中毒。"
+            "description": "将敌方所有增益，转化为相同层数的中毒。"
         },
         {
             "id": 7050390,
@@ -427,13 +427,13 @@
             "localized": {
                 "zh": {
                     "name": "暗箱操作",
-                    "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
+                    "description": "自己获得双攻和双防-50%，应对防御：改为敌方获得双攻和双防-120%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
+            "description": "自己获得双攻和双防-50%，应对防御：改为敌方获得双攻和双防-120%。"
         },
         {
             "id": 7020950,
@@ -669,13 +669,13 @@
             "localized": {
                 "zh": {
                     "name": "清洗",
-                    "description": "​驱散​自己​的​减益，​自己​每​有​1层减益，​本技​能​能​耗​-1，巧变：​水系​攻击​技​能​。"
+                    "description": "驱散自己的减益，自己每有1层减益，本技能能耗-1，巧变：水系攻击技能。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 0,
             "power": null,
-            "description": "​驱散​自己​的​减益，​自己​每​有​1层减益，​本技​能​能​耗​-1，巧变：​水系​攻击​技​能​。"
+            "description": "驱散自己的减益，自己每有1层减益，本技能能耗-1，巧变：水系攻击技能。"
         }
     ],
     "legacy_moves": [
@@ -1366,12 +1366,10 @@
         "type_desc": "刺刺精灵",
         "description_habitat": "常见于海洋",
         "introduction": "它静止时像不起眼的礁石，让人很难判断这是不是生物。它以底栖方式缓慢移动，活动量与食物多少直接相关，食物少时一天可能只挪动一点点。棘刺间分布感光细胞，使它对强光十分敏感，常本能地躲向阴影。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2,
@@ -1512,6 +1510,38 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3330008,
+                "pet_id": 3330008,
+                "name": null,
+                "model_id": 3330001,
+                "hatch_data": 300,
+                "weight_low": 2590,
+                "weight_high": 3440,
+                "height_low": 23,
+                "height_high": 29,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3330009,
+                "pet_id": 3330009,
+                "name": null,
+                "model_id": 3330002,
+                "hatch_data": 300,
+                "weight_low": 2590,
+                "weight_high": 3440,
+                "height_low": 23,
+                "height_high": 29,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 33300001,
                 "pet_id": 33300001,
                 "name": null,
@@ -1551,8 +1581,8 @@
             2,
             13
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

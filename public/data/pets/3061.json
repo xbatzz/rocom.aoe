@@ -443,13 +443,13 @@
             "localized": {
                 "zh": {
                     "name": "暗箱操作",
-                    "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
+                    "description": "自己获得双攻和双防-50%，应对防御：改为敌方获得双攻和双防-120%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
+            "description": "自己获得双攻和双防-50%，应对防御：改为敌方获得双攻和双防-120%。"
         },
         {
             "id": 7040350,
@@ -663,13 +663,13 @@
             "localized": {
                 "zh": {
                     "name": "入梦",
-                    "description": "敌方​下​回合回复的​能量​-5，​冷​却​2回合。"
+                    "description": "敌方下回合回复的能量-5，冷却2回合。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "敌方​下​回合回复的​能量​-5，​冷​却​2回合。"
+            "description": "敌方下回合回复的能量-5，冷却2回合。"
         },
         {
             "id": 7040230,
@@ -707,13 +707,35 @@
             "localized": {
                 "zh": {
                     "name": "魔镜",
-                    "description": "敌方获得魔防​-50%，​且​失​去​3​能量​。"
+                    "description": "敌方获得魔防-50%，且失去3能量。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "敌方获得魔防​-50%，​且​失​去​3​能量​。"
+            "description": "敌方获得魔防-50%，且失去3能量。"
+        },
+        {
+            "id": 7170340,
+            "name": "回收",
+            "icon_id": "116034",
+            "move_type": {
+                "id": 15,
+                "name": "Ghost",
+                "localized": {
+                    "zh": "幽"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "回收",
+                    "description": "造成魔伤，若敌方本回合更换精灵，敌方失去4能量。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 80,
+            "description": "造成魔伤，若敌方本回合更换精灵，敌方失去4能量。"
         }
     ],
     "legacy_moves": [
@@ -1259,8 +1281,7 @@
                             "等级达到 20 级",
                             "消耗 15,000 洛克贝",
                             "消耗 修行信笺 ×2",
-                            "消耗 睡铃 ×2",
-                            "需激活「睁眼的样子」分支"
+                            "消耗 睡铃 ×2"
                         ]
                     },
                     {
@@ -1286,8 +1307,7 @@
                             "等级达到 20 级",
                             "消耗 15,000 洛克贝",
                             "消耗 修行信笺 ×2",
-                            "消耗 睡铃 ×2",
-                            "需激活「闭眼的样子」分支"
+                            "消耗 睡铃 ×2"
                         ]
                     }
                 ],
@@ -1316,8 +1336,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 32 级",
-                            "需激活「睁眼的样子」分支"
+                            "等级达到 32 级"
                         ]
                     },
                     {
@@ -1340,8 +1359,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 32 级",
-                            "需激活「闭眼的样子」分支"
+                            "等级达到 32 级"
                         ]
                     }
                 ],
@@ -1357,12 +1375,10 @@
         "type_desc": "假面精灵",
         "description_habitat": "常见于城镇周边",
         "introduction": "被两团冷火环绕着，从头到脚都充满了谜团。进食之后重量也毫不增加，被它面具下的嘴吞下的食物仿佛消失了一样。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 2,
-        "classis_name": "漂浮类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2,
@@ -1380,8 +1396,8 @@
         "egg_groups": [
             12
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

@@ -49,12 +49,12 @@
     "trait": {
         "id": 280030,
         "name": "盛宴",
-        "description": "能量​不​足​时，​消耗​5%​最​大​生命，​代替​1​能量。​生命​低于​50%​时，​获得​吸血​100%。",
+        "description": "能量不足时，消耗5%最大生命，代替1能量。生命低于50%时，获得吸血100%。",
         "icon_id": "200100",
         "localized": {
             "zh": {
                 "name": "盛宴",
-                "description": "能量​不​足​时，​消耗​5%​最​大​生命，​代替​1​能量。​生命​低于​50%​时，​获得​吸血​100%。"
+                "description": "能量不足时，消耗5%最大生命，代替1能量。生命低于50%时，获得吸血100%。"
             }
         }
     },
@@ -735,13 +735,13 @@
             "localized": {
                 "zh": {
                     "name": "血契",
-                    "description": "造成物伤，自己每失去10%生命，本技能威力+10。"
+                    "description": "造成物伤，自己每失去10%生命，本技能威力+15。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 75,
-            "description": "造成物伤，自己每失去10%生命，本技能威力+10。"
+            "description": "造成物伤，自己每失去10%生命，本技能威力+15。"
         }
     ],
     "legacy_moves": [
@@ -1431,7 +1431,7 @@
         "refresh_locations": [],
         "movement_type": null,
         "classis_id": 7,
-        "classis_name": "岩石类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1442,8 +1442,8 @@
     "breeding_profile": {
         "pet_base_id": 8122,
         "egg_groups": [],
-        "proportion_male": 8,
-        "male_rate": 80,
-        "female_rate": 20
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

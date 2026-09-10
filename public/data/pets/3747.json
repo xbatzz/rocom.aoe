@@ -32,11 +32,11 @@
         }
     },
     "implemented": true,
-    "base_hp": 72,
-    "base_phy_atk": 36,
-    "base_mag_atk": 98,
-    "base_phy_def": 66,
-    "base_mag_def": 84,
+    "base_hp": 80,
+    "base_phy_atk": 40,
+    "base_mag_atk": 105,
+    "base_phy_def": 71,
+    "base_mag_def": 90,
     "base_spd": 80,
     "evolves_from_id": null,
     "species": {
@@ -95,13 +95,13 @@
             "localized": {
                 "zh": {
                     "name": "示弱",
-                    "description": "自己获得萌化：速度永久+150。"
+                    "description": "自己获得萌化：速度永久+130。"
                 }
             },
             "move_category": "Status",
-            "energy_cost": 1,
+            "energy_cost": 2,
             "power": null,
-            "description": "自己获得萌化：速度永久+150。"
+            "description": "自己获得萌化：速度永久+130。"
         },
         {
             "id": 7160230,
@@ -161,13 +161,13 @@
             "localized": {
                 "zh": {
                     "name": "撒娇",
-                    "description": "造成魔伤，3连击。自己获得萌化：威力永久+20。"
+                    "description": "造成魔伤，3连击。自己获得萌化：全技能威力永久+10。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 30,
-            "description": "造成魔伤，3连击。自己获得萌化：威力永久+20。"
+            "description": "造成魔伤，3连击。自己获得萌化：全技能威力永久+10。"
         },
         {
             "id": 7100140,
@@ -383,13 +383,13 @@
             "localized": {
                 "zh": {
                     "name": "赤子之心",
-                    "description": "自己获得萌化：全技能能耗永久-3。"
+                    "description": "自己获得萌化：全技能能耗永久-2。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己获得萌化：全技能能耗永久-3。"
+            "description": "自己获得萌化：全技能能耗永久-2。"
         },
         {
             "id": 7160270,
@@ -654,6 +654,28 @@
             "energy_cost": 3,
             "power": 85,
             "description": "造成魔伤，若敌方本回合更换精灵，本次攻击使敌方获得萌化。"
+        },
+        {
+            "id": 7100320,
+            "name": "守护咒",
+            "icon_id": "109018",
+            "move_type": {
+                "id": 8,
+                "name": "Dragon",
+                "localized": {
+                    "zh": "龙"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "守护咒",
+                    "description": "减伤90%，应对攻击。巧变：龙系状态技能。"
+                }
+            },
+            "move_category": "Defense",
+            "energy_cost": 1,
+            "power": null,
+            "description": "减伤90%，应对攻击。巧变：龙系状态技能。"
         }
     ],
     "legacy_moves": [
@@ -1175,6 +1197,33 @@
                             }
                         },
                         "evolution_conditions": []
+                    },
+                    {
+                        "id": 32000005,
+                        "species_id": 398,
+                        "name": "mobiwuwu",
+                        "form": "default",
+                        "localized": {
+                            "zh": {
+                                "name": "莫比乌乌"
+                            }
+                        },
+                        "is_leader_form": false,
+                        "main_type": {
+                            "id": 8,
+                            "name": "Dragon",
+                            "localized": {
+                                "zh": "龙"
+                            }
+                        },
+                        "sub_type": {
+                            "id": 14,
+                            "name": "Cute",
+                            "localized": {
+                                "zh": "萌"
+                            }
+                        },
+                        "evolution_conditions": []
                     }
                 ],
                 "is_leader_stage": false
@@ -1216,7 +1265,7 @@
             }
         ],
         "max_depth": 1,
-        "total_unique_monsters": 2,
+        "total_unique_monsters": 3,
         "species_id": 398,
         "current_monster_id": 3747
     },
@@ -1224,12 +1273,10 @@
         "type_desc": "循环精灵",
         "description_habitat": "行踪神秘",
         "introduction": "透明的小身体里能看到水在不停地转啊转，它总是开心地扭来扭去。有时候睡一觉就长大了，再睡一觉又回到了小时候，它对此毫不困扰，哪里都可以是新的起点。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1296,8 +1343,8 @@
             7,
             14
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

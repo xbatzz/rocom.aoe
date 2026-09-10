@@ -405,13 +405,13 @@
             "localized": {
                 "zh": {
                     "name": "孢子",
-                    "description": "敌方获得1层寄生。"
+                    "description": "敌方获得3层寄生。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "敌方获得1层寄生。"
+            "description": "敌方获得3层寄生。"
         },
         {
             "id": 7030290,
@@ -559,13 +559,13 @@
             "localized": {
                 "zh": {
                     "name": "暗箱操作",
-                    "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
+                    "description": "自己获得双攻和双防-50%，应对防御：改为敌方获得双攻和双防-120%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
+            "description": "自己获得双攻和双防-50%，应对防御：改为敌方获得双攻和双防-120%。"
         },
         {
             "id": 7020530,
@@ -764,6 +764,28 @@
             "energy_cost": 4,
             "power": 120,
             "description": "对敌方精灵造成物理伤害。"
+        },
+        {
+            "id": 7170330,
+            "name": "小型打劫",
+            "icon_id": "316033",
+            "move_type": {
+                "id": 15,
+                "name": "Ghost",
+                "localized": {
+                    "zh": "幽"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "小型打劫",
+                    "description": "敌方队伍中所有精灵失去1能量。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "敌方队伍中所有精灵失去1能量。"
         }
     ],
     "legacy_moves": [
@@ -1413,12 +1435,10 @@
         "type_desc": "树精灵",
         "description_habitat": "行踪神秘",
         "introduction": "左手和右手似乎有各自的想法，在黑暗中看起来就像三只精灵。虽然伪装拙劣到谁都能看穿的程度，但依旧喜欢伪装成普通树木的样子，跟在洛克身后，但是对洛克并没有恶意。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 2,
-        "classis_name": "漂浮类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2,
@@ -1527,6 +1547,22 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3064007,
+                "pet_id": 3064007,
+                "name": null,
+                "model_id": 3064002,
+                "hatch_data": 300,
+                "weight_low": 10325,
+                "weight_high": 15000,
+                "height_low": 27,
+                "height_high": 38,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 30640001,
                 "pet_id": 30640001,
                 "name": null,
@@ -1566,8 +1602,8 @@
             7,
             8
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

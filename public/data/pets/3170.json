@@ -1344,12 +1344,10 @@
         "type_desc": "计重精灵",
         "description_habitat": "常见于山地",
         "introduction": "古老的种族，似乎和现在的精灵们很少交流，但对洛克族十分友好。地系部族掌握建造之术后的创造的第一个物种。在古代也被用作计量单位，一个石石约等于三十千克。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2,
@@ -1449,8 +1447,8 @@
             11,
             12
         ],
-        "proportion_male": 8,
-        "male_rate": 80,
-        "female_rate": 20
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

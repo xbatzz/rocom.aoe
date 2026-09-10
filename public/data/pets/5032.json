@@ -514,7 +514,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 30,
+            "power": 20,
             "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         },
         {
@@ -692,6 +692,28 @@
             "energy_cost": 4,
             "power": 110,
             "description": "造成物伤，天气为雨天时，本技能能耗-2。"
+        },
+        {
+            "id": 7150410,
+            "name": "惊鸿一瞥",
+            "icon_id": "114038",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "惊鸿一瞥",
+                    "description": "自己获得连击数+1，迅捷。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得连击数+1，迅捷。"
         }
     ],
     "legacy_moves": [
@@ -1624,12 +1646,10 @@
         "type_desc": "长羽精灵",
         "description_habitat": "常见于草地、山林、雪山",
         "introduction": "传说霜翼领主会在冬季的末尾巡视领地，当它最后一次掠过雪线，天空便不再下雪——所有雪花都被它收进了冰蓝色的羽翼。只需一次振翅，零下五十度的寒潮便顺着羽脉倾泻，瞬间把战场变成镜面。",
-        "refresh_locations": [
-            "暂时找不到这只精灵的踪迹噢！"
-        ],
+        "refresh_locations": [],
         "movement_type": null,
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1639,9 +1659,11 @@
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 5032,
-        "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "egg_groups": [
+            5
+        ],
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

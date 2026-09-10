@@ -287,13 +287,13 @@
             "localized": {
                 "zh": {
                     "name": "蓄能轰击",
-                    "description": "造成魔伤，每使用1次普通系技能，本技能能耗永久-2。"
+                    "description": "造成魔伤，每使用1次其他普通系技能，本技能能耗永久-2。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 6,
-            "power": 130,
-            "description": "造成魔伤，每使用1次普通系技能，本技能能耗永久-2。"
+            "power": 120,
+            "description": "造成魔伤，每使用1次其他普通系技能，本技能能耗永久-2。"
         },
         {
             "id": 7020420,
@@ -751,13 +751,13 @@
             "localized": {
                 "zh": {
                     "name": "同频",
-                    "description": "造成​魔法​伤害，​巧变：魔攻技​能。"
+                    "description": "造成魔法伤害，巧变：魔攻技能。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 125,
-            "description": "造成​魔法​伤害，​巧变：魔攻技​能。"
+            "description": "造成魔法伤害，巧变：魔攻技能。"
         }
     ],
     "legacy_moves": [
@@ -1345,12 +1345,10 @@
         "type_desc": "圆滚滚精灵",
         "description_habitat": "常见于树林",
         "introduction": "骑着自己的尾巴，已经不需要靠双脚走路。偶尔把头埋进身体，看上去像一颗巨大的果实。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 4,
-        "classis_name": "植物类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1367,8 +1365,8 @@
         "egg_groups": [
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

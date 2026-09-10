@@ -1,0 +1,77 @@
+
+{
+    "list":[
+		{
+			"desc":"16:9",
+			"Aspect": 1.7777,
+			"SpringArmRotation":
+			{
+				"X": 0,
+				"Y": 2,
+				"Z": -90
+			},
+			"SpringArmOffset":
+			{
+				"X": -800,
+				"Y": 0,
+				"Z": -110
+			},
+			"SprintArmLength": 0,
+			"CameraFov": 60
+		},
+		{
+			"desc":"2:1",
+			"Aspect": 2,
+			"SpringArmRotation":
+			{
+				"X": 0,
+				"Y": 2,
+				"Z": -90
+			},
+			"SpringArmOffset":
+			{
+				"X": -880,
+				"Y": 0,
+				"Z": -90
+			},
+			"SprintArmLength": 0,
+			"CameraFov": 60
+		},
+		{
+			"desc":"21:9",
+			"Aspect": 2.3333,
+			"SpringArmRotation":
+			{
+				"X": 0,
+				"Y": 2,
+				"Z": -90
+			},
+			"SpringArmOffset":
+			{
+				"X": -960,
+				"Y": 0,
+				"Z": -70
+			},
+			"SprintArmLength": 0,
+			"CameraFov": 60
+		},
+		{
+			"desc":"32:9",
+			"Aspect": 3.5555,
+			"SpringArmRotation":
+			{
+				"X": 0,
+				"Y": 2,
+				"Z": -90
+			},
+			"SpringArmOffset":
+			{
+				"X": -1152,
+				"Y": 0,
+				"Z": -70
+			},
+			"SprintArmLength": 0,
+			"CameraFov": 60
+		}
+    ]
+}

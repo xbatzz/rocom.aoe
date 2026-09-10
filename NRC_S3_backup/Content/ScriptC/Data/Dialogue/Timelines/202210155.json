@@ -1,0 +1,139 @@
+{
+    "length": 3.03,
+    "dialogue_id": 202210155,
+    "wait_user_click_at_end": true,
+    "clear_look_at_at_end": false,
+    "play_dialogue_sound_when_show_ui_if_no_say_action": true,
+    "play_dialogue_sound_when_say_action_without_data": true,
+    "black_switch_in": false,
+    "cached_actors": [
+        {
+            "id": -2,
+            "npc_id": 166005
+        }
+    ],
+    "actions": [
+        {
+            "ClassPath": "NewRoco.Modules.System.Dialogue.Action.Timeline.DialogueTimelineShowUIEvent",
+            "Name": "\u663e\u793a\u5bf9\u8bddUI",
+            "OwnerActorID": -100,
+            "NPCContentID": -1,
+            "StartTime": 0.0
+        },
+        {
+            "ClassPath": "NewRoco.Modules.System.Dialogue.Action.Timeline.DialogueTimelineCameraSetupEvent_FreeCamera",
+            "Name": "\u81ea\u7531\u955c\u5934",
+            "OwnerActorID": -101,
+            "NPCContentID": -1,
+            "StartTime": 0.0,
+            "EndTime": 0.6,
+            "MinimalDuration": 0.1,
+            "BlendType": 1,
+            "BlendExp": 1.0,
+            "SkipUserClick": false,
+            "TargetActorID": -6,
+            "RelativeLocation": {
+                "X": -881.9,
+                "Y": 1011.9,
+                "Z": -37.6
+            },
+            "RelativeRotation": {
+                "Pitch": 8.3,
+                "Yaw": 170.9,
+                "Roll": 0.0
+            },
+            "FOV": 100.0
+        },
+        {
+            "ClassPath": "NewRoco.Modules.System.Dialogue.Action.Timeline.DialogueTimelineNPCSayState",
+            "Name": "\u89d2\u8272\u8bf4\u8bdd",
+            "OwnerActorID": 0,
+            "NPCContentID": 0,
+            "StartTime": 0.0,
+            "EndTime": 1.0,
+            "MinimalDuration": 0.1,
+            "PlayFacialAnim": true
+        },
+        {
+            "ClassPath": "NewRoco.Modules.System.Dialogue.Action.Timeline.DialogueTimelineCameraMoveState_Parallel",
+            "Name": "\u5e73\u79fb\u8fd0\u955c",
+            "OwnerActorID": -101,
+            "NPCContentID": -1,
+            "StartTime": 0.0,
+            "EndTime": 4.8,
+            "MinimalDuration": 0.1,
+            "MoveDistance": 30.0,
+            "MoveDirection": 1
+        },
+        {
+            "ClassPath": "NewRoco.Modules.System.Dialogue.Action.Timeline.DialogueTimelineCameraSetupEvent_FreeCamera",
+            "Name": "\u81ea\u7531\u955c\u5934",
+            "OwnerActorID": -101,
+            "NPCContentID": -1,
+            "StartTime": 2.4,
+            "EndTime": 3.0,
+            "MinimalDuration": 0.1,
+            "BlendType": 1,
+            "BlendExp": 1.0,
+            "SkipUserClick": false,
+            "TargetActorID": -6,
+            "RelativeLocation": {
+                "X": -693.1,
+                "Y": 1133.1,
+                "Z": 839.1
+            },
+            "RelativeRotation": {
+                "Pitch": -22.5,
+                "Yaw": -132.7,
+                "Roll": 0.0
+            },
+            "FOV": 100.0
+        },
+        {
+            "ClassPath": "NewRoco.Modules.System.Dialogue.Action.Timeline.DialogueTimelineCameraMoveState_Parallel",
+            "Name": "\u5e73\u79fb\u8fd0\u955c",
+            "OwnerActorID": -101,
+            "NPCContentID": -1,
+            "StartTime": 2.4,
+            "EndTime": 7.2,
+            "MinimalDuration": 0.1,
+            "MoveDistance": 40.0,
+            "MoveDirection": 1
+        },
+        {
+            "ClassPath": "NewRoco.Modules.System.Dialogue.Action.Timeline.DialogueTimelineCameraSetupEvent_FreeCamera",
+            "Name": "\u81ea\u7531\u955c\u5934",
+            "OwnerActorID": -101,
+            "NPCContentID": -1,
+            "StartTime": 5.0,
+            "EndTime": 5.6,
+            "MinimalDuration": 0.1,
+            "BlendType": 1,
+            "BlendExp": 1.0,
+            "SkipUserClick": false,
+            "TargetActorID": -6,
+            "RelativeLocation": {
+                "X": -499.1,
+                "Y": -266.1,
+                "Z": -26.2
+            },
+            "RelativeRotation": {
+                "Pitch": 12.1,
+                "Yaw": 154.3,
+                "Roll": 0.0
+            },
+            "FOV": 120.0
+        },
+        {
+            "ClassPath": "NewRoco.Modules.System.Dialogue.Action.Timeline.DialogueTimelineCameraMoveState_Parallel",
+            "Name": "\u5e73\u79fb\u8fd0\u955c",
+            "OwnerActorID": -101,
+            "NPCContentID": -1,
+            "StartTime": 5.0,
+            "EndTime": 13.2,
+            "MinimalDuration": 0.1,
+            "MoveDistance": 50.0,
+            "MoveDirection": 0
+        }
+    ]
+}

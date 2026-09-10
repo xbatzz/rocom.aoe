@@ -27,8 +27,8 @@
     },
     "implemented": true,
     "base_hp": 104,
-    "base_phy_atk": 98,
-    "base_mag_atk": 32,
+    "base_phy_atk": 110,
+    "base_mag_atk": 40,
     "base_phy_def": 111,
     "base_mag_def": 103,
     "base_spd": 125,
@@ -43,12 +43,12 @@
     "trait": {
         "id": 200311,
         "name": "冰雪魂魄",
-        "description": "天气为暴风雪时，敌方队伍中的精灵每有1层冻结，冰系技能威力+10%。",
+        "description": "天气为暴风雪时，冰系技能威力+100%。",
         "icon_id": "200311",
         "localized": {
             "zh": {
                 "name": "冰雪魂魄",
-                "description": "天气为暴风雪时，敌方队伍中的精灵每有1层冻结，冰系技能威力+10%。"
+                "description": "天气为暴风雪时，冰系技能威力+100%。"
             }
         }
     },
@@ -287,13 +287,13 @@
             "localized": {
                 "zh": {
                     "name": "雪原狩猎",
-                    "description": "造​成​物伤，​天气为暴风雪时，本次技能威力​+50%"
+                    "description": "造成物伤，天气为暴风雪时，本次技能威力+50"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 80,
-            "description": "造​成​物伤，​天气为暴风雪时，本次技能威力​+50%"
+            "power": 85,
+            "description": "造成物伤，天气为暴风雪时，本次技能威力+50"
         },
         {
             "id": 7090450,
@@ -309,13 +309,13 @@
             "localized": {
                 "zh": {
                     "name": "冰裂",
-                    "description": "造​成​物伤，​选择：​敌方​获得​物防-30%或​敌方获得速度​-20。"
+                    "description": "造成物伤，选择：敌方获得物防-30%或敌方获得速度-20。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 70,
-            "description": "造​成​物伤，​选择：​敌方​获得​物防-30%或​敌方获得速度​-20。"
+            "description": "造成物伤，选择：敌方获得物防-30%或敌方获得速度-20。"
         },
         {
             "id": 7090270,
@@ -663,13 +663,13 @@
             "localized": {
                 "zh": {
                     "name": "冷凝",
-                    "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
+                    "description": "造成物伤，敌方每有1层冻结，自己回复1能量。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 95,
-            "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
+            "description": "造成物伤，敌方每有1层冻结，自己回复1能量。"
         }
     ],
     "legacy_moves": [
@@ -1257,12 +1257,10 @@
         "type_desc": "雪狐精灵",
         "description_habitat": "常见于雪山",
         "introduction": "暴风雪来的时候它们会迎着风跑出去，它以雪为食，等风暴过去，又会安静地回到洛克身边，它们的眼睛里比小时候多了许多丰富的情绪，不曾改变的是一份从未消失的倔强。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1279,8 +1277,8 @@
         "egg_groups": [
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

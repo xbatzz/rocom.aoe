@@ -43,12 +43,12 @@
     "trait": {
         "id": 200127,
         "name": "展翅",
-        "description": "在场时，自己携带的普通系技能变为翼系技能，若后于对手行动，自己受到的伤害+25%。",
+        "description": "在场时，自己携带的普通系技能变为翼系技能，若后于敌方行动，自己受到的伤害+25%。",
         "icon_id": "200127",
         "localized": {
             "zh": {
                 "name": "展翅",
-                "description": "在场时，自己携带的普通系技能变为翼系技能，若后于对手行动，自己受到的伤害+25%。"
+                "description": "在场时，自己携带的普通系技能变为翼系技能，若后于敌方行动，自己受到的伤害+25%。"
             }
         }
     },
@@ -353,13 +353,13 @@
             "localized": {
                 "zh": {
                     "name": "飞箭",
-                    "description": "造成​魔伤，​3连击。巧变：​翼系防御​技​能​。"
+                    "description": "造成魔伤，3连击。巧变：翼系防御技能。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 40,
-            "description": "造成​魔伤，​3连击。巧变：​翼系防御​技​能​。"
+            "description": "造成魔伤，3连击。巧变：翼系防御技能。"
         },
         {
             "id": 7150390,
@@ -1294,8 +1294,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 28 级",
-                            "需激活第 1 条进化分支"
+                            "等级达到 28 级"
                         ]
                     }
                 ],
@@ -1324,8 +1323,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 28 级",
-                            "需激活第 1 条进化分支"
+                            "等级达到 28 级"
                         ]
                     }
                 ],
@@ -1354,8 +1352,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需激活第 2 条进化分支"
+                            "等级达到 40 级"
                         ]
                     }
                 ],
@@ -1371,12 +1368,10 @@
         "type_desc": null,
         "description_habitat": null,
         "introduction": "鲜艳无比的紫色翎毛是追逐烈阳的证明，在强劲的山风的悬崖上才可生出橘色的翼展，传闻中它们在烈阳的照耀下才可褪蓝化紫，翅膀尖端的羽色才能变成橘色，这一过程被洛克学者称为 “凡羽蜕金”。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": null,
@@ -1386,8 +1381,8 @@
         "egg_groups": [
             1
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

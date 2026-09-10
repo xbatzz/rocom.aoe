@@ -1225,7 +1225,7 @@
         "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": null,
@@ -1233,8 +1233,8 @@
     "breeding_profile": {
         "pet_base_id": 13000167,
         "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

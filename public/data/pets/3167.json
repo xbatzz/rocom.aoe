@@ -1190,8 +1190,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 20 级",
-                            "需与伏地兽一起击败 3 只虫系精灵"
+                            "等级达到 20 级"
                         ]
                     }
                 ],
@@ -1236,12 +1235,10 @@
         "type_desc": "食蚁兽精灵",
         "description_habitat": "行踪神秘",
         "introduction": "体表坚硬的鬃毛能够防御风吹日晒和敌人的攻击。长舌灵活而柔韧，能够绊倒猎物或者缠绕颈部使其窒息，吻部如同长矛一般刺穿猎物的要害，甚至可以击穿岩石。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1258,8 +1255,8 @@
         "egg_groups": [
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

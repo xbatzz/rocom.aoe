@@ -177,13 +177,13 @@
             "localized": {
                 "zh": {
                     "name": "超导",
-                    "description": "造成魔伤，迸发：本技能能耗-1。"
+                    "description": "造成魔伤，迸发：本技能能耗-2。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
-            "power": 95,
-            "description": "造成魔伤，迸发：本技能能耗-1。"
+            "power": 90,
+            "description": "造成魔伤，迸发：本技能能耗-2。"
         },
         {
             "id": 7110260,
@@ -751,13 +751,13 @@
             "localized": {
                 "zh": {
                     "name": "通电",
-                    "description": "造​成​物伤，​敌方获得​1​层引电。​"
+                    "description": "造成物伤，敌方获得1层引电。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造​成​物伤，​敌方获得​1​层引电。​"
+            "description": "造成物伤，敌方获得1层引电。"
         },
         {
             "id": 7160350,
@@ -1410,7 +1410,7 @@
         "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1421,8 +1421,8 @@
     "breeding_profile": {
         "pet_base_id": 13000171,
         "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

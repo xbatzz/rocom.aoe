@@ -1301,12 +1301,10 @@
         "type_desc": "火山精灵",
         "description_habitat": "行踪神秘",
         "introduction": "哪怕是休息的时候，也像沉睡的火山一样危险。岩浆涌动的身体需要经常添加燃料，偶尔会把吃不完的食物丢到头顶的火山口里燃尽。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1324,8 +1322,8 @@
             2,
             9
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

@@ -427,13 +427,13 @@
             "localized": {
                 "zh": {
                     "name": "超导",
-                    "description": "造成魔伤，迸发：本技能能耗-1。"
+                    "description": "造成魔伤，迸发：本技能能耗-2。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
-            "power": 95,
-            "description": "造成魔伤，迸发：本技能能耗-1。"
+            "power": 90,
+            "description": "造成魔伤，迸发：本技能能耗-2。"
         },
         {
             "id": 7110270,
@@ -1303,12 +1303,10 @@
         "type_desc": "树精灵",
         "description_habitat": "行踪神秘",
         "introduction": "左手和右手似乎有各自的想法，在黑暗中看起来就像三只精灵。虽然伪装拙劣到谁都能看穿的程度，但依旧喜欢伪装成普通树木的样子，跟在洛克身后，但是对洛克并没有恶意。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 2,
-        "classis_name": "漂浮类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2,
@@ -1323,8 +1321,8 @@
             7,
             8
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

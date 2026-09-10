@@ -1369,12 +1369,10 @@
         "type_desc": "狐仙精灵",
         "description_habitat": "偶见于雪山",
         "introduction": "尖嘴狐仙能通过感知大地的温度变化来预测农时。当它摇着尾巴经过农田时，尾巴扇动的气流会形成特殊的暖湿环流，让田地在寒冷的初春也能保持适宜作物生长的温度。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 15,
-        "classis_name": "神奇类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1391,8 +1389,8 @@
         "egg_groups": [
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

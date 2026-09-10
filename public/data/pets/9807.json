@@ -971,13 +971,13 @@
             "localized": {
                 "zh": {
                     "name": "冷凝",
-                    "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
+                    "description": "造成物伤，敌方每有1层冻结，自己回复1能量。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 95,
-            "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
+            "description": "造成物伤，敌方每有1层冻结，自己回复1能量。"
         },
         {
             "id": 7090440,
@@ -993,13 +993,13 @@
             "localized": {
                 "zh": {
                     "name": "寒潮",
-                    "description": "造成​魔伤，​敌方​获得​1层​冻结，应对状态：额​外​获得4层​冻结，​​巧变：​冻结相关技​能​。"
+                    "description": "造成魔伤，敌方获得1层冻结，应对状态：额外获得4层冻结，巧变：冻结相关技能。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 95,
-            "description": "造成​魔伤，​敌方​获得​1层​冻结，应对状态：额​外​获得4层​冻结，​​巧变：​冻结相关技​能​。"
+            "description": "造成魔伤，敌方获得1层冻结，应对状态：额外获得4层冻结，巧变：冻结相关技能。"
         },
         {
             "id": 7700008,
@@ -1067,7 +1067,7 @@
         "refresh_locations": [],
         "movement_type": null,
         "classis_id": 3,
-        "classis_name": "猫咪类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": null,
@@ -1075,8 +1075,8 @@
     "breeding_profile": {
         "pet_base_id": 9807,
         "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

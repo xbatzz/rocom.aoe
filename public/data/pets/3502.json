@@ -1412,12 +1412,10 @@
         "type_desc": "蜥蜴精灵",
         "description_habitat": "常见于草地、山地",
         "introduction": "普遍性情暴躁，攻击性强，会发射岩石来划清自己的地盘。它背上石头与身体融合的原理至今仍是研究协会重要的研究课题。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1435,8 +1433,8 @@
             3,
             11
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

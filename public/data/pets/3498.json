@@ -647,13 +647,13 @@
             "localized": {
                 "zh": {
                     "name": "同频",
-                    "description": "造成​魔法​伤害，​巧变：魔攻技​能。"
+                    "description": "造成魔法伤害，巧变：魔攻技能。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 125,
-            "description": "造成​魔法​伤害，​巧变：魔攻技​能。"
+            "description": "造成魔法伤害，巧变：魔攻技能。"
         },
         {
             "id": 7020790,
@@ -676,6 +676,50 @@
             "energy_cost": 2,
             "power": null,
             "description": "减伤70%，应对攻击：自己获得物攻和魔攻+70%。"
+        },
+        {
+            "id": 7130360,
+            "name": "信息素",
+            "icon_id": "112039",
+            "move_type": {
+                "id": 11,
+                "name": "Bug",
+                "localized": {
+                    "zh": "虫"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "信息素",
+                    "description": "己方队伍获得1次随机奉献，若上回合双方有精灵使用地系技能，额外获得3次随机奉献。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 4,
+            "power": null,
+            "description": "己方队伍获得1次随机奉献，若上回合双方有精灵使用地系技能，额外获得3次随机奉献。"
+        },
+        {
+            "id": 7130220,
+            "name": "掩护",
+            "icon_id": "212015",
+            "move_type": {
+                "id": 11,
+                "name": "Bug",
+                "localized": {
+                    "zh": "虫"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "掩护",
+                    "description": "减伤70%，紧急脱离，应对攻击：下个入场精灵获得减伤。"
+                }
+            },
+            "move_category": "Defense",
+            "energy_cost": 2,
+            "power": null,
+            "description": "减伤70%，紧急脱离，应对攻击：下个入场精灵获得减伤。"
         }
     ],
     "legacy_moves": [
@@ -1453,12 +1497,10 @@
         "type_desc": "拟态精灵",
         "description_habitat": "常见于树林",
         "introduction": "在恶劣的环境中，它们形成了低能耗、高防御的行为逻辑，整天处于倦怠状态，其躯体收缩与舒展时，会有细微的气流振动，听起来就像低低的叹息声。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2,
@@ -1477,8 +1519,8 @@
             4,
             8
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

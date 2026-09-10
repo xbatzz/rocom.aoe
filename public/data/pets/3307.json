@@ -1186,8 +1186,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需准备蓝晶碧玺系列材料共 3 份"
+                            "等级达到 40 级"
                         ]
                     },
                     {
@@ -1216,8 +1215,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需准备紫莲刚玉系列材料共 3 份"
+                            "等级达到 40 级"
                         ]
                     },
                     {
@@ -1246,8 +1244,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需准备黄石榴石系列材料共 3 份"
+                            "等级达到 40 级"
                         ]
                     },
                     {
@@ -1276,8 +1273,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需准备黑晶琉璃系列材料共 3 份"
+                            "等级达到 40 级"
                         ]
                     },
                     {
@@ -1306,8 +1302,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需准备以下晶石系列材料共 6 份：蓝晶碧玺、紫莲刚玉、黄石榴石、黑晶琉璃"
+                            "等级达到 40 级"
                         ]
                     },
                     {
@@ -1336,8 +1331,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需准备以下晶石系列材料共 9 份：蓝晶碧玺、紫莲刚玉、黄石榴石、黑晶琉璃"
+                            "等级达到 40 级"
                         ]
                     }
                 ],
@@ -1353,12 +1347,10 @@
         "type_desc": "矿石精灵",
         "description_habitat": "常见于矿石群旁",
         "introduction": "喜欢攀附于潮湿的岩层，以土壤中的矿粒为食，常被用作衡量矿产资源丰富度的标志。身上的晶体可以将细小的光线通过折射放大数倍，四只矿晶虫便能照亮一整个矿洞，是备受矿工喜爱的精灵。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2,
@@ -1506,8 +1498,8 @@
             10,
             11
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

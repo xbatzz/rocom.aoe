@@ -33,10 +33,10 @@
     },
     "implemented": true,
     "base_hp": 113,
-    "base_phy_atk": 130,
-    "base_mag_atk": 51,
-    "base_phy_def": 106,
-    "base_mag_def": 78,
+    "base_phy_atk": 143,
+    "base_mag_atk": 60,
+    "base_phy_def": 116,
+    "base_mag_def": 87,
     "base_spd": 110,
     "evolves_from_id": 3592,
     "species": {
@@ -49,12 +49,12 @@
     "trait": {
         "id": 200294,
         "name": "王子的诺言",
-        "description": "每回合各1次，获得​增益​时，​同时获得全​技​能​能​耗​-1，​获得​减益​时，​同时获得​全​技​能​能​耗​+1​。",
+        "description": "每回合各1次，获得增益时，同时获得全技能能耗-1，获得减益时，同时获得全技能能耗+1。",
         "icon_id": "200294",
         "localized": {
             "zh": {
                 "name": "王子的诺言",
-                "description": "每回合各1次，获得​增益​时，​同时获得全​技​能​能​耗​-1，​获得​减益​时，​同时获得​全​技​能​能​耗​+1​。"
+                "description": "每回合各1次，获得增益时，同时获得全技能能耗-1，获得减益时，同时获得全技能能耗+1。"
             }
         }
     },
@@ -249,13 +249,13 @@
             "localized": {
                 "zh": {
                     "name": "叠浪",
-                    "description": "造​成​物伤，​3连击，本技能能耗每-1，威力+10。"
+                    "description": "造成物伤，3连击，本技能能耗每-1，威力+10。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 10,
-            "description": "造​成​物伤，​3连击，本技能能耗每-1，威力+10。"
+            "description": "造成物伤，3连击，本技能能耗每-1，威力+10。"
         },
         {
             "id": 7140250,
@@ -293,13 +293,13 @@
             "localized": {
                 "zh": {
                     "name": "马步",
-                    "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+                    "description": "本技能先手-1，选择：若自己生命低于20%，回复60%生命或若自己生命高于80%，获得物攻+150%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+            "description": "本技能先手-1，选择：若自己生命低于20%，回复60%生命或若自己生命高于80%，获得物攻+150%。"
         },
         {
             "id": 7140090,
@@ -1196,8 +1196,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 24 级",
-                            "需满足蛋组搭配条件（两栖 / 虫 / 蛋组 16）"
+                            "等级达到 24 级"
                         ]
                     }
                 ],
@@ -1248,12 +1247,10 @@
         "type_desc": "王储精灵",
         "description_habitat": "行踪神秘",
         "introduction": "它们终于站在阳光下了。身上的十字纹被光照得发亮，那是从深渊底部一直带上来的印记。不再需要向谁证明什么，也不需要任何帮助，它们骨子里的斗志永远不会消失。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1270,8 +1267,8 @@
             3,
             9
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

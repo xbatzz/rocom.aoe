@@ -641,13 +641,13 @@
             "localized": {
                 "zh": {
                     "name": "驱赶",
-                    "description": "造成​魔伤，​选择：​本​次技能​威力​+20或​应对状态​时​本​次​技能威力​+140。"
+                    "description": "造成魔伤，选择：本次技能威力+20或应对状态时本次技能威力+140。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 70,
-            "description": "造成​魔伤，​选择：​本​次技能​威力​+20或​应对状态​时​本​次​技能威力​+140。"
+            "description": "造成魔伤，选择：本次技能威力+20或应对状态时本次技能威力+140。"
         }
     ],
     "legacy_moves": [
@@ -1308,12 +1308,10 @@
         "type_desc": "硬壳精灵",
         "description_habitat": "常见于湖泊",
         "introduction": "平时看似懒懒的，感到危险时，柔软的身体会迅速缩回壳里。柔韧的尾巴看起来像海草，偶尔会被饥饿的水生精灵咬一口。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1395,8 +1393,8 @@
         "egg_groups": [
             3
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

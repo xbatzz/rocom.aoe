@@ -443,13 +443,13 @@
             "localized": {
                 "zh": {
                     "name": "超导",
-                    "description": "造成魔伤，迸发：本技能能耗-1。"
+                    "description": "造成魔伤，迸发：本技能能耗-2。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
-            "power": 95,
-            "description": "造成魔伤，迸发：本技能能耗-1。"
+            "power": 90,
+            "description": "造成魔伤，迸发：本技能能耗-2。"
         },
         {
             "id": 7110390,
@@ -641,13 +641,13 @@
             "localized": {
                 "zh": {
                     "name": "叠加态",
-                    "description": "自己获得​随机​16层属性增益​，​巧变：​幻系攻击​技​能​。"
+                    "description": "自己获得随机16层属性增益，巧变：幻系攻击技能。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "自己获得​随机​16层属性增益​，​巧变：​幻系攻击​技​能​。"
+            "description": "自己获得随机16层属性增益，巧变：幻系攻击技能。"
         },
         {
             "id": 7100320,
@@ -663,13 +663,13 @@
             "localized": {
                 "zh": {
                     "name": "守护咒",
-                    "description": "减​伤90%，​应对攻击。​​​巧变：龙系​状态技能。"
+                    "description": "减伤90%，应对攻击。巧变：龙系状态技能。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 1,
             "power": null,
-            "description": "减​伤90%，​应对攻击。​​​巧变：龙系​状态技能。"
+            "description": "减伤90%，应对攻击。巧变：龙系状态技能。"
         },
         {
             "id": 7030580,
@@ -1345,12 +1345,10 @@
         "type_desc": "水龙精灵",
         "description_habitat": "行踪神秘",
         "introduction": "当它舒展躯体时，水流沿鳞片纹路均匀铺展，使其外形兼具威慑力与神圣感，威严而不可侵犯。“在龙系精灵的历史中起到了关键的作用，一直默默地付出，很少有人知道它的存在。”",
-        "refresh_locations": [
-            "暂时找不到这只精灵的踪迹噢！"
-        ],
+        "refresh_locations": [],
         "movement_type": null,
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1361,8 +1359,8 @@
     "breeding_profile": {
         "pet_base_id": 4090,
         "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

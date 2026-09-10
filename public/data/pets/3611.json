@@ -377,13 +377,13 @@
             "localized": {
                 "zh": {
                     "name": "蓄能轰击",
-                    "description": "造成魔伤，每使用1次普通系技能，本技能能耗永久-2。"
+                    "description": "造成魔伤，每使用1次其他普通系技能，本技能能耗永久-2。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 6,
-            "power": 130,
-            "description": "造成魔伤，每使用1次普通系技能，本技能能耗永久-2。"
+            "power": 120,
+            "description": "造成魔伤，每使用1次其他普通系技能，本技能能耗永久-2。"
         },
         {
             "id": 7020800,
@@ -1181,8 +1181,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 36 级",
-                            "需与书卷守护一起击败 3 只武系精灵"
+                            "等级达到 36 级"
                         ]
                     },
                     {
@@ -1211,8 +1210,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 36 级",
-                            "需与书卷守护一起击败 3 只幻系精灵"
+                            "等级达到 36 级"
                         ]
                     }
                 ],
@@ -1228,12 +1226,10 @@
         "type_desc": "书卷精灵",
         "description_habitat": "行踪神秘",
         "introduction": "身上带着书本和油墨的味道，看起来小小的，其实比想象中重很多。常与同伴交换藏书，偶尔遇到疑惑的地方，会用书使劲砸自己的头，希望用这种办法让知识快点进入身体。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1250,8 +1246,8 @@
             2,
             7
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

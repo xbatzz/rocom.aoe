@@ -309,13 +309,13 @@
             "localized": {
                 "zh": {
                     "name": "吨位压制",
-                    "description": "造成物伤，敌方体重越低，威力越高。"
+                    "description": "造成物伤，敌方体重越低，本次技能威力越高。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": null,
-            "description": "造成物伤，敌方体重越低，威力越高。"
+            "description": "造成物伤，敌方体重越低，本次技能威力越高。"
         },
         {
             "id": 7020690,
@@ -663,13 +663,13 @@
             "localized": {
                 "zh": {
                     "name": "超声波",
-                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                    "description": "自己获得全技能威力+20，选择：本次能耗-1或应对防御时改为全技能威力永久+20。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+            "description": "自己获得全技能威力+20，选择：本次能耗-1或应对防御时改为全技能威力永久+20。"
         },
         {
             "id": 7150310,
@@ -692,6 +692,28 @@
             "energy_cost": 2,
             "power": null,
             "description": "减伤70%，应对攻击：自己获得连击数+2。"
+        },
+        {
+            "id": 7021030,
+            "name": "加固",
+            "icon_id": "101085",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "加固",
+                    "description": "自己获得物防+140%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得物防+140%。"
         }
     ],
     "legacy_moves": [
@@ -1482,7 +1504,7 @@
         "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 4,
-        "classis_name": "植物类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2,
@@ -1493,9 +1515,11 @@
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 5039,
-        "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "egg_groups": [
+            5
+        ],
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

@@ -29,8 +29,8 @@
     "base_hp": 130,
     "base_phy_atk": 107,
     "base_mag_atk": 70,
-    "base_phy_def": 173,
-    "base_mag_def": 80,
+    "base_phy_def": 153,
+    "base_mag_def": 56,
     "base_spd": 80,
     "evolves_from_id": 3708,
     "species": {
@@ -177,13 +177,13 @@
             "localized": {
                 "zh": {
                     "name": "减压阀",
-                    "description": "主动：​本技​能​被​动永久额​外​+20​威力，​被动：​两​侧​技​能​威力​+10，​传动1。"
+                    "description": "主动：本技能被动永久额外+20威力，被动：两侧技能威力+10，传动1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "主动：​本技​能​被​动永久额​外​+20​威力，​被动：​两​侧​技​能​威力​+10，​传动1。"
+            "description": "主动：本技能被动永久额外+20威力，被动：两侧技能威力+10，传动1。"
         },
         {
             "id": 7070020,
@@ -247,7 +247,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 3,
+            "energy_cost": 6,
             "power": null,
             "description": "主动：本技能被动永久额外-1能耗，被动：两侧技能能耗-1，传动1。"
         },
@@ -575,13 +575,13 @@
             "localized": {
                 "zh": {
                     "name": "相位移动",
-                    "description": "减​伤50%，​本技​能​位​于​1号​位​或​3号​位​时，​额​外减​伤40%，应对攻击，​传动1。​"
+                    "description": "减伤50%，本技能位于1号位或3号位时，额外减伤40%，应对攻击，传动1。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 1,
             "power": null,
-            "description": "减​伤50%，​本技​能​位​于​1号​位​或​3号​位​时，​额​外减​伤40%，应对攻击，​传动1。​"
+            "description": "减伤50%，本技能位于1号位或3号位时，额外减伤40%，应对攻击，传动1。"
         },
         {
             "id": 7021160,
@@ -1190,8 +1190,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 36 级",
-                            "需满足特殊条件（类型 9，参数 60）"
+                            "等级达到 36 级"
                         ]
                     }
                 ],
@@ -1207,12 +1206,10 @@
         "type_desc": "象精灵",
         "description_habitat": "行踪神秘",
         "introduction": "经常把听到过的旋律一段一段地敲出来，但是它的记忆力不太好，经常把好几首曲子混在一起敲，发出谁也听不懂的节奏，只有巨鼓象自己敲得很起劲。有评论家说，虽然听不懂，但别有一番风味。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1229,8 +1226,8 @@
             6,
             15
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

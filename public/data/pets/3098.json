@@ -287,13 +287,13 @@
             "localized": {
                 "zh": {
                     "name": "蓄能轰击",
-                    "description": "造成魔伤，每使用1次普通系技能，本技能能耗永久-2。"
+                    "description": "造成魔伤，每使用1次其他普通系技能，本技能能耗永久-2。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 6,
-            "power": 130,
-            "description": "造成魔伤，每使用1次普通系技能，本技能能耗永久-2。"
+            "power": 120,
+            "description": "造成魔伤，每使用1次其他普通系技能，本技能能耗永久-2。"
         },
         {
             "id": 7020420,
@@ -751,13 +751,13 @@
             "localized": {
                 "zh": {
                     "name": "同频",
-                    "description": "造成​魔法​伤害，​巧变：魔攻技​能。"
+                    "description": "造成魔法伤害，巧变：魔攻技能。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 125,
-            "description": "造成​魔法​伤害，​巧变：魔攻技​能。"
+            "description": "造成魔法伤害，巧变：魔攻技能。"
         }
     ],
     "legacy_moves": [
@@ -1345,12 +1345,10 @@
         "type_desc": "松鼠精灵",
         "description_habitat": "常见于树林",
         "introduction": "能靠有力的尾巴弹跳，如果摔倒了，要花一阵子才能重新靠尾巴站立，有研究猜测它们足部功能有所退化，尾部功能非常发达，部分取代了双脚的作用。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 4,
-        "classis_name": "植物类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1388,6 +1386,22 @@
                 "height_low": 20,
                 "height_high": 28,
                 "precious_egg_type": null,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3098002,
+                "pet_id": 3098002,
+                "name": null,
+                "model_id": 3098001,
+                "hatch_data": 300,
+                "weight_low": 1225,
+                "weight_high": 2400,
+                "height_low": 20,
+                "height_high": 28,
+                "precious_egg_type": 6,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1432,8 +1446,8 @@
         "egg_groups": [
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

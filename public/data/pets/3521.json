@@ -773,13 +773,13 @@
             "localized": {
                 "zh": {
                     "name": "天体吸积",
-                    "description": "造成物伤，敌方​每​有​1层​印记，​本次攻击威力​+20。"
+                    "description": "造成物伤，敌方每有1层印记，本次攻击威力+20。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 20,
-            "description": "造成物伤，敌方​每​有​1层​印记，​本次攻击威力​+20。"
+            "description": "造成物伤，敌方每有1层印记，本次攻击威力+20。"
         },
         {
             "id": 7160380,
@@ -839,13 +839,13 @@
             "localized": {
                 "zh": {
                     "name": "薄纱环",
-                    "description": "选择：对手随机获得1种负面印记或自己随机获得1种正面印记。"
+                    "description": "选择：敌方随机获得1种负面印记或自己随机获得1种正面印记。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "选择：对手随机获得1种负面印记或自己随机获得1种正面印记。"
+            "description": "选择：敌方随机获得1种负面印记或自己随机获得1种正面印记。"
         }
     ],
     "legacy_moves": [
@@ -1375,12 +1375,10 @@
         "type_desc": "里拉琴精灵",
         "description_habitat": "常见于海面",
         "introduction": "里拉鳐的体表能够分泌并牵连出细长的粘液，这些粘液对水流变化极其敏感，能帮助它判断水流方向。游动时，水流掠过粘液弦会引发持续振动，发出琴音。一般认为雄性的气孔粘液更少，形成的琴弦更细，因此琴声更清脆明亮。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1440,6 +1438,22 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3521003,
+                "pet_id": 3521003,
+                "name": null,
+                "model_id": 3521001,
+                "hatch_data": 300,
+                "weight_low": 13510,
+                "weight_high": 19800,
+                "height_low": 40,
+                "height_high": 46,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 35210001,
                 "pet_id": 35210001,
                 "name": null,
@@ -1479,8 +1493,8 @@
             7,
             13
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

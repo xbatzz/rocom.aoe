@@ -801,13 +801,13 @@
             "localized": {
                 "zh": {
                     "name": "缓一缓",
-                    "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
+                    "description": "自己回复1能量和10%生命，并获得魔攻魔防+10%，速度+10。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
+            "description": "自己回复1能量和10%生命，并获得魔攻魔防+10%，速度+10。"
         }
     ],
     "legacy_moves": [
@@ -1379,7 +1379,7 @@
         "refresh_locations": [],
         "movement_type": null,
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": null,
@@ -1387,8 +1387,8 @@
     "breeding_profile": {
         "pet_base_id": 6005,
         "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

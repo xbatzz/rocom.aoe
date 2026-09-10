@@ -1412,12 +1412,10 @@
         "type_desc": "蜥蜴精灵",
         "description_habitat": "常见于草地、山地",
         "introduction": "常在半山腰处被发现，独立生活，会收集细小的石头筑巢。背上的石头是体内生长出来的一种分泌物，喜欢钻到石头堆里蹭背，可以把背上的石头打磨得更锋利。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 7,
-        "classis_name": "岩石类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1532,8 +1530,8 @@
             3,
             11
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

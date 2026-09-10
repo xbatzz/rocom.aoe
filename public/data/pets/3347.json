@@ -32,11 +32,11 @@
         }
     },
     "implemented": true,
-    "base_hp": 68,
+    "base_hp": 80,
     "base_phy_atk": 62,
     "base_mag_atk": 59,
-    "base_phy_def": 51,
-    "base_mag_def": 59,
+    "base_phy_def": 58,
+    "base_mag_def": 66,
     "base_spd": 45,
     "evolves_from_id": null,
     "species": {
@@ -271,13 +271,13 @@
             "localized": {
                 "zh": {
                     "name": "下注",
-                    "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+                    "description": "造成物伤，选择：本次技能威力+40，使用后自己生命-10%或自己生命低于50%时本次技能威力+100。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 85,
-            "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+            "description": "造成物伤，选择：本次技能威力+40，使用后自己生命-10%或自己生命低于50%时本次技能威力+100。"
         },
         {
             "id": 7180190,
@@ -757,13 +757,57 @@
             "localized": {
                 "zh": {
                     "name": "蒸汽进行曲",
-                    "description": "选择：​自己获得速度​+60或​物攻+90%。"
+                    "description": "选择：自己获得速度+60或物攻+90%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "选择：​自己获得速度​+60或​物攻+90%。"
+            "description": "选择：自己获得速度+60或物攻+90%。"
+        },
+        {
+            "id": 7180460,
+            "name": "暴打",
+            "icon_id": "117045",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "暴打",
+                    "description": "对敌方精灵造成魔法伤害。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 100,
+            "description": "对敌方精灵造成魔法伤害。"
+        },
+        {
+            "id": 7050530,
+            "name": "汇流",
+            "icon_id": "104038",
+            "move_type": {
+                "id": 4,
+                "name": "Water",
+                "localized": {
+                    "zh": "水"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "汇流",
+                    "description": "雨天的回合数延长4回合，应对防御：改为延长8回合。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 1,
+            "power": null,
+            "description": "雨天的回合数延长4回合，应对防御：改为延长8回合。"
         }
     ],
     "legacy_moves": [
@@ -1369,12 +1413,10 @@
         "type_desc": "眼精灵",
         "description_habitat": "常见于古堡周边",
         "introduction": "该种群的幼体已经展现出极强的领地排他性。眼球还很脆弱，几乎全天处于睡眠状态，但头顶的芽始终保持警戒，它们通过头顶的芽感受和接收外界一切信息。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1434,6 +1476,54 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3347003,
+                "pet_id": 3347003,
+                "name": null,
+                "model_id": 3347002,
+                "hatch_data": 28800,
+                "weight_low": 1033,
+                "weight_high": 1360,
+                "height_low": 19,
+                "height_high": 27,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3347004,
+                "pet_id": 3347004,
+                "name": null,
+                "model_id": 3347001,
+                "hatch_data": 28800,
+                "weight_low": 1033,
+                "weight_high": 1360,
+                "height_low": 19,
+                "height_high": 27,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3347008,
+                "pet_id": 3347008,
+                "name": null,
+                "model_id": 3347002,
+                "hatch_data": 28800,
+                "weight_low": 1033,
+                "weight_high": 1360,
+                "height_low": 19,
+                "height_high": 27,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 33470001,
                 "pet_id": 33470001,
                 "name": null,
@@ -1457,8 +1547,8 @@
             2,
             7
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

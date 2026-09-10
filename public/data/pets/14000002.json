@@ -751,13 +751,13 @@
             "localized": {
                 "zh": {
                     "name": "飞箭",
-                    "description": "造成​魔伤，​3连击。巧变：​翼系防御​技​能​。"
+                    "description": "造成魔伤，3连击。巧变：翼系防御技能。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 40,
-            "description": "造成​魔伤，​3连击。巧变：​翼系防御​技​能​。"
+            "description": "造成魔伤，3连击。巧变：翼系防御技能。"
         },
         {
             "id": 7021190,
@@ -780,6 +780,28 @@
             "energy_cost": 3,
             "power": 65,
             "description": "造成魔伤，选择：驱散敌方所有增益或驱散双方1层印记。"
+        },
+        {
+            "id": 7170350,
+            "name": "掠影",
+            "icon_id": "116031",
+            "move_type": {
+                "id": 15,
+                "name": "Ghost",
+                "localized": {
+                    "zh": "幽"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "掠影",
+                    "description": "造成物伤，若上回合双方有精灵使用火系技能，偷取敌方3能量。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 65,
+            "description": "造成物伤，若上回合双方有精灵使用火系技能，偷取敌方3能量。"
         }
     ],
     "legacy_moves": [
@@ -1359,12 +1381,10 @@
         "type_desc": null,
         "description_habitat": null,
         "introduction": "羽毛柔软，叫声空灵。它们的眼睛位于面部的正前方，拥有出色的深度感知能力，能270转头的脖子非常灵活，方便全方位观察猎物。每当夜幕降临时，它们会高傲地巡视它领地，悄无声息地瞄准自己的猎物。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": null,
@@ -1374,8 +1394,8 @@
         "egg_groups": [
             5
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

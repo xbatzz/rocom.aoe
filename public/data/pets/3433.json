@@ -691,13 +691,13 @@
             "localized": {
                 "zh": {
                     "name": "清洗",
-                    "description": "​驱散​自己​的​减益，​自己​每​有​1层减益，​本技​能​能​耗​-1，巧变：​水系​攻击​技​能​。"
+                    "description": "驱散自己的减益，自己每有1层减益，本技能能耗-1，巧变：水系攻击技能。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 0,
             "power": null,
-            "description": "​驱散​自己​的​减益，​自己​每​有​1层减益，​本技​能​能​耗​-1，巧变：​水系​攻击​技​能​。"
+            "description": "驱散自己的减益，自己每有1层减益，本技能能耗-1，巧变：水系攻击技能。"
         },
         {
             "id": 7090330,
@@ -1336,12 +1336,10 @@
         "type_desc": "珊瑚精灵",
         "description_habitat": "常见于海面",
         "introduction": "喜欢用绿色的共生藻打扮自己，光合色素和粘液让珊瑚枝呈现百变的造型。它对光照与水质非常敏感，需要在浅水、光线充足的地方晒足日光浴，获得维持活力所需的能量，否则，可能会凋谢成灰白色。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1408,8 +1406,8 @@
             8,
             13
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

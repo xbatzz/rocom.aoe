@@ -647,13 +647,13 @@
             "localized": {
                 "zh": {
                     "name": "守护咒",
-                    "description": "减​伤90%，​应对攻击。​​​巧变：龙系​状态技能。"
+                    "description": "减伤90%，应对攻击。巧变：龙系状态技能。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 1,
             "power": null,
-            "description": "减​伤90%，​应对攻击。​​​巧变：龙系​状态技能。"
+            "description": "减伤90%，应对攻击。巧变：龙系状态技能。"
         },
         {
             "id": 7100300,
@@ -1278,7 +1278,7 @@
         "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": null,
@@ -1286,8 +1286,8 @@
     "breeding_profile": {
         "pet_base_id": 8011,
         "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

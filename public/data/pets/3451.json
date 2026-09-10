@@ -801,13 +801,13 @@
             "localized": {
                 "zh": {
                     "name": "缓一缓",
-                    "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
+                    "description": "自己回复1能量和10%生命，并获得魔攻魔防+10%，速度+10。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
+            "description": "自己回复1能量和10%生命，并获得魔攻魔防+10%，速度+10。"
         }
     ],
     "legacy_moves": [
@@ -1362,8 +1362,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需准备蓝晶碧玺系列材料共 3 份"
+                            "等级达到 40 级"
                         ]
                     },
                     {
@@ -1392,8 +1391,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需准备紫莲刚玉系列材料共 3 份"
+                            "等级达到 40 级"
                         ]
                     },
                     {
@@ -1422,8 +1420,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需准备黄石榴石系列材料共 3 份"
+                            "等级达到 40 级"
                         ]
                     },
                     {
@@ -1452,8 +1449,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需准备黑晶琉璃系列材料共 3 份"
+                            "等级达到 40 级"
                         ]
                     },
                     {
@@ -1482,8 +1478,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需准备以下晶石系列材料共 6 份：蓝晶碧玺、紫莲刚玉、黄石榴石、黑晶琉璃"
+                            "等级达到 40 级"
                         ]
                     },
                     {
@@ -1512,8 +1507,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需准备以下晶石系列材料共 9 份：蓝晶碧玺、紫莲刚玉、黄石榴石、黑晶琉璃"
+                            "等级达到 40 级"
                         ]
                     }
                 ],
@@ -1751,12 +1745,10 @@
         "type_desc": "矿石精灵",
         "description_habitat": "行踪神秘",
         "introduction": "罕见的矿石精灵之一，外壳酷似蓝锥矿。晶石蜗爬行时留下的矿质黏液，干燥后会形成纤细的蓝锥矿晶丝，在暗处持续发出微弱磷光，形成短暂的痕迹，可用于导航，但路径会随空气氧化逐渐失去光泽。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2,
@@ -1775,8 +1767,8 @@
             10,
             11
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

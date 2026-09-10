@@ -780,6 +780,50 @@
             "energy_cost": 3,
             "power": 70,
             "description": "造成魔伤，若本次攻击未被防御技能应对，则驱散双方所有印记。"
+        },
+        {
+            "id": 7170350,
+            "name": "掠影",
+            "icon_id": "116031",
+            "move_type": {
+                "id": 15,
+                "name": "Ghost",
+                "localized": {
+                    "zh": "幽"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "掠影",
+                    "description": "造成物伤，若上回合双方有精灵使用火系技能，偷取敌方3能量。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 65,
+            "description": "造成物伤，若上回合双方有精灵使用火系技能，偷取敌方3能量。"
+        },
+        {
+            "id": 7110440,
+            "name": "惊雷",
+            "icon_id": "110034",
+            "move_type": {
+                "id": 9,
+                "name": "Electric",
+                "localized": {
+                    "zh": "电"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "惊雷",
+                    "description": "将天气改为雷鸣，持续8回合。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 5,
+            "power": null,
+            "description": "将天气改为雷鸣，持续8回合。"
         }
     ],
     "legacy_moves": [
@@ -1367,12 +1411,10 @@
         "type_desc": "负电精灵",
         "description_habitat": "常见于山林",
         "introduction": "总是一副不开心的样子，面对对手的时候会使出全力攻击，不论所处环境有多么危险，只要没电就会立刻陷入昏睡。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1454,8 +1496,8 @@
         "egg_groups": [
             12
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

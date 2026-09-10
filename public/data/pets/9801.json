@@ -1059,13 +1059,13 @@
             "localized": {
                 "zh": {
                     "name": "蓄能轰击",
-                    "description": "造成魔伤，每使用1次普通系技能，本技能能耗永久-2。"
+                    "description": "造成魔伤，每使用1次其他普通系技能，本技能能耗永久-2。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 6,
-            "power": 130,
-            "description": "造成魔伤，每使用1次普通系技能，本技能能耗永久-2。"
+            "power": 120,
+            "description": "造成魔伤，每使用1次其他普通系技能，本技能能耗永久-2。"
         },
         {
             "id": 7020620,
@@ -1829,13 +1829,13 @@
             "localized": {
                 "zh": {
                     "name": "吨位压制",
-                    "description": "造成物伤，敌方体重越低，威力越高。"
+                    "description": "造成物伤，敌方体重越低，本次技能威力越高。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": null,
-            "description": "造成物伤，敌方体重越低，威力越高。"
+            "description": "造成物伤，敌方体重越低，本次技能威力越高。"
         },
         {
             "id": 7021000,
@@ -2247,13 +2247,13 @@
             "localized": {
                 "zh": {
                     "name": "同频",
-                    "description": "造成​魔法​伤害，​巧变：魔攻技​能。"
+                    "description": "造成魔法伤害，巧变：魔攻技能。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 125,
-            "description": "造成​魔法​伤害，​巧变：魔攻技​能。"
+            "description": "造成魔法伤害，巧变：魔攻技能。"
         },
         {
             "id": 7700001,
@@ -2343,7 +2343,7 @@
         "refresh_locations": [],
         "movement_type": null,
         "classis_id": 3,
-        "classis_name": "猫咪类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": null,
@@ -2351,8 +2351,8 @@
     "breeding_profile": {
         "pet_base_id": 9801,
         "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

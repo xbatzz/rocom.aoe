@@ -1301,12 +1301,10 @@
         "type_desc": "猿精灵",
         "description_habitat": "行踪神秘",
         "introduction": "会从头上喷出烟来彰显气势，普遍好斗。打喷嚏的时候，背上也会跟着喷出巨大的浓烟，还会洒出一些岩浆。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1324,8 +1322,8 @@
             2,
             9
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

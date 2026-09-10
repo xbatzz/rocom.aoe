@@ -1,0 +1,135 @@
+{
+    "length": 3.0,
+    "dialogue_id": 202214687,
+    "wait_user_click_at_end": true,
+    "clear_look_at_at_end": false,
+    "play_dialogue_sound_when_show_ui_if_no_say_action": true,
+    "play_dialogue_sound_when_say_action_without_data": true,
+    "black_switch_in": false,
+    "cached_actors": [
+        {
+            "id": -2,
+            "npc_id": 166266
+        },
+        {
+            "id": 29335,
+            "npc_id": 29335
+        },
+        {
+            "id": 65731,
+            "npc_id": 65731
+        },
+        {
+            "id": 65777,
+            "npc_id": 65777
+        },
+        {
+            "id": 163048,
+            "npc_id": 163048
+        },
+        {
+            "id": 163068,
+            "npc_id": 163068
+        },
+        {
+            "id": 163069,
+            "npc_id": 163069
+        },
+        {
+            "id": 163070,
+            "npc_id": 163070
+        },
+        {
+            "id": 163071,
+            "npc_id": 163071
+        },
+        {
+            "id": 163072,
+            "npc_id": 163072
+        },
+        {
+            "id": 163073,
+            "npc_id": 163073
+        },
+        {
+            "id": 163074,
+            "npc_id": 163074
+        },
+        {
+            "id": 163075,
+            "npc_id": 163075
+        },
+        {
+            "id": 163076,
+            "npc_id": 163076
+        },
+        {
+            "id": 163077,
+            "npc_id": 163077
+        },
+        {
+            "id": 163078,
+            "npc_id": 163078
+        },
+        {
+            "id": 166105,
+            "npc_id": 166105
+        },
+        {
+            "id": 166265,
+            "npc_id": 166265
+        },
+        {
+            "id": 166267,
+            "npc_id": 166267
+        },
+        {
+            "id": 166268,
+            "npc_id": 166268
+        },
+        {
+            "id": 166269,
+            "npc_id": 166269
+        },
+        {
+            "id": 166402,
+            "npc_id": 166402
+        }
+    ],
+    "actions": [
+        {
+            "ClassPath": "NewRoco.Modules.System.Dialogue.Action.Timeline.DialogueTimelineShowUIEvent",
+            "Name": "\u663e\u793a\u5bf9\u8bddUI",
+            "OwnerActorID": -100,
+            "NPCContentID": -1,
+            "StartTime": 0.0
+        },
+        {
+            "ClassPath": "NewRoco.Modules.System.Dialogue.Action.Timeline.DialogueTimelineNPCSayState",
+            "Name": "\u89d2\u8272\u8bf4\u8bdd",
+            "OwnerActorID": 0,
+            "NPCContentID": 0,
+            "StartTime": 0.0,
+            "EndTime": 1.0,
+            "MinimalDuration": 0.1,
+            "PlayFacialAnim": true
+        },
+        {
+            "ClassPath": "NewRoco.Modules.System.Dialogue.Action.Timeline.DialogueTimelineNPCActorAnimAction",
+            "Name": "\u52a8\u4f5c",
+            "OwnerActorID": 166105,
+            "NPCContentID": 0,
+            "StartTime": 0.0,
+            "EndTime": 4.0,
+            "MinimalDuration": 0.1,
+            "Action": "Dialogue3",
+            "BlendInTime": 0.2,
+            "BlendOutTime": 0.2,
+            "LoopCount": 1,
+            "StartPoint": 0.0,
+            "EndPoint": 0.0,
+            "StopAnimAtEnd": false,
+            "StopAnimAtTimelineEnd": false
+        }
+    ]
+}

@@ -49,12 +49,12 @@
     "trait": {
         "id": 200246,
         "name": "整点报时",
-        "description": "回合​结束​时，​若本场战斗累计消耗的能量恰好为12，则回满能量和生命。",
+        "description": "每场战斗1次，回合结束时，若自己累计消耗的能量恰好为12，则回满能量和生命。",
         "icon_id": "200246",
         "localized": {
             "zh": {
                 "name": "整点报时",
-                "description": "回合​结束​时，​若本场战斗累计消耗的能量恰好为12，则回满能量和生命。"
+                "description": "每场战斗1次，回合结束时，若自己累计消耗的能量恰好为12，则回满能量和生命。"
             }
         }
     },
@@ -187,7 +187,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 3,
+            "energy_cost": 6,
             "power": null,
             "description": "主动：本技能被动永久额外-1能耗，被动：两侧技能能耗-1，传动1。"
         },
@@ -227,13 +227,13 @@
             "localized": {
                 "zh": {
                     "name": "相位移动",
-                    "description": "减​伤50%，​本技​能​位​于​1号​位​或​3号​位​时，​额​外减​伤40%，应对攻击，​传动1。​"
+                    "description": "减伤50%，本技能位于1号位或3号位时，额外减伤40%，应对攻击，传动1。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 1,
             "power": null,
-            "description": "减​伤50%，​本技​能​位​于​1号​位​或​3号​位​时，​额​外减​伤40%，应对攻击，​传动1。​"
+            "description": "减伤50%，本技能位于1号位或3号位时，额外减伤40%，应对攻击，传动1。"
         },
         {
             "id": 7190310,
@@ -271,13 +271,13 @@
             "localized": {
                 "zh": {
                     "name": "绞轮",
-                    "description": "造成物伤，每受到1次抵抗的技能攻击（不含连击），​本技能能耗永久-1。"
+                    "description": "造成物伤，每受到1次抵抗的技能攻击（不含连击），本技能能耗永久-1。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 5,
             "power": 115,
-            "description": "造成物伤，每受到1次抵抗的技能攻击（不含连击），​本技能能耗永久-1。"
+            "description": "造成物伤，每受到1次抵抗的技能攻击（不含连击），本技能能耗永久-1。"
         },
         {
             "id": 7070170,
@@ -381,13 +381,13 @@
             "localized": {
                 "zh": {
                     "name": "许愿池",
-                    "description": "造成​魔伤，​双方已有的印记层数+1。"
+                    "description": "造成魔伤，双方已有的印记层数+1。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 4,
             "power": 55,
-            "description": "造成​魔伤，​双方已有的印记层数+1。"
+            "description": "造成魔伤，双方已有的印记层数+1。"
         }
     ],
     "move_stones": [
@@ -742,6 +742,50 @@
             "energy_cost": 0,
             "power": null,
             "description": "每回合随机变成敌方任意精灵的技能，且该技能能耗-2。"
+        },
+        {
+            "id": 7070330,
+            "name": "广播",
+            "icon_id": "106033",
+            "move_type": {
+                "id": 17,
+                "name": "Mechanical",
+                "localized": {
+                    "zh": "机械"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "广播",
+                    "description": "对敌方精灵造成魔法伤害。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 5,
+            "power": 140,
+            "description": "对敌方精灵造成魔法伤害。"
+        },
+        {
+            "id": 7190500,
+            "name": "量子涨落",
+            "icon_id": "118042",
+            "move_type": {
+                "id": 18,
+                "name": "Illusion",
+                "localized": {
+                    "zh": "幻"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "量子涨落",
+                    "description": "造成物伤，若敌方没有星陨印记，则敌方获得3层星陨印记。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 75,
+            "description": "造成物伤，若敌方没有星陨印记，则敌方获得3层星陨印记。"
         }
     ],
     "legacy_moves": [
@@ -1263,6 +1307,33 @@
                             }
                         },
                         "evolution_conditions": []
+                    },
+                    {
+                        "id": 32000004,
+                        "species_id": 412,
+                        "name": "buguzhong",
+                        "form": "default",
+                        "localized": {
+                            "zh": {
+                                "name": "不咕钟"
+                            }
+                        },
+                        "is_leader_form": false,
+                        "main_type": {
+                            "id": 17,
+                            "name": "Mechanical",
+                            "localized": {
+                                "zh": "机械"
+                            }
+                        },
+                        "sub_type": {
+                            "id": 18,
+                            "name": "Illusion",
+                            "localized": {
+                                "zh": "幻"
+                            }
+                        },
+                        "evolution_conditions": []
                     }
                 ],
                 "is_leader_stage": false
@@ -1296,8 +1367,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 36 级",
-                            "需满足特殊条件（类型 4，参数 18、6）"
+                            "等级达到 36 级"
                         ]
                     }
                 ],
@@ -1305,7 +1375,7 @@
             }
         ],
         "max_depth": 1,
-        "total_unique_monsters": 2,
+        "total_unique_monsters": 3,
         "species_id": 412,
         "current_monster_id": 3616
     },
@@ -1313,12 +1383,10 @@
         "type_desc": "咕咕精灵",
         "description_habitat": "行踪神秘",
         "introduction": "曾因机械禁令而被囚禁，胆怯已经刻进了这个种群的本能。遇到危险时它们会加速或减慢表盘指针转动，副作用是局部时间流速短暂错乱。曾有守卫追赶一只不咕钟，自觉只跑了十几秒，抬头发现已经是黄昏。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1401,8 +1469,8 @@
             5,
             15
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

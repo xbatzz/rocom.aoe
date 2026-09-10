@@ -73,13 +73,13 @@
             "localized": {
                 "zh": {
                     "name": "超导",
-                    "description": "造成魔伤，迸发：本技能能耗-1。"
+                    "description": "造成魔伤，迸发：本技能能耗-2。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
-            "power": 95,
-            "description": "造成魔伤，迸发：本技能能耗-1。"
+            "power": 90,
+            "description": "造成魔伤，迸发：本技能能耗-2。"
         },
         {
             "id": 7190290,
@@ -253,7 +253,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 2,
+            "energy_cost": 1,
             "power": null,
             "description": "使敌方精灵返场。"
         },
@@ -676,6 +676,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "敌方获得魔攻-20%，速度-20，2连击。"
+        },
+        {
+            "id": 7190490,
+            "name": "观测者效应",
+            "icon_id": "118051",
+            "move_type": {
+                "id": 18,
+                "name": "Illusion",
+                "localized": {
+                    "zh": "幻"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "观测者效应",
+                    "description": "自己脱离，更换入场的精灵以月陨星状态登场。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 3,
+            "power": null,
+            "description": "自己脱离，更换入场的精灵以月陨星状态登场。"
         }
     ],
     "legacy_moves": [
@@ -1246,12 +1268,10 @@
         "type_desc": "果冻精灵",
         "description_habitat": "行踪神秘",
         "introduction": "身体里流淌着神秘的星光能量，打喷嚏的时候会下星星雨。喜欢聚在一起舞蹈，舞蹈时能看到漂亮的星光在它们周围环绕，推测这是粉粉星们交流的一种方式。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1381,8 +1401,8 @@
             7,
             10
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

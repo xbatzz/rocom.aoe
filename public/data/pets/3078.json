@@ -25,18 +25,18 @@
     },
     "leader_potential": false,
     "is_leader_form": false,
-    "preferred_attack_style": "Magic",
+    "preferred_attack_style": "Both",
     "localized": {
         "zh": {
             "name": "烈钻鸟"
         }
     },
     "implemented": true,
-    "base_hp": 56,
-    "base_phy_atk": 49,
-    "base_mag_atk": 60,
-    "base_phy_def": 43,
-    "base_mag_def": 73,
+    "base_hp": 47,
+    "base_phy_atk": 39,
+    "base_mag_atk": 49,
+    "base_phy_def": 37,
+    "base_mag_def": 64,
     "base_spd": 72,
     "evolves_from_id": null,
     "species": {
@@ -337,13 +337,13 @@
             "localized": {
                 "zh": {
                     "name": "试飞",
-                    "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+                    "description": "造成物伤，2连击。选择：每次使用后本技能威力永久+10或连击数永久+1。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 20,
-            "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+            "description": "造成物伤，2连击。选择：每次使用后本技能威力永久+10或连击数永久+1。"
         },
         {
             "id": 7040180,
@@ -757,13 +757,13 @@
             "localized": {
                 "zh": {
                     "name": "超声波",
-                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                    "description": "自己获得全技能威力+20，选择：本次能耗-1或应对防御时改为全技能威力永久+20。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+            "description": "自己获得全技能威力+20，选择：本次能耗-1或应对防御时改为全技能威力永久+20。"
         }
     ],
     "legacy_moves": [
@@ -1369,12 +1369,10 @@
         "type_desc": "鸟仔精灵",
         "description_habitat": "常见于平原、火山周边",
         "introduction": "喙部末端附着一层极硬的角质结构，快速啄击树干时能摩擦产生火星。经常能在林中看到它们一排排地啄树，似乎还没学会控制力度。被啄焦的树干是辨认这个种群栖息地的最好标志。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 12,
-        "classis_name": "鸟类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1441,8 +1439,8 @@
             5,
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

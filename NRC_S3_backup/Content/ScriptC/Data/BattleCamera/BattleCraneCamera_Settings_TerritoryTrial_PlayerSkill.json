@@ -1,0 +1,173 @@
+{
+	"Desc": "技能表演机位",
+	"TargetA": 1,
+	"TargetB": 2,
+	"SpringArmRotation":
+	{
+		"X": 0,
+		"Y": -9,
+		"Z": -55
+	},
+	"SpringArmOffset":
+	{
+		"X": -65,
+		"Y": 125,
+		"Z": -100
+	},
+	"SprintArmLength": 800,
+	"CameraFov": 85,
+	"EnableDepthOfField": false,
+	"DepthOfFieldScale": 0,
+	"CurvesArray": [
+		{
+			"IsEnable": true,
+			"TargetCameraId": 1,
+			"Duration": 0.29999999999999999,
+			"CameraName": "捕捉机位",
+			"CurveId": 4
+		},
+		{
+			"IsEnable": true,
+			"TargetCameraId": 3,
+			"Duration": 0.29999999999999999,
+			"CameraName": "道具对友机位",
+			"CurveId": 4
+		},
+		{
+			"IsEnable": true,
+			"TargetCameraId": 62,
+			"Duration": 0.29999999999999999,
+			"CameraName": "领地试炼——换宠",
+			"CurveId": 4
+		},
+		{
+			"IsEnable": true,
+			"TargetCameraId": 9,
+			"Duration": 0.69999999999999996,
+			"CameraName": "技能表演机位",
+			"CurveId": 1
+		},
+		{
+			"IsEnable": true,
+			"TargetCameraId": 6,
+			"Duration": 0.29999999999999999,
+			"CameraName": "技能的摄像机位置",
+			"CurveId": 4
+		},
+		{
+			"IsEnable": true,
+			"TargetCameraId": 58,
+			"CurveId": 4,
+			"Duration": 0.29999999999999999,
+			"CameraName": "领地试炼——精灵1选招"
+		},
+		{
+			"IsEnable": true,
+			"TargetCameraId": 59,
+			"CurveId": 4,
+			"Duration": 0.29999999999999999,
+			"CameraName": "领地试炼——精灵2选招"
+		}
+	],
+	"ControllerArray": [
+		{
+			"IsEnable": false,
+			"InputType": 2,
+			"EffectType": 6,
+			"Interval":
+			{
+				"X": -8,
+				"Y": 2
+			},
+			"Desc": "none"
+		},
+		{
+			"IsEnable": true,
+			"InputType": 2,
+			"EffectType": 5,
+			"Interval":
+			{
+				"X": -150,
+				"Y": 70
+			},
+			"Desc": "none"
+		},
+		{
+			"IsEnable": false,
+			"InputType": 3,
+			"EffectType": 5,
+			"Interval":
+			{
+				"X": -50,
+				"Y": 50
+			},
+			"Desc": ""
+		},
+		{
+			"IsEnable": false,
+			"InputType": 4,
+			"EffectType": 1,
+			"Interval":
+			{
+				"X": -8,
+				"Y": -20
+			},
+			"Desc": "none"
+		},
+		{
+			"IsEnable": false,
+			"InputType": 3,
+			"EffectType": 4,
+			"Interval":
+			{
+				"X": -5,
+				"Y": 80
+			},
+			"Desc": ""
+		},
+		{
+			"IsEnable": true,
+			"InputType": 2,
+			"EffectType": 1,
+			"Interval":
+			{
+				"X": -1,
+				"Y": 2
+			},
+			"Desc": ""
+		},
+		{
+			"IsEnable": false,
+			"InputType": 6,
+			"EffectType": 1,
+			"Interval":
+			{
+				"X": 2,
+				"Y": -2
+			},
+			"Desc": ""
+		},
+		{
+			"IsEnable": false,
+			"InputType": 3,
+			"EffectType": 1,
+			"Interval":
+			{
+				"X": -5,
+				"Y": 7
+			},
+			"Desc": ""
+		},
+		{
+			"IsEnable": false,
+			"InputType": 3,
+			"EffectType": 4,
+			"Interval":
+			{
+				"X": 0,
+				"Y": 20
+			},
+			"Desc": ""
+		}
+	]
+}

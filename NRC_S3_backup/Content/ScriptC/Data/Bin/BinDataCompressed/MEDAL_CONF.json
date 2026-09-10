@@ -1,0 +1,864 @@
+{
+  "RocoDataRows": {
+    "1001": {
+      "id": 1001,
+      "name": "大块头",
+      "quality": 1,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Huge.img_MedalIcon_Huge'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Huge.img_MedalIcon_Huge'",
+      "desc": "魁梧的",
+      "medal_type": 2,
+      "medal_source": 1,
+      "task_ids": [
+        1001
+      ],
+      "is_auto_wear": 1,
+      "prefix_text": "小不点"
+    },
+    "1002": {
+      "id": 1002,
+      "name": "迷你的",
+      "quality": 1,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Mini.img_MedalIcon_Mini'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Mini.img_MedalIcon_Mini'",
+      "desc": "命定勇者",
+      "medal_type": 2,
+      "medal_source": 1,
+      "task_ids": [
+        1002
+      ],
+      "is_auto_wear": 1,
+      "prefix_text": "勇者"
+    },
+    "1003": {
+      "id": 1003,
+      "name": "最好的伙伴",
+      "quality": 5,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Brave.img_MedalIcon_Brave'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Brave.img_MedalIcon_Brave'",
+      "desc": "唯一的",
+      "flavor_text": "谨以嘉奖，致敬阁下与精灵搭档的勇气与智慧",
+      "medal_type": 1,
+      "medal_source": 3,
+      "is_not_give_peer_pet": true,
+      "prefix_text": "轻风之息"
+    },
+    "1004": {
+      "id": 1004,
+      "name": "逐风的",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Dimo.img_MedalIcon_Dimo'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Dimo.img_MedalIcon_Dimo'",
+      "desc": "王国颂歌",
+      "medal_type": 2,
+      "medal_source": 1,
+      "is_not_give_peer_pet": true,
+      "task_ids": [
+        1004
+      ],
+      "is_auto_wear": 1,
+      "prefix_text": "骑士",
+      "fx_res": "Dimo"
+    },
+    "1005": {
+      "id": 1005,
+      "name": "皎皎明月",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Qingfeng.img_MedalIcon_Qingfeng'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Qingfeng.img_MedalIcon_Qingfeng'",
+      "desc": "辉映的",
+      "medal_type": 2,
+      "medal_source": 1,
+      "task_ids": [
+        1011
+      ],
+      "is_auto_wear": 1,
+      "prefix_text": "熠熠星辉"
+    },
+    "1006": {
+      "id": 1006,
+      "name": "闪耀的",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Wangguoling.img_MedalIcon_Wangguoling'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Wangguoling.img_MedalIcon_Wangguoling'",
+      "desc": "学无止境",
+      "medal_type": 2,
+      "medal_source": 1,
+      "task_ids": [
+        1012
+      ],
+      "is_auto_wear": 1,
+      "prefix_text": "博学的"
+    },
+    "1007": {
+      "id": 1007,
+      "name": "完美无瑕",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Moonlight.img_MedalIcon_Moonlight'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Moonlight.img_MedalIcon_Moonlight'",
+      "desc": "完美的",
+      "medal_type": 2,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "大师级决斗家",
+      "fx_res": "Moonlight"
+    },
+    "1008": {
+      "id": 1008,
+      "name": "决斗大师",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Starlight.img_MedalIcon_Starlight'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Starlight.img_MedalIcon_Starlight'",
+      "desc": "结伴同行",
+      "medal_type": 2,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "搭档",
+      "fx_res": "Starlight"
+    },
+    "1009": {
+      "id": 1009,
+      "name": "以一敌多",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Smart.img_MedalIcon_Smart'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Smart.img_MedalIcon_Smart'",
+      "desc": "好战的",
+      "medal_type": 2,
+      "medal_source": 1,
+      "is_not_give_peer_pet": true,
+      "task_ids": [
+        1005
+      ],
+      "is_show_redpoint": 1,
+      "is_backtrack_need_check": 1,
+      "prefix_text": "端水大师"
+    },
+    "1010": {
+      "id": 1010,
+      "name": "机敏的",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Perfect.img_MedalIcon_Perfect'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Perfect.img_MedalIcon_Perfect'",
+      "desc": "耐活王",
+      "medal_type": 2,
+      "medal_source": 1,
+      "task_ids": [
+        1006
+      ],
+      "is_show_redpoint": 1,
+      "is_auto_wear": 1,
+      "is_backtrack_need_check": 1,
+      "prefix_text": "无畏的",
+      "fx_res": "Perfect"
+    },
+    "1011": {
+      "id": 1011,
+      "name": "可可果絮语",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Brave.img_MedalIcon_Brave'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Brave.img_MedalIcon_Brave'",
+      "desc": "贪吃的",
+      "medal_type": 2,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "老朋友水蓝蓝"
+    },
+    "1012": {
+      "id": 1012,
+      "name": "童年的",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Close.img_MedalIcon_Close'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Close.img_MedalIcon_Close'",
+      "desc": "老朋友喵喵",
+      "medal_type": 2,
+      "medal_source": 1,
+      "is_not_give_peer_pet": true,
+      "task_ids": [
+        1007
+      ],
+      "is_show_redpoint": 1,
+      "prefix_text": "童年的"
+    },
+    "1013": {
+      "id": 1013,
+      "name": "老朋友火花",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Attack.img_MedalIcon_Attack'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Attack.img_MedalIcon_Attack'",
+      "desc": "童年的",
+      "medal_type": 1,
+      "medal_source": 1,
+      "is_not_give_peer_pet": true,
+      "task_ids": [
+        1008
+      ],
+      "is_show_redpoint": 1,
+      "prefix_text": "初遇水蓝蓝"
+    },
+    "1014": {
+      "id": 1014,
+      "name": "同心的",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Status.img_MedalIcon_Status'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Status.img_MedalIcon_Status'",
+      "desc": "初遇喵喵",
+      "medal_type": 1,
+      "medal_source": 1,
+      "is_not_give_peer_pet": true,
+      "task_ids": [
+        1009
+      ],
+      "is_show_redpoint": 1,
+      "prefix_text": "同心的"
+    },
+    "1015": {
+      "id": 1015,
+      "name": "初遇火花",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Defend.img_MedalIcon_Defend'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Defend.img_MedalIcon_Defend'",
+      "desc": "同心的",
+      "medal_type": 1,
+      "medal_source": 1,
+      "is_not_give_peer_pet": true,
+      "task_ids": [
+        1010
+      ],
+      "is_show_redpoint": 1,
+      "prefix_text": "燃了鸭"
+    },
+    "1016": {
+      "id": 1016,
+      "name": "燃了",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Kekeguo.img_MedalIcon_Kekeguo'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Kekeguo.img_MedalIcon_Kekeguo'",
+      "medal_type": 2,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "契约之证",
+      "fx_res": "Kekeguo"
+    },
+    "1017": {
+      "id": 1017,
+      "name": "契约",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_BFF_ShuiLanLan.img_MedalIcon_BFF_ShuiLanLan'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_BFF_ShuiLanLan.img_MedalIcon_BFF_ShuiLanLan'",
+      "desc": "粗嗓门",
+      "medal_type": 3,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "低沉的",
+      "fx_res": "Shuilanlan",
+      "medal_ui_format": 1
+    },
+    "1018": {
+      "id": 1018,
+      "name": "婉转声",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_BFF_MiaoMiao.img_MedalIcon_BFF_MiaoMiao'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_BFF_MiaoMiao.img_MedalIcon_BFF_MiaoMiao'",
+      "desc": "高昂的",
+      "medal_type": 3,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "晨光破晓",
+      "fx_res": "Miaomiao",
+      "medal_ui_format": 1
+    },
+    "1019": {
+      "id": 1019,
+      "name": "朝气的",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_BFF_XiaoHuoMiao.img_MedalIcon_BFF_XiaoHuoMiao'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_BFF_XiaoHuoMiao.img_MedalIcon_BFF_XiaoHuoMiao'",
+      "desc": "灼日凌空",
+      "medal_type": 3,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "炽热的",
+      "fx_res": "Huohua",
+      "medal_ui_format": 1
+    },
+    "1020": {
+      "id": 1020,
+      "name": "暮色衔山",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_BFF_ShuiLanLan.img_MedalIcon_BFF_ShuiLanLan'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_BFF_ShuiLanLan.img_MedalIcon_BFF_ShuiLanLan'",
+      "desc": "困倦的",
+      "medal_type": 3,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "星月交辉",
+      "fx_res": "Shuilanlan",
+      "medal_ui_format": 2
+    },
+    "1021": {
+      "id": 1021,
+      "name": "望月的",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_BFF_MiaoMiao.img_MedalIcon_BFF_MiaoMiao'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_BFF_MiaoMiao.img_MedalIcon_BFF_MiaoMiao'",
+      "desc": "同心相伴",
+      "medal_type": 3,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "并肩的",
+      "fx_res": "Miaomiao",
+      "medal_ui_format": 2
+    },
+    "1022": {
+      "id": 1022,
+      "name": "水蓝蓝羁绊",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_BFF_XiaoHuoMiao.img_MedalIcon_BFF_XiaoHuoMiao'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_BFF_XiaoHuoMiao.img_MedalIcon_BFF_XiaoHuoMiao'",
+      "desc": "童年的",
+      "medal_type": 3,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "喵喵羁绊",
+      "fx_res": "Huohua",
+      "medal_ui_format": 2
+    },
+    "1023": {
+      "id": 1023,
+      "name": "童年的",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_YaJiJiAr003.img_MedalIcon_YaJiJiAr003'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_YaJiJiAr003.img_MedalIcon_YaJiJiAr003'",
+      "desc": "火花羁绊",
+      "medal_type": 2,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "童年的",
+      "fx_res": "Ranleya"
+    },
+    "1024": {
+      "id": 1024,
+      "name": "最好的伙伴",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_FateCertificate.img_MedalIcon_FateCertificate'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_FateCertificate.img_MedalIcon_FateCertificate'",
+      "desc": "唯一的",
+      "medal_type": 2,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "魔法纹章",
+      "fx_res": "Qiyue"
+    },
+    "1025": {
+      "id": 1025,
+      "name": "魔法师",
+      "quality": 1,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_low.img_MedalIcon_low'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_low.img_MedalIcon_low'",
+      "desc": "先驱者",
+      "medal_type": 2,
+      "medal_source": 1,
+      "task_ids": [
+        1025
+      ],
+      "is_auto_wear": 1,
+      "prefix_text": "先驱的"
+    },
+    "1026": {
+      "id": 1026,
+      "name": "收割者",
+      "quality": 1,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_high.img_MedalIcon_high'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_high.img_MedalIcon_high'",
+      "desc": "好胜的",
+      "medal_type": 2,
+      "medal_source": 1,
+      "task_ids": [
+        1026
+      ],
+      "is_auto_wear": 1,
+      "prefix_text": "应对大师"
+    },
+    "1027": {
+      "id": 1027,
+      "name": "正确的",
+      "quality": 1,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Day.img_MedalIcon_Day'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Day.img_MedalIcon_Day'",
+      "desc": "躲避大师",
+      "medal_type": 2,
+      "medal_source": 1,
+      "task_ids": [
+        1027
+      ],
+      "is_auto_wear": 1,
+      "prefix_text": "错误的"
+    },
+    "1028": {
+      "id": 1028,
+      "name": "克制大师",
+      "quality": 1,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Dawn.img_MedalIcon_Dawn'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Dawn.img_MedalIcon_Dawn'",
+      "desc": "精准的",
+      "medal_type": 2,
+      "medal_source": 1,
+      "task_ids": [
+        1028
+      ],
+      "is_auto_wear": 1,
+      "prefix_text": "抵抗大师"
+    },
+    "1029": {
+      "id": 1029,
+      "name": "巧妙的",
+      "quality": 1,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Twilight.img_MedalIcon_Twilight'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Twilight.img_MedalIcon_Twilight'",
+      "desc": "下克上",
+      "medal_type": 2,
+      "medal_source": 1,
+      "task_ids": [
+        1029
+      ],
+      "is_auto_wear": 1,
+      "prefix_text": "叛逆的"
+    },
+    "1030": {
+      "id": 1030,
+      "name": "同门高手",
+      "quality": 1,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Evening.img_MedalIcon_Evening'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Evening.img_MedalIcon_Evening'",
+      "desc": "一样的",
+      "medal_type": 2,
+      "medal_source": 1,
+      "task_ids": [
+        1030
+      ],
+      "is_auto_wear": 1,
+      "prefix_text": "命悬一线"
+    },
+    "1031": {
+      "id": 1031,
+      "name": "逆境的",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_petblessing.img_MedalIcon_petblessing'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_petblessing.img_MedalIcon_petblessing'",
+      "desc": "背水一战",
+      "exp": 1,
+      "medal_type": 1,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "勇敢的"
+    },
+    "1032": {
+      "id": 1032,
+      "name": "亚瑟的王冠",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_BFF_ShuiLanLan.img_MedalIcon_BFF_ShuiLanLan'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_BFF_ShuiLanLan.img_MedalIcon_BFF_ShuiLanLan'",
+      "desc": "威严的",
+      "medal_type": 2,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "亚瑟的披风",
+      "fx_res": "Shuilanlan"
+    },
+    "1033": {
+      "id": 1033,
+      "name": "受到庇护的",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_BFF_MiaoMiao.img_MedalIcon_BFF_MiaoMiao'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_BFF_MiaoMiao.img_MedalIcon_BFF_MiaoMiao'",
+      "desc": "摧枯拉朽",
+      "medal_type": 2,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "强力的",
+      "fx_res": "Miaomiao"
+    },
+    "1034": {
+      "id": 1034,
+      "name": "经验老道",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_BFF_XiaoHuoMiao.img_MedalIcon_BFF_XiaoHuoMiao'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_BFF_XiaoHuoMiao.img_MedalIcon_BFF_XiaoHuoMiao'",
+      "desc": "熟练的",
+      "medal_type": 2,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "烈火卷卷",
+      "fx_res": "Huohua"
+    },
+    "1035": {
+      "id": 1035,
+      "name": "滚烫的",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Dimo.img_MedalIcon_Dimo'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Dimo.img_MedalIcon_Dimo'",
+      "desc": "暴雪团团",
+      "medal_type": 2,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "冰冷的",
+      "fx_res": "Dimo"
+    },
+    "1036": {
+      "id": 1036,
+      "name": "",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Xueyuan.img_MedalIcon_Xueyuan'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Xueyuan.img_MedalIcon_Xueyuan'",
+      "desc": "",
+      "medal_type": 2,
+      "medal_source": 1,
+      "task_ids": [
+        1036
+      ],
+      "is_auto_wear": 1,
+      "prefix_text": ""
+    },
+    "2003": {
+      "id": 2003,
+      "name": "",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Pvp_Yiji.img_MedalIcon_Pvp_Yiji'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Pvp_Yiji.img_MedalIcon_Pvp_Yiji'",
+      "desc": "",
+      "medal_type": 1,
+      "medal_source": 1,
+      "is_not_give_peer_pet": true,
+      "task_ids": [
+        2007
+      ],
+      "is_show_redpoint": 1,
+      "prefix_text": ""
+    },
+    "2004": {
+      "id": 2004,
+      "name": "",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Pvp_Juedi.img_MedalIcon_Pvp_Juedi'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Pvp_Juedi.img_MedalIcon_Pvp_Juedi'",
+      "desc": "",
+      "medal_type": 1,
+      "medal_source": 1,
+      "is_not_give_peer_pet": true,
+      "task_ids": [
+        2008
+      ],
+      "is_show_redpoint": 1,
+      "prefix_text": ""
+    },
+    "2005": {
+      "id": 2005,
+      "name": "",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Pvp_Yingdui.img_MedalIcon_Pvp_Yingdui'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Pvp_Yingdui.img_MedalIcon_Pvp_Yingdui'",
+      "desc": "",
+      "medal_type": 1,
+      "medal_source": 1,
+      "is_not_give_peer_pet": true,
+      "task_ids": [
+        2009
+      ],
+      "is_show_redpoint": 1,
+      "prefix_text": ""
+    },
+    "2006": {
+      "id": 2006,
+      "name": "",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Pvp_Duobi.img_MedalIcon_Pvp_Duobi'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Pvp_Duobi.img_MedalIcon_Pvp_Duobi'",
+      "desc": "",
+      "medal_type": 1,
+      "medal_source": 1,
+      "is_not_give_peer_pet": true,
+      "task_ids": [
+        2010
+      ],
+      "is_show_redpoint": 1,
+      "prefix_text": ""
+    },
+    "2007": {
+      "id": 2007,
+      "name": "",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Pvp_Kezhi.img_MedalIcon_Pvp_Kezhi'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Pvp_Kezhi.img_MedalIcon_Pvp_Kezhi'",
+      "desc": "",
+      "medal_type": 1,
+      "medal_source": 1,
+      "is_not_give_peer_pet": true,
+      "task_ids": [
+        2011
+      ],
+      "is_show_redpoint": 1,
+      "prefix_text": ""
+    },
+    "2008": {
+      "id": 2008,
+      "name": "",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Pvp_Dikang.img_MedalIcon_Pvp_Dikang'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Pvp_Dikang.img_MedalIcon_Pvp_Dikang'",
+      "desc": "",
+      "medal_type": 1,
+      "medal_source": 1,
+      "is_not_give_peer_pet": true,
+      "task_ids": [
+        2012
+      ],
+      "is_show_redpoint": 1,
+      "prefix_text": ""
+    },
+    "2009": {
+      "id": 2009,
+      "name": "",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Pvp_Yiruo.img_MedalIcon_Pvp_Yiruo'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Pvp_Yiruo.img_MedalIcon_Pvp_Yiruo'",
+      "desc": "",
+      "medal_type": 1,
+      "medal_source": 1,
+      "is_not_give_peer_pet": true,
+      "task_ids": [
+        2013
+      ],
+      "is_show_redpoint": 1,
+      "prefix_text": ""
+    },
+    "2010": {
+      "id": 2010,
+      "name": "",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Pvp_Jingxiang.img_MedalIcon_Pvp_Jingxiang'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Pvp_Jingxiang.img_MedalIcon_Pvp_Jingxiang'",
+      "desc": "",
+      "medal_type": 1,
+      "medal_source": 1,
+      "is_not_give_peer_pet": true,
+      "task_ids": [
+        2014
+      ],
+      "is_show_redpoint": 1,
+      "prefix_text": ""
+    },
+    "2011": {
+      "id": 2011,
+      "name": "",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Pvp_Jixian.img_MedalIcon_Pvp_Jixian'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Pvp_Jixian.img_MedalIcon_Pvp_Jixian'",
+      "desc": "",
+      "medal_type": 1,
+      "medal_source": 1,
+      "is_not_give_peer_pet": true,
+      "task_ids": [
+        2015
+      ],
+      "is_show_redpoint": 1,
+      "prefix_text": ""
+    },
+    "2012": {
+      "id": 2012,
+      "name": "",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Pvp_Nishi.img_MedalIcon_Pvp_Nishi'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Pvp_Nishi.img_MedalIcon_Pvp_Nishi'",
+      "desc": "",
+      "medal_type": 1,
+      "medal_source": 1,
+      "is_not_give_peer_pet": true,
+      "task_ids": [
+        2016
+      ],
+      "is_show_redpoint": 1,
+      "prefix_text": ""
+    },
+    "3001": {
+      "id": 3001,
+      "name": "",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_Medallcon_YaseCrown.img_Medallcon_YaseCrown'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_Medallcon_YaseCrown.img_Medallcon_YaseCrown'",
+      "desc": "",
+      "medal_type": 2,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "",
+      "fx_res": "Wangguan"
+    },
+    "3002": {
+      "id": 3002,
+      "name": "",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_Medallcon_YaseCloak.img_Medallcon_YaseCloak'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_Medallcon_YaseCloak.img_Medallcon_YaseCloak'",
+      "desc": "",
+      "medal_type": 2,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "",
+      "fx_res": "Pifeng"
+    },
+    "4011": {
+      "id": 4011,
+      "name": "",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Pvp_Cuiku_Tong.img_MedalIcon_Pvp_Cuiku_Tong'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Pvp_Cuiku_Tong.img_MedalIcon_Pvp_Cuiku_Tong'",
+      "desc": "",
+      "medal_type": 1,
+      "medal_source": 1,
+      "is_not_give_peer_pet": true,
+      "task_ids": [
+        2001
+      ],
+      "is_show_redpoint": 1,
+      "prefix_text": "",
+      "medal_ui_format": 4,
+      "repeat_get_award": [
+        {
+          "count": 9000,
+          "icon2": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Pvp_Cuiku_Yin.img_MedalIcon_Pvp_Cuiku_Yin'",
+          "big_icon2": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Pvp_Cuiku_Yin.img_MedalIcon_Pvp_Cuiku_Yin'",
+          "task_desc2": "在1场「闪耀大赛」的对战任意模式中，指挥{0}造成的伤害超过90%%的精灵"
+        },
+        {
+          "count": 9900,
+          "icon2": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Pvp_Cuiku_Jin.img_MedalIcon_Pvp_Cuiku_Jin'",
+          "big_icon2": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Pvp_Cuiku_Jin.img_MedalIcon_Pvp_Cuiku_Jin'",
+          "task_desc2": "在1场「闪耀大赛」的对战任意模式中，指挥{0}造成的伤害超过99%%的精灵"
+        }
+      ]
+    },
+    "4021": {
+      "id": 4021,
+      "name": "",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Pvp_Jingyan_Tong.img_MedalIcon_Pvp_Jingyan_Tong'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Pvp_Jingyan_Tong.img_MedalIcon_Pvp_Jingyan_Tong'",
+      "desc": "",
+      "medal_type": 1,
+      "medal_source": 1,
+      "is_not_give_peer_pet": true,
+      "task_ids": [
+        2004
+      ],
+      "is_show_redpoint": 1,
+      "prefix_text": "",
+      "medal_ui_format": 3,
+      "ui_param": "b99f74ff;PaperSprite'/Game/NewRoco/Modules/System/PetUI/Raw/Atlas/PetUI/Frames/img_jibai_tong_png.img_jibai_tong_png';PaperSprite'/Game/NewRoco/Modules/System/PetUI/Raw/Atlas/PetUI/Frames/img_jibailiang_tong_png.img_jibailiang_tong_png'",
+      "repeat_get_award": [
+        {
+          "count": 50,
+          "icon2": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Pvp_Jingyan_Yin.img_MedalIcon_Pvp_Jingyan_Yin'",
+          "big_icon2": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Pvp_Jingyan_Yin.img_MedalIcon_Pvp_Jingyan_Yin'",
+          "task_desc2": "在1场「闪耀大赛」的对战任意模式中，指挥{0}击败50种不同的精灵",
+          "ui_param2": "93aec0ff;PaperSprite'/Game/NewRoco/Modules/System/PetUI/Raw/Atlas/PetUI/Frames/img_jibai_yin_png.img_jibai_yin_png';PaperSprite'/Game/NewRoco/Modules/System/PetUI/Raw/Atlas/PetUI/Frames/img_jibailiang_yin_png.img_jibailiang_yin_png'"
+        },
+        {
+          "count": 90,
+          "icon2": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Pvp_Jingyan_Jin.img_MedalIcon_Pvp_Jingyan_Jin'",
+          "big_icon2": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Pvp_Jingyan_Jin.img_MedalIcon_Pvp_Jingyan_Jin'",
+          "task_desc2": "在1场「闪耀大赛」的对战任意模式中，指挥{0}击败90种不同的精灵",
+          "ui_param2": "fcb641ff;PaperSprite'/Game/NewRoco/Modules/System/PetUI/Raw/Atlas/PetUI/Frames/img_jibai_huang_png.img_jibai_huang_png';PaperSprite'/Game/NewRoco/Modules/System/PetUI/Raw/Atlas/PetUI/Frames/img_jibailiang_huang_png.img_jibailiang_huang_png'"
+        }
+      ]
+    },
+    "5003": {
+      "id": 5003,
+      "name": "",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Fire.img_MedalIcon_Fire'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Fire.img_MedalIcon_Fire'",
+      "desc": "",
+      "medal_type": 2,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "",
+      "fx_res": "Fire"
+    },
+    "5004": {
+      "id": 5004,
+      "name": "",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_Ice.img_MedalIcon_Ice'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_Ice.img_MedalIcon_Ice'",
+      "desc": "",
+      "medal_type": 2,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "",
+      "fx_res": "Ice"
+    },
+    "5005": {
+      "id": 5005,
+      "name": "",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_S3BP_ThemeA.img_MedalIcon_S3BP_ThemeA'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_S3BP_ThemeA.img_MedalIcon_S3BP_ThemeA'",
+      "desc": "",
+      "medal_type": 2,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "",
+      "fx_res": "Hutao"
+    },
+    "5006": {
+      "id": 5006,
+      "name": "",
+      "quality": 2,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_S3BP_ThemeB.img_MedalIcon_S3BP_ThemeB'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_S3BP_ThemeB.img_MedalIcon_S3BP_ThemeB'",
+      "desc": "",
+      "medal_type": 2,
+      "medal_source": 2,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "prefix_text": "",
+      "fx_res": "Wuzhe"
+    },
+    "8000": {
+      "id": 8000,
+      "name": "",
+      "quality": 5,
+      "icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/BagItem/img_MedalIcon_CaoXi.img_MedalIcon_CaoXi'",
+      "big_icon": "Texture2D'/Game/NewRoco/Modules/System/Common/Icon/Item190/img_MedalIcon_CaoXi.img_MedalIcon_CaoXi'",
+      "desc": "",
+      "medal_type": 1,
+      "medal_source": 3,
+      "is_not_give_peer_pet": true,
+      "is_show_redpoint": 1,
+      "is_auto_wear": 1,
+      "prefix_text": ""
+    }
+  },
+  "LocalizationStrings": {}
+}

@@ -7,7 +7,7 @@
       "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
       "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg.MI_UI_RandomEgg'",
       "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
-      "RradientSpeed": 0.3
+      "RradientSpeed": 0.30000001192092896
     },
     "2": {
       "id": 2,
@@ -16,9 +16,8 @@
       "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
       "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg.MI_UI_RandomEgg'",
       "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
-      "is_precious": true,
       "precious_egg_type": 1,
-      "RradientSpeed": 0.3
+      "RradientSpeed": 0.30000001192092896
     },
     "3": {
       "id": 3,
@@ -27,9 +26,8 @@
       "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
       "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg.MI_UI_RandomEgg'",
       "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
-      "is_precious": true,
       "precious_egg_type": 1,
-      "RradientSpeed": 0.3
+      "RradientSpeed": 0.30000001192092896
     },
     "4": {
       "id": 4,
@@ -38,9 +36,198 @@
       "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
       "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg.MI_UI_RandomEgg'",
       "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
-      "is_precious": true,
       "precious_egg_type": 1,
-      "RradientSpeed": 0.3
+      "RradientSpeed": 0.30000001192092896
+    },
+    "5": {
+      "id": 5,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "6": {
+      "id": 6,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_001.MI_UI_RandomEgg_001'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg.MI_UI_RandomEgg'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 1,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "7": {
+      "id": 7,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_001.MI_UI_RandomEgg_001'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg.MI_UI_RandomEgg'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 1,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "8": {
+      "id": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_001.MI_UI_RandomEgg_001'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg.MI_UI_RandomEgg'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 1,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "9": {
+      "id": 9,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_001.MI_UI_RandomEgg_001'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg.MI_UI_RandomEgg'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 1,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "10": {
+      "id": 10,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_001.MI_UI_RandomEgg_001'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg.MI_UI_RandomEgg'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 1,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "11": {
+      "id": 11,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_001.MI_UI_RandomEgg_001'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg.MI_UI_RandomEgg'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 1,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "12": {
+      "id": 12,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_001.MI_UI_RandomEgg_001'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg.MI_UI_RandomEgg'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 1,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "13": {
+      "id": 13,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_001.MI_UI_RandomEgg_001'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg.MI_UI_RandomEgg'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 1,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "14": {
+      "id": 14,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "15": {
+      "id": 15,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "16": {
+      "id": 16,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "17": {
+      "id": 17,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "18": {
+      "id": 18,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "19": {
+      "id": 19,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "20": {
+      "id": 20,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "21": {
+      "id": 21,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "22": {
+      "id": 22,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
     },
     "1001": {
       "id": 1001,
@@ -50,9 +237,8 @@
       "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
       "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
       "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
-      "is_precious": true,
       "precious_egg_type": 6,
-      "RradientSpeed": 0.3
+      "RradientSpeed": 0.30000001192092896
     },
     "1002": {
       "id": 1002,
@@ -64,9 +250,8 @@
       "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
       "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg.MI_UI_RandomEgg'",
       "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
-      "is_precious": true,
       "precious_egg_type": 6,
-      "RradientSpeed": 0.3,
+      "RradientSpeed": 0.30000001192092896,
       "icon_mutation_safety_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'"
     },
     "1003": {
@@ -78,9 +263,8 @@
       "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
       "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
       "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
-      "is_precious": true,
       "precious_egg_type": 6,
-      "RradientSpeed": 0.3,
+      "RradientSpeed": 0.30000001192092896,
       "icon_mutation_safety_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
       "mutation_param2": 1
     },
@@ -93,9 +277,8 @@
       "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
       "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
       "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
-      "is_precious": true,
       "precious_egg_type": 6,
-      "RradientSpeed": 0.3,
+      "RradientSpeed": 0.30000001192092896,
       "icon_mutation_safety_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
       "mutation_param2": 2
     },
@@ -108,9 +291,8 @@
       "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
       "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
       "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
-      "is_precious": true,
       "precious_egg_type": 6,
-      "RradientSpeed": 0.3,
+      "RradientSpeed": 0.30000001192092896,
       "icon_mutation_safety_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
       "mutation_param2": 3
     },
@@ -123,9 +305,8 @@
       "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
       "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
       "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
-      "is_precious": true,
       "precious_egg_type": 6,
-      "RradientSpeed": 0.3,
+      "RradientSpeed": 0.30000001192092896,
       "icon_mutation_safety_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
       "mutation_param1": 15
     },
@@ -137,9 +318,163 @@
       "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
       "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
       "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
-      "is_precious": true,
       "precious_egg_type": 6,
-      "RradientSpeed": 0.3
+      "RradientSpeed": 0.30000001192092896
+    },
+    "1008": {
+      "id": 1008,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "known_mutation_glass_color": true,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "1009": {
+      "id": 1009,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "1010": {
+      "id": 1010,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "1011": {
+      "id": 1011,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "1012": {
+      "id": 1012,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "1013": {
+      "id": 1013,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "1014": {
+      "id": 1014,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "1015": {
+      "id": 1015,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "1016": {
+      "id": 1016,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "1017": {
+      "id": 1017,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "1018": {
+      "id": 1018,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "1019": {
+      "id": 1019,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "1020": {
+      "id": 1020,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
+    },
+    "1021": {
+      "id": 1021,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003.MI_UI_RandomEgg_003'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_Unknown.MI_UI_RandomEgg_Glassy_Unknown'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
     },
     "2001": {
       "id": 2001,
@@ -151,9 +486,8 @@
       "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
       "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Glassy_HB.MI_UI_RandomEgg_Glassy_HB'",
       "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
-      "is_precious": true,
       "precious_egg_type": 6,
-      "RradientSpeed": 0.3
+      "RradientSpeed": 0.30000001192092896
     },
     "3001": {
       "id": 3001,
@@ -165,9 +499,8 @@
       "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
       "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Season1.MI_UI_RandomEgg_Season1'",
       "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
-      "is_precious": true,
       "precious_egg_type": 6,
-      "RradientSpeed": 0.3
+      "RradientSpeed": 0.30000001192092896
     },
     "3002": {
       "id": 3002,
@@ -179,9 +512,8 @@
       "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
       "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Season2.MI_UI_RandomEgg_Season2'",
       "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
-      "is_precious": true,
       "precious_egg_type": 6,
-      "RradientSpeed": 0.3
+      "RradientSpeed": 0.30000001192092896
     },
     "3003": {
       "id": 3003,
@@ -193,9 +525,21 @@
       "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
       "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Season3.MI_UI_RandomEgg_Season3'",
       "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
-      "is_precious": true,
       "precious_egg_type": 6,
-      "RradientSpeed": 0.3
+      "RradientSpeed": 0.30000001192092896
+    },
+    "3004": {
+      "id": 3004,
+      "mutation_type": 8,
+      "model_id": 3000001,
+      "known_mutation_glass_color": true,
+      "known_mutation_glass_particle": true,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_003_S4.MI_UI_RandomEgg_003_S4'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg_Season4.MI_UI_RandomEgg_Season4'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 6,
+      "RradientSpeed": 0.30000001192092896
     },
     "4001": {
       "id": 4001,
@@ -205,9 +549,19 @@
       "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_UI_RandomEgg_002_Fx.T_UI_RandomEgg_002_Fx'",
       "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_InnerLine_RandomEgg.MI_UI_InnerLine_RandomEgg'",
       "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx1.T_EggRandom_Fx1'",
-      "is_precious": true,
       "precious_egg_type": 8,
-      "RradientSpeed": 0.3
+      "RradientSpeed": 0.30000001192092896
+    },
+    "5001": {
+      "id": 5001,
+      "mutation_type": 1,
+      "model_id": 3000001,
+      "model_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Mat/MI_UI_RandomEgg_001.MI_UI_RandomEgg_001'",
+      "model_mark_tex": "Texture2D'/Game/ArtRes/AnimSequence/UI/UI_Egg_001/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "icon_mutation_mat": "MaterialInstanceConstant'/Game/ArtRes/UI/TUI/Materials/MI_UI_RandomEgg.MI_UI_RandomEgg'",
+      "icon_mark_mat": "Texture2D'/Game/ArtRes/AnimSequence/Pets/EggRandom/Tex/T_EggRandom_Fx.T_EggRandom_Fx'",
+      "precious_egg_type": 2,
+      "RradientSpeed": 0.30000001192092896
     }
   }
 }

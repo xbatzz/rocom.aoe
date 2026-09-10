@@ -1301,12 +1301,10 @@
         "type_desc": "猿精灵",
         "description_habitat": "行踪神秘",
         "introduction": "头顶着活跃的微型火山，就连睡觉时也会冒出小烟圈。可别因为体型而小看了它，可爱猿头上流出的熔岩就连钢铁也能融化。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1405,8 +1403,8 @@
             2,
             9
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

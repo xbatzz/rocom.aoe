@@ -27,9 +27,9 @@
     },
     "implemented": true,
     "base_hp": 84,
-    "base_phy_atk": 94,
-    "base_mag_atk": 39,
-    "base_phy_def": 108,
+    "base_phy_atk": 63,
+    "base_mag_atk": 11,
+    "base_phy_def": 88,
     "base_mag_def": 74,
     "base_spd": 52,
     "evolves_from_id": 3090,
@@ -668,7 +668,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 30,
+            "power": 20,
             "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         }
     ],
@@ -1257,12 +1257,10 @@
         "type_desc": "利爪精灵",
         "description_habitat": "常见于山林",
         "introduction": "经常看到它在磨爪子，磨得发烫了才会停下。在战斗前会加热自己的身体以提升力量，有时甚至会让整个头顶的毛发燃烧起来。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1279,8 +1277,8 @@
         "egg_groups": [
             2
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

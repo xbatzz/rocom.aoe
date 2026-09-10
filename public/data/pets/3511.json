@@ -249,13 +249,13 @@
             "localized": {
                 "zh": {
                     "name": "吨位压制",
-                    "description": "造成物伤，敌方体重越低，威力越高。"
+                    "description": "造成物伤，敌方体重越低，本次技能威力越高。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": null,
-            "description": "造成物伤，敌方体重越低，威力越高。"
+            "description": "造成物伤，敌方体重越低，本次技能威力越高。"
         },
         {
             "id": 7050270,
@@ -757,13 +757,13 @@
             "localized": {
                 "zh": {
                     "name": "微型斥候",
-                    "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），​本技​能​威力​永久​+20。"
+                    "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），本技能威力永久+20。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），​本技​能​威力​永久​+20。"
+            "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），本技能威力永久+20。"
         },
         {
             "id": 7080450,
@@ -779,13 +779,13 @@
             "localized": {
                 "zh": {
                     "name": "扬尘",
-                    "description": "造成​魔伤，​天气为沙暴时，先手+1。"
+                    "description": "造成魔伤，天气为沙暴时，先手+1。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 80,
-            "description": "造成​魔伤，​天气为沙暴时，先手+1。"
+            "description": "造成魔伤，天气为沙暴时，先手+1。"
         },
         {
             "id": 7080160,
@@ -1307,7 +1307,7 @@
                         "id": 3508,
                         "species_id": 171,
                         "name": "boboluo",
-                        "form": "default",
+                        "form": "本来的样子",
                         "localized": {
                             "zh": {
                                 "name": "波波螺"
@@ -1367,7 +1367,7 @@
                         "id": 3509,
                         "species_id": 172,
                         "name": "xiaoboluo",
-                        "form": "default",
+                        "form": "本来的样子",
                         "localized": {
                             "zh": {
                                 "name": "消波螺"
@@ -1431,7 +1431,7 @@
                         "id": 3510,
                         "species_id": 173,
                         "name": "shiboluo",
-                        "form": "default",
+                        "form": "本来的样子",
                         "localized": {
                             "zh": {
                                 "name": "嗜波螺"
@@ -1498,12 +1498,10 @@
         "type_desc": "海螺精灵",
         "description_habitat": "常见于河岸",
         "introduction": "经常栖息于浅水中，不太拥有应对海浪冲击的能力，它的外壳在水流长年累月的打磨中逐渐变得光滑，移动时更不易被水流与碎石卡住，能在浅水中灵活穿行。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1570,8 +1568,8 @@
             3,
             11
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

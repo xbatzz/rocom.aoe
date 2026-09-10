@@ -49,13 +49,6 @@
     ],
     "202004": [
         {
-            "type": 1,
-            "id": 100699,
-            "name": "分光水晶",
-            "icon_id": "100796",
-            "count": 300
-        },
-        {
             "type": 2,
             "id": 17,
             "name": "课题研究点",
@@ -1861,6 +1854,22 @@
             "id": 108256,
             "name": "精灵果实",
             "icon_id": "gs_diandian",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 20
+        }
+    ],
+    "203116": [
+        {
+            "type": 1,
+            "id": 108244,
+            "name": "精灵果实",
+            "icon_id": "img_Wat_ZhuZhuTun0_001_Fruit",
             "count": 1
         },
         {
@@ -6218,6 +6227,282 @@
             "count": 10
         }
     ],
+    "204190": [
+        {
+            "type": 1,
+            "id": 246023,
+            "name": "掠影",
+            "icon_id": "learning_ghost_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 226023,
+            "name": "配方-掠影",
+            "icon_id": "learning_ghost_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "204191": [
+        {
+            "type": 1,
+            "id": 244025,
+            "name": "月影交错",
+            "icon_id": "learning_wing_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 224025,
+            "name": "配方-月影交错",
+            "icon_id": "learning_wing_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "204192": [
+        {
+            "type": 1,
+            "id": 233034,
+            "name": "暖阳",
+            "icon_id": "learning_fire_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 213034,
+            "name": "配方-暖阳",
+            "icon_id": "learning_fire_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "204193": [
+        {
+            "type": 1,
+            "id": 235016,
+            "name": "分光",
+            "icon_id": "learning_light_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 215016,
+            "name": "配方-分光",
+            "icon_id": "learning_light_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "204194": [
+        {
+            "type": 1,
+            "id": 242021,
+            "name": "信息素",
+            "icon_id": "learning_insect_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 222021,
+            "name": "配方-信息素",
+            "icon_id": "learning_insect_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "204195": [
+        {
+            "type": 1,
+            "id": 248025,
+            "name": "奇点",
+            "icon_id": "learning_phantom_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 228025,
+            "name": "配方-奇点",
+            "icon_id": "learning_phantom_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "204196": [
+        {
+            "type": 1,
+            "id": 244027,
+            "name": "无风",
+            "icon_id": "learning_wing_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 224027,
+            "name": "配方-无风",
+            "icon_id": "learning_wing_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "204197": [
+        {
+            "type": 1,
+            "id": 247029,
+            "name": "掉包",
+            "icon_id": "learning_demon_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 227029,
+            "name": "配方-掉包",
+            "icon_id": "learning_demon_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "204198": [
+        {
+            "type": 1,
+            "id": 246021,
+            "name": "小型打劫",
+            "icon_id": "learning_ghost_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 226021,
+            "name": "配方-小型打劫",
+            "icon_id": "learning_ghost_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "204199": [
+        {
+            "type": 1,
+            "id": 248021,
+            "name": "仰望夜空",
+            "icon_id": "learning_phantom_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 228021,
+            "name": "配方-仰望夜空",
+            "icon_id": "learning_phantom_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "204200": [
+        {
+            "type": 1,
+            "id": 248024,
+            "name": "量子涨落",
+            "icon_id": "learning_phantom_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 228024,
+            "name": "配方-量子涨落",
+            "icon_id": "learning_phantom_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "204201": [
+        {
+            "type": 1,
+            "id": 236023,
+            "name": "拖拉机",
+            "icon_id": "learning_mechanic_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 216023,
+            "name": "配方-拖拉机",
+            "icon_id": "learning_mechanic_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
     "205001": [
         {
             "type": 1,
@@ -10565,6 +10850,282 @@
             "count": 10
         }
     ],
+    "205190": [
+        {
+            "type": 1,
+            "id": 246024,
+            "name": "离魂术",
+            "icon_id": "learning_ghost_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 226024,
+            "name": "配方-离魂术",
+            "icon_id": "learning_ghost_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "205191": [
+        {
+            "type": 1,
+            "id": 244026,
+            "name": "惊鸿一瞥",
+            "icon_id": "learning_wing_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 224026,
+            "name": "配方-惊鸿一瞥",
+            "icon_id": "learning_wing_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "205192": [
+        {
+            "type": 1,
+            "id": 233035,
+            "name": "星火",
+            "icon_id": "learning_fire_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 213035,
+            "name": "配方-星火",
+            "icon_id": "learning_fire_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "205193": [
+        {
+            "type": 1,
+            "id": 234027,
+            "name": "汇流",
+            "icon_id": "learning_water_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 214027,
+            "name": "配方-汇流",
+            "icon_id": "learning_water_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "205194": [
+        {
+            "type": 1,
+            "id": 242022,
+            "name": "迁飞扩散",
+            "icon_id": "learning_insect_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 222022,
+            "name": "配方-迁飞扩散",
+            "icon_id": "learning_insect_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "205195": [
+        {
+            "type": 1,
+            "id": 248026,
+            "name": "引力偏转",
+            "icon_id": "learning_phantom_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 228026,
+            "name": "配方-引力偏转",
+            "icon_id": "learning_phantom_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "205196": [
+        {
+            "type": 1,
+            "id": 236022,
+            "name": "广播",
+            "icon_id": "learning_mechanic_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 216022,
+            "name": "配方-广播",
+            "icon_id": "learning_mechanic_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "205197": [
+        {
+            "type": 1,
+            "id": 247030,
+            "name": "暴打",
+            "icon_id": "learning_demon_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 227030,
+            "name": "配方-暴打",
+            "icon_id": "learning_demon_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "205198": [
+        {
+            "type": 1,
+            "id": 246022,
+            "name": "回收",
+            "icon_id": "learning_ghost_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 226022,
+            "name": "配方-回收",
+            "icon_id": "learning_ghost_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "205199": [
+        {
+            "type": 1,
+            "id": 248023,
+            "name": "观测者效应",
+            "icon_id": "learning_phantom_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 228023,
+            "name": "配方-观测者效应",
+            "icon_id": "learning_phantom_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "205200": [
+        {
+            "type": 1,
+            "id": 235017,
+            "name": "闪光弹",
+            "icon_id": "learning_light_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 215017,
+            "name": "配方-闪光弹",
+            "icon_id": "learning_light_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "205201": [
+        {
+            "type": 1,
+            "id": 232031,
+            "name": "麦芒",
+            "icon_id": "learning_grass_01",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 212031,
+            "name": "配方-麦芒",
+            "icon_id": "learning_grass_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
     "206001": [
         {
             "type": 1,
@@ -12303,6 +12864,29 @@
             "id": 211072,
             "name": "配方-吹散",
             "icon_id": "learning_common_03",
+            "count": 1
+        },
+        {
+            "type": 2,
+            "id": 17,
+            "name": "课题研究点",
+            "icon_id": "100908",
+            "count": 10
+        }
+    ],
+    "206077": [
+        {
+            "type": 1,
+            "id": 248022,
+            "name": "重组",
+            "icon_id": "learning_phantom_02",
+            "count": 1
+        },
+        {
+            "type": 1,
+            "id": 228022,
+            "name": "配方-重组",
+            "icon_id": "learning_phantom_03",
             "count": 1
         },
         {

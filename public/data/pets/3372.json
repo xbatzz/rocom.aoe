@@ -26,9 +26,9 @@
         }
     },
     "implemented": true,
-    "base_hp": 79,
-    "base_phy_atk": 85,
-    "base_mag_atk": 95,
+    "base_hp": 102,
+    "base_phy_atk": 73,
+    "base_mag_atk": 74,
     "base_phy_def": 103,
     "base_mag_def": 90,
     "base_spd": 105,
@@ -309,13 +309,13 @@
             "localized": {
                 "zh": {
                     "name": "孢子",
-                    "description": "敌方获得1层寄生。"
+                    "description": "敌方获得3层寄生。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "敌方获得1层寄生。"
+            "description": "敌方获得3层寄生。"
         },
         {
             "id": 7030530,
@@ -509,13 +509,13 @@
             "localized": {
                 "zh": {
                     "name": "赤子之心",
-                    "description": "自己获得萌化：全技能能耗永久-3。"
+                    "description": "自己获得萌化：全技能能耗永久-2。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己获得萌化：全技能能耗永久-3。"
+            "description": "自己获得萌化：全技能能耗永久-2。"
         },
         {
             "id": 7140100,
@@ -751,13 +751,13 @@
             "localized": {
                 "zh": {
                     "name": "丰收",
-                    "description": "造​成​物伤，​自己​回复​20%生命​。"
+                    "description": "造成物伤，自己回复20%生命。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 5,
             "power": 85,
-            "description": "造​成​物伤，​自己​回复​20%生命​。"
+            "description": "造成物伤，自己回复20%生命。"
         },
         {
             "id": 7030600,
@@ -795,13 +795,13 @@
             "localized": {
                 "zh": {
                     "name": "缓一缓",
-                    "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
+                    "description": "自己回复1能量和10%生命，并获得魔攻魔防+10%，速度+10。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
+            "description": "自己回复1能量和10%生命，并获得魔攻魔防+10%，速度+10。"
         }
     ],
     "legacy_moves": [
@@ -1389,12 +1389,10 @@
         "type_desc": "大耳朵精灵",
         "description_habitat": "行踪神秘",
         "introduction": "即使找不到水源，也可以吸收耳朵里储存的大量露水。手中的四叶草变为双枪，能够汲取自然中逸散的草系能量，也能作为媒介释放魔法。经常帮助其他精灵，在某些地方被称为勇者兔兔。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1411,8 +1409,8 @@
             6,
             7
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

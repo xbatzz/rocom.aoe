@@ -421,13 +421,13 @@
             "localized": {
                 "zh": {
                     "name": "超导",
-                    "description": "造成魔伤，迸发：本技能能耗-1。"
+                    "description": "造成魔伤，迸发：本技能能耗-2。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
-            "power": 95,
-            "description": "造成魔伤，迸发：本技能能耗-1。"
+            "power": 90,
+            "description": "造成魔伤，迸发：本技能能耗-2。"
         },
         {
             "id": 7110270,
@@ -1206,12 +1206,10 @@
         "type_desc": "烈马精灵",
         "description_habitat": "行踪神秘",
         "introduction": "岁首更替，丙午是天地通明的光明之年，传闻雅丹鬃是光明的使者，会在新年的子夜仰首长嘶，声如裂帛，鬃毛化作飞天的流火长带，照得千里沙海通明。此时，万盏红灯同时亮起，仿佛回应烈马奔腾——天地通明，光明永昼。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1227,8 +1225,8 @@
         "egg_groups": [
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

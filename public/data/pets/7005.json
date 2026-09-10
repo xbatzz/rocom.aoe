@@ -335,7 +335,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 3,
+            "energy_cost": 6,
             "power": null,
             "description": "主动：本技能被动永久额外-1能耗，被动：两侧技能能耗-1，传动1。"
         },
@@ -773,13 +773,13 @@
             "localized": {
                 "zh": {
                     "name": "铁蒺藜",
-                    "description": "造成​魔伤，应对状态：​本​次​伤害翻倍。"
+                    "description": "造成魔伤，应对状态：本次伤害翻倍。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 85,
-            "description": "造成​魔伤，应对状态：​本​次​伤害翻倍。"
+            "description": "造成魔伤，应对状态：本次伤害翻倍。"
         },
         {
             "id": 7080460,
@@ -795,13 +795,35 @@
             "localized": {
                 "zh": {
                     "name": "沙石阵",
-                    "description": "自己获得速度​-​20，​选择：且额外获得​物防+90%或​魔防​+90%。"
+                    "description": "自己获得速度-20，选择：且额外获得物防+90%或魔防+90%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己获得速度​-​20，​选择：且额外获得​物防+90%或​魔防​+90%。"
+            "description": "自己获得速度-20，选择：且额外获得物防+90%或魔防+90%。"
+        },
+        {
+            "id": 7070340,
+            "name": "拖拉机",
+            "icon_id": "106032",
+            "move_type": {
+                "id": 17,
+                "name": "Mechanical",
+                "localized": {
+                    "zh": "机械"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "拖拉机",
+                    "description": "造成物伤，位于1号位时，先手+1。传动1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 85,
+            "description": "造成物伤，位于1号位时，先手+1。传动1。"
         }
     ],
     "legacy_moves": [
@@ -1365,7 +1387,7 @@
         "refresh_locations": [],
         "movement_type": null,
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": null,
@@ -1373,8 +1395,8 @@
     "breeding_profile": {
         "pet_base_id": 7005,
         "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

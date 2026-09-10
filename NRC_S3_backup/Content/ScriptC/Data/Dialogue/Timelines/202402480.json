@@ -1,0 +1,60 @@
+{
+    "length": 2.5,
+    "dialogue_id": 202402480,
+    "wait_user_click_at_end": true,
+    "clear_look_at_at_end": false,
+    "play_dialogue_sound_when_show_ui_if_no_say_action": true,
+    "play_dialogue_sound_when_say_action_without_data": true,
+    "black_switch_in": false,
+    "cached_actors": [
+        {
+            "id": -2,
+            "npc_id": 490115
+        },
+        {
+            "id": 490113,
+            "npc_id": 490113
+        },
+        {
+            "id": 490114,
+            "npc_id": 490114
+        },
+        {
+            "id": 490160,
+            "npc_id": 490160
+        }
+    ],
+    "actions": [
+        {
+            "ClassPath": "NewRoco.Modules.System.Dialogue.Action.Timeline.DialogueTimelineShowUIEvent",
+            "Name": "显示对话UI",
+            "OwnerActorID": -100,
+            "NPCContentID": -1,
+            "StartTime": 0.0
+        },
+        {
+            "ClassPath": "NewRoco.Modules.System.Dialogue.Action.Timeline.DialogueTimelineCameraSetupEvent_FreeCamera",
+            "Name": "自由镜头",
+            "OwnerActorID": -101,
+            "NPCContentID": -1,
+            "StartTime": 0.0,
+            "EndTime": 1.0,
+            "MinimalDuration": 0.1,
+            "BlendType": 1,
+            "BlendExp": 1.0,
+            "SkipUserClick": false,
+            "TargetActorID": -6,
+            "RelativeLocation": {
+                "X": 341.9,
+                "Y": -57.2,
+                "Z": 147.9
+            },
+            "RelativeRotation": {
+                "Pitch": -6.8,
+                "Yaw": 170.8,
+                "Roll": 0.0
+            },
+            "FOV": 45.0
+        }
+    ]
+}

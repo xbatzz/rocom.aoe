@@ -88,6 +88,7 @@ class BinTableParser:
         self.ref_blob_length = self.meta[14]
         self.refs = self._load_refs()
         self.localized_refs = self._load_localized_refs()
+        self.row_infos = self.iter_row_infos()
 
     def _load_refs(self) -> dict[int, bytes]:
         refs: dict[int, bytes] = {}
@@ -124,6 +125,8 @@ class BinTableParser:
 
     def encoded_size(self, prop: dict[str, Any]) -> int:
         prop_type = prop["Type"]
+        if prop.get("DynamicArray") or prop_type in {"EString", "ELocalizedString", "EStruct"}:
+            return 4
         if prop_type in PRIMITIVE_FORMATS:
             return struct.calcsize(PRIMITIVE_FORMATS[prop_type])
         if prop_type in {"EBool", "EUint8", "EInt8"}:
@@ -143,19 +146,20 @@ class BinTableParser:
 
     def decode_ref_blob(self, prop: dict[str, Any], blob: bytes) -> Any:
         prop_type = prop["Type"]
-        if prop_type in {"EString", "ELocalizedString"}:
-            return safe_decode_text(blob)
         if prop.get("DynamicArray"):
             inner = dict(prop)
             inner.pop("DynamicArray", None)
             if inner["Type"] == "EStruct":
                 return self.decode_struct_array(inner["Struct"], blob)
             inner_size = self.encoded_size(inner)
+            if len(blob) % inner_size:
+                raise ValueError(f"{self.table_name}: truncated array {prop.get('Name')}")
             return [
                 self.decode_value(inner, blob[offset : offset + inner_size])
                 for offset in range(0, len(blob), inner_size)
-                if offset + inner_size <= len(blob)
             ]
+        if prop_type in {"EString", "ELocalizedString"}:
+            return safe_decode_text(blob)
         if prop_type == "EStruct":
             struct_def = prop["Struct"]
             if prop.get("ArrayDim", 1) > 1:
@@ -166,30 +170,38 @@ class BinTableParser:
         return {"_raw_hex": blob.hex()}
 
     def decode_struct(self, struct_def: dict[str, Any], blob: bytes) -> dict[str, Any]:
+        """Rows and referenced structs share a high-bit-first presence bitmap."""
+        properties = struct_def["Properties"]
+        bitmap_bytes = math.ceil(len(properties) / 8)
+        if len(blob) < bitmap_bytes:
+            raise ValueError(f"{self.table_name}: truncated bitmap in {struct_def.get('Name')}")
         result: dict[str, Any] = {}
-        cursor = 0
-        for prop in struct_def["Properties"]:
+        cursor = bitmap_bytes
+        for index, prop in enumerate(properties):
+            if not blob[index // 8] & (0x80 >> (index % 8)):
+                continue
             size = self.encoded_size(prop)
             raw = blob[cursor : cursor + size]
             if len(raw) < size:
-                break
+                raise ValueError(f"{self.table_name}: truncated field {prop['Name']} in {struct_def.get('Name')}")
             result[prop["Name"]] = self.decode_value(prop, raw)
             cursor += size
+        if cursor != len(blob):
+            raise ValueError(
+                f"{self.table_name}: {len(blob) - cursor} trailing bytes in {struct_def.get('Name')}"
+            )
         return result
 
     def decode_struct_array(self, struct_def: dict[str, Any], blob: bytes) -> list[dict[str, Any]]:
-        item_size = sum(self.encoded_size(prop) for prop in struct_def["Properties"])
-        items: list[dict[str, Any]] = []
-        for offset in range(0, len(blob), item_size):
-            chunk = blob[offset : offset + item_size]
-            if len(chunk) < item_size:
-                break
-            items.append(self.decode_struct(struct_def, chunk))
-        return items
+        # Each uint32 is a ref to a separately sized, bitmap-prefixed struct.
+        if len(blob) % 4:
+            raise ValueError(f"{self.table_name}: truncated struct reference array {struct_def.get('Name')}")
+        element = {"Name": struct_def.get("Name"), "Type": "EStruct", "Struct": struct_def}
+        return [self.decode_value(element, blob[offset : offset + 4]) for offset in range(0, len(blob), 4)]
 
     def decode_value(self, prop: dict[str, Any], raw: bytes) -> Any:
         prop_type = prop["Type"]
-        if prop_type == "ELocalizedString":
+        if prop_type == "ELocalizedString" and not prop.get("DynamicArray"):
             ref_id = struct.unpack("<I", raw)[0]
             blob = self.localized_refs.get(ref_id)
             if blob is not None:
@@ -226,23 +238,10 @@ class BinTableParser:
         return self.read_primitive(prop_type, raw)
 
     def parse_row(self, row_index: int) -> dict[str, Any]:
-        row_key, row_size, row_offset = self.iter_row_infos()[row_index]
+        row_key, row_size, row_offset = self.row_infos[row_index]
         row = self.data[row_offset : row_offset + row_size]
-        bitmap_bytes = math.ceil(len(self.properties) / 8)
-        bitmap = row[:bitmap_bytes]
-        present_bits: list[int] = []
-        for bitmask in bitmap:
-            present_bits.extend((bitmask >> shift) & 1 for shift in range(7, -1, -1))
-
         result: dict[str, Any] = {"_row_key": row_key, "_row_size": row_size}
-        cursor = bitmap_bytes
-        for index, prop in enumerate(self.properties):
-            if not present_bits[index]:
-                continue
-            size = self.encoded_size(prop)
-            raw = row[cursor : cursor + size]
-            cursor += size
-            result[prop["Name"]] = self.decode_value(prop, raw)
+        result.update(self.decode_struct(self.schema, row))
         return result
 
     def parse_all(self) -> list[dict[str, Any]]:

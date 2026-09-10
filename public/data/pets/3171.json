@@ -1350,12 +1350,10 @@
         "type_desc": "石头精灵",
         "description_habitat": "常见于山地",
         "introduction": "从大地获取强大的能量，可以使用地系魔法操纵土壤石头。常常收集一些土壤、石块作为零食，喜欢边讲故事边嚼石头，洛克族的孩子们偶尔会躲在旁边偷偷听它们讲故事。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2,
@@ -1374,8 +1372,8 @@
             11,
             12
         ],
-        "proportion_male": 8,
-        "male_rate": 80,
-        "female_rate": 20
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

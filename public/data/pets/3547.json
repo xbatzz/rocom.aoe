@@ -231,7 +231,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 3,
+            "energy_cost": 6,
             "power": null,
             "description": "主动：本技能被动永久额外-1能耗，被动：两侧技能能耗-1，传动1。"
         },
@@ -647,13 +647,13 @@
             "localized": {
                 "zh": {
                     "name": "轮班",
-                    "description": "造​成​物伤，​传动​1​，选择：​本技能位于1号​位​时​威力​+65或本​回​合额​外​传动​1。"
+                    "description": "造成物伤，传动1，选择：本技能位于1号位时威力+65或本回合额外传动1。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 70,
-            "description": "造​成​物伤，​传动​1​，选择：​本技能位于1号​位​时​威力​+65或本​回​合额​外​传动​1。"
+            "description": "造成物伤，传动1，选择：本技能位于1号位时威力+65或本回合额外传动1。"
         }
     ],
     "legacy_moves": [
@@ -1224,12 +1224,10 @@
         "type_desc": "维修精灵",
         "description_habitat": "常见于沙地",
         "introduction": "在机械系精灵中非常有声望。曾经制造出帕帕斯卡的洛克许下一个愿望，希望能让机械系精灵有尊严地活着。于是帕帕斯卡整个种族一直在想办法让机械系精灵过上更体面更开心的生活。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1247,8 +1245,8 @@
             5,
             15
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

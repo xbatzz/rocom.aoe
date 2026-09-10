@@ -1212,8 +1212,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 28 级",
-                            "需激活第 1 条进化分支"
+                            "等级达到 28 级"
                         ]
                     }
                 ],
@@ -1242,8 +1241,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需激活第 2 条进化分支"
+                            "等级达到 40 级"
                         ]
                     }
                 ],
@@ -1259,12 +1257,10 @@
         "type_desc": "毛绒绒精灵",
         "description_habitat": "行踪神秘",
         "introduction": "探索欲很强的精灵，会通过摇尾巴的方式表达亲近，尾尖会散发出魔法，但并不能很好的控制，时常伤到自己。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1323,6 +1319,22 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3180003,
+                "pet_id": 3180003,
+                "name": null,
+                "model_id": 3180002,
+                "hatch_data": 300,
+                "weight_low": 3290,
+                "weight_high": 5440,
+                "height_low": 27,
+                "height_high": 38,
+                "precious_egg_type": 5,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 31800001,
                 "pet_id": 31800001,
                 "name": null,
@@ -1345,8 +1357,8 @@
         "egg_groups": [
             1
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

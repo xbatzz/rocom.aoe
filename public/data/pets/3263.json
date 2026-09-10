@@ -1197,35 +1197,6 @@
                             }
                         },
                         "evolution_conditions": []
-                    },
-                    {
-                        "id": 3621,
-                        "species_id": 3621,
-                        "name": "guzhongshe_yidi",
-                        "form": "本命年的样子",
-                        "localized": {
-                            "zh": {
-                                "name": "古钟蛇"
-                            }
-                        },
-                        "is_leader_form": false,
-                        "main_type": {
-                            "id": 10,
-                            "name": "Poison",
-                            "localized": {
-                                "zh": "毒"
-                            }
-                        },
-                        "sub_type": {
-                            "id": 14,
-                            "name": "Cute",
-                            "localized": {
-                                "zh": "萌"
-                            }
-                        },
-                        "evolution_conditions": [
-                            "等级达到 38 级"
-                        ]
                     }
                 ],
                 "is_leader_stage": false
@@ -1261,42 +1232,13 @@
                         "evolution_conditions": [
                             "等级达到 33 级"
                         ]
-                    },
-                    {
-                        "id": 3622,
-                        "species_id": 3622,
-                        "name": "hanyinshe_yidi",
-                        "form": "本命年的样子",
-                        "localized": {
-                            "zh": {
-                                "name": "寒音蛇"
-                            }
-                        },
-                        "is_leader_form": false,
-                        "main_type": {
-                            "id": 10,
-                            "name": "Poison",
-                            "localized": {
-                                "zh": "毒"
-                            }
-                        },
-                        "sub_type": {
-                            "id": 14,
-                            "name": "Cute",
-                            "localized": {
-                                "zh": "萌"
-                            }
-                        },
-                        "evolution_conditions": [
-                            "等级达到 38 级"
-                        ]
                     }
                 ],
                 "is_leader_stage": false
             }
         ],
         "max_depth": 1,
-        "total_unique_monsters": 4,
+        "total_unique_monsters": 2,
         "species_id": 138,
         "current_monster_id": 3263
     },
@@ -1304,12 +1246,10 @@
         "type_desc": "圆滚滚精灵",
         "description_habitat": "常见于雪山",
         "introduction": "身躯看似圆润，但其实十分健壮灵活，拥有令人意想不到的爆发力，即使在冰天雪地里，也非常有活力。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1326,8 +1266,8 @@
         "egg_groups": [
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

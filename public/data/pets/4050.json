@@ -714,6 +714,28 @@
             "energy_cost": 2,
             "power": null,
             "description": "自己回复25%生命，应对防御：改为回复50%生命。"
+        },
+        {
+            "id": 7190480,
+            "name": "仰望夜空",
+            "icon_id": "118040",
+            "move_type": {
+                "id": 18,
+                "name": "Illusion",
+                "localized": {
+                    "zh": "幻"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "仰望夜空",
+                    "description": "自己获得魔攻和魔防+70%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得魔攻和魔防+70%。"
         }
     ],
     "legacy_moves": [
@@ -1273,7 +1295,7 @@
         "refresh_locations": [],
         "movement_type": null,
         "classis_id": 7,
-        "classis_name": "岩石类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": null,
@@ -1281,8 +1303,8 @@
     "breeding_profile": {
         "pet_base_id": 4050,
         "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

@@ -49,12 +49,12 @@
     "trait": {
         "id": 200300,
         "name": "上锁",
-        "description": "对手本回合使用的技能，冷却1回合。",
+        "description": "敌方本回合使用的技能，冷却1回合。",
         "icon_id": "200300",
         "localized": {
             "zh": {
                 "name": "上锁",
-                "description": "对手本回合使用的技能，冷却1回合。"
+                "description": "敌方本回合使用的技能，冷却1回合。"
             }
         }
     },
@@ -337,13 +337,13 @@
             "localized": {
                 "zh": {
                     "name": "振翅",
-                    "description": "选择：己方队伍​获得​1​次​奉献：​连击​+1或​威力​+20。"
+                    "description": "选择：己方队伍获得1次奉献：连击+1或威力+20。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "选择：己方队伍​获得​1​次​奉献：​连击​+1或​威力​+20。"
+            "description": "选择：己方队伍获得1次奉献：连击+1或威力+20。"
         }
     ],
     "move_stones": [
@@ -647,13 +647,13 @@
             "localized": {
                 "zh": {
                     "name": "拟寄生",
-                    "description": "造成​魔伤，​偷取​敌​方​1​层​印记。"
+                    "description": "造成魔伤，偷取敌方1层印记。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 80,
-            "description": "造成​魔伤，​偷取​敌​方​1​层​印记。"
+            "description": "造成魔伤，偷取敌方1层印记。"
         },
         {
             "id": 7070200,
@@ -669,13 +669,13 @@
             "localized": {
                 "zh": {
                     "name": "六自由度",
-                    "description": "造成魔伤，威力额外增加两侧技能威力差的二分之一，传动1。"
+                    "description": "造成魔伤，威力额外增加两侧技能威力差的四分之一，传动1。"
                 }
             },
             "move_category": "Magic Attack",
-            "energy_cost": 3,
-            "power": 50,
-            "description": "造成魔伤，威力额外增加两侧技能威力差的二分之一，传动1。"
+            "energy_cost": 4,
+            "power": 30,
+            "description": "造成魔伤，威力额外增加两侧技能威力差的四分之一，传动1。"
         }
     ],
     "legacy_moves": [
@@ -1246,12 +1246,10 @@
         "type_desc": "蜻蜓精灵",
         "description_habitat": "常见于河岸",
         "introduction": "每一只叮叮卯都对应古堡中的某一扇门。想打开那扇门？先抓住它。但它飞行轨迹极其刁钻。好奇心很重，有时候反而会主动凑近你观察，一伸手就飞走了，留下一串叮叮的嘲笑声。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1295,6 +1293,54 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3752002,
+                "pet_id": 3752002,
+                "name": null,
+                "model_id": 3752002,
+                "hatch_data": 28800,
+                "weight_low": 105,
+                "weight_high": 360,
+                "height_low": 6,
+                "height_high": 13,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3752003,
+                "pet_id": 3752003,
+                "name": null,
+                "model_id": 3752001,
+                "hatch_data": 28800,
+                "weight_low": 105,
+                "weight_high": 360,
+                "height_low": 6,
+                "height_high": 13,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3752008,
+                "pet_id": 3752008,
+                "name": null,
+                "model_id": 3752002,
+                "hatch_data": 28800,
+                "weight_low": 105,
+                "weight_high": 360,
+                "height_low": 6,
+                "height_high": 13,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 37520001,
                 "pet_id": 37520001,
                 "name": null,
@@ -1318,8 +1364,8 @@
             4,
             15
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

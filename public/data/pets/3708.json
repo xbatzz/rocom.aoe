@@ -27,10 +27,10 @@
     },
     "implemented": true,
     "base_hp": 104,
-    "base_phy_atk": 86,
+    "base_phy_atk": 85,
     "base_mag_atk": 56,
-    "base_phy_def": 139,
-    "base_mag_def": 64,
+    "base_phy_def": 122,
+    "base_mag_def": 45,
     "base_spd": 64,
     "evolves_from_id": null,
     "species": {
@@ -177,13 +177,13 @@
             "localized": {
                 "zh": {
                     "name": "减压阀",
-                    "description": "主动：​本技​能​被​动永久额​外​+20​威力，​被动：​两​侧​技​能​威力​+10，​传动1。"
+                    "description": "主动：本技能被动永久额外+20威力，被动：两侧技能威力+10，传动1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "主动：​本技​能​被​动永久额​外​+20​威力，​被动：​两​侧​技​能​威力​+10，​传动1。"
+            "description": "主动：本技能被动永久额外+20威力，被动：两侧技能威力+10，传动1。"
         },
         {
             "id": 7070020,
@@ -247,7 +247,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 3,
+            "energy_cost": 6,
             "power": null,
             "description": "主动：本技能被动永久额外-1能耗，被动：两侧技能能耗-1，传动1。"
         },
@@ -575,13 +575,13 @@
             "localized": {
                 "zh": {
                     "name": "相位移动",
-                    "description": "减​伤50%，​本技​能​位​于​1号​位​或​3号​位​时，​额​外减​伤40%，应对攻击，​传动1。​"
+                    "description": "减伤50%，本技能位于1号位或3号位时，额外减伤40%，应对攻击，传动1。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 1,
             "power": null,
-            "description": "减​伤50%，​本技​能​位​于​1号​位​或​3号​位​时，​额​外减​伤40%，应对攻击，​传动1。​"
+            "description": "减伤50%，本技能位于1号位或3号位时，额外减伤40%，应对攻击，传动1。"
         },
         {
             "id": 7021160,
@@ -1190,8 +1190,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 36 级",
-                            "需满足特殊条件（类型 9，参数 60）"
+                            "等级达到 36 级"
                         ]
                     }
                 ],
@@ -1207,12 +1206,10 @@
         "type_desc": "象精灵",
         "description_habitat": "行踪神秘",
         "introduction": "鼻子和尾巴末端有个圆圆的结，走路时摇摇摆摆，肚子被敲出奇妙的鼓点，其他精灵们听到后不由自主地被吸引，跟着它的鼓点巡游。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1303,11 +1300,27 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3708005,
+                "pet_id": 3708005,
+                "name": null,
+                "model_id": 3708001,
+                "hatch_data": 300,
+                "weight_low": 1806,
+                "weight_high": 3320,
+                "height_low": 27,
+                "height_high": 34,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 37080001,
                 "pet_id": 37080001,
                 "name": null,
                 "model_id": 3708001,
-                "hatch_data": 100,
+                "hatch_data": 300,
                 "weight_low": 1806,
                 "weight_high": 3320,
                 "height_low": 27,
@@ -1326,8 +1339,8 @@
             6,
             15
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

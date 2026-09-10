@@ -559,13 +559,13 @@
             "localized": {
                 "zh": {
                     "name": "毒雾",
-                    "description": "将敌方所有增益，转化成中毒。"
+                    "description": "将敌方所有增益，转化为相同层数的中毒。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 7,
             "power": null,
-            "description": "将敌方所有增益，转化成中毒。"
+            "description": "将敌方所有增益，转化为相同层数的中毒。"
         },
         {
             "id": 7120140,
@@ -1362,8 +1362,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 36 级",
-                            "需满足蛋组搭配条件（两栖 / 虫 / 蛋组 16）"
+                            "等级达到 36 级"
                         ]
                     }
                 ],
@@ -1398,8 +1397,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 48 级",
-                            "需满足蛋组搭配条件（两栖 / 虫 / 蛋组 16）"
+                            "等级达到 48 级"
                         ]
                     }
                 ],
@@ -1415,12 +1413,10 @@
         "type_desc": "菇精灵",
         "description_habitat": "常见于草地、山林、山洞",
         "introduction": "“又有了新的发现，多菇丁埋地时，是在通过菌丝体往地下传播信号，向其他菇精灵发出指令，它们信号的语言结构和古文字非常相似，也许它们的历史远比洛克以为的要早得多。”",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1437,8 +1433,8 @@
         "egg_groups": [
             8
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

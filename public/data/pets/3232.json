@@ -227,13 +227,13 @@
             "localized": {
                 "zh": {
                     "name": "急中生智",
-                    "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+                    "description": "造成魔伤，自己有减益时，本次技能威力+40。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 80,
-            "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+            "description": "造成魔伤，自己有减益时，本次技能威力+40。"
         },
         {
             "id": 7160390,
@@ -249,13 +249,13 @@
             "localized": {
                 "zh": {
                     "name": "耍赖",
-                    "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
+                    "description": "自己获得双攻永久+10%，2连击。自己有减益时，本次技能连击数+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
+            "description": "自己获得双攻永久+10%，2连击。自己有减益时，本次技能连击数+1。"
         },
         {
             "id": 7160250,
@@ -271,13 +271,13 @@
             "localized": {
                 "zh": {
                     "name": "撒娇",
-                    "description": "造成魔伤，3连击。自己获得萌化：威力永久+20。"
+                    "description": "造成魔伤，3连击。自己获得萌化：全技能威力永久+10。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 30,
-            "description": "造成魔伤，3连击。自己获得萌化：威力永久+20。"
+            "description": "造成魔伤，3连击。自己获得萌化：全技能威力永久+10。"
         },
         {
             "id": 7160170,
@@ -293,13 +293,13 @@
             "localized": {
                 "zh": {
                     "name": "示弱",
-                    "description": "自己获得萌化：速度永久+150。"
+                    "description": "自己获得萌化：速度永久+130。"
                 }
             },
             "move_category": "Status",
-            "energy_cost": 1,
+            "energy_cost": 2,
             "power": null,
-            "description": "自己获得萌化：速度永久+150。"
+            "description": "自己获得萌化：速度永久+130。"
         },
         {
             "id": 7160270,
@@ -493,13 +493,13 @@
             "localized": {
                 "zh": {
                     "name": "振翅",
-                    "description": "选择：己方队伍​获得​1​次​奉献：​连击​+1或​威力​+20。"
+                    "description": "选择：己方队伍获得1次奉献：连击+1或威力+20。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "选择：己方队伍​获得​1​次​奉献：​连击​+1或​威力​+20。"
+            "description": "选择：己方队伍获得1次奉献：连击+1或威力+20。"
         },
         {
             "id": 7190450,
@@ -515,13 +515,13 @@
             "localized": {
                 "zh": {
                     "name": "薄纱环",
-                    "description": "选择：对手随机获得1种负面印记或自己随机获得1种正面印记。"
+                    "description": "选择：敌方随机获得1种负面印记或自己随机获得1种正面印记。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "选择：对手随机获得1种负面印记或自己随机获得1种正面印记。"
+            "description": "选择：敌方随机获得1种负面印记或自己随机获得1种正面印记。"
         },
         {
             "id": 7040660,
@@ -559,13 +559,13 @@
             "localized": {
                 "zh": {
                     "name": "蹦跶",
-                    "description": "造成​魔伤，​自己​有​减益​时​本​技​能​能​耗​-1，​选择：​自己​获得​萌化或​解除萌化​。"
+                    "description": "造成魔伤，自己有减益时本技能能耗-1，选择：自己获得萌化或解除萌化。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 110,
-            "description": "造成​魔伤，​自己​有​减益​时​本​技​能​能​耗​-1，​选择：​自己​获得​萌化或​解除萌化​。"
+            "description": "造成魔伤，自己有减益时本技能能耗-1，选择：自己获得萌化或解除萌化。"
         },
         {
             "id": 7021230,
@@ -581,13 +581,13 @@
             "localized": {
                 "zh": {
                     "name": "友谊满溢",
-                    "description": "造成​魔伤，​选择：​每次使用后威力​永久​​+20​或​应对状态​时​本​次技能​威力​+100%。"
+                    "description": "造成魔伤，选择：每次使用后威力永久+20或应对状态时本次技能威力+100%。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 2,
             "power": 70,
-            "description": "造成​魔伤，​选择：​每次使用后威力​永久​​+20​或​应对状态​时​本​次技能​威力​+100%。"
+            "description": "造成魔伤，选择：每次使用后威力永久+20或应对状态时本次技能威力+100%。"
         },
         {
             "id": 7140340,
@@ -603,13 +603,13 @@
             "localized": {
                 "zh": {
                     "name": "驱赶",
-                    "description": "造成​魔伤，​选择：​本​次技能​威力​+20或​应对状态​时​本​次​技能威力​+140。"
+                    "description": "造成魔伤，选择：本次技能威力+20或应对状态时本次技能威力+140。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 70,
-            "description": "造成​魔伤，​选择：​本​次技能​威力​+20或​应对状态​时​本​次​技能威力​+140。"
+            "description": "造成魔伤，选择：本次技能威力+20或应对状态时本次技能威力+140。"
         },
         {
             "id": 7140330,
@@ -625,13 +625,13 @@
             "localized": {
                 "zh": {
                     "name": "马步",
-                    "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+                    "description": "本技能先手-1，选择：若自己生命低于20%，回复60%生命或若自己生命高于80%，获得物攻+150%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+            "description": "本技能先手-1，选择：若自己生命低于20%，回复60%生命或若自己生命高于80%，获得物攻+150%。"
         },
         {
             "id": 7150370,
@@ -647,13 +647,13 @@
             "localized": {
                 "zh": {
                     "name": "超声波",
-                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                    "description": "自己获得全技能威力+20，选择：本次能耗-1或应对防御时改为全技能威力永久+20。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+            "description": "自己获得全技能威力+20，选择：本次能耗-1或应对防御时改为全技能威力永久+20。"
         },
         {
             "id": 7020810,
@@ -757,13 +757,13 @@
             "localized": {
                 "zh": {
                     "name": "蒸汽进行曲",
-                    "description": "选择：​自己获得速度​+60或​物攻+90%。"
+                    "description": "选择：自己获得速度+60或物攻+90%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "选择：​自己获得速度​+60或​物攻+90%。"
+            "description": "选择：自己获得速度+60或物攻+90%。"
         },
         {
             "id": 7160380,
@@ -1406,8 +1406,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 28 级",
-                            "需激活第 1 条进化分支"
+                            "等级达到 28 级"
                         ]
                     }
                 ],
@@ -1442,9 +1441,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需激活第 2 条进化分支",
-                            "需激活萌系血脉"
+                            "等级达到 40 级"
                         ]
                     },
                     {
@@ -1473,9 +1470,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需激活第 2 条进化分支",
-                            "需激活幽系血脉"
+                            "等级达到 40 级"
                         ]
                     }
                 ],
@@ -1491,12 +1486,10 @@
         "type_desc": "许愿精灵",
         "description_habitat": "行踪神秘",
         "introduction": "传说能够实现愿望，其实是每天只会吃东西打瞌睡的小小精灵。偶尔转转悠悠，如果没人看着可能会走去很远的地方，凭借着直觉和本能生活了很久很久。什么是直觉的来源呢？是许愿的声音吗？",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1512,8 +1505,8 @@
         "egg_groups": [
             1
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

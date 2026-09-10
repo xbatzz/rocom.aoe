@@ -49,12 +49,12 @@
     "trait": {
         "id": 200308,
         "name": "安眠",
-        "description": "王国入​夜​后，​进入​战斗​时​获得​全​技​能​能​耗​+2，​回合​结束​时自己回复5%​生命​和1​能量。​",
+        "description": "王国入夜后，进入战斗时获得全技能能耗+2，回合结束时自己回复5%生命和1能量。",
         "icon_id": "200308",
         "localized": {
             "zh": {
                 "name": "安眠",
-                "description": "王国入​夜​后，​进入​战斗​时​获得​全​技​能​能​耗​+2，​回合​结束​时自己回复5%​生命​和1​能量。​"
+                "description": "王国入夜后，进入战斗时获得全技能能耗+2，回合结束时自己回复5%生命和1能量。"
             }
         }
     },
@@ -227,13 +227,13 @@
             "localized": {
                 "zh": {
                     "name": "打喷嚏",
-                    "description": "3连击，​每​次​连击敌方获得1层冻结。"
+                    "description": "3连击，每次连击敌方获得1层冻结。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "3连击，​每​次​连击敌方获得1层冻结。"
+            "description": "3连击，每次连击敌方获得1层冻结。"
         },
         {
             "id": 7030290,
@@ -293,13 +293,13 @@
             "localized": {
                 "zh": {
                     "name": "养分回流",
-                    "description": "造成​魔伤，​为场​下​所有​精灵​回复1​能量​。"
+                    "description": "造成魔伤，为场下所有精灵回复1能量。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造成​魔伤，​为场​下​所有​精灵​回复1​能量​。"
+            "description": "造成魔伤，为场下所有精灵回复1能量。"
         },
         {
             "id": 7090400,
@@ -1167,12 +1167,10 @@
         "type_desc": "困困精灵",
         "description_habitat": "行踪神秘",
         "introduction": "天气暖和的时候，不由自主地犯困，常常在睡铃丛生的区域睡觉，柔软的绒毛吸附了睡铃的香气。入夜后香气越发浓郁，常常看到它身边也围着一圈睡得很沉的精灵。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 13,
-        "classis_name": "冰冰凉精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]

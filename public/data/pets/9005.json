@@ -1,0 +1,201 @@
+{
+    "id": 9005,
+    "name": "songzai",
+    "form": "default",
+    "main_type": {
+        "id": 16,
+        "name": "Dark",
+        "localized": {
+            "zh": "恶"
+        }
+    },
+    "sub_type": null,
+    "default_legacy_type": {
+        "id": 16,
+        "name": "Dark",
+        "localized": {
+            "zh": "恶"
+        }
+    },
+    "leader_potential": false,
+    "is_leader_form": false,
+    "preferred_attack_style": "Both",
+    "localized": {
+        "zh": {
+            "name": "赤月陨星"
+        }
+    },
+    "implemented": false,
+    "base_hp": 100,
+    "base_phy_atk": 150,
+    "base_mag_atk": 150,
+    "base_phy_def": 80,
+    "base_mag_def": 80,
+    "base_spd": 100,
+    "evolves_from_id": null,
+    "species": {
+        "id": 9005,
+        "name": "songzai",
+        "localized": {
+            "zh": "赤月陨星"
+        }
+    },
+    "trait": {
+        "id": 298055,
+        "name": "赤月陨星",
+        "description": "免疫负面效果，但防御降低100%。力竭时恢复敌人5能量。",
+        "icon_id": "img_wenhao",
+        "localized": {
+            "zh": {
+                "name": "赤月陨星",
+                "description": "免疫负面效果，但防御降低100%。力竭时恢复敌人5能量。"
+            }
+        }
+    },
+    "move_pool": [
+        {
+            "id": 7000383,
+            "name": "陨星攻击",
+            "icon_id": "101072",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "陨星攻击",
+                    "description": "造成魔法伤害"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 2,
+            "power": 100,
+            "description": "造成魔法伤害"
+        },
+        {
+            "id": 7170150,
+            "name": "报复",
+            "icon_id": "705001",
+            "move_type": {
+                "id": 15,
+                "name": "Ghost",
+                "localized": {
+                    "zh": "幽"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "报复",
+                    "description": "减伤70%，应对攻击：敌方失去3能量。"
+                }
+            },
+            "move_category": "Defense",
+            "energy_cost": 2,
+            "power": null,
+            "description": "减伤70%，应对攻击：敌方失去3能量。"
+        },
+        {
+            "id": 7180130,
+            "name": "极限撕裂",
+            "icon_id": "706002",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "极限撕裂",
+                    "description": "造成物伤，若自己生命高于50%，使用后自己获得双攻-50%。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 4,
+            "power": 135,
+            "description": "造成物伤，若自己生命高于50%，使用后自己获得双攻-50%。"
+        },
+        {
+            "id": 7180180,
+            "name": "欺诈契约",
+            "icon_id": "718024",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "欺诈契约",
+                    "description": "与敌方交换增益和减益。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 3,
+            "power": null,
+            "description": "与敌方交换增益和减益。"
+        }
+    ],
+    "move_stones": [],
+    "legacy_moves": [],
+    "evolution_tree": {
+        "stages": [
+            {
+                "depth": 0,
+                "monsters": [
+                    {
+                        "id": 9005,
+                        "species_id": 9005,
+                        "name": "songzai",
+                        "form": "default",
+                        "localized": {
+                            "zh": {
+                                "name": "赤月陨星"
+                            }
+                        },
+                        "is_leader_form": false,
+                        "main_type": {
+                            "id": 16,
+                            "name": "Dark",
+                            "localized": {
+                                "zh": "恶"
+                            }
+                        },
+                        "sub_type": null,
+                        "evolution_conditions": []
+                    }
+                ],
+                "is_leader_stage": false
+            }
+        ],
+        "max_depth": 0,
+        "total_unique_monsters": 1,
+        "species_id": 9005,
+        "current_monster_id": 9005
+    },
+    "world_profile": {
+        "type_desc": null,
+        "description_habitat": null,
+        "introduction": null,
+        "refresh_locations": [],
+        "movement_type": "步行",
+        "classis_id": 6,
+        "classis_name": null,
+        "handbook_area_ids": []
+    },
+    "catch_info": null,
+    "breeding": null,
+    "breeding_profile": {
+        "pet_base_id": 9005,
+        "egg_groups": [],
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
+    }
+}

@@ -647,13 +647,13 @@
             "localized": {
                 "zh": {
                     "name": "天体吸积",
-                    "description": "造成物伤，敌方​每​有​1层​印记，​本次攻击威力​+20。"
+                    "description": "造成物伤，敌方每有1层印记，本次攻击威力+20。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 20,
-            "description": "造成物伤，敌方​每​有​1层​印记，​本次攻击威力​+20。"
+            "description": "造成物伤，敌方每有1层印记，本次攻击威力+20。"
         }
     ],
     "legacy_moves": [
@@ -1189,12 +1189,10 @@
         "type_desc": "圆滚滚精灵",
         "description_habitat": "行踪神秘",
         "introduction": "额前的星星质地不明，触感温热，能够从其中检测到异常的魔力波动。如果星星离开身体太远的话，身体会进入沉睡状态。“虽然它从不去看，但是魔法丢得很准。”",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 10,
-        "classis_name": "啮齿类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1324,8 +1322,8 @@
             2,
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

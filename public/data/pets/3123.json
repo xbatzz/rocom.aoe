@@ -293,13 +293,13 @@
             "localized": {
                 "zh": {
                     "name": "撒娇",
-                    "description": "造成魔伤，3连击。自己获得萌化：威力永久+20。"
+                    "description": "造成魔伤，3连击。自己获得萌化：全技能威力永久+10。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 30,
-            "description": "造成魔伤，3连击。自己获得萌化：威力永久+20。"
+            "description": "造成魔伤，3连击。自己获得萌化：全技能威力永久+10。"
         },
         {
             "id": 7090370,
@@ -471,13 +471,13 @@
             "localized": {
                 "zh": {
                     "name": "赤子之心",
-                    "description": "自己获得萌化：全技能能耗永久-3。"
+                    "description": "自己获得萌化：全技能能耗永久-2。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己获得萌化：全技能能耗永久-3。"
+            "description": "自己获得萌化：全技能能耗永久-2。"
         },
         {
             "id": 7090240,
@@ -1510,12 +1510,10 @@
         "type_desc": "伴生精灵",
         "description_habitat": "行踪神秘",
         "introduction": "进化后头部绒毛完全脱落，褪去的绒毛承载着进化前的回忆，被制作成一个毛绒娃娃。毛绒娃娃如果能抵御一个严冬就可以获得生命，过程中需要雪影娃娃的悉心养护。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 13,
-        "classis_name": "冰冰凉精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2

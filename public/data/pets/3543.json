@@ -624,7 +624,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 30,
+            "power": 20,
             "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         },
         {
@@ -1294,12 +1294,10 @@
         "type_desc": null,
         "description_habitat": null,
         "introduction": "传说中灵魂的收集者，通过吸收其他精灵的灵魂，来塑造自己的身躯，偶尔会自言自语，似乎是在安抚不听从的灵魂。 “拥有多种宠物的灵魂，让他掌握了更多的技能，并且尝试将这些技能融合为一”。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": {
@@ -1363,8 +1361,8 @@
             5,
             9
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

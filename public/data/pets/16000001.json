@@ -309,13 +309,13 @@
             "localized": {
                 "zh": {
                     "name": "孢子",
-                    "description": "敌方获得1层寄生。"
+                    "description": "敌方获得3层寄生。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "敌方获得1层寄生。"
+            "description": "敌方获得3层寄生。"
         },
         {
             "id": 7030530,
@@ -509,13 +509,13 @@
             "localized": {
                 "zh": {
                     "name": "赤子之心",
-                    "description": "自己获得萌化：全技能能耗永久-3。"
+                    "description": "自己获得萌化：全技能能耗永久-2。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己获得萌化：全技能能耗永久-3。"
+            "description": "自己获得萌化：全技能能耗永久-2。"
         },
         {
             "id": 7140100,
@@ -751,13 +751,13 @@
             "localized": {
                 "zh": {
                     "name": "丰收",
-                    "description": "造​成​物伤，​自己​回复​20%生命​。"
+                    "description": "造成物伤，自己回复20%生命。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 5,
             "power": 85,
-            "description": "造​成​物伤，​自己​回复​20%生命​。"
+            "description": "造成物伤，自己回复20%生命。"
         },
         {
             "id": 7030600,
@@ -795,13 +795,13 @@
             "localized": {
                 "zh": {
                     "name": "缓一缓",
-                    "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
+                    "description": "自己回复1能量和10%生命，并获得魔攻魔防+10%，速度+10。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
+            "description": "自己回复1能量和10%生命，并获得魔攻魔防+10%，速度+10。"
         }
     ],
     "legacy_moves": [
@@ -1410,12 +1410,10 @@
         "type_desc": null,
         "description_habitat": null,
         "introduction": "春天草原上出生的小兔，成群出现，以露水为食。 比草籽还要旺盛多生，散布在草原各处，生长过程中将吸收的露水储存在口囊里。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": null,
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": null,
@@ -1423,8 +1421,8 @@
     "breeding_profile": {
         "pet_base_id": 16000001,
         "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

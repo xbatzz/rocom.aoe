@@ -443,13 +443,13 @@
             "localized": {
                 "zh": {
                     "name": "流星火雨",
-                    "description": "造成物伤，每次击败敌方，本技能威力永久+75。"
+                    "description": "造成物伤，每次击败敌方，本技能威力永久+85。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 75,
-            "description": "造成物伤，每次击败敌方，本技能威力永久+75。"
+            "power": 85,
+            "description": "造成物伤，每次击败敌方，本技能威力永久+85。"
         },
         {
             "id": 7040450,
@@ -1155,12 +1155,10 @@
         "type_desc": null,
         "description_habitat": null,
         "introduction": "三三两两聚集在一起快乐乱舞，原因不明。偶尔会伴随着律动起舞，似乎能通过舞蹈与其他同伴建立起某种奇妙的精神链接。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": {
@@ -1223,8 +1221,8 @@
         "egg_groups": [
             9
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

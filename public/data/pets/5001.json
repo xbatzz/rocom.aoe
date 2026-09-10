@@ -801,13 +801,13 @@
             "localized": {
                 "zh": {
                     "name": "缓一缓",
-                    "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
+                    "description": "自己回复1能量和10%生命，并获得魔攻魔防+10%，速度+10。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
+            "description": "自己回复1能量和10%生命，并获得魔攻魔防+10%，速度+10。"
         }
     ],
     "legacy_moves": [
@@ -1362,8 +1362,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需准备蓝晶碧玺系列材料共 3 份"
+                            "等级达到 40 级"
                         ]
                     },
                     {
@@ -1392,8 +1391,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需准备紫莲刚玉系列材料共 3 份"
+                            "等级达到 40 级"
                         ]
                     },
                     {
@@ -1422,8 +1420,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需准备黄石榴石系列材料共 3 份"
+                            "等级达到 40 级"
                         ]
                     },
                     {
@@ -1452,8 +1449,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需准备黑晶琉璃系列材料共 3 份"
+                            "等级达到 40 级"
                         ]
                     },
                     {
@@ -1482,8 +1478,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需准备以下晶石系列材料共 6 份：蓝晶碧玺、紫莲刚玉、黄石榴石、黑晶琉璃"
+                            "等级达到 40 级"
                         ]
                     },
                     {
@@ -1512,8 +1507,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需准备以下晶石系列材料共 9 份：蓝晶碧玺、紫莲刚玉、黄石榴石、黑晶琉璃"
+                            "等级达到 40 级"
                         ]
                     }
                 ],
@@ -1751,12 +1745,10 @@
         "type_desc": "矿石精灵",
         "description_habitat": "行踪神秘",
         "introduction": "极其稀少且强大的精灵，见到它时，洛克的第一反应不是抓起来，而是先停手——它的壳太硬，硬到任何挖掘工具碰到它都会立刻坏掉。凡是矿区附近有钻石蜗出现，都需要先报告给魔法学院的研究员。",
-        "refresh_locations": [
-            "暂时找不到这只精灵的踪迹噢！"
-        ],
+        "refresh_locations": [],
         "movement_type": null,
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2,
@@ -1764,12 +1756,48 @@
         ]
     },
     "catch_info": null,
-    "breeding": null,
+    "breeding": {
+        "id": 5001,
+        "pet_id": null,
+        "name": null,
+        "model_id": 3000001,
+        "hatch_data": null,
+        "weight_low": null,
+        "weight_high": null,
+        "height_low": null,
+        "height_high": null,
+        "precious_egg_type": 2,
+        "egg_base_glass_prob_array": null,
+        "egg_add_glass_prob_array": null,
+        "is_contact_add_glass_prob": null,
+        "is_contact_add_shining_prob": null,
+        "variants": [
+            {
+                "id": 5001,
+                "pet_id": null,
+                "name": null,
+                "model_id": 3000001,
+                "hatch_data": null,
+                "weight_low": null,
+                "weight_high": null,
+                "height_low": null,
+                "height_high": null,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            }
+        ]
+    },
     "breeding_profile": {
         "pet_base_id": 5001,
-        "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "egg_groups": [
+            10,
+            11
+        ],
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

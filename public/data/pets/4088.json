@@ -247,7 +247,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 2,
+            "energy_cost": 1,
             "power": null,
             "description": "使敌方精灵返场。"
         },
@@ -426,7 +426,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 30,
+            "power": 20,
             "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         },
         {
@@ -685,13 +685,13 @@
             "localized": {
                 "zh": {
                     "name": "踏雷",
-                    "description": "自己回合结束时返场，​携带的攻击​技​能​​下回合获得1个已触发过的迸发效果，​应对防御：​改为​获得​所有​触​发过​的迸发​效果​。"
+                    "description": "自己回合结束时返场，携带的攻击技能下回合获得1个已触发过的迸发效果，应对防御：改为获得所有触发过的迸发效果。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己回合结束时返场，​携带的攻击​技​能​​下回合获得1个已触发过的迸发效果，​应对防御：​改为​获得​所有​触​发过​的迸发​效果​。"
+            "description": "自己回合结束时返场，携带的攻击技能下回合获得1个已触发过的迸发效果，应对防御：改为获得所有触发过的迸发效果。"
         },
         {
             "id": 7180190,
@@ -729,13 +729,13 @@
             "localized": {
                 "zh": {
                     "name": "通电",
-                    "description": "造​成​物伤，​敌方获得​1​层引电。​"
+                    "description": "造成物伤，敌方获得1层引电。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造​成​物伤，​敌方获得​1​层引电。​"
+            "description": "造成物伤，敌方获得1层引电。"
         },
         {
             "id": 7180420,
@@ -751,13 +751,13 @@
             "localized": {
                 "zh": {
                     "name": "下注",
-                    "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+                    "description": "造成物伤，选择：本次技能威力+40，使用后自己生命-10%或自己生命低于50%时本次技能威力+100。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 85,
-            "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+            "description": "造成物伤，选择：本次技能威力+40，使用后自己生命-10%或自己生命低于50%时本次技能威力+100。"
         }
     ],
     "legacy_moves": [
@@ -1418,12 +1418,10 @@
         "type_desc": "长颈鹿精灵",
         "description_habitat": "常见于山地",
         "introduction": "每当它听见动感的旋律，体内电流便会随着节奏起伏变化，头顶电球忽闪忽闪照亮回家的路。波普鹿用尾巴打出轻缓的节拍，是它在表达愉快的心情。",
-        "refresh_locations": [
-            "暂时找不到这只精灵的踪迹噢！"
-        ],
+        "refresh_locations": [],
         "movement_type": null,
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1434,8 +1432,8 @@
     "breeding_profile": {
         "pet_base_id": 4088,
         "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

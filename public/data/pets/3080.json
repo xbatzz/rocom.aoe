@@ -32,11 +32,11 @@
         }
     },
     "implemented": true,
-    "base_hp": 94,
-    "base_phy_atk": 82,
-    "base_mag_atk": 100,
-    "base_phy_def": 72,
-    "base_mag_def": 121,
+    "base_hp": 78,
+    "base_phy_atk": 65,
+    "base_mag_atk": 81,
+    "base_phy_def": 61,
+    "base_mag_def": 106,
     "base_spd": 120,
     "evolves_from_id": 3079,
     "species": {
@@ -337,13 +337,13 @@
             "localized": {
                 "zh": {
                     "name": "试飞",
-                    "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+                    "description": "造成物伤，2连击。选择：每次使用后本技能威力永久+10或连击数永久+1。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 20,
-            "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+            "description": "造成物伤，2连击。选择：每次使用后本技能威力永久+10或连击数永久+1。"
         },
         {
             "id": 7040180,
@@ -757,13 +757,13 @@
             "localized": {
                 "zh": {
                     "name": "超声波",
-                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                    "description": "自己获得全技能威力+20，选择：本次能耗-1或应对防御时改为全技能威力永久+20。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+            "description": "自己获得全技能威力+20，选择：本次能耗-1或应对防御时改为全技能威力永久+20。"
         }
     ],
     "legacy_moves": [
@@ -1369,12 +1369,10 @@
         "type_desc": "涅槃精灵",
         "description_habitat": "常见于平原、火山周边",
         "introduction": "整个种群中最罕见的形态，全身的火焰从未真正熄灭过。当生命走到新的阶段，它会主动飞向高空中最炽烈的那团火，将自己一同烧尽，而落在地面的那撮灰烬里，会诞生一枚新的蛋。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 12,
-        "classis_name": "鸟类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1392,8 +1390,8 @@
             5,
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

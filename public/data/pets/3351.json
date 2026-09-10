@@ -331,13 +331,13 @@
             "localized": {
                 "zh": {
                     "name": "通电",
-                    "description": "造​成​物伤，​敌方获得​1​层引电。​"
+                    "description": "造成物伤，敌方获得1层引电。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造​成​物伤，​敌方获得​1​层引电。​"
+            "description": "造成物伤，敌方获得1层引电。"
         }
     ],
     "move_stones": [
@@ -465,13 +465,13 @@
             "localized": {
                 "zh": {
                     "name": "透镜实验",
-                    "description": "造​成​物伤，​选择：​敌方携​带光​系​技​能​时​威力​+50或应对状态​时​被​应对​的​技能​变​为​透射​。"
+                    "description": "造成物伤，选择：敌方携带光系技能时威力+50或应对状态时被应对的技能变为透射。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 115,
-            "description": "造​成​物伤，​选择：​敌方携​带光​系​技​能​时​威力​+50或应对状态​时​被​应对​的​技能​变​为​透射​。"
+            "description": "造成物伤，选择：敌方携带光系技能时威力+50或应对状态时被应对的技能变为透射。"
         },
         {
             "id": 7060140,
@@ -1213,12 +1213,10 @@
         "type_desc": "爱音乐精灵",
         "description_habitat": "常见于平原、山地",
         "introduction": "额前的闪电印记平时并不蕴含电能，可一旦周围响起音乐，便会迅速通体带电。常能看见三两只聚在一处，一边蹦跳一边迸出细小的电火花，这是它们正在彼此充电。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1285,8 +1283,8 @@
             2,
             9
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

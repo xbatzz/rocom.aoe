@@ -1312,12 +1312,10 @@
         "type_desc": "烤栗精灵",
         "description_habitat": "行踪神秘",
         "introduction": "身体会散发烤栗子一样的香甜气味，同行的另一名研究员舔过之后中毒几日没有好转。有洛克曾研究过不同天气和环境里其粘液的味道变化，立志写出《栗鼠粘液美味大全》。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1430,8 +1428,8 @@
         "egg_groups": [
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

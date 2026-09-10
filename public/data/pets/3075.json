@@ -1369,12 +1369,10 @@
         "type_desc": "狐精灵",
         "description_habitat": "偶见于雪山",
         "introduction": "鼻子呼出热热的气可能会灼伤小洛克的手，如果在雪山不小心被冻伤，去拜托灵狐帮忙吹一口热气，冻伤瞬间就会痊愈了。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 15,
-        "classis_name": "神奇类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1520,8 +1518,8 @@
         "egg_groups": [
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

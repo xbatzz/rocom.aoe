@@ -1224,12 +1224,10 @@
         "type_desc": "小鱼精灵",
         "description_habitat": "行踪神秘",
         "introduction": "头顶的光似乎并不是光系魔法，而是来自于某种寄生在其身上的会发光的细菌，目前不清楚发光细菌的其他特性，即使在水中也必须把头顶的灯伸到水面上。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1390,8 +1388,8 @@
         "egg_groups": [
             13
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

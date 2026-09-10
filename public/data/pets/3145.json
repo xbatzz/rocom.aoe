@@ -421,13 +421,13 @@
             "localized": {
                 "zh": {
                     "name": "孢子爆散",
-                    "description": "造成物伤，1连击，每次使用后，本技能连击数永久+2。"
+                    "description": "造成物伤，2连击，每次使用后，本技能连击数永久+2。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 30,
-            "description": "造成物伤，1连击，每次使用后，本技能连击数永久+2。"
+            "description": "造成物伤，2连击，每次使用后，本技能连击数永久+2。"
         },
         {
             "id": 7170260,
@@ -795,13 +795,13 @@
             "localized": {
                 "zh": {
                     "name": "养分回流",
-                    "description": "造成​魔伤，​为场​下​所有​精灵​回复1​能量​。"
+                    "description": "造成魔伤，为场下所有精灵回复1能量。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造成​魔伤，​为场​下​所有​精灵​回复1​能量​。"
+            "description": "造成魔伤，为场下所有精灵回复1能量。"
         }
     ],
     "legacy_moves": [
@@ -1401,12 +1401,10 @@
         "type_desc": "菇精灵",
         "description_habitat": "常见于草地",
         "introduction": "可能在任何潮湿的阴冷角落出现，看到蓝色荧光不要贸然接近。吸食其他生物的情绪作为养分，吃饱后会发出轻轻的叹气声。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 2,
-        "classis_name": "漂浮类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1444,6 +1442,70 @@
                 "height_low": 18,
                 "height_high": 25,
                 "precious_egg_type": null,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3145002,
+                "pet_id": 3145002,
+                "name": null,
+                "model_id": 3145002,
+                "hatch_data": 28800,
+                "weight_low": 1890,
+                "weight_high": 2840,
+                "height_low": 18,
+                "height_high": 25,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3145003,
+                "pet_id": 3145003,
+                "name": null,
+                "model_id": 3145001,
+                "hatch_data": 300,
+                "weight_low": 1890,
+                "weight_high": 2840,
+                "height_low": 18,
+                "height_high": 25,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3145004,
+                "pet_id": 3145004,
+                "name": null,
+                "model_id": 3145001,
+                "hatch_data": 28800,
+                "weight_low": 1890,
+                "weight_high": 2840,
+                "height_low": 18,
+                "height_high": 25,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3145008,
+                "pet_id": 3145008,
+                "name": null,
+                "model_id": 3145002,
+                "hatch_data": 28800,
+                "weight_low": 1890,
+                "weight_high": 2840,
+                "height_low": 18,
+                "height_high": 25,
+                "precious_egg_type": 2,
                 "egg_base_glass_prob_array": null,
                 "egg_add_glass_prob_array": null,
                 "is_contact_add_glass_prob": null,
@@ -1489,8 +1551,8 @@
             8,
             12
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

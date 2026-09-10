@@ -641,13 +641,13 @@
             "localized": {
                 "zh": {
                     "name": "魔镜",
-                    "description": "敌方获得魔防​-50%，​且​失​去​3​能量​。"
+                    "description": "敌方获得魔防-50%，且失去3能量。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "敌方获得魔防​-50%，​且​失​去​3​能量​。"
+            "description": "敌方获得魔防-50%，且失去3能量。"
         }
     ],
     "legacy_moves": [
@@ -1275,12 +1275,10 @@
         "type_desc": "猫精灵",
         "description_habitat": "行踪神秘",
         "introduction": "拥有了在黑暗夜空中穿行的能力，据说它们能读取宇宙中所有星光的讯息，预知即将发生的危机。小洛克常常发现，当黑猫密探突然变得异常安静时，往往预示着某种变故即将来临。",
-        "refresh_locations": [
-            "暂时找不到这只精灵的踪迹噢！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 4,
-        "classis_name": "植物类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1290,9 +1288,12 @@
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 5007,
-        "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "egg_groups": [
+            6,
+            7
+        ],
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

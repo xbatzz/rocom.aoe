@@ -1021,8 +1021,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 32 级",
-                            "需激活幽系血脉"
+                            "等级达到 32 级"
                         ]
                     }
                 ],
@@ -1038,12 +1037,10 @@
         "type_desc": "流星精灵",
         "description_habitat": "行踪神秘",
         "introduction": "习性和语言都与目前所知的任何精灵种族不同，身体轻盈，皮肤柔软但极其有韧性。研究学者偶然拾取到它星星飘下的碎屑，密度极高但质量非常轻，研究发现其材质也不属于卡洛西亚大陆的任何一种已知材质。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1173,8 +1170,8 @@
             5,
             7
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

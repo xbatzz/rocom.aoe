@@ -221,13 +221,13 @@
             "localized": {
                 "zh": {
                     "name": "丰收",
-                    "description": "造​成​物伤，​自己​回复​20%生命​。"
+                    "description": "造成物伤，自己回复20%生命。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 5,
             "power": 85,
-            "description": "造​成​物伤，​自己​回复​20%生命​。"
+            "description": "造成物伤，自己回复20%生命。"
         },
         {
             "id": 7030180,
@@ -404,7 +404,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 30,
+            "power": 20,
             "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         },
         {
@@ -641,13 +641,13 @@
             "localized": {
                 "zh": {
                     "name": "马步",
-                    "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+                    "description": "本技能先手-1，选择：若自己生命低于20%，回复60%生命或若自己生命高于80%，获得物攻+150%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+            "description": "本技能先手-1，选择：若自己生命低于20%，回复60%生命或若自己生命高于80%，获得物攻+150%。"
         },
         {
             "id": 7021280,
@@ -663,13 +663,57 @@
             "localized": {
                 "zh": {
                     "name": "缓一缓",
-                    "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
+                    "description": "自己回复1能量和10%生命，并获得魔攻魔防+10%，速度+10。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
+            "description": "自己回复1能量和10%生命，并获得魔攻魔防+10%，速度+10。"
+        },
+        {
+            "id": 7030620,
+            "name": "麦芒",
+            "icon_id": "102046",
+            "move_type": {
+                "id": 2,
+                "name": "Grass",
+                "localized": {
+                    "zh": "草"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "麦芒",
+                    "description": "造成物伤，若上回合双方有精灵使用萌系技能，自己回复7能量。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 5,
+            "power": 105,
+            "description": "造成物伤，若上回合双方有精灵使用萌系技能，自己回复7能量。"
+        },
+        {
+            "id": 7021020,
+            "name": "后发制人",
+            "icon_id": "101084",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "后发制人",
+                    "description": "造成物理伤害，先手-1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 155,
+            "description": "造成物理伤害，先手-1。"
         }
     ],
     "legacy_moves": [
@@ -1257,12 +1301,10 @@
         "type_desc": "巨人精灵",
         "description_habitat": "常见于平原",
         "introduction": "“伤者愈，周遭同绿。” “连枝者参天。” “行过之处，枝连枝，根连根。” ——拓自巨人裂谷断崖",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1280,8 +1322,8 @@
             2,
             9
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

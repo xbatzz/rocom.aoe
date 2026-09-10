@@ -1157,12 +1157,10 @@
         "type_desc": null,
         "description_habitat": null,
         "introduction": "“能够在流星上倾听许愿的家伙，总会被认为是善良的吧？嘻嘻，它们可从来没说过会以什么方式实现哦！扭曲的实现也是实现。不愿以他人的理想为自己一生的追求，却也无法逃脱命运的桎梏。 那么来吧，向它们许愿吧”！",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": {
@@ -1177,8 +1175,8 @@
             5,
             7
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

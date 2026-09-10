@@ -707,13 +707,35 @@
             "localized": {
                 "zh": {
                     "name": "友谊满溢",
-                    "description": "造成​魔伤，​选择：​每次使用后威力​永久​​+20​或​应对状态​时​本​次技能​威力​+100%。"
+                    "description": "造成魔伤，选择：每次使用后威力永久+20或应对状态时本次技能威力+100%。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 2,
             "power": 70,
-            "description": "造成​魔伤，​选择：​每次使用后威力​永久​​+20​或​应对状态​时​本​次技能​威力​+100%。"
+            "description": "造成魔伤，选择：每次使用后威力永久+20或应对状态时本次技能威力+100%。"
+        },
+        {
+            "id": 7190480,
+            "name": "仰望夜空",
+            "icon_id": "118040",
+            "move_type": {
+                "id": 18,
+                "name": "Illusion",
+                "localized": {
+                    "zh": "幻"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "仰望夜空",
+                    "description": "自己获得魔攻和魔防+70%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得魔攻和魔防+70%。"
         }
     ],
     "legacy_moves": [
@@ -1256,8 +1278,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 30 级",
-                            "完成技能「勾魂」相关试炼（参数 3）"
+                            "等级达到 30 级"
                         ]
                     }
                 ],
@@ -1353,7 +1374,7 @@
         "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1362,9 +1383,12 @@
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 5059,
-        "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "egg_groups": [
+            2,
+            12
+        ],
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

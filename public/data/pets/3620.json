@@ -399,13 +399,13 @@
             "localized": {
                 "zh": {
                     "name": "冷凝",
-                    "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
+                    "description": "造成物伤，敌方每有1层冻结，自己回复1能量。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 95,
-            "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
+            "description": "造成物伤，敌方每有1层冻结，自己回复1能量。"
         },
         {
             "id": 7090460,
@@ -421,13 +421,13 @@
             "localized": {
                 "zh": {
                     "name": "雪原狩猎",
-                    "description": "造​成​物伤，​天气为暴风雪时，本次技能威力​+50%"
+                    "description": "造成物伤，天气为暴风雪时，本次技能威力+50"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 80,
-            "description": "造​成​物伤，​天气为暴风雪时，本次技能威力​+50%"
+            "power": 85,
+            "description": "造成物伤，天气为暴风雪时，本次技能威力+50"
         },
         {
             "id": 7090470,
@@ -443,13 +443,13 @@
             "localized": {
                 "zh": {
                     "name": "打喷嚏",
-                    "description": "3连击，​每​次​连击敌方获得1层冻结。"
+                    "description": "3连击，每次连击敌方获得1层冻结。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "3连击，​每​次​连击敌方获得1层冻结。"
+            "description": "3连击，每次连击敌方获得1层冻结。"
         },
         {
             "id": 7090140,
@@ -487,13 +487,13 @@
             "localized": {
                 "zh": {
                     "name": "寒潮",
-                    "description": "造成​魔伤，​敌方​获得​1层​冻结，应对状态：额​外​获得4层​冻结，​​巧变：​冻结相关技​能​。"
+                    "description": "造成魔伤，敌方获得1层冻结，应对状态：额外获得4层冻结，巧变：冻结相关技能。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 95,
-            "description": "造成​魔伤，​敌方​获得​1层​冻结，应对状态：额​外​获得4层​冻结，​​巧变：​冻结相关技​能​。"
+            "description": "造成魔伤，敌方获得1层冻结，应对状态：额外获得4层冻结，巧变：冻结相关技能。"
         },
         {
             "id": 7090130,
@@ -641,13 +641,13 @@
             "localized": {
                 "zh": {
                     "name": "养分回流",
-                    "description": "造成​魔伤，​为场​下​所有​精灵​回复1​能量​。"
+                    "description": "造成魔伤，为场下所有精灵回复1能量。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造成​魔伤，​为场​下​所有​精灵​回复1​能量​。"
+            "description": "造成魔伤，为场下所有精灵回复1能量。"
         },
         {
             "id": 7030570,
@@ -795,13 +795,13 @@
             "localized": {
                 "zh": {
                     "name": "孢子爆散",
-                    "description": "造成物伤，1连击，每次使用后，本技能连击数永久+2。"
+                    "description": "造成物伤，2连击，每次使用后，本技能连击数永久+2。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 30,
-            "description": "造成物伤，1连击，每次使用后，本技能连击数永久+2。"
+            "description": "造成物伤，2连击，每次使用后，本技能连击数永久+2。"
         },
         {
             "id": 7030590,
@@ -817,13 +817,13 @@
             "localized": {
                 "zh": {
                     "name": "丰收",
-                    "description": "造​成​物伤，​自己​回复​20%生命​。"
+                    "description": "造成物伤，自己回复20%生命。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 5,
             "power": 85,
-            "description": "造​成​物伤，​自己​回复​20%生命​。"
+            "description": "造成物伤，自己回复20%生命。"
         },
         {
             "id": 7030580,
@@ -971,13 +971,13 @@
             "localized": {
                 "zh": {
                     "name": "拟寄生",
-                    "description": "造成​魔伤，​偷取​敌​方​1​层​印记。"
+                    "description": "造成魔伤，偷取敌方1层印记。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 80,
-            "description": "造成​魔伤，​偷取​敌​方​1​层​印记。"
+            "description": "造成魔伤，偷取敌方1层印记。"
         },
         {
             "id": 7130240,
@@ -1235,13 +1235,13 @@
             "localized": {
                 "zh": {
                     "name": "扬尘",
-                    "description": "造成​魔伤，​天气为沙暴时，先手+1。"
+                    "description": "造成魔伤，天气为沙暴时，先手+1。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 80,
-            "description": "造成​魔伤，​天气为沙暴时，先手+1。"
+            "description": "造成魔伤，天气为沙暴时，先手+1。"
         },
         {
             "id": 7080460,
@@ -1257,13 +1257,13 @@
             "localized": {
                 "zh": {
                     "name": "沙石阵",
-                    "description": "自己获得速度​-​20，​选择：且额外获得​物防+90%或​魔防​+90%。"
+                    "description": "自己获得速度-20，选择：且额外获得物防+90%或魔防+90%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己获得速度​-​20，​选择：且额外获得​物防+90%或​魔防​+90%。"
+            "description": "自己获得速度-20，选择：且额外获得物防+90%或魔防+90%。"
         },
         {
             "id": 7080350,
@@ -1521,13 +1521,13 @@
             "localized": {
                 "zh": {
                     "name": "超导",
-                    "description": "造成魔伤，迸发：本技能能耗-1。"
+                    "description": "造成魔伤，迸发：本技能能耗-2。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
-            "power": 95,
-            "description": "造成魔伤，迸发：本技能能耗-1。"
+            "power": 90,
+            "description": "造成魔伤，迸发：本技能能耗-2。"
         },
         {
             "id": 7110340,
@@ -1719,13 +1719,13 @@
             "localized": {
                 "zh": {
                     "name": "通电",
-                    "description": "造​成​物伤，​敌方获得​1​层引电。​"
+                    "description": "造成物伤，敌方获得1层引电。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造​成​物伤，​敌方获得​1​层引电。​"
+            "description": "造成物伤，敌方获得1层引电。"
         },
         {
             "id": 7120280,
@@ -2120,7 +2120,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 30,
+            "power": 20,
             "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         },
         {
@@ -2247,13 +2247,13 @@
             "localized": {
                 "zh": {
                     "name": "血契",
-                    "description": "造成物伤，自己每失去10%生命，本技能威力+10。"
+                    "description": "造成物伤，自己每失去10%生命，本技能威力+15。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 75,
-            "description": "造成物伤，自己每失去10%生命，本技能威力+10。"
+            "description": "造成物伤，自己每失去10%生命，本技能威力+15。"
         },
         {
             "id": 7180420,
@@ -2269,13 +2269,13 @@
             "localized": {
                 "zh": {
                     "name": "下注",
-                    "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+                    "description": "造成物伤，选择：本次技能威力+40，使用后自己生命-10%或自己生命低于50%时本次技能威力+100。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 85,
-            "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+            "description": "造成物伤，选择：本次技能威力+40，使用后自己生命-10%或自己生命低于50%时本次技能威力+100。"
         },
         {
             "id": 7180100,
@@ -2467,13 +2467,13 @@
             "localized": {
                 "zh": {
                     "name": "色散",
-                    "description": "造成魔伤，对​混血精灵造成​伤害​+50%。"
+                    "description": "造成魔伤，对混血精灵造成伤害+50%。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 80,
-            "description": "造成魔伤，对​混血精灵造成​伤害​+50%。"
+            "description": "造成魔伤，对混血精灵造成伤害+50%。"
         },
         {
             "id": 7060230,
@@ -2577,13 +2577,13 @@
             "localized": {
                 "zh": {
                     "name": "透镜实验",
-                    "description": "造​成​物伤，​选择：​敌方携​带光​系​技​能​时​威力​+50或应对状态​时​被​应对​的​技能​变​为​透射​。"
+                    "description": "造成物伤，选择：敌方携带光系技能时威力+50或应对状态时被应对的技能变为透射。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 115,
-            "description": "造​成​物伤，​选择：​敌方携​带光​系​技​能​时​威力​+50或应对状态​时​被​应对​的​技能​变​为​透射​。"
+            "description": "造成物伤，选择：敌方携带光系技能时威力+50或应对状态时被应对的技能变为透射。"
         },
         {
             "id": 7190390,
@@ -2670,7 +2670,7 @@
             },
             "move_category": "Magic Attack",
             "energy_cost": 7,
-            "power": 100,
+            "power": 110,
             "description": "造成魔伤，敌方每有1层印记，本技能能耗-1。"
         },
         {
@@ -2687,13 +2687,13 @@
             "localized": {
                 "zh": {
                     "name": "许愿池",
-                    "description": "造成​魔伤，​双方已有的印记层数+1。"
+                    "description": "造成魔伤，双方已有的印记层数+1。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 4,
             "power": 55,
-            "description": "造成​魔伤，​双方已有的印记层数+1。"
+            "description": "造成魔伤，双方已有的印记层数+1。"
         },
         {
             "id": 7190420,
@@ -2709,13 +2709,13 @@
             "localized": {
                 "zh": {
                     "name": "星痕",
-                    "description": "造成​魔伤，​若​对​手​有​印记，​本次技​能​威力​+40。"
+                    "description": "造成魔伤，若敌方有印记，本次技能威力+40。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 90,
-            "description": "造成​魔伤，​若​对​手​有​印记，​本次技​能​威力​+40。"
+            "description": "造成魔伤，若敌方有印记，本次技能威力+40。"
         },
         {
             "id": 7190350,
@@ -2797,13 +2797,13 @@
             "localized": {
                 "zh": {
                     "name": "天体吸积",
-                    "description": "造成物伤，敌方​每​有​1层​印记，​本次攻击威力​+20。"
+                    "description": "造成物伤，敌方每有1层印记，本次攻击威力+20。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 20,
-            "description": "造成物伤，敌方​每​有​1层​印记，​本次攻击威力​+20。"
+            "description": "造成物伤，敌方每有1层印记，本次攻击威力+20。"
         },
         {
             "id": 7190270,
@@ -3127,13 +3127,13 @@
             "localized": {
                 "zh": {
                     "name": "流星火雨",
-                    "description": "造成物伤，每次击败敌方，本技能威力永久+75。"
+                    "description": "造成物伤，每次击败敌方，本技能威力永久+85。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 75,
-            "description": "造成物伤，每次击败敌方，本技能威力永久+75。"
+            "power": 85,
+            "description": "造成物伤，每次击败敌方，本技能威力永久+85。"
         },
         {
             "id": 7040390,
@@ -3369,13 +3369,13 @@
             "localized": {
                 "zh": {
                     "name": "微型斥候",
-                    "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），​本技​能​威力​永久​+20。"
+                    "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），本技能威力永久+20。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），​本技​能​威力​永久​+20。"
+            "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），本技能威力永久+20。"
         },
         {
             "id": 7070200,
@@ -3391,13 +3391,13 @@
             "localized": {
                 "zh": {
                     "name": "六自由度",
-                    "description": "造成魔伤，威力额外增加两侧技能威力差的二分之一，传动1。"
+                    "description": "造成魔伤，威力额外增加两侧技能威力差的四分之一，传动1。"
                 }
             },
             "move_category": "Magic Attack",
-            "energy_cost": 3,
-            "power": 50,
-            "description": "造成魔伤，威力额外增加两侧技能威力差的二分之一，传动1。"
+            "energy_cost": 4,
+            "power": 30,
+            "description": "造成魔伤，威力额外增加两侧技能威力差的四分之一，传动1。"
         },
         {
             "id": 7070230,
@@ -3523,13 +3523,13 @@
             "localized": {
                 "zh": {
                     "name": "绞轮",
-                    "description": "造成物伤，每受到1次抵抗的技能攻击（不含连击），​本技能能耗永久-1。"
+                    "description": "造成物伤，每受到1次抵抗的技能攻击（不含连击），本技能能耗永久-1。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 5,
             "power": 115,
-            "description": "造成物伤，每受到1次抵抗的技能攻击（不含连击），​本技能能耗永久-1。"
+            "description": "造成物伤，每受到1次抵抗的技能攻击（不含连击），本技能能耗永久-1。"
         },
         {
             "id": 7070240,
@@ -3545,13 +3545,13 @@
             "localized": {
                 "zh": {
                     "name": "铁蒺藜",
-                    "description": "造成​魔伤，应对状态：​本​次​伤害翻倍。"
+                    "description": "造成魔伤，应对状态：本次伤害翻倍。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 85,
-            "description": "造成​魔伤，应对状态：​本​次​伤害翻倍。"
+            "description": "造成魔伤，应对状态：本次伤害翻倍。"
         },
         {
             "id": 7100260,
@@ -3743,13 +3743,13 @@
             "localized": {
                 "zh": {
                     "name": "撒娇",
-                    "description": "造成魔伤，3连击。自己获得萌化：威力永久+20。"
+                    "description": "造成魔伤，3连击。自己获得萌化：全技能威力永久+10。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 30,
-            "description": "造成魔伤，3连击。自己获得萌化：威力永久+20。"
+            "description": "造成魔伤，3连击。自己获得萌化：全技能威力永久+10。"
         },
         {
             "id": 7160210,
@@ -3831,13 +3831,13 @@
             "localized": {
                 "zh": {
                     "name": "蹦跶",
-                    "description": "造成​魔伤，​自己​有​减益​时​本​技​能​能​耗​-1，​选择：​自己​获得​萌化或​解除萌化​。"
+                    "description": "造成魔伤，自己有减益时本技能能耗-1，选择：自己获得萌化或解除萌化。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 110,
-            "description": "造成​魔伤，​自己​有​减益​时​本​技​能​能​耗​-1，​选择：​自己​获得​萌化或​解除萌化​。"
+            "description": "造成魔伤，自己有减益时本技能能耗-1，选择：自己获得萌化或解除萌化。"
         },
         {
             "id": 7160220,
@@ -3985,13 +3985,13 @@
             "localized": {
                 "zh": {
                     "name": "拆礼物",
-                    "description": "造​成​物伤，​若​​敌方有​萌化，​本次技能威力+100。"
+                    "description": "造成物伤，若敌方有萌化，本次技能威力+100。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 50,
-            "description": "造​成​物伤，​若​​敌方有​萌化，​本次技能威力+100。"
+            "description": "造成物伤，若敌方有萌化，本次技能威力+100。"
         },
         {
             "id": 7020600,
@@ -4007,13 +4007,13 @@
             "localized": {
                 "zh": {
                     "name": "蓄能轰击",
-                    "description": "造成魔伤，每使用1次普通系技能，本技能能耗永久-2。"
+                    "description": "造成魔伤，每使用1次其他普通系技能，本技能能耗永久-2。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 6,
-            "power": 130,
-            "description": "造成魔伤，每使用1次普通系技能，本技能能耗永久-2。"
+            "power": 120,
+            "description": "造成魔伤，每使用1次其他普通系技能，本技能能耗永久-2。"
         },
         {
             "id": 7020900,
@@ -4293,13 +4293,13 @@
             "localized": {
                 "zh": {
                     "name": "同频",
-                    "description": "造成​魔法​伤害，​巧变：魔攻技​能。"
+                    "description": "造成魔法伤害，巧变：魔攻技能。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 125,
-            "description": "造成​魔法​伤害，​巧变：魔攻技​能。"
+            "description": "造成魔法伤害，巧变：魔攻技能。"
         },
         {
             "id": 7021190,
@@ -4337,13 +4337,13 @@
             "localized": {
                 "zh": {
                     "name": "急中生智",
-                    "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+                    "description": "造成魔伤，自己有减益时，本次技能威力+40。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 80,
-            "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+            "description": "造成魔伤，自己有减益时，本次技能威力+40。"
         },
         {
             "id": 7020970,
@@ -4865,13 +4865,13 @@
             "localized": {
                 "zh": {
                     "name": "友谊满溢",
-                    "description": "造成​魔伤，​选择：​每次使用后威力​永久​​+20​或​应对状态​时​本​次技能​威力​+100%。"
+                    "description": "造成魔伤，选择：每次使用后威力永久+20或应对状态时本次技能威力+100%。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 2,
             "power": 70,
-            "description": "造成​魔伤，​选择：​每次使用后威力​永久​​+20​或​应对状态​时​本​次技能​威力​+100%。"
+            "description": "造成魔伤，选择：每次使用后威力永久+20或应对状态时本次技能威力+100%。"
         },
         {
             "id": 7020460,
@@ -5173,13 +5173,13 @@
             "localized": {
                 "zh": {
                     "name": "叠浪",
-                    "description": "造​成​物伤，​3连击，本技能能耗每-1，威力+10。"
+                    "description": "造成物伤，3连击，本技能能耗每-1，威力+10。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 10,
-            "description": "造​成​物伤，​3连击，本技能能耗每-1，威力+10。"
+            "description": "造成物伤，3连击，本技能能耗每-1，威力+10。"
         },
         {
             "id": 7050490,
@@ -5415,13 +5415,13 @@
             "localized": {
                 "zh": {
                     "name": "驱赶",
-                    "description": "造成​魔伤，​选择：​本​次技能​威力​+20或​应对状态​时​本​次​技能威力​+140。"
+                    "description": "造成魔伤，选择：本次技能威力+20或应对状态时本次技能威力+140。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 70,
-            "description": "造成​魔伤，​选择：​本​次技能​威力​+20或​应对状态​时​本​次​技能威力​+140。"
+            "description": "造成魔伤，选择：本次技能威力+20或应对状态时本次技能威力+140。"
         },
         {
             "id": 7140060,
@@ -5525,13 +5525,13 @@
             "localized": {
                 "zh": {
                     "name": "截拳",
-                    "description": "造成物伤，应对状态：额外造成打断，回复该技能能耗的能量。"
+                    "description": "造成物伤，应对状态：造成打断，回复被打断技能能耗的能量。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 85,
-            "description": "造成物伤，应对状态：额外造成打断，回复该技能能耗的能量。"
+            "description": "造成物伤，应对状态：造成打断，回复被打断技能能耗的能量。"
         },
         {
             "id": 7140120,
@@ -5657,13 +5657,13 @@
             "localized": {
                 "zh": {
                     "name": "飞箭",
-                    "description": "造成​魔伤，​3连击。巧变：​翼系防御​技​能​。"
+                    "description": "造成魔伤，3连击。巧变：翼系防御技能。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 40,
-            "description": "造成​魔伤，​3连击。巧变：​翼系防御​技​能​。"
+            "description": "造成魔伤，3连击。巧变：翼系防御技能。"
         },
         {
             "id": 7150350,
@@ -5679,13 +5679,13 @@
             "localized": {
                 "zh": {
                     "name": "远行",
-                    "description": "造成​魔伤，​自己​每​先​于​敌方行动1次，本技能威力永久+25。"
+                    "description": "造成魔伤，自己每先于敌方行动1次，本技能威力永久+25。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 2,
             "power": 50,
-            "description": "造成​魔伤，​自己​每​先​于​敌方行动1次，本技能威力永久+25。"
+            "description": "造成魔伤，自己每先于敌方行动1次，本技能威力永久+25。"
         },
         {
             "id": 7150050,
@@ -5855,13 +5855,13 @@
             "localized": {
                 "zh": {
                     "name": "试飞",
-                    "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+                    "description": "造成物伤，2连击。选择：每次使用后本技能威力永久+10或连击数永久+1。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 20,
-            "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+            "description": "造成物伤，2连击。选择：每次使用后本技能威力永久+10或连击数永久+1。"
         },
         {
             "id": 7150200,
@@ -6148,6 +6148,50 @@
             "energy_cost": 3,
             "power": 80,
             "description": "造成物伤，应对状态：使敌方失去6能量。"
+        },
+        {
+            "id": 7070220,
+            "name": "轮班",
+            "icon_id": "206022",
+            "move_type": {
+                "id": 17,
+                "name": "Mechanical",
+                "localized": {
+                    "zh": "机械"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "轮班",
+                    "description": "造成物伤，传动1，选择：本技能位于1号位时威力+65或本回合额外传动1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 70,
+            "description": "造成物伤，传动1，选择：本技能位于1号位时威力+65或本回合额外传动1。"
+        },
+        {
+            "id": 7090450,
+            "name": "冰裂",
+            "icon_id": "108042",
+            "move_type": {
+                "id": 7,
+                "name": "Ice",
+                "localized": {
+                    "zh": "冰"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "冰裂",
+                    "description": "造成物伤，选择：敌方获得物防-30%或敌方获得速度-20。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 70,
+            "description": "造成物伤，选择：敌方获得物防-30%或敌方获得速度-20。"
         }
     ],
     "legacy_moves": [
@@ -6677,12 +6721,10 @@
         "type_desc": "兔兔精灵",
         "description_habitat": "行踪神秘",
         "introduction": "心中怀揣着对魔法的强烈渴望和对广阔知识世界的向往，呱呱从玄玉岛来到魔法学院。咒语对它们来说就像绕口令，因此需要花费更多的时间来学习，在魔法学院的走廊，经常能看到它们带着歪歪扭扭的自学笔记飞奔的身影。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": null,
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -6763,8 +6805,8 @@
         "egg_groups": [
             1
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

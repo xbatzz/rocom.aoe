@@ -626,6 +626,28 @@
             "energy_cost": 0,
             "power": null,
             "description": "敌方获得全技能能耗+1，应对防御：改为能耗+3。"
+        },
+        {
+            "id": 7070330,
+            "name": "广播",
+            "icon_id": "106033",
+            "move_type": {
+                "id": 17,
+                "name": "Mechanical",
+                "localized": {
+                    "zh": "机械"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "广播",
+                    "description": "对敌方精灵造成魔法伤害。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 5,
+            "power": 140,
+            "description": "对敌方精灵造成魔法伤害。"
         }
     ],
     "legacy_moves": [
@@ -1184,12 +1206,10 @@
         "type_desc": "小号精灵",
         "description_habitat": "常见于海面、河面",
         "introduction": "拥有中空结构的尾巴，空气和水流过的时候会发出小号一样响亮的声音。非常喜欢社交的生物，经常举办盛大的音乐会，不同的小号精灵会轮流展示自己的音乐才华，创造出令人惊叹的合奏。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1265,6 +1285,22 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3529004,
+                "pet_id": 3529004,
+                "name": null,
+                "model_id": 3529001,
+                "hatch_data": 300,
+                "weight_low": 1365,
+                "weight_high": 2100,
+                "height_low": 13,
+                "height_high": 17,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 35290001,
                 "pet_id": 35290001,
                 "name": null,
@@ -1304,8 +1340,8 @@
             7,
             13
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

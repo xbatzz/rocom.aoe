@@ -1225,8 +1225,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 36 级",
-                            "需与画像守护一起击败 3 只武系精灵"
+                            "等级达到 36 级"
                         ]
                     },
                     {
@@ -1255,8 +1254,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 36 级",
-                            "需与画像守护一起击败 3 只幻系精灵"
+                            "等级达到 36 级"
                         ]
                     }
                 ],
@@ -1272,12 +1270,10 @@
         "type_desc": "画框精灵",
         "description_habitat": "行踪神秘",
         "introduction": "画中世界诞生的精灵，活泼好动，对穿梭魔法的运用不是很熟练，偶尔会被画框卡住。曾经尝试少吃可可果来解决这个问题，后来发现并没有效果。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1359,8 +1355,8 @@
             2,
             7
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

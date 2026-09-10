@@ -293,13 +293,13 @@
             "localized": {
                 "zh": {
                     "name": "撒娇",
-                    "description": "造成魔伤，3连击。自己获得萌化：威力永久+20。"
+                    "description": "造成魔伤，3连击。自己获得萌化：全技能威力永久+10。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 30,
-            "description": "造成魔伤，3连击。自己获得萌化：威力永久+20。"
+            "description": "造成魔伤，3连击。自己获得萌化：全技能威力永久+10。"
         },
         {
             "id": 7090370,
@@ -471,13 +471,13 @@
             "localized": {
                 "zh": {
                     "name": "赤子之心",
-                    "description": "自己获得萌化：全技能能耗永久-3。"
+                    "description": "自己获得萌化：全技能能耗永久-2。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己获得萌化：全技能能耗永久-3。"
+            "description": "自己获得萌化：全技能能耗永久-2。"
         },
         {
             "id": 7090240,
@@ -1369,12 +1369,10 @@
         "type_desc": "兔精灵",
         "description_habitat": "行踪神秘",
         "introduction": "全身覆满白色绒毛，能抵御寒冷，仔细观察它们的毛毛分为两种，一种是顺滑纤细的针毛，另一种是又软又密的绒毛。虽然体型小，但却不畏惧寒冷，小小的手爪柔软又温暖。似乎喜欢抱抱。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 13,
-        "classis_name": "冰冰凉精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1503,6 +1501,22 @@
                 "name": null,
                 "model_id": 3121002,
                 "hatch_data": 28800,
+                "weight_low": 2937,
+                "weight_high": 4280,
+                "height_low": 17,
+                "height_high": 20,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3121008,
+                "pet_id": 3121008,
+                "name": null,
+                "model_id": 3121002,
+                "hatch_data": 300,
                 "weight_low": 2937,
                 "weight_high": 4280,
                 "height_low": 17,

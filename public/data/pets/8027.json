@@ -342,7 +342,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 30,
+            "power": 20,
             "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         },
         {
@@ -808,6 +808,28 @@
             "energy_cost": 5,
             "power": null,
             "description": "减伤100%，应对攻击：减免的伤害变为回复自己生命，且本技能能耗永久+2。"
+        },
+        {
+            "id": 7180450,
+            "name": "掉包",
+            "icon_id": "117046",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "掉包",
+                    "description": "敌方的属性增益变为对应的属性减益。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "敌方的属性增益变为对应的属性减益。"
         }
     ],
     "legacy_moves": [
@@ -1345,12 +1367,10 @@
         "type_desc": null,
         "description_habitat": null,
         "introduction": "柔弱温顺，羽毛软而蓬松。过于专注梳理羽毛可能会迷路，意识到迷路的时候通常已经游到了完全不认识的环境里。不过总能保持优雅淡定，似乎永远不会慌张惊恐。这或许是夫人为自己制定的礼仪规范。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": null,

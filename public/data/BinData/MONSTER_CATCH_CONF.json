@@ -5337,6 +5337,7 @@
     "410232": {
       "id": 410232,
       "name": "星星眼",
+      "Catch_Threshold": 250,
       "Catch_Ball_level": 1
     },
     "410233": {
@@ -6772,7 +6773,9 @@
     },
     "410538": {
       "id": 410538,
-      "name": "未完虫"
+      "name": "未完虫",
+      "Catch_Threshold": 250,
+      "Catch_Ball_level": 1
     },
     "410539": {
       "id": 410539,
@@ -6923,15 +6926,21 @@
     },
     "410570": {
       "id": 410570,
-      "name": "热团团"
+      "name": "热团团",
+      "Catch_Threshold": 1000,
+      "Catch_Ball_level": 1
     },
     "410571": {
       "id": 410571,
-      "name": "焰米龙"
+      "name": "焰米龙",
+      "Catch_Threshold": 500,
+      "Catch_Ball_level": 1
     },
     "410572": {
       "id": 410572,
-      "name": "圣凯布米龙"
+      "name": "圣凯布米龙",
+      "Catch_Threshold": 250,
+      "Catch_Ball_level": 1
     },
     "410573": {
       "id": 410573,
@@ -6990,11 +6999,15 @@
     },
     "410585": {
       "id": 410585,
-      "name": "玳龟"
+      "name": "玳龟",
+      "Catch_Threshold": 1000,
+      "Catch_Ball_level": 1
     },
     "410586": {
       "id": 410586,
-      "name": "玳塔"
+      "name": "玳塔",
+      "Catch_Threshold": 250,
+      "Catch_Ball_level": 1
     },
     "410587": {
       "id": 410587,
@@ -7319,11 +7332,15 @@
     },
     "410659": {
       "id": 410659,
-      "name": "量风碗"
+      "name": "量风碗",
+      "Catch_Threshold": 1000,
+      "Catch_Ball_level": 1
     },
     "410660": {
       "id": 410660,
-      "name": "测风蝉"
+      "name": "测风蝉",
+      "Catch_Threshold": 250,
+      "Catch_Ball_level": 1
     },
     "410661": {
       "id": 410661,
@@ -7754,7 +7771,7 @@
     },
     "410754": {
       "id": 410754,
-      "name": "雪影娃娃SP ",
+      "name": "雪影娃娃SP",
       "Catch_Threshold": 250
     },
     "410755": {
@@ -7766,6 +7783,104 @@
       "id": 410756,
       "name": "炮米花",
       "Catch_Threshold": 250
+    },
+    "410763": {
+      "id": 410763,
+      "name": "云梦豚",
+      "Catch_Threshold": 1000,
+      "Catch_Ball_level": 1
+    },
+    "410764": {
+      "id": 410764,
+      "name": "长江豚",
+      "Catch_Threshold": 250,
+      "Catch_Ball_level": 1
+    },
+    "410772": {
+      "id": 410772,
+      "name": "诅咒狼灵",
+      "Catch_Ball_level": 1
+    },
+    "410773": {
+      "id": 410773,
+      "name": "新月狼灵",
+      "Catch_Ball_level": 1
+    },
+    "410774": {
+      "id": 410774,
+      "name": "银月狼王",
+      "Catch_Ball_level": 1
+    },
+    "410775": {
+      "id": 410775,
+      "name": "新月鹭",
+      "Catch_Threshold": 1000,
+      "Catch_Ball_level": 1
+    },
+    "410776": {
+      "id": 410776,
+      "name": "月辉鹭",
+      "Catch_Threshold": 500,
+      "Catch_Ball_level": 1
+    },
+    "410777": {
+      "id": 410777,
+      "name": "月使鹭纳",
+      "Catch_Threshold": 250,
+      "Catch_Ball_level": 1
+    },
+    "410778": {
+      "id": 410778,
+      "name": "章脑丸",
+      "Catch_Threshold": 1000,
+      "Catch_Ball_level": 1
+    },
+    "410779": {
+      "id": 410779,
+      "name": "智辉章脑",
+      "Catch_Threshold": 250,
+      "Catch_Ball_level": 1
+    },
+    "410780": {
+      "id": 410780,
+      "name": "小浣蛋",
+      "Catch_Threshold": 1000,
+      "Catch_Ball_level": 1
+    },
+    "410781": {
+      "id": 410781,
+      "name": "黑手浣熊",
+      "Catch_Threshold": 250,
+      "Catch_Ball_level": 1
+    },
+    "410782": {
+      "id": 410782,
+      "name": "幽铃",
+      "Catch_Threshold": 1000,
+      "Catch_Ball_level": 1
+    },
+    "410783": {
+      "id": 410783,
+      "name": "摇铃魔偶",
+      "Catch_Threshold": 250,
+      "Catch_Ball_level": 1
+    },
+    "410784": {
+      "id": 410784,
+      "name": "布灵",
+      "Catch_Threshold": 1000,
+      "Catch_Ball_level": 1
+    },
+    "410785": {
+      "id": 410785,
+      "name": "布灵布灵",
+      "Catch_Threshold": 250,
+      "Catch_Ball_level": 1
+    },
+    "410786": {
+      "id": 410786,
+      "name": "果实立方人",
+      "Catch_Ball_level": 1
     },
     "420001": {
       "id": 420001,
@@ -12167,6 +12282,144 @@
     "1800127": {
       "id": 1800127,
       "name": "千棘盔",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801013": {
+      "id": 1801013,
+      "name": "小黑猫",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801014": {
+      "id": 1801014,
+      "name": "黑猫巫师",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801015": {
+      "id": 1801015,
+      "name": "叮叮卯",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801016": {
+      "id": 1801016,
+      "name": "飞飞钥",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801017": {
+      "id": 1801017,
+      "name": "刺轮砣",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801018": {
+      "id": 1801018,
+      "name": "月亮砣",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801019": {
+      "id": 1801019,
+      "name": "逗逗",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801020": {
+      "id": 1801020,
+      "name": "气球猫",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801021": {
+      "id": 1801021,
+      "name": "梦想三三",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801022": {
+      "id": 1801022,
+      "name": "瑰眼仔",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801023": {
+      "id": 1801023,
+      "name": "耳翎瑰魅",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801024": {
+      "id": 1801024,
+      "name": "邪眼巨魔",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801025": {
+      "id": 1801025,
+      "name": "小灵菇",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801026": {
+      "id": 1801026,
+      "name": "幻灵菇",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801027": {
+      "id": 1801027,
+      "name": "幻影灵菇",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801028": {
+      "id": 1801028,
+      "name": "芽眼魔",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801029": {
+      "id": 1801029,
+      "name": "叶眼魔",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801030": {
+      "id": 1801030,
+      "name": "障眼魔",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801031": {
+      "id": 1801031,
+      "name": "觅觅蝠",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801032": {
+      "id": 1801032,
+      "name": "翻翻蝠",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801033": {
+      "id": 1801033,
+      "name": "夜游魔",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801034": {
+      "id": 1801034,
+      "name": "刺轮砣",
+      "Catch_Threshold": 50000,
+      "Catch_Ball_level": 1
+    },
+    "1801035": {
+      "id": 1801035,
+      "name": "月亮砣",
       "Catch_Threshold": 50000,
       "Catch_Ball_level": 1
     }

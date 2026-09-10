@@ -188,6 +188,21 @@ async function main() {
     );
     const handbookByPetBaseId = buildHandbookByPetBaseId(handbookRows);
     const handbookById = indexBy(handbookRows);
+    // A configured portrait reference alone is not evidence of complete release.
+    // Accept real Pet1024 exports or already imported portraits, never outlines.
+    const portraitFiles = await Promise.all([
+        [path.join(rootDir, "public/assets/webp/friends"), ".webp"],
+        [path.join(rootDir, "NRC/Content/NewRoco/Modules/System/Common/Icon/Pet1024"), ".png"],
+    ].map(async ([directory, extension]) => {
+        const entries = await fs.readdir(directory, { withFileTypes: true }).catch((error) => {
+            if (error.code === "ENOENT") return [];
+            throw error;
+        });
+        return entries
+            .filter((entry) => entry.isFile() && entry.name.endsWith(extension))
+            .map((entry) => entry.name.slice(0, -extension.length).replace(/^JL_/, ""));
+    }));
+    const availablePortraitKeys = new Set(portraitFiles.flat());
 
     const contexts = petBaseRows.map((petBase) => {
         const handbookRow = pickHandbookRow(
@@ -220,6 +235,8 @@ async function main() {
                 handbookRow?.id ?? petBase.pictorial_book_id ?? petBase.id,
             ),
             portraitKey,
+            hasAvailablePortrait:
+                availablePortraitKeys.has(extractPortraitKey(petBase.JL_res)),
             displayName: cleanText(petBase.name) ?? String(petBase.id),
             evolutionRow,
             evolutionFamilyKey: getEvolutionFamilyKeyFromRow(
@@ -433,6 +450,9 @@ async function main() {
     );
 
     await syncMirroredTables();
+    const handbookIdsPath = path.join(rootDir, "src", "lib", "generated", "handbookIds.json");
+    await fs.mkdir(path.dirname(handbookIdsPath), { recursive: true });
+    await writeJson(handbookIdsPath, uniqueNumbers(handbookRows.map((row) => row.id)).sort((a, b) => a - b));
     await fs.mkdir(petsDetailDir, { recursive: true });
     await cleanGeneratedPetDetails();
     await writeJson(petsIndexPath, indexEntries);
@@ -635,7 +655,7 @@ function extractPortraitKey(resourcePath) {
         return null;
     }
 
-    const match = resourcePath.match(/(JL_[^./']+)\.(?:JL_[^']+)'/u);
+    const match = resourcePath.match(/\/([^/.'"]+)\.\1(?:'|")?$/u);
 
     if (!match) {
         return null;
@@ -967,6 +987,7 @@ function isImplementedContext(
     // complete presentation template of another handbook pet without their own
     // handbook/release data, remain queryable but are not considered released.
     if (
+        !context.hasAvailablePortrait ||
         KNOWN_UNRELEASED_PETBASE_IDS.has(context.id) ||
         PLACEHOLDER_NAME_PATTERN.test(context.displayName) ||
         hasBorrowedPlaceholderPresentation(context, contextsByPortrait)

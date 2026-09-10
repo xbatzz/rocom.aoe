@@ -309,13 +309,13 @@
             "localized": {
                 "zh": {
                     "name": "截拳",
-                    "description": "造成物伤，应对状态：额外造成打断，回复该技能能耗的能量。"
+                    "description": "造成物伤，应对状态：造成打断，回复被打断技能能耗的能量。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 85,
-            "description": "造成物伤，应对状态：额外造成打断，回复该技能能耗的能量。"
+            "description": "造成物伤，应对状态：造成打断，回复被打断技能能耗的能量。"
         },
         {
             "id": 7140120,
@@ -1168,8 +1168,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 20 级",
-                            "需满足特殊条件（类型 9，参数 60）"
+                            "等级达到 20 级"
                         ]
                     }
                 ],
@@ -1214,12 +1213,10 @@
         "type_desc": null,
         "description_habitat": null,
         "introduction": "学习了种族内名为“蛋白粉法术”的迷之魔法，身形也因为练习“蛋白粉法术”而发生了变化。种群里部分群体会偷偷使用一种和炼金药剂配合的速成魔法，能快速改变身形，但是会伤害身体。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": {
@@ -1233,8 +1230,8 @@
         "egg_groups": [
             9
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

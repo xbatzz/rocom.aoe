@@ -626,6 +626,28 @@
             "energy_cost": 0,
             "power": null,
             "description": "敌方获得全技能能耗+1，应对防御：改为能耗+3。"
+        },
+        {
+            "id": 7070330,
+            "name": "广播",
+            "icon_id": "106033",
+            "move_type": {
+                "id": 17,
+                "name": "Mechanical",
+                "localized": {
+                    "zh": "机械"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "广播",
+                    "description": "对敌方精灵造成魔法伤害。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 5,
+            "power": 140,
+            "description": "对敌方精灵造成魔法伤害。"
         }
     ],
     "legacy_moves": [
@@ -1184,12 +1206,10 @@
         "type_desc": "圆号精灵",
         "description_habitat": "常见于海面、河面",
         "introduction": "会专门去矿物质丰富的水域，通过吸收矿物质来调整背部结构，达到调音的目的。群居，每天早上起来一齐练声，巨大的合奏声能唤醒周围水域的所有生物，喜欢安静的精灵们不愿意住在它们旁边。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1207,8 +1227,8 @@
             7,
             13
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

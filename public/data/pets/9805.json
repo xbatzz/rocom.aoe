@@ -443,13 +443,13 @@
             "localized": {
                 "zh": {
                     "name": "色散",
-                    "description": "造成魔伤，对​混血精灵造成​伤害​+50%。"
+                    "description": "造成魔伤，对混血精灵造成伤害+50%。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 80,
-            "description": "造成魔伤，对​混血精灵造成​伤害​+50%。"
+            "description": "造成魔伤，对混血精灵造成伤害+50%。"
         },
         {
             "id": 7700005,
@@ -517,7 +517,7 @@
         "refresh_locations": [],
         "movement_type": null,
         "classis_id": 3,
-        "classis_name": "猫咪类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": null,
@@ -525,8 +525,8 @@
     "breeding_profile": {
         "pet_base_id": 9805,
         "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

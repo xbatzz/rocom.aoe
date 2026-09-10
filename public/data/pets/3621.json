@@ -95,13 +95,13 @@
             "localized": {
                 "zh": {
                     "name": "示弱",
-                    "description": "自己获得萌化：速度永久+150。"
+                    "description": "自己获得萌化：速度永久+130。"
                 }
             },
             "move_category": "Status",
-            "energy_cost": 1,
+            "energy_cost": 2,
             "power": null,
-            "description": "自己获得萌化：速度永久+150。"
+            "description": "自己获得萌化：速度永久+130。"
         },
         {
             "id": 7160230,
@@ -293,13 +293,13 @@
             "localized": {
                 "zh": {
                     "name": "撒娇",
-                    "description": "造成魔伤，3连击。自己获得萌化：威力永久+20。"
+                    "description": "造成魔伤，3连击。自己获得萌化：全技能威力永久+10。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 30,
-            "description": "造成魔伤，3连击。自己获得萌化：威力永久+20。"
+            "description": "造成魔伤，3连击。自己获得萌化：全技能威力永久+10。"
         },
         {
             "id": 7160180,
@@ -315,13 +315,13 @@
             "localized": {
                 "zh": {
                     "name": "赤子之心",
-                    "description": "自己获得萌化：全技能能耗永久-3。"
+                    "description": "自己获得萌化：全技能能耗永久-2。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己获得萌化：全技能能耗永久-3。"
+            "description": "自己获得萌化：全技能能耗永久-2。"
         },
         {
             "id": 7160280,
@@ -498,7 +498,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 30,
+            "power": 20,
             "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         },
         {
@@ -1304,33 +1304,6 @@
                 "depth": 0,
                 "monsters": [
                     {
-                        "id": 3262,
-                        "species_id": 137,
-                        "name": "huhuzhu",
-                        "form": "default",
-                        "localized": {
-                            "zh": {
-                                "name": "呼呼猪"
-                            }
-                        },
-                        "is_leader_form": false,
-                        "main_type": {
-                            "id": 6,
-                            "name": "Ground",
-                            "localized": {
-                                "zh": "地"
-                            }
-                        },
-                        "sub_type": {
-                            "id": 7,
-                            "name": "Ice",
-                            "localized": {
-                                "zh": "冰"
-                            }
-                        },
-                        "evolution_conditions": []
-                    },
-                    {
                         "id": 3621,
                         "species_id": 3621,
                         "name": "guzhongshe_yidi",
@@ -1366,35 +1339,6 @@
                 "depth": 1,
                 "monsters": [
                     {
-                        "id": 3263,
-                        "species_id": 138,
-                        "name": "liaoyazhu",
-                        "form": "default",
-                        "localized": {
-                            "zh": {
-                                "name": "獠牙猪"
-                            }
-                        },
-                        "is_leader_form": false,
-                        "main_type": {
-                            "id": 6,
-                            "name": "Ground",
-                            "localized": {
-                                "zh": "地"
-                            }
-                        },
-                        "sub_type": {
-                            "id": 7,
-                            "name": "Ice",
-                            "localized": {
-                                "zh": "冰"
-                            }
-                        },
-                        "evolution_conditions": [
-                            "等级达到 33 级"
-                        ]
-                    },
-                    {
                         "id": 3622,
                         "species_id": 3622,
                         "name": "hanyinshe_yidi",
@@ -1428,7 +1372,7 @@
             }
         ],
         "max_depth": 1,
-        "total_unique_monsters": 4,
+        "total_unique_monsters": 2,
         "species_id": 3621,
         "current_monster_id": 3621
     },
@@ -1436,12 +1380,10 @@
         "type_desc": null,
         "description_habitat": null,
         "introduction": "曾经玄玉岛上妖兽横行，粮食短缺，洛克先人们做了一条盘绕的面蛇，代表着对这一年丰收的期望。面蛇受到多年的供奉后化为精灵，和洛克共度时艰。在玄玉岛风调雨顺后，它们收起了自己的尖牙，用尾巴上的拨浪鼓陪着孩童们玩耍。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": {
@@ -1521,8 +1463,8 @@
             3,
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

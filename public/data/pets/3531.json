@@ -43,12 +43,12 @@
     "trait": {
         "id": 200291,
         "name": "大雪球",
-        "description": "自己​使用​2次​不同​的​冰系​技​能​后，​对​手​获得​4层​冻结​，​随后特性重置。",
+        "description": "自己使用2次不同的冰系技能后，敌方获得4层冻结，随后特性重置。",
         "icon_id": "200290",
         "localized": {
             "zh": {
                 "name": "大雪球",
-                "description": "自己​使用​2次​不同​的​冰系​技​能​后，​对​手​获得​4层​冻结​，​随后特性重置。"
+                "description": "自己使用2次不同的冰系技能后，敌方获得4层冻结，随后特性重置。"
             }
         }
     },
@@ -265,13 +265,13 @@
             "localized": {
                 "zh": {
                     "name": "冷凝",
-                    "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
+                    "description": "造成物伤，敌方每有1层冻结，自己回复1能量。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 95,
-            "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
+            "description": "造成物伤，敌方每有1层冻结，自己回复1能量。"
         },
         {
             "id": 7090160,
@@ -375,13 +375,13 @@
             "localized": {
                 "zh": {
                     "name": "寒潮",
-                    "description": "造成​魔伤，​敌方​获得​1层​冻结，应对状态：额​外​获得4层​冻结，​​巧变：​冻结相关技​能​。"
+                    "description": "造成魔伤，敌方获得1层冻结，应对状态：额外获得4层冻结，巧变：冻结相关技能。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 95,
-            "description": "造成​魔伤，​敌方​获得​1层​冻结，应对状态：额​外​获得4层​冻结，​​巧变：​冻结相关技​能​。"
+            "description": "造成魔伤，敌方获得1层冻结，应对状态：额外获得4层冻结，巧变：冻结相关技能。"
         }
     ],
     "move_stones": [
@@ -465,13 +465,13 @@
             "localized": {
                 "zh": {
                     "name": "截拳",
-                    "description": "造成物伤，应对状态：额外造成打断，回复该技能能耗的能量。"
+                    "description": "造成物伤，应对状态：造成打断，回复被打断技能能耗的能量。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 85,
-            "description": "造成物伤，应对状态：额外造成打断，回复该技能能耗的能量。"
+            "description": "造成物伤，应对状态：造成打断，回复被打断技能能耗的能量。"
         },
         {
             "id": 7180270,
@@ -751,13 +751,13 @@
             "localized": {
                 "zh": {
                     "name": "雪原狩猎",
-                    "description": "造​成​物伤，​天气为暴风雪时，本次技能威力​+50%"
+                    "description": "造成物伤，天气为暴风雪时，本次技能威力+50"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 80,
-            "description": "造​成​物伤，​天气为暴风雪时，本次技能威力​+50%"
+            "power": 85,
+            "description": "造成物伤，天气为暴风雪时，本次技能威力+50"
         }
     ],
     "legacy_moves": [
@@ -1300,8 +1300,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "完成技能「滚雪球」相关试炼（参数 15）"
+                            "等级达到 40 级"
                         ]
                     }
                 ],
@@ -1317,12 +1316,10 @@
         "type_desc": "小雪球精灵",
         "description_habitat": "行踪神秘",
         "introduction": "头顶的眼是精致的拟态结构，而真正的眼部和头部在腹部，都还很脆弱。魔法师们发现，它的腹部有厚厚的抗冻组织，能在极寒环境中保护核心器官。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1403,8 +1400,8 @@
         "egg_groups": [
             1
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

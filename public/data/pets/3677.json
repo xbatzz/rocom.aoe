@@ -32,11 +32,11 @@
         }
     },
     "implemented": true,
-    "base_hp": 61,
-    "base_phy_atk": 35,
-    "base_mag_atk": 89,
-    "base_phy_def": 50,
-    "base_mag_def": 78,
+    "base_hp": 76,
+    "base_phy_atk": 44,
+    "base_mag_atk": 103,
+    "base_phy_def": 59,
+    "base_mag_def": 89,
     "base_spd": 76,
     "evolves_from_id": null,
     "species": {
@@ -337,13 +337,13 @@
             "localized": {
                 "zh": {
                     "name": "重金属粉尘",
-                    "description": "携带​的​攻击​技​能​获得​附加中毒3​，​应对防御：​改为​获得附加中毒6。"
+                    "description": "携带的攻击技能获得附加中毒3，应对防御：改为获得附加中毒6。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "携带​的​攻击​技​能​获得​附加中毒3​，​应对防御：​改为​获得附加中毒6。"
+            "description": "携带的攻击技能获得附加中毒3，应对防御：改为获得附加中毒6。"
         }
     ],
     "move_stones": [
@@ -471,13 +471,13 @@
             "localized": {
                 "zh": {
                     "name": "暗箱操作",
-                    "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
+                    "description": "自己获得双攻和双防-50%，应对防御：改为敌方获得双攻和双防-120%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
+            "description": "自己获得双攻和双防-50%，应对防御：改为敌方获得双攻和双防-120%。"
         },
         {
             "id": 7180430,
@@ -647,13 +647,13 @@
             "localized": {
                 "zh": {
                     "name": "急中生智",
-                    "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+                    "description": "造成魔伤，自己有减益时，本次技能威力+40。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 80,
-            "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+            "description": "造成魔伤，自己有减益时，本次技能威力+40。"
         },
         {
             "id": 7120220,
@@ -676,6 +676,28 @@
             "energy_cost": 3,
             "power": 75,
             "description": "造成魔伤，敌方每有1层中毒效果，本次技能威力+10，应对状态：改为本次威力+40。"
+        },
+        {
+            "id": 7040700,
+            "name": "星火",
+            "icon_id": "103051",
+            "move_type": {
+                "id": 3,
+                "name": "Fire",
+                "localized": {
+                    "zh": "火"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "星火",
+                    "description": "敌方获得8层灼烧，若上回合双方有精灵使用光系技能，敌方额外获得12层灼烧。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 3,
+            "power": null,
+            "description": "敌方获得8层灼烧，若上回合双方有精灵使用光系技能，敌方额外获得12层灼烧。"
         }
     ],
     "legacy_moves": [
@@ -1230,8 +1252,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 36 级",
-                            "需满足特殊条件（类型 9，参数 60）"
+                            "等级达到 36 级"
                         ]
                     }
                 ],
@@ -1247,12 +1268,10 @@
         "type_desc": "烟花精灵",
         "description_habitat": "行踪神秘",
         "introduction": "爱扎堆聊天的小话痨，走到哪聊到哪，头顶的烟花就是它们的聊天气泡，聊得越开心，烟花崩得越热闹。脑袋上噼里啪啦闪个不停，如果看到落单的烟花团一整天头上都没有冒出烟花，请多关心它的心理健康。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1343,6 +1362,22 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3677005,
+                "pet_id": 3677005,
+                "name": null,
+                "model_id": 3677001,
+                "hatch_data": 300,
+                "weight_low": 1768,
+                "weight_high": 2528,
+                "height_low": 14,
+                "height_high": 21,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 36770001,
                 "pet_id": 36770001,
                 "name": null,
@@ -1366,8 +1401,8 @@
             12,
             15
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

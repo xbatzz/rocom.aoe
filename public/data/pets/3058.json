@@ -271,13 +271,13 @@
             "localized": {
                 "zh": {
                     "name": "草虫冲击",
-                    "description": "造成物伤，若敌方本回合更换精灵，本次威力+50且无视敌方系别抵抗。"
+                    "description": "造成物伤，若敌方本回合更换精灵，本次威力+90且无视敌方系别抵抗。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 80,
-            "description": "造成物伤，若敌方本回合更换精灵，本次威力+50且无视敌方系别抵抗。"
+            "power": 75,
+            "description": "造成物伤，若敌方本回合更换精灵，本次威力+90且无视敌方系别抵抗。"
         },
         {
             "id": 7150300,
@@ -586,7 +586,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 30,
+            "power": 20,
             "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         },
         {
@@ -786,6 +786,50 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7150410,
+            "name": "惊鸿一瞥",
+            "icon_id": "114038",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "惊鸿一瞥",
+                    "description": "自己获得连击数+1，迅捷。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得连击数+1，迅捷。"
+        },
+        {
+            "id": 7130360,
+            "name": "信息素",
+            "icon_id": "112039",
+            "move_type": {
+                "id": 11,
+                "name": "Bug",
+                "localized": {
+                    "zh": "虫"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "信息素",
+                    "description": "己方队伍获得1次随机奉献，若上回合双方有精灵使用地系技能，额外获得3次随机奉献。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 4,
+            "power": null,
+            "description": "己方队伍获得1次随机奉献，若上回合双方有精灵使用地系技能，额外获得3次随机奉献。"
         }
     ],
     "legacy_moves": [
@@ -1343,8 +1387,7 @@
                             "等级达到 21 级",
                             "消耗 12,000 洛克贝",
                             "消耗 魔法石碎（不投放） ×5",
-                            "消耗 虫系灵碎 ×2",
-                            "需为雌性"
+                            "消耗 虫系灵碎 ×2"
                         ]
                     }
                 ],
@@ -1379,8 +1422,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 38 级",
-                            "需为雌性"
+                            "等级达到 38 级"
                         ]
                     }
                 ],
@@ -1396,12 +1438,10 @@
         "type_desc": "蜂精灵",
         "description_habitat": "常见于草地、山林",
         "introduction": "悬浮着的蜂巢就像身体的一部分一样灵活运动。可能是受某种信息素或者魔法影响，总会默契地做出协同的动作。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 5,
-        "classis_name": "昆虫类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2

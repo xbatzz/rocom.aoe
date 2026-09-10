@@ -26,11 +26,11 @@
         }
     },
     "implemented": true,
-    "base_hp": 96,
-    "base_phy_atk": 108,
-    "base_mag_atk": 39,
-    "base_phy_def": 127,
-    "base_mag_def": 120,
+    "base_hp": 104,
+    "base_phy_atk": 115,
+    "base_mag_atk": 43,
+    "base_phy_def": 134,
+    "base_mag_def": 127,
     "base_spd": 56,
     "evolves_from_id": 3103,
     "species": {
@@ -221,13 +221,13 @@
             "localized": {
                 "zh": {
                     "name": "吨位压制",
-                    "description": "造成物伤，敌方体重越低，威力越高。"
+                    "description": "造成物伤，敌方体重越低，本次技能威力越高。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": null,
-            "description": "造成物伤，敌方体重越低，威力越高。"
+            "description": "造成物伤，敌方体重越低，本次技能威力越高。"
         },
         {
             "id": 7080240,
@@ -685,13 +685,13 @@
             "localized": {
                 "zh": {
                     "name": "沙石阵",
-                    "description": "自己获得速度​-​20，​选择：且额外获得​物防+90%或​魔防​+90%。"
+                    "description": "自己获得速度-20，选择：且额外获得物防+90%或魔防+90%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己获得速度​-​20，​选择：且额外获得​物防+90%或​魔防​+90%。"
+            "description": "自己获得速度-20，选择：且额外获得物防+90%或魔防+90%。"
         }
     ],
     "legacy_moves": [
@@ -1279,12 +1279,10 @@
         "type_desc": "石头精灵",
         "description_habitat": "常见于洞穴、山地",
         "introduction": "脑袋部分的坚硬度接近基岩，普通的岩石对它来说就像泥土一样柔软。它的头好像完全感觉不到疼，受到击打很久之后才能明白刚才发生了什么。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 7,
-        "classis_name": "岩石类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1302,8 +1300,8 @@
             2,
             11
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

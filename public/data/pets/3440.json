@@ -383,13 +383,13 @@
             "localized": {
                 "zh": {
                     "name": "撒娇",
-                    "description": "造成魔伤，3连击。自己获得萌化：威力永久+20。"
+                    "description": "造成魔伤，3连击。自己获得萌化：全技能威力永久+10。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 30,
-            "description": "造成魔伤，3连击。自己获得萌化：威力永久+20。"
+            "description": "造成魔伤，3连击。自己获得萌化：全技能威力永久+10。"
         },
         {
             "id": 7160190,
@@ -691,13 +691,13 @@
             "localized": {
                 "zh": {
                     "name": "魔镜",
-                    "description": "敌方获得魔防​-50%，​且​失​去​3​能量​。"
+                    "description": "敌方获得魔防-50%，且失去3能量。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "敌方获得魔防​-50%，​且​失​去​3​能量​。"
+            "description": "敌方获得魔防-50%，且失去3能量。"
         },
         {
             "id": 7060270,
@@ -713,13 +713,57 @@
             "localized": {
                 "zh": {
                     "name": "色散",
-                    "description": "造成魔伤，对​混血精灵造成​伤害​+50%。"
+                    "description": "造成魔伤，对混血精灵造成伤害+50%。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 80,
-            "description": "造成魔伤，对​混血精灵造成​伤害​+50%。"
+            "description": "造成魔伤，对混血精灵造成伤害+50%。"
+        },
+        {
+            "id": 7170340,
+            "name": "回收",
+            "icon_id": "116034",
+            "move_type": {
+                "id": 15,
+                "name": "Ghost",
+                "localized": {
+                    "zh": "幽"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "回收",
+                    "description": "造成魔伤，若敌方本回合更换精灵，敌方失去4能量。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 80,
+            "description": "造成魔伤，若敌方本回合更换精灵，敌方失去4能量。"
+        },
+        {
+            "id": 7170240,
+            "name": "嘲弄",
+            "icon_id": "116018",
+            "move_type": {
+                "id": 15,
+                "name": "Ghost",
+                "localized": {
+                    "zh": "幽"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "嘲弄",
+                    "description": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。"
         }
     ],
     "legacy_moves": [
@@ -1334,12 +1378,10 @@
         "type_desc": "睡衣精灵",
         "description_habitat": "常见于草地",
         "introduction": "旧睡衣曾经的样子，主人把夜晚缝了进来，每一针、每一线都是对它的美好祝愿。它们收到了很多的爱，抱着自己时，能感受到属于主人的温暖，那是存在的全部理由。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2,
@@ -1423,8 +1465,8 @@
             7,
             12
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

@@ -1,0 +1,151 @@
+{
+    "length": 3.0,
+    "dialogue_id": 202500200,
+    "wait_user_click_at_end": true,
+    "clear_look_at_at_end": false,
+    "play_dialogue_sound_when_show_ui_if_no_say_action": true,
+    "play_dialogue_sound_when_say_action_without_data": true,
+    "black_switch_in": true,
+    "cached_actors": [
+        {
+            "id": -2,
+            "npc_id": 166354
+        },
+        {
+            "id": 166355,
+            "npc_id": 166355
+        },
+        {
+            "id": 166356,
+            "npc_id": 166356
+        },
+        {
+            "id": 166357,
+            "npc_id": 166357
+        },
+        {
+            "id": 166359,
+            "npc_id": 166359
+        },
+        {
+            "id": 166372,
+            "npc_id": 166372
+        },
+        {
+            "id": 166373,
+            "npc_id": 166373
+        },
+        {
+            "id": 166389,
+            "npc_id": 166389
+        },
+        {
+            "id": 166390,
+            "npc_id": 166390
+        },
+        {
+            "id": 950030,
+            "npc_id": 950030
+        },
+        {
+            "id": 950031,
+            "npc_id": 950031
+        },
+        {
+            "id": 950033,
+            "npc_id": 950033
+        },
+        {
+            "id": 950034,
+            "npc_id": 950034
+        },
+        {
+            "id": 950035,
+            "npc_id": 950035
+        },
+        {
+            "id": 950036,
+            "npc_id": 950036
+        },
+        {
+            "id": 950037,
+            "npc_id": 950037
+        },
+        {
+            "id": 950038,
+            "npc_id": 950038
+        },
+        {
+            "id": 950039,
+            "npc_id": 950039
+        },
+        {
+            "id": 950046,
+            "npc_id": 950046
+        },
+        {
+            "id": 950047,
+            "npc_id": 950047
+        }
+    ],
+    "actions": [
+        {
+            "ClassPath": "NewRoco.Modules.System.Dialogue.Action.Timeline.DialogueTimelineShowUIEvent",
+            "Name": "\u663e\u793a\u5bf9\u8bddUI",
+            "OwnerActorID": -100,
+            "NPCContentID": -1,
+            "StartTime": 0.0
+        },
+        {
+            "ClassPath": "NewRoco.Modules.System.Dialogue.Action.Timeline.DialogueTimelineNPCSayState",
+            "Name": "\u89d2\u8272\u8bf4\u8bdd",
+            "OwnerActorID": 0,
+            "NPCContentID": 0,
+            "StartTime": 0.0,
+            "EndTime": 1.0,
+            "MinimalDuration": 0.1,
+            "PlayFacialAnim": true
+        },
+        {
+            "ClassPath": "NewRoco.Modules.System.Dialogue.Action.Timeline.DialogueTimelineCameraSetupEvent_FreeCamera",
+            "Name": "\u81ea\u7531\u955c\u5934",
+            "OwnerActorID": -101,
+            "NPCContentID": -1,
+            "StartTime": 0.0,
+            "EndTime": 1.0,
+            "MinimalDuration": 0.1,
+            "BlendType": 1,
+            "BlendExp": 1.0,
+            "SkipUserClick": false,
+            "TargetActorID": -6,
+            "RelativeLocation": {
+                "X": -275.4,
+                "Y": 92.2,
+                "Z": 182.3
+            },
+            "RelativeRotation": {
+                "Pitch": -11.2,
+                "Yaw": 64.6,
+                "Roll": 0.0
+            },
+            "FOV": 60.0
+        },
+        {
+            "ClassPath": "NewRoco.Modules.System.Dialogue.Action.Timeline.DialogueTimelineNPCActorAnimAction",
+            "Name": "\u52a8\u4f5c",
+            "OwnerActorID": 166355,
+            "NPCContentID": 0,
+            "StartTime": 0.0,
+            "EndTime": 4.0,
+            "MinimalDuration": 0.1,
+            "Action": "Dialogue3",
+            "BlendInTime": 0.2,
+            "BlendOutTime": 0.2,
+            "LoopCount": 1,
+            "StartPoint": 0.0,
+            "EndPoint": 0.0,
+            "StopAnimAtEnd": false,
+            "StopAnimAtTimelineEnd": false
+        }
+    ]
+}

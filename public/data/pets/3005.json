@@ -1310,12 +1310,10 @@
         "type_desc": "水之灵",
         "description_habitat": "行踪神秘",
         "introduction": "将刚刚孕育的胚胎顶在头上，胚胎由特殊水元素包裹着。能将身边的水元素汇集在一起喷射出去，产生强大的冲击力。“无论是云中落下的一滴水，还是湖面中微风吹起的一道涟漪，都有她的身影”。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2

@@ -454,7 +454,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 30,
+            "power": 20,
             "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         },
         {
@@ -757,13 +757,13 @@
             "localized": {
                 "zh": {
                     "name": "清洗",
-                    "description": "​驱散​自己​的​减益，​自己​每​有​1层减益，​本技​能​能​耗​-1，巧变：​水系​攻击​技​能​。"
+                    "description": "驱散自己的减益，自己每有1层减益，本技能能耗-1，巧变：水系攻击技能。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 0,
             "power": null,
-            "description": "​驱散​自己​的​减益，​自己​每​有​1层减益，​本技​能​能​耗​-1，巧变：​水系​攻击​技​能​。"
+            "description": "驱散自己的减益，自己每有1层减益，本技能能耗-1，巧变：水系攻击技能。"
         }
     ],
     "legacy_moves": [
@@ -1335,7 +1335,7 @@
         "refresh_locations": [],
         "movement_type": null,
         "classis_id": 16,
-        "classis_name": "动物类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": null,
@@ -1343,8 +1343,8 @@
     "breeding_profile": {
         "pet_base_id": 4069,
         "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

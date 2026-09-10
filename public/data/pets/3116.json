@@ -1259,12 +1259,10 @@
         "type_desc": "轻飘飘精灵",
         "description_habitat": "常见于湖泊",
         "introduction": "它的身体构造至今难以完全解释：体内几乎都是水，身体被一层透明的膜包裹住，里面的液体非常轻。飞行时，由于压力变化或者风势太大，液体有时会漏出来。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1282,8 +1280,8 @@
             5,
             13
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

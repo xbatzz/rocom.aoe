@@ -32,9 +32,9 @@
         }
     },
     "implemented": true,
-    "base_hp": 115,
-    "base_phy_atk": 43,
-    "base_mag_atk": 120,
+    "base_hp": 128,
+    "base_phy_atk": 54,
+    "base_mag_atk": 138,
     "base_phy_def": 84,
     "base_mag_def": 106,
     "base_spd": 110,
@@ -315,13 +315,13 @@
             "localized": {
                 "zh": {
                     "name": "魔镜",
-                    "description": "敌方获得魔防​-50%，​且​失​去​3​能量​。"
+                    "description": "敌方获得魔防-50%，且失去3能量。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "敌方获得魔防​-50%，​且​失​去​3​能量​。"
+            "description": "敌方获得魔防-50%，且失去3能量。"
         },
         {
             "id": 7170130,
@@ -493,13 +493,13 @@
             "localized": {
                 "zh": {
                     "name": "孢子",
-                    "description": "敌方获得1层寄生。"
+                    "description": "敌方获得3层寄生。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "敌方获得1层寄生。"
+            "description": "敌方获得3层寄生。"
         },
         {
             "id": 7021170,
@@ -632,6 +632,72 @@
             "energy_cost": 0,
             "power": null,
             "description": "每回合随机变成敌方任意精灵的技能，且该技能能耗-2。"
+        },
+        {
+            "id": 7170360,
+            "name": "离魂术",
+            "icon_id": "116032",
+            "move_type": {
+                "id": 15,
+                "name": "Ghost",
+                "localized": {
+                    "zh": "幽"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "离魂术",
+                    "description": "偷取敌方2能量，脱离。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 3,
+            "power": null,
+            "description": "偷取敌方2能量，脱离。"
+        },
+        {
+            "id": 7170330,
+            "name": "小型打劫",
+            "icon_id": "316033",
+            "move_type": {
+                "id": 15,
+                "name": "Ghost",
+                "localized": {
+                    "zh": "幽"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "小型打劫",
+                    "description": "敌方队伍中所有精灵失去1能量。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "敌方队伍中所有精灵失去1能量。"
+        },
+        {
+            "id": 7170300,
+            "name": "入梦",
+            "icon_id": "116028",
+            "move_type": {
+                "id": 15,
+                "name": "Ghost",
+                "localized": {
+                    "zh": "幽"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "入梦",
+                    "description": "敌方下回合回复的能量-5，冷却2回合。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 1,
+            "power": null,
+            "description": "敌方下回合回复的能量-5，冷却2回合。"
         }
     ],
     "legacy_moves": [
@@ -1186,8 +1252,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 36 级",
-                            "需准备以下晶石系列材料共 3 份：可可果树、无花果树、魔力果树"
+                            "等级达到 36 级"
                         ]
                     }
                 ],
@@ -1203,12 +1268,10 @@
         "type_desc": "苹果精灵",
         "description_habitat": "行踪神秘",
         "introduction": "“洛克洛克，告诉我， 我还甜吗？” “比从前更甜，比糖更黏。” “那我还圆吗？” “比从前更圆，比月更满。” “洛克洛克，告诉我， 腐朽的果还有人摘吗？”",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1225,8 +1288,8 @@
             7,
             8
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

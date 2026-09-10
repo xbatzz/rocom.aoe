@@ -32,11 +32,11 @@
         }
     },
     "implemented": true,
-    "base_hp": 91,
+    "base_hp": 107,
     "base_phy_atk": 82,
     "base_mag_atk": 78,
-    "base_phy_def": 68,
-    "base_mag_def": 78,
+    "base_phy_def": 77,
+    "base_mag_def": 88,
     "base_spd": 60,
     "evolves_from_id": 3347,
     "species": {
@@ -271,13 +271,13 @@
             "localized": {
                 "zh": {
                     "name": "下注",
-                    "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+                    "description": "造成物伤，选择：本次技能威力+40，使用后自己生命-10%或自己生命低于50%时本次技能威力+100。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 85,
-            "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+            "description": "造成物伤，选择：本次技能威力+40，使用后自己生命-10%或自己生命低于50%时本次技能威力+100。"
         },
         {
             "id": 7180190,
@@ -757,13 +757,57 @@
             "localized": {
                 "zh": {
                     "name": "蒸汽进行曲",
-                    "description": "选择：​自己获得速度​+60或​物攻+90%。"
+                    "description": "选择：自己获得速度+60或物攻+90%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "选择：​自己获得速度​+60或​物攻+90%。"
+            "description": "选择：自己获得速度+60或物攻+90%。"
+        },
+        {
+            "id": 7180460,
+            "name": "暴打",
+            "icon_id": "117045",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "暴打",
+                    "description": "对敌方精灵造成魔法伤害。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 100,
+            "description": "对敌方精灵造成魔法伤害。"
+        },
+        {
+            "id": 7050530,
+            "name": "汇流",
+            "icon_id": "104038",
+            "move_type": {
+                "id": 4,
+                "name": "Water",
+                "localized": {
+                    "zh": "水"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "汇流",
+                    "description": "雨天的回合数延长4回合，应对防御：改为延长8回合。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 1,
+            "power": null,
+            "description": "雨天的回合数延长4回合，应对防御：改为延长8回合。"
         }
     ],
     "legacy_moves": [
@@ -1369,12 +1413,10 @@
         "type_desc": "眼精灵",
         "description_habitat": "常见于古堡周边",
         "introduction": "如果你不幸走进了叶眼魔的领地，你会注意到空气中有一种异样的压迫感，好像被很多眼睛同时审视着，从不同角度同时锁定你。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1392,8 +1434,8 @@
             2,
             7
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

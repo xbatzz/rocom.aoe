@@ -229,6 +229,29 @@ def validate_manifest_checks(
     return checked
 
 
+def validate_table_relationships(payloads: dict[str, dict[str, Any]]) -> None:
+    """Catch valid binary refs decoded into invalid cross-table game IDs."""
+    def rows(name: str) -> dict[str, Any]:
+        return payloads.get(name, {}).get("RocoDataRows", {})
+
+    def require(target: str, value: Any, context: str) -> None:
+        if target in payloads and str(value) not in rows(target):
+            raise ValueError(f"{context}: missing {target}[{value}]")
+
+    for key, handbook in rows("PET_HANDBOOK").items():
+        for group in handbook.get("include_petbase_id", []):
+            for pet_id in group.get("petbase_id", []):
+                require("PETBASE_CONF", pet_id, f"PET_HANDBOOK[{key}].include_petbase_id")
+        for topic in handbook.get("pet_topic", []):
+            require("REWARD_CONF", topic.get("topic_reward"), f"PET_HANDBOOK[{key}].pet_topic")
+
+    for key, level in rows("LEVEL_SKILL_CONF").items():
+        for field, id_field in [("level", "param"), ("machine_skill_group", "machine_skill_id")]:
+            for entry in level.get(field, []):
+                if entry.get(id_field):
+                    require("SKILL_CONF", entry[id_field], f"LEVEL_SKILL_CONF[{key}].{field}")
+
+
 def write_payloads(output_dir: Path, payloads: dict[str, dict[str, Any]]) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
     staging_dir = Path(tempfile.mkdtemp(prefix=".bindata-export-", dir=output_dir))
@@ -288,6 +311,7 @@ def main() -> None:
         )
 
     checked = validate_manifest_checks(manifest, payloads)
+    validate_table_relationships(payloads)
     if checked:
         print(f"Passed {checked} manifest sentinel check(s).")
 

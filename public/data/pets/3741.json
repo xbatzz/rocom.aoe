@@ -43,12 +43,12 @@
     "trait": {
         "id": 200313,
         "name": "博物",
-        "description": "在场时，识破​精灵​的​变化​效果，​解除​其​伪装。​",
+        "description": "在场时，识破精灵的变化效果，解除其伪装。",
         "icon_id": "200288",
         "localized": {
             "zh": {
                 "name": "博物",
-                "description": "在场时，识破​精灵​的​变化​效果，​解除​其​伪装。​"
+                "description": "在场时，识破精灵的变化效果，解除其伪装。"
             }
         }
     },
@@ -1184,12 +1184,10 @@
         "type_desc": "藏狐精灵",
         "description_habitat": "行踪神秘",
         "introduction": "只有看到虫系精灵的时候会双眼放光，经常出现在虫群附近，爪子摩挲着没见过的虫，嘴巴里嘟嘟囔囔说着什么。实习研究员遇到不认识的虫都会去给它看看。直到学院反复重申：野外考察作业务必独立完成。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": null,
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1205,8 +1203,8 @@
         "egg_groups": [
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

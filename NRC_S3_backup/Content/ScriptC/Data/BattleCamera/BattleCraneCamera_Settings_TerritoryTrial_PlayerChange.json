@@ -1,0 +1,123 @@
+{
+	"Desc": "换宠机位",
+	"TargetA": 3,
+	"TargetB": 1,
+	"SpringArmRotation":
+	{
+		"X": 0,
+		"Y": -20,
+		"Z": -36
+	},
+	"SpringArmOffset":
+	{
+		"X": 0,
+		"Y": -240,
+		"Z": -20
+	},
+	"SprintArmLength": 570,
+	"CameraFov": 75,
+	"EnableDepthOfField": false,
+	"DepthOfFieldScale": 0,
+	"ControllerArray": [
+		{
+			"IsEnable": true,
+			"InputType": 2,
+			"EffectType": 4,
+			"Interval":
+			{
+				"X": -10,
+				"Y": 60
+			},
+			"Desc": "none"
+		},
+		{
+			"IsEnable": true,
+			"InputType": 2,
+			"EffectType": 6,
+			"Interval":
+			{
+				"X": -5,
+				"Y": 5
+			},
+			"Desc": ""
+		},
+		{
+			"IsEnable": true,
+			"InputType": 4,
+			"EffectType": 1,
+			"Interval":
+			{
+				"X": -4,
+				"Y": 5
+			},
+			"Desc": ""
+		},
+		{
+			"IsEnable": true,
+			"InputType": 3,
+			"EffectType": 1,
+			"Interval":
+			{
+				"X": -2,
+				"Y": 3
+			},
+			"Desc": "none"
+		},
+		{
+			"IsEnable": true,
+			"InputType": 4,
+			"EffectType": 2,
+			"Interval":
+			{
+				"X": 1,
+				"Y": -5
+			},
+			"Desc": "none"
+		},
+		{
+			"IsEnable": true,
+			"InputType": 2,
+			"EffectType": 2,
+			"Interval":
+			{
+				"X": 4,
+				"Y": 6
+			},
+			"Desc": ""
+		},
+		{
+			"IsEnable": true,
+			"InputType": 2,
+			"EffectType": 1,
+			"Interval":
+			{
+				"X": 1,
+				"Y": 5
+			},
+			"Desc": ""
+		}
+	],
+	"CurvesArray": [
+		{
+			"IsEnable": true,
+			"TargetCameraId": 58,
+			"CurveId": 4,
+			"Duration": 0.29999999999999999,
+			"CameraName": "领地试炼——精灵1选招"
+		},
+		{
+			"IsEnable": true,
+			"TargetCameraId": 59,
+			"CurveId": 4,
+			"Duration": 0.29999999999999999,
+			"CameraName": "领地试炼——精灵2选招"
+		},
+		{
+			"IsEnable": true,
+			"TargetCameraId": 60,
+			"CurveId": 4,
+			"Duration": 0.29999999999999999,
+			"CameraName": "领地试炼——技能表演"
+		}
+	]
+}

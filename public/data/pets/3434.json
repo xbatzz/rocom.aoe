@@ -669,13 +669,13 @@
             "localized": {
                 "zh": {
                     "name": "寒潮",
-                    "description": "造成​魔伤，​敌方​获得​1层​冻结，应对状态：额​外​获得4层​冻结，​​巧变：​冻结相关技​能​。"
+                    "description": "造成魔伤，敌方获得1层冻结，应对状态：额外获得4层冻结，巧变：冻结相关技能。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 95,
-            "description": "造成​魔伤，​敌方​获得​1层​冻结，应对状态：额​外​获得4层​冻结，​​巧变：​冻结相关技​能​。"
+            "description": "造成魔伤，敌方获得1层冻结，应对状态：额外获得4层冻结，巧变：冻结相关技能。"
         },
         {
             "id": 7021230,
@@ -691,13 +691,13 @@
             "localized": {
                 "zh": {
                     "name": "友谊满溢",
-                    "description": "造成​魔伤，​选择：​每次使用后威力​永久​​+20​或​应对状态​时​本​次技能​威力​+100%。"
+                    "description": "造成魔伤，选择：每次使用后威力永久+20或应对状态时本次技能威力+100%。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 2,
             "power": 70,
-            "description": "造成​魔伤，​选择：​每次使用后威力​永久​​+20​或​应对状态​时​本​次技能​威力​+100%。"
+            "description": "造成魔伤，选择：每次使用后威力永久+20或应对状态时本次技能威力+100%。"
         },
         {
             "id": 7110460,
@@ -713,13 +713,13 @@
             "localized": {
                 "zh": {
                     "name": "踏雷",
-                    "description": "自己回合结束时返场，​携带的攻击​技​能​​下回合获得1个已触发过的迸发效果，​应对防御：​改为​获得​所有​触​发过​的迸发​效果​。"
+                    "description": "自己回合结束时返场，携带的攻击技能下回合获得1个已触发过的迸发效果，应对防御：改为获得所有触发过的迸发效果。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己回合结束时返场，​携带的攻击​技​能​​下回合获得1个已触发过的迸发效果，​应对防御：​改为​获得​所有​触​发过​的迸发​效果​。"
+            "description": "自己回合结束时返场，携带的攻击技能下回合获得1个已触发过的迸发效果，应对防御：改为获得所有触发过的迸发效果。"
         }
     ],
     "legacy_moves": [
@@ -1290,12 +1290,10 @@
         "type_desc": "企鹅精灵",
         "description_habitat": "常见于雪山",
         "introduction": "它们生活在寒冷的水域，会用头顶的晶体吸收空气里的电能量。当能量充足时，晶体表面会浮现细碎的亮纹和电光。偏爱暴雪与打雷的天气，风雪越大、雷声越近，它们越活跃。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1377,8 +1375,8 @@
         "egg_groups": [
             5
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

@@ -669,13 +669,13 @@
             "localized": {
                 "zh": {
                     "name": "入梦",
-                    "description": "敌方​下​回合回复的​能量​-5，​冷​却​2回合。"
+                    "description": "敌方下回合回复的能量-5，冷却2回合。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "敌方​下​回合回复的​能量​-5，​冷​却​2回合。"
+            "description": "敌方下回合回复的能量-5，冷却2回合。"
         },
         {
             "id": 7130330,
@@ -691,13 +691,13 @@
             "localized": {
                 "zh": {
                     "name": "振翅",
-                    "description": "选择：己方队伍​获得​1​次​奉献：​连击​+1或​威力​+20。"
+                    "description": "选择：己方队伍获得1次奉献：连击+1或威力+20。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "选择：己方队伍​获得​1​次​奉献：​连击​+1或​威力​+20。"
+            "description": "选择：己方队伍获得1次奉献：连击+1或威力+20。"
         }
     ],
     "legacy_moves": [
@@ -1252,8 +1252,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 30 级",
-                            "需激活「捕尘长绒」分支，并满足区间条件（5,000-10,000）"
+                            "等级达到 30 级"
                         ]
                     },
                     {
@@ -1282,8 +1281,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 30 级",
-                            "需激活「食尘短绒」分支，并满足区间条件（0-5,000）"
+                            "等级达到 30 级"
                         ]
                     }
                 ],
@@ -1299,12 +1297,10 @@
         "type_desc": "扫把精灵",
         "description_habitat": "常见于魔法学院",
         "introduction": "绒毛长而纤细，每个洛克小时候都曾把家里打扫清洁的捕尘长绒当作魔法扫帚骑着玩，然后被家长揍一顿，而家长顺手拿起的武器也是捕尘长绒，但是它们喜欢被洛克需要。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1321,8 +1317,8 @@
             4,
             7
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

@@ -254,7 +254,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 35,
+            "power": 40,
             "description": "造成物伤，2连击，若击败敌方，本技能连击数永久+2。"
         },
         {
@@ -691,13 +691,13 @@
             "localized": {
                 "zh": {
                     "name": "冰裂",
-                    "description": "造​成​物伤，​选择：​敌方​获得​物防-30%或​敌方获得速度​-20。"
+                    "description": "造成物伤，选择：敌方获得物防-30%或敌方获得速度-20。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 70,
-            "description": "造​成​物伤，​选择：​敌方​获得​物防-30%或​敌方获得速度​-20。"
+            "description": "造成物伤，选择：敌方获得物防-30%或敌方获得速度-20。"
         },
         {
             "id": 7180420,
@@ -713,13 +713,13 @@
             "localized": {
                 "zh": {
                     "name": "下注",
-                    "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+                    "description": "造成物伤，选择：本次技能威力+40，使用后自己生命-10%或自己生命低于50%时本次技能威力+100。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 85,
-            "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+            "description": "造成物伤，选择：本次技能威力+40，使用后自己生命-10%或自己生命低于50%时本次技能威力+100。"
         },
         {
             "id": 7090200,
@@ -1323,8 +1323,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 30 级",
-                            "需激活「极昼的样子」分支"
+                            "等级达到 30 级"
                         ]
                     },
                     {
@@ -1353,8 +1352,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 30 级",
-                            "需激活「极夜的样子」分支"
+                            "等级达到 30 级"
                         ]
                     }
                 ],
@@ -1389,8 +1387,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 50 级",
-                            "需激活「极昼的样子」分支"
+                            "等级达到 50 级"
                         ]
                     },
                     {
@@ -1419,8 +1416,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 50 级",
-                            "需激活「极夜的样子」分支"
+                            "等级达到 50 级"
                         ]
                     }
                 ],
@@ -1436,12 +1432,10 @@
         "type_desc": "恶作剧精灵",
         "description_habitat": "常见于山地",
         "introduction": "收集笑声的方式更加熟练，它们会把冷笑话冻成冰沙随身携带，需要的时候变为冰魔法投掷使用，是一种对冰系魔法的巧妙运用。被冷笑话击中的小洛克们明明听不懂精灵说的话，但却理解了他们的冷笑话。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1458,8 +1452,8 @@
         "egg_groups": [
             2
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

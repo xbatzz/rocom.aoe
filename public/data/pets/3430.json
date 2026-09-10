@@ -691,13 +691,13 @@
             "localized": {
                 "zh": {
                     "name": "清洗",
-                    "description": "​驱散​自己​的​减益，​自己​每​有​1层减益，​本技​能​能​耗​-1，巧变：​水系​攻击​技​能​。"
+                    "description": "驱散自己的减益，自己每有1层减益，本技能能耗-1，巧变：水系攻击技能。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 0,
             "power": null,
-            "description": "​驱散​自己​的​减益，​自己​每​有​1层减益，​本技​能​能​耗​-1，巧变：​水系​攻击​技​能​。"
+            "description": "驱散自己的减益，自己每有1层减益，本技能能耗-1，巧变：水系攻击技能。"
         },
         {
             "id": 7090330,
@@ -1336,12 +1336,10 @@
         "type_desc": "珊瑚精灵",
         "description_habitat": "常见于海面",
         "introduction": "以海水中的微小生物为食，捕食时会发出“啵啵”声，身体分泌出美丽的树枝状骨骼，呈现美丽的苍青色。喜欢用不同颜色的海藻打扮自己，代谢时能给海藻提供养分，彼此互利共生。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1440,8 +1438,8 @@
             8,
             13
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

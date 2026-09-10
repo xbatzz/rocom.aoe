@@ -108,7 +108,7 @@
         "id": 100013,
         "name": "过往异色蛋礼包",
         "icon_id": "100721",
-        "description": "随机获得一枚过往赛季的异色奇遇精灵蛋，其天分必定为“了不起”。",
+        "description": "随机获得一枚S2、S3赛季的异色奇遇精灵蛋，优先获取图鉴未收录或未拥有的精灵蛋，其天分必定为“了不起”。",
         "flavor_text": null,
         "category": "重要",
         "type_desc": "随机礼盒",
@@ -147,7 +147,33 @@
         "id": 100016,
         "name": "S3异色蛋礼包",
         "icon_id": "100721",
-        "description": "随机获得一枚S3赛季的异色奇遇精灵蛋，其天分必定为“了不起”。",
+        "description": "随机获得一枚S3赛季的异色奇遇精灵蛋，优先获取图鉴未收录或未拥有的精灵蛋，其天分必定为“了不起”。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "随机礼盒",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 100017,
+        "name": "S4异色奇遇礼包",
+        "icon_id": "100721",
+        "description": "使用后，可在「月涌狂想」赛季的8个异色奇遇新精灵蛋中任选其一。其天分必定为“了不起”。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "礼包",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 100018,
+        "name": "S4异色蛋礼包",
+        "icon_id": "100721",
+        "description": "随机获得一枚S4赛季的异色奇遇精灵蛋，优先获取图鉴未收录或未拥有的精灵蛋，其天分必定为“了不起”。",
         "flavor_text": null,
         "category": "重要",
         "type_desc": "随机礼盒",
@@ -549,6 +575,10 @@
             {
                 "id": 3066,
                 "name": "影狸"
+            },
+            {
+                "id": 8205,
+                "name": "蒲公英娃娃"
             }
         ]
     },
@@ -687,6 +717,21 @@
                                 "id": 100204,
                                 "name": "损坏的国王球",
                                 "icon_id": "100723"
+                            }
+                        ],
+                        "count": 10
+                    }
+                ],
+                "can_craft": true
+            },
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 100003,
+                                "name": "高级咕噜球",
+                                "icon_id": "100003"
                             }
                         ],
                         "count": 10
@@ -882,7 +927,7 @@
         "id": 100272,
         "name": "网兜球",
         "icon_id": "img_wangdiuqiu",
-        "description": "更适合用来捕捉水系、翼系精灵。能够穿入水面。",
+        "description": "更适合用来捕捉水系、翼系、水中的精灵。",
         "flavor_text": "轻快的球，能直线飞跃很远的距离。",
         "category": "咕噜球",
         "type_desc": "特制咕噜球",
@@ -1123,7 +1168,7 @@
         "id": 100283,
         "name": "淘沙球",
         "icon_id": "img_shaliqiu",
-        "description": "更适合用来捕捉地系、虫系精灵。也能击中埋在地下的精灵。",
+        "description": "更适合用来捕捉地系、虫系、以及埋在地里的精灵。",
         "flavor_text": "沉重的球，没法扔太远。",
         "category": "咕噜球",
         "type_desc": "特制咕噜球",
@@ -1190,7 +1235,7 @@
         "quality_label": "史诗",
         "acquire_ways": [
             "精灵首领·祭礼巨像掉落",
-            "精灵首领·圣剑骑士",
+            "精灵首领·圣剑骑士掉落",
             "炼金造物获得"
         ],
         "related_pets": [],
@@ -1291,13 +1336,16 @@
         "id": 100287,
         "name": "可可果球",
         "icon_id": "100825",
-        "description": "天然的咕噜球，暂未研究出其炼制配方。",
-        "flavor_text": "为庆祝可可果节而设计的咕噜球，闻起来有可可果的香甜气息。",
+        "description": "散发可可果香味，能十分轻易地捕捉精灵。",
+        "flavor_text": "有些调皮的球，曾经在打水漂大赛里赢得冠军。",
         "category": "咕噜球",
         "type_desc": "特制咕噜球",
-        "quality": 4,
-        "quality_label": "史诗",
-        "acquire_ways": [],
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "可可果通行证获得",
+            "活动商店获得"
+        ],
         "related_pets": []
     },
     {
@@ -1366,6 +1414,22 @@
         "related_pets": []
     },
     {
+        "id": 100292,
+        "name": "月涌棱镜球",
+        "icon_id": "img_lengjingqiu_s4",
+        "description": "珍贵的咕噜球，能十分轻易地捕捉精灵，也能够穿入水面。 会将精灵外观转化为S4赛季的限定炫彩「月涌狂想」；还蕴含着提升精灵天分、使精灵的个体资质变为极致的神秘力量。",
+        "flavor_text": "无数星星凑在一起，就能照亮无光的月面。",
+        "category": "咕噜球",
+        "type_desc": "特制咕噜球",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "珍稀道具城购买",
+            "月涌通行证获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 100301,
         "name": "草系灵碎",
         "icon_id": "100101",
@@ -1399,6 +1463,14 @@
             {
                 "id": 8003,
                 "name": "道馆魔草巫灵"
+            },
+            {
+                "id": 8205,
+                "name": "蒲公英娃娃"
+            },
+            {
+                "id": 8207,
+                "name": "伊贝粉粉"
             },
             {
                 "id": 9819,
@@ -1487,6 +1559,7 @@
         "quality_label": "史诗",
         "acquire_ways": [
             "精灵首领·幻影荆棘掉落",
+            "精灵首领·暗夜颅主掉落",
             "炼金转化获得"
         ],
         "related_pets": [
@@ -1524,6 +1597,7 @@
         "quality_label": "史诗",
         "acquire_ways": [
             "精灵首领·迷嶂布莱克掉落",
+            "精灵首领·淤泥乌泽掉落",
             "炼金转化获得"
         ],
         "related_pets": []
@@ -1604,6 +1678,7 @@
         "quality_label": "史诗",
         "acquire_ways": [
             "精灵首领·女王蜂掉落",
+            "精灵首领·暮风隐者掉落",
             "炼金转化获得"
         ],
         "related_pets": [
@@ -1693,7 +1768,7 @@
         "quality": 4,
         "quality_label": "史诗",
         "acquire_ways": [
-            "精灵首领·圣剑骑士",
+            "精灵首领·圣剑骑士掉落",
             "炼金转化获得"
         ],
         "related_pets": []
@@ -1932,6 +2007,10 @@
             {
                 "id": 3302,
                 "name": "蹦蹦草"
+            },
+            {
+                "id": 8203,
+                "name": "卷毛鸭"
             }
         ]
     },
@@ -2000,6 +2079,14 @@
             {
                 "id": 8003,
                 "name": "道馆魔草巫灵"
+            },
+            {
+                "id": 8206,
+                "name": "格兰球"
+            },
+            {
+                "id": 8207,
+                "name": "伊贝粉粉"
             },
             {
                 "id": 9819,
@@ -3856,6 +3943,21 @@
         "related_pets": []
     },
     {
+        "id": 100859,
+        "name": "祝福星",
+        "icon_id": "101052",
+        "description": "由许愿星转化来的材料，可以用于合成祝福项坠。",
+        "flavor_text": "许愿的星星转化为了美好的祝福。",
+        "category": "材料",
+        "type_desc": "炼金材料",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "好友之间祝福获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 100982,
         "name": "童话球",
         "icon_id": "100982",
@@ -3871,6 +3973,55 @@
             "S3赛季对战获得"
         ],
         "related_pets": []
+    },
+    {
+        "id": 100983,
+        "name": "失重球",
+        "icon_id": "101046",
+        "description": "「月涌狂想」赛季的纪念咕噜球，能十分轻易地捕捉精灵，也能够穿入水面。使用赛季纪念球捕捉任意精灵时，赛季奇遇的连锁进度均会按「最高捕捉难度」来累计，会较容易地触发赛季奇遇。",
+        "flavor_text": "载我飞向月。",
+        "category": "咕噜球",
+        "type_desc": "特制咕噜球",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "月涌通行证获得",
+            "代币商店购买",
+            "S4赛季对战获得"
+        ],
+        "related_pets": [],
+        "recipes": [
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 16,
+                                "name": "道具 16",
+                                "icon_id": null
+                            }
+                        ],
+                        "count": 4
+                    }
+                ],
+                "can_craft": true
+            },
+            {
+                "cost": [
+                    {
+                        "options": [
+                            {
+                                "id": 35,
+                                "name": "道具 35",
+                                "icon_id": null
+                            }
+                        ],
+                        "count": 2
+                    }
+                ],
+                "can_craft": true
+            }
+        ]
     },
     {
         "id": 101052,
@@ -4868,6 +5019,81 @@
         "related_pets": []
     },
     {
+        "id": 103035,
+        "name": "捡拾的香甜的瓜",
+        "icon_id": "100603",
+        "description": "捡拾的香甜的瓜。",
+        "flavor_text": "香甜但多籽，吃的时候要疯狂吐籽，有些精灵吃的时候不吐籽，令人震撼。",
+        "category": "任务",
+        "type_desc": "任务道具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "捡拾获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 103036,
+        "name": "捡拾的可可果",
+        "icon_id": "100211",
+        "description": "捡拾的可可果。",
+        "flavor_text": "精灵们经常因为支持硬的可可果还是软的可可果而争吵不休。",
+        "category": "任务",
+        "type_desc": "任务道具",
+        "quality": 2,
+        "quality_label": "优秀",
+        "acquire_ways": [
+            "捡拾获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 103037,
+        "name": "捡拾的无花果",
+        "icon_id": "100669",
+        "description": "捡拾的无花果。",
+        "flavor_text": "不开花就能结果的果实，传闻受到过某种诅咒。",
+        "category": "任务",
+        "type_desc": "任务道具",
+        "quality": 2,
+        "quality_label": "优秀",
+        "acquire_ways": [
+            "捡拾获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 103038,
+        "name": "捡拾的魔力果",
+        "icon_id": "100668",
+        "description": "捡拾的魔力果。",
+        "flavor_text": "“精灵食物营养科的研究总是不见进展，这么多年了精灵还在吃果子。”",
+        "category": "任务",
+        "type_desc": "任务道具",
+        "quality": 2,
+        "quality_label": "优秀",
+        "acquire_ways": [
+            "捡拾获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 103039,
+        "name": "果实立方人制作的工艺品",
+        "icon_id": "100709",
+        "description": "果实立方人制作的工艺品。",
+        "flavor_text": "果实立方人亲手制作的工艺品，嫩叶微舒，藏着未褪的青涩。",
+        "category": "任务",
+        "type_desc": "任务道具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "果实立方人赠予"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 103900,
         "name": "法尔的记忆碎片",
         "icon_id": "100847",
@@ -5106,6 +5332,19 @@
         "related_pets": []
     },
     {
+        "id": 104001,
+        "name": "光合治愈",
+        "icon_id": "7010010",
+        "description": "对任意血脉的精灵使用，立即回复15%生命，每回合结束时回复15%生命，持续3回合。",
+        "flavor_text": null,
+        "category": "共鸣魔法",
+        "type_desc": "共鸣魔法",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
         "id": 104002,
         "name": "愿力强化",
         "icon_id": "7010020",
@@ -5253,6 +5492,21 @@
         "name": "加灵的记忆",
         "icon_id": "100958",
         "description": "远古的思绪凝结成晶体，窥探精灵的记忆可以提升加灵家族的能力。",
+        "flavor_text": null,
+        "category": "材料",
+        "type_desc": "精灵记忆",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "放生对应家族的精灵获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 105007,
+        "name": "诅咒狼灵的记忆",
+        "icon_id": "101044",
+        "description": "远古的思绪凝结成晶体，窥探精灵的记忆可以提升诅咒狼灵家族的能力。",
         "flavor_text": null,
         "category": "材料",
         "type_desc": "精灵记忆",
@@ -5569,6 +5823,96 @@
         "quality_label": "传说",
         "acquire_ways": [
             "幻梦通行证获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 106030,
+        "name": "契约副券",
+        "icon_id": "101036",
+        "description": "精致的礼券，用于解锁契约礼券-圣凯布米龙，可赠送好友。 过期后会转化为410洛克钻，请及时使用或赠送。",
+        "flavor_text": "用掉它，还是赠予他人？",
+        "category": "重要",
+        "type_desc": "赠礼",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "月涌通行证双人礼券获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 106031,
+        "name": "契约副券",
+        "icon_id": "101037",
+        "description": "精致的礼券，用于解锁契约礼券-月使鹭纳，可赠送好友。 过期后会转化为410洛克钻，请及时使用或赠送。",
+        "flavor_text": "用掉它，还是赠予他人？",
+        "category": "重要",
+        "type_desc": "赠礼",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "月涌通行证双人礼券获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 106032,
+        "name": "闪耀契约副券",
+        "icon_id": "101038",
+        "description": "精致的礼券，用于解锁闪耀契约礼券-圣凯布米龙，可赠送好友。 过期后会转化为820洛克钻，请及时使用或赠送。",
+        "flavor_text": "用掉它，还是赠予他人？",
+        "category": "重要",
+        "type_desc": "赠礼",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "月涌通行证双人礼券获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 106033,
+        "name": "闪耀契约副券",
+        "icon_id": "101035",
+        "description": "精致的礼券，用于解锁闪耀契约礼券-月使鹭纳，可赠送好友。 过期后会转化为820洛克钻，请及时使用或赠送。",
+        "flavor_text": "用掉它，还是赠予他人？",
+        "category": "重要",
+        "type_desc": "赠礼",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "月涌通行证双人礼券获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 106034,
+        "name": "「圣凯布米龙」名片",
+        "icon_id": "img_shengkaibumilong_icon2",
+        "description": "S4赛季通行证限定个人名片。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "纪念名片",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "月涌通行证获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 106035,
+        "name": "「月使鹭纳」名片",
+        "icon_id": "img_yueshiluna_icon2",
+        "description": "S4赛季通行证限定个人名片。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "纪念名片",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "月涌通行证获得"
         ],
         "related_pets": []
     },
@@ -6732,7 +7076,7 @@
     {
         "id": 107090,
         "name": "精灵蛋",
-        "icon_id": "egg_chaonengqiuqiu",
+        "icon_id": "img_Ill_QiuQiu0_001_Egg",
         "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。",
         "flavor_text": null,
         "category": "精灵蛋",
@@ -8654,6 +8998,123 @@
         "related_pets": []
     },
     {
+        "id": 107242,
+        "name": "精灵蛋",
+        "icon_id": "img_Gho_WeiWanChong0_001_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 107243,
+        "name": "精灵蛋",
+        "icon_id": "img_Ill_DaiGui0_001_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 107244,
+        "name": "精灵蛋",
+        "icon_id": "img_Win_LiangFengWan0_001_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 107245,
+        "name": "精灵蛋",
+        "icon_id": "img_Lig_ZhangNaoWan0_001_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 107246,
+        "name": "精灵蛋",
+        "icon_id": "img_Dem_XiaoHuanDan0_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 107247,
+        "name": "精灵蛋",
+        "icon_id": "img_Gho_YouLing0_001_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 107248,
+        "name": "精灵蛋",
+        "icon_id": "img_Ill_BuLing0_001_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 107249,
+        "name": "精灵蛋",
+        "icon_id": "img_Wat_ZhuZhuTun0_001_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 107250,
+        "name": "果实立方人的蛋",
+        "icon_id": "img_Mac_FangFang0SP_001_Egg",
+        "description": "参与活动「秋，丰收与机器人」获得的珍贵精灵蛋，经过孵化可以得到“完美无瑕”、且拥有量身定制资质、“亲密”特长的果实立方人。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
         "id": 107999,
         "name": "精灵蛋（测试）",
         "icon_id": "egg_yajiji",
@@ -9829,6 +10290,21 @@
         "related_pets": []
     },
     {
+        "id": 108090,
+        "name": "精灵果实",
+        "icon_id": "img_Ill_QiuQiu0_001_Fruit",
+        "description": "放入眠枭庇护所后能吸引某种精灵过来栖息，观察其花纹可以知道什么精灵会被吸引。",
+        "flavor_text": null,
+        "category": "精灵果实",
+        "type_desc": "精灵果实",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "完成赛季作业挑战课题"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 108091,
         "name": "精灵果实",
         "icon_id": "gs_songmao",
@@ -10862,14 +11338,16 @@
     {
         "id": 108202,
         "name": "精灵果实",
-        "icon_id": null,
+        "icon_id": "img_Win_XinYueLu0_001_Fruit",
         "description": "放入眠枭庇护所后能吸引某种精灵过来栖息，观察其花纹可以知道什么精灵会被吸引。",
         "flavor_text": null,
         "category": "精灵果实",
         "type_desc": "精灵果实",
-        "quality": 4,
-        "quality_label": "史诗",
-        "acquire_ways": [],
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "月涌通行证获得"
+        ],
         "related_pets": []
     },
     {
@@ -10884,6 +11362,36 @@
         "quality_label": "传说",
         "acquire_ways": [
             "狂欢通行证获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 108205,
+        "name": "精灵果实",
+        "icon_id": "img_Lig_ZhangNaoWan0_001_Fruit",
+        "description": "放入眠枭庇护所后能吸引某种精灵过来栖息，观察其花纹可以知道什么精灵会被吸引。",
+        "flavor_text": null,
+        "category": "精灵果实",
+        "type_desc": "精灵果实",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "完成赛季作业挑战课题"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 108206,
+        "name": "精灵果实",
+        "icon_id": "img_Win_LiangFengWan0_001_Fruit",
+        "description": "放入眠枭庇护所后能吸引某种精灵过来栖息，观察其花纹可以知道什么精灵会被吸引。",
+        "flavor_text": null,
+        "category": "精灵果实",
+        "type_desc": "精灵果实",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "完成赛季作业挑战课题"
         ],
         "related_pets": []
     },
@@ -10918,6 +11426,21 @@
         "related_pets": []
     },
     {
+        "id": 108209,
+        "name": "精灵果实",
+        "icon_id": "img_Fir_ReTuanTuan0_001_Fruit",
+        "description": "放入眠枭庇护所后能吸引某种精灵过来栖息，观察其花纹可以知道什么精灵会被吸引。",
+        "flavor_text": null,
+        "category": "精灵果实",
+        "type_desc": "精灵果实",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "月涌通行证获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 108210,
         "name": "精灵果实",
         "icon_id": "gs_leiyanlong",
@@ -10929,6 +11452,21 @@
         "quality_label": "传说",
         "acquire_ways": [
             "狂欢通行证获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 108212,
+        "name": "精灵果实",
+        "icon_id": "img_Gho_WeiWanChong0_001_Fruit",
+        "description": "放入眠枭庇护所后能吸引某种精灵过来栖息，观察其花纹可以知道什么精灵会被吸引。",
+        "flavor_text": null,
+        "category": "精灵果实",
+        "type_desc": "精灵果实",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "完成赛季作业挑战课题"
         ],
         "related_pets": []
     },
@@ -10950,27 +11488,31 @@
     {
         "id": 108214,
         "name": "精灵果实",
-        "icon_id": "gs_miguohai",
+        "icon_id": "img_Dem_XiaoHuanDan0_Fruit",
         "description": "放入眠枭庇护所后能吸引某种精灵过来栖息，观察其花纹可以知道什么精灵会被吸引。",
         "flavor_text": null,
         "category": "精灵果实",
         "type_desc": "精灵果实",
         "quality": 4,
         "quality_label": "史诗",
-        "acquire_ways": [],
+        "acquire_ways": [
+            "完成赛季作业挑战课题"
+        ],
         "related_pets": []
     },
     {
         "id": 108221,
         "name": "精灵果实",
-        "icon_id": "gs_taotao",
+        "icon_id": "img_Gho_YouLing0_001_Fruit",
         "description": "放入眠枭庇护所后能吸引某种精灵过来栖息，观察其花纹可以知道什么精灵会被吸引。",
         "flavor_text": null,
         "category": "精灵果实",
         "type_desc": "精灵果实",
         "quality": 4,
         "quality_label": "史诗",
-        "acquire_ways": [],
+        "acquire_ways": [
+            "完成赛季作业挑战课题"
+        ],
         "related_pets": []
     },
     {
@@ -10985,6 +11527,21 @@
         "quality_label": "史诗",
         "acquire_ways": [
             "预约活动获取"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 108226,
+        "name": "精灵果实",
+        "icon_id": "img_Ill_DaiGui0_001_Fruit",
+        "description": "放入眠枭庇护所后能吸引某种精灵过来栖息，观察其花纹可以知道什么精灵会被吸引。",
+        "flavor_text": null,
+        "category": "精灵果实",
+        "type_desc": "精灵果实",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "完成赛季作业挑战课题"
         ],
         "related_pets": []
     },
@@ -11184,14 +11741,16 @@
     {
         "id": 108241,
         "name": "精灵果实",
-        "icon_id": "gs_diudiu_huoshan",
+        "icon_id": "img_Ill_BuLing0_001_Fruit",
         "description": "放入眠枭庇护所后能吸引某种精灵过来栖息，观察其花纹可以知道什么精灵会被吸引。",
         "flavor_text": null,
         "category": "精灵果实",
         "type_desc": "精灵果实",
         "quality": 4,
         "quality_label": "史诗",
-        "acquire_ways": [],
+        "acquire_ways": [
+            "完成赛季作业挑战课题"
+        ],
         "related_pets": []
     },
     {
@@ -11227,14 +11786,16 @@
     {
         "id": 108244,
         "name": "精灵果实",
-        "icon_id": null,
+        "icon_id": "img_Wat_ZhuZhuTun0_001_Fruit",
         "description": "放入眠枭庇护所后能吸引某种精灵过来栖息，观察其花纹可以知道什么精灵会被吸引。",
         "flavor_text": null,
         "category": "精灵果实",
         "type_desc": "精灵果实",
         "quality": 4,
         "quality_label": "史诗",
-        "acquire_ways": [],
+        "acquire_ways": [
+            "完成长江豚的图鉴课题获得"
+        ],
         "related_pets": []
     },
     {
@@ -11474,6 +12035,19 @@
         "name": "「铅字幻梦」名片",
         "icon_id": "img_Pvp003_icon",
         "description": "“闪耀大赛”排位赛“铅字幻梦”赛季限定个人名片。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "赛季名片",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 110005,
+        "name": "「月涌狂想」名片",
+        "icon_id": "img_Pvp004_icon",
+        "description": "“闪耀大赛”排位赛“月涌狂想”赛季限定个人名片。",
         "flavor_text": null,
         "category": "重要",
         "type_desc": "赛季名片",
@@ -12540,6 +13114,19 @@
         "name": "炫彩牵线木偶拼图",
         "icon_id": "egg_qianxianmuou",
         "description": "获取非赛季炫彩的炫彩牵线木偶时得到的拼图，集齐一定数量时，可将其合成为自选搭配的炫彩牵线木偶的蛋",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "炫彩拼图",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 112090,
+        "name": "炫彩星星眼拼图",
+        "icon_id": "img_Ill_QiuQiu0_001_Egg",
+        "description": "获取非赛季炫彩的炫彩星星眼时得到的拼图，集齐一定数量时，可将其合成为自选搭配的炫彩星星眼的蛋",
         "flavor_text": null,
         "category": "重要",
         "type_desc": "炫彩拼图",
@@ -14148,6 +14735,149 @@
         "related_pets": []
     },
     {
+        "id": 112242,
+        "name": "炫彩未完虫拼图",
+        "icon_id": "img_Gho_WeiWanChong0_001_Egg",
+        "description": "获取非赛季炫彩的炫彩未完虫时得到的拼图，集齐一定数量时，可将其合成为自选搭配的炫彩未完虫的蛋",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "炫彩拼图",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 112243,
+        "name": "炫彩热团团拼图",
+        "icon_id": "img_Fir_ReTuanTuan0_001_Egg",
+        "description": "获取非赛季炫彩的炫彩热团团时得到的拼图，集齐一定数量时，可将其合成为自选搭配的炫彩热团团的蛋",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "炫彩拼图",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 112244,
+        "name": "炫彩玳龟拼图",
+        "icon_id": "img_Ill_DaiGui0_001_Egg",
+        "description": "获取非赛季炫彩的炫彩玳龟时得到的拼图，集齐一定数量时，可将其合成为自选搭配的炫彩玳龟的蛋",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "炫彩拼图",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 112245,
+        "name": "炫彩量风碗拼图",
+        "icon_id": "img_Win_LiangFengWan0_001_Egg",
+        "description": "获取非赛季炫彩的炫彩量风碗时得到的拼图，集齐一定数量时，可将其合成为自选搭配的炫彩量风碗的蛋",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "炫彩拼图",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 112246,
+        "name": "炫彩诅咒狼灵拼图",
+        "icon_id": "img_Wus_LangLing0_001_Egg",
+        "description": "获取非赛季炫彩的炫彩诅咒狼灵时得到的拼图，集齐一定数量时，可将其合成为自选搭配的炫彩诅咒狼灵的蛋",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "炫彩拼图",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 112247,
+        "name": "炫彩新月鹭拼图",
+        "icon_id": "img_Win_XinYueLu0_001_Egg",
+        "description": "获取非赛季炫彩的炫彩新月鹭时得到的拼图，集齐一定数量时，可将其合成为自选搭配的炫彩新月鹭的蛋",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "炫彩拼图",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 112248,
+        "name": "炫彩章脑丸拼图",
+        "icon_id": "img_Lig_ZhangNaoWan0_001_Egg",
+        "description": "获取非赛季炫彩的炫彩章脑丸时得到的拼图，集齐一定数量时，可将其合成为自选搭配的炫彩章脑丸的蛋",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "炫彩拼图",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 112249,
+        "name": "炫彩小浣蛋拼图",
+        "icon_id": "img_Dem_XiaoHuanDan0_Egg",
+        "description": "获取非赛季炫彩的炫彩小浣蛋时得到的拼图，集齐一定数量时，可将其合成为自选搭配的炫彩小浣蛋的蛋",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "炫彩拼图",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 112250,
+        "name": "炫彩幽铃拼图",
+        "icon_id": "img_Gho_YouLing0_001_Egg",
+        "description": "获取非赛季炫彩的炫彩幽铃时得到的拼图，集齐一定数量时，可将其合成为自选搭配的炫彩幽铃的蛋",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "炫彩拼图",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 112251,
+        "name": "炫彩布灵拼图",
+        "icon_id": "img_Ill_BuLing0_001_Egg",
+        "description": "获取非赛季炫彩的炫彩布灵时得到的拼图，集齐一定数量时，可将其合成为自选搭配的炫彩布灵的蛋",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "炫彩拼图",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 112252,
+        "name": "炫彩云梦豚拼图",
+        "icon_id": "img_Wat_ZhuZhuTun0_001_Egg",
+        "description": "获取非赛季炫彩的炫彩云梦豚时得到的拼图，集齐一定数量时，可将其合成为自选搭配的炫彩云梦豚的蛋",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "炫彩拼图",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
         "id": 119201,
         "name": "次级皇家勋章",
         "icon_id": "img_CiJiHuangjia",
@@ -15372,7 +16102,7 @@
     {
         "id": 149090,
         "name": "精灵蛋",
-        "icon_id": "egg_chaonengqiuqiu",
+        "icon_id": "img_Ill_QiuQiu0_001_Egg",
         "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。经过孵化可以得到自选炫彩配色、粒子的精灵。",
         "flavor_text": null,
         "category": "精灵蛋",
@@ -17294,6 +18024,149 @@
         "related_pets": []
     },
     {
+        "id": 149242,
+        "name": "精灵蛋",
+        "icon_id": "img_Gho_WeiWanChong0_001_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。经过孵化可以得到自选炫彩配色、粒子的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 149243,
+        "name": "精灵蛋",
+        "icon_id": "img_Fir_ReTuanTuan0_001_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。经过孵化可以得到自选炫彩配色、粒子的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 149244,
+        "name": "精灵蛋",
+        "icon_id": "img_Ill_DaiGui0_001_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。经过孵化可以得到自选炫彩配色、粒子的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 149245,
+        "name": "精灵蛋",
+        "icon_id": "img_Win_LiangFengWan0_001_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。经过孵化可以得到自选炫彩配色、粒子的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 149246,
+        "name": "精灵蛋",
+        "icon_id": "img_Wus_LangLing0_001_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。经过孵化可以得到自选炫彩配色、粒子的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 149247,
+        "name": "精灵蛋",
+        "icon_id": "img_Win_XinYueLu0_001_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。经过孵化可以得到自选炫彩配色、粒子的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 149248,
+        "name": "精灵蛋",
+        "icon_id": "img_Lig_ZhangNaoWan0_001_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。经过孵化可以得到自选炫彩配色、粒子的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 149249,
+        "name": "精灵蛋",
+        "icon_id": "img_Dem_XiaoHuanDan0_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。经过孵化可以得到自选炫彩配色、粒子的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 149250,
+        "name": "精灵蛋",
+        "icon_id": "img_Gho_YouLing0_001_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。经过孵化可以得到自选炫彩配色、粒子的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 149251,
+        "name": "精灵蛋",
+        "icon_id": "img_Ill_BuLing0_001_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。经过孵化可以得到自选炫彩配色、粒子的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 149252,
+        "name": "精灵蛋",
+        "icon_id": "img_Wat_ZhuZhuTun0_001_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。经过孵化可以得到自选炫彩配色、粒子的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
         "id": 149999,
         "name": "精灵蛋（测试）",
         "icon_id": "egg_yajiji",
@@ -17363,6 +18236,19 @@
         "name": "宝藏小狐的蛋",
         "icon_id": "egg_FangFangHu",
         "description": "参与活动「小狐安家记」获得的珍贵精灵蛋，经过孵化可以得到“了不起”天分、且拥有量身定制资质、“爱分享”特长的宝藏小狐。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150006,
+        "name": "云梦豚的蛋",
+        "icon_id": "img_Wat_ZhuZhuTun0_001_Egg",
+        "description": "参与活动「小豚安家记」获得的珍贵精灵蛋，经过孵化可以得到“了不起”天分、且拥有量身定制资质、“同乘”特长的云梦豚。",
         "flavor_text": null,
         "category": "精灵蛋",
         "type_desc": "精灵蛋",
@@ -18647,9 +19533,9 @@
     },
     {
         "id": 150118,
-        "name": "精灵蛋",
+        "name": "大块头精灵蛋",
         "icon_id": "egg_xuelingshou",
-        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。",
+        "description": "从西西那获得的大块头雪灵兽的蛋，经过孵化可以得到大块头的雪灵兽。",
         "flavor_text": null,
         "category": "精灵蛋",
         "type_desc": "精灵蛋",
@@ -18660,9 +19546,9 @@
     },
     {
         "id": 150119,
-        "name": "精灵蛋",
+        "name": "小不点精灵蛋",
         "icon_id": "egg_xuelingshou",
-        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪。",
+        "description": "从西西那获得的小不点雪灵兽的蛋，经过孵化可以得到小不点的雪灵兽。",
         "flavor_text": null,
         "category": "精灵蛋",
         "type_desc": "精灵蛋",
@@ -18682,6 +19568,126 @@
         "quality": 5,
         "quality_label": "传说",
         "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150401,
+        "name": "恶魔狼的蛋",
+        "icon_id": "egg_daemo_yise",
+        "description": "击败精灵首领·恶魔狼王后，发现的珍贵精灵蛋，经过孵化可以得到“异色”外观、“了不起”天分的恶魔狼。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "挑战精灵首领·恶魔狼王获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 150402,
+        "name": "奇丽草的蛋",
+        "icon_id": "egg_qilicao_yise",
+        "description": "击败精灵首领·奇丽果后，发现的珍贵精灵蛋，经过孵化可以得到“异色”外观、“了不起”天分的奇丽草。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "挑战精灵首领·奇丽果获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 150403,
+        "name": "幽影树的蛋",
+        "icon_id": "egg_youlingshu_yise",
+        "description": "击败精灵首领·幻影荆棘后，发现的珍贵精灵蛋，经过孵化可以得到“异色”外观、“了不起”天分的幽影树。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "挑战精灵首领·幻影荆棘获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 150404,
+        "name": "大耳帽兜的蛋",
+        "icon_id": "egg_doumao_yise",
+        "description": "击败精灵首领·雪影冰灵后，发现的珍贵精灵蛋，经过孵化可以得到“异色”外观、“了不起”天分的大耳帽兜。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "挑战精灵首领·雪影冰灵获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 150405,
+        "name": "空空颅的蛋",
+        "icon_id": "egg_yemo_yise",
+        "description": "击败精灵首领·暗夜颅主后，发现的珍贵精灵蛋，经过孵化可以得到“异色”外观、“了不起”天分的空空颅。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "挑战精灵首领·暗夜颅主获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 150406,
+        "name": "海盔虫的蛋",
+        "icon_id": "egg_haikuichong_yise",
+        "description": "击败精灵首领·千棘海针后，发现的珍贵精灵蛋，经过孵化可以得到“异色”外观、“了不起”天分的海盔虫。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "挑战精灵首领·千棘海针获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 150407,
+        "name": "逗逗的蛋",
+        "icon_id": "img_Com_DouDouMao0_101_Egg",
+        "description": "击败精灵首领·奇梦咪后，发现的珍贵精灵蛋，经过孵化可以得到“异色”外观、“了不起”天分的逗逗。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "挑战精灵首领·奇梦咪获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 150408,
+        "name": "小黑猫的蛋",
+        "icon_id": "img_Com_HeiMao0_101_Egg",
+        "description": "击败精灵首领·黑猫密探后，发现的珍贵精灵蛋，经过孵化可以得到“异色”外观、“了不起”天分的小黑猫。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "挑战精灵首领·黑猫密探获得"
+        ],
         "related_pets": []
     },
     {
@@ -21088,6 +22094,617 @@
         "related_pets": []
     },
     {
+        "id": 150812,
+        "name": "新月鹭的蛋",
+        "icon_id": "img_Win_XinYueLu0_101_Egg",
+        "description": "购买「月涌通行证-月之华」闪耀契约礼券获得的珍贵精灵蛋，经过孵化可以得到“异色”外观、“了不起”天分、且支持自选性格、个体资质的新月鹭。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150813,
+        "name": "热团团的蛋",
+        "icon_id": "img_Fir_ReTuanTuan0_101_Egg",
+        "description": "购买「月涌通行证-日之光」闪耀契约礼券获得的珍贵精灵蛋，经过孵化可以得到“异色”外观、“了不起”天分、且支持自选性格、个体资质的热团团。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150814,
+        "name": "珍贵精灵蛋",
+        "icon_id": "img_Ill_QiuQiu0_101_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪，经过孵化可以得到“异色”外观的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150815,
+        "name": "珍贵精灵蛋",
+        "icon_id": "img_Gho_WeiWanChong0_101_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪，经过孵化可以得到“异色”外观的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150816,
+        "name": "珍贵精灵蛋",
+        "icon_id": "img_Ill_DaiGui0_101_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪，经过孵化可以得到“异色”外观的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150817,
+        "name": "珍贵精灵蛋",
+        "icon_id": "img_Win_LiangFengWan0_101_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪，经过孵化可以得到“异色”外观的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150818,
+        "name": "珍贵精灵蛋",
+        "icon_id": "img_Lig_ZhangNaoWan0_101_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪，经过孵化可以得到“异色”外观的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150819,
+        "name": "珍贵精灵蛋",
+        "icon_id": "img_Dem_XiaoHuanDan0_101_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪，经过孵化可以得到“异色”外观的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150820,
+        "name": "珍贵精灵蛋",
+        "icon_id": "img_Gho_YouLing0_101_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪，经过孵化可以得到“异色”外观的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150821,
+        "name": "珍贵精灵蛋",
+        "icon_id": "img_Ill_BuLing0_101_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪，经过孵化可以得到“异色”外观的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150822,
+        "name": "珍贵精灵蛋",
+        "icon_id": "img_Gho_LingGu0_101_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪，经过孵化可以得到“异色”外观的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150823,
+        "name": "珍贵精灵蛋",
+        "icon_id": "img_Dem_KuangChong0_101_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪，经过孵化可以得到“异色”外观的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150824,
+        "name": "珍贵精灵蛋",
+        "icon_id": "img_Win_NiNi0_101_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪，经过孵化可以得到“异色”外观的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150825,
+        "name": "珍贵精灵蛋",
+        "icon_id": "img_Dem_DuYan0_101_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪，经过孵化可以得到“异色”外观的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150826,
+        "name": "珍贵精灵蛋",
+        "icon_id": "img_Com_DouDouMao0_101_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪，经过孵化可以得到“异色”外观的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150827,
+        "name": "珍贵精灵蛋",
+        "icon_id": "img_Com_HeiMao0_101_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪，经过孵化可以得到“异色”外观的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150828,
+        "name": "珍贵精灵蛋",
+        "icon_id": "img_Poi_CiLunTuo0Ar_101_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪，经过孵化可以得到“异色”外观的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150829,
+        "name": "珍贵精灵蛋",
+        "icon_id": "img_Poi_CiLunTuo0_101_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪，经过孵化可以得到“异色”外观的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150830,
+        "name": "珍贵精灵蛋",
+        "icon_id": "img_Win_DDMao0_101_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪，经过孵化可以得到“异色”外观的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150831,
+        "name": "诅咒狼灵的蛋",
+        "icon_id": "img_Wus_LangLing0_001_Egg",
+        "description": "完成「月涌狂想」赛季作业获得的珍贵精灵蛋，经过孵化可以得到“完美无瑕”，且支持自选性格与个体资质、拥有“无畏”特长的诅咒狼灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150832,
+        "name": "星星眼的蛋",
+        "icon_id": "img_Ill_QiuQiu0_001_Egg",
+        "description": "在「月涌狂想」赛季的代币商店内购得的珍贵精灵蛋，经过孵化可以得到“完美无瑕”、且支持自选性格与个体资质的星星眼。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150833,
+        "name": "未完虫的蛋",
+        "icon_id": "img_Gho_WeiWanChong0_001_Egg",
+        "description": "在「月涌狂想」赛季的代币商店内购得的珍贵精灵蛋，经过孵化可以得到“完美无瑕”、且支持自选性格与个体资质的未完虫。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150834,
+        "name": "玳龟的蛋",
+        "icon_id": "img_Ill_DaiGui0_001_Egg",
+        "description": "在「月涌狂想」赛季的代币商店内购得的珍贵精灵蛋，经过孵化可以得到“完美无瑕”、且支持自选性格与个体资质的玳龟。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150835,
+        "name": "量风碗的蛋",
+        "icon_id": "img_Win_LiangFengWan0_001_Egg",
+        "description": "在「月涌狂想」赛季的代币商店内购得的珍贵精灵蛋，经过孵化可以得到“完美无瑕”、且支持自选性格与个体资质的量风碗。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150836,
+        "name": "章脑丸的蛋",
+        "icon_id": "img_Lig_ZhangNaoWan0_001_Egg",
+        "description": "在「月涌狂想」赛季的代币商店内购得的珍贵精灵蛋，经过孵化可以得到“完美无瑕”、且支持自选性格与个体资质的章脑丸。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150837,
+        "name": "小浣蛋的蛋",
+        "icon_id": "img_Dem_XiaoHuanDan0_Egg",
+        "description": "在「月涌狂想」赛季的代币商店内购得的珍贵精灵蛋，经过孵化可以得到“完美无瑕”、且支持自选性格与个体资质的小浣蛋。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150838,
+        "name": "幽铃的蛋",
+        "icon_id": "img_Gho_YouLing0_001_Egg",
+        "description": "在「月涌狂想」赛季的代币商店内购得的珍贵精灵蛋，经过孵化可以得到“完美无瑕”、且支持自选性格与个体资质的幽铃。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150839,
+        "name": "布灵的蛋",
+        "icon_id": "img_Ill_BuLing0_001_Egg",
+        "description": "在「月涌狂想」赛季的代币商店内购得的珍贵精灵蛋，经过孵化可以得到“完美无瑕”、且支持自选性格与个体资质的布灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150840,
+        "name": "小灵菇的蛋",
+        "icon_id": "img_Gho_LingGu0_101_Egg",
+        "description": "经过孵化可以得到“异色”外观、“了不起”天分的小灵菇。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150841,
+        "name": "瑰眼仔的蛋",
+        "icon_id": "img_Dem_KuangChong0_101_Egg",
+        "description": "经过孵化可以得到“异色”外观、“了不起”天分的瑰眼仔。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150842,
+        "name": "星星眼的蛋",
+        "icon_id": "img_Ill_QiuQiu0_101_Egg",
+        "description": "经过孵化可以得到“异色”外观、“了不起”天分的星星眼。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150843,
+        "name": "觅觅蝠的蛋",
+        "icon_id": "img_Win_NiNi0_101_Egg",
+        "description": "经过孵化可以得到“异色”外观、“了不起”天分的觅觅蝠。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150844,
+        "name": "芽眼魔的蛋",
+        "icon_id": "img_Dem_DuYan0_101_Egg",
+        "description": "经过孵化可以得到“异色”外观、“了不起”天分的芽眼魔。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150845,
+        "name": "逗逗的蛋",
+        "icon_id": "img_Com_DouDouMao0_101_Egg",
+        "description": "经过孵化可以得到“异色”外观、“了不起”天分的逗逗。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150846,
+        "name": "未完虫的蛋",
+        "icon_id": "img_Gho_WeiWanChong0_101_Egg",
+        "description": "经过孵化可以得到“异色”外观、“了不起”天分的未完虫。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150847,
+        "name": "小黑猫的蛋",
+        "icon_id": "img_Com_HeiMao0_101_Egg",
+        "description": "经过孵化可以得到“异色”外观、“了不起”天分的小黑猫。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150848,
+        "name": "刺轮砣的蛋",
+        "icon_id": "img_Poi_CiLunTuo0Ar_101_Egg",
+        "description": "经过孵化可以得到“异色”外观、“了不起”天分的刺轮砣。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150849,
+        "name": "刺轮砣的蛋",
+        "icon_id": "img_Poi_CiLunTuo0_101_Egg",
+        "description": "经过孵化可以得到“异色”外观、“了不起”天分的刺轮砣。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150850,
+        "name": "玳龟的蛋",
+        "icon_id": "img_Ill_DaiGui0_101_Egg",
+        "description": "经过孵化可以得到“异色”外观、“了不起”天分的玳龟。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150851,
+        "name": "量风碗的蛋",
+        "icon_id": "img_Win_LiangFengWan0_101_Egg",
+        "description": "经过孵化可以得到“异色”外观、“了不起”天分的量风碗。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150852,
+        "name": "叮叮卯的蛋",
+        "icon_id": "img_Win_DDMao0_101_Egg",
+        "description": "经过孵化可以得到“异色”外观、“了不起”天分的叮叮卯。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150853,
+        "name": "章脑丸的蛋",
+        "icon_id": "img_Lig_ZhangNaoWan0_101_Egg",
+        "description": "经过孵化可以得到“异色”外观、“了不起”天分的章脑丸。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150854,
+        "name": "小浣蛋的蛋",
+        "icon_id": "img_Dem_XiaoHuanDan0_101_Egg",
+        "description": "经过孵化可以得到“异色”外观、“了不起”天分的小浣蛋。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150855,
+        "name": "幽铃的蛋",
+        "icon_id": "img_Gho_YouLing0_101_Egg",
+        "description": "经过孵化可以得到“异色”外观、“了不起”天分的幽铃。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150856,
+        "name": "布灵的蛋",
+        "icon_id": "img_Ill_BuLing0_101_Egg",
+        "description": "经过孵化可以得到“异色”外观、“了不起”天分的布灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150857,
+        "name": "小帕尔的蛋",
+        "icon_id": "img_Dem_PaErSaSi0_101_Egg",
+        "description": "完成「暗夜拾光」赛季图鉴任务获得的异色精灵蛋，经过孵化可以得到“异色”外观、“完美无瑕”，且支持自选性格与个体资质的小帕尔。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 150858,
+        "name": "珍贵精灵蛋",
+        "icon_id": "img_Wat_ZhuZhuTun0_101_Egg",
+        "description": "某种精灵的蛋，通过观察其花纹可以获得一些头绪，经过孵化可以得到“异色”外观的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
         "id": 151001,
         "name": "绿草精灵的蛋",
         "icon_id": "egg_lvcaojingling",
@@ -21297,6 +22914,396 @@
         "acquire_ways": [
             "运营活动获得"
         ],
+        "related_pets": []
+    },
+    {
+        "id": 151017,
+        "name": "丢丢的蛋",
+        "icon_id": "egg_diudiu",
+        "description": "参与活动「重逢契约」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的丢丢（草地附近的样子）。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151018,
+        "name": "绿耳松鼠的蛋",
+        "icon_id": "egg_lversongshu",
+        "description": "参与活动「重逢契约」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的绿耳松鼠。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151019,
+        "name": "小灵菇的蛋",
+        "icon_id": "egg_xiaolinggu",
+        "description": "参与活动「重逢契约」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的小灵菇。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151020,
+        "name": "海豹战士的蛋",
+        "icon_id": "egg_haibaozhanshi",
+        "description": "参与活动「重逢契约」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的海豹战士。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151021,
+        "name": "哭哭菇的蛋",
+        "icon_id": "egg_kukugu",
+        "description": "参与活动「重逢契约」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的哭哭菇。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151022,
+        "name": "奔波鼠的蛋",
+        "icon_id": "egg_benboshu",
+        "description": "参与活动「重逢契约」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的奔波鼠。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151023,
+        "name": "海盔虫的蛋",
+        "icon_id": "egg_haikuichong",
+        "description": "参与活动「重逢契约」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的海盔虫。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151024,
+        "name": "小丑豆豆的蛋",
+        "icon_id": "egg_xiaochou",
+        "description": "参与活动「重逢契约」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的小丑豆豆。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151025,
+        "name": "里拉鳐的蛋",
+        "icon_id": "egg_lilayao",
+        "description": "参与活动「重逢契约」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的里拉鳐。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151026,
+        "name": "号儿鱼的蛋",
+        "icon_id": "egg_haoeryu",
+        "description": "参与活动「重逢契约」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的号儿鱼。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151027,
+        "name": "小箱怪的蛋",
+        "icon_id": "egg_xiaoxiangguai",
+        "description": "参与活动「重逢契约」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的小箱怪。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151028,
+        "name": "烟花团的蛋",
+        "icon_id": "egg_yanhuatuan",
+        "description": "参与活动「重逢契约」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的烟花团。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151029,
+        "name": "咕咕帽的蛋",
+        "icon_id": "egg_gugumao",
+        "description": "参与活动「重逢契约」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的咕咕帽。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151030,
+        "name": "小鼓象的蛋",
+        "icon_id": "egg_xiaoguxiang",
+        "description": "参与活动「重逢契约」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的小鼓象。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151031,
+        "name": "可立鸡的蛋",
+        "icon_id": "egg_keliji",
+        "description": "参与活动「可立鸡大量出没」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的可立鸡。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151032,
+        "name": "斑斑的蛋",
+        "icon_id": "egg_banban",
+        "description": "参与活动「斑斑大量出没」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的斑斑。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151033,
+        "name": "小草虫的蛋",
+        "icon_id": "egg_xiaochongcao",
+        "description": "参与活动「小草虫大量出没」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的小草虫。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151034,
+        "name": "地鼠的蛋",
+        "icon_id": "egg_dishu",
+        "description": "参与活动「地鼠大量出没」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的地鼠（枯水期的样子）。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151035,
+        "name": "地鼠的蛋",
+        "icon_id": "egg_dishu_2",
+        "description": "参与活动「地鼠大量出没」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的地鼠（储水期的样子）。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151036,
+        "name": "豆丁鱼的蛋",
+        "icon_id": "egg_yulongbaobao",
+        "description": "参与活动「豆丁鱼大量出没」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的豆丁鱼。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151037,
+        "name": "小灵菇的蛋",
+        "icon_id": "egg_xiaolinggu",
+        "description": "参与活动「小灵菇大量出没」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的小灵菇。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151038,
+        "name": "叮叮卯的蛋",
+        "icon_id": "egg_dingdingmao",
+        "description": "参与活动「叮叮卯大量出没」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的叮叮卯。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151039,
+        "name": "刺轮砣的蛋",
+        "icon_id": "egg_cilunshe1",
+        "description": "参与活动「刺轮砣大量出没」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的刺轮砣（下弦的样子）。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151040,
+        "name": "刺轮砣的蛋",
+        "icon_id": "egg_cilunshe2",
+        "description": "参与活动「刺轮砣大量出没」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的刺轮砣（上弦的样子）。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151041,
+        "name": "逗逗的蛋",
+        "icon_id": "egg_qiqiumao",
+        "description": "参与活动「逗逗大量出没」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的逗逗。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151042,
+        "name": "瑰眼仔的蛋",
+        "icon_id": "egg_guiyankuangchong",
+        "description": "参与活动「瑰眼仔大量出没」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的瑰眼仔。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151043,
+        "name": "小黑猫的蛋",
+        "icon_id": "egg_xiaoheimao",
+        "description": "参与活动「小黑猫大量出没」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的小黑猫。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151044,
+        "name": "芽眼魔的蛋",
+        "icon_id": "egg_duyan",
+        "description": "参与活动「芽眼魔大量出没」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的芽眼魔。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151045,
+        "name": "觅觅蝠的蛋",
+        "icon_id": "egg_mimifu",
+        "description": "参与活动「觅觅蝠大量出没」获得的珍贵精灵蛋，经过孵化可以得到“炫彩”外观、“了不起”天分的觅觅蝠。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 151054,
+        "name": "唯一小独角兽的蛋",
+        "icon_id": "egg_xiaodujiaoshou",
+        "description": "通过观察其花纹可以看出，这是小独角兽的蛋。必定孵化出“同乘”特长、“了不起”天分的小独角兽。",
+        "flavor_text": "全服“唯一”？等等！原来是这个“唯一”啊！",
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
         "related_pets": []
     },
     {
@@ -24676,6 +26683,21 @@
         "related_pets": []
     },
     {
+        "id": 212031,
+        "name": "配方-麦芒",
+        "icon_id": "learning_grass_03",
+        "description": "晦涩难懂的配方，记载着【麦芒】的制作方式。 使用后可通过炼金合成【麦芒】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "完成果实立方人的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 213001,
         "name": "配方-怒火",
         "icon_id": "learning_fire_03",
@@ -25171,6 +27193,36 @@
         "related_pets": []
     },
     {
+        "id": 213034,
+        "name": "配方-暖阳",
+        "icon_id": "learning_fire_03",
+        "description": "晦涩难懂的配方，记载着【暖阳】的制作方式。 使用后可通过炼金合成【暖阳】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "完成圣凯布米龙的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 213035,
+        "name": "配方-星火",
+        "icon_id": "learning_fire_03",
+        "description": "晦涩难懂的配方，记载着【星火】的制作方式。 使用后可通过炼金合成【星火】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "完成圣凯布米龙的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 214001,
         "name": "配方-水炮",
         "icon_id": "learning_water_03",
@@ -25561,6 +27613,21 @@
         "related_pets": []
     },
     {
+        "id": 214027,
+        "name": "配方-汇流",
+        "icon_id": "learning_water_03",
+        "description": "晦涩难懂的配方，记载着【汇流】的制作方式。 使用后可通过炼金合成【汇流】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "完成智辉章脑的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 215001,
         "name": "配方-漫反射",
         "icon_id": "learning_light_03",
@@ -25782,6 +27849,36 @@
         "quality_label": "精良",
         "acquire_ways": [
             "完成流明坎德拉的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 215016,
+        "name": "配方-分光",
+        "icon_id": "learning_light_03",
+        "description": "晦涩难懂的配方，记载着【分光】的制作方式。 使用后可通过炼金合成【分光】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "完成智辉章脑的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 215017,
+        "name": "配方-闪光弹",
+        "icon_id": "learning_light_03",
+        "description": "晦涩难懂的配方，记载着【闪光弹】的制作方式。 使用后可通过炼金合成【闪光弹】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "完成布灵布灵的图鉴课题获得"
         ],
         "related_pets": []
     },
@@ -26082,6 +28179,36 @@
         "quality_label": "精良",
         "acquire_ways": [
             "完成溯源钟的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 216022,
+        "name": "配方-广播",
+        "icon_id": "learning_mechanic_03",
+        "description": "晦涩难懂的配方，记载着【广播】的制作方式。 使用后可通过炼金合成【广播】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "完成测风蝉的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 216023,
+        "name": "配方-拖拉机",
+        "icon_id": "learning_mechanic_03",
+        "description": "晦涩难懂的配方，记载着【拖拉机】的制作方式。 使用后可通过炼金合成【拖拉机】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "完成果实立方人的图鉴课题获得"
         ],
         "related_pets": []
     },
@@ -27856,6 +29983,36 @@
         "related_pets": []
     },
     {
+        "id": 222021,
+        "name": "配方-信息素",
+        "icon_id": "learning_insect_03",
+        "description": "晦涩难懂的配方，记载着【信息素】的制作方式。 使用后可通过炼金合成【信息素】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "完成未完虫的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 222022,
+        "name": "配方-迁飞扩散",
+        "icon_id": "learning_insect_03",
+        "description": "晦涩难懂的配方，记载着【迁飞扩散】的制作方式。 使用后可通过炼金合成【迁飞扩散】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "完成未完虫的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 223001,
         "name": "配方-崩拳",
         "icon_id": "learning_fight_03",
@@ -28576,6 +30733,51 @@
         "related_pets": []
     },
     {
+        "id": 224025,
+        "name": "配方-月影交错",
+        "icon_id": "learning_wing_03",
+        "description": "晦涩难懂的配方，记载着【月影交错】的制作方式。 使用后可通过炼金合成【月影交错】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "完成月使鹭纳的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 224026,
+        "name": "配方-惊鸿一瞥",
+        "icon_id": "learning_wing_03",
+        "description": "晦涩难懂的配方，记载着【惊鸿一瞥】的制作方式。 使用后可通过炼金合成【惊鸿一瞥】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "完成月使鹭纳的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 224027,
+        "name": "配方-无风",
+        "icon_id": "learning_wing_03",
+        "description": "晦涩难懂的配方，记载着【无风】的制作方式。 使用后可通过炼金合成【无风】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "完成测风蝉的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 225001,
         "name": "配方-爆米花爆破",
         "icon_id": "learning_moe_03",
@@ -29206,6 +31408,66 @@
         "related_pets": []
     },
     {
+        "id": 226021,
+        "name": "配方-小型打劫",
+        "icon_id": "learning_ghost_03",
+        "description": "晦涩难懂的配方，记载着【小型打劫】的制作方式。 使用后可通过炼金合成【小型打劫】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "完成摇铃魔偶的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 226022,
+        "name": "配方-回收",
+        "icon_id": "learning_ghost_03",
+        "description": "晦涩难懂的配方，记载着【回收】的制作方式。 使用后可通过炼金合成【回收】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "完成摇铃魔偶的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 226023,
+        "name": "配方-掠影",
+        "icon_id": "learning_ghost_03",
+        "description": "晦涩难懂的配方，记载着【掠影】的制作方式。 使用后可通过炼金合成【掠影】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "完成银月狼王的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 226024,
+        "name": "配方-离魂术",
+        "icon_id": "learning_ghost_03",
+        "description": "晦涩难懂的配方，记载着【离魂术】的制作方式。 使用后可通过炼金合成【离魂术】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "完成银月狼王的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 227001,
         "name": "配方-力量吞噬",
         "icon_id": "learning_demon_03",
@@ -29611,6 +31873,36 @@
         "related_pets": []
     },
     {
+        "id": 227029,
+        "name": "配方-掉包",
+        "icon_id": "learning_demon_03",
+        "description": "晦涩难懂的配方，记载着【掉包】的制作方式。 使用后可通过炼金合成【掉包】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "完成黑手浣熊的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 227030,
+        "name": "配方-暴打",
+        "icon_id": "learning_demon_03",
+        "description": "晦涩难懂的配方，记载着【暴打】的制作方式。 使用后可通过炼金合成【暴打】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "完成黑手浣熊的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 228001,
         "name": "配方-坍缩",
         "icon_id": "learning_phantom_03",
@@ -29907,6 +32199,96 @@
         "quality_label": "精良",
         "acquire_ways": [
             "完成星云旅者的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 228021,
+        "name": "配方-仰望夜空",
+        "icon_id": "learning_phantom_03",
+        "description": "晦涩难懂的配方，记载着【仰望夜空】的制作方式。 使用后可通过炼金合成【仰望夜空】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "完成星星眼的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 228022,
+        "name": "配方-重组",
+        "icon_id": "learning_phantom_03",
+        "description": "晦涩难懂的配方，记载着【重组】的制作方式。 使用后可通过炼金合成【重组】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "完成银月狼王的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 228023,
+        "name": "配方-观测者效应",
+        "icon_id": "learning_phantom_03",
+        "description": "晦涩难懂的配方，记载着【观测者效应】的制作方式。 使用后可通过炼金合成【观测者效应】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "完成星星眼的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 228024,
+        "name": "配方-量子涨落",
+        "icon_id": "learning_phantom_03",
+        "description": "晦涩难懂的配方，记载着【量子涨落】的制作方式。 使用后可通过炼金合成【量子涨落】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "完成布灵布灵的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 228025,
+        "name": "配方-奇点",
+        "icon_id": "learning_phantom_03",
+        "description": "晦涩难懂的配方，记载着【奇点】的制作方式。 使用后可通过炼金合成【奇点】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "完成玳塔的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 228026,
+        "name": "配方-引力偏转",
+        "icon_id": "learning_phantom_03",
+        "description": "晦涩难懂的配方，记载着【引力偏转】的制作方式。 使用后可通过炼金合成【引力偏转】。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "技能石合成配方",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "完成玳塔的图鉴课题获得"
         ],
         "related_pets": []
     },
@@ -31606,6 +33988,22 @@
         "related_pets": []
     },
     {
+        "id": 232031,
+        "name": "麦芒",
+        "icon_id": "102046",
+        "description": "使精灵学会【麦芒】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成果实立方人的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 233001,
         "name": "怒火",
         "icon_id": "103033",
@@ -32134,6 +34532,38 @@
         "related_pets": []
     },
     {
+        "id": 233034,
+        "name": "暖阳",
+        "icon_id": "103050",
+        "description": "使精灵学会【暖阳】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成圣凯布米龙的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 233035,
+        "name": "星火",
+        "icon_id": "103051",
+        "description": "使精灵学会【星火】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成圣凯布米龙的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 234001,
         "name": "水炮",
         "icon_id": "705013",
@@ -32550,6 +34980,22 @@
         "related_pets": []
     },
     {
+        "id": 234027,
+        "name": "汇流",
+        "icon_id": "104038",
+        "description": "使精灵学会【汇流】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成智辉章脑的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 235001,
         "name": "漫反射",
         "icon_id": "706008",
@@ -32786,6 +35232,38 @@
         "acquire_ways": [
             "炼金造物获得",
             "完成流明坎德拉的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 235016,
+        "name": "分光",
+        "icon_id": "205020",
+        "description": "使精灵学会【分光】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成智辉章脑的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 235017,
+        "name": "闪光弹",
+        "icon_id": "105021",
+        "description": "使精灵学会【闪光弹】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成布灵布灵的图鉴课题获得"
         ],
         "related_pets": []
     },
@@ -33122,6 +35600,38 @@
         "acquire_ways": [
             "炼金造物获得",
             "完成溯源钟的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 236022,
+        "name": "广播",
+        "icon_id": "106033",
+        "description": "使精灵学会【广播】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成测风蝉的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 236023,
+        "name": "拖拉机",
+        "icon_id": "106032",
+        "description": "使精灵学会【拖拉机】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成果实立方人的图鉴课题获得"
         ],
         "related_pets": []
     },
@@ -35078,6 +37588,38 @@
         "related_pets": []
     },
     {
+        "id": 242021,
+        "name": "信息素",
+        "icon_id": "112039",
+        "description": "使精灵学会【信息素】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成未完虫的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 242022,
+        "name": "迁飞扩散",
+        "icon_id": "212036",
+        "description": "使精灵学会【迁飞扩散】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成未完虫的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 243001,
         "name": "崩拳",
         "icon_id": "714001",
@@ -35862,6 +38404,54 @@
         "related_pets": []
     },
     {
+        "id": 244025,
+        "name": "月影交错",
+        "icon_id": "314035",
+        "description": "使精灵学会【月影交错】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成月使鹭纳的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 244026,
+        "name": "惊鸿一瞥",
+        "icon_id": "114038",
+        "description": "使精灵学会【惊鸿一瞥】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成月使鹭纳的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 244027,
+        "name": "无风",
+        "icon_id": "114039",
+        "description": "使精灵学会【无风】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成测风蝉的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 245001,
         "name": "爆米花爆破",
         "icon_id": "115014",
@@ -36566,6 +39156,70 @@
         "related_pets": []
     },
     {
+        "id": 246021,
+        "name": "小型打劫",
+        "icon_id": "316033",
+        "description": "使精灵学会【小型打劫】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成摇铃魔偶的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 246022,
+        "name": "回收",
+        "icon_id": "116034",
+        "description": "使精灵学会【回收】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成摇铃魔偶的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 246023,
+        "name": "掠影",
+        "icon_id": "116031",
+        "description": "使精灵学会【掠影】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成银月狼王的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 246024,
+        "name": "离魂术",
+        "icon_id": "116032",
+        "description": "使精灵学会【离魂术】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成银月狼王的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 247001,
         "name": "力量吞噬",
         "icon_id": "718009",
@@ -37014,6 +39668,38 @@
         "related_pets": []
     },
     {
+        "id": 247029,
+        "name": "掉包",
+        "icon_id": "117046",
+        "description": "使精灵学会【掉包】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成黑手浣熊的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 247030,
+        "name": "暴打",
+        "icon_id": "117045",
+        "description": "使精灵学会【暴打】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成黑手浣熊的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 248001,
         "name": "坍缩",
         "icon_id": "719011",
@@ -37334,6 +40020,102 @@
         "related_pets": []
     },
     {
+        "id": 248021,
+        "name": "仰望夜空",
+        "icon_id": "118040",
+        "description": "使精灵学会【仰望夜空】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成星星眼的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 248022,
+        "name": "重组",
+        "icon_id": "218037",
+        "description": "使精灵学会【重组】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成银月狼王的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 248023,
+        "name": "观测者效应",
+        "icon_id": "118051",
+        "description": "使精灵学会【观测者效应】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成星星眼的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 248024,
+        "name": "量子涨落",
+        "icon_id": "118042",
+        "description": "使精灵学会【量子涨落】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成布灵布灵的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 248025,
+        "name": "奇点",
+        "icon_id": "118043",
+        "description": "使精灵学会【奇点】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成玳塔的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 248026,
+        "name": "引力偏转",
+        "icon_id": "118044",
+        "description": "使精灵学会【引力偏转】招式",
+        "flavor_text": null,
+        "category": "技能石",
+        "type_desc": "精灵技能学习道具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "炼金造物获得",
+            "完成玳塔的图鉴课题获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 248999,
         "name": "飞踢",
         "icon_id": "learning_common_02",
@@ -37374,6 +40156,21 @@
         "quality": 3,
         "quality_label": "精良",
         "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 250003,
+        "name": "记忆代币",
+        "icon_id": "100960",
+        "description": "蕴含回忆之力的神秘魔法通货。 可在记忆代币商店中兑换各种限定奖励。",
+        "flavor_text": null,
+        "category": "咕噜球",
+        "type_desc": "赛季货币",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "赛季通行证获得"
+        ],
         "related_pets": []
     },
     {
@@ -39262,6 +42059,19 @@
         "related_pets": []
     },
     {
+        "id": 261230,
+        "name": "音乐·崭新乐章",
+        "icon_id": "100786",
+        "description": "可获得歌曲【月涌狂想】",
+        "flavor_text": null,
+        "category": null,
+        "type_desc": "音乐曲目",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
         "id": 280000,
         "name": "传说印记",
         "icon_id": "100794",
@@ -39335,9 +42145,39 @@
         "related_pets": []
     },
     {
+        "id": 280006,
+        "name": "帕尔印记",
+        "icon_id": "100881",
+        "description": "蕴含独特魔力的星链，仅能用于和指定传说精灵签订契约，不会获得玩法本身奖励。 「龙息帕尔再临」活动结束后，会被自动转化为洛克贝。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "传说精灵挑战道具",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "代币商店兑换"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 280007,
         "name": "加尔印记",
         "icon_id": "100959",
+        "description": "蕴含独特魔力的星链，仅能用于和指定传说精灵签订契约，不会获得玩法本身奖励。 当前赛季结束后，会被自动转化为洛克贝。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "传说精灵挑战道具",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "赛季代币商店兑换"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 280008,
+        "name": "银月印记",
+        "icon_id": "101043",
         "description": "蕴含独特魔力的星链，仅能用于和指定传说精灵签订契约，不会获得玩法本身奖励。 当前赛季结束后，会被自动转化为洛克贝。",
         "flavor_text": null,
         "category": "重要",
@@ -40444,6 +43284,19 @@
         "related_pets": []
     },
     {
+        "id": 295040,
+        "name": "「月面观测员」名片",
+        "icon_id": "img_S4badge_icon",
+        "description": "月涌狂想赛季作业限定个人名片。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "赛季名片",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
         "id": 295041,
         "name": "骑士团荣誉标签",
         "icon_id": "img_biaoqian",
@@ -40807,13 +43660,15 @@
         "id": 300001,
         "name": "可可果絮语",
         "icon_id": "img_MedalIcon_Kekeguo",
-        "description": "活动商店，限时上架。 使用后，可将「可可果絮语」佩戴给任意精灵。",
+        "description": "活动奖励。可在背包进行使用，使用后，可将「可可果絮语」佩戴给任意精灵。",
         "flavor_text": null,
         "category": "重要",
         "type_desc": "精灵奖牌",
         "quality": 5,
         "quality_label": "传说",
-        "acquire_ways": [],
+        "acquire_ways": [
+            "运营活动获得"
+        ],
         "related_pets": []
     },
     {
@@ -40993,9 +43848,9 @@
     },
     {
         "id": 300017,
-        "name": "契约之证",
+        "name": "耶耶击掌",
         "icon_id": "img_MedalIcon_FateCertificate",
-        "description": "活动奖励。可在背包进行使用，使用后，可将「契约之证」佩戴给任意精灵。",
+        "description": "活动奖励。可在背包进行使用，使用后，可将「耶耶击掌」佩戴给任意精灵。",
         "flavor_text": null,
         "category": "重要",
         "type_desc": "精灵奖牌",
@@ -41119,6 +43974,81 @@
         "related_pets": []
     },
     {
+        "id": 300026,
+        "name": "太阳暖暖",
+        "icon_id": "img_MedalIcon_Sun",
+        "description": "月涌通行证中，选择“日之光：圣凯布米龙”主题的纪念凭证。使用后，可将「太阳暖暖」佩戴给任意精灵。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "精灵奖牌",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "月涌通行证获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 300027,
+        "name": "月亮鹭鹭",
+        "icon_id": "img_MedalIcon_Moon",
+        "description": "月涌通行证中，选择“月之华：月使鹭纳”主题的纪念凭证。使用后，可将「月亮鹭鹭」佩戴给任意精灵。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "精灵奖牌",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "月涌通行证获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 300028,
+        "name": "冒险出发",
+        "icon_id": "img_MedalIcon_MaoXianChuFa",
+        "description": "活动奖励。可在背包进行使用，使用后，可将「冒险出发」佩戴给任意精灵。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "精灵奖牌",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 300029,
+        "name": "一口满足",
+        "icon_id": "img_MedalIcon_YiKouManZhu",
+        "description": "活动奖励。可在背包进行使用，使用后，可将「一口满足」佩戴给任意精灵。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "精灵奖牌",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 300030,
+        "name": "小红花",
+        "icon_id": "img_MedalIcon_LittleRedFlower",
+        "description": "活动奖励。可在背包进行使用，使用后，可将「小红花」佩戴给任意精灵。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "精灵奖牌",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "「花开·卡洛西亚」活动获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 300101,
         "name": "配方-可可果絮语",
         "icon_id": "100911",
@@ -41128,7 +44058,9 @@
         "type_desc": "奖牌合成配方",
         "quality": 5,
         "quality_label": "传说",
-        "acquire_ways": [],
+        "acquire_ways": [
+            "可可果通行证获得"
+        ],
         "related_pets": []
     },
     {
@@ -41342,6 +44274,51 @@
         "related_pets": []
     },
     {
+        "id": 300119,
+        "name": "配方-太阳暖暖",
+        "icon_id": "100911",
+        "description": "晦涩难懂的配方，记载着「太阳暖暖」的制作方式。 使用后可通过炼金合成「太阳暖暖」。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "奖牌合成配方",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "月涌通行证获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 300120,
+        "name": "配方-月亮鹭鹭",
+        "icon_id": "100911",
+        "description": "晦涩难懂的配方，记载着「月亮鹭鹭」的制作方式。 使用后可通过炼金合成「月亮鹭鹭」。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "奖牌合成配方",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "月涌通行证获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 300122,
+        "name": "配方-小红花",
+        "icon_id": "100911",
+        "description": "晦涩难懂的配方，记载着「小红花」的制作方式。 使用后可通过炼金合成「小红花」。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "奖牌合成配方",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "「花开·卡洛西亚」活动获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 301003,
         "name": "命定之证",
         "icon_id": "img_MedalIcon_Brave",
@@ -41520,6 +44497,58 @@
         "type_desc": "纪念名片",
         "quality": 5,
         "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 305041,
+        "name": "「宇宙拓荒者」名片",
+        "icon_id": "img_Pika119_icon",
+        "description": "宇宙拓荒者组合包附赠的限定版个人名片。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "纪念名片",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 305042,
+        "name": "「天空邮局」名片",
+        "icon_id": "img_Pika120_icon",
+        "description": "天空邮局组合包附赠的限定版个人名片。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "纪念名片",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 305043,
+        "name": "「怪奇实验室」名片",
+        "icon_id": "img_Pika121_icon",
+        "description": "怪奇实验室组合包附赠的限定版个人名片。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "纪念名片",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 305044,
+        "name": "「宝石狩猎」名片",
+        "icon_id": "img_Pika122_icon",
+        "description": "宝石狩猎组合包附赠的限定版个人名片。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "纪念名片",
+        "quality": 4,
+        "quality_label": "史诗",
         "acquire_ways": [],
         "related_pets": []
     },
@@ -42196,6 +45225,19 @@
         "related_pets": []
     },
     {
+        "id": 310063,
+        "name": "许愿星兑换",
+        "icon_id": "100870",
+        "description": "魔法师们正在收集的特殊货币。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "珍稀货币",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
         "id": 310064,
         "name": "光辉印记包挂饰",
         "icon_id": "32400301",
@@ -42560,6 +45602,166 @@
         "acquire_ways": [
             "运营活动获得"
         ],
+        "related_pets": []
+    },
+    {
+        "id": 310091,
+        "name": "入学报到函包挂饰",
+        "icon_id": "32413801",
+        "description": "S4赛季启航礼包中的纪念挂饰，可以前往我的衣柜佩戴。",
+        "flavor_text": "羊皮卷里藏着新学期的邀约，别在包上，做学院里最亮眼的小洛克！",
+        "category": "重要",
+        "type_desc": "包挂饰",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "购买S4赛季启航礼包获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 310092,
+        "name": "「入学报到函」名片",
+        "icon_id": "img_S4tongzhishu_icon2",
+        "description": "S4赛季启航礼包中的限定个人名片。",
+        "flavor_text": "「同学，学院报到处怎么走呀？」「巧了，我也去那，一起吧！」",
+        "category": "重要",
+        "type_desc": "纪念名片",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "购买S4赛季启航礼包获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 310093,
+        "name": "精灵学院时装兑换券",
+        "icon_id": "100912",
+        "description": "「精灵学院」时装兑换礼券，打开后永久获得套装。如果存在重复获取的部件，则使用礼券后将自动返还重复消耗的许愿星。未使用的兑换券会自动存入背包，可随时前往使用。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "套装",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 310094,
+        "name": "炼金学院时装兑换券",
+        "icon_id": "100912",
+        "description": "「炼金学院」时装兑换礼券，打开后永久获得套装。如果存在重复获取的部件，则使用礼券后将自动返还重复消耗的许愿星。未使用的兑换券会自动存入背包，可随时前往使用。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "套装",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 310095,
+        "name": "仪典学院时装兑换券",
+        "icon_id": "100912",
+        "description": "「仪典学院」时装兑换礼券，打开后永久获得套装。如果存在重复获取的部件，则使用礼券后将自动返还重复消耗的许愿星。未使用的兑换券会自动存入背包，可随时前往使用。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "套装",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 310096,
+        "name": "战斗学院时装兑换券",
+        "icon_id": "100912",
+        "description": "「战斗学院」时装兑换礼券，打开后永久获得套装。如果存在重复获取的部件，则使用礼券后将自动返还重复消耗的许愿星。未使用的兑换券会自动存入背包，可随时前往使用。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "套装",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 310097,
+        "name": "初心的继承者兑换券",
+        "icon_id": "100907",
+        "description": "「初心的继承者」时装自选礼券，打开后可从三套时装中选择一件。 未使用的兑换券会自动存入背包，可随时前往使用。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "时装兑换券",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 310098,
+        "name": "初心的继承者-水灵印象",
+        "icon_id": "100907",
+        "description": "可获得水灵印象",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "套装",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 310099,
+        "name": "初心的继承者-火神印象",
+        "icon_id": "100907",
+        "description": "可获得火神印象",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "套装",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 310100,
+        "name": "初心的继承者-魔力猫印象",
+        "icon_id": "100907",
+        "description": "可获得魔力猫印象",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "套装",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 310103,
+        "name": "启程学期时装兑换券",
+        "icon_id": "100912",
+        "description": "「启程学期」时装兑换礼券，打开后永久获得套装。如果存在重复获取的部件，则使用礼券后将自动返还重复消耗的许愿星。未使用的兑换券会自动存入背包，可随时前往使用。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "套装",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 310115,
+        "name": "「日月同舟」名片",
+        "icon_id": "img_yunying12_icon",
+        "description": "解锁了个人名片的新卡片「日月同舟」。",
+        "flavor_text": "无论在哪里，我们一直在一起。",
+        "category": "重要",
+        "type_desc": "纪念名片",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
         "related_pets": []
     },
     {
@@ -43010,7 +46212,7 @@
         "icon_id": "101026",
         "description": "由精灵调查团编写的观察笔记，记录着许多精灵不为人知的故事与生态。",
         "flavor_text": "在精灵研究的圈子里，这样的笔记十分抢手。",
-        "category": "重要",
+        "category": "任务",
         "type_desc": "精灵笔记",
         "quality": 5,
         "quality_label": "传说",
@@ -43535,6 +46737,22 @@
         "related_pets": []
     },
     {
+        "id": 320076,
+        "name": "打气气球",
+        "icon_id": "101031",
+        "description": "赛前投票道具。选择支持的选手并送出。",
+        "flavor_text": "气球晃晃悠悠飘向赛场，「啵」地炸开，化作一阵喝彩声。",
+        "category": "重要",
+        "type_desc": "活动货币",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "「观看:月幕下的决斗」活动获得",
+            "捕捉精灵概率掉落"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 320077,
         "name": "宝藏小狐的照片？",
         "icon_id": "100939",
@@ -43906,6 +47124,62 @@
         "related_pets": []
     },
     {
+        "id": 320104,
+        "name": "S4徽章凭证自选",
+        "icon_id": "100879",
+        "description": "打开后，可选择圣凯布米龙或月使鹭纳，解锁对应的实体徽章购买资格。赛季结束后道具回收，无法使用。",
+        "flavor_text": "实体徽章售卖截止时间为11月4日21:00，请留意并提前预留周边商城选购时间。",
+        "category": "重要",
+        "type_desc": "实体权益",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "月涌通行证获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 320105,
+        "name": "圣凯布米龙徽章凭证",
+        "icon_id": "100879",
+        "description": "可凭此道具前往周边商城购买「圣凯布米龙」典藏赛季徽章礼盒。赛季结束后道具回收，无法使用。",
+        "flavor_text": "实体徽章售卖截止时间为11月4日21:00，请留意并提前预留周边商城选购时间。",
+        "category": "重要",
+        "type_desc": "实体权益",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 320106,
+        "name": "月使鹭纳徽章凭证",
+        "icon_id": "100879",
+        "description": "可凭此道具前往周边商城购买「月使鹭纳」典藏赛季徽章礼盒。赛季结束后道具回收，无法使用。",
+        "flavor_text": "实体徽章售卖截止时间为11月4日21:00，请留意并提前预留周边商城选购时间。",
+        "category": "重要",
+        "type_desc": "实体权益",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 320107,
+        "name": "秋日丰收礼券",
+        "icon_id": "101039",
+        "description": "饱满圆润的可可果迎来收获时节，持有该礼券，即可开启可可奇妙盒，获取丰厚奖励！",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "活动道具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "使用可可果球捕捉精灵获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 320108,
         "name": "治愈童话书精灵分享卡",
         "icon_id": "100885",
@@ -44012,6 +47286,335 @@
         "flavor_text": null,
         "category": "重要",
         "type_desc": "肤色",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 320129,
+        "name": "印着精灵的小卡",
+        "icon_id": "101042",
+        "description": "小小的积分卡，上面印着「果实立方人」的样子。有洛克在收集这些积分卡，可以拿去兑换一些玩意儿。",
+        "flavor_text": "风靡校园的神秘卡片，没有人知道第一张是从哪里来的。",
+        "category": "重要",
+        "type_desc": "活动道具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "「秋，丰收与机器人」活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 320130,
+        "name": "「果实立方人」头像",
+        "icon_id": "img_1025",
+        "description": "个人名片的头像——「果实立方人」。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "个人头像",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "「秋，丰收与机器人」活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 320131,
+        "name": "「果实立方人」名片",
+        "icon_id": "img_lifangren_icon",
+        "description": "活动限定个人名片。",
+        "flavor_text": "秋天结了多少果实，它比谁都清楚。",
+        "category": "重要",
+        "type_desc": "纪念名片",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "「秋，丰收与机器人」活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 320133,
+        "name": "「月幕下观赛」名片",
+        "icon_id": "img_ShowdownGuess_icon",
+        "description": "活动限定个人名片。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "纪念名片",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "「观看:月幕下的决斗」活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 320135,
+        "name": "「溯游·云梦豚」头像",
+        "icon_id": "img_1030",
+        "description": "个人名片的头像——「云梦豚」。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "个人头像",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "「小豚安家记」活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 320136,
+        "name": "「云梦豚」名片",
+        "icon_id": "img_jiangtun_icon",
+        "description": "活动限定个人名片。",
+        "flavor_text": "「最先感知污浊，也最先见证澄澈。」",
+        "category": "重要",
+        "type_desc": "纪念名片",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "「小豚安家记」活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 320137,
+        "name": "「水系精灵」",
+        "icon_id": "img_biaoqian",
+        "description": "获得后，可解锁个人名片新称号 ——「水系精灵」。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "称号",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "「小豚安家记」活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 320138,
+        "name": "「严选」",
+        "icon_id": "img_biaoqian",
+        "description": "获得后，可解锁个人名片新称号 ——「严选」。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "称号",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "「小豚安家记」活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 320139,
+        "name": "「长江豚的思绪」",
+        "icon_id": "12150001",
+        "description": "头饰-长江豚的思绪，可以在我的衣柜中穿戴。",
+        "flavor_text": "「想想长江豚会怎么想呢...」",
+        "category": "重要",
+        "type_desc": "时装",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "「小豚安家记」活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 320140,
+        "name": "「长江豚的思绪」",
+        "icon_id": "12150001",
+        "description": "头饰-长江豚的思绪，可以在我的衣柜中穿戴。",
+        "flavor_text": "「想想长江豚会怎么想呢...」",
+        "category": "重要",
+        "type_desc": "时装",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "「小豚安家记」活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 320141,
+        "name": "「水系精灵严选」",
+        "icon_id": "img_biaoqian",
+        "description": "获得后，可解锁个人名片新称号 ——「水系精灵严选」。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "称号",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "「小豚安家记」活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 320149,
+        "name": "1元公益金",
+        "icon_id": "101059",
+        "description": "1元公益金，由腾讯基金会出资",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "活动道具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "「花开·卡洛西亚」活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 320150,
+        "name": "0.3元公益金",
+        "icon_id": "101060",
+        "description": "0.3元公益金，由腾讯基金会出资",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "活动道具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "「小豚安家记」活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 320151,
+        "name": "「小红花」头像",
+        "icon_id": "img_1031",
+        "description": "个人名片的头像——「小红花」。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "活动道具",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "「花开·卡洛西亚」活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 320152,
+        "name": "「小红花」名片",
+        "icon_id": "img_jiujiugongyi_icon",
+        "description": "活动限定个人名片。",
+        "flavor_text": "「让爱开满卡洛西亚」",
+        "category": "重要",
+        "type_desc": "纪念名片",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "「花开·卡洛西亚」活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 320156,
+        "name": "云梦豚的照片？",
+        "icon_id": "100939",
+        "description": "小狐安安提供的照片，上面是一种与某只精灵颇为神似的生物。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "收藏品",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 320157,
+        "name": "云梦豚的照片？",
+        "icon_id": "100939",
+        "description": "小狐安安提供的照片，上面是一种与某只精灵颇为神似的生物。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "收藏品",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 320158,
+        "name": "云梦豚的照片？",
+        "icon_id": "100939",
+        "description": "小狐安安提供的照片，上面是一种与某只精灵颇为神似的生物。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "收藏品",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 320159,
+        "name": "云梦豚的照片？",
+        "icon_id": "100939",
+        "description": "小狐安安提供的照片，上面是一种与某只精灵颇为神似的生物。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "收藏品",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 320160,
+        "name": "小鼠獭的照片？",
+        "icon_id": "100939",
+        "description": "小狐安安提供的照片，上面是一种与某只精灵颇为神似的生物。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "收藏品",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 320161,
+        "name": "小鼠獭的照片？",
+        "icon_id": "100939",
+        "description": "小狐安安提供的照片，上面是一种与某只精灵颇为神似的生物。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "收藏品",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 320162,
+        "name": "双灯鱼的照片？",
+        "icon_id": "100939",
+        "description": "小狐安安提供的照片，上面是一种与某只精灵颇为神似的生物。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "收藏品",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 320163,
+        "name": "海枝枝的照片？",
+        "icon_id": "100939",
+        "description": "小狐安安提供的照片，上面是一种与某只精灵颇为神似的生物。",
+        "flavor_text": null,
+        "category": "重要",
+        "type_desc": "收藏品",
         "quality": 4,
         "quality_label": "史诗",
         "acquire_ways": [],
@@ -46082,6 +49685,533 @@
         "description": "蕴含着难以捉摸的魔力，必定孵化出“慈悲为怀”特长、“了不起”天分的精灵。",
         "flavor_text": null,
         "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600010,
+        "name": "赛季炫彩精灵蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“月涌狂想炫彩”外观、“了不起”天分的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "远行商人处购买获得",
+            "赛季代币商店购买",
+            "月涌通行证获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600012,
+        "name": "无畏炫彩精灵蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“无畏”特长、“炫彩”外观、“了不起”天分的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600013,
+        "name": "无畏精灵蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“无畏”特长、“了不起”天分的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600014,
+        "name": "爱分享精灵蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“爱分享”特长、“了不起”天分的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600015,
+        "name": "热心教精灵蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“热心教”特长、“了不起”天分的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600016,
+        "name": "家里蹲精灵蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“家里蹲”特长、“了不起”天分的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600017,
+        "name": "奇袭精灵蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“奇袭”特长、“了不起”天分的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600018,
+        "name": "疾行精灵蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“疾行”特长、“了不起”天分的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600019,
+        "name": "灵巧精灵蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“灵巧”特长、“了不起”天分的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600020,
+        "name": "亲密精灵蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“亲密”特长、“了不起”天分的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600021,
+        "name": "同乘炫彩精灵蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“同乘”特长、“炫彩”外观、“了不起”天分的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600022,
+        "name": "慈悲为怀炫彩精灵蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“慈悲为怀”特长、“炫彩”外观、“了不起”天分的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600023,
+        "name": "爱分享炫彩精灵蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“爱分享”特长、“炫彩”外观、“了不起”天分的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600024,
+        "name": "热心教炫彩精灵蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“热心教”特长、“炫彩”外观、“了不起”天分的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600025,
+        "name": "家里蹲炫彩精灵蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“家里蹲”特长、“炫彩”外观、“了不起”天分的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600026,
+        "name": "奇袭炫彩精灵蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“奇袭”特长、“炫彩”外观、“了不起”天分的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600027,
+        "name": "疾行炫彩精灵蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“疾行”特长、“炫彩”外观、“了不起”天分的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600028,
+        "name": "灵巧炫彩精灵蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“灵巧”特长、“炫彩”外观、“了不起”天分的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600029,
+        "name": "亲密炫彩精灵蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“亲密”特长、“炫彩”外观、“了不起”天分的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600030,
+        "name": "异色精灵蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“异色”外观、“了不起”天分的精灵。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600031,
+        "name": "红绿炫彩蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“炫彩”外观、“了不起”天分的精灵。炫彩颜色固定、粒子随机。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600032,
+        "name": "紫色炫彩蛋1",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“炫彩”外观、“了不起”天分的精灵。炫彩颜色含有“紫色”、粒子随机。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600033,
+        "name": "紫色炫彩蛋2",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“炫彩”外观、“了不起”天分的精灵。炫彩颜色含有“紫色”、粒子随机。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600034,
+        "name": "紫色炫彩蛋3",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“炫彩”外观、“了不起”天分的精灵。炫彩颜色含有“紫色”、粒子随机。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600035,
+        "name": "紫色炫彩蛋4",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“炫彩”外观、“了不起”天分的精灵。炫彩颜色含有“紫色”、粒子随机。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600036,
+        "name": "紫色炫彩蛋5",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“炫彩”外观、“了不起”天分的精灵。炫彩颜色含有“紫色”、粒子随机。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600037,
+        "name": "紫色炫彩蛋6",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“炫彩”外观、“了不起”天分的精灵。炫彩颜色含有“紫色”、粒子随机。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600038,
+        "name": "紫色炫彩蛋7",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“炫彩”外观、“了不起”天分的精灵。炫彩颜色含有“紫色”、粒子随机。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600039,
+        "name": "紫色炫彩蛋8",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“炫彩”外观、“了不起”天分的精灵。炫彩颜色含有“紫色”、粒子随机。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600040,
+        "name": "紫色炫彩蛋9",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“炫彩”外观、“了不起”天分的精灵。炫彩颜色含有“紫色”、粒子随机。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600041,
+        "name": "紫色炫彩蛋10",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“炫彩”外观、“了不起”天分的精灵。炫彩颜色含有“紫色”、粒子随机。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600042,
+        "name": "紫色炫彩蛋11",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“炫彩”外观、“了不起”天分的精灵。炫彩颜色含有“紫色”、粒子随机。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600043,
+        "name": "紫色炫彩蛋12",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“炫彩”外观、“了不起”天分的精灵。炫彩颜色含有“紫色”、粒子随机。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600044,
+        "name": "紫色炫彩蛋13",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“炫彩”外观、“了不起”天分的精灵。炫彩颜色含有“紫色”、粒子随机。",
+        "flavor_text": null,
+        "category": "精灵蛋",
+        "type_desc": "精灵蛋",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "运营活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 600045,
+        "name": "紫色炫彩蛋",
+        "icon_id": "egg_tongyong",
+        "description": "蕴含着难以捉摸的魔力，必定孵化出“炫彩”外观、“了不起”天分的精灵。炫彩颜色含有“紫色”、粒子随机。",
+        "flavor_text": null,
+        "category": "重要",
         "type_desc": "精灵蛋",
         "quality": 5,
         "quality_label": "传说",
@@ -54074,7 +58204,7 @@
         "id": 720067,
         "name": "盯梢Ⅱ",
         "icon_id": "icon_pose_3d_watch",
-        "description": "侦探的基本功，悄悄地观察，默默地记录，真相就在细节之中。",
+        "description": "侦探的基本功，悄悄地观察，默默地记录，真相就在细节之中。加入了某种亮闪闪魔法，让这个动作更加醒目了。",
         "flavor_text": null,
         "category": "材料",
         "type_desc": "动作",
@@ -54104,7 +58234,7 @@
         "id": 720069,
         "name": "忍耐Ⅱ",
         "icon_id": "icon_pose_3d_bear",
-        "description": "深呼吸，再深呼吸，忍耐是最强大的力量，暴风雨终将过去。",
+        "description": "深呼吸，再深呼吸，忍耐是最强大的力量，暴风雨终将过去。加入了某种亮闪闪魔法，让这个动作更加醒目了。",
         "flavor_text": null,
         "category": "材料",
         "type_desc": "动作",
@@ -54134,7 +58264,7 @@
         "id": 720071,
         "name": "看报纸Ⅱ",
         "icon_id": "icon_pose_3d_newspaper",
-        "description": "翻开今日的洛克新闻，世界的奥秘都藏在字里行间。",
+        "description": "翻开今日的洛克新闻，世界的奥秘都藏在字里行间。加入了某种亮闪闪魔法，让这个动作更加醒目了。",
         "flavor_text": null,
         "category": "材料",
         "type_desc": "动作",
@@ -54164,7 +58294,7 @@
         "id": 720073,
         "name": "放心吧Ⅱ",
         "icon_id": "icon_pose_3d_reliable",
-        "description": "拍拍胸脯，一切交给我吧！这是最可靠的承诺。",
+        "description": "拍拍胸脯，一切交给我吧！这是最可靠的承诺。加入了某种亮闪闪魔法，让这个动作更加醒目了。",
         "flavor_text": null,
         "category": "材料",
         "type_desc": "动作",
@@ -54221,6 +58351,51 @@
         "related_pets": []
     },
     {
+        "id": 720080,
+        "name": "手碟",
+        "icon_id": "img_S4_Handpan_001",
+        "description": "单人乐器，指尖敲一敲，能演奏出叮咚的乐声。",
+        "flavor_text": null,
+        "category": "材料",
+        "type_desc": "玩具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "S4赛季商店"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 720081,
+        "name": "星陨气球",
+        "icon_id": "img_S4_StarBalloon_001",
+        "description": "单人玩具，据说是星星坠落时掉下的碎片，被谁悄悄牵起来了。",
+        "flavor_text": null,
+        "category": "材料",
+        "type_desc": "玩具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "S4赛季商店"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 720082,
+        "name": "星星提灯",
+        "icon_id": "img_S4_StarLantern_001",
+        "description": "单人玩具，提灯里装着一颗不肯睡的星星，无论多黑的夜，它都会为你亮着。",
+        "flavor_text": null,
+        "category": "材料",
+        "type_desc": "玩具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "S4赛季商店"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 720083,
         "name": "一起嗨Ⅰ",
         "icon_id": "icon_pose_3d_happybirthday",
@@ -54228,8 +58403,8 @@
         "flavor_text": null,
         "category": "材料",
         "type_desc": "动作",
-        "quality": 5,
-        "quality_label": "传说",
+        "quality": 4,
+        "quality_label": "史诗",
         "acquire_ways": [
             "运营活动获取"
         ],
@@ -54243,8 +58418,128 @@
         "flavor_text": null,
         "category": "材料",
         "type_desc": "动作",
-        "quality": 5,
-        "quality_label": "传说",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "运营活动获取"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 720085,
+        "name": "呼唤Ⅰ",
+        "icon_id": "icon_pose_3d_call",
+        "description": "朝着远方轻轻喊一声，相信在乎你的人一定会听见。",
+        "flavor_text": null,
+        "category": "材料",
+        "type_desc": "动作",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "运营活动获取"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 720086,
+        "name": "呼唤Ⅱ",
+        "icon_id": "icon_pose_3d_call",
+        "description": "朝着远方轻轻喊一声，相信在乎你的人一定会听见。加入了某种亮闪闪魔法，让这个动作更加醒目了。",
+        "flavor_text": null,
+        "category": "材料",
+        "type_desc": "动作",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "运营活动获取"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 720087,
+        "name": "偷偷摸摸Ⅰ",
+        "icon_id": "icon_pose_3d_sneaky",
+        "description": "蹑手蹑脚地藏起来，做一些不想被人发现的小动作。",
+        "flavor_text": null,
+        "category": "材料",
+        "type_desc": "动作",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "运营活动获取"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 720088,
+        "name": "偷偷摸摸Ⅱ",
+        "icon_id": "icon_pose_3d_sneaky",
+        "description": "蹑手蹑脚地藏起来，做一些不想被人发现的小动作。加入了某种亮闪闪魔法，让这个动作更加醒目了。",
+        "flavor_text": null,
+        "category": "材料",
+        "type_desc": "动作",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "运营活动获取"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 720089,
+        "name": "惊喜Ⅰ",
+        "icon_id": "icon_pose_3d_surprise",
+        "description": "把最好的祝愿送给最想见的人。",
+        "flavor_text": null,
+        "category": "材料",
+        "type_desc": "动作",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "运营活动获取"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 720090,
+        "name": "惊喜Ⅱ",
+        "icon_id": "icon_pose_3d_surprise",
+        "description": "把最好的祝愿送给最想见的人。加入了某种亮闪闪魔法，让这个动作更加醒目了。",
+        "flavor_text": null,
+        "category": "材料",
+        "type_desc": "动作",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "运营活动获取"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 720091,
+        "name": "摸摸头Ⅰ",
+        "icon_id": "icon_pose_3d_PatHead",
+        "description": "轻轻抚摸对方的头顶，最温柔的鼓励。",
+        "flavor_text": null,
+        "category": "材料",
+        "type_desc": "动作",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "运营活动获取"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 720092,
+        "name": "摸摸头Ⅱ",
+        "icon_id": "icon_pose_3d_PatHead",
+        "description": "轻轻抚摸对方的头顶，最温柔的鼓励。加入了某种亮闪闪魔法，让这个动作更加醒目了。",
+        "flavor_text": null,
+        "category": "材料",
+        "type_desc": "动作",
+        "quality": 4,
+        "quality_label": "史诗",
         "acquire_ways": [
             "运营活动获取"
         ],
@@ -54261,6 +58556,81 @@
         "quality": 3,
         "quality_label": "精良",
         "acquire_ways": [],
+        "related_pets": []
+    },
+    {
+        "id": 800001,
+        "name": "带带你",
+        "icon_id": "icon_Invite_Together",
+        "description": "身份动作：带带你",
+        "flavor_text": null,
+        "category": "材料",
+        "type_desc": "动作",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "路易斯的支援"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 800002,
+        "name": "切磋",
+        "icon_id": "icon_Battle",
+        "description": "战斗学身份动作，可以邀请一位洛克切磋。 “都以为我们战斗学只会打架？笑话。脑子不好，怎么博弈？”",
+        "flavor_text": null,
+        "category": "材料",
+        "type_desc": "动作",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "费得商店"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 800003,
+        "name": "赠送精灵蛋",
+        "icon_id": "icon_Gifting_Egg",
+        "description": "精灵学身份动作，可以赠送一位洛克精灵蛋。 “拿好，不是我送你的，是它看中了你，好好带。”",
+        "flavor_text": null,
+        "category": "材料",
+        "type_desc": "动作",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "费得商店"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 800004,
+        "name": "赠送条件球",
+        "icon_id": "icon_Gift_Ball",
+        "description": "炼金学身份动作，可以赠送一位洛克条件球。 “行走卡洛西亚必备之物。咱们炼金学就是三分准备，七分洛克贝。”",
+        "flavor_text": null,
+        "category": "材料",
+        "type_desc": "动作",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "费得商店"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 800005,
+        "name": "分享照片",
+        "icon_id": "icon_Photo_Share",
+        "description": "仪典学身份动作，可以跟一位洛克分享照片。 “看镜头——三、二、一，鸭吉吉！今天也是记录了我美好仪态的一天。”",
+        "flavor_text": null,
+        "category": "材料",
+        "type_desc": "动作",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "费得商店"
+        ],
         "related_pets": []
     },
     {
@@ -54646,6 +59016,21 @@
         "related_pets": []
     },
     {
+        "id": 1000018,
+        "name": "月涌赛季精灵",
+        "icon_id": "1000018",
+        "description": "月涌狂想赛季的新精灵合影，可以挂在小屋的墙上",
+        "flavor_text": null,
+        "category": "家具",
+        "type_desc": "家具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "赛季图鉴获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 1000021,
         "name": "船长衣柜",
         "icon_id": "1000021",
@@ -54736,6 +59121,66 @@
         "related_pets": []
     },
     {
+        "id": 1000045,
+        "name": "宇宙拓荒合影",
+        "icon_id": "1000045",
+        "description": "宇宙拓荒者精灵合影，可以挂在小屋的墙上",
+        "flavor_text": null,
+        "category": "家具",
+        "type_desc": "家具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 1000046,
+        "name": "天空邮局合影",
+        "icon_id": "1000046",
+        "description": "天空邮局精灵合影，可以挂在小屋的墙上",
+        "flavor_text": null,
+        "category": "家具",
+        "type_desc": "家具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 1000047,
+        "name": "怪奇实验合影",
+        "icon_id": "1000047",
+        "description": "怪奇实验室精灵合影，可以挂在小屋的墙上",
+        "flavor_text": null,
+        "category": "家具",
+        "type_desc": "家具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 1000048,
+        "name": "宝石狩猎合影",
+        "icon_id": "1000048",
+        "description": "宝石狩猎精灵合影，可以挂在小屋的墙上",
+        "flavor_text": null,
+        "category": "家具",
+        "type_desc": "家具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "活动获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 1000051,
         "name": "小狐·奖状证书",
         "icon_id": "1000051",
@@ -54747,6 +59192,66 @@
         "quality_label": "史诗",
         "acquire_ways": [
             "活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 1000052,
+        "name": "小豚·奖状证书",
+        "icon_id": "1000052",
+        "description": "魔法学院特此颁发荣誉证书，以表彰其在「小豚安家记」中的卓越表现",
+        "flavor_text": null,
+        "category": "家具",
+        "type_desc": "家具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "活动获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 1000061,
+        "name": "铜质纪念奖杯",
+        "icon_id": "1000061",
+        "description": "记录学期成长与荣誉的纪念奖杯。",
+        "flavor_text": null,
+        "category": "咕噜球",
+        "type_desc": "家具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "学院成就获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 1000062,
+        "name": "银质纪念奖杯",
+        "icon_id": "1000062",
+        "description": "记录学期成长与荣誉的纪念奖杯。",
+        "flavor_text": null,
+        "category": "咕噜球",
+        "type_desc": "家具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "学院成就获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 1000063,
+        "name": "金质纪念奖杯",
+        "icon_id": "1000063",
+        "description": "记录学期成长与荣誉的纪念奖杯。",
+        "flavor_text": null,
+        "category": "咕噜球",
+        "type_desc": "家具",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "学院成就获得"
         ],
         "related_pets": []
     },
@@ -55111,21 +59616,6 @@
         "related_pets": []
     },
     {
-        "id": 1001046,
-        "name": "星梦·软垫靠椅",
-        "icon_id": "1001046",
-        "description": "舒适的靠背椅，设计灵感来自于穿星星睡衣的梦游家族的花纹，适合搭配书桌使用",
-        "flavor_text": null,
-        "category": "家具",
-        "type_desc": "家具",
-        "quality": 3,
-        "quality_label": "精良",
-        "acquire_ways": [
-            "家园获得"
-        ],
-        "related_pets": []
-    },
-    {
         "id": 1001051,
         "name": "单人沙发",
         "icon_id": "1001051",
@@ -55321,6 +59811,21 @@
         "related_pets": []
     },
     {
+        "id": 1001072,
+        "name": "学院小窝",
+        "icon_id": "1001072",
+        "description": "枝叶自然堆积，点缀小花，是精灵们最爱的休憩场所。据说对产出的精灵蛋有好的效果",
+        "flavor_text": null,
+        "category": "家具",
+        "type_desc": "家具",
+        "quality": 3,
+        "quality_label": "精良",
+        "acquire_ways": [
+            "加入精灵学院获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 1001081,
         "name": "实木书桌",
         "icon_id": "1001081",
@@ -55405,21 +59910,6 @@
         "type_desc": "家具",
         "quality": 5,
         "quality_label": "传说",
-        "acquire_ways": [
-            "家园获得"
-        ],
-        "related_pets": []
-    },
-    {
-        "id": 1001092,
-        "name": "线织·地毯",
-        "icon_id": "1001092",
-        "description": "毛绒绒的流苏地毯，印花是圆滚滚的线球鼠家族",
-        "flavor_text": null,
-        "category": "家具",
-        "type_desc": "家具",
-        "quality": 4,
-        "quality_label": "史诗",
         "acquire_ways": [
             "家园获得"
         ],
@@ -55696,21 +60186,6 @@
         "related_pets": []
     },
     {
-        "id": 1002013,
-        "name": "熔堆·书架",
-        "icon_id": "1002013",
-        "description": "可可果木打造的书架，设计参考了臭臭堆家族的花纹，是各类魔法典籍的归宿",
-        "flavor_text": null,
-        "category": "家具",
-        "type_desc": "家具",
-        "quality": 4,
-        "quality_label": "史诗",
-        "acquire_ways": [
-            "家园获得"
-        ],
-        "related_pets": []
-    },
-    {
         "id": 1002014,
         "name": "月光·书架",
         "icon_id": "1002014",
@@ -55805,21 +60280,6 @@
         "name": "贝瑟·老式壁炉",
         "icon_id": "1002025",
         "description": "老式雕花壁炉，花纹与配色灵感来自于贝瑟家族冬日伙伴们总是聚集于此闲谈说笑",
-        "flavor_text": null,
-        "category": "家具",
-        "type_desc": "家具",
-        "quality": 4,
-        "quality_label": "史诗",
-        "acquire_ways": [
-            "家园获得"
-        ],
-        "related_pets": []
-    },
-    {
-        "id": 1002026,
-        "name": "熔堆·老式壁炉",
-        "icon_id": "1002026",
-        "description": "老式雕花壁炉，花纹与配色灵感来自于臭臭堆家族冬日伙伴们总是聚集于此闲谈说笑",
         "flavor_text": null,
         "category": "家具",
         "type_desc": "家具",
@@ -56176,21 +60636,6 @@
         "related_pets": []
     },
     {
-        "id": 1002075,
-        "name": "星云·方形地毯",
-        "icon_id": "1002075",
-        "description": "大块方形地毯，毛线编织而成，织有星云旅者家族的花纹",
-        "flavor_text": null,
-        "category": "家具",
-        "type_desc": "家具",
-        "quality": 4,
-        "quality_label": "史诗",
-        "acquire_ways": [
-            "家园获得"
-        ],
-        "related_pets": []
-    },
-    {
         "id": 1002076,
         "name": "松鼠·方形地毯",
         "icon_id": "1002076",
@@ -56375,21 +60820,6 @@
         "name": "野外考察合影",
         "icon_id": "1002142",
         "description": "野外考察队精灵合影，可以挂在小屋的墙上",
-        "flavor_text": null,
-        "category": "家具",
-        "type_desc": "家具",
-        "quality": 4,
-        "quality_label": "史诗",
-        "acquire_ways": [
-            "活动获得"
-        ],
-        "related_pets": []
-    },
-    {
-        "id": 1002144,
-        "name": "壁炉伙伴合影",
-        "icon_id": "1002144",
-        "description": "壁炉边伙伴精灵合影，可以挂在小屋的墙上",
         "flavor_text": null,
         "category": "家具",
         "type_desc": "家具",
@@ -57661,6 +62091,111 @@
         "related_pets": []
     },
     {
+        "id": 1009011,
+        "name": "远古休眠舱",
+        "icon_id": "1009011",
+        "description": "待在里面就感觉昏昏欲睡，神奇的远古装置",
+        "flavor_text": null,
+        "category": "家具",
+        "type_desc": "家具",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "古拉拉家具店获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 1009021,
+        "name": "履带转动机",
+        "icon_id": "1009021",
+        "description": "站上去履带就会不停转动，不明意义的装置",
+        "flavor_text": null,
+        "category": "家具",
+        "type_desc": "家具",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "古拉拉家具店获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 1009031,
+        "name": "反重力食品柜",
+        "icon_id": "1009031",
+        "description": "食物放在上面竟然不会掉落，反直觉的装置",
+        "flavor_text": null,
+        "category": "家具",
+        "type_desc": "家具",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "古拉拉家具店获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 1009041,
+        "name": "多功能研究台",
+        "icon_id": "1009041",
+        "description": "偶尔会吱吱呀呀地动起来，吓洛一跳的装置",
+        "flavor_text": null,
+        "category": "家具",
+        "type_desc": "家具",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "古拉拉家具店获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 1009051,
+        "name": "未知植物",
+        "icon_id": "1009051",
+        "description": "从没有见过的植物，似乎不存在于卡洛西亚大陆",
+        "flavor_text": null,
+        "category": "家具",
+        "type_desc": "家具",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "古拉拉家具店获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 1009061,
+        "name": "全自动清洁器",
+        "icon_id": "1009061",
+        "description": "偶尔会自动跑起来，路过的地面会变得干净，非常勤劳的装置",
+        "flavor_text": null,
+        "category": "家具",
+        "type_desc": "家具",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "古拉拉家具店获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 1009071,
+        "name": "影像记录仪",
+        "icon_id": "1009071",
+        "description": "不知道画面是由何种魔法呈现，承载着某种记忆的装置",
+        "flavor_text": null,
+        "category": "家具",
+        "type_desc": "家具",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "古拉拉家具店获得"
+        ],
+        "related_pets": []
+    },
+    {
         "id": 9110101,
         "name": "浅绿墙面",
         "icon_id": "9110101",
@@ -57830,6 +62365,36 @@
         "name": "古典菱纹",
         "icon_id": "1006",
         "description": "菱纹拼花，理石触感，尽显贵族宅邸的典雅与沉淀",
+        "flavor_text": null,
+        "category": "家具",
+        "type_desc": "装潢",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "古拉拉家具店获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 9110901,
+        "name": "近月漂流舱",
+        "icon_id": "9110901",
+        "description": "金色舱壁织满神秘的几何纹路，微弱的魔力在其中涌动。月球见证了它跨越无数的星海与纪元，尘封的文明能否再次点燃火种",
+        "flavor_text": null,
+        "category": "家具",
+        "type_desc": "装潢",
+        "quality": 4,
+        "quality_label": "史诗",
+        "acquire_ways": [
+            "古拉拉家具店获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 9110902,
+        "name": "深空方轨",
+        "icon_id": "9110902",
+        "description": "深蓝色的地面上，金色边纹如轨道蜿蜒，宛若通往宇宙的最深处",
         "flavor_text": null,
         "category": "家具",
         "type_desc": "装潢",
@@ -58377,6 +62942,36 @@
         "quality_label": "传说",
         "acquire_ways": [
             "挑战精灵首领·暗夜颅主获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 20000026,
+        "name": "烈焰狂战士的信物",
+        "icon_id": "101027",
+        "description": "凝缩了烈焰狂战士往日记忆的缩影。是在战斗中激活远古血脉的必要条件。",
+        "flavor_text": "\"意识结构延续体验，感受被惯性牵引，如同雪花堆积的记忆，是曾经存在的证明。\"",
+        "category": "咕噜球",
+        "type_desc": "首领信物",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "领地试炼获得"
+        ],
+        "related_pets": []
+    },
+    {
+        "id": 20000027,
+        "name": "满月砣的信物",
+        "icon_id": "101028",
+        "description": "凝缩了满月砣往日记忆的缩影。是在战斗中激活远古血脉的必要条件。",
+        "flavor_text": "\"意识结构延续体验，感受被惯性牵引，如同雪花堆积的记忆，是曾经存在的证明。\"",
+        "category": "咕噜球",
+        "type_desc": "首领信物",
+        "quality": 5,
+        "quality_label": "传说",
+        "acquire_ways": [
+            "领地试炼获得"
         ],
         "related_pets": []
     },

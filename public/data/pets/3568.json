@@ -641,13 +641,13 @@
             "localized": {
                 "zh": {
                     "name": "魔镜",
-                    "description": "敌方获得魔防​-50%，​且​失​去​3​能量​。"
+                    "description": "敌方获得魔防-50%，且失去3能量。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "敌方获得魔防​-50%，​且​失​去​3​能量​。"
+            "description": "敌方获得魔防-50%，且失去3能量。"
         }
     ],
     "legacy_moves": [
@@ -1206,12 +1206,10 @@
         "type_desc": "猫精灵",
         "description_habitat": "行踪神秘",
         "introduction": "在白天，小黑猫们经常闭上眼睛，揣着手休息，如果冒昧地扒开它们的眼皮，会发现很多时候并没有在睡觉，有一种说法：小黑猫闭眼就是在思考。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1303,6 +1301,70 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3568005,
+                "pet_id": 3568005,
+                "name": null,
+                "model_id": 3568002,
+                "hatch_data": 28800,
+                "weight_low": 1085,
+                "weight_high": 1800,
+                "height_low": 23,
+                "height_high": 27,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3568006,
+                "pet_id": 3568006,
+                "name": null,
+                "model_id": 3568001,
+                "hatch_data": 28800,
+                "weight_low": 1085,
+                "weight_high": 1800,
+                "height_low": 23,
+                "height_high": 27,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3568008,
+                "pet_id": 3568008,
+                "name": null,
+                "model_id": 3568002,
+                "hatch_data": 28800,
+                "weight_low": 1085,
+                "weight_high": 1800,
+                "height_low": 23,
+                "height_high": 27,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3568009,
+                "pet_id": 3568009,
+                "name": null,
+                "model_id": 3568002,
+                "hatch_data": 300,
+                "weight_low": 1085,
+                "weight_high": 1800,
+                "height_low": 23,
+                "height_high": 27,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 35680001,
                 "pet_id": 35680001,
                 "name": null,
@@ -1342,8 +1404,8 @@
             6,
             7
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

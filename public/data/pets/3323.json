@@ -32,11 +32,11 @@
         }
     },
     "implemented": true,
-    "base_hp": 126,
-    "base_phy_atk": 99,
-    "base_mag_atk": 98,
-    "base_phy_def": 97,
-    "base_mag_def": 123,
+    "base_hp": 132,
+    "base_phy_atk": 103,
+    "base_mag_atk": 101,
+    "base_phy_def": 100,
+    "base_mag_def": 127,
     "base_spd": 55,
     "evolves_from_id": 3322,
     "species": {
@@ -144,7 +144,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 30,
+            "power": 20,
             "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         },
         {
@@ -315,13 +315,13 @@
             "localized": {
                 "zh": {
                     "name": "超声波",
-                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                    "description": "自己获得全技能威力+20，选择：本次能耗-1或应对防御时改为全技能威力永久+20。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+            "description": "自己获得全技能威力+20，选择：本次能耗-1或应对防御时改为全技能威力永久+20。"
         },
         {
             "id": 7180400,
@@ -337,13 +337,13 @@
             "localized": {
                 "zh": {
                     "name": "血契",
-                    "description": "造成物伤，自己每失去10%生命，本技能威力+10。"
+                    "description": "造成物伤，自己每失去10%生命，本技能威力+15。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 75,
-            "description": "造成物伤，自己每失去10%生命，本技能威力+10。"
+            "description": "造成物伤，自己每失去10%生命，本技能威力+15。"
         },
         {
             "id": 7150110,
@@ -742,6 +742,50 @@
             "energy_cost": 0,
             "power": null,
             "description": "每回合随机变成自己未携带的技能，且该技能能耗-2。"
+        },
+        {
+            "id": 7180460,
+            "name": "暴打",
+            "icon_id": "117045",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "暴打",
+                    "description": "对敌方精灵造成魔法伤害。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 100,
+            "description": "对敌方精灵造成魔法伤害。"
+        },
+        {
+            "id": 7150360,
+            "name": "试飞",
+            "icon_id": "114037",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "试飞",
+                    "description": "造成物伤，2连击。选择：每次使用后本技能威力永久+10或连击数永久+1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 2,
+            "power": 20,
+            "description": "造成物伤，2连击。选择：每次使用后本技能威力永久+10或连击数永久+1。"
         }
     ],
     "legacy_moves": [
@@ -1284,8 +1328,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 16 级",
-                            "需满足特殊条件（类型 4，参数 18、6）"
+                            "等级达到 16 级"
                         ]
                     }
                 ],
@@ -1320,8 +1363,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 32 级",
-                            "需满足特殊条件（类型 4，参数 18、6）"
+                            "等级达到 32 级"
                         ]
                     }
                 ],
@@ -1337,12 +1379,10 @@
         "type_desc": "大蝙蝠精灵",
         "description_habitat": "常见于树林、崖壁",
         "introduction": "一到天黑就集体出动，在夜空中无声地滑翔游荡。声波探测让它们在纯黑环境中如鱼得水。附近居民吓唬小小洛克说天黑不回家的话会被夜游魔吃掉。某些个体对此表示不赞同。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1360,8 +1400,8 @@
             2,
             5
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

@@ -383,13 +383,13 @@
             "localized": {
                 "zh": {
                     "name": "孢子",
-                    "description": "敌方获得1层寄生。"
+                    "description": "敌方获得3层寄生。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "敌方获得1层寄生。"
+            "description": "敌方获得3层寄生。"
         },
         {
             "id": 7170160,
@@ -669,13 +669,13 @@
             "localized": {
                 "zh": {
                     "name": "耍赖",
-                    "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
+                    "description": "自己获得双攻永久+10%，2连击。自己有减益时，本次技能连击数+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
+            "description": "自己获得双攻永久+10%，2连击。自己有减益时，本次技能连击数+1。"
         },
         {
             "id": 7150360,
@@ -691,13 +691,13 @@
             "localized": {
                 "zh": {
                     "name": "试飞",
-                    "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+                    "description": "造成物伤，2连击。选择：每次使用后本技能威力永久+10或连击数永久+1。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 20,
-            "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+            "description": "造成物伤，2连击。选择：每次使用后本技能威力永久+10或连击数永久+1。"
         },
         {
             "id": 7150370,
@@ -713,13 +713,13 @@
             "localized": {
                 "zh": {
                     "name": "超声波",
-                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                    "description": "自己获得全技能威力+20，选择：本次能耗-1或应对防御时改为全技能威力永久+20。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+            "description": "自己获得全技能威力+20，选择：本次能耗-1或应对防御时改为全技能威力永久+20。"
         }
     ],
     "legacy_moves": [
@@ -1301,9 +1301,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 26 级",
-                            "需激活白子形态分支",
-                            "需为雄性"
+                            "等级达到 26 级"
                         ]
                     },
                     {
@@ -1332,9 +1330,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 26 级",
-                            "需激活白子形态分支",
-                            "需为雌性"
+                            "等级达到 26 级"
                         ]
                     },
                     {
@@ -1363,9 +1359,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 26 级",
-                            "需激活白子形态分支",
-                            "需为雄性"
+                            "等级达到 26 级"
                         ]
                     },
                     {
@@ -1394,9 +1388,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 26 级",
-                            "需激活白子形态分支",
-                            "需为雄性"
+                            "等级达到 26 级"
                         ]
                     },
                     {
@@ -1425,9 +1417,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 26 级",
-                            "需激活黑子形态分支",
-                            "需为雄性"
+                            "等级达到 26 级"
                         ]
                     },
                     {
@@ -1456,9 +1446,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 26 级",
-                            "需激活黑子形态分支",
-                            "需为雌性"
+                            "等级达到 26 级"
                         ]
                     },
                     {
@@ -1487,9 +1475,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 26 级",
-                            "需激活黑子形态分支",
-                            "需为雄性"
+                            "等级达到 26 级"
                         ]
                     },
                     {
@@ -1518,9 +1504,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 26 级",
-                            "需激活黑子形态分支",
-                            "需为雄性"
+                            "等级达到 26 级"
                         ]
                     }
                 ],
@@ -1650,12 +1634,10 @@
         "type_desc": "棋子精灵",
         "description_habitat": "常见于山林、城堡周边",
         "introduction": "在棋盘最中央的格子是为它预留的王座，棋契陛下并非被雕刻，而是由黑白两色棋子在万夜轮转中自行对局而生，它不移动，却可以传令所有棋子。“当王棋离座，棋盘即终局；终局之时，所有棋子将回归石质，世界将再无边界可言。”",
-        "refresh_locations": [
-            "暂时找不到这只精灵的踪迹噢！"
-        ],
+        "refresh_locations": [],
         "movement_type": null,
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1666,8 +1648,8 @@
     "breeding_profile": {
         "pet_base_id": 4086,
         "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

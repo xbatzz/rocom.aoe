@@ -669,13 +669,13 @@
             "localized": {
                 "zh": {
                     "name": "养分回流",
-                    "description": "造成​魔伤，​为场​下​所有​精灵​回复1​能量​。"
+                    "description": "造成魔伤，为场下所有精灵回复1能量。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造成​魔伤，​为场​下​所有​精灵​回复1​能量​。"
+            "description": "造成魔伤，为场下所有精灵回复1能量。"
         },
         {
             "id": 7190410,
@@ -691,13 +691,13 @@
             "localized": {
                 "zh": {
                     "name": "许愿池",
-                    "description": "造成​魔伤，​双方已有的印记层数+1。"
+                    "description": "造成魔伤，双方已有的印记层数+1。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 4,
             "power": 55,
-            "description": "造成​魔伤，​双方已有的印记层数+1。"
+            "description": "造成魔伤，双方已有的印记层数+1。"
         }
     ],
     "legacy_moves": [
@@ -1271,12 +1271,10 @@
         "type_desc": "恶作剧精灵",
         "description_habitat": "行踪神秘",
         "introduction": "在森林里挥舞着手中的木棍，好像是在做施放巫术的练习。偶尔会和帽子交谈，晒太阳的时候可能会发出诡异的笑声。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 15,
-        "classis_name": "神奇类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1407,8 +1405,8 @@
             7,
             9
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

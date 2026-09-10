@@ -663,13 +663,13 @@
             "localized": {
                 "zh": {
                     "name": "驱赶",
-                    "description": "造成​魔伤，​选择：​本​次技能​威力​+20或​应对状态​时​本​次​技能威力​+140。"
+                    "description": "造成魔伤，选择：本次技能威力+20或应对状态时本次技能威力+140。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 70,
-            "description": "造成​魔伤，​选择：​本​次技能​威力​+20或​应对状态​时​本​次​技能威力​+140。"
+            "description": "造成魔伤，选择：本次技能威力+20或应对状态时本次技能威力+140。"
         },
         {
             "id": 7050510,
@@ -685,13 +685,35 @@
             "localized": {
                 "zh": {
                     "name": "清洗",
-                    "description": "​驱散​自己​的​减益，​自己​每​有​1层减益，​本技​能​能​耗​-1，巧变：​水系​攻击​技​能​。"
+                    "description": "驱散自己的减益，自己每有1层减益，本技能能耗-1，巧变：水系攻击技能。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 0,
             "power": null,
-            "description": "​驱散​自己​的​减益，​自己​每​有​1层减益，​本技​能​能​耗​-1，巧变：​水系​攻击​技​能​。"
+            "description": "驱散自己的减益，自己每有1层减益，本技能能耗-1，巧变：水系攻击技能。"
+        },
+        {
+            "id": 7050400,
+            "name": "洗礼",
+            "icon_id": "104029",
+            "move_type": {
+                "id": 4,
+                "name": "Water",
+                "localized": {
+                    "zh": "水"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "洗礼",
+                    "description": "驱散自己的减益，并获得全技能能耗-1。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 1,
+            "power": null,
+            "description": "驱散自己的减益，并获得全技能能耗-1。"
         }
     ],
     "legacy_moves": [
@@ -1221,12 +1243,10 @@
         "type_desc": "鲸精灵",
         "description_habitat": "行踪神秘",
         "introduction": "深蓝鲸们喜欢贴着水面游泳，会跳出水面，和来往船只嬉戏，遇到危险时，可以把头部冰柱发射出去。种群之间通过歌声和口哨声交流，不论距离多远，互相之间的声音都能传达到。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1309,8 +1329,8 @@
             2,
             13
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

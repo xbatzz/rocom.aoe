@@ -471,13 +471,13 @@
             "localized": {
                 "zh": {
                     "name": "孢子",
-                    "description": "敌方获得1层寄生。"
+                    "description": "敌方获得3层寄生。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "敌方获得1层寄生。"
+            "description": "敌方获得3层寄生。"
         },
         {
             "id": 7060130,
@@ -1299,12 +1299,10 @@
         "type_desc": "小花种精灵",
         "description_habitat": "行踪神秘",
         "introduction": "稀兽花种的幼年形态，非常轻，会随风而动，身后有像翅膀一样的苞片，苞片上有特殊的薄膜，可以起到防风防水的效果，保护它们健康成长。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2,
@@ -1387,8 +1385,8 @@
         "egg_groups": [
             8
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

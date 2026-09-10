@@ -265,13 +265,13 @@
             "localized": {
                 "zh": {
                     "name": "超导",
-                    "description": "造成魔伤，迸发：本技能能耗-1。"
+                    "description": "造成魔伤，迸发：本技能能耗-2。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
-            "power": 95,
-            "description": "造成魔伤，迸发：本技能能耗-1。"
+            "power": 90,
+            "description": "造成魔伤，迸发：本技能能耗-2。"
         },
         {
             "id": 7060100,
@@ -1503,12 +1503,10 @@
         "type_desc": "永远的伙伴",
         "description_habitat": "行踪神秘",
         "introduction": "这是关于勇气的故事，他很脆弱却也不曾退缩；这是关于梦想的故事，梦很简单却也执着。这就是我，迪莫。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 17,
-        "classis_name": "梦想类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1521,8 +1519,8 @@
         "egg_groups": [
             1
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

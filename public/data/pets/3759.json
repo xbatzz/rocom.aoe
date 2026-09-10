@@ -32,11 +32,11 @@
         }
     },
     "implemented": true,
-    "base_hp": 86,
-    "base_phy_atk": 74,
-    "base_mag_atk": 76,
-    "base_phy_def": 84,
-    "base_mag_def": 84,
+    "base_hp": 92,
+    "base_phy_atk": 79,
+    "base_mag_atk": 80,
+    "base_phy_def": 88,
+    "base_mag_def": 88,
     "base_spd": 60,
     "evolves_from_id": null,
     "species": {
@@ -249,13 +249,13 @@
             "localized": {
                 "zh": {
                     "name": "孢子爆散",
-                    "description": "造成物伤，1连击，每次使用后，本技能连击数永久+2。"
+                    "description": "造成物伤，2连击，每次使用后，本技能连击数永久+2。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 30,
-            "description": "造成物伤，1连击，每次使用后，本技能连击数永久+2。"
+            "description": "造成物伤，2连击，每次使用后，本技能连击数永久+2。"
         },
         {
             "id": 7040180,
@@ -427,13 +427,13 @@
             "localized": {
                 "zh": {
                     "name": "孢子",
-                    "description": "敌方获得1层寄生。"
+                    "description": "敌方获得3层寄生。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "敌方获得1层寄生。"
+            "description": "敌方获得3层寄生。"
         },
         {
             "id": 7040240,
@@ -757,13 +757,13 @@
             "localized": {
                 "zh": {
                     "name": "急中生智",
-                    "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+                    "description": "造成魔伤，自己有减益时，本次技能威力+40。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 80,
-            "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+            "description": "造成魔伤，自己有减益时，本次技能威力+40。"
         }
     ],
     "legacy_moves": [
@@ -1334,12 +1334,10 @@
         "type_desc": "玉米精灵",
         "description_habitat": "行踪神秘",
         "introduction": "体内积蓄着高压的热能，需要经历一次足够猛烈的高温才能进化。田野里偶尔传来的“砰”一声闷响，多半是哪只不走运的精灵踩到了它。村民们在收割季都互相提醒多看脚下，别踩鼓起来的苞米仔。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1453,8 +1451,8 @@
             8,
             9
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

@@ -337,13 +337,13 @@
             "localized": {
                 "zh": {
                     "name": "拟寄生",
-                    "description": "造成​魔伤，​偷取​敌​方​1​层​印记。"
+                    "description": "造成魔伤，偷取敌方1层印记。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 80,
-            "description": "造成​魔伤，​偷取​敌​方​1​层​印记。"
+            "description": "造成魔伤，偷取敌方1层印记。"
         },
         {
             "id": 7180140,
@@ -786,6 +786,28 @@
             "energy_cost": 2,
             "power": null,
             "description": "自己的生命比例变为与敌方生命比例相同，巧变：恶系攻击技能。"
+        },
+        {
+            "id": 7180460,
+            "name": "暴打",
+            "icon_id": "117045",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "暴打",
+                    "description": "对敌方精灵造成魔法伤害。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 100,
+            "description": "对敌方精灵造成魔法伤害。"
         }
     ],
     "legacy_moves": [
@@ -1391,12 +1413,10 @@
         "type_desc": "恶魔精灵",
         "description_habitat": "常见于山地",
         "introduction": "原来它们一直在通过魔法感知高纬度能量，是十分谨慎的种族，甚至睡眠时间极短，常处于高度紧张的戒备状态。通过极短的间歇性闭目养神回复第三只眼睛中的魔力。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1414,8 +1434,8 @@
             2,
             4
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

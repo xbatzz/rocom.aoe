@@ -94,7 +94,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 30,
+            "power": 20,
             "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         },
         {
@@ -226,7 +226,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 35,
+            "power": 40,
             "description": "造成物伤，2连击，若击败敌方，本技能连击数永久+2。"
         },
         {
@@ -1268,12 +1268,10 @@
         "type_desc": "狼精灵",
         "description_habitat": "偶见于山地",
         "introduction": "胸前的毛发非常粗糙，似乎能够起到保护作用。能够在战场上高速地移动，迅猛的前爪攻击十分有力。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 15,
-        "classis_name": "神奇类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1397,6 +1395,22 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3011007,
+                "pet_id": 3011007,
+                "name": null,
+                "model_id": 3011002,
+                "hatch_data": 300,
+                "weight_low": 25900,
+                "weight_high": 36800,
+                "height_low": 52,
+                "height_high": 73,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 30110001,
                 "pet_id": 30110001,
                 "name": null,
@@ -1435,8 +1449,8 @@
         "egg_groups": [
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

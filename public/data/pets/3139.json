@@ -32,11 +32,11 @@
         }
     },
     "implemented": true,
-    "base_hp": 73,
-    "base_phy_atk": 40,
-    "base_mag_atk": 43,
-    "base_phy_def": 50,
-    "base_mag_def": 57,
+    "base_hp": 79,
+    "base_phy_atk": 43,
+    "base_mag_atk": 46,
+    "base_phy_def": 54,
+    "base_mag_def": 60,
     "base_spd": 60,
     "evolves_from_id": null,
     "species": {
@@ -271,13 +271,13 @@
             "localized": {
                 "zh": {
                     "name": "孢子",
-                    "description": "敌方获得1层寄生。"
+                    "description": "敌方获得3层寄生。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "敌方获得1层寄生。"
+            "description": "敌方获得3层寄生。"
         },
         {
             "id": 7130110,
@@ -520,7 +520,7 @@
             },
             "move_category": "Magic Attack",
             "energy_cost": 7,
-            "power": 100,
+            "power": 110,
             "description": "造成魔伤，敌方每有1层印记，本技能能耗-1。"
         },
         {
@@ -757,13 +757,13 @@
             "localized": {
                 "zh": {
                     "name": "薄纱环",
-                    "description": "选择：对手随机获得1种负面印记或自己随机获得1种正面印记。"
+                    "description": "选择：敌方随机获得1种负面印记或自己随机获得1种正面印记。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "选择：对手随机获得1种负面印记或自己随机获得1种正面印记。"
+            "description": "选择：敌方随机获得1种负面印记或自己随机获得1种正面印记。"
         },
         {
             "id": 7130330,
@@ -779,13 +779,13 @@
             "localized": {
                 "zh": {
                     "name": "振翅",
-                    "description": "选择：己方队伍​获得​1​次​奉献：​连击​+1或​威力​+20。"
+                    "description": "选择：己方队伍获得1次奉献：连击+1或威力+20。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "选择：己方队伍​获得​1​次​奉献：​连击​+1或​威力​+20。"
+            "description": "选择：己方队伍获得1次奉献：连击+1或威力+20。"
         }
     ],
     "legacy_moves": [
@@ -1391,12 +1391,10 @@
         "type_desc": "虫仔精灵",
         "description_habitat": "常见于草丛",
         "introduction": "果树分叉越多的地方，越容易找到它们，常常被误认为是未熟的青葡萄。肤表黏糊糊的，睡觉时缩成一团挂在树上。常观察到许多只挤在一起，目前推测是畏寒的原因。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 5,
-        "classis_name": "昆虫类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1488,6 +1486,22 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3139005,
+                "pet_id": 3139005,
+                "name": null,
+                "model_id": 3139001,
+                "hatch_data": 28800,
+                "weight_low": 735,
+                "weight_high": 1360,
+                "height_low": 20,
+                "height_high": 28,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 31390001,
                 "pet_id": 31390001,
                 "name": null,
@@ -1527,8 +1541,8 @@
             4,
             9
         ],
-        "proportion_male": 2,
-        "male_rate": 20,
-        "female_rate": 80
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

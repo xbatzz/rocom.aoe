@@ -641,13 +641,13 @@
             "localized": {
                 "zh": {
                     "name": "魔镜",
-                    "description": "敌方获得魔防​-50%，​且​失​去​3​能量​。"
+                    "description": "敌方获得魔防-50%，且失去3能量。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "敌方获得魔防​-50%，​且​失​去​3​能量​。"
+            "description": "敌方获得魔防-50%，且失去3能量。"
         }
     ],
     "legacy_moves": [
@@ -1275,12 +1275,10 @@
         "type_desc": "猫精灵",
         "description_habitat": "行踪神秘",
         "introduction": "夜晚总是在看星星，长久地观察星空和白天不停地思考，似乎让它们拥有了占卜的能力。偶尔会看到有小洛克拿着可可果去拜托黑猫巫师帮忙预测期末考试题。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1298,8 +1296,8 @@
             6,
             7
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

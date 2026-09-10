@@ -293,13 +293,13 @@
             "localized": {
                 "zh": {
                     "name": "孢子爆散",
-                    "description": "造成物伤，1连击，每次使用后，本技能连击数永久+2。"
+                    "description": "造成物伤，2连击，每次使用后，本技能连击数永久+2。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 30,
-            "description": "造成物伤，1连击，每次使用后，本技能连击数永久+2。"
+            "description": "造成物伤，2连击，每次使用后，本技能连击数永久+2。"
         },
         {
             "id": 7090130,
@@ -669,13 +669,13 @@
             "localized": {
                 "zh": {
                     "name": "冷凝",
-                    "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
+                    "description": "造成物伤，敌方每有1层冻结，自己回复1能量。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 95,
-            "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
+            "description": "造成物伤，敌方每有1层冻结，自己回复1能量。"
         }
     ],
     "legacy_moves": [
@@ -1536,12 +1536,10 @@
         "type_desc": "蜥蜴精灵",
         "description_habitat": "常见于草地、沙地、雪山、火山",
         "introduction": "进化后，它们可以在最短时间内把体温抬升到正常水平，维持每天的必要活动。当天气转冷或日照不足时，它们会显著降低活动，进入近似蛰伏的节能状态，把热量留给下一次必要的出动。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 5,
-        "classis_name": "昆虫类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2,
@@ -1559,8 +1557,8 @@
         "egg_groups": [
             3
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

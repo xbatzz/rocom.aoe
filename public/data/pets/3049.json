@@ -707,13 +707,13 @@
             "localized": {
                 "zh": {
                     "name": "马步",
-                    "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+                    "description": "本技能先手-1，选择：若自己生命低于20%，回复60%生命或若自己生命高于80%，获得物攻+150%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+            "description": "本技能先手-1，选择：若自己生命低于20%，回复60%生命或若自己生命高于80%，获得物攻+150%。"
         }
     ],
     "legacy_moves": [
@@ -1313,12 +1313,10 @@
         "type_desc": "睡不醒精灵",
         "description_habitat": "偶见于城镇周边、山地",
         "introduction": "一直闭着眼睛在睡觉，即使是醒了也看不出来。在它睡着的时候也能对听到的声音有所反应，仿佛是个熟练的梦游者。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 7,
-        "classis_name": "岩石类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1417,8 +1415,8 @@
             2,
             9
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

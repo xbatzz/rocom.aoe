@@ -1096,8 +1096,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需激活恶系血脉"
+                            "等级达到 40 级"
                         ]
                     }
                 ],
@@ -1113,12 +1112,10 @@
         "type_desc": "天鹅精灵",
         "description_habitat": "常见于湖泊",
         "introduction": "羽毛有很好的疏水性，可以毫不费力地浮在水面上，浮着的时候怔怔地看着水面，并不是在发呆，而是在检查自己的美丽，小小的乖乖鹄很早就已经意识到了美丽与优雅的重要性。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2,

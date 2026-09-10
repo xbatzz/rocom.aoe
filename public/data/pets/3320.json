@@ -597,13 +597,13 @@
             "localized": {
                 "zh": {
                     "name": "孢子",
-                    "description": "敌方获得1层寄生。"
+                    "description": "敌方获得3层寄生。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "敌方获得1层寄生。"
+            "description": "敌方获得3层寄生。"
         },
         {
             "id": 7120070,
@@ -641,13 +641,13 @@
             "localized": {
                 "zh": {
                     "name": "星痕",
-                    "description": "造成​魔伤，​若​对​手​有​印记，​本次技​能​威力​+40。"
+                    "description": "造成魔伤，若敌方有印记，本次技能威力+40。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 90,
-            "description": "造成​魔伤，​若​对​手​有​印记，​本次技​能​威力​+40。"
+            "description": "造成魔伤，若敌方有印记，本次技能威力+40。"
         },
         {
             "id": 7021210,
@@ -663,13 +663,35 @@
             "localized": {
                 "zh": {
                     "name": "急中生智",
-                    "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+                    "description": "造成魔伤，自己有减益时，本次技能威力+40。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 80,
-            "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+            "description": "造成魔伤，自己有减益时，本次技能威力+40。"
+        },
+        {
+            "id": 7190460,
+            "name": "重组",
+            "icon_id": "218037",
+            "move_type": {
+                "id": 18,
+                "name": "Illusion",
+                "localized": {
+                    "zh": "幻"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "重组",
+                    "description": "下一次攻击时，额外造成100%幻系伤害，应对防御：改为额外造成300%幻系伤害。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 1,
+            "power": null,
+            "description": "下一次攻击时，额外造成100%幻系伤害，应对防御：改为额外造成300%幻系伤害。"
         }
     ],
     "legacy_moves": [
@@ -1241,8 +1263,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 32 级",
-                            "需激活幽系血脉"
+                            "等级达到 32 级"
                         ]
                     }
                 ],
@@ -1258,12 +1279,10 @@
         "type_desc": "信使精灵",
         "description_habitat": "行踪神秘",
         "introduction": "踏着流星而来的信使，在洛克族里传闻对着它们说话有概率可以梦想成真。它们总是很着急，在夜幕下如同一道道银针般穿行，谁让这世间的许愿总是太多、太多了呢。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1280,8 +1299,8 @@
             5,
             7
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

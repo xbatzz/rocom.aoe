@@ -182,12 +182,10 @@
         "type_desc": null,
         "description_habitat": null,
         "introduction": "身上有着大块石英材质，就像穿着衣服一样。对石头的操控非常熟练，能够利用头上悬浮的散石发动难以预测的攻击。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 15,
-        "classis_name": "神奇类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": {
@@ -199,8 +197,8 @@
     "breeding_profile": {
         "pet_base_id": 3054,
         "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

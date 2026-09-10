@@ -139,13 +139,13 @@
             "localized": {
                 "zh": {
                     "name": "扬尘",
-                    "description": "造成​魔伤，​天气为沙暴时，先手+1。"
+                    "description": "造成魔伤，天气为沙暴时，先手+1。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 80,
-            "description": "造成​魔伤，​天气为沙暴时，先手+1。"
+            "description": "造成魔伤，天气为沙暴时，先手+1。"
         },
         {
             "id": 7020780,
@@ -205,13 +205,13 @@
             "localized": {
                 "zh": {
                     "name": "沙石阵",
-                    "description": "自己获得速度​-​20，​选择：且额外获得​物防+90%或​魔防​+90%。"
+                    "description": "自己获得速度-20，选择：且额外获得物防+90%或魔防+90%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己获得速度​-​20，​选择：且额外获得​物防+90%或​魔防​+90%。"
+            "description": "自己获得速度-20，选择：且额外获得物防+90%或魔防+90%。"
         },
         {
             "id": 7080300,
@@ -786,6 +786,50 @@
             "energy_cost": 6,
             "power": 140,
             "description": "造成魔伤，敌方每有1只力竭精灵，本次技能能耗-1。"
+        },
+        {
+            "id": 7180460,
+            "name": "暴打",
+            "icon_id": "117045",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "暴打",
+                    "description": "对敌方精灵造成魔法伤害。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 100,
+            "description": "对敌方精灵造成魔法伤害。"
+        },
+        {
+            "id": 7080130,
+            "name": "地刺",
+            "icon_id": "708002",
+            "move_type": {
+                "id": 6,
+                "name": "Ground",
+                "localized": {
+                    "zh": "地"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "地刺",
+                    "description": "造成物伤，应对状态：额外打断被应对技能。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 90,
+            "description": "造成物伤，应对状态：额外打断被应对技能。"
         }
     ],
     "legacy_moves": [
@@ -1391,12 +1435,10 @@
         "type_desc": "蝎子精灵",
         "description_habitat": "常见于洞穴",
         "introduction": "不停锤炼自己，以获得更强的力量。它开始主动挑战占据优质矿脉的对手，被它占领过的矿脉上都留着深深的钳痕，就像是它们的签名。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1463,8 +1505,8 @@
             4,
             11
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

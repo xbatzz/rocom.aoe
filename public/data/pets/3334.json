@@ -580,7 +580,7 @@
             },
             "move_category": "Magic Attack",
             "energy_cost": 7,
-            "power": 100,
+            "power": 110,
             "description": "造成魔伤，敌方每有1层印记，本技能能耗-1。"
         },
         {
@@ -773,13 +773,13 @@
             "localized": {
                 "zh": {
                     "name": "冷凝",
-                    "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
+                    "description": "造成物伤，敌方每有1层冻结，自己回复1能量。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 95,
-            "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
+            "description": "造成物伤，敌方每有1层冻结，自己回复1能量。"
         },
         {
             "id": 7090470,
@@ -795,13 +795,13 @@
             "localized": {
                 "zh": {
                     "name": "打喷嚏",
-                    "description": "3连击，​每​次​连击敌方获得1层冻结。"
+                    "description": "3连击，每次连击敌方获得1层冻结。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "3连击，​每​次​连击敌方获得1层冻结。"
+            "description": "3连击，每次连击敌方获得1层冻结。"
         },
         {
             "id": 7090200,
@@ -1411,12 +1411,10 @@
         "type_desc": "守望精灵",
         "description_habitat": "常见于雪山",
         "introduction": "缔结契约的向往更明显，甚至会主动靠近潜在契约者，似乎由冰元素和某种尚不清楚的物质构成，推测该物质来自强烈的信念与精神力，使它们的契约更稳定、也更难被外力改变。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1433,8 +1431,8 @@
         "egg_groups": [
             7
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

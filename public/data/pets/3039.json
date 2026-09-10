@@ -210,7 +210,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 30,
+            "power": 20,
             "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         },
         {
@@ -227,13 +227,13 @@
             "localized": {
                 "zh": {
                     "name": "暗箱操作",
-                    "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
+                    "description": "自己获得双攻和双防-50%，应对防御：改为敌方获得双攻和双防-120%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
+            "description": "自己获得双攻和双防-50%，应对防御：改为敌方获得双攻和双防-120%。"
         },
         {
             "id": 7150090,
@@ -298,7 +298,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 35,
+            "power": 40,
             "description": "造成物伤，2连击，若击败敌方，本技能连击数永久+2。"
         },
         {
@@ -647,13 +647,13 @@
             "localized": {
                 "zh": {
                     "name": "血契",
-                    "description": "造成物伤，自己每失去10%生命，本技能威力+10。"
+                    "description": "造成物伤，自己每失去10%生命，本技能威力+15。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 75,
-            "description": "造成物伤，自己每失去10%生命，本技能威力+10。"
+            "description": "造成物伤，自己每失去10%生命，本技能威力+15。"
         },
         {
             "id": 7180420,
@@ -669,13 +669,35 @@
             "localized": {
                 "zh": {
                     "name": "下注",
-                    "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+                    "description": "造成物伤，选择：本次技能威力+40，使用后自己生命-10%或自己生命低于50%时本次技能威力+100。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 85,
-            "description": "造​成​物伤，​选择：​本次技能​威力​+40，使用后​自己​生命​-10%或​自己​生命​低于​50%时本次技能​威力​+100。"
+            "description": "造成物伤，选择：本次技能威力+40，使用后自己生命-10%或自己生命低于50%时本次技能威力+100。"
+        },
+        {
+            "id": 7150400,
+            "name": "月影交错",
+            "icon_id": "314035",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "月影交错",
+                    "description": "造成物伤，2连击，若上回合双方有精灵使用幻系技能，本技能获得迅捷。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 2,
+            "power": 25,
+            "description": "造成物伤，2连击，若上回合双方有精灵使用幻系技能，本技能获得迅捷。"
         }
     ],
     "legacy_moves": [
@@ -1346,12 +1368,10 @@
         "type_desc": "恶作剧精灵",
         "description_habitat": "常见于森林",
         "introduction": "一直在思考如何恶作剧，还会每天进行吓人的练习。总是歪嘴笑着，一副玩世不恭的样子，其实非常害怕失去别人的注意力。非常重视诺言，会坚定地完成自己的约定。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 2,
-        "classis_name": "漂浮类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2,
@@ -1369,8 +1389,8 @@
         "egg_groups": [
             7
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

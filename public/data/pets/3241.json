@@ -314,7 +314,7 @@
             },
             "move_category": "Magic Attack",
             "energy_cost": 7,
-            "power": 100,
+            "power": 110,
             "description": "造成魔伤，敌方每有1层印记，本技能能耗-1。"
         },
         {
@@ -1323,12 +1323,10 @@
         "type_desc": "菇精灵",
         "description_habitat": "常见于山地、河岸",
         "introduction": "长期在暗处生存，双目视觉逐渐退化，演化出了胸前能够探测、储存幻系能量的触手。幻系能量凝聚在菌柄中，赋予了其极强的再生能力，即便是经过火焰的炙烤，依旧能迅速生出饱满的躯体。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2,
@@ -1346,8 +1344,8 @@
         "egg_groups": [
             8
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

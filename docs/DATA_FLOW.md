@@ -68,7 +68,7 @@
 
 ### `public/data/pets/*.json`
 
-当前有 1128 个宠物详情 JSON。路径形如：
+S4 同步后有 1147 个宠物详情 JSON。路径形如：
 
 ```text
 public/data/pets/{petId}.json
@@ -200,6 +200,7 @@ public/data/pets/{petId}.json
 ## 7. 维护注意事项
 
 - `scripts/sync-pet-data.mjs` 会生成/覆盖：
+  - `src/lib/generated/handbookIds.json`：从当前 `PET_HANDBOOK` 生成的真实 ID 集合，供前端验证编号，不使用固定赛季上限。
   - `public/data/Pets.json`
   - `public/data/bloodline_index.json`
   - `public/data/PetSkillIndex.json`

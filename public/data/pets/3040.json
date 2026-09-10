@@ -265,13 +265,13 @@
             "localized": {
                 "zh": {
                     "name": "孢子爆散",
-                    "description": "造成物伤，1连击，每次使用后，本技能连击数永久+2。"
+                    "description": "造成物伤，2连击，每次使用后，本技能连击数永久+2。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 30,
-            "description": "造成物伤，1连击，每次使用后，本技能连击数永久+2。"
+            "description": "造成物伤，2连击，每次使用后，本技能连击数永久+2。"
         },
         {
             "id": 7030280,
@@ -641,13 +641,35 @@
             "localized": {
                 "zh": {
                     "name": "拟寄生",
-                    "description": "造成​魔伤，​偷取​敌​方​1​层​印记。"
+                    "description": "造成魔伤，偷取敌方1层印记。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 80,
-            "description": "造成​魔伤，​偷取​敌​方​1​层​印记。"
+            "description": "造成魔伤，偷取敌方1层印记。"
+        },
+        {
+            "id": 7030620,
+            "name": "麦芒",
+            "icon_id": "102046",
+            "move_type": {
+                "id": 2,
+                "name": "Grass",
+                "localized": {
+                    "zh": "草"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "麦芒",
+                    "description": "造成物伤，若上回合双方有精灵使用萌系技能，自己回复7能量。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 5,
+            "power": 105,
+            "description": "造成物伤，若上回合双方有精灵使用萌系技能，自己回复7能量。"
         }
     ],
     "legacy_moves": [
@@ -1508,12 +1530,10 @@
         "type_desc": "舔舔精灵",
         "description_habitat": "常见于草地、沙地、雪山、火山",
         "introduction": "有看到什么都会去舔一下试试看的习惯，经常忘记把舌头收回去。双眼对强光非常敏感，白天会老老实实躲在室内或者阴凉的地方。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 5,
-        "classis_name": "昆虫类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2,
@@ -1558,6 +1578,22 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3040002,
+                "pet_id": 3040002,
+                "name": null,
+                "model_id": 3040001,
+                "hatch_data": 300,
+                "weight_low": 1505,
+                "weight_high": 2440,
+                "height_low": 15,
+                "height_high": 21,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 30400001,
                 "pet_id": 30400001,
                 "name": null,
@@ -1596,8 +1632,8 @@
         "egg_groups": [
             3
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

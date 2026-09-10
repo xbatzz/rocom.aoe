@@ -42,12 +42,12 @@
     },
     "trait": {
         "id": 200200,
-        "name": "马步",
+        "name": "格斗小六(待定)",
         "description": "状态技能应对成功时，获得10点能量。",
         "icon_id": "200200",
         "localized": {
             "zh": {
-                "name": "马步",
+                "name": "格斗小六(待定)",
                 "description": "状态技能应对成功时，获得10点能量。"
             }
         }
@@ -1155,12 +1155,10 @@
         "type_desc": null,
         "description_habitat": null,
         "introduction": "掌力十足，岩石上常常出现它们的掌印。研究员根据其攻击招式，改编了一套能够强身健体的健体操，在学院中曾挂起过一阵不小的习武之风。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": {
@@ -1223,8 +1221,8 @@
         "egg_groups": [
             9
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

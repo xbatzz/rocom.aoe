@@ -32,11 +32,11 @@
         }
     },
     "implemented": true,
-    "base_hp": 116,
-    "base_phy_atk": 88,
-    "base_mag_atk": 88,
-    "base_phy_def": 112,
-    "base_mag_def": 112,
+    "base_hp": 128,
+    "base_phy_atk": 96,
+    "base_mag_atk": 96,
+    "base_phy_def": 121,
+    "base_mag_def": 121,
     "base_spd": 55,
     "evolves_from_id": 3697,
     "species": {
@@ -49,12 +49,12 @@
     "trait": {
         "id": 200295,
         "name": "守望者",
-        "description": "自己防御应​对​成功​时，敌方​获得​萌化。​",
+        "description": "自己防御应对成功时，敌方获得萌化。",
         "icon_id": "200295",
         "localized": {
             "zh": {
                 "name": "守望者",
-                "description": "自己防御应​对​成功​时，敌方​获得​萌化。​"
+                "description": "自己防御应对成功时，敌方获得萌化。"
             }
         }
     },
@@ -381,13 +381,13 @@
             "localized": {
                 "zh": {
                     "name": "驱赶",
-                    "description": "造成​魔伤，​选择：​本​次技能​威力​+20或​应对状态​时​本​次​技能威力​+140。"
+                    "description": "造成魔伤，选择：本次技能威力+20或应对状态时本次技能威力+140。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 70,
-            "description": "造成​魔伤，​选择：​本​次技能​威力​+20或​应对状态​时​本​次​技能威力​+140。"
+            "description": "造成魔伤，选择：本次技能威力+20或应对状态时本次技能威力+140。"
         }
     ],
     "move_stones": [
@@ -537,13 +537,13 @@
             "localized": {
                 "zh": {
                     "name": "拆礼物",
-                    "description": "造​成​物伤，​若​​敌方有​萌化，​本次技能威力+100。"
+                    "description": "造成物伤，若敌方有萌化，本次技能威力+100。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 50,
-            "description": "造​成​物伤，​若​​敌方有​萌化，​本次技能威力+100。"
+            "description": "造成物伤，若敌方有萌化，本次技能威力+100。"
         },
         {
             "id": 7020510,
@@ -757,13 +757,13 @@
             "localized": {
                 "zh": {
                     "name": "蹦跶",
-                    "description": "造成​魔伤，​自己​有​减益​时​本​技​能​能​耗​-1，​选择：​自己​获得​萌化或​解除萌化​。"
+                    "description": "造成魔伤，自己有减益时本技能能耗-1，选择：自己获得萌化或解除萌化。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 110,
-            "description": "造成​魔伤，​自己​有​减益​时​本​技​能​能​耗​-1，​选择：​自己​获得​萌化或​解除萌化​。"
+            "description": "造成魔伤，自己有减益时本技能能耗-1，选择：自己获得萌化或解除萌化。"
         }
     ],
     "legacy_moves": [
@@ -1318,8 +1318,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需与稻草人一起击败 3 只翼系精灵"
+                            "等级达到 40 级"
                         ]
                     }
                 ],
@@ -1335,12 +1334,10 @@
         "type_desc": "稻草精灵",
         "description_habitat": "行踪神秘",
         "introduction": "在被洛克们陪伴了足够久之后，“想要保护这里”的心情终于强大到改变了它的身体。稻草变得紧实如肌肉，布裹的拳头沉重有力，现在没有任何飞禽敢靠近它守护的农场，但对洛克们，它永远温柔。据说猜拳会故意输给洛克。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1356,8 +1353,8 @@
         "egg_groups": [
             7
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

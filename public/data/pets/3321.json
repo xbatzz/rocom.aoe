@@ -26,11 +26,11 @@
         }
     },
     "implemented": true,
-    "base_hp": 76,
-    "base_phy_atk": 60,
-    "base_mag_atk": 59,
-    "base_phy_def": 58,
-    "base_mag_def": 74,
+    "base_hp": 79,
+    "base_phy_atk": 62,
+    "base_mag_atk": 61,
+    "base_phy_def": 60,
+    "base_mag_def": 76,
     "base_spd": 33,
     "evolves_from_id": null,
     "species": {
@@ -138,7 +138,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 30,
+            "power": 20,
             "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         },
         {
@@ -309,13 +309,13 @@
             "localized": {
                 "zh": {
                     "name": "超声波",
-                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                    "description": "自己获得全技能威力+20，选择：本次能耗-1或应对防御时改为全技能威力永久+20。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+            "description": "自己获得全技能威力+20，选择：本次能耗-1或应对防御时改为全技能威力永久+20。"
         },
         {
             "id": 7180400,
@@ -331,13 +331,13 @@
             "localized": {
                 "zh": {
                     "name": "血契",
-                    "description": "造成物伤，自己每失去10%生命，本技能威力+10。"
+                    "description": "造成物伤，自己每失去10%生命，本技能威力+15。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 75,
-            "description": "造成物伤，自己每失去10%生命，本技能威力+10。"
+            "description": "造成物伤，自己每失去10%生命，本技能威力+15。"
         },
         {
             "id": 7150110,
@@ -736,6 +736,50 @@
             "energy_cost": 0,
             "power": null,
             "description": "每回合随机变成自己未携带的技能，且该技能能耗-2。"
+        },
+        {
+            "id": 7180460,
+            "name": "暴打",
+            "icon_id": "117045",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "暴打",
+                    "description": "对敌方精灵造成魔法伤害。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 100,
+            "description": "对敌方精灵造成魔法伤害。"
+        },
+        {
+            "id": 7150360,
+            "name": "试飞",
+            "icon_id": "114037",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "试飞",
+                    "description": "造成物伤，2连击。选择：每次使用后本技能威力永久+10或连击数永久+1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 2,
+            "power": 20,
+            "description": "造成物伤，2连击。选择：每次使用后本技能威力永久+10或连击数永久+1。"
         }
     ],
     "legacy_moves": [
@@ -1278,8 +1322,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 16 级",
-                            "需满足特殊条件（类型 4，参数 18、6）"
+                            "等级达到 16 级"
                         ]
                     }
                 ],
@@ -1314,8 +1357,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 32 级",
-                            "需满足特殊条件（类型 4，参数 18、6）"
+                            "等级达到 32 级"
                         ]
                     }
                 ],
@@ -1331,12 +1373,10 @@
         "type_desc": "翻垃圾精灵",
         "description_habitat": "常见于树林、崖壁",
         "introduction": "常出现在垃圾堆和阴暗潮湿的洞穴里，常看到它们同类之间碰碰鼻子交流。看起来似乎是鼻子的部分用来放出声波探测周围信息，对味道的感知几近于零。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1380,6 +1420,54 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3321002,
+                "pet_id": 3321002,
+                "name": null,
+                "model_id": 3321002,
+                "hatch_data": 43200,
+                "weight_low": 2321,
+                "weight_high": 3748,
+                "height_low": 28,
+                "height_high": 33,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3321003,
+                "pet_id": 3321003,
+                "name": null,
+                "model_id": 3321001,
+                "hatch_data": 43200,
+                "weight_low": 2321,
+                "weight_high": 3748,
+                "height_low": 28,
+                "height_high": 33,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
+                "id": 3321008,
+                "pet_id": 3321008,
+                "name": null,
+                "model_id": 3321002,
+                "hatch_data": 43200,
+                "weight_low": 2321,
+                "weight_high": 3748,
+                "height_low": 28,
+                "height_high": 33,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 33210001,
                 "pet_id": 33210001,
                 "name": null,
@@ -1403,8 +1491,8 @@
             2,
             5
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

@@ -663,13 +663,13 @@
             "localized": {
                 "zh": {
                     "name": "试飞",
-                    "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+                    "description": "造成物伤，2连击。选择：每次使用后本技能威力永久+10或连击数永久+1。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 2,
             "power": 20,
-            "description": "造​成​物伤，​2​连击。​选择：​每​次​使用​后本​技​能​威力永久​+10​或​​​连击​数​永久​+1。"
+            "description": "造成物伤，2连击。选择：每次使用后本技能威力永久+10或连击数永久+1。"
         },
         {
             "id": 7150370,
@@ -685,13 +685,35 @@
             "localized": {
                 "zh": {
                     "name": "超声波",
-                    "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+                    "description": "自己获得全技能威力+20，选择：本次能耗-1或应对防御时改为全技能威力永久+20。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己获得全技​能​威力​+30，​选择：​本​次​能​耗​-1或应对防御时​改为全技能​威力​永久​+50。"
+            "description": "自己获得全技能威力+20，选择：本次能耗-1或应对防御时改为全技能威力永久+20。"
+        },
+        {
+            "id": 7150400,
+            "name": "月影交错",
+            "icon_id": "314035",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "月影交错",
+                    "description": "造成物伤，2连击，若上回合双方有精灵使用幻系技能，本技能获得迅捷。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 2,
+            "power": 25,
+            "description": "造成物伤，2连击，若上回合双方有精灵使用幻系技能，本技能获得迅捷。"
         }
     ],
     "legacy_moves": [
@@ -1346,12 +1368,10 @@
         "type_desc": "狮鹫精灵",
         "description_habitat": "常见于山地、城堡周边",
         "introduction": "为了适应强风阻演化出了流线型的面部长羽，微微压住瞳孔是为了在崖间穿梭时更好地视物。尾羽更加修长，能够有效引导风的流动方向，让飞行更加省力和稳定。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 16,
-        "classis_name": "动物类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1369,8 +1389,8 @@
             5,
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

@@ -43,12 +43,12 @@
     "trait": {
         "id": 200286,
         "name": "狂欢开始",
-        "description": "在​场​时，​背​包里​会​变化​出​随机​​精灵​，随机精灵只能与本精灵相互更换。本精灵受到的克制伤害+25%。",
+        "description": "在场时，背包里会变化出随机精灵，随机精灵只能与本精灵相互更换。本精灵受到的克制伤害+25%。",
         "icon_id": "200286",
         "localized": {
             "zh": {
                 "name": "狂欢开始",
-                "description": "在​场​时，​背​包里​会​变化​出​随机​​精灵​，随机精灵只能与本精灵相互更换。本精灵受到的克制伤害+25%。"
+                "description": "在场时，背包里会变化出随机精灵，随机精灵只能与本精灵相互更换。本精灵受到的克制伤害+25%。"
             }
         }
     },
@@ -137,7 +137,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 3,
+            "energy_cost": 6,
             "power": null,
             "description": "主动：本技能被动永久额外-1能耗，被动：两侧技能能耗-1，传动1。"
         },
@@ -353,13 +353,13 @@
             "localized": {
                 "zh": {
                     "name": "微型斥候",
-                    "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），​本技​能​威力​永久​+20。"
+                    "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），本技能威力永久+20。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），​本技​能​威力​永久​+20。"
+            "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），本技能威力永久+20。"
         },
         {
             "id": 7070270,
@@ -375,13 +375,13 @@
             "localized": {
                 "zh": {
                     "name": "相位移动",
-                    "description": "减​伤50%，​本技​能​位​于​1号​位​或​3号​位​时，​额​外减​伤40%，应对攻击，​传动1。​"
+                    "description": "减伤50%，本技能位于1号位或3号位时，额外减伤40%，应对攻击，传动1。"
                 }
             },
             "move_category": "Defense",
             "energy_cost": 1,
             "power": null,
-            "description": "减​伤50%，​本技​能​位​于​1号​位​或​3号​位​时，​额​外减​伤40%，应对攻击，​传动1。​"
+            "description": "减伤50%，本技能位于1号位或3号位时，额外减伤40%，应对攻击，传动1。"
         }
     ],
     "move_stones": [
@@ -751,13 +751,13 @@
             "localized": {
                 "zh": {
                     "name": "铁蒺藜",
-                    "description": "造成​魔伤，应对状态：​本​次​伤害翻倍。"
+                    "description": "造成魔伤，应对状态：本次伤害翻倍。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 85,
-            "description": "造成​魔伤，应对状态：​本​次​伤害翻倍。"
+            "description": "造成魔伤，应对状态：本次伤害翻倍。"
         }
     ],
     "legacy_moves": [
@@ -1321,8 +1321,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 28 级",
-                            "需激活第 1 条进化分支"
+                            "等级达到 28 级"
                         ]
                     }
                 ],
@@ -1351,8 +1350,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需激活第 2 条进化分支"
+                            "等级达到 40 级"
                         ]
                     }
                 ],
@@ -1368,12 +1366,10 @@
         "type_desc": "独轮车精灵",
         "description_habitat": "行踪神秘",
         "introduction": "它们被洛克制造出来，底层代码写着给孩子们带来快乐。它们在基地里一圈圈绕行，金属关节常因长时间练习而发热，看到晃动的影子会停下分辨，是不是终于有洛克来看表演了。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1385,8 +1381,8 @@
         "egg_groups": [
             1
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

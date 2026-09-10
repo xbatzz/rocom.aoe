@@ -289,13 +289,13 @@
             "localized": {
                 "zh": {
                     "name": "毒雾",
-                    "description": "将敌方所有增益，转化成中毒。"
+                    "description": "将敌方所有增益，转化为相同层数的中毒。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 7,
             "power": null,
-            "description": "将敌方所有增益，转化成中毒。"
+            "description": "将敌方所有增益，转化为相同层数的中毒。"
         },
         {
             "id": 7120140,
@@ -605,7 +605,7 @@
         "refresh_locations": [],
         "movement_type": null,
         "classis_id": 3,
-        "classis_name": "猫咪类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": null,
@@ -613,8 +613,8 @@
     "breeding_profile": {
         "pet_base_id": 9810,
         "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

@@ -382,7 +382,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 30,
+            "power": 20,
             "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         },
         {
@@ -663,13 +663,13 @@
             "localized": {
                 "zh": {
                     "name": "冰裂",
-                    "description": "造​成​物伤，​选择：​敌方​获得​物防-30%或​敌方获得速度​-20。"
+                    "description": "造成物伤，选择：敌方获得物防-30%或敌方获得速度-20。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 70,
-            "description": "造​成​物伤，​选择：​敌方​获得​物防-30%或​敌方获得速度​-20。"
+            "description": "造成物伤，选择：敌方获得物防-30%或敌方获得速度-20。"
         },
         {
             "id": 7090430,
@@ -685,13 +685,13 @@
             "localized": {
                 "zh": {
                     "name": "冷凝",
-                    "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
+                    "description": "造成物伤，敌方每有1层冻结，自己回复1能量。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 95,
-            "description": "造​成​物伤，​敌方每有1层冻结，自己回复1能量。"
+            "description": "造成物伤，敌方每有1层冻结，自己回复1能量。"
         }
     ],
     "legacy_moves": [
@@ -1279,12 +1279,10 @@
         "type_desc": "章鱼精灵",
         "description_habitat": "行踪神秘",
         "introduction": "会拾取断落的枝桠，并在枝桠表面喷覆与头部成分相似的晶体化物质，使其变得坚硬冰冷，作为武器使用。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1302,8 +1300,8 @@
             10,
             13
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

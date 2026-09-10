@@ -1313,7 +1313,7 @@
         "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1324,8 +1324,8 @@
     "breeding_profile": {
         "pet_base_id": 4006,
         "egg_groups": [],
-        "proportion_male": 10,
-        "male_rate": 100,
-        "female_rate": 0
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

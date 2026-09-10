@@ -43,12 +43,12 @@
     "trait": {
         "id": 200289,
         "name": "戏耍",
-        "description": "自己​无法回复生命，而是将回复生命变​为​敌方​扣除​等量​生命​。",
+        "description": "自己无法回复生命，而是将回复生命变为敌方扣除等量生命。",
         "icon_id": "200291",
         "localized": {
             "zh": {
                 "name": "戏耍",
-                "description": "自己​无法回复生命，而是将回复生命变​为​敌方​扣除​等量​生命​。"
+                "description": "自己无法回复生命，而是将回复生命变为敌方扣除等量生命。"
             }
         }
     },
@@ -270,7 +270,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 35,
+            "power": 40,
             "description": "造成物伤，2连击，若击败敌方，本技能连击数永久+2。"
         },
         {
@@ -331,13 +331,13 @@
             "localized": {
                 "zh": {
                     "name": "暗箱操作",
-                    "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
+                    "description": "自己获得双攻和双防-50%，应对防御：改为敌方获得双攻和双防-120%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
+            "description": "自己获得双攻和双防-50%，应对防御：改为敌方获得双攻和双防-120%。"
         },
         {
             "id": 7180440,
@@ -465,13 +465,13 @@
             "localized": {
                 "zh": {
                     "name": "毒雾",
-                    "description": "将敌方所有增益，转化成中毒。"
+                    "description": "将敌方所有增益，转化为相同层数的中毒。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 7,
             "power": null,
-            "description": "将敌方所有增益，转化成中毒。"
+            "description": "将敌方所有增益，转化为相同层数的中毒。"
         },
         {
             "id": 7180190,
@@ -1278,8 +1278,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 16 级",
-                            "需满足特殊条件（类型 9，参数 60）"
+                            "等级达到 16 级"
                         ]
                     }
                 ],
@@ -1324,12 +1323,10 @@
         "type_desc": "小丑精灵",
         "description_habitat": "行踪神秘",
         "introduction": "依然爱动，所有躁动化作指尖球技，它的迈步从容而有节奏，抛球的轨迹优雅得像一门艺术。它的耳朵随着每一次弹跳有规律地颤动，就像洛克喜欢抖腿，这是它唯一泄露出来的小破绽。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1346,8 +1343,8 @@
             7,
             9
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

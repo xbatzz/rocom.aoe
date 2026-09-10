@@ -26,12 +26,12 @@
         }
     },
     "implemented": true,
-    "base_hp": 103,
-    "base_phy_atk": 107,
-    "base_mag_atk": 34,
-    "base_phy_def": 65,
-    "base_mag_def": 51,
-    "base_spd": 100,
+    "base_hp": 117,
+    "base_phy_atk": 81,
+    "base_mag_atk": 23,
+    "base_phy_def": 82,
+    "base_mag_def": 68,
+    "base_spd": 85,
     "evolves_from_id": 3264,
     "species": {
         "id": 431,
@@ -138,7 +138,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 30,
+            "power": 20,
             "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         },
         {
@@ -309,13 +309,13 @@
             "localized": {
                 "zh": {
                     "name": "暗箱操作",
-                    "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
+                    "description": "自己获得双攻和双防-50%，应对防御：改为敌方获得双攻和双防-120%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
+            "description": "自己获得双攻和双防-50%，应对防御：改为敌方获得双攻和双防-120%。"
         },
         {
             "id": 7180190,
@@ -648,6 +648,50 @@
             "energy_cost": 4,
             "power": 135,
             "description": "造成物伤，若自己生命高于50%，使用后自己获得双攻-50%。"
+        },
+        {
+            "id": 7180450,
+            "name": "掉包",
+            "icon_id": "117046",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "掉包",
+                    "description": "敌方的属性增益变为对应的属性减益。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "敌方的属性增益变为对应的属性减益。"
+        },
+        {
+            "id": 7020800,
+            "name": "血气",
+            "icon_id": "301053",
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "血气",
+                    "description": "减伤60%，应对攻击：本回合受到致命伤害时，保留1生命值。"
+                }
+            },
+            "move_category": "Defense",
+            "energy_cost": 2,
+            "power": null,
+            "description": "减伤60%，应对攻击：本回合受到致命伤害时，保留1生命值。"
         }
     ],
     "legacy_moves": [
@@ -1206,12 +1250,10 @@
         "type_desc": "纺锤精灵",
         "description_habitat": "行踪神秘",
         "introduction": "据传说卡拉波斯曾经是一个仙子，因为误会诅咒过一位公主，被诅咒反噬后变为纺锤的模样。一次最多能够拉出7000米纺线。当体内的蛋白质耗尽的时候，它们就不会再进行任何活动陷入长久的昏睡中。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1227,8 +1269,8 @@
         "egg_groups": [
             7
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

@@ -1212,8 +1212,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 28 级",
-                            "需激活第 1 条进化分支"
+                            "等级达到 28 级"
                         ]
                     }
                 ],
@@ -1242,8 +1241,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需激活第 2 条进化分支"
+                            "等级达到 40 级"
                         ]
                     }
                 ],
@@ -1259,12 +1257,10 @@
         "type_desc": "尖尾精灵",
         "description_habitat": "行踪神秘",
         "introduction": "在古老的典籍中记载，龙息帕尔和其他恶系精灵的行事风格不同，它们秉持等价交换的原则，会严格遵守自己缔结的契约。在契约完成前绝不会离开，甚至愿意为此等待漫长的时光。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1280,8 +1276,8 @@
         "egg_groups": [
             1
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

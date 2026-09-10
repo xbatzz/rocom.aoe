@@ -463,13 +463,13 @@
             "localized": {
                 "zh": {
                     "name": "叠加态",
-                    "description": "自己获得​随机​16层属性增益​，​巧变：​幻系攻击​技​能​。"
+                    "description": "自己获得随机16层属性增益，巧变：幻系攻击技能。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "自己获得​随机​16层属性增益​，​巧变：​幻系攻击​技​能​。"
+            "description": "自己获得随机16层属性增益，巧变：幻系攻击技能。"
         },
         {
             "id": 7190440,
@@ -485,13 +485,13 @@
             "localized": {
                 "zh": {
                     "name": "天体吸积",
-                    "description": "造成物伤，敌方​每​有​1层​印记，​本次攻击威力​+20。"
+                    "description": "造成物伤，敌方每有1层印记，本次攻击威力+20。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 20,
-            "description": "造成物伤，敌方​每​有​1层​印记，​本次攻击威力​+20。"
+            "description": "造成物伤，敌方每有1层印记，本次攻击威力+20。"
         },
         {
             "id": 7020730,
@@ -619,13 +619,13 @@
             "localized": {
                 "zh": {
                     "name": "孢子",
-                    "description": "敌方获得1层寄生。"
+                    "description": "敌方获得3层寄生。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "敌方获得1层寄生。"
+            "description": "敌方获得3层寄生。"
         },
         {
             "id": 7030270,
@@ -685,13 +685,13 @@
             "localized": {
                 "zh": {
                     "name": "超导",
-                    "description": "造成魔伤，迸发：本技能能耗-1。"
+                    "description": "造成魔伤，迸发：本技能能耗-2。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
-            "power": 95,
-            "description": "造成魔伤，迸发：本技能能耗-1。"
+            "power": 90,
+            "description": "造成魔伤，迸发：本技能能耗-2。"
         },
         {
             "id": 7110360,
@@ -927,13 +927,35 @@
             "localized": {
                 "zh": {
                     "name": "薄纱环",
-                    "description": "选择：对手随机获得1种负面印记或自己随机获得1种正面印记。"
+                    "description": "选择：敌方随机获得1种负面印记或自己随机获得1种正面印记。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "选择：对手随机获得1种负面印记或自己随机获得1种正面印记。"
+            "description": "选择：敌方随机获得1种负面印记或自己随机获得1种正面印记。"
+        },
+        {
+            "id": 7190520,
+            "name": "引力偏转",
+            "icon_id": "118044",
+            "move_type": {
+                "id": 18,
+                "name": "Illusion",
+                "localized": {
+                    "zh": "幻"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "引力偏转",
+                    "description": "减伤80%，应对攻击：以魔法伤害触发敌方的星陨效果。"
+                }
+            },
+            "move_category": "Defense",
+            "energy_cost": 2,
+            "power": null,
+            "description": "减伤80%，应对攻击：以魔法伤害触发敌方的星陨效果。"
         }
     ],
     "legacy_moves": [
@@ -1492,12 +1514,10 @@
         "type_desc": "愉悦精灵",
         "description_habitat": "行踪神秘",
         "introduction": "总是一副亲切愉悦的样子，备受小洛克们的喜欢，但似乎在没人的时候它们不会展现出一丁点生气。曾经不分昼夜持续观测一年，且让样本知道自己被观测，期间样本呈现愉悦的状态。停止观测一小时后样本所有生命体征均消失。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1627,8 +1647,8 @@
             7,
             9
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

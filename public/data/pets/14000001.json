@@ -1085,8 +1085,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 30 级",
-                            "需激活草系血脉"
+                            "等级达到 30 级"
                         ]
                     },
                     {
@@ -1115,8 +1114,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 30 级",
-                            "需激活冰系血脉"
+                            "等级达到 30 级"
                         ]
                     },
                     {
@@ -1145,8 +1143,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 30 级",
-                            "需激活火系血脉"
+                            "等级达到 30 级"
                         ]
                     }
                 ],
@@ -1162,12 +1159,10 @@
         "type_desc": null,
         "description_habitat": null,
         "introduction": "没有固定形状的精灵，可以钻进各种狭窄的地方。身体很黏，需要经常补充水分，不然就会变得皱巴巴的没有活力。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": null,
         "classis_id": 14,
-        "classis_name": "萌萌类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": null,
@@ -1175,8 +1170,8 @@
     "breeding_profile": {
         "pet_base_id": 14000001,
         "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

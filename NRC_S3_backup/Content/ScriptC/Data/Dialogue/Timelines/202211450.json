@@ -1,0 +1,74 @@
+{
+    "length": 3.0,
+    "dialogue_id": 202211450,
+    "wait_user_click_at_end": true,
+    "clear_look_at_at_end": false,
+    "play_dialogue_sound_when_show_ui_if_no_say_action": true,
+    "play_dialogue_sound_when_say_action_without_data": true,
+    "black_switch_in": false,
+    "cached_actors": [
+        {
+            "id": -2,
+            "npc_id": 166118
+        },
+        {
+            "id": 166102,
+            "npc_id": 166102
+        },
+        {
+            "id": 166105,
+            "npc_id": 166105
+        },
+        {
+            "id": 166106,
+            "npc_id": 166106
+        },
+        {
+            "id": 166109,
+            "npc_id": 166109
+        },
+        {
+            "id": 166111,
+            "npc_id": 166111
+        },
+        {
+            "id": 166119,
+            "npc_id": 166119
+        },
+        {
+            "id": 166172,
+            "npc_id": 166172
+        },
+        {
+            "id": 166174,
+            "npc_id": 166174
+        },
+        {
+            "id": 166180,
+            "npc_id": 166180
+        },
+        {
+            "id": 166182,
+            "npc_id": 166182
+        }
+    ],
+    "actions": [
+        {
+            "ClassPath": "NewRoco.Modules.System.Dialogue.Action.Timeline.DialogueTimelineShowUIEvent",
+            "Name": "\u663e\u793a\u5bf9\u8bddUI",
+            "OwnerActorID": -100,
+            "NPCContentID": -1,
+            "StartTime": 0.0
+        },
+        {
+            "ClassPath": "NewRoco.Modules.System.Dialogue.Action.Timeline.DialogueTimelineNPCSayState",
+            "Name": "\u89d2\u8272\u8bf4\u8bdd",
+            "OwnerActorID": 0,
+            "NPCContentID": 0,
+            "StartTime": 0.0,
+            "EndTime": 1.0,
+            "MinimalDuration": 0.1,
+            "PlayFacialAnim": true
+        }
+    ]
+}

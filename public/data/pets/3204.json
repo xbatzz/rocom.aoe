@@ -365,7 +365,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 3,
+            "energy_cost": 6,
             "power": null,
             "description": "主动：本技能被动永久额外-1能耗，被动：两侧技能能耗-1，传动1。"
         },
@@ -410,7 +410,7 @@
             },
             "move_category": "Magic Attack",
             "energy_cost": 7,
-            "power": 100,
+            "power": 110,
             "description": "造成魔伤，敌方每有1层印记，本技能能耗-1。"
         },
         {
@@ -691,13 +691,13 @@
             "localized": {
                 "zh": {
                     "name": "六自由度",
-                    "description": "造成魔伤，威力额外增加两侧技能威力差的二分之一，传动1。"
+                    "description": "造成魔伤，威力额外增加两侧技能威力差的四分之一，传动1。"
                 }
             },
             "move_category": "Magic Attack",
-            "energy_cost": 3,
-            "power": 50,
-            "description": "造成魔伤，威力额外增加两侧技能威力差的二分之一，传动1。"
+            "energy_cost": 4,
+            "power": 30,
+            "description": "造成魔伤，威力额外增加两侧技能威力差的四分之一，传动1。"
         }
     ],
     "legacy_moves": [
@@ -1303,12 +1303,10 @@
         "type_desc": "蒸汽精灵",
         "description_habitat": "行踪神秘",
         "introduction": "身体结构十分精巧，能够最高效地利用能源，是某些发热供暖装置的设计原型。但在氧气不足的地方身体会逐渐冷下来进入睡眠状态。“经过了岁月的磨练和沉淀，透露出时光的浑厚。”",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1324,8 +1322,8 @@
         "egg_groups": [
             15
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

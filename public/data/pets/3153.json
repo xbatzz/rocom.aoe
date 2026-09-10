@@ -410,6 +410,28 @@
             "energy_cost": 5,
             "power": 80,
             "description": "造成物伤，自己获得物防+70%，应对状态：本次技能威力翻倍，且物防额外+70%。"
+        },
+        {
+            "id": 7120100,
+            "name": "毒液渗透",
+            "icon_id": "311006",
+            "move_type": {
+                "id": 10,
+                "name": "Poison",
+                "localized": {
+                    "zh": "毒"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "毒液渗透",
+                    "description": "造成魔伤，敌方每有1层中毒效果，本技能能耗-1，敌方获得1层中毒。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 5,
+            "power": 120,
+            "description": "造成魔伤，敌方每有1层中毒效果，本技能能耗-1，敌方获得1层中毒。"
         }
     ],
     "move_stones": [
@@ -537,13 +559,13 @@
             "localized": {
                 "zh": {
                     "name": "撒娇",
-                    "description": "造成魔伤，3连击。自己获得萌化：威力永久+20。"
+                    "description": "造成魔伤，3连击。自己获得萌化：全技能威力永久+10。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 30,
-            "description": "造成魔伤，3连击。自己获得萌化：威力永久+20。"
+            "description": "造成魔伤，3连击。自己获得萌化：全技能威力永久+10。"
         },
         {
             "id": 7160290,
@@ -801,13 +823,13 @@
             "localized": {
                 "zh": {
                     "name": "扬尘",
-                    "description": "造成​魔伤，​天气为沙暴时，先手+1。"
+                    "description": "造成魔伤，天气为沙暴时，先手+1。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 80,
-            "description": "造成​魔伤，​天气为沙暴时，先手+1。"
+            "description": "造成魔伤，天气为沙暴时，先手+1。"
         },
         {
             "id": 7021210,
@@ -823,13 +845,13 @@
             "localized": {
                 "zh": {
                     "name": "急中生智",
-                    "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+                    "description": "造成魔伤，自己有减益时，本次技能威力+40。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 80,
-            "description": "造成​魔伤，自己有减益时，​本​次技能​威力​+40。"
+            "description": "造成魔伤，自己有减益时，本次技能威力+40。"
         }
     ],
     "legacy_moves": [
@@ -1435,12 +1457,10 @@
         "type_desc": "帽帽精灵",
         "description_habitat": "常见于山林",
         "introduction": "头部突起越复杂代表着年龄越大，突起内部充斥剧毒毒液，被一层外套膜包裹起来。遇到危险时，会释放更为强大的致幻毒素，但是并不致命。因此，部分洛克因为想要致幻体验，而专门寻找它们。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2,
@@ -1458,8 +1478,8 @@
         "egg_groups": [
             9
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

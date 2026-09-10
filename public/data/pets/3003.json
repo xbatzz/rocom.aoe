@@ -1262,12 +1262,10 @@
         "type_desc": "火元素精灵",
         "description_habitat": "行踪神秘",
         "introduction": "像一团迸发的小火花，坦诚炙热，生性勇敢无畏。能熟练运用火元素，偶尔有点冒失，是值得信赖的伙伴。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1334,8 +1332,8 @@
             2,
             12
         ],
-        "proportion_male": 8,
-        "male_rate": 80,
-        "female_rate": 20
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

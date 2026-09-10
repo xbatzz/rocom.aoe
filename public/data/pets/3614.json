@@ -271,13 +271,13 @@
             "localized": {
                 "zh": {
                     "name": "暗箱操作",
-                    "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
+                    "description": "自己获得双攻和双防-50%，应对防御：改为敌方获得双攻和双防-120%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
+            "description": "自己获得双攻和双防-50%，应对防御：改为敌方获得双攻和双防-120%。"
         },
         {
             "id": 7060120,
@@ -830,6 +830,28 @@
             "energy_cost": 3,
             "power": 35,
             "description": "造成魔伤，1连击，若敌方有中毒效果，本次技能连击数+2。"
+        },
+        {
+            "id": 7060280,
+            "name": "分光",
+            "icon_id": "205020",
+            "move_type": {
+                "id": 5,
+                "name": "Light",
+                "localized": {
+                    "zh": "光"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "分光",
+                    "description": "自己获得魔攻+20%，己方队伍中精灵每有1个不同的系别，额外获得魔攻+10%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 1,
+            "power": null,
+            "description": "自己获得魔攻+20%，己方队伍中精灵每有1个不同的系别，额外获得魔攻+10%。"
         }
     ],
     "legacy_moves": [
@@ -1384,8 +1406,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 28 级",
-                            "需与嗜光嗡嗡一起击败 3 只光系精灵"
+                            "等级达到 28 级"
                         ]
                     }
                 ],
@@ -1401,12 +1422,10 @@
         "type_desc": "偷窃精灵",
         "description_habitat": "行踪神秘",
         "introduction": "“经实验发现，其腹部含有特殊的器官，只对光系能量产生反应。因此，存放光水晶时需派遣光系精灵巡逻，混淆它们的感应。”“光系精灵一同发出抗议，要求王国打击嗜光嗡嗡的狂热跟踪和过分亲近行为。”",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1551,8 +1570,8 @@
         "egg_groups": [
             4
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

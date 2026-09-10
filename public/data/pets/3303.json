@@ -205,13 +205,13 @@
             "localized": {
                 "zh": {
                     "name": "孢子",
-                    "description": "敌方获得1层寄生。"
+                    "description": "敌方获得3层寄生。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "敌方获得1层寄生。"
+            "description": "敌方获得3层寄生。"
         },
         {
             "id": 7030330,
@@ -449,13 +449,13 @@
             "localized": {
                 "zh": {
                     "name": "毒雾",
-                    "description": "将敌方所有增益，转化成中毒。"
+                    "description": "将敌方所有增益，转化为相同层数的中毒。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 7,
             "power": null,
-            "description": "将敌方所有增益，转化成中毒。"
+            "description": "将敌方所有增益，转化为相同层数的中毒。"
         },
         {
             "id": 7030230,
@@ -801,13 +801,13 @@
             "localized": {
                 "zh": {
                     "name": "重金属粉尘",
-                    "description": "携带​的​攻击​技​能​获得​附加中毒3​，​应对防御：​改为​获得附加中毒6。"
+                    "description": "携带的攻击技能获得附加中毒3，应对防御：改为获得附加中毒6。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "携带​的​攻击​技​能​获得​附加中毒3​，​应对防御：​改为​获得附加中毒6。"
+            "description": "携带的攻击技能获得附加中毒3，应对防御：改为获得附加中毒6。"
         },
         {
             "id": 7030590,
@@ -823,13 +823,13 @@
             "localized": {
                 "zh": {
                     "name": "丰收",
-                    "description": "造​成​物伤，​自己​回复​20%生命​。"
+                    "description": "造成物伤，自己回复20%生命。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 5,
             "power": 85,
-            "description": "造​成​物伤，​自己​回复​20%生命​。"
+            "description": "造成物伤，自己回复20%生命。"
         },
         {
             "id": 7030600,
@@ -1922,12 +1922,10 @@
         "type_desc": "花精灵",
         "description_habitat": "常见于草地、平原",
         "introduction": "头顶绽放出粉紫色花朵。研究证实，虫系精灵的复眼对紫色波段异常敏感，为了更好地吸引虫系精灵为蹦蹦种子家族传粉，这个种类的蹦蹦花努力了很久终于开出了紫色的花。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 4,
-        "classis_name": "植物类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1944,8 +1942,8 @@
         "egg_groups": [
             8
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

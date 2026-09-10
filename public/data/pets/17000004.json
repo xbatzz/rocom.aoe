@@ -1433,12 +1433,10 @@
         "type_desc": null,
         "description_habitat": null,
         "introduction": "最初的尾巴似乎是在断尾求生的时候舍弃了，断掉的尾巴变成了球球的形状，比其他品种的石肤蜥更暴躁易怒，行动很敏捷，只是看到你就已经准备用布满小石头的背来拱你了。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": null,
@@ -1449,8 +1447,8 @@
             3,
             11
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

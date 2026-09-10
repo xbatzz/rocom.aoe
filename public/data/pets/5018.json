@@ -27,8 +27,8 @@
     },
     "implemented": true,
     "base_hp": 85,
-    "base_phy_atk": 128,
-    "base_mag_atk": 46,
+    "base_phy_atk": 116,
+    "base_mag_atk": 38,
     "base_phy_def": 101,
     "base_mag_def": 82,
     "base_spd": 120,
@@ -133,13 +133,13 @@
             "localized": {
                 "zh": {
                     "name": "流星火雨",
-                    "description": "造成物伤，每次击败敌方，本技能威力永久+75。"
+                    "description": "造成物伤，每次击败敌方，本技能威力永久+85。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 75,
-            "description": "造成物伤，每次击败敌方，本技能威力永久+75。"
+            "power": 85,
+            "description": "造成物伤，每次击败敌方，本技能威力永久+85。"
         },
         {
             "id": 7020620,
@@ -382,7 +382,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 30,
+            "power": 20,
             "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         },
         {
@@ -1253,12 +1253,10 @@
         "type_desc": "守护精灵",
         "description_habitat": "常见于城镇、草地、雪山",
         "introduction": "它的冠毛与尾巴像火焰一样摇曳，这代表它体内的火元素的热流外显。它的斗志一旦被点燃，会化作更强的火势与更可靠的压制力。",
-        "refresh_locations": [
-            "暂时找不到这只精灵的踪迹噢！"
-        ],
+        "refresh_locations": [],
         "movement_type": null,
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1268,9 +1266,11 @@
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 5018,
-        "egg_groups": [],
-        "proportion_male": 10,
-        "male_rate": 100,
-        "female_rate": 0
+        "egg_groups": [
+            6
+        ],
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

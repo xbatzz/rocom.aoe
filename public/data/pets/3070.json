@@ -27,8 +27,8 @@
     },
     "implemented": true,
     "base_hp": 68,
-    "base_phy_atk": 103,
-    "base_mag_atk": 37,
+    "base_phy_atk": 92,
+    "base_mag_atk": 31,
     "base_phy_def": 81,
     "base_mag_def": 66,
     "base_spd": 96,
@@ -133,13 +133,13 @@
             "localized": {
                 "zh": {
                     "name": "流星火雨",
-                    "description": "造成物伤，每次击败敌方，本技能威力永久+75。"
+                    "description": "造成物伤，每次击败敌方，本技能威力永久+85。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 75,
-            "description": "造成物伤，每次击败敌方，本技能威力永久+75。"
+            "power": 85,
+            "description": "造成物伤，每次击败敌方，本技能威力永久+85。"
         },
         {
             "id": 7020620,
@@ -382,7 +382,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 30,
+            "power": 20,
             "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         },
         {
@@ -1184,12 +1184,10 @@
         "type_desc": "狗狗精灵",
         "description_habitat": "常见于城镇、草地、雪山",
         "introduction": "时刻保持着警觉，任何危险都无法逃过它的眼睛。虽然身形小巧，但面对无论多么凶猛庞大的敌人都会勇敢地燃起斗志。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 8,
-        "classis_name": "狗狗类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1319,8 +1317,8 @@
         "egg_groups": [
             6
         ],
-        "proportion_male": 8,
-        "male_rate": 80,
-        "female_rate": 20
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

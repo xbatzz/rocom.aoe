@@ -780,6 +780,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，应对攻击：下一次行动获得先手+1。"
+        },
+        {
+            "id": 7150240,
+            "name": "俯冲猛击",
+            "icon_id": "114019",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "俯冲猛击",
+                    "description": "对敌方精灵造成物理伤害。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 5,
+            "power": 140,
+            "description": "对敌方精灵造成物理伤害。"
         }
     ],
     "legacy_moves": [
@@ -1322,8 +1344,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 28 级",
-                            "需激活第 1 条进化分支"
+                            "等级达到 28 级"
                         ]
                     }
                 ],
@@ -1352,8 +1373,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 40 级",
-                            "需激活第 2 条进化分支"
+                            "等级达到 40 级"
                         ]
                     }
                 ],
@@ -1369,12 +1389,10 @@
         "type_desc": "翼系精灵王",
         "description_habitat": "行踪神秘",
         "introduction": "弱小的家伙为了伙伴却愿意勇敢向前！光羽圣殿的门扉悄然开启，沐浴在圣光之力的启迪中，澎湃的力量汹涌而来。“它的思绪已沉醉在无垠的天际中，这片蓝天便是它魂牵梦绕的地方。”",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1391,8 +1409,8 @@
         "egg_groups": [
             1
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

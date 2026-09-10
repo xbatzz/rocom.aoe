@@ -1184,12 +1184,10 @@
         "type_desc": "祈愿精灵",
         "description_habitat": "行踪神秘",
         "introduction": "布娃娃诞生了意识之后，因为想要快快奔向小洛克的身边为它们带来好运，所以演化出了擅长弹跳的双腿，跳跃着冲向魔法学院。有传闻说，如果小洛克在考试前听100遍上岸蛙们的“呱呱”声，就可以心想事成，逢考必过。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1205,8 +1203,8 @@
         "egg_groups": [
             3
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

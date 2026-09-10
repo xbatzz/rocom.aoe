@@ -309,13 +309,13 @@
             "localized": {
                 "zh": {
                     "name": "孢子",
-                    "description": "敌方获得1层寄生。"
+                    "description": "敌方获得3层寄生。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "敌方获得1层寄生。"
+            "description": "敌方获得3层寄生。"
         },
         {
             "id": 7030180,
@@ -1450,12 +1450,33 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": []
+                    },
+                    {
+                        "id": 8201,
+                        "species_id": 4,
+                        "name": "wumiao",
+                        "form": "草系徽章-BOSS专属精灵",
+                        "localized": {
+                            "zh": {
+                                "name": "武斗酷猫"
+                            }
+                        },
+                        "is_leader_form": true,
+                        "main_type": {
+                            "id": 2,
+                            "name": "Grass",
+                            "localized": {
+                                "zh": "草"
+                            }
+                        },
+                        "sub_type": null,
+                        "evolution_conditions": []
                     }
                 ]
             }
         ],
         "max_depth": 3,
-        "total_unique_monsters": 7,
+        "total_unique_monsters": 8,
         "species_id": 4,
         "current_monster_id": 5003
     },
@@ -1466,7 +1487,7 @@
         "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 4,
-        "classis_name": "植物类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1476,9 +1497,12 @@
     "breeding": null,
     "breeding_profile": {
         "pet_base_id": 5003,
-        "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "egg_groups": [
+            6,
+            9
+        ],
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

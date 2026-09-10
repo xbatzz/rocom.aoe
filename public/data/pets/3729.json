@@ -49,12 +49,12 @@
     "trait": {
         "id": 200287,
         "name": "换碟",
-        "description": "自己携带的音波弹​/音爆/金属​噪音​/午​夜噪​音​​威力​提升，​且​获得​巧变​：同系别技能。",
+        "description": "自己携带的音波弹/音爆/金属噪音/午夜噪音威力提升，且获得巧变：同系别技能。",
         "icon_id": "200287",
         "localized": {
             "zh": {
                 "name": "换碟",
-                "description": "自己携带的音波弹​/音爆/金属​噪音​/午​夜噪​音​​威力​提升，​且​获得​巧变​：同系别技能。"
+                "description": "自己携带的音波弹/音爆/金属噪音/午夜噪音威力提升，且获得巧变：同系别技能。"
             }
         }
     },
@@ -117,13 +117,13 @@
             "localized": {
                 "zh": {
                     "name": "同频",
-                    "description": "造成​魔法​伤害，​巧变：魔攻技​能。"
+                    "description": "造成魔法伤害，巧变：魔攻技能。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 125,
-            "description": "造成​魔法​伤害，​巧变：魔攻技​能。"
+            "description": "造成魔法伤害，巧变：魔攻技能。"
         },
         {
             "id": 7070130,
@@ -271,13 +271,13 @@
             "localized": {
                 "zh": {
                     "name": "铁蒺藜",
-                    "description": "造成​魔伤，应对状态：​本​次​伤害翻倍。"
+                    "description": "造成魔伤，应对状态：本次伤害翻倍。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 85,
-            "description": "造成​魔伤，应对状态：​本​次​伤害翻倍。"
+            "description": "造成魔伤，应对状态：本次伤害翻倍。"
         },
         {
             "id": 7020650,
@@ -647,13 +647,13 @@
             "localized": {
                 "zh": {
                     "name": "微型斥候",
-                    "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），​本技​能​威力​永久​+20。"
+                    "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），本技能威力永久+20。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），​本技​能​威力​永久​+20。"
+            "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），本技能威力永久+20。"
         },
         {
             "id": 7070260,
@@ -735,13 +735,35 @@
             "localized": {
                 "zh": {
                     "name": "蓄能轰击",
-                    "description": "造成魔伤，每使用1次普通系技能，本技能能耗永久-2。"
+                    "description": "造成魔伤，每使用1次其他普通系技能，本技能能耗永久-2。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 6,
-            "power": 130,
-            "description": "造成魔伤，每使用1次普通系技能，本技能能耗永久-2。"
+            "power": 120,
+            "description": "造成魔伤，每使用1次其他普通系技能，本技能能耗永久-2。"
+        },
+        {
+            "id": 7070330,
+            "name": "广播",
+            "icon_id": "106033",
+            "move_type": {
+                "id": 17,
+                "name": "Mechanical",
+                "localized": {
+                    "zh": "机械"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "广播",
+                    "description": "对敌方精灵造成魔法伤害。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 5,
+            "power": 140,
+            "description": "对敌方精灵造成魔法伤害。"
         }
     ],
     "legacy_moves": [
@@ -1312,12 +1334,10 @@
         "type_desc": "吼猴精灵",
         "description_habitat": "行踪神秘",
         "introduction": "经常抓着尾巴不停讲话，通过奇妙的头部和尾部结构将自己的声音放大，这是在向周围散播“和我一起玩吧”的信号。如果观察到猴麦仔这样做，可以去和它玩耍试试，它会很开心自己的声音被洛克所听到。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1412,7 +1432,7 @@
                 "pet_id": 37290001,
                 "name": null,
                 "model_id": 3729001,
-                "hatch_data": 100,
+                "hatch_data": 300,
                 "weight_low": 2940,
                 "weight_high": 7040,
                 "height_low": 24,
@@ -1431,8 +1451,8 @@
             6,
             15
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

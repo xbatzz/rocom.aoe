@@ -204,7 +204,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 30,
+            "power": 20,
             "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         },
         {
@@ -377,13 +377,13 @@
             "localized": {
                 "zh": {
                     "name": "暗箱操作",
-                    "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
+                    "description": "自己获得双攻和双防-50%，应对防御：改为敌方获得双攻和双防-120%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
+            "description": "自己获得双攻和双防-50%，应对防御：改为敌方获得双攻和双防-120%。"
         },
         {
             "id": 7180180,
@@ -648,6 +648,50 @@
             "energy_cost": 4,
             "power": null,
             "description": "敌方获得1层暗涌印记。"
+        },
+        {
+            "id": 7170330,
+            "name": "小型打劫",
+            "icon_id": "316033",
+            "move_type": {
+                "id": 15,
+                "name": "Ghost",
+                "localized": {
+                    "zh": "幽"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "小型打劫",
+                    "description": "敌方队伍中所有精灵失去1能量。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "敌方队伍中所有精灵失去1能量。"
+        },
+        {
+            "id": 7180450,
+            "name": "掉包",
+            "icon_id": "117046",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "掉包",
+                    "description": "敌方的属性增益变为对应的属性减益。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "敌方的属性增益变为对应的属性减益。"
         }
     ],
     "legacy_moves": [
@@ -1247,12 +1291,10 @@
         "type_desc": "羊精灵",
         "description_habitat": "常见于山林、草地",
         "introduction": "白天会懒洋洋地趴在草原上休息，主要在早晨和黄昏行动，一般会脱离种群独自生活。跳跃力惊人，在山坡上如履平地，从100米的高度一跃而下也没事。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 2,
-        "classis_name": "漂浮类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1269,8 +1311,8 @@
         "egg_groups": [
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

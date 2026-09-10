@@ -1122,8 +1122,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 36 级",
-                            "需与晕晕鸡一起击败 3 只恶系精灵"
+                            "等级达到 36 级"
                         ]
                     }
                 ],
@@ -1139,12 +1138,10 @@
         "type_desc": "鸡仔精灵",
         "description_habitat": "常见于山地",
         "introduction": "成长后学会了控制情绪，维持着绅士风度，为了追求优雅和游刃有余，逐渐更能控制火焰释放。偶尔会因为忍耐过度，大脑变得晕乎乎的。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1162,8 +1159,8 @@
             5,
             9
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

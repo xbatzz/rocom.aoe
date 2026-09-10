@@ -43,12 +43,12 @@
     "trait": {
         "id": 280007,
         "name": "地脉馈赠",
-        "description": "突破能量上限并立即回复10能量，入场前己方精灵每放1次地系技能，回复3能量。",
+        "description": "突破能量上限并立即回复10能量，入场前己方精灵每使用1次地系技能，回复3能量。",
         "icon_id": "200102",
         "localized": {
             "zh": {
                 "name": "地脉馈赠",
-                "description": "突破能量上限并立即回复10能量，入场前己方精灵每放1次地系技能，回复3能量。"
+                "description": "突破能量上限并立即回复10能量，入场前己方精灵每使用1次地系技能，回复3能量。"
             }
         }
     },
@@ -221,13 +221,13 @@
             "localized": {
                 "zh": {
                     "name": "吨位压制",
-                    "description": "造成物伤，敌方体重越低，威力越高。"
+                    "description": "造成物伤，敌方体重越低，本次技能威力越高。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": null,
-            "description": "造成物伤，敌方体重越低，威力越高。"
+            "description": "造成物伤，敌方体重越低，本次技能威力越高。"
         },
         {
             "id": 7080240,
@@ -685,13 +685,13 @@
             "localized": {
                 "zh": {
                     "name": "沙石阵",
-                    "description": "自己获得速度​-​20，​选择：且额外获得​物防+90%或​魔防​+90%。"
+                    "description": "自己获得速度-20，选择：且额外获得物防+90%或魔防+90%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己获得速度​-​20，​选择：且额外获得​物防+90%或​魔防​+90%。"
+            "description": "自己获得速度-20，选择：且额外获得物防+90%或魔防+90%。"
         }
     ],
     "legacy_moves": [
@@ -1348,12 +1348,10 @@
         "type_desc": "石头精灵",
         "description_habitat": "常见于洞穴、山地",
         "introduction": "迷嶂布莱克的体型与山脉规模呈正相关，其骨骼密度可达普通岩石矿物的3倍以上，且骨骼内部存在类似蜂窝结构的减重设计——这种结构能在保持高承重能力的同时，减轻自身体重，迷嶂布莱克能承受的重量约为自身体重的100-150倍。",
-        "refresh_locations": [
-            "暂时找不到这只精灵的踪迹噢！"
-        ],
+        "refresh_locations": [],
         "movement_type": null,
         "classis_id": 7,
-        "classis_name": "岩石类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1364,8 +1362,8 @@
     "breeding_profile": {
         "pet_base_id": 8110,
         "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

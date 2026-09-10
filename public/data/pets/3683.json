@@ -265,13 +265,13 @@
             "localized": {
                 "zh": {
                     "name": "入梦",
-                    "description": "敌方​下​回合回复的​能量​-5，​冷​却​2回合。"
+                    "description": "敌方下回合回复的能量-5，冷却2回合。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "敌方​下​回合回复的​能量​-5，​冷​却​2回合。"
+            "description": "敌方下回合回复的能量-5，冷却2回合。"
         },
         {
             "id": 7170140,
@@ -487,13 +487,13 @@
             "localized": {
                 "zh": {
                     "name": "暗箱操作",
-                    "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
+                    "description": "自己获得双攻和双防-50%，应对防御：改为敌方获得双攻和双防-120%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "自己获得双攻和双防-100%，应对防御：改为敌方获得双攻和双防-100%。"
+            "description": "自己获得双攻和双防-50%，应对防御：改为敌方获得双攻和双防-120%。"
         },
         {
             "id": 7180270,
@@ -692,6 +692,50 @@
             "energy_cost": 3,
             "power": 45,
             "description": "造成魔伤，2连击。"
+        },
+        {
+            "id": 7180450,
+            "name": "掉包",
+            "icon_id": "117046",
+            "move_type": {
+                "id": 16,
+                "name": "Dark",
+                "localized": {
+                    "zh": "恶"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "掉包",
+                    "description": "敌方的属性增益变为对应的属性减益。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "敌方的属性增益变为对应的属性减益。"
+        },
+        {
+            "id": 7190490,
+            "name": "观测者效应",
+            "icon_id": "118051",
+            "move_type": {
+                "id": 18,
+                "name": "Illusion",
+                "localized": {
+                    "zh": "幻"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "观测者效应",
+                    "description": "自己脱离，更换入场的精灵以月陨星状态登场。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 3,
+            "power": null,
+            "description": "自己脱离，更换入场的精灵以月陨星状态登场。"
         }
     ],
     "legacy_moves": [
@@ -1234,8 +1278,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 36 级",
-                            "需满足特殊条件（类型 9，参数 60）"
+                            "等级达到 36 级"
                         ]
                     }
                 ],
@@ -1251,12 +1294,10 @@
         "type_desc": "鸽子精灵",
         "description_habitat": "行踪神秘",
         "introduction": "看到洛克就想展示刚学的魔法。可惜魔力还不够，变得不太好，偶尔还有可能失败，表演失败之后它会钻进帽子里面反思，过一会儿又探出脑袋继续尝试。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1347,11 +1388,27 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3683005,
+                "pet_id": 3683005,
+                "name": null,
+                "model_id": 3683001,
+                "hatch_data": 300,
+                "weight_low": 763,
+                "weight_high": 2304,
+                "height_low": 16,
+                "height_high": 23,
+                "precious_egg_type": 6,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 36830001,
                 "pet_id": 36830001,
                 "name": null,
                 "model_id": 3683001,
-                "hatch_data": 100,
+                "hatch_data": 300,
                 "weight_low": 763,
                 "weight_high": 2304,
                 "height_low": 16,
@@ -1369,8 +1426,8 @@
         "egg_groups": [
             7
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

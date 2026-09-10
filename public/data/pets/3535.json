@@ -751,13 +751,13 @@
             "localized": {
                 "zh": {
                     "name": "飞箭",
-                    "description": "造成​魔伤，​3连击。巧变：​翼系防御​技​能​。"
+                    "description": "造成魔伤，3连击。巧变：翼系防御技能。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 40,
-            "description": "造成​魔伤，​3连击。巧变：​翼系防御​技​能​。"
+            "description": "造成魔伤，3连击。巧变：翼系防御技能。"
         },
         {
             "id": 7021190,
@@ -780,6 +780,28 @@
             "energy_cost": 3,
             "power": 65,
             "description": "造成魔伤，选择：驱散敌方所有增益或驱散双方1层印记。"
+        },
+        {
+            "id": 7170350,
+            "name": "掠影",
+            "icon_id": "116031",
+            "move_type": {
+                "id": 15,
+                "name": "Ghost",
+                "localized": {
+                    "zh": "幽"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "掠影",
+                    "description": "造成物伤，若上回合双方有精灵使用火系技能，偷取敌方3能量。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 65,
+            "description": "造成物伤，若上回合双方有精灵使用火系技能，偷取敌方3能量。"
         }
     ],
     "legacy_moves": [
@@ -1338,12 +1360,10 @@
         "type_desc": "猫头鹰精灵",
         "description_habitat": "常见于山林",
         "introduction": "和洛克相交甚少的种族，拥有比较强的野性和攻击性。如果在领地内看到生面孔，可能俯冲下来攻击对方，拥有出色的深度感知能力和夜视能力，即使藏在阴影处也难以逃过它的双眼。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1360,8 +1380,8 @@
         "egg_groups": [
             5
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

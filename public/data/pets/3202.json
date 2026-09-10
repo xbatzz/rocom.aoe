@@ -247,7 +247,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 3,
+            "energy_cost": 6,
             "power": null,
             "description": "主动：本技能被动永久额外-1能耗，被动：两侧技能能耗-1，传动1。"
         },
@@ -399,13 +399,13 @@
             "localized": {
                 "zh": {
                     "name": "示弱",
-                    "description": "自己获得萌化：速度永久+150。"
+                    "description": "自己获得萌化：速度永久+130。"
                 }
             },
             "move_category": "Status",
-            "energy_cost": 1,
+            "energy_cost": 2,
             "power": null,
-            "description": "自己获得萌化：速度永久+150。"
+            "description": "自己获得萌化：速度永久+130。"
         },
         {
             "id": 7160200,
@@ -641,13 +641,13 @@
             "localized": {
                 "zh": {
                     "name": "减压阀",
-                    "description": "主动：​本技​能​被​动永久额​外​+20​威力，​被动：​两​侧​技​能​威力​+10，​传动1。"
+                    "description": "主动：本技能被动永久额外+20威力，被动：两侧技能威力+10，传动1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "主动：​本技​能​被​动永久额​外​+20​威力，​被动：​两​侧​技​能​威力​+10，​传动1。"
+            "description": "主动：本技能被动永久额外+20威力，被动：两侧技能威力+10，传动1。"
         },
         {
             "id": 7070300,
@@ -663,13 +663,13 @@
             "localized": {
                 "zh": {
                     "name": "绞轮",
-                    "description": "造成物伤，每受到1次抵抗的技能攻击（不含连击），​本技能能耗永久-1。"
+                    "description": "造成物伤，每受到1次抵抗的技能攻击（不含连击），本技能能耗永久-1。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 5,
             "power": 115,
-            "description": "造成物伤，每受到1次抵抗的技能攻击（不含连击），​本技能能耗永久-1。"
+            "description": "造成物伤，每受到1次抵抗的技能攻击（不含连击），本技能能耗永久-1。"
         },
         {
             "id": 7070210,
@@ -685,13 +685,57 @@
             "localized": {
                 "zh": {
                     "name": "蒸汽进行曲",
-                    "description": "选择：​自己获得速度​+60或​物攻+90%。"
+                    "description": "选择：自己获得速度+60或物攻+90%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "选择：​自己获得速度​+60或​物攻+90%。"
+            "description": "选择：自己获得速度+60或物攻+90%。"
+        },
+        {
+            "id": 7070340,
+            "name": "拖拉机",
+            "icon_id": "106032",
+            "move_type": {
+                "id": 17,
+                "name": "Mechanical",
+                "localized": {
+                    "zh": "机械"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "拖拉机",
+                    "description": "造成物伤，位于1号位时，先手+1。传动1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 85,
+            "description": "造成物伤，位于1号位时，先手+1。传动1。"
+        },
+        {
+            "id": 7070220,
+            "name": "轮班",
+            "icon_id": "206022",
+            "move_type": {
+                "id": 17,
+                "name": "Mechanical",
+                "localized": {
+                    "zh": "机械"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "轮班",
+                    "description": "造成物伤，传动1，选择：本技能位于1号位时威力+65或本回合额外传动1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 70,
+            "description": "造成物伤，传动1，选择：本技能位于1号位时威力+65或本回合额外传动1。"
         }
     ],
     "legacy_moves": [
@@ -1234,8 +1278,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 28 级",
-                            "需满足特殊条件（类型 6，参数 1）"
+                            "等级达到 28 级"
                         ]
                     }
                 ],
@@ -1280,12 +1323,10 @@
         "type_desc": "魔方精灵",
         "description_habitat": "行踪神秘",
         "introduction": "能够听懂和使用洛克族语言，了解洛克族的礼仪和社会结构，会模仿洛克族的行为，甚至会与其他个体组建家庭。 “勤奋的它，总是不停的前行，心中在默念：每个人努力过都不普通。”",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1303,8 +1344,8 @@
             9,
             15
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

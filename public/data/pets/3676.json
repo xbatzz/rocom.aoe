@@ -32,9 +32,9 @@
         }
     },
     "implemented": true,
-    "base_hp": 111,
-    "base_phy_atk": 109,
-    "base_mag_atk": 118,
+    "base_hp": 121,
+    "base_phy_atk": 96,
+    "base_mag_atk": 104,
     "base_phy_def": 108,
     "base_mag_def": 123,
     "base_spd": 105,
@@ -49,12 +49,12 @@
     "trait": {
         "id": 200312,
         "name": "光度换算",
-        "description": "携带的火系​技​能​获得​选择：使用后​失去​15%​生命，​光系​技​能​威力​永久​+20。",
+        "description": "携带的火系技能获得选择：使用后失去15%生命，光系技能威力永久+30。",
         "icon_id": "200312",
         "localized": {
             "zh": {
                 "name": "光度换算",
-                "description": "携带的火系​技​能​获得​选择：使用后​失去​15%​生命，​光系​技​能​威力​永久​+20。"
+                "description": "携带的火系技能获得选择：使用后失去15%生命，光系技能威力永久+30。"
             }
         }
     },
@@ -381,13 +381,13 @@
             "localized": {
                 "zh": {
                     "name": "透镜实验",
-                    "description": "造​成​物伤，​选择：​敌方携​带光​系​技​能​时​威力​+50或应对状态​时​被​应对​的​技能​变​为​透射​。"
+                    "description": "造成物伤，选择：敌方携带光系技能时威力+50或应对状态时被应对的技能变为透射。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 115,
-            "description": "造​成​物伤，​选择：​敌方携​带光​系​技​能​时​威力​+50或应对状态​时​被​应对​的​技能​变​为​透射​。"
+            "description": "造成物伤，选择：敌方携带光系技能时威力+50或应对状态时被应对的技能变为透射。"
         }
     ],
     "move_stones": [
@@ -713,13 +713,13 @@
             "localized": {
                 "zh": {
                     "name": "血契",
-                    "description": "造成物伤，自己每失去10%生命，本技能威力+10。"
+                    "description": "造成物伤，自己每失去10%生命，本技能威力+15。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 75,
-            "description": "造成物伤，自己每失去10%生命，本技能威力+10。"
+            "description": "造成物伤，自己每失去10%生命，本技能威力+15。"
         },
         {
             "id": 7040650,
@@ -1296,8 +1296,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 36 级",
-                            "需满足特殊条件（类型 4，参数 18、6）"
+                            "等级达到 36 级"
                         ]
                     }
                 ],
@@ -1313,12 +1312,10 @@
         "type_desc": "蜡烛精灵",
         "description_habitat": "行踪神秘",
         "introduction": "蜡泪在身上层层叠叠凝固成了铠甲的形状，火焰也不再随时会灭，而是稳定明亮的光柱，足以照亮整条长廊。作为蜡烛精灵，它们能在最黑的夜里给出最亮的光，这让它们非常满足。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1334,8 +1331,8 @@
         "egg_groups": [
             7
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

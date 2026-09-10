@@ -32,11 +32,11 @@
         }
     },
     "implemented": true,
-    "base_hp": 97,
-    "base_phy_atk": 53,
-    "base_mag_atk": 57,
-    "base_phy_def": 67,
-    "base_mag_def": 75,
+    "base_hp": 105,
+    "base_phy_atk": 58,
+    "base_mag_atk": 62,
+    "base_phy_def": 72,
+    "base_mag_def": 80,
     "base_spd": 80,
     "evolves_from_id": 3139,
     "species": {
@@ -271,13 +271,13 @@
             "localized": {
                 "zh": {
                     "name": "孢子",
-                    "description": "敌方获得1层寄生。"
+                    "description": "敌方获得3层寄生。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "敌方获得1层寄生。"
+            "description": "敌方获得3层寄生。"
         },
         {
             "id": 7130110,
@@ -520,7 +520,7 @@
             },
             "move_category": "Magic Attack",
             "energy_cost": 7,
-            "power": 100,
+            "power": 110,
             "description": "造成魔伤，敌方每有1层印记，本技能能耗-1。"
         },
         {
@@ -757,13 +757,13 @@
             "localized": {
                 "zh": {
                     "name": "薄纱环",
-                    "description": "选择：对手随机获得1种负面印记或自己随机获得1种正面印记。"
+                    "description": "选择：敌方随机获得1种负面印记或自己随机获得1种正面印记。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "选择：对手随机获得1种负面印记或自己随机获得1种正面印记。"
+            "description": "选择：敌方随机获得1种负面印记或自己随机获得1种正面印记。"
         },
         {
             "id": 7130330,
@@ -779,13 +779,13 @@
             "localized": {
                 "zh": {
                     "name": "振翅",
-                    "description": "选择：己方队伍​获得​1​次​奉献：​连击​+1或​威力​+20。"
+                    "description": "选择：己方队伍获得1次奉献：连击+1或威力+20。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "选择：己方队伍​获得​1​次​奉献：​连击​+1或​威力​+20。"
+            "description": "选择：己方队伍获得1次奉献：连击+1或威力+20。"
         }
     ],
     "legacy_moves": [
@@ -1391,12 +1391,10 @@
         "type_desc": "虫仔精灵",
         "description_habitat": "常见于草丛",
         "introduction": "与果树是互利共生关系，在果树之间采蜜的同时完成授粉。尾部的花朵是虹吸式进食器官，能够用来吸取和储存花粉，是访花昆虫中最重要的种群。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 5,
-        "classis_name": "昆虫类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1414,8 +1412,8 @@
             4,
             9
         ],
-        "proportion_male": 2,
-        "male_rate": 20,
-        "female_rate": 80
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

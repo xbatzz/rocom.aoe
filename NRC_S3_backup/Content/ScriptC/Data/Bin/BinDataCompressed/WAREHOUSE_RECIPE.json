@@ -1,0 +1,43 @@
+{
+  "RocoDataRows": {
+    "1": {
+      "id": 1
+    },
+    "2": {
+      "id": 2,
+      "unlock_rule_text": "",
+      "unlockcondition": 1,
+      "unlock_id": 3,
+      "value": 5
+    },
+    "3": {
+      "id": 3,
+      "unlock_rule_text": "",
+      "unlockcondition": 1,
+      "unlock_id": 3,
+      "value": 10
+    },
+    "4": {
+      "id": 4,
+      "unlock_rule_text": "",
+      "unlockcondition": 1,
+      "unlock_id": 3,
+      "value": 20
+    },
+    "5": {
+      "id": 5,
+      "unlock_rule_text": "",
+      "unlockcondition": 1,
+      "unlock_id": 2,
+      "value": 200
+    },
+    "6": {
+      "id": 6,
+      "unlock_rule_text": "",
+      "unlockcondition": 3,
+      "unlock_id": 390001,
+      "value": 1
+    }
+  },
+  "LocalizationStrings": {}
+}

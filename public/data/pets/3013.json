@@ -26,11 +26,11 @@
         }
     },
     "implemented": true,
-    "base_hp": 122,
-    "base_phy_atk": 88,
-    "base_mag_atk": 39,
-    "base_phy_def": 121,
-    "base_mag_def": 77,
+    "base_hp": 132,
+    "base_phy_atk": 95,
+    "base_mag_atk": 43,
+    "base_phy_def": 128,
+    "base_mag_def": 82,
     "base_spd": 75,
     "evolves_from_id": 3038,
     "species": {
@@ -641,13 +641,13 @@
             "localized": {
                 "zh": {
                     "name": "拟寄生",
-                    "description": "造成​魔伤，​偷取​敌​方​1​层​印记。"
+                    "description": "造成魔伤，偷取敌方1层印记。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 80,
-            "description": "造成​魔伤，​偷取​敌​方​1​层​印记。"
+            "description": "造成魔伤，偷取敌方1层印记。"
         },
         {
             "id": 7130330,
@@ -663,13 +663,13 @@
             "localized": {
                 "zh": {
                     "name": "振翅",
-                    "description": "选择：己方队伍​获得​1​次​奉献：​连击​+1或​威力​+20。"
+                    "description": "选择：己方队伍获得1次奉献：连击+1或威力+20。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "选择：己方队伍​获得​1​次​奉献：​连击​+1或​威力​+20。"
+            "description": "选择：己方队伍获得1次奉献：连击+1或威力+20。"
         },
         {
             "id": 7180440,
@@ -692,6 +692,28 @@
             "energy_cost": 2,
             "power": null,
             "description": "自己的生命比例变为与敌方生命比例相同，巧变：恶系攻击技能。"
+        },
+        {
+            "id": 7130370,
+            "name": "迁飞扩散",
+            "icon_id": "212036",
+            "move_type": {
+                "id": 11,
+                "name": "Bug",
+                "localized": {
+                    "zh": "虫"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "迁飞扩散",
+                    "description": "造成物伤，若敌方本回合更换精灵，己方队伍获得3次随机奉献。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 55,
+            "description": "造成物伤，若敌方本回合更换精灵，己方队伍获得3次随机奉献。"
         }
     ],
     "legacy_moves": [
@@ -1253,12 +1275,10 @@
         "type_desc": "硬壳精灵",
         "description_habitat": "常见于山林",
         "introduction": "全副武装没有破绽，头顶的巨钳令人生畏。甲壳有些沉重，依然可以飞行。但好处是，厚重的甲壳能够挡住敌人的攻击。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 5,
-        "classis_name": "昆虫类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1276,8 +1296,8 @@
             4,
             5
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

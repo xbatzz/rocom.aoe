@@ -758,6 +758,28 @@
             "energy_cost": 2,
             "power": null,
             "description": "自己获得连击数+3。"
+        },
+        {
+            "id": 7190510,
+            "name": "奇点",
+            "icon_id": "118043",
+            "move_type": {
+                "id": 18,
+                "name": "Illusion",
+                "localized": {
+                    "zh": "幻"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "奇点",
+                    "description": "造成魔伤，若上回合双方有精灵使用水系技能，敌方获得4层星陨印记。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 4,
+            "power": 60,
+            "description": "造成魔伤，若上回合双方有精灵使用水系技能，敌方获得4层星陨印记。"
         }
     ],
     "legacy_moves": [
@@ -1345,12 +1367,10 @@
         "type_desc": "吞噬精灵",
         "description_habitat": "行踪神秘",
         "introduction": "与精灵缔结契约的形式发生变化，咕噜球的样子世代更替，这一种族的外表也渐渐发生了变化。有人曾经尝试使用特殊咕噜球喂食，虫的形态在数年后发生变化，但实验没有继续下来，猜测是因为资金不足。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1367,8 +1387,8 @@
         "egg_groups": [
             4
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

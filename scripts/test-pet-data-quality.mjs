@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import ts from "typescript";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -15,6 +16,25 @@ const petBasePath = path.join(
 );
 const pets = JSON.parse(await fs.readFile(petsPath, "utf8"));
 const petBaseTable = JSON.parse(await fs.readFile(petBasePath, "utf8"));
+const handbookTable = JSON.parse(await fs.readFile(path.join(rootDir, "public/data/BinData/PET_HANDBOOK.json"), "utf8"));
+const handbookRows = Object.values(handbookTable.RocoDataRows);
+const handbookIds = new Set(handbookRows.map((row) => row.id));
+const directlyLinkedPets = new Set(handbookRows.flatMap((row) =>
+    (row.include_petbase_id ?? []).flatMap((group) => group.petbase_id ?? []),
+));
+const generatedIds = JSON.parse(await fs.readFile(path.join(rootDir, "src/lib/generated/handbookIds.json"), "utf8"));
+assert.deepEqual(generatedIds, [...handbookIds].sort((a, b) => a - b), "前端图鉴 ID 集合必须与当前原始表一致");
+const handbookSource = await fs.readFile(path.join(rootDir, "src/lib/petHandbook.ts"), "utf8");
+const handbookModule = ts.transpileModule(handbookSource.replace(
+    'import handbookIds from "./generated/handbookIds.json" with { type: "json" };',
+    `const handbookIds = ${JSON.stringify(generatedIds)};`,
+), { compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 } }).outputText;
+const { getRealPetHandbookId } = await import(`data:text/javascript;base64,${Buffer.from(handbookModule).toString("base64")}`);
+for (const id of handbookIds) {
+    assert.equal(getRealPetHandbookId({ id: 999999, species_id: id }), id);
+}
+assert.equal(getRealPetHandbookId({ id: 1, species_id: 0 }), null);
+assert.equal(getRealPetHandbookId({ id: 1, species_id: Math.max(...handbookIds) + 1 }), null);
 const petById = new Map(pets.map((pet) => [pet.id, pet]));
 
 function getTotalStats(pet) {
@@ -37,14 +57,13 @@ const invalidImplementedHandbookLinks = pets.filter(
     (pet) =>
         pet.implemented &&
         (!Number.isInteger(pet.species_id) ||
-            pet.species_id < 1 ||
-            pet.species_id > 442),
+            !handbookIds.has(pet.species_id)),
 );
 
 assert.deepEqual(
     invalidImplementedHandbookLinks.map((pet) => pet.id),
     [],
-    "已实装记录必须关联 1–442 的真实图鉴编号",
+    "已实装记录必须关联当前 PET_HANDBOOK 中真实存在的图鉴编号",
 );
 
 assert.deepEqual(
@@ -92,17 +111,13 @@ for (const id of [3048, 3051]) {
     );
 }
 
-const borrowedYadanPlaceholderIds = [
-    ...Array.from({ length: 16 }, (_, index) => 3761 + index),
-    ...Array.from({ length: 15 }, (_, index) => 3778 + index),
-];
-
-for (const id of borrowedYadanPlaceholderIds) {
-    assert.equal(
-        petById.get(id)?.implemented,
-        false,
-        `复用雅丹鬃模板的未完成记录 ${id} 不应标记为已实装`,
-    );
+// S3 placeholder IDs are reused by released S4 pets. Classify by current
+// source evidence instead of treating an old numeric range as unreleased forever.
+for (const row of Object.values(petBaseTable.RocoDataRows)) {
+    const hasHandbook = directlyLinkedPets.has(row.id) || handbookIds.has(row.pictorial_book_id);
+    if (!hasHandbook || /(?:占位|测试|废案|临时)/u.test(row.name ?? "")) {
+        assert.equal(petById.get(row.id)?.implemented, false, `无图鉴关联或明确占位记录 ${row.id}`);
+    }
 }
 
 for (const id of [3745, 3777, 5025, 5026]) {
@@ -110,17 +125,6 @@ for (const id of [3745, 3777, 5025, 5026]) {
         petById.get(id)?.implemented,
         true,
         `有效记录 ${id} 应保持已实装`,
-    );
-}
-
-for (const id of [
-    3158, 3168, 3169, 3217, 3218, 3219, 3236, 3408, 3409, 3416, 3417,
-    3418, 3480, 3543, 3544, 3567, 3621, 3622, 3738, 3739,
-]) {
-    assert.equal(
-        petById.get(id)?.implemented,
-        false,
-        `没有真实图鉴关联的记录 ${id} 不应标记为已实装`,
     );
 }
 

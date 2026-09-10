@@ -366,6 +366,28 @@
             "energy_cost": 4,
             "power": 90,
             "description": "造成物伤，应对状态：自己回复50%生命和5能量。"
+        },
+        {
+            "id": 7140360,
+            "name": "回旋踢",
+            "icon_id": "113029",
+            "move_type": {
+                "id": 12,
+                "name": "Fighting",
+                "localized": {
+                    "zh": "武"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "回旋踢",
+                    "description": "造成物伤，若敌方本回合更换精灵，本次技能威力翻倍。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 80,
+            "description": "造成物伤，若敌方本回合更换精灵，本次技能威力翻倍。"
         }
     ],
     "move_stones": [
@@ -383,13 +405,13 @@
             "localized": {
                 "zh": {
                     "name": "截拳",
-                    "description": "造成物伤，应对状态：额外造成打断，回复该技能能耗的能量。"
+                    "description": "造成物伤，应对状态：造成打断，回复被打断技能能耗的能量。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 85,
-            "description": "造成物伤，应对状态：额外造成打断，回复该技能能耗的能量。"
+            "description": "造成物伤，应对状态：造成打断，回复被打断技能能耗的能量。"
         },
         {
             "id": 7080290,
@@ -476,7 +498,7 @@
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
-            "power": 30,
+            "power": 20,
             "description": "造成物伤，3连击，若自己的生命低于50%，本次技能连击数+2。"
         },
         {
@@ -691,13 +713,13 @@
             "localized": {
                 "zh": {
                     "name": "马步",
-                    "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+                    "description": "本技能先手-1，选择：若自己生命低于20%，回复60%生命或若自己生命高于80%，获得物攻+150%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "本技能先​手​-1，选择：​若自己生命​低于​20%，​回复60%​生命或若自己​生命​高于​80%，​获得​物​攻+​150%。"
+            "description": "本技能先手-1，选择：若自己生命低于20%，回复60%生命或若自己生命高于80%，获得物攻+150%。"
         }
     ],
     "legacy_moves": [
@@ -1303,12 +1325,10 @@
         "type_desc": "松羊精灵",
         "description_habitat": "行踪神秘",
         "introduction": "丛林的向导，拥有修长的四肢与轻盈的骨骼结构，发育完全的角呈树枝状。“所谓的规则像是枝条，又好像荆棘。被缠上时使人烦躁，被刺伤时让人疼痛。但规则也有如树干，在支撑着森林的生命——所谓自由，亦是如此\"。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1325,8 +1345,8 @@
         "egg_groups": [
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

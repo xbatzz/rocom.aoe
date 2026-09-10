@@ -1190,8 +1190,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 20 级",
-                            "需与伏地兽一起击败 3 只虫系精灵"
+                            "等级达到 20 级"
                         ]
                     }
                 ],
@@ -1236,12 +1235,10 @@
         "type_desc": "食蚁兽精灵",
         "description_habitat": "行踪神秘",
         "introduction": "柔韧的吻部十分有弹性，没有牙齿，用舌头和吻部配合嘬取食物。每天吃几十只蚂蚁就可以存活，能量消耗很小，多数时间在睡觉。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1323,8 +1320,8 @@
         "egg_groups": [
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

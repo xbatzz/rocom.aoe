@@ -707,13 +707,35 @@
             "localized": {
                 "zh": {
                     "name": "友谊满溢",
-                    "description": "造成​魔伤，​选择：​每次使用后威力​永久​​+20​或​应对状态​时​本​次技能​威力​+100%。"
+                    "description": "造成魔伤，选择：每次使用后威力永久+20或应对状态时本次技能威力+100%。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 2,
             "power": 70,
-            "description": "造成​魔伤，​选择：​每次使用后威力​永久​​+20​或​应对状态​时​本​次技能​威力​+100%。"
+            "description": "造成魔伤，选择：每次使用后威力永久+20或应对状态时本次技能威力+100%。"
+        },
+        {
+            "id": 7190480,
+            "name": "仰望夜空",
+            "icon_id": "118040",
+            "move_type": {
+                "id": 18,
+                "name": "Illusion",
+                "localized": {
+                    "zh": "幻"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "仰望夜空",
+                    "description": "自己获得魔攻和魔防+70%。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 2,
+            "power": null,
+            "description": "自己获得魔攻和魔防+70%。"
         }
     ],
     "legacy_moves": [
@@ -1256,8 +1278,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 30 级",
-                            "完成技能「勾魂」相关试炼（参数 3）"
+                            "等级达到 30 级"
                         ]
                     }
                 ],
@@ -1302,12 +1323,10 @@
         "type_desc": "骨头精灵",
         "description_habitat": "行踪神秘",
         "introduction": "夜晚很容易在破旧的空屋见到。力量弱小但长着骇人的面容，会恐吓其他精灵，以此来保护自己。它几乎不依赖视觉，通过感知热量来判断生物的位置与距离。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 2,
-        "classis_name": "漂浮类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1446,6 +1465,22 @@
                 "is_contact_add_shining_prob": null
             },
             {
+                "id": 3148008,
+                "pet_id": 3148008,
+                "name": null,
+                "model_id": 3148002,
+                "hatch_data": 300,
+                "weight_low": 1960,
+                "weight_high": 3480,
+                "height_low": 18,
+                "height_high": 25,
+                "precious_egg_type": 2,
+                "egg_base_glass_prob_array": null,
+                "egg_add_glass_prob_array": null,
+                "is_contact_add_glass_prob": null,
+                "is_contact_add_shining_prob": null
+            },
+            {
                 "id": 31480001,
                 "pet_id": 31480001,
                 "name": null,
@@ -1485,8 +1520,8 @@
             2,
             12
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

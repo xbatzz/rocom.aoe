@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue";
 import { cn } from "@/lib/utils";
+import { getPetPortraitUrl } from "@/lib/petPortrait";
 
 interface Props {
     name?: string | null;
@@ -23,7 +24,7 @@ const imageSrc = computed(() => {
         return "";
     }
 
-    return `/assets/webp/friends/JL_${props.name}.webp`;
+    return getPetPortraitUrl(props.name);
 });
 
 const imageLoading = computed(() => {

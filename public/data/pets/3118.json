@@ -1106,8 +1106,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 30 级",
-                            "需激活草系血脉"
+                            "等级达到 30 级"
                         ]
                     },
                     {
@@ -1136,8 +1135,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 30 级",
-                            "需激活冰系血脉"
+                            "等级达到 30 级"
                         ]
                     },
                     {
@@ -1166,8 +1164,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 30 级",
-                            "需激活火系血脉"
+                            "等级达到 30 级"
                         ]
                     }
                 ],
@@ -1183,12 +1180,10 @@
         "type_desc": "凝胶精灵",
         "description_habitat": "行踪神秘",
         "introduction": "透明而不起眼的精灵，经常在干净的水源被发现。研究发现，果冻精灵可以维护森林、湖泊和山脉的生态平衡，似乎是因为它们能让水变得清澈。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "浮游",
         "classis_id": 14,
-        "classis_name": "萌萌类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1367,8 +1362,8 @@
             12,
             13
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

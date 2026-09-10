@@ -1,7 +1,8 @@
 import type { IPets } from "@/lib/interface";
+import handbookIds from "./generated/handbookIds.json" with { type: "json" };
 
 type PetHandbookSource = Pick<IPets, "species_id" | "id">;
-const MAX_GAME_HANDBOOK_ID = 442;
+const gameHandbookIds = new Set<number>(handbookIds);
 
 export function normalizeHandbookNumberQuery(keyword: string): string {
     return keyword
@@ -32,8 +33,7 @@ export function getRealPetHandbookId(
     pet: PetHandbookSource,
 ): number | null {
     return Number.isInteger(pet.species_id) &&
-        pet.species_id >= 1 &&
-        pet.species_id <= MAX_GAME_HANDBOOK_ID
+        gameHandbookIds.has(pet.species_id)
         ? pet.species_id
         : null;
 }

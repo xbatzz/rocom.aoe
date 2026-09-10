@@ -49,12 +49,12 @@
     "trait": {
         "id": 200310,
         "name": "和弦共振",
-        "description": "双方场​上​每​有​1​种​不同​的​印记​，自己获得​魔攻​+50%。",
+        "description": "双方场上每有1种不同的印记，自己获得魔攻+50%。",
         "icon_id": "200310",
         "localized": {
             "zh": {
                 "name": "和弦共振",
-                "description": "双方场​上​每​有​1​种​不同​的​印记​，自己获得​魔攻​+50%。"
+                "description": "双方场上每有1种不同的印记，自己获得魔攻+50%。"
             }
         }
     },
@@ -139,13 +139,13 @@
             "localized": {
                 "zh": {
                     "name": "六自由度",
-                    "description": "造成魔伤，威力额外增加两侧技能威力差的二分之一，传动1。"
+                    "description": "造成魔伤，威力额外增加两侧技能威力差的四分之一，传动1。"
                 }
             },
             "move_category": "Magic Attack",
-            "energy_cost": 3,
-            "power": 50,
-            "description": "造成魔伤，威力额外增加两侧技能威力差的二分之一，传动1。"
+            "energy_cost": 4,
+            "power": 30,
+            "description": "造成魔伤，威力额外增加两侧技能威力差的四分之一，传动1。"
         },
         {
             "id": 7020780,
@@ -187,7 +187,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 3,
+            "energy_cost": 6,
             "power": null,
             "description": "主动：本技能被动永久额外-1能耗，被动：两侧技能能耗-1，传动1。"
         },
@@ -337,13 +337,13 @@
             "localized": {
                 "zh": {
                     "name": "薄纱环",
-                    "description": "选择：对手随机获得1种负面印记或自己随机获得1种正面印记。"
+                    "description": "选择：敌方随机获得1种负面印记或自己随机获得1种正面印记。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "选择：对手随机获得1种负面印记或自己随机获得1种正面印记。"
+            "description": "选择：敌方随机获得1种负面印记或自己随机获得1种正面印记。"
         }
     ],
     "move_stones": [
@@ -361,13 +361,13 @@
             "localized": {
                 "zh": {
                     "name": "叠加态",
-                    "description": "自己获得​随机​16层属性增益​，​巧变：​幻系攻击​技​能​。"
+                    "description": "自己获得随机16层属性增益，巧变：幻系攻击技能。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "自己获得​随机​16层属性增益​，​巧变：​幻系攻击​技​能​。"
+            "description": "自己获得随机16层属性增益，巧变：幻系攻击技能。"
         },
         {
             "id": 7150080,
@@ -647,13 +647,13 @@
             "localized": {
                 "zh": {
                     "name": "许愿池",
-                    "description": "造成​魔伤，​双方已有的印记层数+1。"
+                    "description": "造成魔伤，双方已有的印记层数+1。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 4,
             "power": 55,
-            "description": "造成​魔伤，​双方已有的印记层数+1。"
+            "description": "造成魔伤，双方已有的印记层数+1。"
         },
         {
             "id": 7070230,
@@ -1230,8 +1230,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 36 级",
-                            "需满足与对应形态「足尖元件」关联的联动条件（参数 6）"
+                            "等级达到 36 级"
                         ]
                     }
                 ],
@@ -1247,12 +1246,10 @@
         "type_desc": "芭蕾舞精灵",
         "description_habitat": "行踪神秘",
         "introduction": "在月光好的夜晚，成群的离心舞者聚在湖边旋转，远远看去像一场盛大的舞会——目击洛克说，离心舞者的舞蹈能跳出旋律，旋律像一场美梦，梦里讲述着，湖水、月光和一只银白色的鸟。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1268,8 +1265,8 @@
         "egg_groups": [
             1
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

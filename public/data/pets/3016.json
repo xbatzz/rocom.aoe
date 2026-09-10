@@ -735,13 +735,13 @@
             "localized": {
                 "zh": {
                     "name": "血契",
-                    "description": "造成物伤，自己每失去10%生命，本技能威力+10。"
+                    "description": "造成物伤，自己每失去10%生命，本技能威力+15。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 75,
-            "description": "造成物伤，自己每失去10%生命，本技能威力+10。"
+            "description": "造成物伤，自己每失去10%生命，本技能威力+15。"
         }
     ],
     "legacy_moves": [
@@ -1428,12 +1428,10 @@
         "type_desc": "石头精灵",
         "description_habitat": "偶见于山地、雪山",
         "introduction": "身体中结晶脉络光滑透亮，十分坚硬，似乎是某种矿石。长着凶狠的样貌，揣着不知如何表达的善意，示好的时候会展示一下由石头构成的肌肉。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 7,
-        "classis_name": "岩石类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1451,8 +1449,8 @@
             2,
             11
         ],
-        "proportion_male": 8,
-        "male_rate": 80,
-        "female_rate": 20
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

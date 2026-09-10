@@ -379,7 +379,7 @@
                 }
             },
             "move_category": "Status",
-            "energy_cost": 3,
+            "energy_cost": 6,
             "power": null,
             "description": "主动：本技能被动永久额外-1能耗，被动：两侧技能能耗-1，传动1。"
         },
@@ -773,13 +773,13 @@
             "localized": {
                 "zh": {
                     "name": "微型斥候",
-                    "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），​本技​能​威力​永久​+20。"
+                    "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），本技能威力永久+20。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 75,
-            "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），​本技​能​威力​永久​+20。"
+            "description": "造成魔伤，每受到1次抵抗的技能攻击（不含连击），本技能威力永久+20。"
         }
     ],
     "legacy_moves": [
@@ -1338,12 +1338,10 @@
         "type_desc": "科技精灵",
         "description_habitat": "常见于遗迹周边",
         "introduction": "黄金时代的工匠们曾将占星与炼金并列为同一门学问的两种语言。于是他们以火焰为芯，以螺纹为骨，铸成了权杖。现在只有极少量留存下来。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             2
@@ -1425,8 +1423,8 @@
         "egg_groups": [
             15
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

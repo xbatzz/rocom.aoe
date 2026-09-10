@@ -43,12 +43,12 @@
     "trait": {
         "id": 200309,
         "name": "守护之心",
-        "description": "双方场​上​每​有​1​种​不同​的​增益​，自己获得​物防​+20%。",
+        "description": "双方场上每有1种不同的增益，自己获得物防+20%。",
         "icon_id": "200309",
         "localized": {
             "zh": {
                 "name": "守护之心",
-                "description": "双方场​上​每​有​1​种​不同​的​增益​，自己获得​物防​+20%。"
+                "description": "双方场上每有1种不同的增益，自己获得物防+20%。"
             }
         }
     },
@@ -221,13 +221,13 @@
             "localized": {
                 "zh": {
                     "name": "蒸汽进行曲",
-                    "description": "选择：​自己获得速度​+60或​物攻+90%。"
+                    "description": "选择：自己获得速度+60或物攻+90%。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "选择：​自己获得速度​+60或​物攻+90%。"
+            "description": "选择：自己获得速度+60或物攻+90%。"
         },
         {
             "id": 7070040,
@@ -309,13 +309,13 @@
             "localized": {
                 "zh": {
                     "name": "轮班",
-                    "description": "造​成​物伤，​传动​1​，选择：​本技能位于1号​位​时​威力​+65或本​回​合额​外​传动​1。"
+                    "description": "造成物伤，传动1，选择：本技能位于1号位时威力+65或本回合额外传动1。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 70,
-            "description": "造​成​物伤，​传动​1​，选择：​本技能位于1号​位​时​威力​+65或本​回​合额​外​传动​1。"
+            "description": "造成物伤，传动1，选择：本技能位于1号位时威力+65或本回合额外传动1。"
         },
         {
             "id": 7020490,
@@ -626,6 +626,28 @@
             "energy_cost": 2,
             "power": null,
             "description": "自己获得物防+140%。"
+        },
+        {
+            "id": 7070340,
+            "name": "拖拉机",
+            "icon_id": "106032",
+            "move_type": {
+                "id": 17,
+                "name": "Mechanical",
+                "localized": {
+                    "zh": "机械"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "拖拉机",
+                    "description": "造成物伤，位于1号位时，先手+1。传动1。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 3,
+            "power": 85,
+            "description": "造成物伤，位于1号位时，先手+1。传动1。"
         }
     ],
     "legacy_moves": [
@@ -1168,8 +1190,7 @@
                         },
                         "sub_type": null,
                         "evolution_conditions": [
-                            "等级达到 36 级",
-                            "需满足与对应形态「咬咬小子」关联的联动条件（参数 6）"
+                            "等级达到 36 级"
                         ]
                     }
                 ],
@@ -1185,12 +1206,10 @@
         "type_desc": "仪仗队精灵",
         "description_habitat": "行踪神秘",
         "introduction": "古老的童话故事里面写道：如果战胜了一千只鼠精灵，就可以得到咬咬小子家族的认可。咬咬小子们似乎没听过这个故事，它们经常在路口站岗、巡逻，鼠精灵也在他们的保护范围内。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "地面",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1
         ]
@@ -1271,8 +1290,8 @@
         "egg_groups": [
             1
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

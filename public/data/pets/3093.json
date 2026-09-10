@@ -117,13 +117,13 @@
             "localized": {
                 "zh": {
                     "name": "示弱",
-                    "description": "自己获得萌化：速度永久+150。"
+                    "description": "自己获得萌化：速度永久+130。"
                 }
             },
             "move_category": "Status",
-            "energy_cost": 1,
+            "energy_cost": 2,
             "power": null,
-            "description": "自己获得萌化：速度永久+150。"
+            "description": "自己获得萌化：速度永久+130。"
         },
         {
             "id": 7030430,
@@ -249,13 +249,13 @@
             "localized": {
                 "zh": {
                     "name": "孢子",
-                    "description": "敌方获得1层寄生。"
+                    "description": "敌方获得3层寄生。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 3,
             "power": null,
-            "description": "敌方获得1层寄生。"
+            "description": "敌方获得3层寄生。"
         },
         {
             "id": 7030450,
@@ -271,13 +271,13 @@
             "localized": {
                 "zh": {
                     "name": "孢子爆散",
-                    "description": "造成物伤，1连击，每次使用后，本技能连击数永久+2。"
+                    "description": "造成物伤，2连击，每次使用后，本技能连击数永久+2。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 30,
-            "description": "造成物伤，1连击，每次使用后，本技能连击数永久+2。"
+            "description": "造成物伤，2连击，每次使用后，本技能连击数永久+2。"
         },
         {
             "id": 7030300,
@@ -449,13 +449,13 @@
             "localized": {
                 "zh": {
                     "name": "赤子之心",
-                    "description": "自己获得萌化：全技能能耗永久-3。"
+                    "description": "自己获得萌化：全技能能耗永久-2。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己获得萌化：全技能能耗永久-3。"
+            "description": "自己获得萌化：全技能能耗永久-2。"
         },
         {
             "id": 7030270,
@@ -757,13 +757,13 @@
             "localized": {
                 "zh": {
                     "name": "耍赖",
-                    "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
+                    "description": "自己获得双攻永久+10%，2连击。自己有减益时，本次技能连击数+1。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己​获得​双​攻​永久​+10%，2连击。​自己​有​减益​时，​本次技能连击​数​+1。"
+            "description": "自己获得双攻永久+10%，2连击。自己有减益时，本次技能连击数+1。"
         },
         {
             "id": 7021280,
@@ -779,13 +779,13 @@
             "localized": {
                 "zh": {
                     "name": "缓一缓",
-                    "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
+                    "description": "自己回复1能量和10%生命，并获得魔攻魔防+10%，速度+10。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 2,
             "power": null,
-            "description": "自己回复1​能量和​10​%生命，并获得​魔攻魔防+10%，速度+10。​"
+            "description": "自己回复1能量和10%生命，并获得魔攻魔防+10%，速度+10。"
         }
     ],
     "legacy_moves": [
@@ -1391,12 +1391,10 @@
         "type_desc": "蛋壳精灵",
         "description_habitat": "常见于草地、山林",
         "introduction": "幼年期较长，主要靠嗅闻、聆听和头上叶子的触觉来获取信息。头顶毛发会散发出爆米花的香味，偶尔引来其他精灵。它们之间用互闻头顶代表问候。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 4,
-        "classis_name": "植物类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1495,8 +1493,8 @@
             6,
             9
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

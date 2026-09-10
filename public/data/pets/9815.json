@@ -54,31 +54,31 @@
     },
     "move_pool": [
         {
-            "id": 7170240,
-            "name": "嘲弄",
-            "icon_id": "116018",
+            "id": 7050520,
+            "name": "废弃",
+            "icon_id": "104034",
             "move_type": {
-                "id": 15,
-                "name": "Ghost",
+                "id": 4,
+                "name": "Water",
                 "localized": {
-                    "zh": "幽"
+                    "zh": "水"
                 }
             },
             "localized": {
                 "zh": {
-                    "name": "嘲弄",
-                    "description": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。"
+                    "name": "废弃",
+                    "description": ""
                 }
             },
             "move_category": "Status",
-            "energy_cost": 2,
+            "energy_cost": 0,
             "power": null,
-            "description": "自己获得魔攻+90%，若敌方本回合更换精灵，自己获得速度+70。"
+            "description": ""
         },
         {
-            "id": 7170250,
-            "name": "勾魂",
-            "icon_id": "116019",
+            "id": 7170320,
+            "name": "废弃",
+            "icon_id": "301116",
             "move_type": {
                 "id": 15,
                 "name": "Ghost",
@@ -88,36 +88,14 @@
             },
             "localized": {
                 "zh": {
-                    "name": "勾魂",
-                    "description": "偷取敌方3能量。"
+                    "name": "废弃",
+                    "description": ""
                 }
             },
-            "move_category": "Status",
-            "energy_cost": 1,
-            "power": null,
-            "description": "偷取敌方3能量。"
-        },
-        {
-            "id": 7170260,
-            "name": "虚化",
-            "icon_id": "116020",
-            "move_type": {
-                "id": 15,
-                "name": "Ghost",
-                "localized": {
-                    "zh": "幽"
-                }
-            },
-            "localized": {
-                "zh": {
-                    "name": "虚化",
-                    "description": "减伤80%，应对攻击：自己获得魔防+70%。"
-                }
-            },
-            "move_category": "Defense",
-            "energy_cost": 2,
-            "power": null,
-            "description": "减伤80%，应对攻击：自己获得魔防+70%。"
+            "move_category": "Physical Attack",
+            "energy_cost": 4,
+            "power": 95,
+            "description": ""
         }
     ],
     "move_stones": [
@@ -553,13 +531,13 @@
             "localized": {
                 "zh": {
                     "name": "入梦",
-                    "description": "敌方​下​回合回复的​能量​-5，​冷​却​2回合。"
+                    "description": "敌方下回合回复的能量-5，冷却2回合。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "敌方​下​回合回复的​能量​-5，​冷​却​2回合。"
+            "description": "敌方下回合回复的能量-5，冷却2回合。"
         }
     ],
     "legacy_moves": [],
@@ -605,7 +583,7 @@
         "refresh_locations": [],
         "movement_type": null,
         "classis_id": 3,
-        "classis_name": "猫咪类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": null,
@@ -613,8 +591,8 @@
     "breeding_profile": {
         "pet_base_id": 9815,
         "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

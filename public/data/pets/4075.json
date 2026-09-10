@@ -735,13 +735,13 @@
             "localized": {
                 "zh": {
                     "name": "血契",
-                    "description": "造成物伤，自己每失去10%生命，本技能威力+10。"
+                    "description": "造成物伤，自己每失去10%生命，本技能威力+15。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 4,
             "power": 75,
-            "description": "造成物伤，自己每失去10%生命，本技能威力+10。"
+            "description": "造成物伤，自己每失去10%生命，本技能威力+15。"
         }
     ],
     "legacy_moves": [
@@ -1313,7 +1313,7 @@
         "refresh_locations": [],
         "movement_type": null,
         "classis_id": 7,
-        "classis_name": "岩石类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": null,
@@ -1321,8 +1321,8 @@
     "breeding_profile": {
         "pet_base_id": 4075,
         "egg_groups": [],
-        "proportion_male": 10,
-        "male_rate": 100,
-        "female_rate": 0
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

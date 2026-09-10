@@ -15,6 +15,7 @@ import {
     getEggGroupMeta,
 } from "@/lib/eggGroups";
 import type { IPets } from "@/lib/interface";
+import { getPetPortraitUrl } from "@/lib/petPortrait";
 import {
     formatPetHandbookNo,
     isHandbookNumberQuery,
@@ -1197,7 +1198,7 @@ function formatTooltip(params: unknown) {
 			<div style="min-width: 220px; padding: 4px 2px;">
 				<div style="font-size: 15px; font-weight: 600; color: #ffffff;">${escapeHtml(pet.localized.zh.name)}</div>
 				<div style="margin-top: 6px; color: #94a3b8; line-height: 1.6;">${escapeHtml(formLabel || "默认形态")}</div>
-                <img src="/assets/webp/friends/JL_${pet.name}.webp" style="width: 48px; height: 48px; border-radius: 50%; margin-bottom: 6px;" />
+                <img src="${getPetPortraitUrl(pet.name)}" style="width: 48px; height: 48px; border-radius: 50%; margin-bottom: 6px;" />
 				<div style="margin-top: 10px; color: #e2e8f0; line-height: 1.7;">蛋组：${escapeHtml(formatEggGroupSummary(eggGroups))}</div>
 				<div style="margin-top: 4px; color: #94a3b8; line-height: 1.7;">性别比：${formatGenderSummary(pet)}</div>
 			</div>

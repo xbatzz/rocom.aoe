@@ -182,12 +182,10 @@
         "type_desc": null,
         "description_habitat": null,
         "introduction": "有时会将头上的部分发射出去，但不论多远都能收回来。似乎还有一种说法认为上面的部分才是本体，害羞地把自己隐藏了起来。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 7,
-        "classis_name": "岩石类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": {
@@ -199,8 +197,8 @@
     "breeding_profile": {
         "pet_base_id": 3053,
         "egg_groups": [],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

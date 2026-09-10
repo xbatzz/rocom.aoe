@@ -359,13 +359,13 @@
             "localized": {
                 "zh": {
                     "name": "截拳",
-                    "description": "造成物伤，应对状态：额外造成打断，回复该技能能耗的能量。"
+                    "description": "造成物伤，应对状态：造成打断，回复被打断技能能耗的能量。"
                 }
             },
             "move_category": "Physical Attack",
             "energy_cost": 3,
             "power": 85,
-            "description": "造成物伤，应对状态：额外造成打断，回复该技能能耗的能量。"
+            "description": "造成物伤，应对状态：造成打断，回复被打断技能能耗的能量。"
         }
     ],
     "move_stones": [
@@ -669,13 +669,13 @@
             "localized": {
                 "zh": {
                     "name": "焚尽",
-                    "description": "驱散​自己​所有印记，​每驱散1层，获得物攻+50%。​巧变：​火系​攻击​技​能​。"
+                    "description": "驱散自己所有印记，每驱散1层，获得物攻+50%。巧变：火系攻击技能。"
                 }
             },
             "move_category": "Status",
             "energy_cost": 1,
             "power": null,
-            "description": "驱散​自己​所有印记，​每驱散1层，获得物攻+50%。​巧变：​火系​攻击​技​能​。"
+            "description": "驱散自己所有印记，每驱散1层，获得物攻+50%。巧变：火系攻击技能。"
         },
         {
             "id": 7040640,
@@ -1240,8 +1240,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 36 级",
-                            "需击败 3 只恶系精灵"
+                            "等级达到 36 级"
                         ]
                     }
                 ],
@@ -1334,8 +1333,7 @@
                             }
                         },
                         "evolution_conditions": [
-                            "等级达到 36 级",
-                            "需与晕晕鸡一起击败 3 只恶系精灵"
+                            "等级达到 36 级"
                         ]
                     }
                 ],
@@ -1351,12 +1349,10 @@
         "type_desc": null,
         "description_habitat": null,
         "introduction": "极其发达健壮的双臂是它们的标志性特征，手部演变为锋利的钙化物质。这一分支舍弃了种族遗传下来的火焰魔法，堂堂正正地用双手和踢腿打败敌人。",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": []
     },
     "catch_info": null,
@@ -1367,8 +1363,8 @@
             5,
             9
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }

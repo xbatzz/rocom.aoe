@@ -1,0 +1,158 @@
+{
+	"Desc": "2v2的2号精灵选招",
+	"TargetA": 6,
+	"TargetB": 2,
+	"SpringArmRotation":
+	{
+		"X": 0,
+		"Y": 5,
+		"Z": -52
+	},
+	"SpringArmOffset":
+	{
+		"X": -35,
+		"Y": 170,
+		"Z": -70
+	},
+	"SprintArmLength": 800,
+	"CameraFov": 85,
+	"EnableDepthOfField": false,
+	"DepthOfFieldScale": 0,
+	"CameraCurve":
+	{
+		"1":
+		{
+			"Duration": 0.5,
+			"Curve": 0
+		},
+		"5":
+		{
+			"Duration": 0.5,
+			"Curve": 0
+		}
+	},
+	"CurvesArray": [
+		{
+			"IsEnable": true,
+			"TargetCameraId": 58,
+			"Duration": 0.29999999999999999,
+			"CameraName": "领地试炼——精灵1选招",
+			"CurveId": 4
+		},
+		{
+			"IsEnable": false,
+			"TargetCameraId": 60,
+			"CurveId": 4,
+			"Duration": 0.29999999999999999,
+			"CameraName": "领地试炼——技能表演"
+		},
+		{
+			"IsEnable": false,
+			"TargetCameraId": 62,
+			"CurveId": 4,
+			"Duration": 0.29999999999999999,
+			"CameraName": "领地试炼——换宠"
+		}
+	],
+	"ControllerArray": [
+		{
+			"IsEnable": false,
+			"InputType": 2,
+			"EffectType": 6,
+			"Interval":
+			{
+				"X": -8,
+				"Y": 4
+			},
+			"Desc": "none"
+		},
+		{
+			"IsEnable": true,
+			"InputType": 2,
+			"EffectType": 5,
+			"Interval":
+			{
+				"X": -150,
+				"Y": 70
+			},
+			"Desc": "none"
+		},
+		{
+			"IsEnable": true,
+			"InputType": 3,
+			"EffectType": 5,
+			"Interval":
+			{
+				"X": -50,
+				"Y": 50
+			},
+			"Desc": ""
+		},
+		{
+			"IsEnable": true,
+			"InputType": 4,
+			"EffectType": 1,
+			"Interval":
+			{
+				"X": -8,
+				"Y": -20
+			},
+			"Desc": ""
+		},
+		{
+			"IsEnable": true,
+			"InputType": 3,
+			"EffectType": 4,
+			"Interval":
+			{
+				"X": -5,
+				"Y": 80
+			},
+			"Desc": "none"
+		},
+		{
+			"IsEnable": true,
+			"InputType": 2,
+			"EffectType": 0,
+			"Interval":
+			{
+				"X": -7,
+				"Y": 0
+			},
+			"Desc": ""
+		},
+		{
+			"IsEnable": false,
+			"InputType": 2,
+			"EffectType": 4,
+			"Interval":
+			{
+				"X": 90,
+				"Y": -10
+			},
+			"Desc": ""
+		},
+		{
+			"IsEnable": false,
+			"InputType": 4,
+			"EffectType": 2,
+			"Interval":
+			{
+				"X": -5,
+				"Y": 0
+			},
+			"Desc": ""
+		},
+		{
+			"IsEnable": false,
+			"InputType": 2,
+			"EffectType": 2,
+			"Interval":
+			{
+				"X": -3,
+				"Y": 7
+			},
+			"Desc": ""
+		}
+	]
+}

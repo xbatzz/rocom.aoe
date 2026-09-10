@@ -33,8 +33,8 @@
     },
     "implemented": true,
     "base_hp": 137,
-    "base_phy_atk": 51,
-    "base_mag_atk": 111,
+    "base_phy_atk": 62,
+    "base_mag_atk": 126,
     "base_phy_def": 88,
     "base_mag_def": 130,
     "base_spd": 80,
@@ -713,13 +713,13 @@
             "localized": {
                 "zh": {
                     "name": "驱赶",
-                    "description": "造成​魔伤，​选择：​本​次技能​威力​+20或​应对状态​时​本​次​技能威力​+140。"
+                    "description": "造成魔伤，选择：本次技能威力+20或应对状态时本次技能威力+140。"
                 }
             },
             "move_category": "Magic Attack",
             "energy_cost": 3,
             "power": 70,
-            "description": "造成​魔伤，​选择：​本​次技能​威力​+20或​应对状态​时​本​次​技能威力​+140。"
+            "description": "造成魔伤，选择：本次技能威力+20或应对状态时本次技能威力+140。"
         }
     ],
     "legacy_moves": [
@@ -1325,12 +1325,10 @@
         "type_desc": "炎狮精灵",
         "description_habitat": "行踪神秘",
         "introduction": "不休的守护者，甚至能将无私守护的意志凌驾于一般契约之上。虽然性格高傲，但对认可的伙伴极为忠诚。拥有永不熄灭的火焰心脏，绝对的正义是支持烈焰的力量源泉。 “让我见识看看吧，你的正义之心！”",
-        "refresh_locations": [
-            "由于昼夜或者天气的原因，这只精灵还没有出现哦！"
-        ],
+        "refresh_locations": [],
         "movement_type": "步行",
         "classis_id": 6,
-        "classis_name": "自然类精灵",
+        "classis_name": null,
         "handbook_area_ids": [
             1,
             3
@@ -1347,8 +1345,8 @@
         "egg_groups": [
             6
         ],
-        "proportion_male": 5,
-        "male_rate": 50,
-        "female_rate": 50
+        "proportion_male": null,
+        "male_rate": null,
+        "female_rate": null
     }
 }
