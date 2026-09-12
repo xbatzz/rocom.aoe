@@ -10,6 +10,7 @@ import {
     SlidersHorizontal,
 } from "lucide-vue-next";
 import FriendPortrait from "@/components/FriendPortrait.vue";
+import leaderCrownUrl from "@/assets/game-ui/leader-crown.png";
 import {
     formatBloodlineMatchSummary,
     getMatchedBloodlineMoves,
@@ -1095,6 +1096,7 @@ document.title = "图鉴 - 洛克王国工具箱";
                                         v-if="pet.is_leader_form"
                                         class="rounded-[10px] border-0 bg-card hover:bg-accent/15 px-2.5 py-1 text-xs font-medium text-foreground"
                                     >
+                                        <img :src="leaderCrownUrl" alt="" aria-hidden="true" width="16" height="14" class="h-auto w-4 shrink-0" />
                                         首领
                                     </Badge>
                                     <Badge

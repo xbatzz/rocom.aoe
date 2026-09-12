@@ -13,7 +13,6 @@ import {
     BarChart3,
     BookOpen,
     Check,
-    Crown,
     Egg,
     ExternalLink,
     Gift,
@@ -48,6 +47,8 @@ import {
 } from "@/components/ui/hover-card";
 import FriendPortrait from "@/components/FriendPortrait.vue";
 import SkillIcon from "@/components/SkillIcon.vue";
+import leaderCrownUrl from "@/assets/game-ui/leader-crown.png";
+import collectedCheckUrl from "@/assets/game-ui/collected-check.png";
 import type {
     IItem,
     IPets,
@@ -1437,6 +1438,7 @@ async function getFriendDetail(idParam: string | string[]) {
                                     variant="outline"
                                     class="rounded-[10px] border-emerald-400/25 bg-emerald-400/10 px-2 py-0.5 normal-case tracking-normal text-emerald-100"
                                 >
+                                    <img :src="collectedCheckUrl" alt="" aria-hidden="true" width="14" height="12" class="h-auto w-3.5 shrink-0" />
                                     已收集
                                 </Badge>
                             </p>
@@ -1597,6 +1599,7 @@ async function getFriendDetail(idParam: string | string[]) {
                                         v-if="friend.is_leader_form"
                                         class="rounded-[10px] border-0 bg-card hover:bg-accent/15 text-foreground"
                                     >
+                                        <img :src="leaderCrownUrl" alt="" aria-hidden="true" width="16" height="14" class="h-auto w-4 shrink-0" />
                                         首领形态
                                     </Badge>
                                     <Badge
@@ -2237,25 +2240,25 @@ async function getFriendDetail(idParam: string | string[]) {
                 >
                     <TabsTrigger
                         value="overview"
-                        class="rounded-[10px] px-3 py-1.5"
+                        class="pet-detail-tab rounded-[10px] px-3 py-1.5"
                     >
                         概览
                     </TabsTrigger>
                     <TabsTrigger
                         value="battle"
-                        class="rounded-[10px] px-3 py-1.5"
+                        class="pet-detail-tab rounded-[10px] px-3 py-1.5"
                     >
                         战斗资料
                     </TabsTrigger>
                     <TabsTrigger
                         value="moves"
-                        class="rounded-[10px] px-3 py-1.5"
+                        class="pet-detail-tab rounded-[10px] px-3 py-1.5"
                     >
                         自有技能
                     </TabsTrigger>
                     <TabsTrigger
                         value="stones"
-                        class="rounded-[10px] px-3 py-1.5"
+                        class="pet-detail-tab rounded-[10px] px-3 py-1.5"
                     >
                         学习技能
                     </TabsTrigger>
@@ -2296,9 +2299,7 @@ async function getFriendDetail(idParam: string | string[]) {
                                                     v-if="stage.is_leader_stage"
                                                     class="rounded-[10px] border-0 bg-card hover:bg-accent/15 text-foreground"
                                                 >
-                                                    <Crown
-                                                        class="h-3.5 w-3.5"
-                                                    />
+                                                    <img :src="leaderCrownUrl" alt="" aria-hidden="true" width="16" height="14" class="h-auto w-4 shrink-0" />
                                                     首领
                                                 </Badge>
                                             </div>
@@ -3624,6 +3625,30 @@ async function getFriendDetail(idParam: string | string[]) {
 </template>
 
 <style scoped>
+.pet-detail-tab {
+    position: relative;
+    isolation: isolate;
+    min-height: 40px;
+}
+
+.pet-detail-tab[data-state="active"] {
+    border-color: transparent;
+    background: transparent;
+    color: #594321;
+    box-shadow: none;
+}
+
+.pet-detail-tab[data-state="active"]::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    content: "";
+    pointer-events: none;
+    /* Preserve the folded corner and the baked shadow at every tab width. */
+    border: 12px solid transparent;
+    border-image: url("@/assets/game-ui/active-tab-background.png") 14 fill stretch;
+}
+
 .stat-radar-panel {
     background:
         radial-gradient(

@@ -7,6 +7,7 @@ import {
 } from "lucide-vue-next";
 import { useVirtualizer } from "@tanstack/vue-virtual";
 import FriendPortrait from "@/components/FriendPortrait.vue";
+import collectedCheckUrl from "@/assets/game-ui/collected-check.png";
 import {
     Dialog,
     DialogContent,
@@ -898,6 +899,7 @@ onMounted(async () => {
                                         class="shrink-0 rounded-md border-emerald-400/25 bg-emerald-400/10 px-1.5 py-0 text-[10px] leading-4 text-emerald-100"
                                         @click.stop
                                     >
+                                        <img :src="collectedCheckUrl" alt="" aria-hidden="true" width="14" height="12" class="h-auto w-3.5 shrink-0" />
                                         已收集
                                     </Badge>
                                     <Badge

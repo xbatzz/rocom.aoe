@@ -58,8 +58,8 @@ import {
     updateActiveTeamState,
     type TeamStorageState,
 } from "@/lib/teamStorage";
+import leaderCrownUrl from "@/assets/game-ui/leader-crown.png";
 import {
-    Crown,
     FlaskConical,
     RotateCcw,
     Share2,
@@ -2989,7 +2989,7 @@ document.title = "配队工具 - 洛克王国工具箱";
                                             getSlotFriend(slot)?.is_leader_form
                                         "
                                         class="inline-flex items-center rounded-[10px] border border-border/20 bg-card hover:bg-accent/12 px-2 py-0.5 text-xs text-foreground">
-                                        <Crown class="mr-1 h-3 w-3" />
+                                        <img :src="leaderCrownUrl" alt="" aria-hidden="true" width="16" height="14" class="mr-1 h-auto w-4 shrink-0" />
                                         首领
                                     </span>
                                     <span

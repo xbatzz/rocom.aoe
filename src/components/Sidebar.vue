@@ -17,7 +17,6 @@ import {
     Moon,
     Sun,
 } from "lucide-vue-next";
-import { cn } from "@/lib/utils";
 import { useTheme } from "@/lib/theme";
 
 const route = useRoute();
@@ -87,145 +86,368 @@ function isNavActive(path: string) {
 </script>
 
 <template>
-    <!-- Desktop Sidebar -->
-    <aside
-        class="hidden md:flex w-64 flex-col border-r border-border bg-card bg-card shadow-lg transition-all duration-300"
-    >
-        <div
-            class="flex h-14 items-center justify-start px-6"
-            data-tauri-drag-region
-        >
-            <router-link to="/" class="flex items-center gap-3">
-                <div
-                    class="flex h-8 w-8 items-center justify-center rounded-[10px] text-primary-foreground shadow-sm"
-                >
-                    <img src="/favicon.ico?v=4" alt="Logo" class="h-8 w-8" />
-                </div>
-                <span
-                    class="font-bold tracking-tight inline-block text-lg text-foreground"
-                >
-                    洛克王国工具箱
+    <aside class="journal-sidebar hidden md:flex">
+        <div class="journal-brand" data-tauri-drag-region>
+            <router-link to="/" class="brand-link" aria-label="洛克王国工具箱首页">
+                <span class="brand-seal">
+                    <img src="/favicon.ico?v=4" alt="" width="38" height="38" />
                 </span>
+                <span class="brand-title">洛克王国<span>精灵研究手册</span></span>
             </router-link>
+            <p class="brand-caption">你的随身冒险工具箱</p>
         </div>
 
-        <div class="flex flex-1 flex-col gap-4 overflow-auto px-3 py-4">
-            <section v-for="group in navGroups" :key="group.label" class="space-y-1">
-                <p class="px-3 pb-1 text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
-                    {{ group.label }}
-                </p>
+        <nav class="journal-navigation" aria-label="主导航">
+            <section v-for="group in navGroups" :key="group.label" class="nav-chapter">
+                <p class="nav-chapter-label">{{ group.label }}</p>
                 <router-link
                     v-for="item in group.items"
                     :key="item.path"
                     :to="item.path"
-                    :class="
-                        cn(
-                            'group relative flex items-center gap-3 overflow-hidden rounded-[10px] px-3 py-2.5 text-sm font-medium transition-colors',
-                            isNavActive(item.path)
-                                ? 'bg-accent text-accent-foreground'
-                                : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground',
-                        )
-                    "
+                    class="journal-nav-link"
+                    :class="{ 'is-active': isNavActive(item.path) }"
+                    :aria-current="isNavActive(item.path) ? 'page' : undefined"
                 >
-                    <component :is="item.icon" class="h-5 w-5 shrink-0" />
+                    <component :is="item.icon" class="nav-icon" aria-hidden="true" />
                     <span>{{ item.name }}</span>
-                    <div
-                        v-if="isNavActive(item.path)"
-                        class="absolute left-0 top-1/2 h-1/2 w-1 -translate-y-1/2 rounded-r-full bg-primary"
-                    />
+                    <span v-if="isNavActive(item.path)" class="nav-star" aria-hidden="true">✦</span>
                 </router-link>
             </section>
-        </div>
+        </nav>
 
-        <div class="space-y-1 border-t border-border p-3">
+        <div class="journal-sidebar-footer">
             <router-link
                 to="/data-management"
-                :class="cn(
-                    'flex w-full items-center gap-3 rounded-[10px] px-3 py-2.5 text-sm font-medium transition-colors',
-                    isNavActive('/data-management')
-                        ? 'bg-accent text-accent-foreground'
-                        : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground',
-                )"
+                class="journal-nav-link"
+                :class="{ 'is-active': isNavActive('/data-management') }"
+                :aria-current="isNavActive('/data-management') ? 'page' : undefined"
             >
-                <Database class="h-5 w-5 shrink-0" />
+                <Database class="nav-icon" aria-hidden="true" />
                 <span>数据管理</span>
             </router-link>
             <button
                 type="button"
-                class="flex w-full items-center gap-3 rounded-[10px] px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent/50 hover:text-foreground"
+                class="journal-theme-toggle"
                 :aria-label="themeToggleLabel"
                 :title="themeToggleLabel"
                 @click="toggleTheme"
             >
-                <Sun v-if="theme === 'dark'" class="h-5 w-5 shrink-0" />
-                <Moon v-else class="h-5 w-5 shrink-0" />
-                <span>{{ themeToggleLabel }}</span>
+                <Sun v-if="theme === 'light'" class="nav-icon" aria-hidden="true" />
+                <Moon v-else class="nav-icon" aria-hidden="true" />
+                <span>{{ theme === 'light' ? '白天手册' : '夜间手册' }}</span>
+                <span class="theme-switch" :class="{ 'is-night': theme === 'dark' }" aria-hidden="true"><span /></span>
             </button>
         </div>
     </aside>
 
-    <!-- Mobile Header -->
-    <header
-        class="md:hidden flex h-14 items-center justify-between border-b border-border bg-background/80 bg-card shadow-lg px-4 shrink-0 z-40 sticky top-0"
-    >
-        <router-link to="/" class="flex items-center gap-3">
-            <img src="/favicon.ico?v=4" alt="Logo" class="h-8 w-8" />
-            <span class="font-bold text-lg tracking-tight">洛克王国工具箱</span>
+    <header class="journal-mobile-header md:hidden" data-tauri-drag-region>
+        <router-link to="/" class="brand-link" aria-label="洛克王国工具箱首页">
+            <img src="/favicon.ico?v=4" alt="" width="32" height="32" />
+            <span class="mobile-brand-title">洛克王国<span>精灵研究手册</span></span>
         </router-link>
-        <div class="-mr-2 flex items-center">
+        <div class="mobile-header-actions">
             <button
                 type="button"
-                class="flex h-10 w-10 items-center justify-center rounded-[10px] text-foreground transition-colors hover:bg-accent/50"
+                class="mobile-icon-button"
                 :aria-label="themeToggleLabel"
                 :title="themeToggleLabel"
                 @click="toggleTheme"
             >
-                <Sun v-if="theme === 'dark'" class="h-5 w-5" />
-                <Moon v-else class="h-5 w-5" />
+                <Sun v-if="theme === 'dark'" :size="19" aria-hidden="true" />
+                <Moon v-else :size="19" aria-hidden="true" />
             </button>
             <button
                 type="button"
-                class="flex h-10 w-10 items-center justify-center rounded-[10px] text-foreground transition-colors hover:bg-accent/50"
+                class="mobile-icon-button"
                 aria-label="切换导航"
+                aria-controls="mobile-journal-navigation"
+                :aria-expanded="isMobileMenuOpen"
                 @click="isMobileMenuOpen = !isMobileMenuOpen"
             >
-                <Menu v-if="!isMobileMenuOpen" class="h-6 w-6" />
-                <X v-else class="h-6 w-6" />
+                <Menu v-if="!isMobileMenuOpen" :size="22" aria-hidden="true" />
+                <X v-else :size="22" aria-hidden="true" />
             </button>
         </div>
     </header>
 
-    <!-- Mobile Navigation Overlay -->
-    <div
+    <nav
         v-if="isMobileMenuOpen"
-        class="md:hidden fixed inset-0 top-14 z-50 bg-background/95 flex flex-col p-4 overflow-y-auto duration-300 animate-in fade-in slide-in-from-top-4"
+        id="mobile-journal-navigation"
+        class="journal-mobile-navigation md:hidden"
+        aria-label="移动主导航"
+        @keydown.esc="isMobileMenuOpen = false"
     >
-        <div class="flex flex-1 flex-col gap-5">
-            <section v-for="group in navGroups" :key="group.label" class="space-y-1">
-                <p class="px-4 pb-1 text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">
-                    {{ group.label }}
-                </p>
-                <router-link
-                    v-for="item in group.items"
-                    :key="item.path"
-                    :to="item.path"
-                    class="flex items-center gap-3 rounded-[10px] px-4 py-3 text-base font-medium transition-colors"
-                    :class="isNavActive(item.path) ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground'"
-                    @click="isMobileMenuOpen = false"
-                >
-                    <component :is="item.icon" class="h-6 w-6 shrink-0" />
-                    <span>{{ item.name }}</span>
-                </router-link>
-            </section>
+        <p class="mobile-contents-title">翻开手册，出发吧 <span aria-hidden="true">✦</span></p>
+        <section v-for="group in navGroups" :key="group.label" class="nav-chapter">
+            <p class="nav-chapter-label">{{ group.label }}</p>
             <router-link
-                to="/data-management"
-                class="flex items-center gap-3 rounded-[10px] border border-border px-4 py-3 text-base font-medium"
-                :class="isNavActive('/data-management') ? 'bg-primary/10 text-primary' : 'text-muted-foreground'"
+                v-for="item in group.items"
+                :key="item.path"
+                :to="item.path"
+                class="journal-nav-link"
+                :class="{ 'is-active': isNavActive(item.path) }"
+                :aria-current="isNavActive(item.path) ? 'page' : undefined"
                 @click="isMobileMenuOpen = false"
             >
-                <Database class="h-6 w-6 shrink-0" />
-                <span>数据管理</span>
+                <component :is="item.icon" class="nav-icon" aria-hidden="true" />
+                <span>{{ item.name }}</span>
+                <span v-if="isNavActive(item.path)" class="nav-star" aria-hidden="true">✦</span>
             </router-link>
-        </div>
-    </div>
+        </section>
+        <router-link
+            to="/data-management"
+            class="journal-nav-link mobile-data-link"
+            :class="{ 'is-active': isNavActive('/data-management') }"
+            :aria-current="isNavActive('/data-management') ? 'page' : undefined"
+            @click="isMobileMenuOpen = false"
+        >
+            <Database class="nav-icon" aria-hidden="true" />
+            <span>数据管理</span>
+        </router-link>
+    </nav>
 </template>
+
+<style scoped>
+.journal-sidebar {
+    position: relative;
+    width: 232px;
+    flex-shrink: 0;
+    flex-direction: column;
+    border-right: 1px solid var(--sidebar-border);
+    background: var(--sidebar);
+}
+
+.journal-sidebar::after {
+    position: absolute;
+    inset: 0 5px 0 auto;
+    width: 3px;
+    border-inline: 1px solid var(--sidebar-border);
+    opacity: 0.55;
+    content: "";
+    pointer-events: none;
+}
+
+.journal-brand {
+    padding: 29px 22px 23px;
+}
+
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+.brand-seal {
+    display: grid;
+    width: 48px;
+    height: 52px;
+    flex-shrink: 0;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--journal-gold) 65%, var(--journal-line));
+    border-radius: 14px 14px 19px 19px;
+    background: var(--journal-honey);
+    transform: rotate(-5deg);
+}
+
+.brand-title {
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+
+.brand-title > span {
+    display: block;
+    margin-top: 3px;
+    color: var(--muted-foreground);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+}
+
+.brand-caption {
+    margin-top: 16px;
+    color: var(--muted-foreground);
+    font-size: 11px;
+    letter-spacing: 0.09em;
+}
+
+.journal-navigation {
+    min-height: 0;
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 18px 16px 14px;
+    scrollbar-width: thin;
+}
+
+.nav-chapter + .nav-chapter {
+    margin-top: 20px;
+}
+
+.nav-chapter-label {
+    padding: 0 12px 7px;
+    color: var(--muted-foreground);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+}
+
+.journal-nav-link {
+    display: flex;
+    min-height: 40px;
+    align-items: center;
+    gap: 11px;
+    margin-block: 2px;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 10px 17px 17px 10px;
+    color: var(--muted-foreground);
+    font-size: 13px;
+    font-weight: 500;
+    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.journal-nav-link.is-active {
+    border-color: color-mix(in srgb, var(--journal-gold) 50%, transparent);
+    background: var(--sidebar-accent);
+    color: var(--sidebar-accent-foreground);
+    font-weight: 700;
+}
+
+.nav-icon {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    stroke-width: 1.65px;
+}
+
+.nav-star {
+    margin-left: auto;
+    color: var(--sidebar-primary);
+    font-size: 13px;
+}
+
+.journal-sidebar-footer {
+    margin: 0 18px 0 14px;
+    padding-block: 12px 17px;
+    border-top: 1px dashed var(--journal-line);
+}
+
+.journal-theme-toggle {
+    display: flex;
+    width: 100%;
+    min-height: 44px;
+    align-items: center;
+    gap: 11px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    color: var(--muted-foreground);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.theme-switch {
+    width: 30px;
+    margin-left: auto;
+    padding: 3px;
+    border-radius: 20px;
+    background: var(--journal-honey);
+    box-shadow: inset 0 0 0 1px var(--journal-line);
+}
+
+.theme-switch > span {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--journal-gold);
+}
+
+.theme-switch.is-night > span {
+    margin-left: auto;
+}
+
+.journal-mobile-header {
+    position: relative;
+    z-index: 60;
+    height: 64px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 16px 8px;
+    border-bottom: 1px solid var(--sidebar-border);
+    background: var(--sidebar);
+}
+
+.mobile-brand-title {
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.mobile-brand-title > span {
+    display: block;
+    color: var(--muted-foreground);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+}
+
+.mobile-header-actions {
+    display: flex;
+}
+
+.mobile-icon-button {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.journal-mobile-navigation {
+    position: fixed;
+    z-index: 50;
+    inset: 64px 0 0;
+    overflow-y: auto;
+    padding: 22px 22px max(24px, env(safe-area-inset-bottom));
+    background: var(--sidebar);
+}
+
+.mobile-contents-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    color: var(--journal-green-ink);
+    font-size: 14px;
+}
+
+.journal-mobile-navigation .journal-nav-link {
+    min-height: 46px;
+    font-size: 15px;
+}
+
+.mobile-data-link {
+    margin-top: 20px;
+    border-top-color: var(--journal-line);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .journal-nav-link:not(.is-active):hover,
+    .journal-theme-toggle:hover,
+    .mobile-icon-button:hover {
+        background: var(--accent);
+        color: var(--foreground);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .journal-sidebar { width: 204px; }
+    .journal-brand { padding-inline: 17px; }
+    .brand-title { font-size: 17px; }
+    .brand-seal { width: 40px; height: 46px; }
+}
+
+@media (max-width: 767px) {
+    .journal-mobile-header { display: flex; }
+}
+</style>

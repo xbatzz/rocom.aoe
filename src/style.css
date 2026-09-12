@@ -44,53 +44,70 @@
 :root {
   color-scheme: light;
   --radius: 10px;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --background: #f5f3e9;
+  --foreground: #344b49;
+  --card: #fffcf4;
+  --card-foreground: #344b49;
+  --popover: #fffcf4;
+  --popover-foreground: #344b49;
+  --primary: #996315;
+  --primary-foreground: #fffcf4;
+  --secondary: #e8efe5;
+  --secondary-foreground: #415c49;
+  --muted: #eeeee3;
+  --muted-foreground: #687771;
+  --accent: #e5eff0;
+  --accent-foreground: #344b49;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: #dce2d6;
+  --input: #d5ddd1;
+  --ring: #af7b2d;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: #faf8ee;
+  --sidebar-foreground: #344b49;
+  --sidebar-primary: #996315;
+  --sidebar-primary-foreground: #fffcf4;
+  --sidebar-accent: #f9dfa0;
+  --sidebar-accent-foreground: #624b25;
+  --sidebar-border: #dce2d6;
+  --sidebar-ring: #af7b2d;
+
+  /* The shell and home share paper, sky and foliage; type colours stay local. */
+  --journal-paper: #fffcf4;
+  --journal-sky: #e3f1f3;
+  --journal-grass: #edf2df;
+  --journal-honey: #fbefd1;
+  --journal-peach: #f8e9db;
+  --journal-gold: #f2c45f;
+  --journal-gold-ink: #594321;
+  --journal-green-ink: #58764b;
+  --journal-sky-ink: #4c7780;
+  --journal-line: #d7dfd2;
+  --journal-shadow: 0 4px 16px #4b62520a, 0 1px 2px #4b625208;
+  --journal-radius-scene: 24px;
+  --journal-radius-entry: 16px;
+  --journal-radius-note: 10px;
+  --journal-ease: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .dark {
   color-scheme: dark;
-  --background: oklch(0.17 0.025 264);
-  --foreground: oklch(0.96 0.01 255);
-  --card: oklch(0.22 0.024 258);
-  --card-foreground: oklch(0.96 0.01 255);
-  --popover: oklch(0.205 0.026 258);
-  --popover-foreground: oklch(0.96 0.01 255);
+  --background: #202e3a;
+  --foreground: #eeeede;
+  --card: #2a3b46;
+  --card-foreground: #eeeede;
+  --popover: #2a3b46;
+  --popover-foreground: #eeeede;
   --primary: oklch(0.76 0.12 84);
   --primary-foreground: oklch(0.18 0.025 258);
   --secondary: oklch(0.28 0.03 255);
   --secondary-foreground: oklch(0.95 0.01 255);
   --muted: oklch(0.26 0.02 258);
-  --muted-foreground: oklch(0.72 0.015 255);
+  --muted-foreground: #afbec0;
   --accent: oklch(0.3 0.03 225);
   --accent-foreground: oklch(0.97 0.01 255);
   --destructive: oklch(0.66 0.19 24);
@@ -102,14 +119,26 @@
   --chart-3: oklch(0.66 0.12 302);
   --chart-4: oklch(0.72 0.13 158);
   --chart-5: oklch(0.69 0.14 28);
-  --sidebar: oklch(0.2 0.022 260);
+  --sidebar: #25333e;
   --sidebar-foreground: oklch(0.95 0.01 255);
   --sidebar-primary: oklch(0.76 0.12 84);
   --sidebar-primary-foreground: oklch(0.18 0.025 258);
-  --sidebar-accent: oklch(0.28 0.025 250);
-  --sidebar-accent-foreground: oklch(0.96 0.01 255);
+  --sidebar-accent: #655538;
+  --sidebar-accent-foreground: #ffe2a0;
   --sidebar-border: oklch(0.38 0.025 255 / 45%);
   --sidebar-ring: oklch(0.72 0.07 84);
+
+  --journal-paper: #2c3c47;
+  --journal-sky: #2c4757;
+  --journal-grass: #34483f;
+  --journal-honey: #494635;
+  --journal-peach: #4b403c;
+  --journal-gold: #e5bc67;
+  --journal-gold-ink: #443621;
+  --journal-green-ink: #b5cfa4;
+  --journal-sky-ink: #afd1d7;
+  --journal-line: #4b5c60;
+  --journal-shadow: 0 4px 16px #101e2820, 0 1px 2px #101e2815;
 }
 
 @layer base {
@@ -126,8 +155,13 @@
   body {
     @apply text-foreground antialiased;
     background-color: var(--background);
-    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    font-family: 'Nunito', 'Avenir Next', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   }
+}
+
+.app-shell :where(a, button):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 4px;
 }
 
 @media (prefers-reduced-motion: reduce) {
