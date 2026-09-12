@@ -279,6 +279,106 @@ const isAnsweringBattleQuestion = ref(false);
 const isListeningBattleQuestion = ref(false);
 const isVoiceQuestionSupported = ref(false);
 const activePanel = ref<InfoPanel>("speed");
+const configEditorOpen = ref(false);
+const configEditorSide = ref<"ally" | "opponent">("ally");
+const draftAllyPreset = ref<BattleProfilePreset>("saved");
+const draftOpponentPreset = ref<BattleProfilePreset>("none");
+const draftAllyCustomProfile = ref<CustomBattleProfile>(createEmptyCustomProfile());
+const draftOpponentCustomProfile = ref<CustomBattleProfile>(createEmptyCustomProfile());
+const draftAllyMeteorBallKey = ref<MeteorBugCaptureBallKey>(DEFAULT_METEOR_BUG_CAPTURE_BALL);
+const draftOpponentMeteorBallKey = ref<MeteorBugCaptureBallKey>(DEFAULT_METEOR_BUG_CAPTURE_BALL);
+
+function openConfigEditor(side: "ally" | "opponent") {
+    configEditorSide.value = side;
+    draftAllyPreset.value = allyProfilePreset.value;
+    draftOpponentPreset.value = opponentProfilePreset.value;
+    draftAllyCustomProfile.value = cloneCustomProfile(allyCustomProfile.value);
+    draftOpponentCustomProfile.value = cloneCustomProfile(opponentCustomProfile.value);
+    draftAllyMeteorBallKey.value = allyMeteorBallKey.value;
+    draftOpponentMeteorBallKey.value = opponentMeteorBallKey.value;
+    configEditorOpen.value = true;
+}
+
+function applyConfigEditor() {
+    if (configEditorSide.value === "ally") {
+        allyProfilePreset.value = draftAllyPreset.value;
+        allyCustomProfile.value = cloneCustomProfile(draftAllyCustomProfile.value);
+    } else {
+        opponentProfilePreset.value = draftOpponentPreset.value;
+        opponentCustomProfile.value = cloneCustomProfile(draftOpponentCustomProfile.value);
+    }
+    if (configEditorSide.value === "ally") allyMeteorBallKey.value = draftAllyMeteorBallKey.value;
+    else opponentMeteorBallKey.value = draftOpponentMeteorBallKey.value;
+    configEditorOpen.value = false;
+}
+
+const configEditorProfile = computed(() =>
+    createBattleProfile(
+        configEditorSide.value === "ally" ? allyPet.value : opponentPet.value,
+        configEditorSide.value === "ally" ? draftAllyPreset.value : draftOpponentPreset.value,
+        configEditorSide.value === "ally" ? selectedAllyTeamSlot.value : null,
+        configEditorSide.value === "ally" ? draftAllyCustomProfile.value : draftOpponentCustomProfile.value,
+    ),
+);
+
+const configEditorPreset = computed(() =>
+    configEditorSide.value === "ally"
+        ? draftAllyPreset.value
+        : draftOpponentPreset.value,
+);
+
+const configEditorCustomProfile = computed(() =>
+    configEditorSide.value === "ally"
+        ? draftAllyCustomProfile.value
+        : draftOpponentCustomProfile.value,
+);
+
+const configEditorMeteorBallKey = computed({
+    get: () => configEditorSide.value === "ally" ? draftAllyMeteorBallKey.value : draftOpponentMeteorBallKey.value,
+    set: (value: MeteorBugCaptureBallKey) => {
+        if (configEditorSide.value === "ally") draftAllyMeteorBallKey.value = value;
+        else draftOpponentMeteorBallKey.value = value;
+    },
+});
+
+function selectConfigPreset(preset: BattleProfilePreset) {
+    const currentPreset = configEditorSide.value === "ally" ? draftAllyPreset.value : draftOpponentPreset.value;
+    if (preset === "custom" && currentPreset !== "custom" && currentPreset !== "none") {
+        const currentProfile = configEditorProfile.value;
+        const nextCustom = createCustomProfileFromBattleProfile(currentProfile);
+        if (configEditorSide.value === "ally") draftAllyCustomProfile.value = nextCustom;
+        else draftOpponentCustomProfile.value = nextCustom;
+    }
+    if (configEditorSide.value === "ally") draftAllyPreset.value = preset;
+    else draftOpponentPreset.value = preset;
+}
+
+function selectConfigNature(stat: BattleStatKey) {
+    const profile = configEditorCustomProfile.value;
+    const next = { ...profile, natureUpStat: profile.natureUpStat === stat ? null : stat };
+    if (configEditorSide.value === "ally") draftAllyCustomProfile.value = next;
+    else draftOpponentCustomProfile.value = next;
+    selectConfigPreset("custom");
+}
+
+function toggleConfigIndividual(stat: BattleStatKey) {
+    const profile = configEditorCustomProfile.value;
+    const current = profile.individualValues[stat];
+    if (current === 0 && getCustomActiveStatCount(profile) >= 3) return;
+    const next = { ...profile, individualValues: { ...profile.individualValues, [stat]: current > 0 ? 0 : 10 } };
+    if (configEditorSide.value === "ally") draftAllyCustomProfile.value = next;
+    else draftOpponentCustomProfile.value = next;
+    if (configEditorPreset.value !== "custom") selectConfigPreset("custom");
+}
+
+const configEditorPreviewStats = computed(() => {
+    const pet = configEditorSide.value === "ally" ? allyPet.value : opponentPet.value;
+    if (!pet) return null;
+    const draftStats = calculateBattleStats(pet, configEditorProfile.value.individualValues, configEditorProfile.value.nature);
+    const actualProfile = configEditorSide.value === "ally" ? allyBattleProfile.value : opponentBattleProfile.value;
+    const actualStats = calculateBattleStats(pet, actualProfile.individualValues, actualProfile.nature);
+    return BATTLE_STAT_ITEMS.map((item) => ({ label: item.label, draft: draftStats[item.key], actual: actualStats[item.key], changed: draftStats[item.key] !== actualStats[item.key] }));
+});
 
 let controller: AbortController | null = null;
 let battleQuestionRecognition: SpeechRecognitionLike | null = null;
@@ -619,12 +719,6 @@ const allyProfilePresetItems = computed(() => {
         ? ALLY_PROFILE_PRESETS
         : ALLY_PROFILE_PRESETS.filter((item) => item.key !== "saved");
 });
-
-const damageProfilePresetItems = computed(() =>
-    damageDirection.value === "allyToOpponent"
-        ? allyProfilePresetItems.value
-        : OPPONENT_PROFILE_PRESETS,
-);
 
 const allyEquippedDamageMoves = computed(() => {
     const slot = allyDamageBuildSlot.value;
@@ -1196,43 +1290,6 @@ function focusInfoPanel(panel: InfoPanel) {
     void nextTick(() => {
         document.getElementById(`pvp-tab-${panel}`)?.focus();
     });
-}
-
-function selectDamageProfilePreset(preset: BattleProfilePreset) {
-    if (damageDirection.value === "allyToOpponent") {
-        selectAllyProfilePreset(preset);
-        return;
-    }
-
-    selectOpponentProfilePreset(preset);
-}
-
-function selectAllyProfilePreset(preset: BattleProfilePreset) {
-    if (
-        preset === "custom" &&
-        allyProfilePreset.value !== "custom" &&
-        allyProfilePreset.value !== "none"
-    ) {
-        allyCustomProfile.value = createCustomProfileFromBattleProfile(
-            allyBattleProfile.value,
-        );
-    }
-
-    allyProfilePreset.value = preset;
-}
-
-function selectOpponentProfilePreset(preset: BattleProfilePreset) {
-    if (
-        preset === "custom" &&
-        opponentProfilePreset.value !== "custom" &&
-        opponentProfilePreset.value !== "none"
-    ) {
-        opponentCustomProfile.value = createCustomProfileFromBattleProfile(
-            opponentBattleProfile.value,
-        );
-    }
-
-    opponentProfilePreset.value = preset;
 }
 
 function resetCustomProfile(side: "ally" | "opponent") {
@@ -2877,120 +2934,10 @@ document.title = "对战助手 - 洛克王国工具箱";
                                     <p class="mt-2 text-xs font-semibold text-slate-600">
                                         实战速度 {{ allyBattleSpeed }}
                                     </p>
-                                    <details
-                                        v-if="allyPet.id === METEOR_BUG_PET_ID"
-                                        class="group mt-3 rounded-[16px] border border-emerald-200 bg-white/80 text-left"
-                                    >
-                                        <summary
-                                            class="flex cursor-pointer list-none items-center justify-between gap-2 px-2.5 py-2 text-[11px] font-black text-emerald-800 marker:hidden"
-                                        >
-                                            <span>
-                                                捕捉球：{{ allyMeteorBallOption.label }}
-                                            </span>
-                                            <span class="shrink-0 text-emerald-600">
-                                                {{
-                                                    allyBattleSpeed !== allyBaseBattleSpeed
-                                                        ? `${allyBaseBattleSpeed} → ${allyBattleSpeed}`
-                                                        : "点击设置"
-                                                }}
-                                                <span class="ml-1 inline-block transition-transform group-open:rotate-180">⌄</span>
-                                            </span>
-                                        </summary>
-                                        <div class="border-t border-emerald-100 p-2">
-                                            <select
-                                                v-model="allyMeteorBallKey"
-                                                class="h-9 w-full rounded-[10px] border border-emerald-200 bg-white px-2 text-xs font-bold text-slate-900"
-                                            >
-                                                <option
-                                                    v-for="ball in METEOR_BUG_CAPTURE_BALL_OPTIONS"
-                                                    :key="ball.key"
-                                                    :value="ball.key"
-                                                >
-                                                    {{ ball.label }}
-                                                </option>
-                                            </select>
-                                            <p class="mt-1 text-[11px] leading-4 text-slate-600">
-                                                {{ allyMeteorBallOption.description }}
-                                            </p>
-                                        </div>
-                                    </details>
-                                    <details class="group mt-2 rounded-[14px] border border-emerald-100 bg-white/80 text-left">
-                                        <summary class="cursor-pointer list-none px-2 py-1.5 text-[11px] font-bold text-emerald-800 marker:hidden">
-                                            构筑 · {{ allyBattleProfile.label }}
-                                            <span class="float-right transition-transform group-open:rotate-180">⌄</span>
-                                        </summary>
-                                        <div class="grid grid-cols-2 gap-1.5 border-t border-emerald-100 p-2">
-                                            <button
-                                                v-for="preset in allyProfilePresetItems"
-                                                :key="preset.key"
-                                                type="button"
-                                                class="rounded-full px-2 py-1 text-[11px] font-bold transition"
-                                                :class="
-                                                    allyProfilePreset === preset.key
-                                                        ? 'bg-emerald-700 text-white shadow-sm'
-                                                        : 'bg-emerald-50 text-emerald-700'
-                                                "
-                                                @click="selectAllyProfilePreset(preset.key)"
-                                            >
-                                                {{ preset.label }}
-                                            </button>
-                                            <p class="col-span-2 text-[11px] leading-4 text-slate-500">
-                                                {{ getBattleProfileSummary(allyBattleProfile) }}
-                                            </p>
-                                            <div
-                                                v-if="allyProfilePreset === 'custom'"
-                                                class="col-span-2 space-y-3 rounded-[12px] border border-emerald-100 bg-emerald-50/70 p-2"
-                                            >
-                                                <div>
-                                                    <p class="text-[11px] font-bold text-emerald-800">
-                                                        性格增加的属性（选择 1 项）
-                                                    </p>
-                                                    <div class="mt-1.5 grid grid-cols-3 gap-1">
-                                                        <button
-                                                            v-for="item in BATTLE_STAT_ITEMS"
-                                                            :key="`ally-nature-${item.key}`"
-                                                            type="button"
-                                                            class="rounded-full px-1.5 py-1 text-[10px] font-bold transition"
-                                                            :class="
-                                                                allyCustomProfile.natureUpStat === item.key
-                                                                    ? 'bg-emerald-700 text-white'
-                                                                    : 'bg-white text-emerald-700'
-                                                            "
-                                                            @click="selectCustomNatureUpStat('ally', item.key)"
-                                                        >
-                                                            {{ item.label }} +20%
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="flex items-center justify-between gap-2 text-[11px]">
-                                                        <span class="font-bold text-emerald-800">个体值 +10（选择 3 项）</span>
-                                                        <span class="text-slate-500">{{ allyCustomActiveStatCount }} / 3</span>
-                                                    </div>
-                                                    <div class="mt-1.5 grid grid-cols-3 gap-1">
-                                                        <button
-                                                            v-for="item in BATTLE_STAT_ITEMS"
-                                                            :key="`ally-individual-${item.key}`"
-                                                            type="button"
-                                                            class="rounded-full px-1.5 py-1 text-[10px] font-bold transition disabled:cursor-not-allowed disabled:opacity-40"
-                                                            :class="
-                                                                allyCustomProfile.individualValues[item.key] > 0
-                                                                    ? 'bg-emerald-700 text-white'
-                                                                    : 'bg-white text-emerald-700'
-                                                            "
-                                                            :disabled="
-                                                                allyCustomProfile.individualValues[item.key] === 0 &&
-                                                                allyCustomActiveStatCount >= 3
-                                                            "
-                                                            @click="toggleCustomIndividualValue('ally', item.key)"
-                                                        >
-                                                            {{ item.label }} +10
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </details>
+                                    <button type="button" class="mt-2 min-h-11 w-full rounded-xl bg-emerald-100 px-3 py-2 text-xs font-bold text-emerald-800 transition active:scale-[.98]" @click="openConfigEditor('ally')">
+                                        修改配置 · {{ allyBattleProfile.label }}
+                                    </button>
+
                                 </div>
                             </div>
                             <div
@@ -3046,120 +2993,10 @@ document.title = "对战助手 - 洛克王国工具箱";
                                     <p class="mt-2 text-xs font-semibold text-slate-600">
                                         实战速度 {{ opponentBattleSpeed }}
                                     </p>
-                                    <details
-                                        v-if="opponentPet.id === METEOR_BUG_PET_ID"
-                                        class="group mt-3 rounded-[16px] border border-rose-200 bg-white/80 text-left"
-                                    >
-                                        <summary
-                                            class="flex cursor-pointer list-none items-center justify-between gap-2 px-2.5 py-2 text-[11px] font-black text-rose-800 marker:hidden"
-                                        >
-                                            <span>
-                                                捕捉球：{{ opponentMeteorBallOption.label }}
-                                            </span>
-                                            <span class="shrink-0 text-rose-600">
-                                                {{
-                                                    opponentBattleSpeed !== opponentBaseBattleSpeed
-                                                        ? `${opponentBaseBattleSpeed} → ${opponentBattleSpeed}`
-                                                        : "点击设置"
-                                                }}
-                                                <span class="ml-1 inline-block transition-transform group-open:rotate-180">⌄</span>
-                                            </span>
-                                        </summary>
-                                        <div class="border-t border-rose-100 p-2">
-                                            <select
-                                                v-model="opponentMeteorBallKey"
-                                                class="h-9 w-full rounded-[10px] border border-rose-200 bg-white px-2 text-xs font-bold text-slate-900"
-                                            >
-                                                <option
-                                                    v-for="ball in METEOR_BUG_CAPTURE_BALL_OPTIONS"
-                                                    :key="ball.key"
-                                                    :value="ball.key"
-                                                >
-                                                    {{ ball.label }}
-                                                </option>
-                                            </select>
-                                            <p class="mt-1 text-[11px] leading-4 text-slate-600">
-                                                {{ opponentMeteorBallOption.description }}
-                                            </p>
-                                        </div>
-                                    </details>
-                                    <details class="group mt-2 rounded-[14px] border border-rose-100 bg-white/80 text-left">
-                                        <summary class="cursor-pointer list-none px-2 py-1.5 text-[11px] font-bold text-rose-800 marker:hidden">
-                                            构筑 · {{ opponentBattleProfile.label }}
-                                            <span class="float-right transition-transform group-open:rotate-180">⌄</span>
-                                        </summary>
-                                        <div class="grid grid-cols-2 gap-1.5 border-t border-rose-100 p-2">
-                                            <button
-                                                v-for="preset in OPPONENT_PROFILE_PRESETS"
-                                                :key="preset.key"
-                                                type="button"
-                                                class="rounded-full px-2 py-1 text-[11px] font-bold transition"
-                                                :class="
-                                                    opponentProfilePreset === preset.key
-                                                        ? 'bg-rose-700 text-white shadow-sm'
-                                                        : 'bg-rose-50 text-rose-700'
-                                                "
-                                                @click="selectOpponentProfilePreset(preset.key)"
-                                            >
-                                                {{ preset.label }}
-                                            </button>
-                                            <p class="col-span-2 text-[11px] leading-4 text-slate-500">
-                                                {{ getBattleProfileSummary(opponentBattleProfile) }}
-                                            </p>
-                                            <div
-                                                v-if="opponentProfilePreset === 'custom'"
-                                                class="col-span-2 space-y-3 rounded-[12px] border border-rose-100 bg-rose-50/70 p-2"
-                                            >
-                                                <div>
-                                                    <p class="text-[11px] font-bold text-rose-800">
-                                                        性格增加的属性（选择 1 项）
-                                                    </p>
-                                                    <div class="mt-1.5 grid grid-cols-3 gap-1">
-                                                        <button
-                                                            v-for="item in BATTLE_STAT_ITEMS"
-                                                            :key="`opponent-nature-${item.key}`"
-                                                            type="button"
-                                                            class="rounded-full px-1.5 py-1 text-[10px] font-bold transition"
-                                                            :class="
-                                                                opponentCustomProfile.natureUpStat === item.key
-                                                                    ? 'bg-rose-700 text-white'
-                                                                    : 'bg-white text-rose-700'
-                                                            "
-                                                            @click="selectCustomNatureUpStat('opponent', item.key)"
-                                                        >
-                                                            {{ item.label }} +20%
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="flex items-center justify-between gap-2 text-[11px]">
-                                                        <span class="font-bold text-rose-800">个体值 +10（选择 3 项）</span>
-                                                        <span class="text-slate-500">{{ opponentCustomActiveStatCount }} / 3</span>
-                                                    </div>
-                                                    <div class="mt-1.5 grid grid-cols-3 gap-1">
-                                                    <button
-                                                        v-for="item in BATTLE_STAT_ITEMS"
-                                                        :key="`opponent-individual-${item.key}`"
-                                                        type="button"
-                                                        class="rounded-full px-1.5 py-1 text-[10px] font-bold transition disabled:cursor-not-allowed disabled:opacity-40"
-                                                        :class="
-                                                            opponentCustomProfile.individualValues[item.key] > 0
-                                                                ? 'bg-rose-700 text-white'
-                                                                : 'bg-white text-rose-700'
-                                                        "
-                                                        :disabled="
-                                                            opponentCustomProfile.individualValues[item.key] === 0 &&
-                                                            opponentCustomActiveStatCount >= 3
-                                                        "
-                                                        @click="toggleCustomIndividualValue('opponent', item.key)"
-                                                    >
-                                                        {{ item.label }} +10
-                                                    </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </details>
+                                    <button type="button" class="mt-2 min-h-11 w-full rounded-xl bg-rose-100 px-3 py-2 text-xs font-bold text-rose-800 transition active:scale-[.98]" @click="openConfigEditor('opponent')">
+                                        修改配置 · {{ opponentBattleProfile.label }}
+                                    </button>
+
                                 </div>
                             </div>
                             <div
@@ -3552,24 +3389,9 @@ document.title = "对战助手 - 洛克王国工具箱";
                                 {{ getBattleProfileSummary(damageAttackerProfile) }}
                             </p>
                         </div>
-                        <div class="mt-2 grid grid-cols-2 gap-1.5 sm:flex">
-                            <button
-                                v-for="preset in damageProfilePresetItems"
-                                :key="preset.key"
-                                type="button"
-                                class="rounded-full px-3 py-1.5 text-xs font-bold"
-                                :class="
-                                    (damageDirection === 'allyToOpponent'
-                                        ? allyProfilePreset
-                                        : opponentProfilePreset) === preset.key
-                                        ? 'bg-orange-600 text-white'
-                                        : 'bg-white text-orange-800 dark:bg-slate-800 dark:text-orange-100'
-                                "
-                                @click="selectDamageProfilePreset(preset.key)"
-                            >
-                                {{ preset.label }}
-                            </button>
-                        </div>
+                        <button type="button" class="mt-2 min-h-11 w-full rounded-xl bg-orange-100 px-3 py-2 text-left text-xs font-bold text-orange-800 transition active:scale-[.98]" @click="openConfigEditor(damageDirection === 'allyToOpponent' ? 'ally' : 'opponent')">
+                            修改 {{ damageAttackerLabel }}配置 · {{ damageAttackerProfile.label }}
+                        </button>
                     </div>
 
                     <div
@@ -4503,5 +4325,60 @@ document.title = "对战助手 - 洛克王国工具箱";
                 </Button>
             </div>
         </template>
+
+        <Dialog v-model:open="configEditorOpen">
+            <DialogContent class="config-editor max-h-[88dvh] max-w-[680px] overflow-hidden rounded-[22px] border-slate-200 bg-white p-0 text-slate-950 dark:border-slate-700 dark:bg-slate-900 dark:text-foreground max-sm:top-auto max-sm:bottom-0 max-sm:translate-y-0 max-sm:rounded-b-none sm:rounded-[22px]">
+                <DialogHeader class="border-b border-slate-100 px-4 py-4 dark:border-slate-700 md:px-6">
+                    <DialogTitle>对战配置</DialogTitle>
+                    <DialogDescription>
+                        {{ configEditorSide === 'ally' ? '我方' : '对方' }} ·
+                        {{ configEditorSide === 'ally' ? (allyPet ? getPetDisplayName(allyPet) : '未选择') : (opponentPet ? getPetDisplayName(opponentPet) : '未选择') }}
+                    </DialogDescription>
+                </DialogHeader>
+                <div class="max-h-[calc(88dvh-180px)] overflow-y-auto space-y-4 px-4 py-4 md:px-6">
+                    <div class="grid grid-cols-2 gap-1 rounded-xl bg-slate-100 p-1 dark:bg-slate-800">
+                        <button type="button" class="min-h-11 rounded-lg px-2 text-sm font-bold transition" :class="configEditorSide === 'ally' ? 'bg-white text-emerald-700 shadow-sm dark:bg-slate-700 dark:text-emerald-200' : 'text-slate-500'" @click="configEditorSide = 'ally'">我方 · {{ allyPet ? getPetDisplayName(allyPet) : '未选择' }}</button>
+                        <button type="button" class="min-h-11 rounded-lg px-2 text-sm font-bold transition" :class="configEditorSide === 'opponent' ? 'bg-white text-rose-700 shadow-sm dark:bg-slate-700 dark:text-rose-200' : 'text-slate-500'" @click="configEditorSide = 'opponent'">对方 · {{ opponentPet ? getPetDisplayName(opponentPet) : '未选择' }}</button>
+                    </div>
+                    <div v-if="(configEditorSide === 'ally' ? allyPetId : opponentPetId) === METEOR_BUG_PET_ID" class="rounded-xl border border-amber-200 bg-amber-50 p-3 dark:border-amber-900 dark:bg-amber-950/40">
+                        <div class="flex items-center justify-between gap-2"><p class="text-sm font-bold text-amber-900 dark:text-amber-200">捕捉球</p><span class="text-xs text-muted-foreground">{{ getMeteorBugCaptureBallOption(configEditorMeteorBallKey).label }}</span></div>
+                        <select v-model="configEditorMeteorBallKey" class="mt-2 h-11 w-full rounded-xl border border-amber-200 bg-white px-3 text-sm font-bold text-slate-900 dark:border-amber-800 dark:bg-slate-800 dark:text-foreground">
+                            <option v-for="ball in METEOR_BUG_CAPTURE_BALL_OPTIONS" :key="ball.key" :value="ball.key">{{ ball.label }}</option>
+                        </select>
+                        <p class="mt-1 text-xs text-muted-foreground">{{ getMeteorBugCaptureBallOption(configEditorMeteorBallKey).description }}</p>
+                    </div>
+                    <div class="flex gap-5 border-b border-slate-200 dark:border-slate-700">
+                        <button type="button" class="min-h-11 border-b-2 px-1 text-sm font-bold" :class="configEditorPreset === 'custom' ? 'border-primary text-primary' : 'border-transparent text-muted-foreground'" @click="selectConfigPreset('custom')">自定义</button>
+                        <button type="button" class="min-h-11 border-b-2 px-1 text-sm font-bold" :class="configEditorPreset !== 'custom' ? 'border-primary text-primary' : 'border-transparent text-muted-foreground'" @click="selectConfigPreset(configEditorSide === 'ally' ? 'saved' : 'none')">快捷预设</button>
+                    </div>
+                    <div v-if="configEditorPreset !== 'custom'" class="grid grid-cols-2 gap-2 sm:grid-cols-3">
+                        <button v-for="preset in (configEditorSide === 'ally' ? allyProfilePresetItems : OPPONENT_PROFILE_PRESETS)" :key="preset.key" type="button" class="min-h-12 rounded-xl border px-2 text-sm font-bold transition dark:border-slate-700" :class="configEditorPreset === preset.key ? 'border-primary bg-primary text-primary-foreground' : 'border-slate-200 bg-card hover:bg-accent'" @click="selectConfigPreset(preset.key)">{{ preset.label }}</button>
+                    </div>
+                    <div v-else class="space-y-4">
+                        <div>
+                            <div class="mb-2 flex items-center justify-between"><p class="text-sm font-bold">性格增加的属性</p><span class="text-xs text-muted-foreground">最多 1 项 · +20%</span></div>
+                            <div class="grid grid-cols-3 gap-2 sm:grid-cols-6">
+                                <button v-for="item in BATTLE_STAT_ITEMS" :key="`editor-nature-${item.key}`" type="button" class="min-h-11 rounded-xl border px-1 text-xs font-bold transition dark:border-slate-700" :class="configEditorCustomProfile.natureUpStat === item.key ? 'border-primary bg-primary text-primary-foreground' : 'border-slate-200 bg-card hover:bg-accent'" @click="selectConfigNature(item.key)">{{ item.label }}</button>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mb-2 flex items-center justify-between"><p class="text-sm font-bold">个体值 +10</p><span class="text-xs text-muted-foreground">已选 {{ getCustomActiveStatCount(configEditorCustomProfile) }} / 3</span></div>
+                            <div class="grid grid-cols-3 gap-2 sm:grid-cols-6">
+                                <button v-for="item in BATTLE_STAT_ITEMS" :key="`editor-individual-${item.key}`" type="button" class="min-h-11 rounded-xl border px-1 text-xs font-bold transition disabled:cursor-not-allowed disabled:opacity-40 dark:border-slate-700" :class="configEditorCustomProfile.individualValues[item.key] > 0 ? 'border-primary bg-primary text-primary-foreground' : 'border-slate-200 bg-card hover:bg-accent'" :disabled="configEditorCustomProfile.individualValues[item.key] === 0 && (configEditorSide === 'ally' ? allyCustomActiveStatCount : opponentCustomActiveStatCount) >= 3" @click="toggleConfigIndividual(item.key)">{{ item.label }}</button>
+                            </div>
+                            <p class="mt-2 text-xs text-muted-foreground">最多选择 3 项，点已选项可取消。</p>
+                        </div>
+                    </div>
+                    <div class="rounded-xl bg-slate-50 px-3 py-3 text-sm dark:bg-slate-800">
+                        <div class="flex items-center justify-between"><span class="text-muted-foreground">属性预览</span><strong>速度 {{ configEditorPreviewStats?.find((item) => item.label === '速度')?.actual }} → {{ configEditorPreviewStats?.find((item) => item.label === '速度')?.draft }}</strong></div>
+                        <div class="mt-2 grid grid-cols-3 gap-1 text-xs text-muted-foreground sm:grid-cols-6"><span v-for="item in configEditorPreviewStats" :key="item.label" :class="item.changed ? 'font-bold text-primary' : ''">{{ item.label }} {{ item.actual }} → {{ item.draft }}</span></div>
+                    </div>
+                </div>
+                <DialogFooter class="border-t border-slate-100 px-4 py-3 dark:border-slate-700 md:px-6">
+                    <Button type="button" variant="outline" class="min-h-11 rounded-xl" @click="configEditorOpen = false">取消</Button>
+                    <Button type="button" class="min-h-11 rounded-xl" @click="applyConfigEditor">应用配置</Button>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
     </section>
 </template>
