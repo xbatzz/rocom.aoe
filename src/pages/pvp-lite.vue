@@ -2898,7 +2898,7 @@ document.title = "对战助手 - 洛克王国工具箱";
 
                     <div class="grid grid-cols-[minmax(0,1fr)_42px_minmax(0,1fr)] items-stretch gap-2 md:grid-cols-[1fr_64px_1fr]">
                         <div
-                            class="min-w-0 rounded-[20px] border border-emerald-100 bg-emerald-50/70 p-3 text-center dark:bg-emerald-950/30"
+                            class="battle-summary min-w-0 rounded-[20px] border border-emerald-100 bg-emerald-50/70 p-3 text-center dark:bg-emerald-950/30"
                         >
                             <p class="text-xs font-black text-emerald-700">
                                 我方
@@ -2913,7 +2913,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                                     class="h-16 w-16 rounded-[18px] shadow-sm md:h-20 md:w-20"
                                 />
                                 <div class="mt-2 min-w-0">
-                                    <p class="truncate text-base font-black text-slate-950 md:text-lg">
+                                    <p class="battle-summary-name line-clamp-2 text-base font-black text-slate-950 md:text-lg">
                                         {{ getPetDisplayName(allyPet) }}
                                     </p>
                                     <div class="mt-2 flex flex-wrap justify-center gap-1.5">
@@ -2935,7 +2935,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                                         实战速度 {{ allyBattleSpeed }}
                                     </p>
                                     <button type="button" class="mt-2 min-h-11 w-full rounded-xl bg-emerald-100 px-3 py-2 text-xs font-bold text-emerald-800 transition active:scale-[.98]" @click="openConfigEditor('ally')">
-                                        修改配置 · {{ allyBattleProfile.label }}
+                                        修改配置
                                     </button>
 
                                 </div>
@@ -2950,14 +2950,14 @@ document.title = "对战助手 - 洛克王国工具箱";
 
                         <div class="flex items-center justify-center">
                             <div
-                                class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-950 text-sm font-black text-white shadow-sm md:h-12 md:w-12 md:text-base"
+                                class="battle-vs flex h-9 w-9 items-center justify-center rounded-full bg-slate-950 text-xs font-black text-white shadow-sm md:h-12 md:w-12 md:text-base"
                             >
                                 VS
                             </div>
                         </div>
 
                         <div
-                            class="min-w-0 rounded-[20px] border border-rose-100 bg-rose-50/70 p-3 text-center dark:bg-rose-950/30"
+                            class="battle-summary min-w-0 rounded-[20px] border border-rose-100 bg-rose-50/70 p-3 text-center dark:bg-rose-950/30"
                         >
                             <p class="text-xs font-black text-rose-700">
                                 对方
@@ -2972,7 +2972,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                                     class="h-16 w-16 rounded-[18px] shadow-sm md:h-20 md:w-20"
                                 />
                                 <div class="mt-2 min-w-0">
-                                    <p class="truncate text-base font-black text-slate-950 md:text-lg">
+                                    <p class="battle-summary-name line-clamp-2 text-base font-black text-slate-950 md:text-lg">
                                         {{ getPetDisplayName(opponentPet) }}
                                     </p>
                                     <div class="mt-2 flex flex-wrap justify-center gap-1.5">
@@ -2994,7 +2994,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                                         实战速度 {{ opponentBattleSpeed }}
                                     </p>
                                     <button type="button" class="mt-2 min-h-11 w-full rounded-xl bg-rose-100 px-3 py-2 text-xs font-bold text-rose-800 transition active:scale-[.98]" @click="openConfigEditor('opponent')">
-                                        修改配置 · {{ opponentBattleProfile.label }}
+                                        修改配置
                                     </button>
 
                                 </div>
@@ -4382,3 +4382,15 @@ document.title = "对战助手 - 洛克王国工具箱";
         </Dialog>
     </section>
 </template>
+
+<style scoped>
+.battle-summary { min-height: 238px; }
+.config-editor { transition: opacity 200ms var(--journal-ease), transform 200ms var(--journal-ease); }
+@media (max-width: 639px) {
+    .battle-summary { min-height: 214px; padding: 10px; }
+    .battle-summary-name { min-height: 42px; overflow-wrap: anywhere; }
+    .config-editor { padding-bottom: env(safe-area-inset-bottom); }
+}
+@media (max-width: 430px) { .battle-summary { min-height: 206px; } }
+@media (prefers-reduced-motion: reduce) { .config-editor { transition-duration: 0ms; } }
+</style>
