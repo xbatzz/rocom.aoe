@@ -343,7 +343,7 @@ const configEditorMeteorBallKey = computed({
 
 function selectConfigPreset(preset: BattleProfilePreset) {
     const currentPreset = configEditorSide.value === "ally" ? draftAllyPreset.value : draftOpponentPreset.value;
-    if (preset === "custom" && currentPreset !== "custom" && currentPreset !== "none") {
+    if (preset === "custom" && currentPreset !== "custom") {
         const currentProfile = configEditorProfile.value;
         const nextCustom = createCustomProfileFromBattleProfile(currentProfile);
         if (configEditorSide.value === "ally") draftAllyCustomProfile.value = nextCustom;
@@ -377,7 +377,18 @@ const configEditorPreviewStats = computed(() => {
     const draftStats = calculateBattleStats(pet, configEditorProfile.value.individualValues, configEditorProfile.value.nature);
     const actualProfile = configEditorSide.value === "ally" ? allyBattleProfile.value : opponentBattleProfile.value;
     const actualStats = calculateBattleStats(pet, actualProfile.individualValues, actualProfile.nature);
-    return BATTLE_STAT_ITEMS.map((item) => ({ label: item.label, draft: draftStats[item.key], actual: actualStats[item.key], changed: draftStats[item.key] !== actualStats[item.key] }));
+    const petId = configEditorSide.value === "ally" ? allyPetId.value : opponentPetId.value;
+    const actualBallKey = configEditorSide.value === "ally" ? allyMeteorBallKey.value : opponentMeteorBallKey.value;
+    const draftBallKey = configEditorSide.value === "ally" ? draftAllyMeteorBallKey.value : draftOpponentMeteorBallKey.value;
+    return BATTLE_STAT_ITEMS.map((item) => {
+        const actual = item.key === "speed"
+            ? applyMeteorBugCaptureBallSpeed(actualStats.speed, petId, actualBallKey)
+            : actualStats[item.key];
+        const draft = item.key === "speed"
+            ? applyMeteorBugCaptureBallSpeed(draftStats.speed, petId, draftBallKey)
+            : draftStats[item.key];
+        return { label: item.label, draft, actual, changed: draft !== actual };
+    });
 });
 
 let controller: AbortController | null = null;
@@ -4327,15 +4338,15 @@ document.title = "对战助手 - 洛克王国工具箱";
         </template>
 
         <Dialog v-model:open="configEditorOpen">
-            <DialogContent class="config-editor max-h-[88dvh] max-w-[680px] overflow-hidden rounded-[22px] border-slate-200 bg-white p-0 text-slate-950 dark:border-slate-700 dark:bg-slate-900 dark:text-foreground max-sm:top-auto max-sm:bottom-0 max-sm:translate-y-0 max-sm:rounded-b-none sm:rounded-[22px]">
-                <DialogHeader class="border-b border-slate-100 px-4 py-4 dark:border-slate-700 md:px-6">
+            <DialogContent class="config-editor flex max-h-[88dvh] max-w-[680px] flex-col gap-0 overflow-hidden rounded-[22px] border-slate-200 bg-white p-0 text-slate-950 dark:border-slate-700 dark:bg-slate-900 dark:text-foreground max-sm:top-auto max-sm:bottom-0 max-sm:h-[88dvh] max-sm:translate-y-0 max-sm:rounded-b-none sm:rounded-[22px]">
+                <DialogHeader class="shrink-0 border-b border-slate-100 px-4 py-4 dark:border-slate-700 md:px-6">
                     <DialogTitle>对战配置</DialogTitle>
                     <DialogDescription>
                         {{ configEditorSide === 'ally' ? '我方' : '对方' }} ·
                         {{ configEditorSide === 'ally' ? (allyPet ? getPetDisplayName(allyPet) : '未选择') : (opponentPet ? getPetDisplayName(opponentPet) : '未选择') }}
                     </DialogDescription>
                 </DialogHeader>
-                <div class="max-h-[calc(88dvh-180px)] overflow-y-auto space-y-4 px-4 py-4 md:px-6">
+                <div class="min-h-0 flex-1 overflow-y-auto space-y-4 px-4 py-4 md:px-6">
                     <div class="grid grid-cols-2 gap-1 rounded-xl bg-slate-100 p-1 dark:bg-slate-800">
                         <button type="button" class="min-h-11 rounded-lg px-2 text-sm font-bold transition" :class="configEditorSide === 'ally' ? 'bg-white text-emerald-700 shadow-sm dark:bg-slate-700 dark:text-emerald-200' : 'text-slate-500'" @click="configEditorSide = 'ally'">我方 · {{ allyPet ? getPetDisplayName(allyPet) : '未选择' }}</button>
                         <button type="button" class="min-h-11 rounded-lg px-2 text-sm font-bold transition" :class="configEditorSide === 'opponent' ? 'bg-white text-rose-700 shadow-sm dark:bg-slate-700 dark:text-rose-200' : 'text-slate-500'" @click="configEditorSide = 'opponent'">对方 · {{ opponentPet ? getPetDisplayName(opponentPet) : '未选择' }}</button>
@@ -4364,7 +4375,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                         <div>
                             <div class="mb-2 flex items-center justify-between"><p class="text-sm font-bold">个体值 +10</p><span class="text-xs text-muted-foreground">已选 {{ getCustomActiveStatCount(configEditorCustomProfile) }} / 3</span></div>
                             <div class="grid grid-cols-3 gap-2 sm:grid-cols-6">
-                                <button v-for="item in BATTLE_STAT_ITEMS" :key="`editor-individual-${item.key}`" type="button" class="min-h-11 rounded-xl border px-1 text-xs font-bold transition disabled:cursor-not-allowed disabled:opacity-40 dark:border-slate-700" :class="configEditorCustomProfile.individualValues[item.key] > 0 ? 'border-primary bg-primary text-primary-foreground' : 'border-slate-200 bg-card hover:bg-accent'" :disabled="configEditorCustomProfile.individualValues[item.key] === 0 && (configEditorSide === 'ally' ? allyCustomActiveStatCount : opponentCustomActiveStatCount) >= 3" @click="toggleConfigIndividual(item.key)">{{ item.label }}</button>
+                                <button v-for="item in BATTLE_STAT_ITEMS" :key="`editor-individual-${item.key}`" type="button" class="min-h-11 rounded-xl border px-1 text-xs font-bold transition disabled:cursor-not-allowed disabled:opacity-40 dark:border-slate-700" :class="configEditorCustomProfile.individualValues[item.key] > 0 ? 'border-primary bg-primary text-primary-foreground' : 'border-slate-200 bg-card hover:bg-accent'" :disabled="configEditorCustomProfile.individualValues[item.key] === 0 && getCustomActiveStatCount(configEditorCustomProfile) >= 3" @click="toggleConfigIndividual(item.key)">{{ item.label }}</button>
                             </div>
                             <p class="mt-2 text-xs text-muted-foreground">最多选择 3 项，点已选项可取消。</p>
                         </div>
@@ -4374,7 +4385,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                         <div class="mt-2 grid grid-cols-3 gap-1 text-xs text-muted-foreground sm:grid-cols-6"><span v-for="item in configEditorPreviewStats" :key="item.label" :class="item.changed ? 'font-bold text-primary' : ''">{{ item.label }} {{ item.actual }} → {{ item.draft }}</span></div>
                     </div>
                 </div>
-                <DialogFooter class="border-t border-slate-100 px-4 py-3 dark:border-slate-700 md:px-6">
+                <DialogFooter class="shrink-0 flex-row justify-end border-t border-slate-100 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] dark:border-slate-700 md:px-6">
                     <Button type="button" variant="outline" class="min-h-11 rounded-xl" @click="configEditorOpen = false">取消</Button>
                     <Button type="button" class="min-h-11 rounded-xl" @click="applyConfigEditor">应用配置</Button>
                 </DialogFooter>
