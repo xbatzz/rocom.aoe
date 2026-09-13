@@ -16,6 +16,8 @@ export function shinyProgressKey(season: number, slotId: string): string {
     return `s${season}:${slotId}`;
 }
 
+const currentShinyProgressKeys = new Set(shinyCatalog.map((slot) => shinyProgressKey(slot.season, slot.id)));
+
 export function parseShinyProgress(raw: unknown): ShinyProgressState | null {
     if (!isRecord(raw) || !isRecord(raw.entries)) return null;
     if (raw.version === 2) return parseEntries(raw.entries, /^s\d+:s\d+-f\d+-(?:e|p)\d+$/u, 2) as ShinyProgressState | null;
@@ -73,7 +75,7 @@ export function setShinyCollected(state: ShinyProgressState, key: string, collec
 }
 
 export function countShinyCollected(state: ShinyProgressState): number {
-    return Object.values(state.entries).filter((entry) => entry.collected).length;
+    return Object.entries(state.entries).filter(([key, entry]) => currentShinyProgressKeys.has(key) && entry.collected).length;
 }
 
 function migrateLegacyProgress(entries: Record<string, unknown>): ShinyProgressState | null {

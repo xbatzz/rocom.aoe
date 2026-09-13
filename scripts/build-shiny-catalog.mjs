@@ -1,6 +1,9 @@
 // Keep this feature's generated catalog isolated from upstream game data.
 // A slot is one independently obtainable shiny, rather than one handbook row.
 export const SHINY_SLOT_OVERRIDES = {};
+export const SHINY_COLLECTION_EXCLUDED_PET_IDS = new Set([
+    3777, // 幽影树·突变的样子：内部/突变 form，不是独立异色收藏形态
+]);
 
 export function buildShinyCatalog(pets, petBaseRows, evolutionRows, portraitKeys) {
     const bases = new Map(petBaseRows.map((row) => [row.id, row]));
@@ -11,7 +14,8 @@ export function buildShinyCatalog(pets, petBaseRows, evolutionRows, portraitKeys
         const base = bases.get(pet.id);
         // 4xxx are encounter-only bosses; 5xxx are obtainable leader forms.
         return pet.implemented && ((pet.id >= 3000 && pet.id < 4000) ||
-            (pet.id >= 5000 && pet.id < 6000)) && base?.have_shiny === 1;
+            (pet.id >= 5000 && pet.id < 6000)) && base?.have_shiny === 1 &&
+            !SHINY_COLLECTION_EXCLUDED_PET_IDS.has(pet.id);
     }).map((pet) => {
         const base = bases.get(pet.id);
         const evolution = (base.pet_evolution_id ?? []).map((id) => evolutions.get(id)).find(Boolean);

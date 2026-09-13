@@ -1974,59 +1974,6 @@
         ]
     },
     {
-        "id": "s2-f35-p3777",
-        "season": 2,
-        "familyId": 35,
-        "familyName": "幽影树",
-        "representativePetId": 3777,
-        "targetPetId": 3777,
-        "label": "幽影树（突变的样子）",
-        "memberPetIds": [
-            3777
-        ],
-        "petId": 3777,
-        "speciesId": 35,
-        "name": "幽影树",
-        "form": "突变的样子",
-        "isLeader": false,
-        "stage": 1,
-        "portrait": "JL_youlingshu_yise",
-        "types": [
-            {
-                "id": 2,
-                "name": "草"
-            },
-            {
-                "id": 15,
-                "name": "幽"
-            }
-        ],
-        "members": [
-            {
-                "petId": 3777,
-                "speciesId": 35,
-                "season": 2,
-                "name": "幽影树",
-                "form": "突变的样子",
-                "isLeader": false,
-                "stage": 1,
-                "familyId": 35,
-                "familyName": "幽影树",
-                "portrait": "JL_youlingshu_yise",
-                "types": [
-                    {
-                        "id": 2,
-                        "name": "草"
-                    },
-                    {
-                        "id": 15,
-                        "name": "幽"
-                    }
-                ]
-            }
-        ]
-    },
-    {
         "id": "s2-f52-e130",
         "season": 2,
         "familyId": 52,

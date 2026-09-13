@@ -57,7 +57,8 @@ const evolutions = Object.values(readJson("public/data/BinData/PET_EVOLUTION_CON
 const portraits = new Set(fs.readdirSync(path.join(root, "public/assets/webp/friends")).map((file) => file.replace(/\.webp$/u, "")));
 const catalog = buildShinyCatalog(pets, bases, evolutions, portraits);
 assert.deepEqual(catalog, readJson("src/features/shiny-collection/generated/catalog.json"), "catalog must match the sync output");
-assert.deepEqual([1, 2, 3, 4, 0].map((season) => catalog.filter((entry) => entry.season === season).length), [20, 20, 21, 19, 2]);
+assert.deepEqual([1, 2, 3, 4, 0].map((season) => catalog.filter((entry) => entry.season === season).length), [20, 19, 21, 19, 2]);
+assert.equal(catalog.length, 81, "catalog must contain 81 collection slots");
 assert.equal(new Set(catalog.map((entry) => entry.id)).size, catalog.length, "slot IDs must be unique");
 for (const entry of catalog) {
     assert.ok(entry.id && entry.memberPetIds.length && entry.representativePetId && entry.targetPetId && entry.label);
@@ -73,6 +74,8 @@ for (const [first, second, firstLabel, secondLabel] of [
     assert.ok(catalog.find((entry) => entry.memberPetIds.includes(second))?.members.find((member) => member.petId === second)?.form.includes(secondLabel));
 }
 assert.ok(!catalog.some((entry) => entry.memberPetIds.some((id) => [3070, 3071, 3435, 4083, 7001, 8030].includes(id))), "exclude unreleased shinies and battle-only copies");
+assert.ok(!catalog.some((slot) => slot.memberPetIds.includes(3777)), "幽影树突变 form 3777 must not become a shiny collection slot");
+assert.equal(catalog.filter((slot) => slot.familyId === 35).length, 1, "幽影树家族 must have one collection slot");
 assert.deepEqual(catalog.flatMap((entry) => entry.members).filter((entry) => !entry.portrait).map((entry) => entry.petId), [3784, 3785]);
 
 function slotsFor(...petIds) {
@@ -94,6 +97,14 @@ const lowerKey = storage.shinyProgressKey(4, lowerSlot.id);
 const empty = storage.createEmptyShinyProgress();
 const upperOnly = storage.setShinyCollected(empty, upperKey, true);
 assert.equal(storage.countShinyCollected(upperOnly), 1);
+const orphanProgress = {
+    version: 2,
+    entries: {
+        ...upperOnly.entries,
+        "s2:s2-f35-p3777": { collected: true, updatedAt: new Date().toISOString() },
+    },
+};
+assert.equal(storage.countShinyCollected(orphanProgress), 1, "orphan shiny progress must not affect current totals");
 assert.equal(upperOnly.entries[lowerKey], undefined, "same handbook number must stay independent");
 assert.equal(upperOnly.entries[storage.shinyProgressKey(3, upperSlot.id)], undefined, "seasons must stay independent");
 const cancelled = storage.setShinyCollected(upperOnly, upperKey, false);
