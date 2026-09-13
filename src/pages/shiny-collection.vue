@@ -184,26 +184,26 @@ function resetFilters() {
                 <option value="normal">普通 / 地区形态</option>
                 <option value="leader">首领形态</option>
             </select>
+            <details class="mobile-filters">
+                <summary><SlidersHorizontal :size="16" aria-hidden="true" /> 筛选<span v-if="statusFilter !== 'all' || formFilter !== 'all'" class="filter-active-dot" aria-label="已有筛选条件" /></summary>
+                <div class="mobile-filter-options">
+                    <label>收集状态
+                        <select v-model="statusFilter" aria-label="收集状态">
+                            <option value="all">全部收集状态</option>
+                            <option value="uncollected">未收集</option>
+                            <option value="collected">已收集</option>
+                        </select>
+                    </label>
+                    <label>形态
+                        <select v-model="formFilter" aria-label="形态筛选">
+                            <option value="all">全部形态</option>
+                            <option value="normal">普通 / 地区形态</option>
+                            <option value="leader">首领形态</option>
+                        </select>
+                    </label>
+                </div>
+            </details>
         </div>
-        <details class="mobile-filters">
-            <summary><SlidersHorizontal :size="16" aria-hidden="true" /> 筛选<span v-if="statusFilter !== 'all' || formFilter !== 'all'" class="filter-active-dot" aria-label="已有筛选条件" /></summary>
-            <div class="mobile-filter-options">
-                <label>收集状态
-                    <select v-model="statusFilter" aria-label="收集状态">
-                        <option value="all">全部收集状态</option>
-                        <option value="uncollected">未收集</option>
-                        <option value="collected">已收集</option>
-                    </select>
-                </label>
-                <label>形态
-                    <select v-model="formFilter" aria-label="形态筛选">
-                        <option value="all">全部形态</option>
-                        <option value="normal">普通 / 地区形态</option>
-                        <option value="leader">首领形态</option>
-                    </select>
-                </label>
-            </div>
-        </details>
         <div class="result-meta">
             <span>显示 {{ visibleCount }} 个收藏 · {{ filteredFamilies.length }} 个家族</span>
             <button v-if="keyword || statusFilter !== 'all' || formFilter !== 'all'" type="button" @click="resetFilters">重置筛选</button>
@@ -416,14 +416,14 @@ button:focus-visible, a:focus-visible, select:focus-visible, summary:focus-visib
     .summary-footer > span:nth-child(2) { display: none; }
     .mobile-summary-status { display: inline; margin-left: auto; white-space: nowrap; }
     .desktop-count-word { display: none; }
-    .filter-row { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .filter-row { grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 8px; }
     .filter-row > select { display: none; }
     .search-field { min-height: 42px; }
-    .mobile-filters { display: block; position: relative; margin-top: 8px; }
+    .mobile-filters { display: block; position: relative; }
     .mobile-filters summary { display: inline-flex; align-items: center; gap: 6px; min-height: 38px; padding: 7px 11px; border: 1px solid var(--input); border-radius: 9px; background: var(--card); color: var(--muted-foreground); font-size: 12px; cursor: pointer; list-style: none; }
     .mobile-filters summary::-webkit-details-marker { display: none; }
     .filter-active-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); }
-    .mobile-filter-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 8px; padding: 10px; border: 1px solid var(--border); border-radius: 10px; background: var(--card); }
+    .mobile-filter-options { position: absolute; z-index: 5; top: calc(100% + 8px); right: 0; display: grid; width: min(300px, calc(100vw - 32px)); grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 10px; border: 1px solid var(--border); border-radius: 10px; background: var(--card); box-shadow: 0 10px 24px color-mix(in srgb, var(--foreground) 14%, transparent); }
     .mobile-filter-options label { display: grid; gap: 5px; color: var(--muted-foreground); font-size: 10px; }
     .mobile-filter-options select { min-height: 38px; padding: 6px; font-size: 11px; }
     .result-meta { min-height: 34px; }
