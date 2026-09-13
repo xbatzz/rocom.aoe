@@ -21,6 +21,7 @@ import type {
     IPetsMove,
 } from "@/lib/interface";
 import { isPetImplemented } from "@/lib/petImplementation";
+import { isPetPubliclyVisible } from "@/lib/petVisibility";
 import type { BattleStatKey } from "@/lib/statCalculator";
 import {
     parseTeamImage,
@@ -64,7 +65,9 @@ const statItems: Array<{ key: BattleStatKey; label: string }> = [
 ];
 
 const implementedFriends = computed(() =>
-    props.friends.filter(isPetImplemented),
+    props.friends.filter(
+        (friend) => isPetImplemented(friend) && isPetPubliclyVisible(friend),
+    ),
 );
 
 const battleTypes = computed(() =>

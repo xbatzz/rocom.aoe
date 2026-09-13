@@ -25,6 +25,7 @@ import {
     type PetImplementationFilter,
 } from "@/lib/petImplementation";
 import { formatPetHandbookNo, matchesPetKeyword } from "@/lib/petHandbook";
+import { isPetPubliclyVisible } from "@/lib/petVisibility";
 
 type SlotRole = "mother" | "father";
 
@@ -251,7 +252,7 @@ watch(fatherPopoverOpen, (open) => {
 });
 
 function buildCandidateOptions(role: SlotRole, counterpart: IPets | null) {
-    const options = pets.value.map((pet) => {
+    const options = pets.value.filter(isPetPubliclyVisible).map((pet) => {
         if (!counterpart) {
             const roleCheck = evaluateRoleAvailability(pet, role);
 

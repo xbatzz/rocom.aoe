@@ -26,6 +26,7 @@ import {
     isPetImplemented,
     type PetImplementationFilter,
 } from "@/lib/petImplementation";
+import { isPetPubliclyVisible } from "@/lib/petVisibility";
 
 use([TooltipComponent, GraphChart, CanvasRenderer]);
 
@@ -155,7 +156,7 @@ let observedVisualViewport: VisualViewport | null = null;
 const eligiblePets = computed(() => {
     return [...pets.value]
         .filter((pet) => {
-            return isPetImplemented(pet);
+            return isPetImplemented(pet) && isPetPubliclyVisible(pet);
         })
         .sort((left, right) => {
             return left.localized.zh.name.localeCompare(
@@ -168,7 +169,7 @@ const eligiblePets = computed(() => {
 const unimplementedPets = computed(() => {
     return [...pets.value]
         .filter((pet) => {
-            return !isPetImplemented(pet);
+            return !isPetImplemented(pet) && isPetPubliclyVisible(pet);
         })
         .sort((left, right) => {
             return left.localized.zh.name.localeCompare(

@@ -32,6 +32,7 @@ import {
     type TeamRole,
 } from "@/lib/teamAnalysis";
 import { isPetImplemented } from "@/lib/petImplementation";
+import { isPetPubliclyVisible } from "@/lib/petVisibility";
 import {
     semanticTextClasses,
     semanticToneClasses,
@@ -306,7 +307,9 @@ const friendMap = computed(() => {
 });
 
 const implementedFriends = computed(() => {
-    return friends.value.filter((friend) => isPetImplemented(friend));
+    return friends.value.filter(
+        (friend) => isPetImplemented(friend) && isPetPubliclyVisible(friend),
+    );
 });
 
 const personalityMap = computed(() => {
@@ -410,7 +413,9 @@ const selectedAutoBoss = computed(() => {
     }
 
     const boss = friendMap.value.get(autoBossId.value) ?? null;
-    return boss && isPetImplemented(boss) ? boss : null;
+    return boss && isPetImplemented(boss) && isPetPubliclyVisible(boss)
+        ? boss
+        : null;
 });
 
 const selectedAutoBossWeaknesses = computed(() => {
@@ -669,7 +674,11 @@ const environmentPets = computed(() => {
     const selectedIds = new Set(teamEntries.value.map((entry) => entry.friend.id));
 
     return friends.value.filter((friend) => {
-        return isPetImplemented(friend) && !selectedIds.has(friend.id);
+        return (
+            isPetImplemented(friend) &&
+            isPetPubliclyVisible(friend) &&
+            !selectedIds.has(friend.id)
+        );
     });
 });
 
@@ -2108,7 +2117,11 @@ async function fillTeamWithFriendIds(
 
         const friend = friendMap.value.get(friendId);
 
-        if (!friend || !isPetImplemented(friend)) {
+        if (
+            !friend ||
+            !isPetImplemented(friend) ||
+            !isPetPubliclyVisible(friend)
+        ) {
             return false;
         }
 

@@ -49,6 +49,7 @@ globalThis.document = {
 };
 
 const storage = loadModule(path.join(root, "src/features/shiny-collection/storage.ts"));
+const visibility = loadModule(path.join(root, "src/lib/petVisibility.ts"));
 const backups = loadModule(path.join(root, "src/lib/userDataBackup.ts"));
 const readJson = (file) => JSON.parse(fs.readFileSync(path.join(root, file), "utf8"));
 const pets = readJson("public/data/Pets.json");
@@ -56,6 +57,12 @@ const bases = Object.values(readJson("public/data/BinData/PETBASE_CONF.json").Ro
 const evolutions = Object.values(readJson("public/data/BinData/PET_EVOLUTION_CONF.json").RocoDataRows);
 const portraits = new Set(fs.readdirSync(path.join(root, "public/assets/webp/friends")).map((file) => file.replace(/\.webp$/u, "")));
 const catalog = buildShinyCatalog(pets, bases, evolutions, portraits);
+assert.equal(visibility.isPetPubliclyVisible(pets.find((pet) => pet.id === 3777)), false, "3777 must be hidden from public pet pages");
+assert.equal(visibility.isPetPubliclyVisible(pets.find((pet) => pet.id === 3064)), true, "normal 幽影树 must remain public");
+const encyclopediaSearchResults = visibility.filterPubliclyVisiblePets(pets)
+    .filter((pet) => pet.localized.zh.name.includes("幽影树"));
+assert.ok(!encyclopediaSearchResults.some((pet) => pet.id === 3777), "encyclopedia search must not contain 3777");
+assert.ok(encyclopediaSearchResults.some((pet) => pet.id === 3064), "encyclopedia search must retain normal 幽影树");
 assert.deepEqual(catalog, readJson("src/features/shiny-collection/generated/catalog.json"), "catalog must match the sync output");
 assert.deepEqual([1, 2, 3, 4, 0].map((season) => catalog.filter((entry) => entry.season === season).length), [20, 19, 21, 19, 2]);
 assert.equal(catalog.length, 81, "catalog must contain 81 collection slots");

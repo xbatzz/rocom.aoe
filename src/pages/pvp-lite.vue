@@ -22,6 +22,7 @@ import type {
     IPetsType,
 } from "@/lib/interface";
 import { isPetImplemented } from "@/lib/petImplementation";
+import { isPetPubliclyVisible } from "@/lib/petVisibility";
 import {
     formatPetHandbookNo,
     matchesPetKeyword,
@@ -408,7 +409,9 @@ const typeMap = computed(() => {
 
 const implementedPets = computed(() =>
     collapseDuplicateLeaderConfigurations(
-        pets.value.filter((pet) => isPetImplemented(pet)),
+        pets.value.filter(
+            (pet) => isPetImplemented(pet) && isPetPubliclyVisible(pet),
+        ),
     )
         .sort(
             (left, right) =>

@@ -3,6 +3,7 @@ import ortWasmModuleUrl from "onnxruntime-web/ort-wasm-simd-threaded.mjs?url";
 import ortWasmUrl from "onnxruntime-web/ort-wasm-simd-threaded.wasm?url";
 import type { IPets, IPetsDetail, IPetsMove } from "@/lib/interface";
 import { isPetImplemented } from "@/lib/petImplementation";
+import { isPetPubliclyVisible } from "@/lib/petVisibility";
 import {
     EMPTY_INDIVIDUAL_VALUES,
     type BattleIndividualValues,
@@ -484,7 +485,10 @@ function matchFriendText(
 ): TeamImageImportField {
     const query = normalizeText(rawText);
     const candidates = friends
-        .filter(isPetImplemented)
+        .filter(
+            (friend) =>
+                isPetImplemented(friend) && isPetPubliclyVisible(friend),
+        )
         .map((friend) => ({
             value: friend.id,
             label: friend.localized.zh.name,

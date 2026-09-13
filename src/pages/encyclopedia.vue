@@ -31,6 +31,7 @@ import {
     matchesPetKeyword,
 } from "@/lib/petHandbook";
 import { collapseDuplicateLeaderConfigurations } from "@/lib/petPresentation";
+import { filterPubliclyVisiblePets } from "@/lib/petVisibility";
 import { semanticToneClasses } from "@/lib/uiTones";
 
 type SortKey = "id" | "power" | "speed" | "name";
@@ -714,7 +715,7 @@ async function getFriends() {
             throw new Error(`请求失败: ${petsResponse.status}`);
         }
 
-        pets.value = await petsResponse.json();
+        pets.value = filterPubliclyVisiblePets(await petsResponse.json());
 
         if (bloodlineResponse && bloodlineResponse.ok) {
             bloodlineIndex.value = await bloodlineResponse.json();

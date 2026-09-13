@@ -19,6 +19,7 @@ import {
     matchesPetImplementationFilter,
     type PetImplementationFilter,
 } from "@/lib/petImplementation";
+import { isPetPubliclyVisible } from "@/lib/petVisibility";
 
 interface IIncubateVariantEntry {
     key: string;
@@ -93,11 +94,13 @@ const invalidInputMessage = computed(() => {
 });
 
 const chainEntries = computed(() => {
-    if (!pets.value.length) {
+    const publiclyVisiblePets = pets.value.filter(isPetPubliclyVisible);
+
+    if (!publiclyVisiblePets.length) {
         return [];
     }
 
-    const petsById = new Map(pets.value.map((pet) => [pet.id, pet]));
+    const petsById = new Map(publiclyVisiblePets.map((pet) => [pet.id, pet]));
     const rootIdCache = new Map<number, number>();
     const groups = new Map<
         number,
@@ -141,7 +144,7 @@ const chainEntries = computed(() => {
         return current.id;
     };
 
-    for (const pet of pets.value) {
+    for (const pet of publiclyVisiblePets) {
         const rootId = resolveRootId(pet);
         const rootPet = petsById.get(rootId) ?? pet;
         let entry = groups.get(rootId);
