@@ -57,13 +57,13 @@ watch(() => season.value.id, () => {
 });
 
 function isCollected(entry: ShinyCatalogEntry) {
-    return progress.value.entries[shinyProgressKey(entry.season, entry.petId)]?.collected === true;
+    return progress.value.entries[shinyProgressKey(entry.season, entry.id)]?.collected === true;
 }
 
 function saveCollection(entry: ShinyCatalogEntry, collected: boolean, undo = false) {
     try {
         const current = mergeShinyProgress(progress.value, readShinyProgress());
-        const key = shinyProgressKey(entry.season, entry.petId);
+        const key = shinyProgressKey(entry.season, entry.id);
         const previous = current.entries[key]?.collected === true;
         const next = setShinyCollected(current, key, collected);
         if (!writeShinyProgress(next)) throw new Error("storage unavailable");
@@ -98,10 +98,10 @@ const completedFamilies = computed(() => families.value.filter((group) => group.
 const filteredFamilies = computed(() => {
     const query = keyword.value.trim().toLocaleLowerCase();
     return families.value.flatMap((group) => {
-        // Searching any evolution stage reveals that family's separate forms.
+        // Searching any evolution stage reveals the slot that contains it.
         const matchesQuery = !query || group.entries.some((entry) => /^#?\d+$/u.test(query)
-            ? entry.speciesId === Number(query.replace("#", ""))
-            : `${entry.name} ${entry.form} ${entry.familyName}`.toLocaleLowerCase().includes(query));
+            ? entry.members.some((member) => member.speciesId === Number(query.replace("#", "")) || member.petId === Number(query.replace("#", "")))
+            : entry.members.some((member) => `${member.name} ${member.form} ${entry.familyName}`.toLocaleLowerCase().includes(query)));
         if (!matchesQuery) return [];
         const entries = group.entries.filter((entry) => {
             const matchesStatus = statusFilter.value === "all" || isCollected(entry) === (statusFilter.value === "collected");
@@ -151,9 +151,9 @@ function resetFilters() {
             <div class="summary-heading">
                 <div>
                     <h2>{{ season.label }} · {{ season.name }}</h2>
-                    <p>每个进化阶段、不同形态分别计数，点击卡片即可记录。</p>
+                    <p>每个独立异色个体按完整进化路线计数，点击卡片即可记录。</p>
                 </div>
-                <div class="summary-count"><strong>{{ canEdit ? currentStats.collected : '—' }}</strong><span>/ {{ currentStats.total }} 种形态</span></div>
+                <div class="summary-count"><strong>{{ canEdit ? currentStats.collected : '—' }}</strong><span>/ {{ currentStats.total }} 个收藏</span></div>
             </div>
             <progress :value="currentStats.collected" :max="currentStats.total || 1" aria-label="本赛季已收集形态" />
             <div class="summary-footer">
@@ -181,7 +181,7 @@ function resetFilters() {
             </select>
         </div>
         <div class="result-meta">
-            <span>显示 {{ visibleCount }} 种形态 · {{ filteredFamilies.length }} 个家族</span>
+            <span>显示 {{ visibleCount }} 个收藏 · {{ filteredFamilies.length }} 个家族</span>
             <button v-if="keyword || statusFilter !== 'all' || formFilter !== 'all'" type="button" @click="resetFilters">重置筛选</button>
             <span v-else class="autosave-note">进度自动保存在本机</span>
         </div>
@@ -195,8 +195,8 @@ function resetFilters() {
         <div v-if="!filteredFamilies.length" class="empty-state">
             <Search :size="28" aria-hidden="true" />
             <h3>没有符合条件的异色精灵</h3>
-            <p>试试其他名称，或查看本赛季的全部形态。</p>
-            <button type="button" @click="resetFilters">查看全部形态</button>
+            <p>试试其他名称，或查看本赛季的全部收藏。</p>
+            <button type="button" @click="resetFilters">查看全部收藏</button>
         </div>
 
         <section v-for="group in filteredFamilies" :key="group.id" class="family-section" :aria-labelledby="`family-${group.id}`">
@@ -205,7 +205,7 @@ function resetFilters() {
                 <span :class="{ complete: group.collected === group.entries.length }"><Check v-if="group.collected === group.entries.length" :size="13" aria-hidden="true" /> {{ group.collected }} / {{ group.entries.length }}</span>
             </div>
             <ul class="pet-grid">
-                <li v-for="entry in group.visibleEntries" :key="entry.petId" class="pet-card" :class="{ collected: isCollected(entry) }">
+                <li v-for="entry in group.visibleEntries" :key="entry.id" class="pet-card" :class="{ collected: isCollected(entry) }">
                     <button
                         type="button"
                         class="collect-button"
@@ -229,8 +229,8 @@ function resetFilters() {
 
         <details class="catalog-notes">
             <summary>名单与统计说明</summary>
-            <p>名单按当前游戏资料中的异色开放标记与归属赛季整理，包含进化阶段和可获得的首领形态。返场精灵仍归原赛季，不重复计入 S4。</p>
-            <p>同一图鉴编号下的不同形态分别保存；首领形态也保留原进化链的区别。家族进度按完整名单统计，不受搜索和筛选影响。</p>
+            <p>名单按当前游戏资料中的异色开放标记与归属赛季整理，每个收藏对应一条完整进化路线和可获得的首领形态。返场精灵仍归原赛季，不重复计入 S4。</p>
+            <p>不同形态和分支分别保存；同一进化路线的不同阶段只算一个收藏。家族进度按完整名单统计，不受搜索和筛选影响。</p>
             <p>火红尾、云梦豚等资料中未标注赛季的异色归入“其他”。只有预览图片、未标记开放的异色暂不计入。缺失立绘不影响记录。</p>
             <p>赛季名称参考 <a href="https://wiki.biligame.com/nrc/精灵图鉴" target="_blank" rel="noreferrer">洛克王国世界 WIKI <ArrowUpRight :size="12" aria-hidden="true" /></a>；名单随站内游戏数据同步更新。</p>
         </details>

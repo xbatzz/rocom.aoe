@@ -39,7 +39,7 @@ import {
 } from "@/features/shiny-collection/storage";
 
 export const USER_DATA_BACKUP_FORMAT = "rocom-user-data";
-export const USER_DATA_BACKUP_VERSION = 3 as const;
+export const USER_DATA_BACKUP_VERSION = 4 as const;
 const LEGACY_USER_DATA_BACKUP_VERSION = 1 as const;
 
 export type UserDataImportMode = "merge" | "replace";
@@ -96,7 +96,7 @@ export function parseUserDataBackup(raw: unknown): UserDataBackup | null {
 
     if (
         value.format !== USER_DATA_BACKUP_FORMAT ||
-        (value.version !== USER_DATA_BACKUP_VERSION &&
+        (value.version !== USER_DATA_BACKUP_VERSION && value.version !== 3 &&
             value.version !== 2 &&
             value.version !== LEGACY_USER_DATA_BACKUP_VERSION) ||
         typeof value.exportedAt !== "string" ||
@@ -123,7 +123,7 @@ export function parseUserDataBackup(raw: unknown): UserDataBackup | null {
             ? createEmptyBadgeTrialProgressState()
             : parseBadgeTrialProgressState(data.badgeTrials);
     const theme = parseTheme(data.theme);
-    const shinyCollection = value.version === USER_DATA_BACKUP_VERSION
+    const shinyCollection = (value.version === USER_DATA_BACKUP_VERSION || value.version === 3)
         ? parseShinyProgress(data.shinyCollection)
         : createEmptyShinyProgress();
 
