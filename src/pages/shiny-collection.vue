@@ -268,33 +268,40 @@ function resetFilters() {
         </div>
 
         <div class="desktop-family-list">
-        <section v-for="group in filteredFamilies" :key="group.id" class="family-section" :aria-labelledby="`family-${group.id}`">
-            <div class="family-heading">
-                <h3 :id="`family-${group.id}`">{{ group.name }}<span>家族</span></h3>
-                <span :class="{ complete: group.collected === group.entries.length }"><Check v-if="group.collected === group.entries.length" :size="13" aria-hidden="true" /> {{ group.collected }} / {{ group.entries.length }}</span>
-            </div>
-            <ul class="pet-grid">
-                <li v-for="entry in group.visibleEntries" :key="entry.id" class="pet-card" :class="{ collected: isCollected(entry) }">
-                    <button
-                        type="button"
-                        class="collect-button"
-                        :aria-label="`${entry.name}，${entry.form}，${isCollected(entry) ? '已收集，点击取消' : '未收集，点击记录'}`"
-                        :aria-pressed="isCollected(entry)"
-                        :disabled="!canEdit"
-                        @click="saveCollection(entry, !isCollected(entry))"
-                    >
+            <ul v-if="mobileSingleEntries.length" class="pet-grid desktop-single-grid" aria-label="单分支异色收藏">
+                <li v-for="entry in mobileSingleEntries" :key="entry.id" class="pet-card desktop-compact-card" :class="{ collected: isCollected(entry) }">
+                    <button type="button" class="collect-button" :aria-label="`${entry.name}，${entry.form}，${isCollected(entry) ? '已收集，点击取消' : '未收集，点击记录'}`" :aria-pressed="isCollected(entry)" :disabled="!canEdit" @click="saveCollection(entry, !isCollected(entry))">
                         <span class="card-topline"><span>No.{{ String(entry.speciesId).padStart(3, '0') }}</span><span class="collection-check" aria-hidden="true"><Check v-if="isCollected(entry)" :size="13" /></span></span>
                         <FriendPortrait :name="entry.portrait" :alt="`${entry.name}异色`" class="shiny-portrait" img-class="object-contain" loading="lazy" />
                         <span v-if="!entry.portrait" class="missing-portrait">异色立绘待补</span>
                         <strong class="pet-name">{{ entry.name }}</strong>
-                        <span class="form-name">{{ entry.form }}</span>
-                        <span class="pet-types"><span v-for="type in entry.types" :key="type.id"><TypeIcon :type-id="type.id" :size="13" />{{ type.name }}</span></span>
-                        <span class="collection-label">{{ isCollected(entry) ? '已收集' : '待收集' }}</span>
+                        <span class="family-name">{{ entry.familyName }}</span>
+                        <span v-if="entry.form !== '通常形态'" class="form-name">{{ entry.form }}</span>
+                        <span class="pet-types"><span v-for="type in entry.types" :key="type.id"><TypeIcon :type-id="type.id" :size="12" />{{ type.name }}</span></span>
                     </button>
-                    <RouterLink :to="`/pets/${entry.petId}`" class="pet-detail-link" :aria-label="`查看${entry.name}（${entry.form}）图鉴`">查看图鉴 <ArrowUpRight :size="12" aria-hidden="true" /></RouterLink>
+                    <RouterLink :to="`/pets/${entry.petId}`" class="pet-detail-link desktop-detail-link" :aria-label="`查看${entry.name}（${entry.form}）图鉴`"><ArrowUpRight :size="13" aria-hidden="true" /><span>图鉴</span></RouterLink>
                 </li>
             </ul>
-        </section>
+            <section v-for="group in mobileMultiFamilies" :key="group.id" class="family-section desktop-family-section" :aria-labelledby="`family-${group.id}`">
+                <div class="family-heading">
+                    <h3 :id="`family-${group.id}`">{{ group.name }}<span>家族</span></h3>
+                    <span :class="{ complete: group.collected === group.entries.length }"><Check v-if="group.collected === group.entries.length" :size="13" aria-hidden="true" /> {{ group.collected }} / {{ group.entries.length }}</span>
+                </div>
+                <ul class="pet-grid desktop-multi-grid">
+                    <li v-for="entry in group.visibleEntries" :key="entry.id" class="pet-card desktop-compact-card" :class="{ collected: isCollected(entry) }">
+                        <button type="button" class="collect-button" :aria-label="`${entry.name}，${entry.form}，${isCollected(entry) ? '已收集，点击取消' : '未收集，点击记录'}`" :aria-pressed="isCollected(entry)" :disabled="!canEdit" @click="saveCollection(entry, !isCollected(entry))">
+                            <span class="card-topline"><span>No.{{ String(entry.speciesId).padStart(3, '0') }}</span><span class="collection-check" aria-hidden="true"><Check v-if="isCollected(entry)" :size="13" /></span></span>
+                            <FriendPortrait :name="entry.portrait" :alt="`${entry.name}异色`" class="shiny-portrait" img-class="object-contain" loading="lazy" />
+                            <span v-if="!entry.portrait" class="missing-portrait">异色立绘待补</span>
+                            <strong class="pet-name">{{ entry.name }}</strong>
+                            <span class="family-name">{{ entry.familyName }}</span>
+                            <span v-if="entry.form !== '通常形态'" class="form-name">{{ entry.form }}</span>
+                            <span class="pet-types"><span v-for="type in entry.types" :key="type.id"><TypeIcon :type-id="type.id" :size="12" />{{ type.name }}</span></span>
+                        </button>
+                        <RouterLink :to="`/pets/${entry.petId}`" class="pet-detail-link desktop-detail-link" :aria-label="`查看${entry.name}（${entry.form}）图鉴`"><ArrowUpRight :size="13" aria-hidden="true" /><span>图鉴</span></RouterLink>
+                    </li>
+                </ul>
+            </section>
         </div>
 
         <details class="catalog-notes">
@@ -452,5 +459,42 @@ button:focus-visible, a:focus-visible, select:focus-visible, summary:focus-visib
     .remaining-count, .autosave-note { display: none; }
     .season-link { padding-inline: 6px; }
     .backup-link { font-size: 0; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+    .desktop-single-grid, .desktop-multi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+    .shiny-page { max-width: 1400px; padding-inline: 32px; }
+    .season-nav { gap: 8px; margin-top: 18px; }
+    .season-link { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 0; padding: 9px 12px; border-radius: 10px; }
+    .season-label { grid-column: 1; font-size: 14px; }
+    .season-name { grid-column: 2; margin: 0 9px; overflow: hidden; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+    .season-count { grid-column: 3; margin: 0; font-size: 13px; white-space: nowrap; }
+    .mini-progress { grid-column: 1 / -1; margin-top: 7px; }
+    .season-summary { margin-block: 14px; padding: 14px 16px; border-radius: 12px; }
+    .summary-heading h2 { font-size: 16px; }
+    .summary-heading p { margin-top: 3px; line-height: 1.45; }
+    .summary-count strong { font-size: 28px; }
+    progress { height: 6px; margin-block: 12px 8px; }
+    .filter-row { grid-template-columns: minmax(300px, 1fr) 132px 140px; gap: 8px; }
+    .search-field input { height: 40px; }
+    select { min-height: 42px; }
+    .result-meta { min-height: 32px; }
+    .desktop-single-grid { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; }
+    .desktop-family-section { margin-top: 22px; }
+    .desktop-multi-grid { grid-template-columns: repeat(auto-fit, minmax(210px, 280px)); gap: 12px; }
+    .desktop-compact-card { position: relative; min-height: 154px; border-radius: 10px; }
+    .desktop-compact-card .collect-button { display: block; min-height: 154px; padding: 9px 12px; text-align: left; }
+    .desktop-compact-card .card-topline { position: relative; z-index: 1; }
+    .desktop-compact-card .shiny-portrait { float: left; width: 78px; height: 78px; margin: 8px 10px 0 0; }
+    .desktop-compact-card .missing-portrait { display: block; float: left; width: 78px; margin: 12px 10px 0 0; }
+    .desktop-compact-card .pet-name { display: block; padding-top: 12px; font-size: 14px; line-height: 1.35; }
+    .desktop-compact-card .family-name { display: block; margin-top: 3px; overflow: hidden; color: var(--muted-foreground); font-size: 10px; line-height: 1.3; text-overflow: ellipsis; white-space: nowrap; }
+    .desktop-compact-card .form-name { display: block; min-height: 0; margin-top: 4px; overflow: hidden; font-size: 10px; line-height: 1.3; text-overflow: ellipsis; white-space: nowrap; }
+    .desktop-compact-card .pet-types { justify-content: flex-start; margin-top: 9px; padding-right: 24px; font-size: 10px; opacity: 0.72; }
+    .desktop-detail-link { position: absolute; right: 5px; bottom: 5px; min-height: 24px; padding: 4px; border: 0; border-radius: 6px; background: color-mix(in srgb, var(--card) 85%, transparent); font-size: 0; }
+    .desktop-detail-link svg { width: 14px; height: 14px; }
+    .desktop-detail-link span { display: none; }
+    .desktop-compact-card:hover .desktop-detail-link { color: var(--primary); background: var(--accent); }
 }
 </style>
