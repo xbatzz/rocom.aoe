@@ -53,6 +53,7 @@ const navGroups = [
             { name: "八大徽章", path: "/badge-trials", icon: Medal },
             { name: "命定勇者", path: "/destined-hero-badge", icon: Medal },
             { name: "图鉴进度", path: "/handbook-progress", icon: ListTodo },
+            { name: "异色收集", path: "/shiny-collection", icon: Sparkles },
             { name: "道具", path: "/items", icon: Package },
         ],
     },

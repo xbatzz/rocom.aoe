@@ -11,6 +11,7 @@ import {
     Package,
     Plus,
     Swords,
+    Sparkles,
     TableProperties,
 } from "lucide-vue-next";
 import { RouterLink } from "vue-router";
@@ -116,6 +117,12 @@ const toolGroups: ToolGroup[] = [
                 to: "/handbook-progress",
                 icon: ListChecks,
             },
+            {
+                title: "异色收集",
+                description: "按赛季记录异色收集，分别收齐进化阶段与不同形态。",
+                to: "/shiny-collection",
+                icon: Sparkles,
+            },
         ],
     },
     {
@@ -148,7 +155,7 @@ const toolGroups: ToolGroup[] = [
         tools: [
             {
                 title: "数据管理",
-                description: "导出或导入配队、图鉴、徽章进度和主题设置。",
+                description: "导出或导入配队、图鉴、徽章、异色进度和主题设置。",
                 to: "/data-management",
                 icon: Database,
             },

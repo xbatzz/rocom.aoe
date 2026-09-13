@@ -27,9 +27,19 @@ import {
     writeBadgeTrialProgressState,
     type BadgeTrialProgressState,
 } from "@/lib/badgeTrials";
+import {
+    SHINY_STORAGE_KEY,
+    createEmptyShinyProgress,
+    countShinyCollected,
+    mergeShinyProgress,
+    parseShinyProgress,
+    readShinyProgress,
+    writeShinyProgress,
+    type ShinyProgressState,
+} from "@/features/shiny-collection/storage";
 
 export const USER_DATA_BACKUP_FORMAT = "rocom-user-data";
-export const USER_DATA_BACKUP_VERSION = 2 as const;
+export const USER_DATA_BACKUP_VERSION = 3 as const;
 const LEGACY_USER_DATA_BACKUP_VERSION = 1 as const;
 
 export type UserDataImportMode = "merge" | "replace";
@@ -42,6 +52,7 @@ export interface UserDataBackup {
         teams: TeamStorageState;
         handbookProgress: HandbookProgressState;
         badgeTrials: BadgeTrialProgressState;
+        shinyCollection: ShinyProgressState;
         theme: AppTheme;
     };
 }
@@ -52,6 +63,7 @@ export interface UserDataImportSummary {
     completedTopicCount: number;
     badgeFamilyMedalCount: number;
     badgeFootprintCount: number;
+    shinyCollectedCount: number;
     theme: AppTheme;
 }
 
@@ -64,6 +76,7 @@ export function createUserDataBackup(): UserDataBackup {
             teams: getTeamStorageState(),
             handbookProgress: readHandbookProgressState(),
             badgeTrials: readBadgeTrialProgressState(),
+            shinyCollection: readShinyProgress(),
             theme: readStoredTheme(),
         },
     };
@@ -84,6 +97,7 @@ export function parseUserDataBackup(raw: unknown): UserDataBackup | null {
     if (
         value.format !== USER_DATA_BACKUP_FORMAT ||
         (value.version !== USER_DATA_BACKUP_VERSION &&
+            value.version !== 2 &&
             value.version !== LEGACY_USER_DATA_BACKUP_VERSION) ||
         typeof value.exportedAt !== "string" ||
         !value.data ||
@@ -96,6 +110,7 @@ export function parseUserDataBackup(raw: unknown): UserDataBackup | null {
     const data = value.data as {
         handbookProgress?: unknown;
         badgeTrials?: unknown;
+        shinyCollection?: unknown;
         teams?: unknown;
         theme?: unknown;
     };
@@ -108,8 +123,11 @@ export function parseUserDataBackup(raw: unknown): UserDataBackup | null {
             ? createEmptyBadgeTrialProgressState()
             : parseBadgeTrialProgressState(data.badgeTrials);
     const theme = parseTheme(data.theme);
+    const shinyCollection = value.version === USER_DATA_BACKUP_VERSION
+        ? parseShinyProgress(data.shinyCollection)
+        : createEmptyShinyProgress();
 
-    if (!teams || !handbookProgress || !badgeTrials || !theme) {
+    if (!teams || !handbookProgress || !badgeTrials || !shinyCollection || !theme) {
         return null;
     }
 
@@ -121,6 +139,7 @@ export function parseUserDataBackup(raw: unknown): UserDataBackup | null {
             teams,
             handbookProgress,
             badgeTrials,
+            shinyCollection,
             theme,
         },
     };
@@ -133,6 +152,9 @@ export function importUserDataBackup(
     const currentTeams = getTeamStorageState();
     const currentProgress = readHandbookProgressState();
     const currentBadgeTrials = readBadgeTrialProgressState();
+    const currentShinyRaw = window.localStorage.getItem(SHINY_STORAGE_KEY);
+    // Replacement can recover malformed progress; keep the original bytes for rollback.
+    const currentShinyCollection = mode === "merge" ? readShinyProgress() : createEmptyShinyProgress();
     const currentTheme = readStoredTheme();
     const teams =
         mode === "merge"
@@ -152,6 +174,9 @@ export function importUserDataBackup(
                   backup.data.badgeTrials,
               )
             : replaceBadgeTrialProgressState(backup.data.badgeTrials);
+    const shinyCollection = mode === "merge"
+        ? mergeShinyProgress(currentShinyCollection, backup.data.shinyCollection)
+        : backup.data.shinyCollection;
 
     try {
         saveTeamStorageState(teams);
@@ -164,12 +189,21 @@ export function importUserDataBackup(
             throw new Error("徽章进度写入失败，请检查浏览器存储权限。");
         }
 
+        if (!writeShinyProgress(shinyCollection)) {
+            throw new Error("异色进度写入失败，请检查浏览器存储权限。");
+        }
+
         setTheme(backup.data.theme);
     } catch (error) {
         try {
             saveTeamStorageState(currentTeams);
             writeHandbookProgressState(currentProgress);
             writeBadgeTrialProgressState(currentBadgeTrials);
+            if (currentShinyRaw === null) {
+                window.localStorage.removeItem(SHINY_STORAGE_KEY);
+            } else {
+                window.localStorage.setItem(SHINY_STORAGE_KEY, currentShinyRaw);
+            }
             setTheme(currentTheme);
         } catch {
             // Keep the original import error when rollback is unavailable.
@@ -182,6 +216,7 @@ export function importUserDataBackup(
         teams,
         handbookProgress,
         badgeTrials,
+        shinyCollection,
         backup.data.theme,
     );
 }
@@ -225,10 +260,12 @@ function summarizeUserData(
     teams: TeamStorageState,
     progress: HandbookProgressState,
     badgeTrials: BadgeTrialProgressState,
+    shinyCollection: ShinyProgressState,
     theme: AppTheme,
 ): UserDataImportSummary {
     return {
         teamCount: teams.teams.length,
+        shinyCollectedCount: countShinyCollected(shinyCollection),
         collectedCount: Object.keys(progress.collected).length,
         completedTopicCount: Object.values(progress.topics).reduce(
             (total, topics) => total + Object.keys(topics).length,

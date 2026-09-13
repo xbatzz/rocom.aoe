@@ -21,6 +21,7 @@ import {
 import { getTeamStorageState } from "@/lib/teamStorage";
 import { readHandbookProgressState } from "@/lib/handbookProgress";
 import { readBadgeTrialProgressState } from "@/lib/badgeTrials";
+import { countShinyCollected, readShinyProgress } from "@/features/shiny-collection/storage";
 import {
     createUserDataBackup,
     getUserDataBackupFilename,
@@ -51,6 +52,12 @@ onMounted(() => {
 });
 
 function readCurrentSummary() {
+    let shinyCollectedCount: number | null = null;
+    try {
+        shinyCollectedCount = countShinyCollected(readShinyProgress());
+    } catch {
+        // Keep data management accessible when storage needs recovery.
+    }
     const teams = getTeamStorageState();
     const progress = readHandbookProgressState();
     const badgeTrials = readBadgeTrialProgressState();
@@ -87,6 +94,7 @@ function readCurrentSummary() {
         ),
         badgeFamilyMedalCount,
         badgeFootprintCount,
+        shinyCollectedCount,
     };
 }
 
@@ -152,7 +160,7 @@ function confirmImport() {
             pendingBackup.value,
             importMode.value,
         );
-        const message = `导入成功：${summary.teamCount} 支队伍、${summary.collectedCount} 个已收集图鉴、${summary.completedTopicCount} 项已完成课题、${summary.badgeFamilyMedalCount} 个家族奖牌、${summary.badgeFootprintCount} 个精灵足迹。`;
+        const message = `导入成功：${summary.teamCount} 支队伍、${summary.collectedCount} 个已收集图鉴、${summary.completedTopicCount} 项已完成课题、${summary.badgeFamilyMedalCount} 个家族奖牌、${summary.badgeFootprintCount} 个精灵足迹、${summary.shinyCollectedCount} 种异色形态。`;
 
         try {
             window.sessionStorage.setItem(IMPORT_FEEDBACK_KEY, message);
@@ -198,13 +206,13 @@ document.title = "数据管理 - 洛克王国工具箱";
                             数据管理
                         </h1>
                         <p class="text-sm leading-6 text-muted-foreground">
-                            一次备份全部配队、图鉴进度、徽章进度和主题设置，可在 Windows、Mac、iPhone 或 iPad 之间迁移。
+                            一次备份全部配队、图鉴进度、徽章进度、异色收集和主题设置，可在 Windows、Mac、iPhone 或 iPad 之间迁移。
                         </p>
                     </div>
                     <MonitorSmartphone class="h-10 w-10 text-primary/70" />
                 </div>
 
-                <div class="grid grid-cols-2 gap-1.5 sm:grid-cols-4 sm:gap-3">
+                <div class="grid grid-cols-2 gap-1.5 sm:grid-cols-5 sm:gap-3">
                     <div class="min-w-0 rounded-[14px] border border-border bg-muted/40 p-2.5 sm:rounded-[18px] sm:p-4">
                         <p class="text-xs text-muted-foreground">已保存队伍</p>
                         <p class="mt-1 text-lg font-black text-foreground sm:text-2xl">
@@ -233,6 +241,13 @@ document.title = "数据管理 - 洛克王国工具箱";
                             <span class="text-xs font-medium text-muted-foreground">
                                 / {{ currentSummary.badgeFootprintCount }} 足迹
                             </span>
+                        </p>
+                    </div>
+                    <div class="min-w-0 rounded-[14px] border border-border bg-muted/40 p-2.5 sm:rounded-[18px] sm:p-4">
+                        <p class="text-xs text-muted-foreground">已收集异色</p>
+                        <p class="mt-1 text-lg font-black text-foreground sm:text-2xl">
+                            {{ currentSummary.shinyCollectedCount ?? '无法读取' }}
+                            <span class="text-xs font-medium text-muted-foreground">种形态</span>
                         </p>
                     </div>
                 </div>
@@ -316,8 +331,8 @@ document.title = "数据管理 - 洛克王国工具箱";
                     </CardTitle>
                 </div>
                 <ul class="space-y-2 text-sm leading-6 text-muted-foreground">
-                    <li>• 合并：同 ID 队伍保留更新时间较新的版本；图鉴与徽章完成记录按时间戳合并。</li>
-                    <li>• 替换：使用备份完整覆盖本机配队、图鉴和徽章进度，适合新设备首次恢复。</li>
+                    <li>• 合并：同 ID 队伍保留更新时间较新的版本；图鉴、徽章和异色记录按时间戳合并，异色取消记录也会保留。</li>
+                    <li>• 替换：使用备份完整覆盖本机配队、图鉴、徽章和异色进度，适合新设备首次恢复。旧版备份不含异色进度，完全替换会清空现有异色记录。</li>
                     <li>• 文件只包含构筑与进度编号，不包含账号、密码或游戏登录信息。</li>
                     <li>• 建议在大量修改前和切换设备前各导出一次备份。</li>
                 </ul>

@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildShinyCatalog } from "./build-shiny-catalog.mjs";
 
 const currentFilePath = fileURLToPath(import.meta.url);
 const rootDir = path.resolve(path.dirname(currentFilePath), "..");
@@ -431,6 +432,13 @@ async function main() {
         handbookRows,
         skillById,
     );
+
+    const portraitFiles = await fs.readdir(path.join(rootDir, "public/assets/webp/friends"));
+    const shinyCatalog = buildShinyCatalog(indexEntries, petBaseRows, evolutionRows,
+        new Set(portraitFiles.map((file) => file.replace(/\.webp$/u, ""))));
+    const shinyCatalogPath = path.join(rootDir, "src/features/shiny-collection/generated/catalog.json");
+    await fs.mkdir(path.dirname(shinyCatalogPath), { recursive: true });
+    await writeJson(shinyCatalogPath, shinyCatalog);
 
     await syncMirroredTables();
     const handbookIdsPath = path.join(rootDir, "src", "lib", "generated", "handbookIds.json");
