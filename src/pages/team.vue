@@ -16,6 +16,10 @@ import { createTeam as createStoredTeam, deleteTeam as deleteStoredTeam, duplica
 type BuildPresetKey = "maxAttack" | "maxSpeed" | "maxHp" | "clearIndividual";
 type PreferredAttackStat = "phyAtk" | "magAtk";
 type PersonalityModKey = "hp_mod_pct" | "phy_atk_mod_pct" | "mag_atk_mod_pct" | "phy_def_mod_pct" | "mag_def_mod_pct" | "spd_mod_pct";
+type PendingDraftAction =
+    | { kind: "slot"; slotId: number }
+    | { kind: "remove"; slotId: number }
+    | { kind: "close" };
 
 const TEAM_SLOT_COUNT = 6;
 const MAX_TEAM_COUNT = 10;
@@ -42,6 +46,8 @@ const isSwitchingTeam = ref(false);
 const errorMessage = ref("");
 const feedbackMessage = ref("");
 const shareDialogOpen = ref(false);
+const draftDecisionOpen = ref(false);
+const pendingDraftAction = ref<PendingDraftAction | null>(null);
 const currentPageUrl = ref("");
 const draggedSlotId = ref<number | null>(null);
 const dragOverSlotId = ref<number | null>(null);
@@ -309,12 +315,28 @@ function getSlotFriend(slot: TeamSlot) { return slot.friendId ? friendMap.value.
 function getSlotPersonalityLabel(slot: TeamSlot) { return slot.personalityId ? personalityMap.value.get(slot.personalityId)?.localized.zh ?? "未设性格" : "未设性格"; }
 function getSlotBloodlineLabel(slot: TeamSlot) { return slot.legacyTypeId ? typeMap.value.get(slot.legacyTypeId)?.localized.zh ?? "未设" : "未设"; }
 
-function selectSlot(slotId: number) {
-    if (slotId !== activeSlotId.value && isSlotDraftDirty.value && typeof window !== "undefined" && !window.confirm("放弃当前槽位尚未保存的更改？")) return;
+function openSlot(slotId: number) {
     activeSlotId.value = slotId;
     resetSlotDraft();
     mobileEditorOpen.value = true;
     feedbackMessage.value = "";
+}
+
+function requestDraftDecision(action: PendingDraftAction) {
+    pendingDraftAction.value = action;
+    draftDecisionOpen.value = true;
+}
+
+function selectSlot(slotId: number) {
+    if (slotId === activeSlotId.value) {
+        mobileEditorOpen.value = true;
+        return;
+    }
+    if (isSlotDraftDirty.value) {
+        requestDraftDecision({ kind: "slot", slotId });
+        return;
+    }
+    openSlot(slotId);
 }
 
 function patchSlot(slotId: number, updater: (slot: TeamSlot) => TeamSlot) {
@@ -330,6 +352,7 @@ function markSlotLoading(slotId: number, loading: boolean) {
 }
 
 async function assignFriendToActiveSlot(friendId: number) {
+    if (friendId === activeSlot.value.friendId) return;
     const slotId = activeSlot.value.slotId;
     markSlotLoading(slotId, true);
     const detail = await ensureFriendDetail(friendId);
@@ -340,12 +363,19 @@ async function assignFriendToActiveSlot(friendId: number) {
     slotDraft.value = { ...draft, moveIds: getRecommendedMoveIds(draft, detail) };
 }
 
+function removeSlotToDraft(slotId: number) {
+    activeSlotId.value = slotId;
+    slotDraft.value = createEmptySlot(slotId);
+    mobileEditorOpen.value = true;
+    feedbackMessage.value = "移除操作尚未保存，可保存构筑或放弃更改。";
+}
+
 function clearSlot(slotId: number) {
-    patchSlot(slotId, () => createEmptySlot(slotId));
-    if (activeSlotId.value === slotId) {
-        resetSlotDraft();
-        mobileEditorOpen.value = false;
+    if (slotId !== activeSlotId.value && isSlotDraftDirty.value) {
+        requestDraftDecision({ kind: "remove", slotId });
+        return;
     }
+    removeSlotToDraft(slotId);
 }
 
 function updateSlotPersonality(value: string) { patchSlotDraft((slot) => ({ ...slot, personalityId: value === "none" ? null : toNullableId(value) })); }
@@ -402,14 +432,18 @@ function setMove(index: number, moveId: number) {
 function removeMove(index: number) { patchSlotDraft((slot) => ({ ...slot, moveIds: slot.moveIds.filter((_, i) => i !== index) })); }
 function applyRecommendedMoves() { patchSlotDraft((slot) => ({ ...slot, moveIds: getRecommendedMoveIds(slot) })); }
 
-function saveSlotDraft() {
-    if (!slotDraft.value) return;
+function commitSlotDraft(closeMobile = true) {
+    if (!slotDraft.value) return false;
     const saved = cloneSlot(slotDraft.value);
     patchSlot(saved.slotId, () => saved);
     slotDraft.value = cloneSlot(saved);
+    saveCurrentTeamToStorage();
     feedbackMessage.value = `槽位 ${saved.slotId} 已保存。`;
-    mobileEditorOpen.value = false;
+    if (closeMobile) mobileEditorOpen.value = false;
+    return true;
 }
+
+function saveSlotDraft() { commitSlotDraft(); }
 
 function discardSlotDraft() {
     resetSlotDraft();
@@ -417,21 +451,64 @@ function discardSlotDraft() {
 }
 
 function closeMobileEditor() {
-    if (isSlotDraftDirty.value && typeof window !== "undefined" && !window.confirm("放弃尚未保存的更改？")) return;
+    if (isSlotDraftDirty.value) {
+        requestDraftDecision({ kind: "close" });
+        return;
+    }
     resetSlotDraft();
     mobileEditorOpen.value = false;
 }
 
-function startSlotDrag(slotId: number) { draggedSlotId.value = slotId; }
+function finishPendingDraftAction(action: PendingDraftAction) {
+    if (action.kind === "close") {
+        mobileEditorOpen.value = false;
+        return;
+    }
+    if (action.kind === "remove") {
+        removeSlotToDraft(action.slotId);
+        return;
+    }
+    openSlot(action.slotId);
+}
+
+function resolveDraftDecision(save: boolean) {
+    const action = pendingDraftAction.value;
+    if (!action) return;
+    if (save) commitSlotDraft(false);
+    else discardSlotDraft();
+    draftDecisionOpen.value = false;
+    pendingDraftAction.value = null;
+    finishPendingDraftAction(action);
+}
+
+function cancelDraftDecision() {
+    draftDecisionOpen.value = false;
+    pendingDraftAction.value = null;
+}
+
+function updateDraftDecisionOpen(open: boolean) {
+    draftDecisionOpen.value = open;
+    if (!open) pendingDraftAction.value = null;
+}
+
+function startSlotDrag(slotId: number) {
+    if (isSlotDraftDirty.value) {
+        feedbackMessage.value = "请先保存或放弃当前槽位的更改，再调整顺序。";
+        return;
+    }
+    draggedSlotId.value = slotId;
+}
 function clearDragState() { draggedSlotId.value = null; dragOverSlotId.value = null; }
 function handleSlotDrop(targetSlotId: number) {
+    if (isSlotDraftDirty.value) { clearDragState(); return; }
     const sourceSlotId = draggedSlotId.value;
     if (sourceSlotId === null || sourceSlotId === targetSlotId) { clearDragState(); return; }
     const source = teamState.value.slots.find((slot) => slot.slotId === sourceSlotId);
     const target = teamState.value.slots.find((slot) => slot.slotId === targetSlotId);
     if (!source || !target) return;
     teamState.value = { ...teamState.value, slots: teamState.value.slots.map((slot) => slot.slotId === sourceSlotId ? { ...target, slotId: sourceSlotId } : slot.slotId === targetSlotId ? { ...source, slotId: targetSlotId } : slot) };
-    activeSlotId.value = targetSlotId;
+    if (activeSlotId.value === sourceSlotId) activeSlotId.value = targetSlotId;
+    else if (activeSlotId.value === targetSlotId) activeSlotId.value = sourceSlotId;
     resetSlotDraft();
     clearDragState();
 }
@@ -480,6 +557,20 @@ function decodeTeamState(payload: string) { try { const binary = atob(payload); 
         </div>
 
         <TeamPetEditor :data="activeEditorData" :friends="implementedFriends" :personalities="personalities" :type-options="typeOptions" :usage-map="selectedFriendUsageMap" :mobile-open="mobileEditorOpen" :loading="loadingSlotIds.includes(activeSlotId)" :dirty="isSlotDraftDirty" @close="closeMobileEditor" @save="saveSlotDraft" @discard="discardSlotDraft" @assign-friend="assignFriendToActiveSlot" @update-personality="updateSlotPersonality" @update-legacy="updateSlotLegacy" @update-individual="updateSlotIndividual" @apply-preset="applyBuildPreset" @set-move="setMove" @remove-move="removeMove" @recommend-moves="applyRecommendedMoves" />
+
+        <Dialog :open="draftDecisionOpen" @update:open="updateDraftDecisionOpen">
+            <DialogContent class="max-w-[calc(100%-2rem)] sm:max-w-md">
+                <DialogHeader>
+                    <DialogTitle>当前构筑尚未保存</DialogTitle>
+                    <DialogDescription>保存或放弃当前槽位的更改后再继续。</DialogDescription>
+                </DialogHeader>
+                <DialogFooter class="flex-col-reverse gap-2 sm:flex-row sm:justify-end">
+                    <Button variant="ghost" @click="cancelDraftDecision">取消</Button>
+                    <Button variant="outline" @click="resolveDraftDecision(false)">{{ pendingDraftAction?.kind === "close" ? "放弃并返回" : "放弃并切换" }}</Button>
+                    <Button @click="resolveDraftDecision(true)">{{ pendingDraftAction?.kind === "close" ? "保存并返回" : "保存并切换" }}</Button>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
 
         <Dialog v-model:open="shareDialogOpen">
             <DialogContent class="sm:max-w-xl">

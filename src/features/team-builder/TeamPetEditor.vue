@@ -112,13 +112,18 @@ const filteredMoveGroups = computed(() => {
 const isMoveFull = computed(() => props.data.slot.moveIds.length >= 4);
 
 watch(
-    () => [props.data.slot.slotId, props.data.friend?.id ?? null] as const,
+    [
+        () => props.data.slot.slotId,
+        () => props.data.friend?.id ?? null,
+    ],
     () => {
         showPicker.value = !props.data.friend;
-        activeTab.value = props.data.friend ? "base" : "base";
+        activeTab.value = "base";
         replacementIndex.value = null;
         friendQuery.value = "";
+        friendType.value = "all";
         moveQuery.value = "";
+        moveSource.value = "all";
     },
     { immediate: true },
 );
@@ -131,6 +136,7 @@ watch(
 );
 
 function chooseFriend(friendId: number) {
+    if (friendId === props.data.friend?.id) return;
     emit("assignFriend", friendId);
     showPicker.value = false;
 }
@@ -231,6 +237,7 @@ function moveDisabled(moveId: number) {
                                 v-for="friend in visibleFriends"
                                 :key="friend.id"
                                 type="button"
+                                :disabled="friend.id === data.friend?.id"
                                 :class="['team-picker__item', friend.id === data.friend?.id && 'team-picker__item--current']"
                                 @click="chooseFriend(friend.id)"
                             >
@@ -243,7 +250,8 @@ function moveDisabled(moveId: number) {
                                         {{ formatPetHandbookNo(friend) }}
                                     </span>
                                 </span>
-                                <span v-if="usageMap.get(friend.id)?.length" class="text-[11px] text-muted-foreground">
+                                <span v-if="friend.id === data.friend?.id" class="text-[11px] text-primary">当前</span>
+                                <span v-else-if="usageMap.get(friend.id)?.length" class="text-[11px] text-muted-foreground">
                                     槽 {{ usageMap.get(friend.id)?.join('、') }}
                                 </span>
                                 <Check v-if="friend.id === data.friend?.id" class="h-4 w-4 text-primary" />
@@ -282,7 +290,6 @@ function moveDisabled(moveId: number) {
                             <Select :model-value="data.slot.legacyTypeId ? String(data.slot.legacyTypeId) : 'none'" @update:model-value="(value) => emit('updateLegacy', String(value))">
                                 <SelectTrigger class="h-10 rounded-lg border-border bg-card"><SelectValue placeholder="选择血脉" /></SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value="none">未设置</SelectItem>
                                     <SelectItem v-for="item in data.legacyOptions" :key="item.id" :value="String(item.id)">{{ item.label }}</SelectItem>
                                 </SelectContent>
                             </Select>
@@ -563,6 +570,10 @@ function moveDisabled(moveId: number) {
 
 .team-picker__item:active {
     transform: scale(0.985);
+}
+
+.team-picker__item:disabled {
+    cursor: default;
 }
 
 .team-change-pet,
