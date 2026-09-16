@@ -19,7 +19,11 @@ type PersonalityModKey = "hp_mod_pct" | "phy_atk_mod_pct" | "mag_atk_mod_pct" | 
 type PendingDraftAction =
     | { kind: "slot"; slotId: number }
     | { kind: "remove"; slotId: number }
-    | { kind: "close" };
+    | { kind: "close" }
+    | { kind: "team"; teamId: string }
+    | { kind: "create" }
+    | { kind: "import"; payload: TeamImageImportPayload }
+    | { kind: "duplicate" };
 
 const TEAM_SLOT_COUNT = 6;
 const MAX_TEAM_COUNT = 10;
@@ -87,7 +91,7 @@ const typeOptions = computed(() => {
 
 const committedActiveSlot = computed<TeamSlot>(() => teamState.value.slots.find((slot) => slot.slotId === activeSlotId.value) ?? teamState.value.slots[0] ?? createEmptySlot(1));
 const activeSlot = computed<TeamSlot>(() => slotDraft.value?.slotId === activeSlotId.value ? slotDraft.value : committedActiveSlot.value);
-const isSlotDraftDirty = computed(() => JSON.stringify(slotDraft.value) !== JSON.stringify(committedActiveSlot.value));
+const isSlotDraftDirty = computed(() => slotDraft.value !== null && JSON.stringify(slotDraft.value) !== JSON.stringify(committedActiveSlot.value));
 const activeFriend = computed(() => activeSlot.value.friendId ? friendMap.value.get(activeSlot.value.friendId) ?? null : null);
 const activeDetail = computed(() => activeSlot.value.friendId ? friendDetails.value[activeSlot.value.friendId] ?? null : null);
 const teamEntries = computed<TeamEntry[]>(() => teamState.value.slots.map((slot) => {
@@ -105,7 +109,14 @@ const activeSelectedMoves = computed(() => getSelectedMoves(activeSlot.value));
 const activePersonality = computed(() => activeSlot.value.personalityId ? personalityMap.value.get(activeSlot.value.personalityId) ?? null : null);
 const activeBattleStats = computed(() => activeFriend.value ? calculateBattleStats(activeFriend.value, activeSlot.value.individualValues, personalityToNature(activePersonality.value)) : null);
 const activeEditorData = computed<TeamEditorData>(() => ({ friend: activeFriend.value, detail: activeDetail.value, slot: activeSlot.value, personality: activePersonality.value, battleStats: activeBattleStats.value, selectedMoves: activeSelectedMoves.value, moveGroups: activeMoveGroups.value, legacyOptions: activeLegacyOptions.value }));
-const shareLink = computed(() => currentPageUrl.value ? `${currentPageUrl.value}?team=${encodeTeamState(teamState.value)}` : "");
+const shareLink = computed(() => {
+    if (!currentPageUrl.value) return "";
+    const draft = slotDraft.value;
+    const state = isSlotDraftDirty.value && draft
+        ? { ...teamState.value, slots: teamState.value.slots.map((slot) => slot.slotId === draft.slotId ? draft : slot) }
+        : teamState.value;
+    return `${currentPageUrl.value}?team=${encodeTeamState(state)}`;
+});
 
 watch(teamState, (state) => {
     if (isHydrated.value && !isSwitchingTeam.value && typeof window !== "undefined") saveCurrentTeamToStorage(state);
@@ -113,8 +124,17 @@ watch(teamState, (state) => {
 
 onMounted(async () => {
     currentPageUrl.value = `${window.location.origin}${route.path}`;
+    window.addEventListener("beforeunload", confirmBeforeUnload);
     await loadBootstrapData();
 });
+
+onUnmounted(() => window.removeEventListener("beforeunload", confirmBeforeUnload));
+
+function confirmBeforeUnload(event: BeforeUnloadEvent) {
+    if (!isSlotDraftDirty.value) return;
+    event.preventDefault();
+    event.returnValue = "";
+}
 
 function createDefaultTeamState(): TeamState {
     return { name: DEFAULT_TEAM_NAME, magicItemId: null, slots: Array.from({ length: TEAM_SLOT_COUNT }, (_, index) => createEmptySlot(index + 1)) };
@@ -468,7 +488,11 @@ function finishPendingDraftAction(action: PendingDraftAction) {
         removeSlotToDraft(action.slotId);
         return;
     }
-    openSlot(action.slotId);
+    if (action.kind === "slot") { openSlot(action.slotId); return; }
+    if (action.kind === "team") { void switchStoredTeam(action.teamId); return; }
+    if (action.kind === "create") { void createNewStoredTeam(); return; }
+    if (action.kind === "import") { void importStoredTeamFromImage(action.payload); return; }
+    void duplicateCurrentStoredTeam();
 }
 
 function resolveDraftDecision(save: boolean) {
@@ -520,11 +544,11 @@ async function applyActiveStoredTeam() {
     try { teamStorageState.value = getTeamStorageState(); teamState.value = await hydrateTeamState(getActiveTeam()); activeSlotId.value = 1; resetSlotDraft(); mobileEditorOpen.value = false; }
     finally { isHydrated.value = true; isSwitchingTeam.value = false; }
 }
-async function switchStoredTeam(teamId: string) { if (!teamId || teamId === activeStoredTeamId.value) return; saveCurrentTeamToStorage(); teamStorageState.value = setStoredActiveTeamId(teamId); await applyActiveStoredTeam(); }
-async function createNewStoredTeam() { if (storedTeams.value.length >= MAX_TEAM_COUNT) return; saveCurrentTeamToStorage(); createStoredTeam(`新队伍 ${storedTeams.value.length + 1}`); await applyActiveStoredTeam(); feedbackMessage.value = "已创建新队伍。"; }
-async function importStoredTeamFromImage(payload: TeamImageImportPayload) { if (storedTeams.value.length >= MAX_TEAM_COUNT) return; saveCurrentTeamToStorage(); createStoredTeam(payload.name); teamStorageState.value = updateActiveTeamState({ name: payload.name, magicItemId: null, slots: payload.slots }); await applyActiveStoredTeam(); feedbackMessage.value = `已从图片创建「${payload.name}」。`; }
+async function switchStoredTeam(teamId: string) { if (!teamId || teamId === activeStoredTeamId.value) return; if (isSlotDraftDirty.value) { requestDraftDecision({ kind: "team", teamId }); return; } saveCurrentTeamToStorage(); teamStorageState.value = setStoredActiveTeamId(teamId); await applyActiveStoredTeam(); }
+async function createNewStoredTeam() { if (storedTeams.value.length >= MAX_TEAM_COUNT) return; if (isSlotDraftDirty.value) { requestDraftDecision({ kind: "create" }); return; } saveCurrentTeamToStorage(); createStoredTeam(`新队伍 ${storedTeams.value.length + 1}`); await applyActiveStoredTeam(); feedbackMessage.value = "已创建新队伍。"; }
+async function importStoredTeamFromImage(payload: TeamImageImportPayload) { if (storedTeams.value.length >= MAX_TEAM_COUNT) return; if (isSlotDraftDirty.value) { requestDraftDecision({ kind: "import", payload }); return; } saveCurrentTeamToStorage(); createStoredTeam(payload.name); teamStorageState.value = updateActiveTeamState({ name: payload.name, magicItemId: null, slots: payload.slots }); await applyActiveStoredTeam(); feedbackMessage.value = `已从图片创建「${payload.name}」。`; }
 function renameCurrentStoredTeam() { if (!activeStoredTeam.value || typeof window === "undefined") return; const name = window.prompt("输入新的队伍名称", teamState.value.name)?.trim().slice(0, 32); if (!name) return; teamStorageState.value = renameStoredTeam(activeStoredTeam.value.id, name); teamState.value = { ...teamState.value, name }; }
-async function duplicateCurrentStoredTeam() { if (!activeStoredTeam.value || storedTeams.value.length >= MAX_TEAM_COUNT) return; saveCurrentTeamToStorage(); duplicateStoredTeam(activeStoredTeam.value.id); await applyActiveStoredTeam(); feedbackMessage.value = "队伍已复制。"; }
+async function duplicateCurrentStoredTeam() { if (!activeStoredTeam.value || storedTeams.value.length >= MAX_TEAM_COUNT) return; if (isSlotDraftDirty.value) { requestDraftDecision({ kind: "duplicate" }); return; } saveCurrentTeamToStorage(); duplicateStoredTeam(activeStoredTeam.value.id); await applyActiveStoredTeam(); feedbackMessage.value = "队伍已复制。"; }
 async function deleteCurrentStoredTeam() { if (!activeStoredTeam.value || !canDeleteStoredTeam.value || typeof window === "undefined" || !window.confirm(`删除「${activeStoredTeam.value.name}」？`)) return; teamStorageState.value = deleteStoredTeam(activeStoredTeam.value.id); await applyActiveStoredTeam(); }
 async function resetTeam() { if (typeof window !== "undefined" && filledSlotCount.value > 0 && !window.confirm("清空当前队伍的 6 个槽位和血脉魔法？")) return; teamState.value = { ...createDefaultTeamState(), name: activeStoredTeam.value?.name ?? DEFAULT_TEAM_NAME }; activeSlotId.value = 1; resetSlotDraft(); mobileEditorOpen.value = false; if (route.query.team) await router.replace({ path: route.path, query: {} }); saveCurrentTeamToStorage(); }
 function updateMagicItem(value: string) { teamState.value = { ...teamState.value, magicItemId: value === "none" ? null : toNullableId(value) }; }
@@ -566,8 +590,8 @@ function decodeTeamState(payload: string) { try { const binary = atob(payload); 
                 </DialogHeader>
                 <DialogFooter class="flex-col-reverse gap-2 sm:flex-row sm:justify-end">
                     <Button variant="ghost" @click="cancelDraftDecision">取消</Button>
-                    <Button variant="outline" @click="resolveDraftDecision(false)">{{ pendingDraftAction?.kind === "close" ? "放弃并返回" : "放弃并切换" }}</Button>
-                    <Button @click="resolveDraftDecision(true)">{{ pendingDraftAction?.kind === "close" ? "保存并返回" : "保存并切换" }}</Button>
+                    <Button variant="outline" @click="resolveDraftDecision(false)">{{ pendingDraftAction?.kind === "close" ? "放弃并返回" : pendingDraftAction?.kind === "remove" ? "放弃并移除" : pendingDraftAction?.kind === "slot" ? "放弃并切换" : "放弃当前构筑后继续" }}</Button>
+                    <Button @click="resolveDraftDecision(true)">{{ pendingDraftAction?.kind === "close" ? "保存并返回" : pendingDraftAction?.kind === "remove" ? "保存并移除" : pendingDraftAction?.kind === "slot" ? "保存并切换" : "保存当前构筑后继续" }}</Button>
                 </DialogFooter>
             </DialogContent>
         </Dialog>
