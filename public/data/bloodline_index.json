@@ -764,6 +764,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -956,6 +966,16 @@
                 "move_category": "Defense",
                 "energy_cost": 3,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -1148,6 +1168,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -1340,6 +1370,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -1927,6 +1967,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -2119,6 +2169,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -2887,6 +2947,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -3463,6 +3533,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -5405,6 +5485,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -6365,6 +6455,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -6557,6 +6657,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -6941,6 +7051,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -11006,6 +11126,16 @@
                 "move_category": "Magic Attack",
                 "energy_cost": 3,
                 "power": 30
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -11198,6 +11328,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -12348,6 +12488,16 @@
                 "move_id": 7190210,
                 "move_name": "念力膨胀",
                 "move_category": "Physical Attack",
+                "energy_cost": 2,
+                "power": 80
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
                 "energy_cost": 2,
                 "power": 80
             }
@@ -16382,6 +16532,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -18505,6 +18665,16 @@
                 "move_category": "Defense",
                 "energy_cost": 3,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -19655,6 +19825,16 @@
                 "move_id": 7190210,
                 "move_name": "念力膨胀",
                 "move_category": "Physical Attack",
+                "energy_cost": 2,
+                "power": 80
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
                 "energy_cost": 2,
                 "power": 80
             }
@@ -20809,6 +20989,16 @@
                 "move_category": "Magic Attack",
                 "energy_cost": 3,
                 "power": 30
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -21961,6 +22151,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -26602,6 +26802,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -27946,6 +28156,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -32982,6 +33202,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -42648,6 +42878,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -47108,6 +47348,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -47300,6 +47550,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -47492,6 +47752,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -50564,6 +50834,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -50756,6 +51036,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -50948,6 +51238,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -51332,6 +51632,16 @@
                 "move_category": "Defense",
                 "energy_cost": 3,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -54086,6 +54396,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -57822,6 +58142,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -60159,6 +60489,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -60543,6 +60883,16 @@
                 "move_category": "Magic Attack",
                 "energy_cost": 3,
                 "power": 30
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -66144,6 +66494,16 @@
                 "move_category": "Magic Attack",
                 "energy_cost": 3,
                 "power": 30
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -70308,6 +70668,16 @@
                 "move_category": "Defense",
                 "energy_cost": 3,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -70500,6 +70870,16 @@
                 "move_category": "Defense",
                 "energy_cost": 3,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -70692,6 +71072,16 @@
                 "move_category": "Defense",
                 "energy_cost": 3,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -70884,6 +71274,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -71076,6 +71476,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -71268,6 +71678,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -75876,6 +76296,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -77604,6 +78034,16 @@
                 "move_category": "Defense",
                 "energy_cost": 3,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -78564,6 +79004,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -78970,6 +79420,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -79546,6 +80006,16 @@
                 "move_category": "Magic Attack",
                 "energy_cost": 3,
                 "power": 30
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -87495,6 +87965,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -88093,6 +88573,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -88285,6 +88775,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -88477,6 +88977,16 @@
                 "move_category": "Defense",
                 "energy_cost": 3,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -88669,6 +89179,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -89053,6 +89573,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -89245,6 +89775,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -89437,6 +89977,16 @@
                 "move_category": "Defense",
                 "energy_cost": 3,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -89629,6 +90179,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -90642,6 +91202,16 @@
                 "move_id": 7190210,
                 "move_name": "念力膨胀",
                 "move_category": "Physical Attack",
+                "energy_cost": 2,
+                "power": 80
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
                 "energy_cost": 2,
                 "power": 80
             }
@@ -92789,6 +93359,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -93173,6 +93753,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -107208,6 +107798,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -113928,6 +114528,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -153442,6 +154052,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -154210,6 +154830,16 @@
                 "move_category": "Status",
                 "energy_cost": 4,
                 "power": null
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -168179,6 +168809,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },
@@ -168371,6 +169011,16 @@
                 "move_category": "Physical Attack",
                 "energy_cost": 1,
                 "power": 60
+            },
+            {
+                "type_id": 19,
+                "type_name": "Leader",
+                "type_label": "首领",
+                "move_id": 7700001,
+                "move_name": "愿力冲击",
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80
             }
         ]
     },

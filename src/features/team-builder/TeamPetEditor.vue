@@ -15,10 +15,13 @@ const props = defineProps<{
     usageMap: Map<number, number[]>;
     mobileOpen: boolean;
     loading: boolean;
+    dirty: boolean;
 }>();
 
 const emit = defineEmits<{
     close: [];
+    save: [];
+    discard: [];
     assignFriend: [friendId: number];
     updatePersonality: [value: string];
     updateLegacy: [value: string];
@@ -389,6 +392,11 @@ function moveDisabled(moveId: number) {
                 </TabsContent>
             </Tabs>
 
+            <div class="team-editor__actions">
+                <button type="button" class="team-editor__discard" :disabled="!dirty" @click="emit('discard')">放弃更改</button>
+                <Button type="button" size="sm" :disabled="!dirty" @click="emit('save')">保存构筑</Button>
+            </div>
+
             <div v-if="loading" class="team-editor__loading">正在载入精灵详情…</div>
         </aside>
     </div>
@@ -474,10 +482,30 @@ function moveDisabled(moveId: number) {
 }
 
 .team-editor__scroll {
-    height: calc(92dvh - 10rem);
+    height: calc(92dvh - 13.5rem);
     overflow-y: auto;
     overscroll-behavior: contain;
     padding: 1rem;
+}
+
+.team-editor__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.55rem;
+    border-top: 1px solid var(--border);
+    padding: 0.7rem 1rem;
+}
+
+.team-editor__discard {
+    border-radius: 0.45rem;
+    padding: 0.45rem 0.65rem;
+    color: var(--muted-foreground);
+    font-size: 0.78rem;
+}
+
+.team-editor__discard:disabled {
+    opacity: 0.4;
 }
 
 .team-picker,
@@ -775,7 +803,7 @@ function moveDisabled(moveId: number) {
     }
 
     .team-editor__scroll {
-        height: calc(100dvh - 9rem);
+        height: calc(100dvh - 12.5rem);
     }
 }
 

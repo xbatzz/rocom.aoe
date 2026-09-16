@@ -16,6 +16,7 @@ const petBasePath = path.join(
 );
 const pets = JSON.parse(await fs.readFile(petsPath, "utf8"));
 const petBaseTable = JSON.parse(await fs.readFile(petBasePath, "utf8"));
+const petBloodlineTable = JSON.parse(await fs.readFile(path.join(rootDir, "public/data/BinData/PET_BLOOD_CONF.json"), "utf8"));
 const handbookTable = JSON.parse(await fs.readFile(path.join(rootDir, "public/data/BinData/PET_HANDBOOK.json"), "utf8"));
 const handbookRows = Object.values(handbookTable.RocoDataRows);
 const handbookIds = new Set(handbookRows.map((row) => row.id));
@@ -36,6 +37,7 @@ for (const id of handbookIds) {
 assert.equal(getRealPetHandbookId({ id: 1, species_id: 0 }), null);
 assert.equal(getRealPetHandbookId({ id: 1, species_id: Math.max(...handbookIds) + 1 }), null);
 const petById = new Map(pets.map((pet) => [pet.id, pet]));
+const leaderBloodlineMoveId = petBloodlineTable.RocoDataRows?.["19"]?.blood_skill?.[0];
 
 function getTotalStats(pet) {
     return (
@@ -126,6 +128,19 @@ for (const id of [3745, 3777, 5025, 5026]) {
         true,
         `有效记录 ${id} 应保持已实装`,
     );
+}
+
+assert.ok(Number.isInteger(leaderBloodlineMoveId), "首领血脉必须配置稳定的血脉技能 ID");
+
+for (const pet of pets) {
+    const detail = JSON.parse(await fs.readFile(path.join(rootDir, `public/data/pets/${pet.id}.json`), "utf8"));
+    const leaderMove = detail.legacy_moves.find((entry) => entry.type_id === 19);
+
+    if (pet.leader_potential) {
+        assert.equal(leaderMove?.move_id, leaderBloodlineMoveId, `可首领进化精灵 ${pet.id} 必须提供首领血脉技能`);
+    } else {
+        assert.equal(leaderMove, undefined, `非首领进化精灵 ${pet.id} 不应提供首领血脉`);
+    }
 }
 
 console.log(

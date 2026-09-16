@@ -1202,6 +1202,33 @@
                 "power": null,
                 "description": "敌方获得4层星陨印记。"
             }
+        },
+        {
+            "monster_id": 3012,
+            "type_id": 19,
+            "move_id": 7700001,
+            "move": {
+                "id": 7700001,
+                "name": "愿力冲击",
+                "icon_id": "7700001",
+                "move_type": {
+                    "id": 1,
+                    "name": "Normal",
+                    "localized": {
+                        "zh": "普通"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "愿力冲击",
+                        "description": "造成伤害，伤害类型取决于精灵双攻更高的一项，应对状态：本次威力+150%。"
+                    }
+                },
+                "move_category": "Status",
+                "energy_cost": 2,
+                "power": 80,
+                "description": "造成伤害，伤害类型取决于精灵双攻更高的一项，应对状态：本次威力+150%。"
+            }
         }
     ],
     "evolution_tree": {

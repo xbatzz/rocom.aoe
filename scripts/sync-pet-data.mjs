@@ -25,6 +25,7 @@ const handbookTopicSkillNamesPath = path.join(
 );
 
 const UNKNOWN_TYPE_ID = 20;
+const LEADER_BLOODLINE_TYPE_ID = 19;
 const CANONICAL_PETBASE_ID_RANGE = {
     min: 3000,
     maxExclusive: 4000,
@@ -111,6 +112,7 @@ async function main() {
         evolutionTable,
         levelSkillTable,
         skillTable,
+        petBloodlineTable,
         classisTable,
         petEggTable,
         petRandomEggTable,
@@ -129,6 +131,7 @@ async function main() {
         readTable("PET_EVOLUTION_CONF.json"),
         readTable("LEVEL_SKILL_CONF.json"),
         readTable("SKILL_CONF.json"),
+        readTable("PET_BLOOD_CONF.json"),
         readTable("PET_CLASSIS_CONF.json"),
         readTable("PET_EGG_CONF.json"),
         readTable("PET_RANDOM_EGG_CONF.json"),
@@ -165,6 +168,10 @@ async function main() {
     );
     const levelSkillById = indexBy(getRows(levelSkillTable));
     const skillById = indexBy(getRows(skillTable));
+    const leaderBloodlineMoveId = normalizeArray(
+        indexBy(getRows(petBloodlineTable)).get(LEADER_BLOODLINE_TYPE_ID)
+            ?.blood_skill,
+    ).find((moveId) => Number.isFinite(moveId) && skillById.has(moveId));
     const classisByPetClassis = new Map(
         getRows(classisTable)
             .filter((row) => typeof row?.pet_classis === "number")
@@ -249,15 +256,6 @@ async function main() {
             isLeaderForm(context.petBase, context.portraitKey),
         ]),
     );
-    const groupHasLeaderForm = new Map(
-        Array.from(contextsByGroup.entries()).map(
-            ([groupKey, groupContexts]) => [
-                groupKey,
-                groupContexts.some((context) => leaderFlagById.get(context.id)),
-            ],
-        ),
-    );
-
     const details = contexts.map((context) => {
         const evolutionTree = buildEvolutionTree(
             context,
@@ -285,13 +283,25 @@ async function main() {
             skillById,
             typesById,
         );
+        const leaderForm = leaderFlagById.get(context.id) ?? false;
+        const leaderPotential =
+            !leaderForm &&
+            evolutionTree.stages.some(
+                (stage) =>
+                    stage.is_leader_stage &&
+                    stage.monsters.some((monster) => monster.is_leader_form),
+            );
         const legacyMoves = buildLegacyMoves(
             context,
             levelSkillById.get(context.petBase.level_skill_conf_id),
             skillById,
             typesById,
+            leaderPotential && Number.isFinite(leaderBloodlineMoveId)
+                ? new Map([
+                      [LEADER_BLOODLINE_TYPE_ID, leaderBloodlineMoveId],
+                  ])
+                : new Map(),
         );
-        const leaderForm = leaderFlagById.get(context.id) ?? false;
         const breeding = buildBreedingInfo(
             context,
             petEggRows,
@@ -312,9 +322,7 @@ async function main() {
             main_type: context.typePair.mainType,
             sub_type: context.typePair.subType,
             default_legacy_type: context.typePair.mainType,
-            leader_potential:
-                !leaderForm &&
-                (groupHasLeaderForm.get(context.groupKey) ?? false),
+            leader_potential: leaderPotential,
             is_leader_form: leaderForm,
             preferred_attack_style: resolveAttackStyle(context.petBase),
             localized: {
@@ -1134,7 +1142,13 @@ function buildMoveStones(levelSkillRow, skillById, typesById) {
     return moves;
 }
 
-function buildLegacyMoves(context, levelSkillRow, skillById, typesById) {
+function buildLegacyMoves(
+    context,
+    levelSkillRow,
+    skillById,
+    typesById,
+    additionalMoves = new Map(),
+) {
     const entries = [];
 
     for (const [fieldName, typeId] of LEGACY_SKILL_TYPE_FIELDS) {
@@ -1152,10 +1166,25 @@ function buildLegacyMoves(context, levelSkillRow, skillById, typesById) {
         });
     }
 
+    for (const [typeId, moveId] of additionalMoves.entries()) {
+        const skill = skillById.get(moveId);
+
+        if (!skill || entries.some((entry) => entry.type_id === typeId)) {
+            continue;
+        }
+
+        entries.push({
+            monster_id: context.id,
+            type_id: typeId,
+            move_id: moveId,
+            move: buildMove(skill, typesById, moveId) ?? null,
+        });
+    }
+
     const overrides = PET_LEGACY_MOVE_OVERRIDES.get(context.id);
 
     if (!overrides) {
-        return entries;
+        return entries.sort((left, right) => left.type_id - right.type_id);
     }
 
     const entryByTypeId = new Map(

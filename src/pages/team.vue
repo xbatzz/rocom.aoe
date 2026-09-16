@@ -5,6 +5,7 @@ import type { TeamImageImportPayload } from "@/features/team-image-import/types"
 import TeamToolbar from "@/features/team-builder/TeamToolbar.vue";
 import TeamSlotCard from "@/features/team-builder/TeamSlotCard.vue";
 import TeamPetEditor from "@/features/team-builder/TeamPetEditor.vue";
+import { LEADER_BLOODLINE_TYPE_ID, hasLeaderBloodlineData, isLeaderBloodline, isTeamSelectablePet } from "@/features/team-builder/leaderBloodline";
 import type { TeamEditorData, TeamEntry, TeamLegacyOption, TeamMagicItem, TeamMoveGroup, TeamMoveOption, TeamSlot, TeamState } from "@/features/team-builder/types";
 import type { IMonsterTypeDetail, IPersonality, IPets, IPetsDetail, IPetsMove } from "@/lib/interface";
 import { isPetImplemented } from "@/lib/petImplementation";
@@ -30,6 +31,7 @@ const typeDetails = ref<IMonsterTypeDetail[]>([]);
 const friendDetails = ref<Record<number, IPetsDetail>>({});
 const moveMap = ref<Record<number, IPetsMove>>({});
 const teamState = ref<TeamState>(createDefaultTeamState());
+const slotDraft = ref<TeamSlot | null>(null);
 const teamStorageState = ref<TeamStorageState | null>(null);
 const activeSlotId = ref(1);
 const mobileEditorOpen = ref(false);
@@ -54,7 +56,7 @@ const friendMap = computed(() => new Map(friends.value.map((friend) => [friend.i
 const personalityMap = computed(() => new Map(personalities.value.map((item) => [item.id, item])));
 const magicItemMap = computed(() => new Map(magicItems.value.map((item) => [item.id, item])));
 const typeMap = computed(() => new Map(typeDetails.value.map((item) => [item.id, item])));
-const implementedFriends = computed(() => friends.value.filter((friend) => isPetImplemented(friend) && isPetPubliclyVisible(friend)));
+const implementedFriends = computed(() => friends.value.filter((friend) => isPetImplemented(friend) && isPetPubliclyVisible(friend) && isTeamSelectablePet(friend)));
 const storedTeams = computed(() => teamStorageState.value?.teams ?? []);
 const activeStoredTeamId = computed(() => teamStorageState.value?.activeTeamId ?? "");
 const activeStoredTeam = computed(() => storedTeams.value.find((team) => team.id === activeStoredTeamId.value) ?? storedTeams.value[0] ?? null);
@@ -77,7 +79,9 @@ const typeOptions = computed(() => {
     return Array.from(types.entries()).sort((a, b) => a[0] - b[0]).map(([value, label]) => ({ value: String(value), label }));
 });
 
-const activeSlot = computed<TeamSlot>(() => teamState.value.slots.find((slot) => slot.slotId === activeSlotId.value) ?? teamState.value.slots[0] ?? createEmptySlot(1));
+const committedActiveSlot = computed<TeamSlot>(() => teamState.value.slots.find((slot) => slot.slotId === activeSlotId.value) ?? teamState.value.slots[0] ?? createEmptySlot(1));
+const activeSlot = computed<TeamSlot>(() => slotDraft.value?.slotId === activeSlotId.value ? slotDraft.value : committedActiveSlot.value);
+const isSlotDraftDirty = computed(() => JSON.stringify(slotDraft.value) !== JSON.stringify(committedActiveSlot.value));
 const activeFriend = computed(() => activeSlot.value.friendId ? friendMap.value.get(activeSlot.value.friendId) ?? null : null);
 const activeDetail = computed(() => activeSlot.value.friendId ? friendDetails.value[activeSlot.value.friendId] ?? null : null);
 const teamEntries = computed<TeamEntry[]>(() => teamState.value.slots.map((slot) => {
@@ -92,8 +96,9 @@ const selectedMagicItem = computed(() => teamState.value.magicItemId ? magicItem
 const activeMoveGroups = computed(() => buildMoveGroups(activeSlot.value, activeDetail.value));
 const activeLegacyOptions = computed(() => getLegacyTypeOptions(activeSlot.value, activeDetail.value));
 const activeSelectedMoves = computed(() => getSelectedMoves(activeSlot.value));
-const activeEntry = computed(() => getSlotEntry(activeSlot.value));
-const activeEditorData = computed<TeamEditorData>(() => ({ friend: activeFriend.value, detail: activeDetail.value, slot: activeSlot.value, personality: activeEntry.value?.personality ?? null, battleStats: activeEntry.value?.battleStats ?? null, selectedMoves: activeSelectedMoves.value, moveGroups: activeMoveGroups.value, legacyOptions: activeLegacyOptions.value }));
+const activePersonality = computed(() => activeSlot.value.personalityId ? personalityMap.value.get(activeSlot.value.personalityId) ?? null : null);
+const activeBattleStats = computed(() => activeFriend.value ? calculateBattleStats(activeFriend.value, activeSlot.value.individualValues, personalityToNature(activePersonality.value)) : null);
+const activeEditorData = computed<TeamEditorData>(() => ({ friend: activeFriend.value, detail: activeDetail.value, slot: activeSlot.value, personality: activePersonality.value, battleStats: activeBattleStats.value, selectedMoves: activeSelectedMoves.value, moveGroups: activeMoveGroups.value, legacyOptions: activeLegacyOptions.value }));
 const shareLink = computed(() => currentPageUrl.value ? `${currentPageUrl.value}?team=${encodeTeamState(teamState.value)}` : "");
 
 watch(teamState, (state) => {
@@ -111,6 +116,14 @@ function createDefaultTeamState(): TeamState {
 
 function createEmptySlot(slotId: number): TeamSlot {
     return { slotId, friendId: null, personalityId: null, legacyTypeId: null, individualValues: { ...EMPTY_INDIVIDUAL_VALUES }, moveIds: [], roles: [] };
+}
+
+function cloneSlot(slot: TeamSlot): TeamSlot {
+    return { ...slot, individualValues: { ...slot.individualValues }, moveIds: [...slot.moveIds], roles: [...slot.roles] };
+}
+
+function resetSlotDraft() {
+    slotDraft.value = cloneSlot(committedActiveSlot.value);
 }
 
 function serializeTeamState(state: TeamState) {
@@ -155,6 +168,7 @@ async function loadBootstrapData() {
         moveMap.value = Object.fromEntries(moveData.map((move) => [move.id, move]));
         teamStorageState.value = getTeamStorageState();
         teamState.value = await resolveInitialTeamState();
+        resetSlotDraft();
         isHydrated.value = true;
         saveCurrentTeamToStorage();
     } catch (error) {
@@ -178,10 +192,10 @@ async function hydrateTeamState(input: unknown) {
     const normalized = normalizeTeamState(input);
     const friendIds = normalized.slots.map((slot) => slot.friendId).filter((id): id is number => id !== null);
     await Promise.all(friendIds.map(ensureFriendDetail));
-    return { ...normalized, magicItemId: magicItemMap.value.has(normalized.magicItemId ?? -1) ? normalized.magicItemId : null, slots: normalized.slots.map(finalizeSlot) } satisfies TeamState;
+    return { ...normalized, magicItemId: magicItemMap.value.has(normalized.magicItemId ?? -1) ? normalized.magicItemId : null, slots: normalized.slots.map((slot) => finalizeSlot(slot)) } satisfies TeamState;
 }
 
-function finalizeSlot(slot: TeamSlot): TeamSlot {
+function finalizeSlot(slot: TeamSlot, fillRecommendedWhenEmpty = true): TeamSlot {
     if (!slot.friendId) return createEmptySlot(slot.slotId);
     const friend = friendMap.value.get(slot.friendId);
     const detail = friendDetails.value[slot.friendId];
@@ -191,7 +205,7 @@ function finalizeSlot(slot: TeamSlot): TeamSlot {
     const candidate = { ...slot, personalityId, legacyTypeId };
     const validIds = new Set(getMoveOptions(candidate, detail).map((option) => option.move.id));
     const moveIds = slot.moveIds.filter((id, index, list) => validIds.has(id) && list.indexOf(id) === index).slice(0, MAX_MOVES_PER_SLOT);
-    return { ...candidate, moveIds: moveIds.length ? moveIds : getRecommendedMoveIds(candidate, detail) };
+    return { ...candidate, moveIds: moveIds.length || !fillRecommendedWhenEmpty ? moveIds : getRecommendedMoveIds(candidate, detail) };
 }
 
 async function ensureFriendDetail(friendId: number) {
@@ -240,6 +254,7 @@ function getLegacyTypeOptions(slot: TeamSlot, detail: IPetsDetail | null): TeamL
     const friend = friendMap.value.get(slot.friendId);
     if (!friend) return [];
     const ids = new Set([friend.default_legacy_type.id, ...detail.legacy_moves.map((item) => item.type_id)]);
+    if (!hasLeaderBloodlineData(friend, detail)) ids.delete(LEADER_BLOODLINE_TYPE_ID);
     return Array.from(ids).map((id) => ({ id, label: typeMap.value.get(id)?.localized.zh ?? `血脉 ${id}` })).sort((a, b) => a.id - b.id);
 }
 
@@ -295,13 +310,19 @@ function getSlotPersonalityLabel(slot: TeamSlot) { return slot.personalityId ? p
 function getSlotBloodlineLabel(slot: TeamSlot) { return slot.legacyTypeId ? typeMap.value.get(slot.legacyTypeId)?.localized.zh ?? "未设" : "未设"; }
 
 function selectSlot(slotId: number) {
+    if (slotId !== activeSlotId.value && isSlotDraftDirty.value && typeof window !== "undefined" && !window.confirm("放弃当前槽位尚未保存的更改？")) return;
     activeSlotId.value = slotId;
+    resetSlotDraft();
     mobileEditorOpen.value = true;
     feedbackMessage.value = "";
 }
 
 function patchSlot(slotId: number, updater: (slot: TeamSlot) => TeamSlot) {
     teamState.value = { ...teamState.value, slots: teamState.value.slots.map((slot) => slot.slotId === slotId ? updater(slot) : slot) };
+}
+
+function patchSlotDraft(updater: (slot: TeamSlot) => TeamSlot) {
+    slotDraft.value = updater(cloneSlot(activeSlot.value));
 }
 
 function markSlotLoading(slotId: number, loading: boolean) {
@@ -316,18 +337,21 @@ async function assignFriendToActiveSlot(friendId: number) {
     markSlotLoading(slotId, false);
     if (!detail || !friend) { feedbackMessage.value = "精灵详情加载失败，请重试。"; return; }
     const draft: TeamSlot = { slotId, friendId, personalityId: getDefaultPersonalityId(friend), legacyTypeId: friend.default_legacy_type.id, individualValues: { ...EMPTY_INDIVIDUAL_VALUES }, moveIds: [], roles: [] };
-    patchSlot(slotId, () => ({ ...draft, moveIds: getRecommendedMoveIds(draft, detail) }));
+    slotDraft.value = { ...draft, moveIds: getRecommendedMoveIds(draft, detail) };
 }
 
 function clearSlot(slotId: number) {
     patchSlot(slotId, () => createEmptySlot(slotId));
-    if (activeSlotId.value === slotId) mobileEditorOpen.value = false;
+    if (activeSlotId.value === slotId) {
+        resetSlotDraft();
+        mobileEditorOpen.value = false;
+    }
 }
 
-function updateSlotPersonality(value: string) { patchSlot(activeSlot.value.slotId, (slot) => ({ ...slot, personalityId: value === "none" ? null : toNullableId(value) })); }
-function updateSlotLegacy(value: string) { patchSlot(activeSlot.value.slotId, (slot) => finalizeSlot({ ...slot, legacyTypeId: value === "none" ? null : toNullableId(value) })); }
+function updateSlotPersonality(value: string) { patchSlotDraft((slot) => ({ ...slot, personalityId: value === "none" ? null : toNullableId(value) })); }
+function updateSlotLegacy(value: string) { patchSlotDraft((slot) => finalizeSlot({ ...slot, legacyTypeId: value === "none" ? null : toNullableId(value) }, false)); }
 function updateSlotIndividual(key: BattleStatKey, value: number) {
-    patchSlot(activeSlot.value.slotId, (slot) => {
+    patchSlotDraft((slot) => {
         const individualValues = { ...slot.individualValues, [key]: normalizeIndividualValue(value) };
         const validation = validateIndividualValues(individualValues);
         if (!validation.valid) { feedbackMessage.value = validation.message ?? "个体值配置无效。"; return slot; }
@@ -342,7 +366,7 @@ function applyBuildPreset(preset: BuildPresetKey) {
     const attackStat = getPreferredAttackStat(friend);
     const individualValues = createPresetIndividualValues(preset, attackStat);
     const personalityId = preset === "clearIndividual" ? activeSlot.value.personalityId : getPresetPersonalityId(preset, attackStat) ?? activeSlot.value.personalityId;
-    patchSlot(activeSlot.value.slotId, (slot) => ({ ...slot, personalityId, individualValues }));
+    patchSlotDraft((slot) => ({ ...slot, personalityId, individualValues }));
 }
 
 function createPresetIndividualValues(preset: BuildPresetKey, attackStat: PreferredAttackStat) {
@@ -366,7 +390,7 @@ function getPresetPersonalityId(preset: BuildPresetKey, attackStat: PreferredAtt
 }
 
 function setMove(index: number, moveId: number) {
-    patchSlot(activeSlot.value.slotId, (slot) => {
+    patchSlotDraft((slot) => {
         const moveIds = [...slot.moveIds];
         const duplicateIndex = moveIds.indexOf(moveId);
         if (duplicateIndex >= 0 && duplicateIndex !== index) return slot;
@@ -375,8 +399,28 @@ function setMove(index: number, moveId: number) {
         return { ...slot, moveIds };
     });
 }
-function removeMove(index: number) { patchSlot(activeSlot.value.slotId, (slot) => ({ ...slot, moveIds: slot.moveIds.filter((_, i) => i !== index) })); }
-function applyRecommendedMoves() { patchSlot(activeSlot.value.slotId, (slot) => ({ ...slot, moveIds: getRecommendedMoveIds(slot) })); }
+function removeMove(index: number) { patchSlotDraft((slot) => ({ ...slot, moveIds: slot.moveIds.filter((_, i) => i !== index) })); }
+function applyRecommendedMoves() { patchSlotDraft((slot) => ({ ...slot, moveIds: getRecommendedMoveIds(slot) })); }
+
+function saveSlotDraft() {
+    if (!slotDraft.value) return;
+    const saved = cloneSlot(slotDraft.value);
+    patchSlot(saved.slotId, () => saved);
+    slotDraft.value = cloneSlot(saved);
+    feedbackMessage.value = `槽位 ${saved.slotId} 已保存。`;
+    mobileEditorOpen.value = false;
+}
+
+function discardSlotDraft() {
+    resetSlotDraft();
+    feedbackMessage.value = "已放弃未保存的更改。";
+}
+
+function closeMobileEditor() {
+    if (isSlotDraftDirty.value && typeof window !== "undefined" && !window.confirm("放弃尚未保存的更改？")) return;
+    resetSlotDraft();
+    mobileEditorOpen.value = false;
+}
 
 function startSlotDrag(slotId: number) { draggedSlotId.value = slotId; }
 function clearDragState() { draggedSlotId.value = null; dragOverSlotId.value = null; }
@@ -388,6 +432,7 @@ function handleSlotDrop(targetSlotId: number) {
     if (!source || !target) return;
     teamState.value = { ...teamState.value, slots: teamState.value.slots.map((slot) => slot.slotId === sourceSlotId ? { ...target, slotId: sourceSlotId } : slot.slotId === targetSlotId ? { ...source, slotId: targetSlotId } : slot) };
     activeSlotId.value = targetSlotId;
+    resetSlotDraft();
     clearDragState();
 }
 
@@ -395,7 +440,7 @@ function saveCurrentTeamToStorage(state: TeamState = teamState.value) { teamStor
 async function applyActiveStoredTeam() {
     isSwitchingTeam.value = true;
     isHydrated.value = false;
-    try { teamStorageState.value = getTeamStorageState(); teamState.value = await hydrateTeamState(getActiveTeam()); activeSlotId.value = 1; mobileEditorOpen.value = false; }
+    try { teamStorageState.value = getTeamStorageState(); teamState.value = await hydrateTeamState(getActiveTeam()); activeSlotId.value = 1; resetSlotDraft(); mobileEditorOpen.value = false; }
     finally { isHydrated.value = true; isSwitchingTeam.value = false; }
 }
 async function switchStoredTeam(teamId: string) { if (!teamId || teamId === activeStoredTeamId.value) return; saveCurrentTeamToStorage(); teamStorageState.value = setStoredActiveTeamId(teamId); await applyActiveStoredTeam(); }
@@ -404,7 +449,7 @@ async function importStoredTeamFromImage(payload: TeamImageImportPayload) { if (
 function renameCurrentStoredTeam() { if (!activeStoredTeam.value || typeof window === "undefined") return; const name = window.prompt("输入新的队伍名称", teamState.value.name)?.trim().slice(0, 32); if (!name) return; teamStorageState.value = renameStoredTeam(activeStoredTeam.value.id, name); teamState.value = { ...teamState.value, name }; }
 async function duplicateCurrentStoredTeam() { if (!activeStoredTeam.value || storedTeams.value.length >= MAX_TEAM_COUNT) return; saveCurrentTeamToStorage(); duplicateStoredTeam(activeStoredTeam.value.id); await applyActiveStoredTeam(); feedbackMessage.value = "队伍已复制。"; }
 async function deleteCurrentStoredTeam() { if (!activeStoredTeam.value || !canDeleteStoredTeam.value || typeof window === "undefined" || !window.confirm(`删除「${activeStoredTeam.value.name}」？`)) return; teamStorageState.value = deleteStoredTeam(activeStoredTeam.value.id); await applyActiveStoredTeam(); }
-async function resetTeam() { if (typeof window !== "undefined" && filledSlotCount.value > 0 && !window.confirm("清空当前队伍的 6 个槽位和血脉魔法？")) return; teamState.value = { ...createDefaultTeamState(), name: activeStoredTeam.value?.name ?? DEFAULT_TEAM_NAME }; activeSlotId.value = 1; mobileEditorOpen.value = false; if (route.query.team) await router.replace({ path: route.path, query: {} }); saveCurrentTeamToStorage(); }
+async function resetTeam() { if (typeof window !== "undefined" && filledSlotCount.value > 0 && !window.confirm("清空当前队伍的 6 个槽位和血脉魔法？")) return; teamState.value = { ...createDefaultTeamState(), name: activeStoredTeam.value?.name ?? DEFAULT_TEAM_NAME }; activeSlotId.value = 1; resetSlotDraft(); mobileEditorOpen.value = false; if (route.query.team) await router.replace({ path: route.path, query: {} }); saveCurrentTeamToStorage(); }
 function updateMagicItem(value: string) { teamState.value = { ...teamState.value, magicItemId: value === "none" ? null : toNullableId(value) }; }
 async function copyShareLink() { if (!shareLink.value) return; await navigator.clipboard.writeText(shareLink.value); feedbackMessage.value = "分享链接已复制。"; }
 function encodeTeamState(state: TeamState) { const bytes = new TextEncoder().encode(JSON.stringify(serializeTeamState(state))); let binary = ""; for (const byte of bytes) binary += String.fromCharCode(byte); return btoa(binary); }
@@ -429,12 +474,12 @@ function decodeTeamState(payload: string) { try { const binary = atob(payload); 
             <div v-if="isLoading" class="team-loading">正在载入配队数据…</div>
             <div v-else class="team-grid">
                 <div v-for="slot in teamState.slots" :key="slot.slotId" :draggable="Boolean(slot.friendId)" @dragstart="startSlotDrag(slot.slotId)" @dragend="clearDragState" @dragenter.prevent="dragOverSlotId = slot.slotId" @dragover.prevent="dragOverSlotId = slot.slotId" @dragleave="dragOverSlotId === slot.slotId && (dragOverSlotId = null)" @drop.prevent="handleSlotDrop(slot.slotId)">
-                    <TeamSlotCard :slot="slot" :friend="getSlotFriend(slot)" :personality-label="getSlotPersonalityLabel(slot)" :bloodline-label="getSlotBloodlineLabel(slot)" :stats="getSlotEntry(slot)?.battleStats ?? null" :moves="getSelectedMoves(slot)" :active="activeSlotId === slot.slotId" :loading="loadingSlotIds.includes(slot.slotId)" :drag-target="dragOverSlotId === slot.slotId" @select="selectSlot(slot.slotId)" @clear="clearSlot(slot.slotId)" />
+                    <TeamSlotCard :slot="slot" :friend="getSlotFriend(slot)" :personality-label="getSlotPersonalityLabel(slot)" :bloodline-label="getSlotBloodlineLabel(slot)" :leader-bloodline="isLeaderBloodline(slot.legacyTypeId)" :stats="getSlotEntry(slot)?.battleStats ?? null" :moves="getSelectedMoves(slot)" :active="activeSlotId === slot.slotId" :loading="loadingSlotIds.includes(slot.slotId)" :drag-target="dragOverSlotId === slot.slotId" @select="selectSlot(slot.slotId)" @clear="clearSlot(slot.slotId)" />
                 </div>
             </div>
         </div>
 
-        <TeamPetEditor :data="activeEditorData" :friends="implementedFriends" :personalities="personalities" :type-options="typeOptions" :usage-map="selectedFriendUsageMap" :mobile-open="mobileEditorOpen" :loading="loadingSlotIds.includes(activeSlotId)" @close="mobileEditorOpen = false" @assign-friend="assignFriendToActiveSlot" @update-personality="updateSlotPersonality" @update-legacy="updateSlotLegacy" @update-individual="updateSlotIndividual" @apply-preset="applyBuildPreset" @set-move="setMove" @remove-move="removeMove" @recommend-moves="applyRecommendedMoves" />
+        <TeamPetEditor :data="activeEditorData" :friends="implementedFriends" :personalities="personalities" :type-options="typeOptions" :usage-map="selectedFriendUsageMap" :mobile-open="mobileEditorOpen" :loading="loadingSlotIds.includes(activeSlotId)" :dirty="isSlotDraftDirty" @close="closeMobileEditor" @save="saveSlotDraft" @discard="discardSlotDraft" @assign-friend="assignFriendToActiveSlot" @update-personality="updateSlotPersonality" @update-legacy="updateSlotLegacy" @update-individual="updateSlotIndividual" @apply-preset="applyBuildPreset" @set-move="setMove" @remove-move="removeMove" @recommend-moves="applyRecommendedMoves" />
 
         <Dialog v-model:open="shareDialogOpen">
             <DialogContent class="sm:max-w-xl">

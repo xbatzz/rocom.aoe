@@ -12,6 +12,7 @@ const props = defineProps<{
     friend: IPets | null;
     personalityLabel: string;
     bloodlineLabel: string;
+    leaderBloodline: boolean;
     stats: BattleStats | null;
     moves: IPetsMove[];
     active: boolean;
@@ -80,9 +81,9 @@ const activeIndividuals = computed(() =>
                                 {{ friend.localized.zh.name }}
                             </h2>
                             <img
-                                v-if="friend.is_leader_form"
+                                v-if="leaderBloodline"
                                 :src="leaderCrownUrl"
-                                alt="首领形态"
+                                alt="首领血脉"
                                 class="h-auto w-4 shrink-0"
                             />
                         </div>
