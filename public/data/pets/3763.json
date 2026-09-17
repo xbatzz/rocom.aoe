@@ -344,6 +344,28 @@
             "energy_cost": 3,
             "power": 80,
             "description": "造成物伤，应对状态：使敌方失去6能量。"
+        },
+        {
+            "id": 7190470,
+            "name": "月蚀",
+            "icon_id": "418039",
+            "move_type": {
+                "id": 18,
+                "name": "Illusion",
+                "localized": {
+                    "zh": "幻"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "月蚀",
+                    "description": "造成物伤，若敌方生命低于50%，本次技能能耗-3。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 5,
+            "power": 130,
+            "description": "造成物伤，若敌方生命低于50%，本次技能能耗-3。"
         }
     ],
     "move_stones": [

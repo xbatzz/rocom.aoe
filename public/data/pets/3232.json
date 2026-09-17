@@ -388,6 +388,28 @@
             "energy_cost": 3,
             "power": 65,
             "description": "造成魔伤，选择：驱散敌方所有增益或驱散双方1层印记。"
+        },
+        {
+            "id": 7160400,
+            "name": "做好事",
+            "icon_id": "301115",
+            "move_type": {
+                "id": 14,
+                "name": "Cute",
+                "localized": {
+                    "zh": "萌"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "做好事",
+                    "description": "造成魔伤，自己每使用过1次选择技能，自己获得3层随机永久属性增益，使用后重置。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 80,
+            "description": "造成魔伤，自己每使用过1次选择技能，自己获得3层随机永久属性增益，使用后重置。"
         }
     ],
     "move_stones": [

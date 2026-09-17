@@ -382,6 +382,28 @@
             "energy_cost": 5,
             "power": 70,
             "description": "造成物伤，迅捷，应对状态：本次技能威力变为1.5倍。"
+        },
+        {
+            "id": 7150320,
+            "name": "疾风连袭",
+            "icon_id": "314028",
+            "move_type": {
+                "id": 13,
+                "name": "Flying",
+                "localized": {
+                    "zh": "翼"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "疾风连袭",
+                    "description": "释放自己释放过的迅捷技能，其能耗之和的二分之一加至本技能能耗，每次使用后能耗+1。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 0,
+            "power": null,
+            "description": "释放自己释放过的迅捷技能，其能耗之和的二分之一加至本技能能耗，每次使用后能耗+1。"
         }
     ],
     "move_stones": [

@@ -1091,6 +1091,12 @@ function buildMovePool(levelSkillRow, skillById, typesById) {
                     normalizeStat(right.level_point) || left.param - right.param
             );
         });
+    if (
+        Number.isFinite(levelSkillRow?.legendary_skill) &&
+        levelSkillRow.legendary_skill > 0
+    ) {
+        entries.push({ param: levelSkillRow.legendary_skill });
+    }
     const seenSkillIds = new Set();
     const moves = [];
 

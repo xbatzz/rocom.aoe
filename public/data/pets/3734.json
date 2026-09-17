@@ -382,6 +382,28 @@
             "energy_cost": 1,
             "power": null,
             "description": "减伤50%，本技能位于1号位或3号位时，额外减伤40%，应对攻击，传动1。"
+        },
+        {
+            "id": 7070290,
+            "name": "过山车",
+            "icon_id": "306029",
+            "move_type": {
+                "id": 17,
+                "name": "Mechanical",
+                "localized": {
+                    "zh": "机械"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "过山车",
+                    "description": "使己方队伍中的所有精灵携带的技能跨精灵向下移动1个位置，巧变：机械系技能。"
+                }
+            },
+            "move_category": "Status",
+            "energy_cost": 8,
+            "power": null,
+            "description": "使己方队伍中的所有精灵携带的技能跨精灵向下移动1个位置，巧变：机械系技能。"
         }
     ],
     "move_stones": [

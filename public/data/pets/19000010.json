@@ -388,6 +388,28 @@
             "energy_cost": 4,
             "power": 20,
             "description": "造成魔伤，5连击。"
+        },
+        {
+            "id": 7170310,
+            "name": "吃独食",
+            "icon_id": "301116",
+            "move_type": {
+                "id": 15,
+                "name": "Ghost",
+                "localized": {
+                    "zh": "幽"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "吃独食",
+                    "description": "造成魔伤，自己每使用过1次选择技能，敌方获得3层随机永久属性减益，使用后重置。"
+                }
+            },
+            "move_category": "Magic Attack",
+            "energy_cost": 3,
+            "power": 80,
+            "description": "造成魔伤，自己每使用过1次选择技能，敌方获得3层随机永久属性减益，使用后重置。"
         }
     ],
     "move_stones": [
