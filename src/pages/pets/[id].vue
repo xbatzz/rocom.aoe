@@ -68,6 +68,7 @@ import {
     formatHandbookTopicRequirementSync,
 } from "@/lib/handbookProgress";
 import { formatPetHandbookNo } from "@/lib/petHandbook";
+import { getPetViewTransitionName } from "@/lib/petSharedTransition";
 
 use([RadarChart, RadarComponent, TooltipComponent, CanvasRenderer]);
 
@@ -1404,6 +1405,11 @@ async function getFriendDetail(idParam: string | string[]) {
                             :alt="friend.localized.zh.name"
                             class="mx-auto h-40 w-40 rounded-[10px] xl:aspect-square xl:h-auto xl:w-full"
                             img-class="object-contain p-4"
+                            :data-pet-shared-element="friend.id"
+                            :style="{
+                                viewTransitionName:
+                                    getPetViewTransitionName(friend.id),
+                            }"
                             eager
                         />
 

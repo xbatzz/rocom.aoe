@@ -289,7 +289,20 @@ const draftOpponentCustomProfile = ref<CustomBattleProfile>(createEmptyCustomPro
 const draftAllyMeteorBallKey = ref<MeteorBugCaptureBallKey>(DEFAULT_METEOR_BUG_CAPTURE_BALL);
 const draftOpponentMeteorBallKey = ref<MeteorBugCaptureBallKey>(DEFAULT_METEOR_BUG_CAPTURE_BALL);
 
-function openConfigEditor(side: "ally" | "opponent") {
+const CONFIG_EDITOR_MORPH_DURATION = 260;
+const CONFIG_EDITOR_MORPH_EASING = "cubic-bezier(0.77, 0, 0.175, 1)";
+let configEditorTriggerRect: DOMRect | null = null;
+let configEditorTriggerElement: HTMLElement | null = null;
+let configEditorTriggerRadius = "12px";
+let configEditorMorphAnimation: Animation | null = null;
+let configEditorContentAnimations: Animation[] = [];
+let configEditorClosing = false;
+
+function prefersReducedMotion() {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function openConfigEditor(side: "ally" | "opponent", event?: MouseEvent) {
     configEditorSide.value = side;
     draftAllyPreset.value = allyProfilePreset.value;
     draftOpponentPreset.value = opponentProfilePreset.value;
@@ -297,7 +310,232 @@ function openConfigEditor(side: "ally" | "opponent") {
     draftOpponentCustomProfile.value = cloneCustomProfile(opponentCustomProfile.value);
     draftAllyMeteorBallKey.value = allyMeteorBallKey.value;
     draftOpponentMeteorBallKey.value = opponentMeteorBallKey.value;
+    const trigger = event?.currentTarget;
+    configEditorTriggerElement =
+        trigger instanceof HTMLElement ? trigger : null;
+    configEditorTriggerRect =
+        configEditorTriggerElement?.getBoundingClientRect() ?? null;
+    configEditorTriggerRadius =
+        trigger instanceof HTMLElement
+            ? window.getComputedStyle(trigger).borderRadius
+            : "12px";
+    configEditorClosing = false;
+    configEditorMorphAnimation = null;
+    configEditorContentAnimations = [];
     configEditorOpen.value = true;
+    void playConfigEditorOpenMorph();
+}
+
+async function playConfigEditorOpenMorph() {
+    await nextTick();
+    await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+    if (!configEditorOpen.value) return;
+
+    const dialog = document.querySelector<HTMLElement>("[data-config-editor]");
+    const content = dialog?.querySelector<HTMLElement>(
+        ".config-editor-body",
+    );
+    const closeButton = dialog?.querySelector<HTMLElement>(
+        '[data-slot="dialog-close"]',
+    );
+    if (!dialog || !content) return;
+    if (typeof dialog.animate !== "function") return;
+
+    const contentElements = [content, closeButton].filter(
+        (element): element is HTMLElement => element !== null,
+    );
+
+    if (prefersReducedMotion() || !configEditorTriggerRect) {
+        configEditorContentAnimations = contentElements.map((element) =>
+            element.animate([{ opacity: 0 }, { opacity: 1 }], {
+                duration: 100,
+                easing: "cubic-bezier(0.23, 1, 0.32, 1)",
+                fill: "both",
+            }),
+        );
+        releaseCompletedOpenAnimations(null, configEditorContentAnimations);
+        return;
+    }
+
+    const targetRect = dialog.getBoundingClientRect();
+    const sourceRect = configEditorTriggerRect;
+    const sourceCenterX = sourceRect.left + sourceRect.width / 2;
+    const sourceCenterY = sourceRect.top + sourceRect.height / 2;
+    const targetCenterX = targetRect.left + targetRect.width / 2;
+    const targetCenterY = targetRect.top + targetRect.height / 2;
+    const translateX = sourceCenterX - targetCenterX;
+    const translateY = sourceCenterY - targetCenterY;
+    const scaleX = Math.max(0.08, sourceRect.width / targetRect.width);
+    const scaleY = Math.max(0.08, sourceRect.height / targetRect.height);
+    const computedStyle = window.getComputedStyle(dialog);
+    const baseTransform =
+        computedStyle.transform === "none"
+            ? "translate(0, 0)"
+            : computedStyle.transform;
+
+    configEditorMorphAnimation = dialog.animate(
+        [
+            {
+                transform: `${baseTransform} translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY})`,
+                borderRadius: configEditorTriggerRadius,
+                opacity: 0.82,
+            },
+            {
+                transform: baseTransform,
+                borderRadius: computedStyle.borderRadius,
+                opacity: 1,
+            },
+        ],
+        {
+            duration: CONFIG_EDITOR_MORPH_DURATION,
+            easing: CONFIG_EDITOR_MORPH_EASING,
+            fill: "both",
+        },
+    );
+    configEditorContentAnimations = contentElements.map((element) =>
+        element.animate(
+            [
+                { opacity: 0, offset: 0 },
+                { opacity: 0, offset: 0.32 },
+                { opacity: 1, offset: 1 },
+            ],
+            {
+                duration: CONFIG_EDITOR_MORPH_DURATION,
+                easing: "cubic-bezier(0.23, 1, 0.32, 1)",
+                fill: "both",
+            },
+        ),
+    );
+    releaseCompletedOpenAnimations(
+        configEditorMorphAnimation,
+        configEditorContentAnimations,
+    );
+}
+
+function releaseCompletedOpenAnimations(
+    morphAnimation: Animation | null,
+    contentAnimations: Animation[],
+) {
+    const animations = [morphAnimation, ...contentAnimations].filter(
+        (animation): animation is Animation => animation !== null,
+    );
+
+    void Promise.all(
+        animations.map((animation) =>
+            animation.finished.catch(() => undefined),
+        ),
+    ).then(() => {
+        if (
+            configEditorClosing ||
+            configEditorMorphAnimation !== morphAnimation ||
+            configEditorContentAnimations !== contentAnimations
+        ) {
+            return;
+        }
+
+        for (const animation of animations) animation.cancel();
+        configEditorMorphAnimation = null;
+        configEditorContentAnimations = [];
+    });
+}
+
+function createConfigEditorCloseAnimations() {
+    const dialog = document.querySelector<HTMLElement>("[data-config-editor]");
+    const sourceRect = configEditorTriggerElement?.getBoundingClientRect();
+    if (!dialog) return [];
+    if (typeof dialog.animate !== "function") return [];
+
+    const content = dialog.querySelector<HTMLElement>(".config-editor-body");
+    const closeButton = dialog.querySelector<HTMLElement>(
+        '[data-slot="dialog-close"]',
+    );
+    const contentElements = [content, closeButton].filter(
+        (element): element is HTMLElement => element !== null,
+    );
+    const duration = prefersReducedMotion() ? 100 : CONFIG_EDITOR_MORPH_DURATION;
+    const animations = contentElements.map((element) =>
+        element.animate([{ opacity: 1 }, { opacity: 0 }], {
+            duration,
+            easing: "cubic-bezier(0.23, 1, 0.32, 1)",
+            fill: "both",
+        }),
+    );
+
+    if (prefersReducedMotion() || !sourceRect) return animations;
+
+    const targetRect = dialog.getBoundingClientRect();
+    const targetCenterX = targetRect.left + targetRect.width / 2;
+    const targetCenterY = targetRect.top + targetRect.height / 2;
+    const translateX = sourceRect.left + sourceRect.width / 2 - targetCenterX;
+    const translateY = sourceRect.top + sourceRect.height / 2 - targetCenterY;
+    const scaleX = Math.max(0.08, sourceRect.width / targetRect.width);
+    const scaleY = Math.max(0.08, sourceRect.height / targetRect.height);
+    const computedStyle = window.getComputedStyle(dialog);
+    const baseTransform =
+        computedStyle.transform === "none"
+            ? "translate(0, 0)"
+            : computedStyle.transform;
+
+    animations.push(
+        dialog.animate(
+            [
+                {
+                    transform: baseTransform,
+                    borderRadius: computedStyle.borderRadius,
+                    opacity: 1,
+                },
+                {
+                    transform: `${baseTransform} translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY})`,
+                    borderRadius: configEditorTriggerRadius,
+                    opacity: 0.82,
+                },
+            ],
+            {
+                duration: CONFIG_EDITOR_MORPH_DURATION,
+                easing: CONFIG_EDITOR_MORPH_EASING,
+                fill: "both",
+            },
+        ),
+    );
+
+    return animations;
+}
+
+async function closeConfigEditor() {
+    if (!configEditorOpen.value || configEditorClosing) return;
+    configEditorClosing = true;
+
+    let animations = [
+        configEditorMorphAnimation,
+        ...configEditorContentAnimations,
+    ].filter((animation): animation is Animation => animation !== null);
+
+    if (animations.length) {
+        for (const animation of animations) animation.reverse();
+    } else {
+        animations = createConfigEditorCloseAnimations();
+    }
+
+    await Promise.all(
+        animations.map((animation) =>
+            animation.finished.catch(() => undefined),
+        ),
+    );
+
+    configEditorOpen.value = false;
+    configEditorClosing = false;
+    configEditorMorphAnimation = null;
+    configEditorContentAnimations = [];
+    configEditorTriggerElement = null;
+}
+
+function updateConfigEditorOpen(open: boolean) {
+    if (open) {
+        configEditorOpen.value = true;
+        return;
+    }
+
+    void closeConfigEditor();
 }
 
 function applyConfigEditor() {
@@ -310,7 +548,7 @@ function applyConfigEditor() {
     }
     if (configEditorSide.value === "ally") allyMeteorBallKey.value = draftAllyMeteorBallKey.value;
     else opponentMeteorBallKey.value = draftOpponentMeteorBallKey.value;
-    configEditorOpen.value = false;
+    void closeConfigEditor();
 }
 
 const configEditorProfile = computed(() =>
@@ -2948,7 +3186,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                                     <p class="mt-2 text-xs font-semibold text-slate-600">
                                         实战速度 {{ allyBattleSpeed }}
                                     </p>
-                                    <button type="button" class="mt-2 min-h-11 w-full rounded-xl bg-emerald-100 px-3 py-2 text-xs font-bold text-emerald-800 transition active:scale-[.98]" @click="openConfigEditor('ally')">
+                                    <button type="button" class="mt-2 min-h-11 w-full rounded-xl bg-emerald-100 px-3 py-2 text-xs font-bold text-emerald-800 transition active:scale-[.98]" @click="openConfigEditor('ally', $event)">
                                         修改配置
                                     </button>
 
@@ -3007,7 +3245,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                                     <p class="mt-2 text-xs font-semibold text-slate-600">
                                         实战速度 {{ opponentBattleSpeed }}
                                     </p>
-                                    <button type="button" class="mt-2 min-h-11 w-full rounded-xl bg-rose-100 px-3 py-2 text-xs font-bold text-rose-800 transition active:scale-[.98]" @click="openConfigEditor('opponent')">
+                                    <button type="button" class="mt-2 min-h-11 w-full rounded-xl bg-rose-100 px-3 py-2 text-xs font-bold text-rose-800 transition active:scale-[.98]" @click="openConfigEditor('opponent', $event)">
                                         修改配置
                                     </button>
 
@@ -3403,7 +3641,7 @@ document.title = "对战助手 - 洛克王国工具箱";
                                 {{ getBattleProfileSummary(damageAttackerProfile) }}
                             </p>
                         </div>
-                        <button type="button" class="mt-2 min-h-11 w-full rounded-xl bg-orange-100 px-3 py-2 text-left text-xs font-bold text-orange-800 transition active:scale-[.98]" @click="openConfigEditor(damageDirection === 'allyToOpponent' ? 'ally' : 'opponent')">
+                        <button type="button" class="mt-2 min-h-11 w-full rounded-xl bg-orange-100 px-3 py-2 text-left text-xs font-bold text-orange-800 transition active:scale-[.98]" @click="openConfigEditor(damageDirection === 'allyToOpponent' ? 'ally' : 'opponent', $event)">
                             修改 {{ damageAttackerLabel }}配置 · {{ damageAttackerProfile.label }}
                         </button>
                     </div>
@@ -4340,8 +4578,9 @@ document.title = "对战助手 - 洛克王国工具箱";
             </div>
         </template>
 
-        <Dialog v-model:open="configEditorOpen">
-            <DialogContent class="config-editor flex max-h-[88dvh] max-w-[680px] flex-col gap-0 overflow-hidden rounded-[22px] border-slate-200 bg-white p-0 text-slate-950 dark:border-slate-700 dark:bg-slate-900 dark:text-foreground max-sm:top-auto max-sm:bottom-0 max-sm:h-[88dvh] max-sm:translate-y-0 max-sm:rounded-b-none sm:rounded-[22px]">
+        <Dialog :open="configEditorOpen" @update:open="updateConfigEditorOpen">
+            <DialogContent data-config-editor class="config-editor flex max-h-[88dvh] max-w-[680px] flex-col gap-0 overflow-hidden rounded-[22px] border-slate-200 bg-white p-0 text-slate-950 dark:border-slate-700 dark:bg-slate-900 dark:text-foreground max-sm:top-auto max-sm:bottom-0 max-sm:h-[88dvh] max-sm:translate-y-0 max-sm:rounded-b-none sm:rounded-[22px]">
+                <div class="config-editor-body flex min-h-0 flex-1 flex-col">
                 <DialogHeader class="shrink-0 border-b border-slate-100 px-4 py-4 dark:border-slate-700 md:px-6">
                     <DialogTitle>对战配置</DialogTitle>
                     <DialogDescription>
@@ -4389,9 +4628,10 @@ document.title = "对战助手 - 洛克王国工具箱";
                     </div>
                 </div>
                 <DialogFooter class="shrink-0 flex-row justify-end border-t border-slate-100 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] dark:border-slate-700 md:px-6">
-                    <Button type="button" variant="outline" class="min-h-11 rounded-xl" @click="configEditorOpen = false">取消</Button>
+                    <Button type="button" variant="outline" class="min-h-11 rounded-xl" @click="closeConfigEditor">取消</Button>
                     <Button type="button" class="min-h-11 rounded-xl" @click="applyConfigEditor">应用配置</Button>
                 </DialogFooter>
+                </div>
             </DialogContent>
         </Dialog>
     </section>
@@ -4399,7 +4639,11 @@ document.title = "对战助手 - 洛克王国工具箱";
 
 <style scoped>
 .battle-summary { min-height: 238px; }
-.config-editor { transition: opacity 200ms var(--journal-ease), transform 200ms var(--journal-ease); }
+.config-editor {
+    animation: none !important;
+    transform-origin: center;
+    will-change: transform, opacity;
+}
 @media (max-width: 639px) {
     .battle-summary { min-height: 214px; padding: 10px; }
     .battle-summary-name { min-height: 42px; overflow-wrap: anywhere; }

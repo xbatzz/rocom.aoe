@@ -33,6 +33,7 @@ import {
 import { collapseDuplicateLeaderConfigurations } from "@/lib/petPresentation";
 import { filterPubliclyVisiblePets } from "@/lib/petVisibility";
 import { semanticToneClasses } from "@/lib/uiTones";
+import { startPetSharedNavigation } from "@/lib/petSharedTransition";
 
 type SortKey = "id" | "power" | "speed" | "name";
 
@@ -79,6 +80,10 @@ const router = useRouter();
 const encyclopediaState = reactive<EncyclopediaState>({ ...DEFAULT_STATE });
 
 let controller: AbortController | null = null;
+
+function onPetCardClick(event: MouseEvent, petId: number) {
+    startPetSharedNavigation(event, router, `/pets/${petId}`, petId);
+}
 
 const attackStyleLabels: Record<string, string> = {
     Both: "双修",
@@ -1050,6 +1055,7 @@ document.title = "图鉴 - 洛克王国工具箱";
                 :key="pet.id"
                 :to="`/pets/${pet.id}`"
                 class="group block"
+                @click.capture="onPetCardClick($event, pet.id)"
             >
                 <Card
                     class="h-full border-border bg-card py-0 shadow-none transition-[background-color,border-color,box-shadow] duration-200 group-hover:border-primary/30 group-hover:shadow-sm"
@@ -1065,6 +1071,7 @@ document.title = "图鉴 - 洛克王国工具箱";
                                 :alt="pet.localized.zh.name"
                                 class="h-24 w-24 shrink-0 rounded-[10px]"
                                 img-class="object-contain p-2"
+                                data-pet-shared-source
                             />
 
                             <div class="min-w-0 flex-1">
