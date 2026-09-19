@@ -68,7 +68,11 @@ import {
     formatHandbookTopicRequirementSync,
 } from "@/lib/handbookProgress";
 import { formatPetHandbookNo } from "@/lib/petHandbook";
-import { getPetViewTransitionName } from "@/lib/petSharedTransition";
+import {
+    getPrefetchedPetDetail,
+    loadPetDetail,
+} from "@/lib/petDetailPrefetch";
+import { getPetSharedElementStyle } from "@/lib/petSharedTransition";
 
 use([RadarChart, RadarComponent, TooltipComponent, CanvasRenderer]);
 
@@ -1337,30 +1341,37 @@ async function getFriendDetail(idParam: string | string[]) {
 
     controller?.abort();
     controller = new AbortController();
+    const signal = controller.signal;
     isLoading.value = true;
     errorMessage.value = "";
     resetMoveFilters();
+    const prefetchedFriend = getPrefetchedPetDetail(id);
+
+    if (prefetchedFriend) {
+        friend.value = prefetchedFriend;
+        isLoading.value = false;
+        void getPetTopics(prefetchedFriend);
+    }
 
     try {
         await Promise.all([
-            ensureTypeMap(controller.signal),
-            ensureImplementedPetIds(controller.signal),
-            ensureMoveDictionary(controller.signal),
+            ensureTypeMap(signal),
+            ensureImplementedPetIds(signal),
+            ensureMoveDictionary(signal),
         ]);
 
-        const response = await fetch(`/data/pets/${id}.json`, {
-            signal: controller.signal,
-        });
+        const nextFriend = prefetchedFriend ?? (await loadPetDetail(id));
+        if (signal.aborted) return;
 
-        if (!response.ok) {
-            throw new Error(`请求失败: ${response.status}`);
+        if (!prefetchedFriend) {
+            friend.value = nextFriend;
+            void getPetTopics(nextFriend);
         }
-
-        const nextFriend = (await response.json()) as IPetsDetail;
-        friend.value = nextFriend;
-        void getPetTopics(nextFriend);
     } catch (error) {
-        if (error instanceof DOMException && error.name === "AbortError") {
+        if (
+            signal.aborted ||
+            (error instanceof DOMException && error.name === "AbortError")
+        ) {
             return;
         }
 
@@ -1368,7 +1379,7 @@ async function getFriendDetail(idParam: string | string[]) {
         friend.value = null;
         resetPetTopics();
     } finally {
-        isLoading.value = false;
+        if (!signal.aborted) isLoading.value = false;
     }
 }
 </script>
@@ -1406,10 +1417,7 @@ async function getFriendDetail(idParam: string | string[]) {
                             class="mx-auto h-40 w-40 rounded-[10px] xl:aspect-square xl:h-auto xl:w-full"
                             img-class="object-contain p-4"
                             :data-pet-shared-element="friend.id"
-                            :style="{
-                                viewTransitionName:
-                                    getPetViewTransitionName(friend.id),
-                            }"
+                            :style="getPetSharedElementStyle(friend.id)"
                             eager
                         />
 

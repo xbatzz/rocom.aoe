@@ -297,6 +297,8 @@ let configEditorTriggerRadius = "12px";
 let configEditorMorphAnimation: Animation | null = null;
 let configEditorContentAnimations: Animation[] = [];
 let configEditorClosing = false;
+let configEditorReducedMotion = false;
+let stopConfigEditorViewportWatch: (() => void) | null = null;
 
 function prefersReducedMotion() {
     return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -311,14 +313,21 @@ function openConfigEditor(side: "ally" | "opponent", event?: MouseEvent) {
     draftAllyMeteorBallKey.value = allyMeteorBallKey.value;
     draftOpponentMeteorBallKey.value = opponentMeteorBallKey.value;
     const trigger = event?.currentTarget;
-    configEditorTriggerElement =
-        trigger instanceof HTMLElement ? trigger : null;
-    configEditorTriggerRect =
-        configEditorTriggerElement?.getBoundingClientRect() ?? null;
-    configEditorTriggerRadius =
-        trigger instanceof HTMLElement
-            ? window.getComputedStyle(trigger).borderRadius
+    configEditorReducedMotion = prefersReducedMotion();
+
+    if (configEditorReducedMotion) {
+        configEditorTriggerElement = null;
+        configEditorTriggerRect = null;
+        configEditorTriggerRadius = "12px";
+    } else {
+        configEditorTriggerElement =
+            trigger instanceof HTMLElement ? trigger : null;
+        configEditorTriggerRect =
+            configEditorTriggerElement?.getBoundingClientRect() ?? null;
+        configEditorTriggerRadius = configEditorTriggerElement
+            ? window.getComputedStyle(configEditorTriggerElement).borderRadius
             : "12px";
+    }
     configEditorClosing = false;
     configEditorMorphAnimation = null;
     configEditorContentAnimations = [];
@@ -345,7 +354,7 @@ async function playConfigEditorOpenMorph() {
         (element): element is HTMLElement => element !== null,
     );
 
-    if (prefersReducedMotion() || !configEditorTriggerRect) {
+    if (configEditorReducedMotion || !configEditorTriggerRect) {
         configEditorContentAnimations = contentElements.map((element) =>
             element.animate([{ opacity: 0 }, { opacity: 1 }], {
                 duration: 100,
@@ -353,7 +362,11 @@ async function playConfigEditorOpenMorph() {
                 fill: "both",
             }),
         );
-        releaseCompletedOpenAnimations(null, configEditorContentAnimations);
+        releaseCompletedOpenAnimations(
+            dialog,
+            null,
+            configEditorContentAnimations,
+        );
         return;
     }
 
@@ -373,6 +386,7 @@ async function playConfigEditorOpenMorph() {
             ? "translate(0, 0)"
             : computedStyle.transform;
 
+    dialog.style.willChange = "transform, opacity";
     configEditorMorphAnimation = dialog.animate(
         [
             {
@@ -406,13 +420,19 @@ async function playConfigEditorOpenMorph() {
             },
         ),
     );
+    watchConfigEditorViewport(
+        dialog,
+        [configEditorMorphAnimation, ...configEditorContentAnimations],
+    );
     releaseCompletedOpenAnimations(
+        dialog,
         configEditorMorphAnimation,
         configEditorContentAnimations,
     );
 }
 
 function releaseCompletedOpenAnimations(
+    dialog: HTMLElement,
     morphAnimation: Animation | null,
     contentAnimations: Animation[],
 ) {
@@ -434,14 +454,47 @@ function releaseCompletedOpenAnimations(
         }
 
         for (const animation of animations) animation.cancel();
+        clearConfigEditorMotionStyles(dialog);
         configEditorMorphAnimation = null;
         configEditorContentAnimations = [];
     });
 }
 
+function clearConfigEditorMotionStyles(dialog: HTMLElement | null) {
+    dialog?.style.removeProperty("will-change");
+    stopConfigEditorViewportWatch?.();
+    stopConfigEditorViewportWatch = null;
+}
+
+function watchConfigEditorViewport(
+    dialog: HTMLElement,
+    animations: Animation[],
+) {
+    stopConfigEditorViewportWatch?.();
+
+    const visualViewport = window.visualViewport;
+    const stopWatching = () => {
+        window.removeEventListener("resize", cancelMorph);
+        window.removeEventListener("orientationchange", cancelMorph);
+        visualViewport?.removeEventListener("resize", cancelMorph);
+    };
+    const cancelMorph = () => {
+        for (const animation of animations) animation.cancel();
+        dialog.style.removeProperty("will-change");
+        stopWatching();
+        stopConfigEditorViewportWatch = null;
+        configEditorMorphAnimation = null;
+        configEditorContentAnimations = [];
+    };
+
+    window.addEventListener("resize", cancelMorph);
+    window.addEventListener("orientationchange", cancelMorph);
+    visualViewport?.addEventListener("resize", cancelMorph);
+    stopConfigEditorViewportWatch = stopWatching;
+}
+
 function createConfigEditorCloseAnimations() {
     const dialog = document.querySelector<HTMLElement>("[data-config-editor]");
-    const sourceRect = configEditorTriggerElement?.getBoundingClientRect();
     if (!dialog) return [];
     if (typeof dialog.animate !== "function") return [];
 
@@ -452,7 +505,9 @@ function createConfigEditorCloseAnimations() {
     const contentElements = [content, closeButton].filter(
         (element): element is HTMLElement => element !== null,
     );
-    const duration = prefersReducedMotion() ? 100 : CONFIG_EDITOR_MORPH_DURATION;
+    const duration = configEditorReducedMotion
+        ? 100
+        : CONFIG_EDITOR_MORPH_DURATION;
     const animations = contentElements.map((element) =>
         element.animate([{ opacity: 1 }, { opacity: 0 }], {
             duration,
@@ -461,7 +516,10 @@ function createConfigEditorCloseAnimations() {
         }),
     );
 
-    if (prefersReducedMotion() || !sourceRect) return animations;
+    if (configEditorReducedMotion) return animations;
+
+    const sourceRect = configEditorTriggerElement?.getBoundingClientRect();
+    if (!sourceRect) return animations;
 
     const targetRect = dialog.getBoundingClientRect();
     const targetCenterX = targetRect.left + targetRect.width / 2;
@@ -476,6 +534,7 @@ function createConfigEditorCloseAnimations() {
             ? "translate(0, 0)"
             : computedStyle.transform;
 
+    dialog.style.willChange = "transform, opacity";
     animations.push(
         dialog.animate(
             [
@@ -516,13 +575,42 @@ async function closeConfigEditor() {
         animations = createConfigEditorCloseAnimations();
     }
 
+    const dialog = document.querySelector<HTMLElement>("[data-config-editor]");
+    const overlay = document.querySelector<HTMLElement>(
+        '[data-slot="dialog-overlay"][data-state="open"]',
+    );
+    const overlayAnimation =
+        overlay && typeof overlay.animate === "function"
+            ? overlay.animate([{ opacity: 0 }], {
+                  duration: configEditorReducedMotion
+                      ? 100
+                      : CONFIG_EDITOR_MORPH_DURATION,
+                  easing: "cubic-bezier(0.23, 1, 0.32, 1)",
+                  fill: "both",
+              })
+            : null;
+    if (overlayAnimation) animations.push(overlayAnimation);
+
+    if (!configEditorReducedMotion && dialog && animations.length) {
+        watchConfigEditorViewport(dialog, animations);
+    }
+
     await Promise.all(
         animations.map((animation) =>
             animation.finished.catch(() => undefined),
         ),
     );
 
+    if (overlayAnimation && overlay) {
+        overlayAnimation.cancel();
+        overlay.style.animation = "none";
+        overlay.style.opacity = "0";
+        overlay.style.pointerEvents = "none";
+    }
     configEditorOpen.value = false;
+    await nextTick();
+    for (const animation of animations) animation.cancel();
+    clearConfigEditorMotionStyles(dialog);
     configEditorClosing = false;
     configEditorMorphAnimation = null;
     configEditorContentAnimations = [];
@@ -4642,7 +4730,6 @@ document.title = "对战助手 - 洛克王国工具箱";
 .config-editor {
     animation: none !important;
     transform-origin: center;
-    will-change: transform, opacity;
 }
 @media (max-width: 639px) {
     .battle-summary { min-height: 214px; padding: 10px; }

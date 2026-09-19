@@ -33,6 +33,7 @@ import {
 import { collapseDuplicateLeaderConfigurations } from "@/lib/petPresentation";
 import { filterPubliclyVisiblePets } from "@/lib/petVisibility";
 import { semanticToneClasses } from "@/lib/uiTones";
+import { prefetchPetDetail } from "@/lib/petDetailPrefetch";
 import { startPetSharedNavigation } from "@/lib/petSharedTransition";
 
 type SortKey = "id" | "power" | "speed" | "name";
@@ -83,6 +84,10 @@ let controller: AbortController | null = null;
 
 function onPetCardClick(event: MouseEvent, petId: number) {
     startPetSharedNavigation(event, router, `/pets/${petId}`, petId);
+}
+
+function prefetchPet(petId: number) {
+    prefetchPetDetail(petId);
 }
 
 const attackStyleLabels: Record<string, string> = {
@@ -1056,6 +1061,9 @@ document.title = "图鉴 - 洛克王国工具箱";
                 :to="`/pets/${pet.id}`"
                 class="group block"
                 @click.capture="onPetCardClick($event, pet.id)"
+                @focus="prefetchPet(pet.id)"
+                @pointerdown="prefetchPet(pet.id)"
+                @pointerenter="prefetchPet(pet.id)"
             >
                 <Card
                     class="h-full border-border bg-card py-0 shadow-none transition-[background-color,border-color,box-shadow] duration-200 group-hover:border-primary/30 group-hover:shadow-sm"
