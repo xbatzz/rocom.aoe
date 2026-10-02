@@ -2396,5 +2396,112 @@
       "defenderID": 3004,
       "multiplier": 1
     }
+  ],
+  "threatCases": [
+    {
+      "pet_id": 3001,
+      "pet_name": "喵喵",
+      "main_type_label": "草",
+      "sub_type_label": null,
+      "attack_type_labels": [
+        "草"
+      ],
+      "weak_count": 2,
+      "neutral_count": 0,
+      "resist_count": 0,
+      "has_safe_switch": false,
+      "pierce_risk": true,
+      "score": 42.72,
+      "slot_results": [
+        {
+          "slot_pet_id": 3004,
+          "slot_pet_name": "迪莫",
+          "best_attack_type_name": "Grass",
+          "best_attack_type_label": "草",
+          "net": 1,
+          "relation": "weak",
+          "multiplier": 2
+        },
+        {
+          "slot_pet_id": 3004,
+          "slot_pet_name": "迪莫",
+          "best_attack_type_name": "Grass",
+          "best_attack_type_label": "草",
+          "net": 1,
+          "relation": "weak",
+          "multiplier": 2
+        }
+      ]
+    },
+    {
+      "pet_id": 3005,
+      "pet_name": "水灵",
+      "main_type_label": "水",
+      "sub_type_label": null,
+      "attack_type_labels": [
+        "水"
+      ],
+      "weak_count": 0,
+      "neutral_count": 2,
+      "resist_count": 0,
+      "has_safe_switch": false,
+      "pierce_risk": true,
+      "score": 39.82,
+      "slot_results": [
+        {
+          "slot_pet_id": 3004,
+          "slot_pet_name": "迪莫",
+          "best_attack_type_name": "Water",
+          "best_attack_type_label": "水",
+          "net": 0,
+          "relation": "neutral",
+          "multiplier": 1
+        },
+        {
+          "slot_pet_id": 3004,
+          "slot_pet_name": "迪莫",
+          "best_attack_type_name": "Water",
+          "best_attack_type_label": "水",
+          "net": 0,
+          "relation": "neutral",
+          "multiplier": 1
+        }
+      ]
+    },
+    {
+      "pet_id": 3004,
+      "pet_name": "迪莫",
+      "main_type_label": "光",
+      "sub_type_label": null,
+      "attack_type_labels": [
+        "光"
+      ],
+      "weak_count": 0,
+      "neutral_count": 2,
+      "resist_count": 0,
+      "has_safe_switch": false,
+      "pierce_risk": true,
+      "score": 39.32,
+      "slot_results": [
+        {
+          "slot_pet_id": 3004,
+          "slot_pet_name": "迪莫",
+          "best_attack_type_name": "Light",
+          "best_attack_type_label": "光",
+          "net": 0,
+          "relation": "neutral",
+          "multiplier": 1
+        },
+        {
+          "slot_pet_id": 3004,
+          "slot_pet_name": "迪莫",
+          "best_attack_type_name": "Light",
+          "best_attack_type_label": "光",
+          "net": 0,
+          "relation": "neutral",
+          "multiplier": 1
+        }
+      ]
+    }
   ]
 }

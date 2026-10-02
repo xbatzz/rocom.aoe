@@ -48,5 +48,6 @@ for(const move of chosen) for(const hpPercent of [0,49,50,51,79,80,81,100]) {
 }
 const speeds=meteor.METEOR_BUG_CAPTURE_BALL_OPTIONS.map(x=>({ball:x.key,speed:meteor.applyMeteorBugCaptureBallSpeed(321,3400,x.key)}));
 const switchCases=[3001,3004,3005].map(id=>{const a=pets.find(x=>x.id===id);return {attackerID:id,defenderID:3004,multiplier:Math.max(...team.getPetTypes(a).map(t=>team.getTypeMultiplier(team.getTypeRelationNet(pets.find(x=>x.id===3004),t.name,types))))};});
-fs.writeFileSync('ios/Packages/RocoContent/Tests/RocoContentTests/Fixtures/WebBattleFixtures.json',JSON.stringify({source:'damageCalculator.ts, teamAnalysis.ts, meteorBugCaptureBall.ts and extracted pvp-lite getDamageEffectOptions/getChoice*',cases,speeds,switchCases},null,2)+'\n');
+const threatCases = team.buildThreatEntries([3001,3004,3005].map(id=>pets.find(p=>p.id===id)), [3004,3004].map(id=>pets.find(p=>p.id===id)), types);
+fs.writeFileSync('ios/Packages/RocoContent/Tests/RocoContentTests/Fixtures/WebBattleFixtures.json',JSON.stringify({source:'damageCalculator.ts, teamAnalysis.ts, meteorBugCaptureBall.ts and extracted pvp-lite getDamageEffectOptions/getChoice*',cases,speeds,switchCases,threatCases},null,2)+'\n');
 console.log(`${cases.length} Web battle fixtures, ${speeds.length} capture-ball speeds, ${switchCases.length} switch cases`);

@@ -14,6 +14,7 @@ struct PVPBattleView: View {
             }
             if ally.slot.petID != nil && opponent.slot.petID != nil {
                 comparisons
+                NavigationLink("对方本系 → 已保存队伍联防") { TeamDefenseView(opponent: opponent, content: content) }
                 NavigationLink("我方 → 对方：伤害与一击线") {
                     BattleDirectionView(attacker: ally, defender: opponent, content: content).id(ally.slot.petID)
                 }

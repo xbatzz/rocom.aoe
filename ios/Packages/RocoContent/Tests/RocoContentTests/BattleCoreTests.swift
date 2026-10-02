@@ -8,6 +8,8 @@ struct BattleCoreTests {
         let cases: [Case]
         let speeds: [Speed]
         let switchCases: [Switch]
+        let threatCases: [Threat]
+        struct Threat: Decodable { let pet_id: Int; let weak_count: Int; let neutral_count: Int; let resist_count: Int; let has_safe_switch: Bool; let pierce_risk: Bool; let score: Double }
         struct Case: Decodable {
             let attackerID: Int; let defenderID: Int; let skillID: Int
             let attackerPersonalityID: Int; let defenderPersonalityID: Int; let individuals: [Int]
@@ -49,6 +51,15 @@ struct BattleCoreTests {
         for f in fixture.speeds {
             #expect(f.ball.speed(321, petID: 3400) == f.speed)
             #expect(f.ball.speed(321, petID: 3001) == 321)
+        }
+        for f in fixture.threatCases {
+            let attacker = try #require(c.pets[PetID(rawValue: f.pet_id)])
+            let defender = try #require(c.pets[PetID(rawValue: 3004)])
+            let analysis = try TeamDefense.analyze(attacker: attacker, candidates: [defender, defender], content: c)
+            #expect(analysis.weakCount == f.weak_count && analysis.neutralCount == f.neutral_count && analysis.resistCount == f.resist_count)
+            #expect(analysis.hasSafeSwitch == f.has_safe_switch && analysis.pierceRisk == f.pierce_risk)
+            #expect(abs(analysis.score - f.score) < 0.0000001)
+            #expect(analysis.slots.map(\.index) == [0, 1])
         }
         for f in fixture.switchCases {
             let attacker = try #require(c.pets[PetID(rawValue: f.attackerID)])
