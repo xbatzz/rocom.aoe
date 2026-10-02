@@ -26,6 +26,9 @@ struct NativeFeatureEntry: View {
                     NavigationLink { TeamBuilderView(content: content) } label: { Label("配队", systemImage: "person.3") }
                     NavigationLink { PVPBattleView(content: content) } label: { Label("PVP 助手", systemImage: "bolt.shield") }
                 }
+                Section("用户数据") {
+                    NavigationLink { UserBackupView(content: content) } label: { Label("备份与恢复", systemImage: "externaldrive") }
+                }
             }.navigationTitle("洛克工具")
         }
         .fullScreenCover(isPresented: $encyclopedia) {

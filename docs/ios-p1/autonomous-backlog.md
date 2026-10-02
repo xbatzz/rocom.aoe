@@ -1,7 +1,7 @@
 # Autonomous backlog
 
 ## Now
-P2-J 补队伍复制/删除；P2-K 补联防提示；P2-L 统一备份恢复。
+P3 correctness：检查导入未来时间后本机编辑能否覆盖旧备份。
 
 ## Next
 - 验证导入的全量替换/合并事务和未知 ID 保留。
@@ -10,10 +10,10 @@ P2-J 补队伍复制/删除；P2-K 补联防提示；P2-L 统一备份恢复。
 - 审计收藏筛选成本、空/错误状态。
 
 ## Verified
-既有推荐15 fixture、战斗80 fixture；本轮继续扩展，不重做 frozen 导航。
+P2-J 队伍复制/删除/超限保留；P2-K 联防与Web威胁fixture；P2-L完整预检/事务回滚/12队/原Web归档测试和device build通过。
 
 ## Deferred
 真机交互、Dynamic Type/VoiceOver；任何要求改变 frozen 转场的跳转。
 
 ## Blocked
-暂无；Web额外图鉴进度/主题/草系家族奖牌必须保留或报告，不能静默丢失。
+无游戏规则 blocker。Web未激活字段已原样归档并报告。

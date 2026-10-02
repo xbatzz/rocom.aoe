@@ -21,7 +21,7 @@ public enum UserDatabase {
         guard version == currentVersion else { throw UserDataError.unsupportedVersion(version) }
     }
     @MainActor public static func open(inMemory: Bool = false, url: URL? = nil) throws -> ModelContainer {
-        let schema = Schema([ShinyRecord.self, GrassRecord.self, HeroRecord.self, UserDataMetadata.self, TeamRecord.self])
+        let schema = Schema([ShinyRecord.self, GrassRecord.self, HeroRecord.self, UserDataMetadata.self, TeamRecord.self, LegacyArchiveRecord.self])
         let config: ModelConfiguration
         if let url {
             config = ModelConfiguration("RocoUserData", schema: schema, url: url, cloudKitDatabase: .none)
