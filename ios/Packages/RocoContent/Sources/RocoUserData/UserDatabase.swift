@@ -14,7 +14,7 @@ import SwiftData
 
 public enum UserDatabase {
     @MainActor public static func open(inMemory: Bool = false) throws -> ModelContainer {
-        let schema = Schema([ShinyRecord.self, GrassRecord.self])
+        let schema = Schema([ShinyRecord.self, GrassRecord.self, HeroRecord.self])
         let config = ModelConfiguration("RocoUserData", schema: schema, isStoredInMemoryOnly: inMemory, cloudKitDatabase: .none)
         let container = try ModelContainer(for: schema, configurations: [config])
         container.mainContext.autosaveEnabled = false
@@ -60,6 +60,25 @@ extension UserDatabase {
         let existing = try context.fetch(FetchDescriptor<GrassRecord>(predicate: #Predicate { $0.identity == key })).first
         if let existing { existing.status = existing.status.next; existing.updatedAt = .now }
         else { context.insert(GrassRecord(footprintID: footprint, locationID: location, status: .lit)) }
+        do { try context.save() }
+        catch { context.rollback(); throw error }
+    }
+}
+
+@Model public final class HeroRecord {
+    @Attribute(.unique) public var familyID: String
+    public var obtained: Bool
+    public var updatedAt: Date
+    public init(familyID: String, obtained: Bool) {
+        self.familyID = familyID; self.obtained = obtained; updatedAt = .now
+    }
+}
+
+extension UserDatabase {
+    @MainActor public static func toggleHero(_ family: String, context: ModelContext) throws {
+        let existing = try context.fetch(FetchDescriptor<HeroRecord>(predicate: #Predicate { $0.familyID == family })).first
+        if let existing { existing.obtained.toggle(); existing.updatedAt = .now }
+        else { context.insert(HeroRecord(familyID: family, obtained: true)) }
         do { try context.save() }
         catch { context.rollback(); throw error }
     }

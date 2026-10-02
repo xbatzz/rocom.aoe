@@ -30,4 +30,15 @@ import SwiftData
         #expect(try context.fetchCount(FetchDescriptor<ShinyRecord>()) == 0)
     }
 
+    @Test func heroNeverDerivesGrassOrShiny() throws {
+        let container = try UserDatabase.open(inMemory: true)
+        let context = container.mainContext
+        try UserDatabase.toggleHero("species:1", context: context)
+        try UserDatabase.cycleGrass(footprint: "pet:3004", location: "somia", context: context)
+        try UserDatabase.toggleHero("species:1", context: context)
+        #expect(try context.fetch(FetchDescriptor<HeroRecord>()).first?.obtained == false)
+        #expect(try context.fetch(FetchDescriptor<GrassRecord>()).first?.status == .lit)
+        #expect(try context.fetchCount(FetchDescriptor<ShinyRecord>()) == 0)
+    }
+
 }

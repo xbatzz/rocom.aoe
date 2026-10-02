@@ -20,7 +20,7 @@ struct NativeFeatureEntry: View {
                 Section("收藏工具") {
                     NavigationLink { ShinyCollectionView(content: content, index: tracking) } label: { Label("异色收集", systemImage: "star") }
                     NavigationLink { GrassBadgeView(content: content, index: tracking) } label: { Label("草系徽章", systemImage: "leaf") }
-                    planned("命定勇者", "medal")
+                    NavigationLink { DestinedHeroView(content: content, index: tracking) } label: { Label("命定勇者", systemImage: "medal") }
                 }
                 Section("战斗工具 · 待实现") {
                     planned("配队", "person.3")
