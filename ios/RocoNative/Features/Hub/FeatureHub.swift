@@ -22,8 +22,8 @@ struct NativeFeatureEntry: View {
                     NavigationLink { GrassBadgeView(content: content, index: tracking) } label: { Label("草系徽章", systemImage: "leaf") }
                     NavigationLink { DestinedHeroView(content: content, index: tracking) } label: { Label("命定勇者", systemImage: "medal") }
                 }
-                Section("战斗工具 · 待实现") {
-                    planned("配队", "person.3")
+                Section("战斗工具") {
+                    NavigationLink { TeamBuilderView(content: content) } label: { Label("配队", systemImage: "person.3") }
                     planned("PVP 助手", "bolt.shield")
                 }
             }.navigationTitle("洛克工具")

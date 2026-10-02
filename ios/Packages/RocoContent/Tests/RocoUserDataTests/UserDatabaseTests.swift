@@ -1,3 +1,4 @@
+import RocoContent
 import Foundation
 import Testing
 import SwiftData
@@ -60,6 +61,23 @@ import SwiftData
         #expect(try reopened.mainContext.fetch(FetchDescriptor<HeroRecord>()).first?.obtained == true)
         #expect(try reopened.mainContext.fetch(FetchDescriptor<UserDataMetadata>()).first?.dataVersion == 1)
         #expect(throws: UserDataError.self) { try UserDatabase.validateVersion(2) }
+    }
+
+    @Test func teamRoundTripUnresolvedAndDraftIsolation() throws {
+        let container = try UserDatabase.open(inMemory: true)
+        var build = TeamBuild()
+        build.slots[0].petID = 999999
+        build.slots[0].skillIDs = [999998]
+        build.magicItemID = 999997
+        try UserDatabase.saveTeam(build, context: container.mainContext)
+        let row = try #require(container.mainContext.fetch(FetchDescriptor<TeamRecord>()).first)
+        var draft = try row.decode()
+        draft.name = "Unsaved draft"
+        #expect(try row.decode() == build)
+        try UserDatabase.saveTeam(draft, context: container.mainContext)
+        #expect(try row.decode().slots[0].skillIDs == [999998])
+        #expect(try row.decode().magicItemID == 999997)
+        #expect(try container.mainContext.fetchCount(FetchDescriptor<HeroRecord>()) == 0)
     }
 
 }

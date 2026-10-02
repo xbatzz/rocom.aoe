@@ -14,8 +14,8 @@ let package = Package(
         .target(name: "RocoContent", dependencies: [.product(name: "RocoDomain", package: "RocoCore")],
             swiftSettings: [.enableUpcomingFeature("NonisolatedNonsendingByDefault")]),
         .executableTarget(name: "ContentProbe", dependencies: ["RocoContent"]),
-        .testTarget(name: "RocoContentTests", dependencies: ["RocoContent"]),
-        .target(name: "RocoUserData"),
+        .testTarget(name: "RocoContentTests", dependencies: ["RocoContent"], resources: [.copy("Fixtures")]),
+        .target(name: "RocoUserData", dependencies: ["RocoContent"]),
         .testTarget(name: "RocoUserDataTests", dependencies: ["RocoUserData"])
     ],
     swiftLanguageModes: [.v6]
