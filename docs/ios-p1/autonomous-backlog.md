@@ -1,15 +1,15 @@
 # Autonomous backlog
 
 ## Now
-P3 Web parity：技能 alias/家族关系与真实配置 ID。
+P3 release hygiene：最终源码检查与轻量验证。
 
 ## Next
-- 审计技能 alias 与家族来源。
-- 审计空/错误状态。
-- 补齐搜索无结果的系统空状态。
+- 备份文件/分享/导入真机往返验收。
 - 发布卫生检查与轻量 build。
 
 ## Verified
+- 技能 alias 审计：SkillSearchIndex 与 TeamRules 使用真实 SkillID，家族聚合按 skillTerminal 单独展示，没有用 displayId 替代装备 ID。
+- 技能和三个收藏页补上筛选无结果的系统空状态。
 - 备份预检拒绝非正数构筑 ID/含分隔符键；替换前验证全部存量版本，不能删除未来版本记录；7项相关测试通过。
 - PVP 可交换双方完整临时 profile（含生命/球类型），不写保存队伍。
 - 三个收藏页每次 body 仅建立一次状态索引；草系家族行不再逐足迹全表扫描，代码复杂度由 O(足迹×记录) 降至 O(足迹+记录)。

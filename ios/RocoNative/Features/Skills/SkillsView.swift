@@ -44,6 +44,7 @@ struct SkillsView: View {
             }
             let ids = index.search(query, type: type, category: category)
             Section("\(ids.count) 个技能 · ID 排序") {
+                if ids.isEmpty { ContentUnavailableView("没有符合条件的技能", systemImage: "sparkle.magnifyingglass", description: Text("尝试其他关键词，或更改属性与类别筛选。")) }
                 ForEach(ids, id: \.self) { id in
                     if let skill = content.skills[id] {
                         NavigationLink {

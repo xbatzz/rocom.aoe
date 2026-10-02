@@ -44,6 +44,7 @@ struct GrassBadgeView: View {
                 if let target = content.badgeLocations[location] { LabeledContent("地点目标", value: String(target.targetCount)) }
             }
             Section("\(visible.count) 个家族") {
+                if visible.isEmpty { ContentUnavailableView("没有符合条件的家族", systemImage: "leaf", description: Text("尝试其他关键词、地点或足迹状态。")) }
                 ForEach(visible, id: \.familyKey) { family in
                     if let pet = content.pets[family.representativePetId] {
                         NavigationLink {

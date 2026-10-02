@@ -44,6 +44,7 @@ struct ShinyCollectionView: View {
                 LabeledContent("本赛季范围", value: "\(seasonalSlots.filter { collected.contains($0.slotId.rawValue) }.count) / \(seasonalSlots.count)")
             }
             Section("\(visible.count) 个异色槽") {
+                if visible.isEmpty { ContentUnavailableView("没有符合条件的异色槽", systemImage: "star", description: Text("尝试其他关键词、赛季或收集状态。")) }
                 ForEach(visible, id: \.slotId) { slot in
                     ShinySlotRow(slot: slot, content: content, isCollected: collected.contains(slot.slotId.rawValue)) {
                         do { try UserDatabase.toggleShiny(slot.slotId.rawValue, context: context) }

@@ -29,6 +29,7 @@ struct DestinedHeroView: View {
                 LabeledContent("已获得", value: "\(index.badgeFamilies.filter { obtained.contains($0.familyKey.rawValue) }.count) / \(index.badgeFamilies.count)")
             }
             Section("\(visible.count) 个家族") {
+                if visible.isEmpty { ContentUnavailableView("没有符合条件的家族", systemImage: "medal", description: Text("尝试其他关键词或获得状态。")) }
                 ForEach(visible, id: \.familyKey) { family in
                     if let pet = content.pets[family.representativePetId] {
                         Button {
