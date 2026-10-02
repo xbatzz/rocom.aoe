@@ -80,4 +80,28 @@ import SwiftData
         #expect(try container.mainContext.fetchCount(FetchDescriptor<HeroRecord>()) == 0)
     }
 
+    @Test func duplicateRenameDeleteAndOverLimitPreservation() throws {
+        let container = try UserDatabase.open(inMemory: true)
+        let context = container.mainContext
+        var original = TeamBuild()
+        original.slots[0].petID = 999999; original.slots[0].skillIDs = [999998]
+        try UserDatabase.saveTeam(original, context: context)
+        let record = try #require(context.fetch(FetchDescriptor<TeamRecord>()).first)
+        #expect(throws: ContentError.self) { try UserDatabase.deleteTeam(record, context: context) }
+        try UserDatabase.duplicateTeam(record, context: context)
+        let copy = try #require(context.fetch(FetchDescriptor<TeamRecord>()).first { $0.teamID != record.teamID })
+        #expect(try copy.decode().slots == original.slots)
+        var renamed = try copy.decode(); renamed.name = "Renamed"
+        try UserDatabase.saveTeam(renamed, context: context)
+        #expect(copy.name == "Renamed")
+        try UserDatabase.deleteTeam(copy, context: context)
+        for _ in 0..<11 { context.insert(try TeamRecord(build: TeamBuild())) }
+        try context.save()
+        original.name = "Still editable"
+        try UserDatabase.saveTeam(original, context: context)
+        #expect(try context.fetchCount(FetchDescriptor<TeamRecord>()) == 12)
+        #expect(throws: ContentError.self) { try UserDatabase.saveTeam(TeamBuild(), context: context) }
+        #expect(try record.decode().slots[0].petID == 999999)
+    }
+
 }

@@ -7,6 +7,8 @@ import RocoUserData
 struct TeamBuilderView: View {
     let content: ContentStore
     @Query(sort: \TeamRecord.updatedAt, order: .reverse) private var teams: [TeamRecord]
+    @Environment(\.modelContext) private var context
+    @State private var deleting: TeamRecord?
     @State private var editing: TeamBuild?
     @State private var error: String?
     var body: some View {
@@ -18,9 +20,29 @@ struct TeamBuilderView: View {
                         do { editing = try record.decode() }
                         catch { self.error = String(describing: error) }
                     }
+                    .contextMenu {
+                        Button("编辑 / 重命名") {
+                            do { editing = try record.decode() }
+                            catch { self.error = String(describing: error) }
+                        }
+                        Button("复制") {
+                            do { try UserDatabase.duplicateTeam(record, context: context) }
+                            catch { self.error = String(describing: error) }
+                        }.disabled(teams.count >= 10)
+                        Button("删除", role: .destructive) { deleting = record }.disabled(teams.count <= 1)
+                    }
                 }
+                if teams.count > 10 { Text("已有 \(teams.count) 队，完整保留。新建与复制暂不可用。").foregroundStyle(.secondary) }
             }
         }.navigationTitle("配队")
+            .confirmationDialog("删除此队伍？此操作不会改变其他队伍或收藏。", isPresented: Binding(get: { deleting != nil }, set: { if !$0 { deleting = nil } }), titleVisibility: .visible) {
+                Button("删除队伍", role: .destructive) {
+                    guard let record = deleting else { return }
+                    do { try UserDatabase.deleteTeam(record, context: context); deleting = nil }
+                    catch { self.error = String(describing: error) }
+                }
+                Button("取消", role: .cancel) { deleting = nil }
+            }
             .sheet(item: $editing) { build in TeamDraftView(initial: build, content: content) }
             .alert("队伍读取失败 · 原数据已保留", isPresented: Binding(get: { error != nil }, set: { if !$0 { error = nil } })) {
                 Button("好", role: .cancel) { error = nil }

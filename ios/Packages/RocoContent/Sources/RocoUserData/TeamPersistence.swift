@@ -40,3 +40,21 @@ extension UserDatabase {
         catch { context.rollback(); throw error }
     }
 }
+
+extension UserDatabase {
+    @MainActor public static func duplicateTeam(_ record: TeamRecord, context: ModelContext) throws {
+        var build = try record.decode()
+        build.id = UUID()
+        build.name = String((build.name + " 副本").prefix(32))
+        try saveTeam(build, context: context)
+    }
+
+    @MainActor public static func deleteTeam(_ record: TeamRecord, context: ModelContext) throws {
+        guard try context.fetchCount(FetchDescriptor<TeamRecord>()) > 1 else {
+            throw ContentError.invalid("至少保留一支队伍")
+        }
+        context.delete(record)
+        do { try context.save() }
+        catch { context.rollback(); throw error }
+    }
+}

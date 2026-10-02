@@ -7,3 +7,6 @@
 验证：一次无签名 device build 成功；15组源函数生成 fixture 比较全部候选推荐分、排序、top4和六维；另有去重、血脉清理/不补满、未知ID保留、槽交换、重复宠和草稿隔离/保存 round trip focused tests，7项通过。fixture生成器位于 scripts/ios-tests/generate-team-fixtures.mjs，只读Web/canonical，输出测试数据。未跑UI tests。
 
 真机待验收：草稿取消保护、选宠/血脉切换/技能上限、交换与重启恢复。用户旧Web数据尚未导入，原生未执行自动迁移。后续备份仍须保留未知ID。
+
+## 继续施工 · 队伍管理补齐
+本轮增加复制（新 UUID，保留 unresolved 构筑）/删除（确认且至少留一队）/编辑重命名入口。10队只阻止新建/复制，已有12队测试仍可完整读取/编辑，不截断；备份导入将走独立已验证事务而非 UI 数量限制。6项持久业务测试和一次device build通过。仍不运行UI tests。
