@@ -275,7 +275,10 @@ struct AlignedNavigation: UIViewControllerRepresentable {
                     anchors: anchors
                 )
             )
-            detail.title = pet.nameZh
+            // Keep the detail navigation bar for the system back button, but
+            // remove the centered pet title. The pet name is already rendered in
+            // the SwiftUI detail content below.
+            detail.title = ""
             detail.navigationItem.largeTitleDisplayMode = .never
 
             nav.pushViewController(
