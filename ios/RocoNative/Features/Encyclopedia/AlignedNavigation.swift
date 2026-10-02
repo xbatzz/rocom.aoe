@@ -21,6 +21,31 @@ struct AlignedNavigation: UIViewControllerRepresentable {
         let content: ContentStore
         let portraits: PortraitStore
         weak var navigation: UINavigationController?
+        private var interactivePop: InteractivePopSession?
+
+        /// An input lease for one UIKit transition, not another navigation stack/path.
+        private final class InteractivePopSession {
+            let transitionID: ObjectIdentifier
+            let gridView: UIView
+            let scrollView: UIScrollView?
+            let interactionWasEnabled: Bool
+            let scrollingWasEnabled: Bool?
+            var requiresDidShowFallback = false
+
+            init(transitionID: ObjectIdentifier, gridView: UIView, scrollView: UIScrollView?) {
+                self.transitionID = transitionID
+                self.gridView = gridView
+                self.scrollView = scrollView
+                interactionWasEnabled = gridView.isUserInteractionEnabled
+                scrollingWasEnabled = scrollView?.isScrollEnabled
+                scrollView?.isScrollEnabled = false
+                gridView.isUserInteractionEnabled = false
+            }
+            func restoreInput() {
+                if let scrollingWasEnabled { scrollView?.isScrollEnabled = scrollingWasEnabled }
+                gridView.isUserInteractionEnabled = interactionWasEnabled
+            }
+        }
         init(content: ContentStore, portraits: PortraitStore) { self.content = content; self.portraits = portraits; super.init() }
 #if DEBUG
         private let logger = Logger(subsystem: "top.aoe.rocom.prototype", category: "navigation")
@@ -66,18 +91,82 @@ struct AlignedNavigation: UIViewControllerRepresentable {
         func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
 #if DEBUG
             NavigationBarDiagnostics.log(navigationController, controller: viewController, phase: "willShow")
-            if let transition = navigationController.transitionCoordinator, transition.isInteractive {
-                transition.notifyWhenInteractionChanges { [logger] context in
-                    logger.notice("zoom interactive cancelled=\(context.isCancelled) completion=\(context.percentComplete)")
+#endif
+            guard animated, let transition = navigationController.transitionCoordinator,
+                let grid = navigationController.viewControllers.first, viewController === grid,
+                transition.viewController(forKey: .from) !== grid else { return }
+            let transitionID = ObjectIdentifier(transition)
+            let interactive = transition.initiallyInteractive
+            if interactive, interactivePop == nil, let gridView = grid.viewIfLoaded {
+                interactivePop = InteractivePopSession(transitionID: transitionID, gridView: gridView,
+                    scrollView: firstContentScrollView(in: gridView))
+            }
+#if DEBUG
+            logPopPhase(navigationController, context: transition, phase: "popBegin")
+#endif
+            // A finish/cancel decision starts a remaining, non-interactive animation.
+            // This callback must NEVER restore input, clear Hero, or rebind scroll tracking.
+            transition.notifyWhenInteractionChanges { [weak self, weak navigationController] context in
+#if DEBUG
+                guard let self, let navigationController else { return }
+                self.logPopPhase(navigationController, context: context, phase: "interactionChanged")
+#endif
+            }
+            let queued = transition.animate(alongsideTransition: nil) { [weak self, weak navigationController] context in
+                guard let self, let navigationController else { return }
+#if DEBUG
+                self.logPopPhase(navigationController, context: context, phase: "transitionCompletion")
+#endif
+                if interactive {
+                    let visible = context.viewController(forKey: context.isCancelled ? .from : .to)
+                    self.completeInteractivePop(navigationController, transitionID: transitionID,
+                        visible: visible, cancelled: context.isCancelled)
                 }
             }
+            if interactivePop?.transitionID == transitionID {
+                // NO does not mean completion ran. Only didShow can serve as the
+                // public completed-transition fallback; the decision callback cannot.
+                interactivePop?.requiresDidShowFallback = !queued
+            }
+        }
+
+        private func completeInteractivePop(_ nav: UINavigationController, transitionID: ObjectIdentifier,
+            visible: UIViewController?, cancelled: Bool) {
+            guard let session = interactivePop, session.transitionID == transitionID else { return }
+            // Reassociate only the final visible controller, once UIKit has finished
+            // the completion/reversal animation. Do not change offsets or appearance.
+            (visible as? any NavigationScrollTracking)?.synchronizeNavigationScrollTracking()
+            if !cancelled {
+#if DEBUG
+                logPopCompletion()
+#endif
+                anchors.hero = nil
+            }
+            // Cancel keeps the displayed Detail/Hero alive. Both paths release the
+            // Grid input lease, restoring precisely the pre-transition settings.
+            session.restoreInput()
+            interactivePop = nil
+#if DEBUG
+            if let visible { NavigationBarDiagnostics.log(nav, controller: visible, phase: "completionInputRestored cancelled=\(cancelled)") }
 #endif
         }
+#if DEBUG
+        private func logPopPhase(_ nav: UINavigationController, context: any UIViewControllerTransitionCoordinatorContext, phase: String) {
+            let state = "\(phase) initiallyInteractive=\(context.initiallyInteractive) interactive=\(context.isInteractive) cancelled=\(context.isCancelled) percent=\(context.percentComplete) gridInputLocked=\(interactivePop != nil)"
+            if let from = context.viewController(forKey: .from) { NavigationBarDiagnostics.log(nav, controller: from, phase: state + " from") }
+            if let to = context.viewController(forKey: .to) { NavigationBarDiagnostics.log(nav, controller: to, phase: state + " to") }
+        }
+#endif
 
         func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
 #if DEBUG
             NavigationBarDiagnostics.log(navigationController, controller: viewController, phase: "didShow")
 #endif
+            if let session = interactivePop, session.requiresDidShowFallback {
+                let cancelled = viewController !== navigationController.viewControllers.first
+                completeInteractivePop(navigationController, transitionID: session.transitionID,
+                    visible: viewController, cancelled: cancelled)
+            }
             // Observe UIKit's actual stack, never maintain a second navigation state.
             if let detail = viewController as? UIHostingController<PetDetail> {
 #if DEBUG
@@ -86,6 +175,9 @@ struct AlignedNavigation: UIViewControllerRepresentable {
                 logger.notice("zoom shown detail pet=\(origin.petID.rawValue) stack=\(navigationController.viewControllers.count) sameBitmap=\(source?.image === detail.rootView.image)")
 #endif
             } else if navigationController.viewControllers.count == 1, navigationController.topViewController === viewController {
+                // For interactive pop, the coordinator completion owns cleanup even
+                // if didShow arrives before that callback. Never clear the live Hero early.
+                guard interactivePop == nil else { return }
                 // Completed pop, never cancelled pop. A framework-retained detached Hero
                 // must not be resolved by a later route.
 #if DEBUG
@@ -96,7 +188,7 @@ struct AlignedNavigation: UIViewControllerRepresentable {
         }
 
         func open(_ pet: Pet, _ origin: PortraitOrigin) {
-            guard let nav = navigation, nav.viewControllers.count == 1 else { return }
+            guard interactivePop == nil, let nav = navigation, nav.viewControllers.count == 1 else { return }
             // The route/hosting view retains this exact bitmap even if the bounded cache evicts it.
             guard let image = anchors.source(for: origin)?.image else { return }
             let detail = NavigationContentHost(rootView: PetDetail(pet: pet, content: content, image: image, anchors: anchors))
@@ -146,18 +238,26 @@ struct AlignedNavigation: UIViewControllerRepresentable {
 /// UIKit owns bar/title state. Select the actual SwiftUI content ScrollView through
 /// the public controller contract instead of the container's subview-search heuristic.
 /// This does not change offsets/insets, force layout, or schedule a post-transition refresh.
-private final class NavigationContentHost<Content: View>: UIHostingController<Content> {
+private protocol NavigationScrollTracking: AnyObject {
+    func synchronizeNavigationScrollTracking()
+}
+
+private final class NavigationContentHost<Content: View>: UIHostingController<Content>, NavigationScrollTracking {
     private weak var registeredContentScrollView: UIScrollView?
 #if DEBUG
     private var lastLayoutSnapshot: String?
 #endif
+    func synchronizeNavigationScrollTracking() {
+        guard let view = viewIfLoaded, let scroll = firstContentScrollView(in: view) else { return }
+        registeredContentScrollView = scroll
+        setContentScrollView(scroll, for: .top)
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if let scroll = firstContentScrollView(in: view), registeredContentScrollView !== scroll {
             // SwiftUI materializes its UIScrollView during layout. Bind each actual
             // instance once, so UIKit observes scroll-edge changes from its creation.
-            registeredContentScrollView = scroll
-            setContentScrollView(scroll, for: .top)
+            synchronizeNavigationScrollTracking()
         }
 #if DEBUG
         guard let nav = navigationController else { return }
@@ -195,7 +295,7 @@ private enum NavigationBarDiagnostics {
         }
         let scroll: String
         if let actual {
-            scroll = "offset=\(actual.contentOffset) inset=\(actual.contentInset) adjusted=\(actual.adjustedContentInset) safe=\(actual.safeAreaInsets) frame=\(rect(actual.frame)) bounds=\(rect(actual.bounds)) tracking=\(actual.isTracking) dragging=\(actual.isDragging) topAssociationMatches=\(actual === tracked)"
+            scroll = "offset=\(actual.contentOffset) inset=\(actual.contentInset) adjusted=\(actual.adjustedContentInset) safe=\(actual.safeAreaInsets) frame=\(rect(actual.frame)) bounds=\(rect(actual.bounds)) tracking=\(actual.isTracking) dragging=\(actual.isDragging) scrollEnabled=\(actual.isScrollEnabled) controllerInputEnabled=\(controller.viewIfLoaded?.isUserInteractionEnabled ?? false) topAssociationMatches=\(actual === tracked)"
         } else { scroll = "no materialized content ScrollView" }
         // Public UIView hierarchy access is only used to read the background/effect/
         // hairline geometry. Internal class names are labels, never API dependencies.
