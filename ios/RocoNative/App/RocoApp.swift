@@ -15,6 +15,14 @@ final class AppContent {
     private(set) var state: State = .loading
     private var started = false
 
+    private static var visualReviewActive: Bool {
+        #if DEBUG
+        VisualReview.route != nil
+        #else
+        false
+        #endif
+    }
+
     func load() async {
         guard !started else { return }
         started = true
@@ -24,7 +32,7 @@ final class AppContent {
             }
             let build = Int(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "1") ?? 1
             let store = try await ContentStore.loadInBackground(bundleURL: url, appBuild: build)
-            state = .ready(store, PortraitStore(resolver: store.assetResolver), SkillSearchIndex(content: store), TrackingCatalogIndex(content: store), try UserDatabase.open())
+            state = .ready(store, PortraitStore(resolver: store.assetResolver), SkillSearchIndex(content: store), TrackingCatalogIndex(content: store), try UserDatabase.open(inMemory: Self.visualReviewActive))
         } catch {
             state = .failed(String(describing: error))
         }
@@ -43,7 +51,15 @@ struct RocoApp: App {
                     ProgressView("正在加载内容…")
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 case .ready(let store, let portraits, let skills, let tracking, let database):
+                    #if DEBUG
+                    if let route = VisualReview.route {
+                        VisualReview.page(route, content: store, portraits: portraits, skills: skills, tracking: tracking).modelContainer(database)
+                    } else {
+                        NativeFeatureEntry(content: store, portraits: portraits, skills: skills, tracking: tracking).modelContainer(database)
+                    }
+                    #else
                     NativeFeatureEntry(content: store, portraits: portraits, skills: skills, tracking: tracking).modelContainer(database)
+                    #endif
                 case .failed(let message):
                     ContentUnavailableView("内容或用户数据库未能加载", systemImage: "exclamationmark.triangle",
                         description: Text(message))

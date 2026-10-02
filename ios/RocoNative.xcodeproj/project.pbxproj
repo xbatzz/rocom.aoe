@@ -31,6 +31,9 @@ ABC100000000000000000001 = {isa = PBXBuildFile; productRef = ABC1000000000000000
 		AA7864FE7D9FFA719A1BD25D /* RocoNative/Features/Battle/PVPBattleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A93CF7C01256376E77D4D9; };
 		78598F2FAB88EEFA14E548A7 /* RocoNative/Features/Battle/TeamDefenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F66F099BBD272A56ED7019; };
 		882B465886E4314D48590325 /* RocoNative/Features/Backup/UserBackupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2898F2180388039F7C966A9; };
+82CE116F75FFF26BA666EDFA = {isa = PBXBuildFile; fileRef = C47D7B16EDA063633A351C23; };
+B9BC19222315769C05B73793 = {isa = PBXBuildFile; fileRef = EEDD9EC12AA1418BB7D97FBE; };
+A94E3A08960FF6B2800271B1 = {isa = PBXBuildFile; fileRef = 974989699C1B340A40D67EC9; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,9 @@ ABC100000000000000000001 = {isa = PBXBuildFile; productRef = ABC1000000000000000
 		77A93CF7C01256376E77D4D9 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/Battle/PVPBattleView.swift; sourceTree = SOURCE_ROOT; };
 		E8F66F099BBD272A56ED7019 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/Battle/TeamDefenseView.swift; sourceTree = SOURCE_ROOT; };
 		F2898F2180388039F7C966A9 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/Backup/UserBackupView.swift; sourceTree = SOURCE_ROOT; };
+C47D7B16EDA063633A351C23 = {isa = PBXFileReference; lastKnownFileType = folder; path = "RocoNative/Resources/GameIcons"; sourceTree = SOURCE_ROOT; };
+EEDD9EC12AA1418BB7D97FBE = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RocoNative/SharedUI/CompanionUI.swift"; sourceTree = SOURCE_ROOT; };
+974989699C1B340A40D67EC9 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RocoNative/App/VisualReview.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,9 @@ ABC100000000000000000001 = {isa = PBXBuildFile; productRef = ABC1000000000000000
 		64292B1C2B2E13EAD8788FC8 = {
 			isa = PBXGroup;
 			children = (
+                974989699C1B340A40D67EC9,
+                EEDD9EC12AA1418BB7D97FBE,
+                C47D7B16EDA063633A351C23,
 				38BD9FAF31E27745F31DB4B9 /* RocoNative/App/RocoApp.swift */,
 				F2898F2180388039F7C966A9,
 				E8F66F099BBD272A56ED7019,
@@ -244,6 +253,7 @@ ABC100000000000000000001 = {isa = PBXBuildFile; productRef = ABC1000000000000000
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+                82CE116F75FFF26BA666EDFA,
 				0089FB57ACB65968F99D529A /* ContentResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +279,8 @@ ABC100000000000000000001 = {isa = PBXBuildFile; productRef = ABC1000000000000000
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+                A94E3A08960FF6B2800271B1,
+                B9BC19222315769C05B73793,
 				FCB5ECBF6B969FD288FDC49F /* RocoNative/App/RocoApp.swift in Sources */,
 				882B465886E4314D48590325,
 				78598F2FAB88EEFA14E548A7,

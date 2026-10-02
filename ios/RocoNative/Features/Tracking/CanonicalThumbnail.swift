@@ -6,6 +6,7 @@ import RocoContent
 struct CanonicalThumbnail: View {
     let assetID: AssetID?
     let content: ContentStore
+    var size: CGFloat = 48
     @State private var image: UIImage?
     @State private var error: String?
     var body: some View {
@@ -13,7 +14,7 @@ struct CanonicalThumbnail: View {
             if let image { Image(uiImage: image).resizable().scaledToFit().accessibilityHidden(true) }
             else if let error { Image(systemName: "exclamationmark.triangle").accessibilityLabel(error) }
             else { Image(systemName: "photo").foregroundStyle(.secondary).accessibilityLabel("暂无图片") }
-        }.frame(width: 48, height: 48)
+        }.frame(width: size, height: size)
             .task(id: assetID) {
                 image = nil; error = nil
                 guard let assetID else { return }
