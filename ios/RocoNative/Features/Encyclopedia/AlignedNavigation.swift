@@ -183,11 +183,14 @@ struct AlignedNavigation: UIViewControllerRepresentable {
                 return nil
             }
 
+            // Each related detail carries its own source/hero pair. The frozen
+            // animator and edge interaction are reused without changing their behavior.
+            let detail = (operation == .push ? toVC : fromVC) as? UIHostingController<PetDetail>
             return PortraitNavigationAnimator(
                 operation: operation,
-                origin: origin,
-                image: image,
-                anchors: anchors
+                origin: detail?.rootView.transitionOrigin ?? origin,
+                image: detail?.rootView.image ?? image,
+                anchors: detail?.rootView.anchors ?? anchors
             )
         }
 
@@ -255,6 +258,27 @@ struct AlignedNavigation: UIViewControllerRepresentable {
             }
         }
 
+        private func openRelated(_ pet: Pet, origin: PortraitOrigin, anchors: PortraitAnchors) {
+            guard let nav = navigation,
+                  interactiveDriver == nil,
+                  nav.transitionCoordinator == nil,
+                  nav.topViewController is UIHostingController<PetDetail>,
+                  let image = anchors.source(for: origin)?.image
+            else { return }
+
+            let detail = NavigationContentHost(rootView: PetDetail(
+                pet: pet, content: content, image: image, anchors: anchors,
+                transitionOrigin: origin, portraits: portraits,
+                openRelated: { [weak self] pet, origin, anchors in
+                    self?.openRelated(pet, origin: origin, anchors: anchors)
+                }
+            ))
+            detail.title = ""
+            detail.navigationItem.largeTitleDisplayMode = .never
+            nav.pushViewController(detail, animated: !UIAccessibility.isReduceMotionEnabled &&
+                !ProcessInfo.processInfo.arguments.contains("--reduce-motion"))
+        }
+
         func open(_ pet: Pet, _ origin: PortraitOrigin) {
             guard let nav = navigation,
                   interactiveDriver == nil,
@@ -273,7 +297,11 @@ struct AlignedNavigation: UIViewControllerRepresentable {
                     pet: pet,
                     content: content,
                     image: image,
-                    anchors: anchors
+                    anchors: anchors,
+                    portraits: portraits,
+                    openRelated: { [weak self] pet, origin, anchors in
+                        self?.openRelated(pet, origin: origin, anchors: anchors)
+                    }
                 )
             )
             // Keep the detail navigation bar for the system back button, but
@@ -301,6 +329,8 @@ private final class PortraitNavigationAnimator: NSObject, UIViewControllerAnimat
     private let anchors: PortraitAnchors
 
     private var runningAnimator: UIViewPropertyAnimator?
+
+    private static let offscreenPopStartGap: CGFloat = 1
 
     init(
         operation: UINavigationController.Operation,
@@ -427,7 +457,14 @@ private final class PortraitNavigationAnimator: NSObject, UIViewControllerAnimat
         }
 
         let sourceFrame = source.convert(source.bounds, to: portraitHost)
-        let heroFrame = hero.convert(hero.bounds, to: portraitHost)
+        var heroFrame = hero.convert(hero.bounds, to: portraitHost)
+        if operation == .pop,
+           let visibleRect = visibleContentRect(of: hero, in: fromVC, coordinateView: portraitHost),
+           heroFrame.maxY <= visibleRect.minY {
+            // Bound the start distance without scrolling or changing the real Hero.
+            // A partially visible Hero always retains its actual frame.
+            heroFrame.origin.y = visibleRect.minY - Self.offscreenPopStartGap - heroFrame.height
+        }
 
         let sourceWasHidden = source.isHidden
         let heroWasHidden = hero.isHidden
@@ -495,6 +532,35 @@ private final class PortraitNavigationAnimator: NSObject, UIViewControllerAnimat
 
         runningAnimator = animator
         return animator
+    }
+
+    private func visibleContentRect(
+        of hero: UIView,
+        in detail: UIViewController,
+        coordinateView: UIView
+    ) -> CGRect? {
+        guard let detailView = detail.viewIfLoaded, hero.isDescendant(of: detailView) else { return nil }
+        // Exclude the navigation bar and intersect the actual scroll/clipping viewport.
+        var visibleRect = detailView.bounds.intersection(detailView.safeAreaLayoutGuide.layoutFrame)
+        if let navigationView = detail.navigationController?.view {
+            visibleRect = visibleRect.intersection(navigationView.convert(navigationView.bounds, to: detailView))
+        }
+        if let window = hero.window {
+            visibleRect = visibleRect.intersection(window.convert(window.bounds, to: detailView))
+        }
+        var ancestor = hero.superview
+        while let view = ancestor {
+            if let scroll = view as? UIScrollView {
+                let viewport = scroll.bounds.inset(by: scroll.adjustedContentInset)
+                visibleRect = visibleRect.intersection(scroll.convert(viewport, to: detailView))
+            } else if view.clipsToBounds {
+                visibleRect = visibleRect.intersection(view.convert(view.bounds, to: detailView))
+            }
+            if view === detailView { break }
+            ancestor = view.superview
+        }
+        guard !visibleRect.isNull, !visibleRect.isEmpty else { return nil }
+        return detailView.convert(visibleRect, to: coordinateView)
     }
 
     private func makeFallbackAnimator(

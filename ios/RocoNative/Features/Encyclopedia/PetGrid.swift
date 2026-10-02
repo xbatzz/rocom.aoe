@@ -116,14 +116,19 @@ struct AlignedPetGrid: View {
     @State private var showingFilters = false
     @FocusState private var searchFocused: Bool
 
+    /// Match Web default eligibility using canonical flags, without guessing from assets or egg groups.
+    private var catalogPets: [Pet] {
+        pets.filter { $0.implemented && $0.publicVisible }
+    }
+
     private var typeOptions: [BattleType] {
-        let used = Set(pets.flatMap(\.typeIds))
+        let used = Set(catalogPets.flatMap(\.typeIds))
         return content.types.values.filter { used.contains($0.typeId) }
             .sorted { $0.typeId.rawValue < $1.typeId.rawValue }
     }
 
     var body: some View {
-        let results = query.results(pets: pets, content: content)
+        let results = query.results(pets: catalogPets, content: content)
         ScrollView {
             VStack(alignment: .leading, spacing: 28) {
                 listControls(resultCount: results.count)
@@ -185,7 +190,7 @@ struct AlignedPetGrid: View {
                     sortMenu
                 }
             }
-            Text("\(resultCount) / \(pets.count) 只精灵")
+            Text("\(resultCount) / \(catalogPets.count) 只已实装精灵")
                 .font(.subheadline.monospacedDigit()).foregroundStyle(.secondary)
         }
     }
@@ -229,7 +234,7 @@ struct AlignedPetGrid: View {
                         Text("物攻").tag(Optional(PetAttackStyle.physical))
                         Text("魔攻").tag(Optional(PetAttackStyle.magic))
                         Text("双攻").tag(Optional(PetAttackStyle.both))
-                        if pets.contains(where: { $0.attackStyle == .unknown }) {
+                        if catalogPets.contains(where: { $0.attackStyle == .unknown }) {
                             Text("未知").tag(Optional(PetAttackStyle.unknown))
                         }
                     }
