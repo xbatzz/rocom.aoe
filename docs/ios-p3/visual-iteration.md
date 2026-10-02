@@ -36,3 +36,4 @@ Xcode 27 / iPhone 18 Pro / iOS 27，实际 build、install、launch、simctl scr
 - 技能 r1 → r2：r1 原 ID 顺序首屏都是 canonical 缺图旧配置。r2 增加来自有 iconAssetID 的真实技能速览，原结果和排序不变；缺图使用明确文字降级，不借同名其他 ID 图片。统一属性／类别／威力／能耗与来源头像。自评：速览是真实游戏内容，正文数据可读；独立技能详情首轮已合格。复用行提取到 SharedUI。
 - 备份 r1：本机实际记录数与主要导出操作成为首屏；恢复独立为次级操作。保留完整预检、合并／替换说明和原 file importer/exporter。自评：原生个人进度工具，摆脱 Settings 列表；不强行添加游戏贴图。
 - PVP 子页 r1：伤害页使用原始 skillAssetID、属性与类别速读；真实总伤害／最大生命占比成为主结果。联防使用弱点／中性／抵抗摘要及头像、攻击属性和倍率，计算未动。子页截图审查后，修正数值的 secondary 灰色及不必要的 Web 实现措辞。自评：这些页以真实数据为主体，不是统一 List section。
+- 图鉴一致性 r1：Grid 增加属性；详情保留 Hero 完整几何／注册图调用，基础信息去掉一个容器，属性直接显示在姓名下，技能与特性恢复 canonical 小图标。真实 Grid、Hero 首屏与详情底部截图复查。自评：图片继续是第一焦点，新增内容不会把图鉴变为工具表单。未改 AlignedNavigation、PortraitSurface、PortraitStore 或 shared transition；静态截图不证明实际手势转场表现。

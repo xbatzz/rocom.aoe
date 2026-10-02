@@ -7,6 +7,7 @@ struct CanonicalThumbnail: View {
     let assetID: AssetID?
     let content: ContentStore
     var size: CGFloat = 48
+    @Environment(\.displayScale) private var displayScale
     @State private var image: UIImage?
     @State private var error: String?
     var body: some View {
@@ -25,7 +26,7 @@ struct CanonicalThumbnail: View {
                         guard let source = CGImageSourceCreateWithURL(url as CFURL, nil),
                             let bitmap = CGImageSourceCreateThumbnailAtIndex(source, 0, [
                                 kCGImageSourceCreateThumbnailFromImageAlways: true,
-                                kCGImageSourceThumbnailMaxPixelSize: 128
+                                kCGImageSourceThumbnailMaxPixelSize: max(64, Int(size * displayScale))
                             ] as CFDictionary) else { throw ContentError.invalid("图片解码失败: \(assetID.rawValue)") }
                         image = UIImage(cgImage: bitmap)
                     }
