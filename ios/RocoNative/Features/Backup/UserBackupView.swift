@@ -17,6 +17,10 @@ private struct BackupDocument: FileDocument {
 
 struct UserBackupView: View {
     let content: ContentStore
+    @Query private var shiny: [ShinyRecord]
+    @Query private var grass: [GrassRecord]
+    @Query private var heroes: [HeroRecord]
+    @Query private var teams: [TeamRecord]
     @Environment(\.modelContext) private var context
     @State private var document: BackupDocument?
     @State private var shareURL: URL?
@@ -27,21 +31,34 @@ struct UserBackupView: View {
     @State private var error: String?
     @State private var status: String?
     var body: some View {
-        List {
-            Section("备份到 JSON 文件") {
-                Button("生成当前备份") { generate() }
+        ScrollView {
+            VStack(alignment: .leading, spacing: 28) {
+                VStack(alignment: .leading, spacing: 18) {
+                    Text("带上你的收藏与队伍").font(.title2.bold())
+                    Text("将本机进度保存到文件，在需要时恢复。").font(.subheadline).foregroundStyle(.secondary)
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 140), spacing: 20)], alignment: .leading, spacing: 20) {
+                        CompanionMetric(value: String(shiny.count), label: "异色记录", tint: .purple)
+                        CompanionMetric(value: String(grass.count), label: "地点足迹记录", tint: .green)
+                        CompanionMetric(value: String(heroes.count), label: "命定勇者记录", tint: .orange)
+                        CompanionMetric(value: String(teams.count), label: "保存队伍")
+                    }
+                }.padding(20).companionSurface()
+            CompanionSection("备份到 JSON 文件") {
+                Button("生成当前备份", systemImage: "square.and.arrow.up") { generate() }
+                    .buttonStyle(.borderedProminent).controlSize(.large).tint(.primary)
                 if document != nil { Button("保存到文件") { exporting = true } }
                 if let shareURL { ShareLink("分享备份", item: shareURL) }
                 Text("包括异色、各地点草系足迹、命定勇者、全部队伍和保留的 Web 原始归档。备份包含导出时间、格式版本与稳定 ID。").font(.footnote).foregroundStyle(.secondary)
             }
-            Section("从文件恢复") {
-                Button("选择 JSON 文件") { importing = true }
+            CompanionSection("从文件恢复") {
+                Button("选择 JSON 文件", systemImage: "folder") { importing = true }
+                    .buttonStyle(.bordered).controlSize(.large).tint(.primary)
                 if let prepared {
                     preview(prepared)
                     Picker("导入方式", selection: $mode) {
                         Text("合并").tag(BackupImportMode.merge)
                         Text("全量替换").tag(BackupImportMode.replace)
-                    }
+                    }.pickerStyle(.segmented)
                     Text(mode == .replace ? "将以文件中的全部记录替换当前用户数据，包括保留的 Web 归档。" : "保留双方记录；同 ID 较新时间胜出。时间相同：异色/命定取消优先，草系未记录优先，其次未点亮；队伍保留本机版本。")
                         .font(.footnote).foregroundStyle(.secondary)
                     Button(mode == .replace ? "确认全量替换" : "确认合并", role: mode == .replace ? .destructive : nil) {
@@ -55,8 +72,9 @@ struct UserBackupView: View {
                     Button("取消导入", role: .cancel) { self.prepared = nil }
                 }
             }
-            if let status { Section { Text(status) } }
-        }.navigationTitle("备份与恢复")
+            if let status { Label(status, systemImage: "checkmark.circle.fill").font(.subheadline).foregroundStyle(.green) }
+            }.padding(20)
+        }.reviewScrollPosition().companionBackground().navigationTitle("备份与恢复")
             .fileExporter(isPresented: $exporting, document: document, contentType: .json, defaultFilename: "rocom-native-user-data") {
                 switch $0 { case .success: status = "备份文件已保存。"; case .failure(let error): self.error = String(describing: error) }
             }
