@@ -22,7 +22,6 @@ const storageError = ref("");
 const canEdit = ref(false);
 const keyword = ref("");
 const statusFilter = ref("all");
-const formFilter = ref("all");
 const feedback = ref("");
 const lastChange = ref<{ entry: ShinyCatalogEntry; previous: boolean } | null>(null);
 
@@ -105,8 +104,7 @@ const filteredFamilies = computed(() => {
         if (!matchesQuery) return [];
         const entries = group.entries.filter((entry) => {
             const matchesStatus = statusFilter.value === "all" || isCollected(entry) === (statusFilter.value === "collected");
-            const matchesForm = formFilter.value === "all" || entry.isLeader === (formFilter.value === "leader");
-            return matchesStatus && matchesForm;
+            return matchesStatus;
         });
         return entries.length ? [{ ...group, visibleEntries: entries }] : [];
     });
@@ -120,7 +118,6 @@ const mobileMultiFamilies = computed(() => filteredFamilies.value.filter((group)
 function resetFilters() {
     keyword.value = "";
     statusFilter.value = "all";
-    formFilter.value = "all";
 }
 </script>
 
@@ -179,13 +176,8 @@ function resetFilters() {
                 <option value="uncollected">未收集</option>
                 <option value="collected">已收集</option>
             </select>
-            <select v-model="formFilter" aria-label="形态筛选">
-                <option value="all">全部形态</option>
-                <option value="normal">普通 / 地区形态</option>
-                <option value="leader">首领形态</option>
-            </select>
             <details class="mobile-filters">
-                <summary><SlidersHorizontal :size="16" aria-hidden="true" /> 筛选<span v-if="statusFilter !== 'all' || formFilter !== 'all'" class="filter-active-dot" aria-label="已有筛选条件" /></summary>
+                <summary><SlidersHorizontal :size="16" aria-hidden="true" /> 筛选<span v-if="statusFilter !== 'all'" class="filter-active-dot" aria-label="已有筛选条件" /></summary>
                 <div class="mobile-filter-options">
                     <label>收集状态
                         <select v-model="statusFilter" aria-label="收集状态">
@@ -194,19 +186,12 @@ function resetFilters() {
                             <option value="collected">已收集</option>
                         </select>
                     </label>
-                    <label>形态
-                        <select v-model="formFilter" aria-label="形态筛选">
-                            <option value="all">全部形态</option>
-                            <option value="normal">普通 / 地区形态</option>
-                            <option value="leader">首领形态</option>
-                        </select>
-                    </label>
                 </div>
             </details>
         </div>
         <div class="result-meta">
             <span>显示 {{ visibleCount }} 个收藏 · {{ filteredFamilies.length }} 个家族</span>
-            <button v-if="keyword || statusFilter !== 'all' || formFilter !== 'all'" type="button" @click="resetFilters">重置筛选</button>
+            <button v-if="keyword || statusFilter !== 'all'" type="button" @click="resetFilters">重置筛选</button>
             <span v-else class="autosave-note">进度自动保存在本机</span>
         </div>
         <div class="save-feedback" role="status" aria-live="polite">
@@ -306,7 +291,7 @@ function resetFilters() {
 
         <details class="catalog-notes">
             <summary>名单与统计说明</summary>
-            <p>名单按当前游戏资料中的异色开放标记与归属赛季整理，每个收藏对应一条完整进化路线和可获得的首领形态。返场精灵仍归原赛季，不重复计入 S4。</p>
+            <p>名单按当前游戏资料中的异色开放标记与归属赛季整理，每个收藏对应一条完整进化路线，卡片展示首领形态之外的最高进化阶段。返场精灵仍归原赛季，不重复计入 S4。</p>
             <p>不同形态和分支分别保存；同一进化路线的不同阶段只算一个收藏。家族进度按完整名单统计，不受搜索和筛选影响。</p>
             <p>火红尾、云梦豚等资料中未标注赛季的异色归入“其他”。只有预览图片、未标记开放的异色暂不计入。缺失立绘不影响记录。</p>
             <p>赛季名称参考 <a href="https://wiki.biligame.com/nrc/精灵图鉴" target="_blank" rel="noreferrer">洛克王国世界 WIKI <ArrowUpRight :size="12" aria-hidden="true" /></a>；名单随站内游戏数据同步更新。</p>

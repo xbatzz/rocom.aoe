@@ -71,7 +71,10 @@ export function buildShinyCatalog(pets, petBaseRows, evolutionRows, portraitKeys
 function createSlot(members, suffix) {
     const sortedMembers = [...members].sort((a, b) => a.stage - b.stage || a.petId - b.petId);
     const representative = sortedMembers[0];
-    const target = [...sortedMembers].sort((a, b) => b.stage - a.stage || b.petId - a.petId)[0];
+    // Keep all members for progress migration, but display the highest non-leader stage.
+    const target = sortedMembers.filter((entry) => !entry.isLeader)
+        .sort((a, b) => b.stage - a.stage || b.petId - a.petId)[0];
+    if (!target) throw new Error(`Shiny collection ${suffix} has no non-leader display form`);
     return {
         id: `s${representative.season}-f${representative.familyId}-${suffix}`,
         season: representative.season,

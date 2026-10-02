@@ -69,6 +69,9 @@ assert.equal(catalog.length, 81, "catalog must contain 81 collection slots");
 assert.equal(new Set(catalog.map((entry) => entry.id)).size, catalog.length, "slot IDs must be unique");
 for (const entry of catalog) {
     assert.ok(entry.id && entry.memberPetIds.length && entry.representativePetId && entry.targetPetId && entry.label);
+    assert.equal(entry.isLeader, false, "collection cards must exclude leader forms");
+    assert.equal(entry.stage, Math.max(...entry.members.filter((member) => !member.isLeader).map((member) => member.stage)), "display the highest non-leader stage");
+    assert.equal(entry.members.find((member) => member.petId === entry.targetPetId)?.isLeader, false);
 }
 for (const [first, second, firstLabel, secondLabel] of [
     [3660, 3743, "两只海葵", "单只海葵"],
