@@ -24,7 +24,7 @@ struct NativeFeatureEntry: View {
                 }
                 Section("战斗工具") {
                     NavigationLink { TeamBuilderView(content: content) } label: { Label("配队", systemImage: "person.3") }
-                    planned("PVP 助手", "bolt.shield")
+                    NavigationLink { PVPBattleView(content: content) } label: { Label("PVP 助手", systemImage: "bolt.shield") }
                 }
             }.navigationTitle("洛克工具")
         }
@@ -35,8 +35,5 @@ struct NativeFeatureEntry: View {
                     .buttonStyle(.borderedProminent).padding()
             }
         }
-    }
-    private func planned(_ name: String, _ symbol: String) -> some View {
-        LabeledContent { Text("待实现").foregroundStyle(.secondary) } label: { Label(name, systemImage: symbol) }
     }
 }

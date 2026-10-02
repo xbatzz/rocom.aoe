@@ -1,0 +1,2400 @@
+{
+  "source": "damageCalculator.ts, teamAnalysis.ts, meteorBugCaptureBall.ts and extracted pvp-lite getDamageEffectOptions/getChoice*",
+  "cases": [
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 4,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 0,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 52,
+      "singleHit": 62,
+      "total": 62,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 0
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 4,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 49,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 52,
+      "singleHit": 62,
+      "total": 62,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 175
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 4,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 50,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 52,
+      "singleHit": 62,
+      "total": 62,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 179
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 4,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 51,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 52,
+      "singleHit": 62,
+      "total": 62,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 182
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 4,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 79,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 52,
+      "singleHit": 62,
+      "total": 62,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 282
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 4,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 80,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 52,
+      "singleHit": 62,
+      "total": 62,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 285
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 4,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 81,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 52,
+      "singleHit": 62,
+      "total": 62,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 289
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 4,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 100,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 52,
+      "singleHit": 62,
+      "total": 62,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 356
+    },
+    {
+      "attackerID": 3001,
+      "defenderID": 3004,
+      "skillID": 311,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 0,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 60,
+      "singleHit": 38,
+      "total": 152,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 0
+    },
+    {
+      "attackerID": 3001,
+      "defenderID": 3004,
+      "skillID": 311,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 49,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 60,
+      "singleHit": 38,
+      "total": 152,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 327
+    },
+    {
+      "attackerID": 3001,
+      "defenderID": 3004,
+      "skillID": 311,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 50,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 60,
+      "singleHit": 38,
+      "total": 152,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 333
+    },
+    {
+      "attackerID": 3001,
+      "defenderID": 3004,
+      "skillID": 311,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 51,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 60,
+      "singleHit": 38,
+      "total": 152,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 339
+    },
+    {
+      "attackerID": 3001,
+      "defenderID": 3004,
+      "skillID": 311,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 79,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 60,
+      "singleHit": 38,
+      "total": 152,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 525
+    },
+    {
+      "attackerID": 3001,
+      "defenderID": 3004,
+      "skillID": 311,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 80,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 60,
+      "singleHit": 38,
+      "total": 152,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 531
+    },
+    {
+      "attackerID": 3001,
+      "defenderID": 3004,
+      "skillID": 311,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 81,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 60,
+      "singleHit": 38,
+      "total": 152,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 539
+    },
+    {
+      "attackerID": 3001,
+      "defenderID": 3004,
+      "skillID": 311,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 100,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 60,
+      "singleHit": 38,
+      "total": 152,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 664
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 0,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 81,
+      "singleHit": 96,
+      "total": 96,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 0
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 0,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 120,
+      "singleHit": 143,
+      "total": 143,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 0
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 49,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 81,
+      "singleHit": 96,
+      "total": 96,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 349
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 49,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 120,
+      "singleHit": 143,
+      "total": 143,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 349
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 50,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 81,
+      "singleHit": 96,
+      "total": 96,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 357
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 50,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 55,
+      "singleHit": 65,
+      "total": 65,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 357
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 51,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 81,
+      "singleHit": 96,
+      "total": 96,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 363
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 51,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 55,
+      "singleHit": 65,
+      "total": 65,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 363
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 79,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 81,
+      "singleHit": 96,
+      "total": 96,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 563
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 79,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 55,
+      "singleHit": 65,
+      "total": 65,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 563
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 80,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 81,
+      "singleHit": 96,
+      "total": 96,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 569
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 80,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 55,
+      "singleHit": 65,
+      "total": 65,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 569
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 81,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 81,
+      "singleHit": 96,
+      "total": 96,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 577
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 81,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 55,
+      "singleHit": 65,
+      "total": 65,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 577
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 100,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 81,
+      "singleHit": 96,
+      "total": 96,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 711
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 100,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 55,
+      "singleHit": 65,
+      "total": 65,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 711
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7021230,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 0,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 91,
+      "singleHit": 98,
+      "total": 98,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 0
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7021230,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 0,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 182,
+      "singleHit": 197,
+      "total": 197,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 0
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7021230,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 49,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 91,
+      "singleHit": 98,
+      "total": 98,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 193
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7021230,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 49,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 182,
+      "singleHit": 197,
+      "total": 197,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 193
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7021230,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 50,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 91,
+      "singleHit": 98,
+      "total": 98,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 196
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7021230,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 50,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 182,
+      "singleHit": 197,
+      "total": 197,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 196
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7021230,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 51,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 91,
+      "singleHit": 98,
+      "total": 98,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 200
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7021230,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 51,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 182,
+      "singleHit": 197,
+      "total": 197,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 200
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7021230,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 79,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 91,
+      "singleHit": 98,
+      "total": 98,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 310
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7021230,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 79,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 182,
+      "singleHit": 197,
+      "total": 197,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 310
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7021230,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 80,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 91,
+      "singleHit": 98,
+      "total": 98,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 313
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7021230,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 80,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 182,
+      "singleHit": 197,
+      "total": 197,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 313
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7021230,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 81,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 91,
+      "singleHit": 98,
+      "total": 98,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 318
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7021230,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 81,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 182,
+      "singleHit": 197,
+      "total": 197,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 318
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7021230,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 100,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 91,
+      "singleHit": 98,
+      "total": 98,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 391
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7021230,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 100,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 182,
+      "singleHit": 197,
+      "total": 197,
+      "defenderHP": 425,
+      "typeMultiplier": 1,
+      "stabMultiplier": 1,
+      "oneHit": 391
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 0,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 81,
+      "singleHit": 96,
+      "total": 96,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 0
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 0,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 120,
+      "singleHit": 143,
+      "total": 143,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 0
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 49,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 81,
+      "singleHit": 96,
+      "total": 96,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 349
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 49,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 120,
+      "singleHit": 143,
+      "total": 143,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 349
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 50,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 81,
+      "singleHit": 96,
+      "total": 96,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 357
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 50,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 55,
+      "singleHit": 65,
+      "total": 65,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 357
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 51,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 81,
+      "singleHit": 96,
+      "total": 96,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 363
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 51,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 55,
+      "singleHit": 65,
+      "total": 65,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 363
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 79,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 81,
+      "singleHit": 96,
+      "total": 96,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 563
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 79,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 55,
+      "singleHit": 65,
+      "total": 65,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 563
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 80,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 81,
+      "singleHit": 96,
+      "total": 96,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 569
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 80,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 55,
+      "singleHit": 65,
+      "total": 65,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 569
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 81,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 81,
+      "singleHit": 96,
+      "total": 96,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 577
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 81,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 55,
+      "singleHit": 65,
+      "total": 65,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 577
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 100,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 81,
+      "singleHit": 96,
+      "total": 96,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 711
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7180420,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 100,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 55,
+      "singleHit": 65,
+      "total": 65,
+      "defenderHP": 425,
+      "typeMultiplier": 0.5,
+      "stabMultiplier": 1,
+      "oneHit": 711
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7030580,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 0,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 247,
+      "singleHit": 268,
+      "total": 268,
+      "defenderHP": 425,
+      "typeMultiplier": 2,
+      "stabMultiplier": 1,
+      "oneHit": 0
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7030580,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 0,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 247,
+      "singleHit": 268,
+      "total": 268,
+      "defenderHP": 425,
+      "typeMultiplier": 2,
+      "stabMultiplier": 1,
+      "oneHit": 0
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7030580,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 49,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 247,
+      "singleHit": 268,
+      "total": 268,
+      "defenderHP": 425,
+      "typeMultiplier": 2,
+      "stabMultiplier": 1,
+      "oneHit": 97
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7030580,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 49,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 247,
+      "singleHit": 268,
+      "total": 268,
+      "defenderHP": 425,
+      "typeMultiplier": 2,
+      "stabMultiplier": 1,
+      "oneHit": 97
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7030580,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 50,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 247,
+      "singleHit": 268,
+      "total": 268,
+      "defenderHP": 425,
+      "typeMultiplier": 2,
+      "stabMultiplier": 1,
+      "oneHit": 98
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7030580,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 50,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 247,
+      "singleHit": 268,
+      "total": 268,
+      "defenderHP": 425,
+      "typeMultiplier": 2,
+      "stabMultiplier": 1,
+      "oneHit": 98
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7030580,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 51,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 247,
+      "singleHit": 268,
+      "total": 268,
+      "defenderHP": 425,
+      "typeMultiplier": 2,
+      "stabMultiplier": 1,
+      "oneHit": 100
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7030580,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 51,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 247,
+      "singleHit": 268,
+      "total": 268,
+      "defenderHP": 425,
+      "typeMultiplier": 2,
+      "stabMultiplier": 1,
+      "oneHit": 100
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7030580,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 79,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 247,
+      "singleHit": 268,
+      "total": 268,
+      "defenderHP": 425,
+      "typeMultiplier": 2,
+      "stabMultiplier": 1,
+      "oneHit": 155
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7030580,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 79,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 247,
+      "singleHit": 268,
+      "total": 268,
+      "defenderHP": 425,
+      "typeMultiplier": 2,
+      "stabMultiplier": 1,
+      "oneHit": 155
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7030580,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 80,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 247,
+      "singleHit": 268,
+      "total": 268,
+      "defenderHP": 425,
+      "typeMultiplier": 2,
+      "stabMultiplier": 1,
+      "oneHit": 157
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7030580,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 80,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 247,
+      "singleHit": 268,
+      "total": 268,
+      "defenderHP": 425,
+      "typeMultiplier": 2,
+      "stabMultiplier": 1,
+      "oneHit": 157
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7030580,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 81,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 377,
+      "singleHit": 409,
+      "total": 409,
+      "defenderHP": 425,
+      "typeMultiplier": 2,
+      "stabMultiplier": 1,
+      "oneHit": 159
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7030580,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 81,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 247,
+      "singleHit": 268,
+      "total": 268,
+      "defenderHP": 425,
+      "typeMultiplier": 2,
+      "stabMultiplier": 1,
+      "oneHit": 159
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7030580,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 100,
+      "settings": {
+        "choiceIndex": 0,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 377,
+      "singleHit": 409,
+      "total": 409,
+      "defenderHP": 425,
+      "typeMultiplier": 2,
+      "stabMultiplier": 1,
+      "oneHit": 196
+    },
+    {
+      "attackerID": 5017,
+      "defenderID": 3004,
+      "skillID": 7030580,
+      "attackerPersonalityID": 11,
+      "defenderPersonalityID": 6,
+      "individuals": [
+        10,
+        0,
+        10,
+        0,
+        0,
+        10
+      ],
+      "hpPercent": 100,
+      "settings": {
+        "choiceIndex": 1,
+        "swarmPowerCount": 2,
+        "swarmHitCount": 3,
+        "blazingStage": 3
+      },
+      "displayPower": 247,
+      "singleHit": 268,
+      "total": 268,
+      "defenderHP": 425,
+      "typeMultiplier": 2,
+      "stabMultiplier": 1,
+      "oneHit": 196
+    }
+  ],
+  "speeds": [
+    {
+      "ball": "normal",
+      "speed": 337
+    },
+    {
+      "ball": "advanced",
+      "speed": 353
+    },
+    {
+      "ball": "king",
+      "speed": 369
+    },
+    {
+      "ball": "wonderful",
+      "speed": 321
+    },
+    {
+      "ball": "temperature",
+      "speed": 321
+    },
+    {
+      "ball": "photosynthesis",
+      "speed": 321
+    },
+    {
+      "ball": "net",
+      "speed": 321
+    },
+    {
+      "ball": "insulated",
+      "speed": 371
+    },
+    {
+      "ball": "sand",
+      "speed": 321
+    },
+    {
+      "ball": "shifting",
+      "speed": 321
+    },
+    {
+      "ball": "darkStar",
+      "speed": 321
+    },
+    {
+      "ball": "bellicose",
+      "speed": 321
+    },
+    {
+      "ball": "light",
+      "speed": 321
+    },
+    {
+      "ball": "prism",
+      "speed": 321
+    }
+  ],
+  "switchCases": [
+    {
+      "attackerID": 3001,
+      "defenderID": 3004,
+      "multiplier": 2
+    },
+    {
+      "attackerID": 3004,
+      "defenderID": 3004,
+      "multiplier": 1
+    },
+    {
+      "attackerID": 3005,
+      "defenderID": 3004,
+      "multiplier": 1
+    }
+  ]
+}

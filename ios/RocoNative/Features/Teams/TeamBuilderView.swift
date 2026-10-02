@@ -103,7 +103,7 @@ private struct TeamDraftView: View {
     }
 }
 
-private struct TeamSlotView: View {
+struct TeamSlotView: View {
     @Binding var slot: TeamSlot
     let content: ContentStore
     @State private var error: String?
