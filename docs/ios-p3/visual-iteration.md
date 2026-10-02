@@ -29,3 +29,4 @@ Xcode 27 / iPhone 18 Pro / iOS 27，实际 build、install、launch、simctl scr
 资源接入不修改 canonical 包；脚本只生成独立 GameIcons 目录，provenance.json 保存来源、hash 与 typeID 对应关系。技能与特性继续复用严格校验的既有资产包。
 
 - 配队 r1 → r2：r1 草稿槽位过高，首屏无法看完整队；空槽像缺图，且保存列表缺属性。r2 紧凑六槽、原生道具菜单有明确标签、空槽显示真实序号、每个已有伙伴展示属性与技能数；实际空态、草稿、保存示例队伍复查。自评：不再是六个 Settings 入口，六槽呈现为一支队；辅助字号下允许单列。示例记录仅在 `--visual-fixture` 的隔离内存数据库中，由真实 domain API 创建。
+- 异色 r1：真实异色 portrait、属性、赛季、收藏状态与范围进度；已收藏状态使用 Web 小勾。实际 5 / 81 测试记录截图复查，两个来源缺图不猜普通形态代替。自评：是 collection tracker，不是表格；搜索沿用原生控件。
