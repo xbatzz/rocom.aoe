@@ -42,3 +42,13 @@ __pycache__
 
 # Local FModel exports
 /NRC/
+
+# Native iOS rebuildable output and local Xcode state
+/build/ios-p0/
+/build/ios27-p0/
+/build/ios-content/
+ios/**/.build/
+ios/**/xcuserdata/
+*.xcuserstate
+DerivedData/
+*.xcresult/

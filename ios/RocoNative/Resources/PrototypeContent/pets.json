@@ -1,0 +1,653 @@
+{
+  "schemaVersion": 1,
+  "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+  "pets": [
+    {
+      "petId": 3001,
+      "speciesId": 2,
+      "handbookId": 2,
+      "nameZh": "喵喵",
+      "form": "default",
+      "typeNames": [
+        "草"
+      ],
+      "baseStats": [
+        65,
+        66,
+        66,
+        49,
+        91,
+        33
+      ],
+      "traitName": "氧循环",
+      "traitDescription": "使用草系技能后，回复10%生命。",
+      "portraitFile": "JL_miaomiao.png",
+      "resourceKey": "JL_miaomiao"
+    },
+    {
+      "petId": 3002,
+      "speciesId": 8,
+      "handbookId": 8,
+      "nameZh": "水蓝蓝",
+      "form": "default",
+      "typeNames": [
+        "水"
+      ],
+      "baseStats": [
+        75,
+        35,
+        76,
+        56,
+        79,
+        51
+      ],
+      "traitName": "浸润",
+      "traitDescription": "使用水系技能后，全技能能耗-1。",
+      "portraitFile": "JL_shuilanlan.png",
+      "resourceKey": "JL_shuilanlan"
+    },
+    {
+      "petId": 3003,
+      "speciesId": 5,
+      "handbookId": 5,
+      "nameZh": "火花",
+      "form": "default",
+      "typeNames": [
+        "火"
+      ],
+      "baseStats": [
+        70,
+        84,
+        37,
+        56,
+        43,
+        78
+      ],
+      "traitName": "助燃",
+      "traitDescription": "使用火系技能后，获得双攻+20%。",
+      "portraitFile": "JL_huohua.png",
+      "resourceKey": "JL_huohua"
+    },
+    {
+      "petId": 3004,
+      "speciesId": 1,
+      "handbookId": 1,
+      "nameZh": "迪莫",
+      "form": "default",
+      "typeNames": [
+        "光"
+      ],
+      "baseStats": [
+        120,
+        80,
+        80,
+        105,
+        105,
+        92
+      ],
+      "traitName": "最好的伙伴",
+      "traitDescription": "造成克制伤害后，获得攻防速+20%，并回复2能量。",
+      "portraitFile": "JL_dimo.png",
+      "resourceKey": "JL_dimo"
+    },
+    {
+      "petId": 3005,
+      "speciesId": 10,
+      "handbookId": 10,
+      "nameZh": "水灵",
+      "form": "default",
+      "typeNames": [
+        "水"
+      ],
+      "baseStats": [
+        125,
+        58,
+        127,
+        94,
+        132,
+        85
+      ],
+      "traitName": "浸润",
+      "traitDescription": "使用水系技能后，全技能能耗-1。",
+      "portraitFile": "JL_shuiling.png",
+      "resourceKey": "JL_shuiling"
+    },
+    {
+      "petId": 3006,
+      "speciesId": 7,
+      "handbookId": 7,
+      "nameZh": "火神",
+      "form": "default",
+      "typeNames": [
+        "火"
+      ],
+      "baseStats": [
+        117,
+        139,
+        61,
+        94,
+        72,
+        130
+      ],
+      "traitName": "助燃",
+      "traitDescription": "使用火系技能后，获得双攻+20%。",
+      "portraitFile": "JL_huoshen.png",
+      "resourceKey": "JL_huoshen"
+    },
+    {
+      "petId": 3007,
+      "speciesId": 4,
+      "handbookId": 4,
+      "nameZh": "魔力猫",
+      "form": "default",
+      "typeNames": [
+        "草"
+      ],
+      "baseStats": [
+        108,
+        109,
+        109,
+        81,
+        151,
+        55
+      ],
+      "traitName": "氧循环",
+      "traitDescription": "使用草系技能后，回复10%生命。",
+      "portraitFile": "JL_molimiao.png",
+      "resourceKey": "JL_molimiao"
+    },
+    {
+      "petId": 3008,
+      "speciesId": 179,
+      "handbookId": 179,
+      "nameZh": "草头鸭",
+      "form": "default",
+      "typeNames": [
+        "草"
+      ],
+      "baseStats": [
+        92,
+        79,
+        24,
+        66,
+        50,
+        92
+      ],
+      "traitName": "得寸进尺",
+      "traitDescription": "天气为雨天，或处于其他水系环境中时，获得双攻+100%。",
+      "portraitFile": "JL_caotouya.png",
+      "resourceKey": "JL_caotouya"
+    },
+    {
+      "petId": 3010,
+      "speciesId": 30,
+      "handbookId": 30,
+      "nameZh": "恶魔叮",
+      "form": "default",
+      "typeNames": [
+        "翼",
+        "恶"
+      ],
+      "baseStats": [
+        90,
+        100,
+        42,
+        80,
+        56,
+        84
+      ],
+      "traitName": "渴求",
+      "traitDescription": "入场时获得50%吸血。",
+      "portraitFile": "JL_emoding.png",
+      "resourceKey": "JL_emoding"
+    },
+    {
+      "petId": 3011,
+      "speciesId": 131,
+      "handbookId": 131,
+      "nameZh": "恶魔狼",
+      "form": "default",
+      "typeNames": [
+        "恶"
+      ],
+      "baseStats": [
+        115,
+        114,
+        45,
+        91,
+        63,
+        120
+      ],
+      "traitName": "悲悯",
+      "traitDescription": "己方队伍中每有1只力竭的精灵，自己获得双攻+30%。",
+      "portraitFile": "JL_emolang.png",
+      "resourceKey": "JL_emolang"
+    },
+    {
+      "petId": 3012,
+      "speciesId": 11,
+      "handbookId": 11,
+      "nameZh": "鸭吉吉",
+      "form": "蓬松的样子",
+      "typeNames": [
+        "普通"
+      ],
+      "baseStats": [
+        136,
+        95,
+        35,
+        55,
+        45,
+        105
+      ],
+      "traitName": "挺起胸脯",
+      "traitDescription": "携带的能耗为1的技能，威力+50%。",
+      "portraitFile": "JL_yajiji.png",
+      "resourceKey": "JL_yajiji"
+    },
+    {
+      "petId": 3013,
+      "speciesId": 284,
+      "handbookId": 284,
+      "nameZh": "铠甲虫",
+      "form": "default",
+      "typeNames": [
+        "虫"
+      ],
+      "baseStats": [
+        132,
+        95,
+        43,
+        128,
+        82,
+        75
+      ],
+      "traitName": "坚韧铠甲",
+      "traitDescription": "每受到1次攻击伤害，己方队伍获得1次随机奉献。",
+      "portraitFile": "JL_kaijiachong.png",
+      "resourceKey": "JL_kaijiachong"
+    },
+    {
+      "petId": 3014,
+      "speciesId": 105,
+      "handbookId": 105,
+      "nameZh": "阿米亚特",
+      "form": "default",
+      "typeNames": [
+        "地"
+      ],
+      "baseStats": [
+        64,
+        95,
+        47,
+        67,
+        42,
+        45
+      ],
+      "traitName": "石头大餐",
+      "traitDescription": "能量不足时，消耗5%生命，代替1能量。",
+      "portraitFile": "JL_amiyate.png",
+      "resourceKey": "JL_amiyate"
+    },
+    {
+      "petId": 3015,
+      "speciesId": 106,
+      "handbookId": 106,
+      "nameZh": "阿米樱",
+      "form": "default",
+      "typeNames": [
+        "地"
+      ],
+      "baseStats": [
+        86,
+        127,
+        62,
+        89,
+        56,
+        60
+      ],
+      "traitName": "石头大餐",
+      "traitDescription": "能量不足时，消耗5%生命，代替1能量。",
+      "portraitFile": "JL_amiying.png",
+      "resourceKey": "JL_amiying"
+    },
+    {
+      "petId": 3016,
+      "speciesId": 107,
+      "handbookId": 107,
+      "nameZh": "罗隐",
+      "form": "default",
+      "typeNames": [
+        "地",
+        "恶"
+      ],
+      "baseStats": [
+        107,
+        159,
+        78,
+        112,
+        70,
+        75
+      ],
+      "traitName": "石头大餐",
+      "traitDescription": "能量不足时，消耗5%生命，代替1能量。",
+      "portraitFile": "JL_luoyin.png",
+      "resourceKey": "JL_luoyin"
+    },
+    {
+      "petId": 3017,
+      "speciesId": 63,
+      "handbookId": 63,
+      "nameZh": "蹦蹦种子",
+      "form": "海神球形态",
+      "typeNames": [
+        "草",
+        "毒"
+      ],
+      "baseStats": [
+        60,
+        64,
+        66,
+        44,
+        63,
+        51
+      ],
+      "traitName": "生物碱",
+      "traitDescription": "使用草系技能时，敌方获得2层中毒。",
+      "portraitFile": "JL_bengbengzhongzi.png",
+      "resourceKey": "JL_bengbengzhongzi"
+    },
+    {
+      "petId": 3018,
+      "speciesId": 64,
+      "handbookId": 64,
+      "nameZh": "蹦蹦草",
+      "form": "海神球形态",
+      "typeNames": [
+        "草",
+        "毒"
+      ],
+      "baseStats": [
+        80,
+        85,
+        88,
+        59,
+        84,
+        68
+      ],
+      "traitName": "生物碱",
+      "traitDescription": "使用草系技能时，敌方获得2层中毒。",
+      "portraitFile": "JL_bengbengcao.png",
+      "resourceKey": "JL_bengbengcao"
+    },
+    {
+      "petId": 3019,
+      "speciesId": 65,
+      "handbookId": 65,
+      "nameZh": "蹦蹦花",
+      "form": "海神球形态",
+      "typeNames": [
+        "草",
+        "毒"
+      ],
+      "baseStats": [
+        100,
+        107,
+        110,
+        73,
+        105,
+        85
+      ],
+      "traitName": "生物碱",
+      "traitDescription": "使用草系技能时，敌方获得2层中毒。",
+      "portraitFile": "JL_bengbenghua.png",
+      "resourceKey": "JL_bengbenghua"
+    },
+    {
+      "petId": 3020,
+      "speciesId": 277,
+      "handbookId": 277,
+      "nameZh": "地鼠",
+      "form": "枯水期的样子",
+      "typeNames": [
+        "地"
+      ],
+      "baseStats": [
+        66,
+        71,
+        31,
+        72,
+        51,
+        66
+      ],
+      "traitName": "警惕",
+      "traitDescription": "回合结束时，若自己能量为0则脱离。",
+      "portraitFile": "JL_dishu.png",
+      "resourceKey": "JL_dishu"
+    },
+    {
+      "petId": 3021,
+      "speciesId": 278,
+      "handbookId": 278,
+      "nameZh": "遁鼠",
+      "form": "枯水期的样子",
+      "typeNames": [
+        "地"
+      ],
+      "baseStats": [
+        88,
+        95,
+        41,
+        97,
+        68,
+        88
+      ],
+      "traitName": "警惕",
+      "traitDescription": "回合结束时，若自己能量为0则脱离。",
+      "portraitFile": "JL_dunshu.png",
+      "resourceKey": "JL_dunshu"
+    },
+    {
+      "petId": 3022,
+      "speciesId": 279,
+      "handbookId": 279,
+      "nameZh": "遁地鼠",
+      "form": "枯水期的样子",
+      "typeNames": [
+        "地"
+      ],
+      "baseStats": [
+        110,
+        119,
+        51,
+        121,
+        85,
+        110
+      ],
+      "traitName": "警惕",
+      "traitDescription": "回合结束时，若自己能量为0则脱离。",
+      "portraitFile": "JL_dundishu.png",
+      "resourceKey": "JL_dundishu"
+    },
+    {
+      "petId": 3025,
+      "speciesId": 3,
+      "handbookId": 3,
+      "nameZh": "喵呜",
+      "form": "default",
+      "typeNames": [
+        "草"
+      ],
+      "baseStats": [
+        86,
+        87,
+        87,
+        65,
+        121,
+        44
+      ],
+      "traitName": "氧循环",
+      "traitDescription": "使用草系技能后，回复10%生命。",
+      "portraitFile": "JL_miaowu.png",
+      "resourceKey": "JL_miaowu"
+    },
+    {
+      "petId": 3026,
+      "speciesId": 93,
+      "handbookId": 93,
+      "nameZh": "绿草精灵",
+      "form": "default",
+      "typeNames": [
+        "草",
+        "幻"
+      ],
+      "baseStats": [
+        87,
+        39,
+        96,
+        92,
+        118,
+        72
+      ],
+      "traitName": "木桶戏法",
+      "traitDescription": "离场后，更换入场的精灵以木桶状态登场。",
+      "portraitFile": "JL_lvcaojingling.png",
+      "resourceKey": "JL_lvcaojingling"
+    },
+    {
+      "petId": 3027,
+      "speciesId": 70,
+      "handbookId": 70,
+      "nameZh": "蒲公英娃娃",
+      "form": "default",
+      "typeNames": [
+        "草",
+        "萌"
+      ],
+      "baseStats": [
+        111,
+        123,
+        117,
+        129,
+        97,
+        65
+      ],
+      "traitName": "勇敢",
+      "traitDescription": "携带的能耗大于3的技能，威力+40%。",
+      "portraitFile": "JL_pugongyingwawa.png",
+      "resourceKey": "JL_pugongyingwawa"
+    },
+    {
+      "petId": 3454,
+      "speciesId": 277,
+      "handbookId": 277,
+      "nameZh": "地鼠",
+      "form": "储水时的样子",
+      "typeNames": [
+        "地"
+      ],
+      "baseStats": [
+        67,
+        71,
+        14,
+        51,
+        79,
+        60
+      ],
+      "traitName": "警惕",
+      "traitDescription": "回合结束时，若自己能量为0则脱离。",
+      "portraitFile": "JL_dishu_xushui.png",
+      "resourceKey": "JL_dishu_xushui"
+    },
+    {
+      "petId": 3583,
+      "speciesId": 238,
+      "handbookId": 238,
+      "nameZh": "月亮砣",
+      "form": "上弦的样子",
+      "typeNames": [
+        "毒",
+        "萌"
+      ],
+      "baseStats": [
+        125,
+        100,
+        98,
+        100,
+        81,
+        105
+      ],
+      "traitName": "耐活王",
+      "traitDescription": "敌方受到中毒效果伤害时，自己回复等量生命。",
+      "portraitFile": "JL_yueliangtuo_yidi.png",
+      "resourceKey": "JL_yueliangtuo_yidi"
+    },
+    {
+      "petId": 3585,
+      "speciesId": 238,
+      "handbookId": 238,
+      "nameZh": "月亮砣",
+      "form": "下弦的样子",
+      "typeNames": [
+        "毒",
+        "萌"
+      ],
+      "baseStats": [
+        125,
+        98,
+        100,
+        81,
+        100,
+        105
+      ],
+      "traitName": "耐活王",
+      "traitDescription": "敌方受到中毒效果伤害时，自己回复等量生命。",
+      "portraitFile": "JL_yueliangtuo.png",
+      "resourceKey": "JL_yueliangtuo"
+    },
+    {
+      "petId": 3784,
+      "speciesId": 467,
+      "handbookId": 467,
+      "nameZh": "云梦豚",
+      "form": "default",
+      "typeNames": [
+        "水"
+      ],
+      "baseStats": [
+        77,
+        37,
+        101,
+        87,
+        94,
+        84
+      ],
+      "traitName": "吐水",
+      "traitDescription": "使用技能水弹后，敌方获得双攻+10%，双防-10%。",
+      "portraitFile": null,
+      "resourceKey": "img_Wat_ZhuZhuTun1_001_Res"
+    },
+    {
+      "petId": 3785,
+      "speciesId": 468,
+      "handbookId": 468,
+      "nameZh": "长江豚",
+      "form": "default",
+      "typeNames": [
+        "水"
+      ],
+      "baseStats": [
+        96,
+        46,
+        126,
+        109,
+        117,
+        105
+      ],
+      "traitName": "吐水",
+      "traitDescription": "使用技能水弹后，敌方获得双攻+10%，双防-10%。",
+      "portraitFile": null,
+      "resourceKey": "img_Wat_ZhuZhuTun2_001_Res"
+    }
+  ]
+}

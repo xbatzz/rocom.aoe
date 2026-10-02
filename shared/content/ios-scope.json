@@ -1,0 +1,11 @@
+{
+    "profile": "eight-features-v1",
+    "features": ["handbook", "type-matchups", "skill-query", "team-builder", "pvp-assistant", "shiny-collection", "grass-badge", "destined-hero"],
+    "petRoots": ["public-real-handbook", "implemented-badge-and-battle-candidates", "shiny-members"],
+    "petClosure": ["parents", "connected-evolution-chains"],
+    "skillRoots": ["base-moves", "scoped-pet-moves", "groups-acquired-by-scoped-pets"],
+    "excludedEntities": ["handbookTopics", "items"],
+    "excludedFields": ["petDetails.breedingSummary", "evolutions.itemId", "evolutions.level", "evolutions.conditionText", "evolutions.sourceEvolutionId"],
+    "leaderMaterials": "assumed-owned; no material validation",
+    "assets": "source-descriptors-only; no conversion or placeholder generation"
+}

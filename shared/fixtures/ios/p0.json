@@ -1,0 +1,1651 @@
+[
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-65-0--0.1",
+    "input": {
+      "base": 65,
+      "iv": 0,
+      "nature": -0.1
+    },
+    "expected": {
+      "hp": 263,
+      "other": 124
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-65-0-0",
+    "input": {
+      "base": 65,
+      "iv": 0,
+      "nature": 0
+    },
+    "expected": {
+      "hp": 281,
+      "other": 132
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-65-0-0.2",
+    "input": {
+      "base": 65,
+      "iv": 0,
+      "nature": 0.2
+    },
+    "expected": {
+      "hp": 317,
+      "other": 148
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-65-1--0.1",
+    "input": {
+      "base": 65,
+      "iv": 1,
+      "nature": -0.1
+    },
+    "expected": {
+      "hp": 267,
+      "other": 127
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-65-1-0",
+    "input": {
+      "base": 65,
+      "iv": 1,
+      "nature": 0
+    },
+    "expected": {
+      "hp": 286,
+      "other": 135
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-65-1-0.2",
+    "input": {
+      "base": 65,
+      "iv": 1,
+      "nature": 0.2
+    },
+    "expected": {
+      "hp": 323,
+      "other": 152
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-65-9--0.1",
+    "input": {
+      "base": 65,
+      "iv": 9,
+      "nature": -0.1
+    },
+    "expected": {
+      "hp": 303,
+      "other": 150
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-65-9-0",
+    "input": {
+      "base": 65,
+      "iv": 9,
+      "nature": 0
+    },
+    "expected": {
+      "hp": 326,
+      "other": 161
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-65-9-0.2",
+    "input": {
+      "base": 65,
+      "iv": 9,
+      "nature": 0.2
+    },
+    "expected": {
+      "hp": 371,
+      "other": 183
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-65-10--0.1",
+    "input": {
+      "base": 65,
+      "iv": 10,
+      "nature": -0.1
+    },
+    "expected": {
+      "hp": 309,
+      "other": 154
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-65-10-0",
+    "input": {
+      "base": 65,
+      "iv": 10,
+      "nature": 0
+    },
+    "expected": {
+      "hp": 332,
+      "other": 165
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-65-10-0.2",
+    "input": {
+      "base": 65,
+      "iv": 10,
+      "nature": 0.2
+    },
+    "expected": {
+      "hp": 378,
+      "other": 188
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-91-0--0.1",
+    "input": {
+      "base": 91,
+      "iv": 0,
+      "nature": -0.1
+    },
+    "expected": {
+      "hp": 303,
+      "other": 149
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-91-0-0",
+    "input": {
+      "base": 91,
+      "iv": 0,
+      "nature": 0
+    },
+    "expected": {
+      "hp": 325,
+      "other": 160
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-91-0-0.2",
+    "input": {
+      "base": 91,
+      "iv": 0,
+      "nature": 0.2
+    },
+    "expected": {
+      "hp": 370,
+      "other": 182
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-91-1--0.1",
+    "input": {
+      "base": 91,
+      "iv": 1,
+      "nature": -0.1
+    },
+    "expected": {
+      "hp": 307,
+      "other": 152
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-91-1-0",
+    "input": {
+      "base": 91,
+      "iv": 1,
+      "nature": 0
+    },
+    "expected": {
+      "hp": 330,
+      "other": 163
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-91-1-0.2",
+    "input": {
+      "base": 91,
+      "iv": 1,
+      "nature": 0.2
+    },
+    "expected": {
+      "hp": 376,
+      "other": 186
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-91-9--0.1",
+    "input": {
+      "base": 91,
+      "iv": 9,
+      "nature": -0.1
+    },
+    "expected": {
+      "hp": 344,
+      "other": 176
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-91-9-0",
+    "input": {
+      "base": 91,
+      "iv": 9,
+      "nature": 0
+    },
+    "expected": {
+      "hp": 371,
+      "other": 190
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-91-9-0.2",
+    "input": {
+      "base": 91,
+      "iv": 9,
+      "nature": 0.2
+    },
+    "expected": {
+      "hp": 425,
+      "other": 218
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-91-10--0.1",
+    "input": {
+      "base": 91,
+      "iv": 10,
+      "nature": -0.1
+    },
+    "expected": {
+      "hp": 348,
+      "other": 179
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-91-10-0",
+    "input": {
+      "base": 91,
+      "iv": 10,
+      "nature": 0
+    },
+    "expected": {
+      "hp": 376,
+      "other": 193
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "stat-91-10-0.2",
+    "input": {
+      "base": 91,
+      "iv": 10,
+      "nature": 0.2
+    },
+    "expected": {
+      "hp": 431,
+      "other": 222
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "shiny-false-tie",
+    "input": {
+      "current": {
+        "version": 2,
+        "entries": {
+          "s4:s4-f123-e456": {
+            "collected": true,
+            "updatedAt": "2026-01-01T00:00:00.000Z"
+          }
+        }
+      },
+      "incoming": {
+        "version": 2,
+        "entries": {
+          "s4:s4-f123-e456": {
+            "collected": false,
+            "updatedAt": "2026-01-01T00:00:00.000Z"
+          }
+        }
+      }
+    },
+    "expected": {
+      "version": 2,
+      "entries": {
+        "s4:s4-f123-e456": {
+          "collected": false,
+          "updatedAt": "2026-01-01T00:00:00.000Z"
+        }
+      }
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "badge-lit-tie",
+    "input": {
+      "current": {
+        "version": 1,
+        "updatedAt": "2026-01-01T00:00:00.000Z",
+        "trials": {
+          "grass": {
+            "familyMedals": {
+              "species:2": "2026-01-01T00:00:00.000Z"
+            },
+            "footprints": {
+              "somia": {
+                "pet:3001": "2026-01-01T00:00:00.000Z"
+              }
+            },
+            "unlitFootprints": {}
+          }
+        }
+      },
+      "incoming": {
+        "version": 1,
+        "updatedAt": "2026-01-01T00:00:00.000Z",
+        "trials": {
+          "grass": {
+            "familyMedals": {},
+            "footprints": {},
+            "unlitFootprints": {
+              "somia": {
+                "pet:3001": "2026-01-01T00:00:00.000Z"
+              }
+            }
+          }
+        }
+      }
+    },
+    "expected": {
+      "version": 1,
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "trials": {
+        "grass": {
+          "familyMedals": {
+            "species:2": "2026-01-01T00:00:00.000Z"
+          },
+          "footprints": {
+            "somia": {
+              "pet:3001": "2026-01-01T00:00:00.000Z"
+            }
+          },
+          "unlitFootprints": {
+            "somia": {}
+          }
+        }
+      }
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "backup-v1",
+    "input": {
+      "format": "rocom-user-data",
+      "version": 1,
+      "exportedAt": "2026-01-01T00:00:00.000Z",
+      "data": {
+        "teams": {
+          "version": 2,
+          "activeTeamId": "anonymous-team",
+          "teams": [
+            {
+              "id": "anonymous-team",
+              "name": "示例队伍",
+              "magicItemId": null,
+              "createdAt": "2026-01-01T00:00:00.000Z",
+              "updatedAt": "2026-01-01T00:00:00.000Z",
+              "slots": [
+                {
+                  "friendId": 3001,
+                  "personalityId": 6,
+                  "moveIds": [
+                    7020360
+                  ],
+                  "individualValues": {
+                    "hp": 0,
+                    "phy_atk": 10,
+                    "mag_atk": 0,
+                    "phy_def": 0,
+                    "mag_def": 0,
+                    "spd": 0
+                  },
+                  "roles": []
+                },
+                {
+                  "friendId": 3001,
+                  "personalityId": 6,
+                  "moveIds": [
+                    7020360
+                  ],
+                  "individualValues": {
+                    "hp": 0,
+                    "phy_atk": 10,
+                    "mag_atk": 0,
+                    "phy_def": 0,
+                    "mag_def": 0,
+                    "spd": 0
+                  },
+                  "roles": []
+                },
+                null,
+                null,
+                null,
+                null
+              ]
+            }
+          ]
+        },
+        "handbookProgress": {
+          "version": 1,
+          "updatedAt": "2026-01-01T00:00:00.000Z",
+          "collected": {
+            "2": "2026-01-01T00:00:00.000Z"
+          },
+          "topics": {
+            "2": {
+              "1": "2026-01-01T00:00:00.000Z"
+            }
+          }
+        },
+        "theme": "dark"
+      }
+    },
+    "expected": {
+      "format": "rocom-user-data",
+      "version": 4,
+      "exportedAt": "2026-01-01T00:00:00.000Z",
+      "data": {
+        "teams": {
+          "version": 2,
+          "activeTeamId": "anonymous-team",
+          "teams": [
+            {
+              "id": "anonymous-team",
+              "name": "示例队伍",
+              "magicItemId": null,
+              "slots": [
+                {
+                  "friendId": 3001,
+                  "personalityId": 6,
+                  "moveIds": [
+                    7020360
+                  ],
+                  "individualValues": {
+                    "hp": 0,
+                    "phy_atk": 10,
+                    "mag_atk": 0,
+                    "phy_def": 0,
+                    "mag_def": 0,
+                    "spd": 0
+                  },
+                  "roles": []
+                },
+                {
+                  "friendId": 3001,
+                  "personalityId": 6,
+                  "moveIds": [
+                    7020360
+                  ],
+                  "individualValues": {
+                    "hp": 0,
+                    "phy_atk": 10,
+                    "mag_atk": 0,
+                    "phy_def": 0,
+                    "mag_def": 0,
+                    "spd": 0
+                  },
+                  "roles": []
+                },
+                null,
+                null,
+                null,
+                null
+              ],
+              "createdAt": "2026-01-01T00:00:00.000Z",
+              "updatedAt": "2026-01-01T00:00:00.000Z"
+            }
+          ]
+        },
+        "handbookProgress": {
+          "version": 1,
+          "updatedAt": "2026-01-01T00:00:00.000Z",
+          "migratedFromCookies": false,
+          "collected": {
+            "2": "2026-01-01T00:00:00.000Z"
+          },
+          "topics": {
+            "2": {
+              "1": "2026-01-01T00:00:00.000Z"
+            }
+          }
+        },
+        "badgeTrials": {
+          "version": 1,
+          "updatedAt": "2026-01-01T00:00:00.000Z",
+          "trials": {}
+        },
+        "shinyCollection": {
+          "version": 2,
+          "entries": {}
+        },
+        "theme": "dark"
+      }
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "backup-v2",
+    "input": {
+      "format": "rocom-user-data",
+      "version": 2,
+      "exportedAt": "2026-01-01T00:00:00.000Z",
+      "data": {
+        "teams": {
+          "version": 2,
+          "activeTeamId": "anonymous-team",
+          "teams": [
+            {
+              "id": "anonymous-team",
+              "name": "示例队伍",
+              "magicItemId": null,
+              "createdAt": "2026-01-01T00:00:00.000Z",
+              "updatedAt": "2026-01-01T00:00:00.000Z",
+              "slots": [
+                {
+                  "friendId": 3001,
+                  "personalityId": 6,
+                  "moveIds": [
+                    7020360
+                  ],
+                  "individualValues": {
+                    "hp": 0,
+                    "phy_atk": 10,
+                    "mag_atk": 0,
+                    "phy_def": 0,
+                    "mag_def": 0,
+                    "spd": 0
+                  },
+                  "roles": []
+                },
+                {
+                  "friendId": 3001,
+                  "personalityId": 6,
+                  "moveIds": [
+                    7020360
+                  ],
+                  "individualValues": {
+                    "hp": 0,
+                    "phy_atk": 10,
+                    "mag_atk": 0,
+                    "phy_def": 0,
+                    "mag_def": 0,
+                    "spd": 0
+                  },
+                  "roles": []
+                },
+                null,
+                null,
+                null,
+                null
+              ]
+            }
+          ]
+        },
+        "handbookProgress": {
+          "version": 1,
+          "updatedAt": "2026-01-01T00:00:00.000Z",
+          "collected": {
+            "2": "2026-01-01T00:00:00.000Z"
+          },
+          "topics": {
+            "2": {
+              "1": "2026-01-01T00:00:00.000Z"
+            }
+          }
+        },
+        "theme": "dark",
+        "badgeTrials": {
+          "version": 1,
+          "updatedAt": "2026-01-01T00:00:00.000Z",
+          "trials": {
+            "grass": {
+              "familyMedals": {
+                "species:2": "2026-01-01T00:00:00.000Z"
+              },
+              "footprints": {
+                "somia": {
+                  "pet:3001": "2026-01-01T00:00:00.000Z"
+                }
+              },
+              "unlitFootprints": {}
+            }
+          }
+        }
+      }
+    },
+    "expected": {
+      "format": "rocom-user-data",
+      "version": 4,
+      "exportedAt": "2026-01-01T00:00:00.000Z",
+      "data": {
+        "teams": {
+          "version": 2,
+          "activeTeamId": "anonymous-team",
+          "teams": [
+            {
+              "id": "anonymous-team",
+              "name": "示例队伍",
+              "magicItemId": null,
+              "slots": [
+                {
+                  "friendId": 3001,
+                  "personalityId": 6,
+                  "moveIds": [
+                    7020360
+                  ],
+                  "individualValues": {
+                    "hp": 0,
+                    "phy_atk": 10,
+                    "mag_atk": 0,
+                    "phy_def": 0,
+                    "mag_def": 0,
+                    "spd": 0
+                  },
+                  "roles": []
+                },
+                {
+                  "friendId": 3001,
+                  "personalityId": 6,
+                  "moveIds": [
+                    7020360
+                  ],
+                  "individualValues": {
+                    "hp": 0,
+                    "phy_atk": 10,
+                    "mag_atk": 0,
+                    "phy_def": 0,
+                    "mag_def": 0,
+                    "spd": 0
+                  },
+                  "roles": []
+                },
+                null,
+                null,
+                null,
+                null
+              ],
+              "createdAt": "2026-01-01T00:00:00.000Z",
+              "updatedAt": "2026-01-01T00:00:00.000Z"
+            }
+          ]
+        },
+        "handbookProgress": {
+          "version": 1,
+          "updatedAt": "2026-01-01T00:00:00.000Z",
+          "migratedFromCookies": false,
+          "collected": {
+            "2": "2026-01-01T00:00:00.000Z"
+          },
+          "topics": {
+            "2": {
+              "1": "2026-01-01T00:00:00.000Z"
+            }
+          }
+        },
+        "badgeTrials": {
+          "version": 1,
+          "updatedAt": "2026-01-01T00:00:00.000Z",
+          "trials": {
+            "grass": {
+              "familyMedals": {
+                "species:2": "2026-01-01T00:00:00.000Z"
+              },
+              "footprints": {
+                "somia": {
+                  "pet:3001": "2026-01-01T00:00:00.000Z"
+                }
+              },
+              "unlitFootprints": {}
+            }
+          }
+        },
+        "shinyCollection": {
+          "version": 2,
+          "entries": {}
+        },
+        "theme": "dark"
+      }
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "backup-v3",
+    "input": {
+      "format": "rocom-user-data",
+      "version": 3,
+      "exportedAt": "2026-01-01T00:00:00.000Z",
+      "data": {
+        "teams": {
+          "version": 2,
+          "activeTeamId": "anonymous-team",
+          "teams": [
+            {
+              "id": "anonymous-team",
+              "name": "示例队伍",
+              "magicItemId": null,
+              "createdAt": "2026-01-01T00:00:00.000Z",
+              "updatedAt": "2026-01-01T00:00:00.000Z",
+              "slots": [
+                {
+                  "friendId": 3001,
+                  "personalityId": 6,
+                  "moveIds": [
+                    7020360
+                  ],
+                  "individualValues": {
+                    "hp": 0,
+                    "phy_atk": 10,
+                    "mag_atk": 0,
+                    "phy_def": 0,
+                    "mag_def": 0,
+                    "spd": 0
+                  },
+                  "roles": []
+                },
+                {
+                  "friendId": 3001,
+                  "personalityId": 6,
+                  "moveIds": [
+                    7020360
+                  ],
+                  "individualValues": {
+                    "hp": 0,
+                    "phy_atk": 10,
+                    "mag_atk": 0,
+                    "phy_def": 0,
+                    "mag_def": 0,
+                    "spd": 0
+                  },
+                  "roles": []
+                },
+                null,
+                null,
+                null,
+                null
+              ]
+            }
+          ]
+        },
+        "handbookProgress": {
+          "version": 1,
+          "updatedAt": "2026-01-01T00:00:00.000Z",
+          "collected": {
+            "2": "2026-01-01T00:00:00.000Z"
+          },
+          "topics": {
+            "2": {
+              "1": "2026-01-01T00:00:00.000Z"
+            }
+          }
+        },
+        "theme": "dark",
+        "badgeTrials": {
+          "version": 1,
+          "updatedAt": "2026-01-01T00:00:00.000Z",
+          "trials": {
+            "grass": {
+              "familyMedals": {
+                "species:2": "2026-01-01T00:00:00.000Z"
+              },
+              "footprints": {
+                "somia": {
+                  "pet:3001": "2026-01-01T00:00:00.000Z"
+                }
+              },
+              "unlitFootprints": {}
+            }
+          }
+        },
+        "shinyCollection": {
+          "version": 1,
+          "entries": {}
+        }
+      }
+    },
+    "expected": {
+      "format": "rocom-user-data",
+      "version": 4,
+      "exportedAt": "2026-01-01T00:00:00.000Z",
+      "data": {
+        "teams": {
+          "version": 2,
+          "activeTeamId": "anonymous-team",
+          "teams": [
+            {
+              "id": "anonymous-team",
+              "name": "示例队伍",
+              "magicItemId": null,
+              "slots": [
+                {
+                  "friendId": 3001,
+                  "personalityId": 6,
+                  "moveIds": [
+                    7020360
+                  ],
+                  "individualValues": {
+                    "hp": 0,
+                    "phy_atk": 10,
+                    "mag_atk": 0,
+                    "phy_def": 0,
+                    "mag_def": 0,
+                    "spd": 0
+                  },
+                  "roles": []
+                },
+                {
+                  "friendId": 3001,
+                  "personalityId": 6,
+                  "moveIds": [
+                    7020360
+                  ],
+                  "individualValues": {
+                    "hp": 0,
+                    "phy_atk": 10,
+                    "mag_atk": 0,
+                    "phy_def": 0,
+                    "mag_def": 0,
+                    "spd": 0
+                  },
+                  "roles": []
+                },
+                null,
+                null,
+                null,
+                null
+              ],
+              "createdAt": "2026-01-01T00:00:00.000Z",
+              "updatedAt": "2026-01-01T00:00:00.000Z"
+            }
+          ]
+        },
+        "handbookProgress": {
+          "version": 1,
+          "updatedAt": "2026-01-01T00:00:00.000Z",
+          "migratedFromCookies": false,
+          "collected": {
+            "2": "2026-01-01T00:00:00.000Z"
+          },
+          "topics": {
+            "2": {
+              "1": "2026-01-01T00:00:00.000Z"
+            }
+          }
+        },
+        "badgeTrials": {
+          "version": 1,
+          "updatedAt": "2026-01-01T00:00:00.000Z",
+          "trials": {
+            "grass": {
+              "familyMedals": {
+                "species:2": "2026-01-01T00:00:00.000Z"
+              },
+              "footprints": {
+                "somia": {
+                  "pet:3001": "2026-01-01T00:00:00.000Z"
+                }
+              },
+              "unlitFootprints": {}
+            }
+          }
+        },
+        "shinyCollection": {
+          "version": 2,
+          "entries": {}
+        },
+        "theme": "dark"
+      }
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "backup-v4",
+    "input": {
+      "format": "rocom-user-data",
+      "version": 4,
+      "exportedAt": "2026-01-01T00:00:00.000Z",
+      "data": {
+        "teams": {
+          "version": 2,
+          "activeTeamId": "anonymous-team",
+          "teams": [
+            {
+              "id": "anonymous-team",
+              "name": "示例队伍",
+              "magicItemId": null,
+              "createdAt": "2026-01-01T00:00:00.000Z",
+              "updatedAt": "2026-01-01T00:00:00.000Z",
+              "slots": [
+                {
+                  "friendId": 3001,
+                  "personalityId": 6,
+                  "moveIds": [
+                    7020360
+                  ],
+                  "individualValues": {
+                    "hp": 0,
+                    "phy_atk": 10,
+                    "mag_atk": 0,
+                    "phy_def": 0,
+                    "mag_def": 0,
+                    "spd": 0
+                  },
+                  "roles": []
+                },
+                {
+                  "friendId": 3001,
+                  "personalityId": 6,
+                  "moveIds": [
+                    7020360
+                  ],
+                  "individualValues": {
+                    "hp": 0,
+                    "phy_atk": 10,
+                    "mag_atk": 0,
+                    "phy_def": 0,
+                    "mag_def": 0,
+                    "spd": 0
+                  },
+                  "roles": []
+                },
+                null,
+                null,
+                null,
+                null
+              ]
+            }
+          ]
+        },
+        "handbookProgress": {
+          "version": 1,
+          "updatedAt": "2026-01-01T00:00:00.000Z",
+          "collected": {
+            "2": "2026-01-01T00:00:00.000Z"
+          },
+          "topics": {
+            "2": {
+              "1": "2026-01-01T00:00:00.000Z"
+            }
+          }
+        },
+        "theme": "dark",
+        "badgeTrials": {
+          "version": 1,
+          "updatedAt": "2026-01-01T00:00:00.000Z",
+          "trials": {
+            "grass": {
+              "familyMedals": {
+                "species:2": "2026-01-01T00:00:00.000Z"
+              },
+              "footprints": {
+                "somia": {
+                  "pet:3001": "2026-01-01T00:00:00.000Z"
+                }
+              },
+              "unlitFootprints": {}
+            }
+          }
+        },
+        "shinyCollection": {
+          "version": 2,
+          "entries": {
+            "s4:s4-f123-e456": {
+              "collected": true,
+              "updatedAt": "2026-01-01T00:00:00.000Z"
+            }
+          }
+        }
+      }
+    },
+    "expected": {
+      "format": "rocom-user-data",
+      "version": 4,
+      "exportedAt": "2026-01-01T00:00:00.000Z",
+      "data": {
+        "teams": {
+          "version": 2,
+          "activeTeamId": "anonymous-team",
+          "teams": [
+            {
+              "id": "anonymous-team",
+              "name": "示例队伍",
+              "magicItemId": null,
+              "slots": [
+                {
+                  "friendId": 3001,
+                  "personalityId": 6,
+                  "moveIds": [
+                    7020360
+                  ],
+                  "individualValues": {
+                    "hp": 0,
+                    "phy_atk": 10,
+                    "mag_atk": 0,
+                    "phy_def": 0,
+                    "mag_def": 0,
+                    "spd": 0
+                  },
+                  "roles": []
+                },
+                {
+                  "friendId": 3001,
+                  "personalityId": 6,
+                  "moveIds": [
+                    7020360
+                  ],
+                  "individualValues": {
+                    "hp": 0,
+                    "phy_atk": 10,
+                    "mag_atk": 0,
+                    "phy_def": 0,
+                    "mag_def": 0,
+                    "spd": 0
+                  },
+                  "roles": []
+                },
+                null,
+                null,
+                null,
+                null
+              ],
+              "createdAt": "2026-01-01T00:00:00.000Z",
+              "updatedAt": "2026-01-01T00:00:00.000Z"
+            }
+          ]
+        },
+        "handbookProgress": {
+          "version": 1,
+          "updatedAt": "2026-01-01T00:00:00.000Z",
+          "migratedFromCookies": false,
+          "collected": {
+            "2": "2026-01-01T00:00:00.000Z"
+          },
+          "topics": {
+            "2": {
+              "1": "2026-01-01T00:00:00.000Z"
+            }
+          }
+        },
+        "badgeTrials": {
+          "version": 1,
+          "updatedAt": "2026-01-01T00:00:00.000Z",
+          "trials": {
+            "grass": {
+              "familyMedals": {
+                "species:2": "2026-01-01T00:00:00.000Z"
+              },
+              "footprints": {
+                "somia": {
+                  "pet:3001": "2026-01-01T00:00:00.000Z"
+                }
+              },
+              "unlitFootprints": {}
+            }
+          }
+        },
+        "shinyCollection": {
+          "version": 2,
+          "entries": {
+            "s4:s4-f123-e456": {
+              "collected": true,
+              "updatedAt": "2026-01-01T00:00:00.000Z"
+            }
+          }
+        },
+        "theme": "dark"
+      }
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "identity-same-species",
+    "input": [
+      {
+        "petId": 3012,
+        "speciesId": 11,
+        "form": "蓬松的样子"
+      },
+      {
+        "petId": 3036,
+        "speciesId": 11,
+        "form": "紧实的样子"
+      }
+    ],
+    "expected": {
+      "distinctPetIDs": true,
+      "distinctOrigins": true
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "PVP-D1",
+    "input": {
+      "multipliers": [
+        0.5,
+        0.25
+      ]
+    },
+    "expected": {
+      "legacy": 1,
+      "ios": 0.5
+    },
+    "intermediate": {
+      "operation": "max actual multipliers"
+    },
+    "knownDifferenceID": "PVP-D1",
+    "evidence": "manual-page-spec-example"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "PVP-D2",
+    "input": {
+      "left": {
+        "preset": "saved",
+        "effectiveProfile": {
+          "nature": {
+            "upStat": "phy_atk",
+            "downStat": "mag_atk"
+          },
+          "individualValues": {
+            "hp": 0,
+            "phy_atk": 10,
+            "mag_atk": 0,
+            "phy_def": 0,
+            "mag_def": 0,
+            "spd": 10
+          }
+        }
+      },
+      "right": {
+        "preset": "none"
+      },
+      "swaps": 2
+    },
+    "expected": {
+      "legacy": "saved effective profile can be lost",
+      "ios": {
+        "left": {
+          "preset": "explicit",
+          "effectiveProfile": {
+            "nature": {
+              "upStat": "phy_atk",
+              "downStat": "mag_atk"
+            },
+            "individualValues": {
+              "hp": 0,
+              "phy_atk": 10,
+              "mag_atk": 0,
+              "phy_def": 0,
+              "mag_def": 0,
+              "spd": 10
+            }
+          }
+        },
+        "restoredValues": true
+      }
+    },
+    "intermediate": {},
+    "knownDifferenceID": "PVP-D2",
+    "evidence": "manual-page-spec-example"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "PVP-D3",
+    "input": {
+      "damage": 60,
+      "maxHP": 100,
+      "currentHPPercent": 50
+    },
+    "expected": {
+      "legacyFullHPKO": false,
+      "iosCurrentHPKO": true,
+      "maxHPDamagePercent": 60
+    },
+    "intermediate": {
+      "currentHP": 50
+    },
+    "knownDifferenceID": "PVP-D3",
+    "evidence": "manual-page-spec-example"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "PVP-D4",
+    "input": {
+      "recommendedEffect": "default",
+      "existingSwarmPowerCount": 3,
+      "existingSwarmHitCount": 2
+    },
+    "expected": {
+      "answerContext": "default effect, zero swarm counts",
+      "sessionAction": {
+        "effect": "default",
+        "swarmPowerCount": 0,
+        "swarmHitCount": 0
+      },
+      "visibleResultMatchesAnswer": true
+    },
+    "intermediate": {
+      "snapshotIncludes": [
+        "petIDs",
+        "effectiveProfiles",
+        "skillID",
+        "effect",
+        "HP",
+        "rulesVersion",
+        "catalogVersion"
+      ]
+    },
+    "knownDifferenceID": "PVP-D4",
+    "evidence": "manual-page-spec-example"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "damage-332",
+    "input": {
+      "attackStat": 234,
+      "defenseStat": 226,
+      "effectivePower": 142.5,
+      "stab": 1.25,
+      "typeMultiplier": 2,
+      "level": 60
+    },
+    "expected": {
+      "displayPower": 356,
+      "singleHitDamage": 332
+    },
+    "intermediate": {
+      "levelCoefficient": 0.9024390243902439
+    },
+    "knownDifferenceID": null,
+    "evidence": "reviewed-library-comment-formula"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "team-v1-local-storage",
+    "input": {
+      "name": "匿名旧队伍",
+      "magicItemId": null,
+      "slots": [
+        {
+          "friendId": 3001,
+          "personalityId": 6,
+          "moveIds": [
+            7020360
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "version": 2,
+      "activeTeamId": "team_mjuohs00_9",
+      "teams": [
+        {
+          "id": "team_mjuohs00_9",
+          "name": "匿名旧队伍",
+          "magicItemId": null,
+          "slots": [
+            {
+              "friendId": 3001,
+              "personalityId": 6,
+              "moveIds": [
+                7020360
+              ]
+            }
+          ],
+          "createdAt": "2026-01-01T00:00:00.000Z",
+          "updatedAt": "2026-01-01T00:00:00.000Z"
+        }
+      ]
+    },
+    "intermediate": {
+      "clock": "2026-01-01T00:00:00.000Z",
+      "random": 0.25
+    },
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "shiny-v1-multi-route",
+    "input": {
+      "version": 1,
+      "entries": {
+        "s4:3659": {
+          "collected": true,
+          "updatedAt": "2026-01-01T00:00:00.000Z"
+        }
+      }
+    },
+    "expected": {
+      "version": 2,
+      "entries": {}
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "shiny-invalid-date",
+    "input": {
+      "version": 2,
+      "entries": {
+        "s4:s4-f123-e456": {
+          "collected": true,
+          "updatedAt": "invalid-date"
+        }
+      }
+    },
+    "expected": null,
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "shiny-unmapped-preservation",
+    "input": {
+      "version": 1,
+      "entries": {
+        "s4:999999": {
+          "collected": true,
+          "updatedAt": "2026-01-01T00:00:00.000Z"
+        }
+      }
+    },
+    "expected": {
+      "web": {
+        "version": 2,
+        "entries": {}
+      },
+      "iosUnresolved": {
+        "s4:999999": {
+          "collected": true,
+          "updatedAt": "2026-01-01T00:00:00.000Z"
+        }
+      }
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "Web-module-plus-manual-native-preservation-contract"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "handbook-deletion-not-tombstone",
+    "input": {
+      "current": {
+        "version": 1,
+        "updatedAt": "2026-01-01T00:00:00.000Z",
+        "collected": {
+          "2": "2026-01-01T00:00:00.000Z"
+        },
+        "topics": {
+          "2": {
+            "1": "2026-01-01T00:00:00.000Z"
+          }
+        },
+        "migratedFromCookies": false
+      },
+      "incoming": {
+        "version": 1,
+        "updatedAt": "2026-01-01T00:00:00.000Z",
+        "collected": {},
+        "topics": {},
+        "migratedFromCookies": false
+      }
+    },
+    "expected": {
+      "version": 1,
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "collected": {
+        "2": "2026-01-01T00:00:00.000Z"
+      },
+      "topics": {
+        "2": {
+          "1": "2026-01-01T00:00:00.000Z"
+        }
+      },
+      "migratedFromCookies": false
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "executed-Web-module"
+  },
+  {
+    "fixtureVersion": 1,
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "rulesVersion": "ios-paper-v1",
+    "id": "legacy-footprint-species-key",
+    "input": {
+      "trial": "grass",
+      "location": "somia",
+      "footprints": {
+        "2": "2026-01-01T00:00:00.000Z"
+      },
+      "unlitFootprints": {
+        "2": "2026-01-01T00:00:00.000Z"
+      }
+    },
+    "expected": {
+      "mappedLit": {
+        "pet:3001": "2026-01-01T00:00:00.000Z"
+      },
+      "unlitUnresolved": {
+        "2": "2026-01-01T00:00:00.000Z"
+      },
+      "neverMapUnknownShapeBlindly": true
+    },
+    "intermediate": {},
+    "knownDifferenceID": null,
+    "evidence": "manual-page-migration-contract"
+  }
+]

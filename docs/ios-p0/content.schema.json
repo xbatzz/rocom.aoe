@@ -1,0 +1,1458 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:rocom:ios:content:v1",
+  "title": "Roco release content v1 (P0 contract; not P0 sample DTO)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifest",
+    "pets",
+    "petDetails",
+    "types",
+    "skills",
+    "skillGroups",
+    "petSkills",
+    "traits",
+    "evolutions",
+    "families",
+    "shinySlots",
+    "badgeFootprints",
+    "badgeLocations",
+    "handbookTopics",
+    "personalities",
+    "magicItems",
+    "items",
+    "seasons",
+    "battleEffects",
+    "assets"
+  ],
+  "properties": {
+    "manifest": {
+      "$ref": "#/$defs/Manifest"
+    },
+    "pets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Pet"
+      }
+    },
+    "petDetails": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/PetDetail"
+      }
+    },
+    "types": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/BattleType"
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Skill"
+      }
+    },
+    "skillGroups": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/SkillGroup"
+      }
+    },
+    "petSkills": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/PetSkill"
+      }
+    },
+    "traits": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Trait"
+      }
+    },
+    "evolutions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Evolution"
+      }
+    },
+    "families": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Family"
+      }
+    },
+    "shinySlots": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ShinySlot"
+      }
+    },
+    "badgeFootprints": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/BadgeFootprint"
+      }
+    },
+    "badgeLocations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/BadgeLocation"
+      }
+    },
+    "handbookTopics": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/HandbookTopic"
+      }
+    },
+    "personalities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Personality"
+      }
+    },
+    "magicItems": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/MagicItem"
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Item"
+      }
+    },
+    "seasons": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Season"
+      }
+    },
+    "battleEffects": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/BattleEffect"
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Asset"
+      }
+    }
+  },
+  "$defs": {
+    "PetID": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "SpeciesID": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "HandbookID": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "SkillID": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "TypeID": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "TraitID": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "ItemID": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "PersonalityID": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "SkillGroupID": {
+      "type": "string",
+      "minLength": 1
+    },
+    "TeamID": {
+      "type": "string",
+      "minLength": 1
+    },
+    "SlotID": {
+      "type": "string",
+      "minLength": 1
+    },
+    "AssetID": {
+      "type": "string",
+      "minLength": 1
+    },
+    "EvolutionEdgeID": {
+      "type": "string",
+      "minLength": 1
+    },
+    "BadgeFamilyKey": {
+      "type": "string",
+      "pattern": "^species:[1-9][0-9]*$"
+    },
+    "SkillTerminalFamilyKey": {
+      "type": "string",
+      "pattern": "^species:[1-9][0-9]*$"
+    },
+    "ShinySlotID": {
+      "type": "string",
+      "pattern": "^s[0-9]+-f[0-9]+-(e|p)[0-9]+$"
+    },
+    "BaseStats": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hp",
+        "physicalAttack",
+        "magicalAttack",
+        "physicalDefense",
+        "magicalDefense",
+        "speed"
+      ],
+      "properties": {
+        "hp": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "physicalAttack": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "magicalAttack": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "physicalDefense": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "magicalDefense": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "speed": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "Pet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "petId",
+        "speciesId",
+        "handbookId",
+        "nameZh",
+        "resourceKey",
+        "searchAliases",
+        "form",
+        "typeIds",
+        "defaultLegacyTypeId",
+        "implemented",
+        "publicVisible",
+        "isLeader",
+        "leaderPotential",
+        "attackStyle",
+        "baseStats",
+        "parentPetId",
+        "portraitAssetId",
+        "ordinal"
+      ],
+      "properties": {
+        "petId": {
+          "$ref": "#/$defs/PetID"
+        },
+        "speciesId": {
+          "$ref": "#/$defs/SpeciesID"
+        },
+        "handbookId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/HandbookID"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "nameZh": {
+          "type": "string",
+          "minLength": 1
+        },
+        "resourceKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "searchAliases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "form": {
+          "type": "string",
+          "minLength": 1
+        },
+        "typeIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TypeID"
+          }
+        },
+        "defaultLegacyTypeId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TypeID"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "implemented": {
+          "type": "boolean"
+        },
+        "publicVisible": {
+          "type": "boolean"
+        },
+        "isLeader": {
+          "type": "boolean"
+        },
+        "leaderPotential": {
+          "type": "boolean"
+        },
+        "attackStyle": {
+          "enum": [
+            "Physical",
+            "Magic",
+            "Both",
+            "Unknown"
+          ]
+        },
+        "baseStats": {
+          "$ref": "#/$defs/BaseStats"
+        },
+        "parentPetId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PetID"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "portraitAssetId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AssetID"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "PetDetail": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "petId",
+        "traitId",
+        "worldProfile",
+        "catchInfo",
+        "breedingSummary"
+      ],
+      "properties": {
+        "petId": {
+          "$ref": "#/$defs/PetID"
+        },
+        "traitId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TraitID"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "worldProfile": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "catchInfo": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "rate",
+                "habitatText",
+                "notes"
+              ],
+              "properties": {
+                "rate": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "habitatText": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "notes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "breedingSummary": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "eggGroupIds",
+                "hatchSeconds",
+                "notes"
+              ],
+              "properties": {
+                "eggGroupIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "hatchSeconds": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "notes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "BattleType": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "typeId",
+        "name",
+        "nameZh",
+        "normalBattleType",
+        "weakToTypeIds",
+        "resistToTypeIds"
+      ],
+      "properties": {
+        "typeId": {
+          "$ref": "#/$defs/TypeID"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "nameZh": {
+          "type": "string",
+          "minLength": 1
+        },
+        "normalBattleType": {
+          "type": "boolean"
+        },
+        "weakToTypeIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TypeID"
+          }
+        },
+        "resistToTypeIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TypeID"
+          }
+        }
+      }
+    },
+    "Skill": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "skillId",
+        "nameZh",
+        "category",
+        "typeId",
+        "power",
+        "energyCost",
+        "description",
+        "iconAssetId"
+      ],
+      "properties": {
+        "skillId": {
+          "$ref": "#/$defs/SkillID"
+        },
+        "nameZh": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "enum": [
+            "Physical Attack",
+            "Magic Attack",
+            "Status",
+            "Defense",
+            "Unknown"
+          ]
+        },
+        "typeId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TypeID"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "power": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "energyCost": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "iconAssetId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AssetID"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "SkillGroup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "groupId",
+        "displayId",
+        "aliasIds",
+        "nameZh",
+        "ordinal"
+      ],
+      "properties": {
+        "groupId": {
+          "$ref": "#/$defs/SkillGroupID"
+        },
+        "displayId": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "aliasIds": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "nameZh": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "PetSkill": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "petId",
+        "skillId",
+        "source",
+        "legacyTypeId",
+        "ordinal"
+      ],
+      "properties": {
+        "petId": {
+          "$ref": "#/$defs/PetID"
+        },
+        "skillId": {
+          "$ref": "#/$defs/SkillID"
+        },
+        "source": {
+          "enum": [
+            "pool",
+            "stone",
+            "bloodline"
+          ]
+        },
+        "legacyTypeId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TypeID"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "Trait": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "traitId",
+        "nameZh",
+        "description",
+        "iconAssetId"
+      ],
+      "properties": {
+        "traitId": {
+          "$ref": "#/$defs/TraitID"
+        },
+        "nameZh": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string"
+        },
+        "iconAssetId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AssetID"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "Evolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "edgeId",
+        "sourceEvolutionId",
+        "fromPetId",
+        "toPetId",
+        "level",
+        "itemId",
+        "conditionText",
+        "ordinal"
+      ],
+      "properties": {
+        "edgeId": {
+          "$ref": "#/$defs/EvolutionEdgeID"
+        },
+        "sourceEvolutionId": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "fromPetId": {
+          "$ref": "#/$defs/PetID"
+        },
+        "toPetId": {
+          "$ref": "#/$defs/PetID"
+        },
+        "level": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "itemId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ItemID"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "conditionText": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "Family": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "familyKey",
+        "representativePetId",
+        "memberPetIds",
+        "typeIds",
+        "ordinal"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "badgeRoot",
+            "skillTerminal"
+          ]
+        },
+        "familyKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "representativePetId": {
+          "$ref": "#/$defs/PetID"
+        },
+        "memberPetIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PetID"
+          }
+        },
+        "typeIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TypeID"
+          }
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "ShinySlot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "slotId",
+        "seasonId",
+        "familyId",
+        "targetPetId",
+        "representativePetId",
+        "memberPetIds",
+        "portraitAssetId"
+      ],
+      "properties": {
+        "slotId": {
+          "$ref": "#/$defs/ShinySlotID"
+        },
+        "seasonId": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "familyId": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "targetPetId": {
+          "$ref": "#/$defs/PetID"
+        },
+        "representativePetId": {
+          "$ref": "#/$defs/PetID"
+        },
+        "memberPetIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PetID"
+          }
+        },
+        "portraitAssetId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AssetID"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "BadgeFootprint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "footprintKey",
+        "petId",
+        "familyKey",
+        "isLeader",
+        "stageDepth"
+      ],
+      "properties": {
+        "footprintKey": {
+          "type": "string",
+          "pattern": "^pet:[1-9][0-9]*$"
+        },
+        "petId": {
+          "$ref": "#/$defs/PetID"
+        },
+        "familyKey": {
+          "$ref": "#/$defs/BadgeFamilyKey"
+        },
+        "isLeader": {
+          "type": "boolean"
+        },
+        "stageDepth": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "BadgeLocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "locationId",
+        "nameZh",
+        "targetCount"
+      ],
+      "properties": {
+        "locationId": {
+          "enum": [
+            "somia",
+            "stonehenge",
+            "plata"
+          ]
+        },
+        "nameZh": {
+          "type": "string",
+          "minLength": 1
+        },
+        "targetCount": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "HandbookTopic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "handbookId",
+        "topicId",
+        "requirementText",
+        "requiredCount",
+        "rewardItemIds",
+        "sourceParameters"
+      ],
+      "properties": {
+        "handbookId": {
+          "$ref": "#/$defs/HandbookID"
+        },
+        "topicId": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "requirementText": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requiredCount": {
+          "type": "number"
+        },
+        "rewardItemIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ItemID"
+          }
+        },
+        "sourceParameters": {
+          "type": "object"
+        }
+      }
+    },
+    "Personality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "personalityId",
+        "nameZh",
+        "modifiers"
+      ],
+      "properties": {
+        "personalityId": {
+          "$ref": "#/$defs/PersonalityID"
+        },
+        "nameZh": {
+          "type": "string",
+          "minLength": 1
+        },
+        "modifiers": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "hp",
+            "physicalAttack",
+            "magicalAttack",
+            "physicalDefense",
+            "magicalDefense",
+            "speed"
+          ],
+          "properties": {
+            "hp": {
+              "enum": [
+                -0.1,
+                0,
+                0.2
+              ]
+            },
+            "physicalAttack": {
+              "enum": [
+                -0.1,
+                0,
+                0.2
+              ]
+            },
+            "magicalAttack": {
+              "enum": [
+                -0.1,
+                0,
+                0.2
+              ]
+            },
+            "physicalDefense": {
+              "enum": [
+                -0.1,
+                0,
+                0.2
+              ]
+            },
+            "magicalDefense": {
+              "enum": [
+                -0.1,
+                0,
+                0.2
+              ]
+            },
+            "speed": {
+              "enum": [
+                -0.1,
+                0,
+                0.2
+              ]
+            }
+          }
+        }
+      }
+    },
+    "MagicItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "magicItemId",
+        "nameZh",
+        "description"
+      ],
+      "properties": {
+        "magicItemId": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "nameZh": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "Item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "itemId",
+        "nameZh",
+        "description",
+        "quality",
+        "iconAssetId"
+      ],
+      "properties": {
+        "itemId": {
+          "$ref": "#/$defs/ItemID"
+        },
+        "nameZh": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string"
+        },
+        "quality": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "iconAssetId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AssetID"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "Season": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "seasonId",
+        "nameZh"
+      ],
+      "properties": {
+        "seasonId": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "nameZh": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "BattleEffect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "effectId",
+        "petId",
+        "skillId",
+        "kind",
+        "parameters",
+        "rawDescription",
+        "parseVersion",
+        "assumptions",
+        "sourcePath"
+      ],
+      "properties": {
+        "effectId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "petId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PetID"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "skillId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SkillID"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "kind": {
+          "enum": [
+            "choice",
+            "instantPower",
+            "hpThreshold",
+            "swarmPower",
+            "swarmHits",
+            "burnStage",
+            "meteorBallSpeed",
+            "unsupported"
+          ]
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "rawDescription": {
+          "type": "string"
+        },
+        "parseVersion": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "sourcePath": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "Asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "assetId",
+        "purpose",
+        "sourcePath",
+        "sourceSha256",
+        "outputPath",
+        "outputSha256",
+        "width",
+        "height",
+        "format",
+        "missingReason"
+      ],
+      "properties": {
+        "assetId": {
+          "$ref": "#/$defs/AssetID"
+        },
+        "purpose": {
+          "enum": [
+            "portraitGrid",
+            "portraitHero",
+            "skill",
+            "trait",
+            "item",
+            "type"
+          ]
+        },
+        "sourcePath": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceSha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "outputPath": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "outputSha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "width": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "height": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "format": {
+          "enum": [
+            "png",
+            "jpeg",
+            "placeholder"
+          ]
+        },
+        "missingReason": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "ContentFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "bytes",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "Manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "contentVersion",
+        "rulesVersion",
+        "sourceRevision",
+        "inputHashes",
+        "generatorVersion",
+        "minimumAppBuild",
+        "locale",
+        "defaultSeason",
+        "counts",
+        "files",
+        "assets",
+        "knownMissingAssets",
+        "idMigrations"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "contentVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rulesVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceRevision": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "inputHashes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "generatorVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "minimumAppBuild": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "locale": {
+          "const": "zh-CN"
+        },
+        "defaultSeason": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "counts": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ContentFile"
+          }
+        },
+        "assets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Asset"
+          }
+        },
+        "knownMissingAssets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/AssetID"
+          }
+        },
+        "idMigrations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "domain",
+              "from",
+              "to",
+              "reason"
+            ],
+            "properties": {
+              "domain": {
+                "type": "string",
+                "minLength": 1
+              },
+              "from": {
+                "type": "string",
+                "minLength": 1
+              },
+              "to": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

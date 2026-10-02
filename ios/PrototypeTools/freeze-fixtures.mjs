@@ -1,0 +1,72 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import { createRequire } from 'node:module';
+import { execFileSync } from 'node:child_process';
+import ts from 'typescript';
+const root=process.cwd(), require=createRequire(import.meta.url), modules=new Map();
+function load(filename){
+    const file=[filename,filename+'.ts',path.join(filename,'index.ts')].find(p=>fs.existsSync(p)&&fs.statSync(p).isFile());
+    assert.ok(file,filename);
+    if(file.endsWith('.json'))return JSON.parse(fs.readFileSync(file,'utf8'));
+    if(modules.has(file))return modules.get(file).exports;
+    const m={exports:{}};modules.set(file,m);
+    const js=ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022,esModuleInterop:true}}).outputText;
+    new Function('require','module','exports',js)(s=>s.startsWith('@/')?load(path.join(root,'src',s.slice(2))):s.startsWith('.')?load(path.resolve(path.dirname(file),s)):require(s),m,m.exports);return m.exports;
+}
+const date='2026-01-01T00:00:00.000Z';
+// Injected clock keeps migrations that supply empty-section timestamps repeatable.
+const NativeDate=Date;globalThis.Date=class extends NativeDate{constructor(...args){super(...(args.length?args:[date]));}static now(){return new NativeDate(date).getTime();}};
+const revision=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
+const common={fixtureVersion:1,sourceRevision:revision,rulesVersion:'ios-paper-v1'};
+const fixtures=[];
+const add=(id,input,expected,intermediate={},knownDifferenceID=null,evidence='executed-Web-module')=>fixtures.push({...common,id,input,expected,intermediate,knownDifferenceID,evidence});
+const stats=load(path.join(root,'src/lib/statCalculator.ts'));
+for(const base of [65,91])for(const iv of [0,1,9,10])for(const nature of [-0.1,0,0.2])add(`stat-${base}-${iv}-${nature}`,{base,iv,nature},{hp:stats.calculateBattleHp(base,iv,nature),other:stats.calculateBattleStat(base,iv,nature)});
+const shiny=load(path.join(root,'src/features/shiny-collection/storage.ts'));
+const key='s4:s4-f123-e456', current={version:2,entries:{[key]:{collected:true,updatedAt:date}}}, incoming={version:2,entries:{[key]:{collected:false,updatedAt:date}}};
+add('shiny-false-tie',{current,incoming},shiny.mergeShinyProgress(current,incoming));
+const badge=load(path.join(root,'src/lib/badgeTrials/storage.ts'));
+const badgeCurrent={version:1,updatedAt:date,trials:{grass:{familyMedals:{'species:2':date},footprints:{somia:{'pet:3001':date}},unlitFootprints:{}}}};
+const badgeIncoming={version:1,updatedAt:date,trials:{grass:{familyMedals:{},footprints:{},unlitFootprints:{somia:{'pet:3001':date}}}}};
+add('badge-lit-tie',{current:badgeCurrent,incoming:badgeIncoming},badge.mergeBadgeTrialProgressStates(badgeCurrent,badgeIncoming));
+const backup=load(path.join(root,'src/lib/userDataBackup.ts'));
+const team={version:2,activeTeamId:'anonymous-team',teams:[{id:'anonymous-team',name:'示例队伍',magicItemId:null,createdAt:date,updatedAt:date,slots:Array.from({length:6},(_,i)=>i<2?{friendId:3001,personalityId:6,moveIds:[7020360],individualValues:{hp:0,phy_atk:10,mag_atk:0,phy_def:0,mag_def:0,spd:0},roles:[]}:null)}]};
+for(const version of [1,2,3,4]){
+const input={format:'rocom-user-data',version,exportedAt:date,data:{teams:team,handbookProgress:{version:1,updatedAt:date,collected:{'2':date},topics:{'2':{'1':date}}},theme:'dark'}};
+if(version>1)input.data.badgeTrials=badgeCurrent;
+if(version>2)input.data.shinyCollection=version===3?{version:1,entries:{}}:current;
+const expected=backup.parseUserDataBackup(input);assert.ok(expected,`backup v${version}`);add(`backup-v${version}`,input,expected);
+}
+const pets=JSON.parse(fs.readFileSync('public/data/Pets.json','utf8'));
+const groups=pets.filter(p=>p.implemented&&!p.is_leader_form).reduce((m,p)=>{(m[p.species_id]??=[]).push(p);return m;},{});
+const pair=Object.values(groups).find(g=>g.length>1&&new Set(g.map(p=>p.form)).size>1).slice(0,2);
+add('identity-same-species',pair.map(p=>({petId:p.id,speciesId:p.species_id,form:p.form})),{distinctPetIDs:true,distinctOrigins:true});
+// Vue page-level differences are reviewed examples, not execution of Vue watchers.
+add('PVP-D1',{multipliers:[0.5,0.25]},{legacy:1,ios:0.5},{operation:'max actual multipliers'},'PVP-D1','manual-page-spec-example');
+const profile={nature:{upStat:'phy_atk',downStat:'mag_atk'},individualValues:{hp:0,phy_atk:10,mag_atk:0,phy_def:0,mag_def:0,spd:10}};
+add('PVP-D2',{left:{preset:'saved',effectiveProfile:profile},right:{preset:'none'},swaps:2},{legacy:'saved effective profile can be lost',ios:{left:{preset:'explicit',effectiveProfile:profile},restoredValues:true}}, {},'PVP-D2','manual-page-spec-example');
+add('PVP-D3',{damage:60,maxHP:100,currentHPPercent:50},{legacyFullHPKO:false,iosCurrentHPKO:true,maxHPDamagePercent:60},{currentHP:50},'PVP-D3','manual-page-spec-example');
+add('PVP-D4',{recommendedEffect:'default',existingSwarmPowerCount:3,existingSwarmHitCount:2},{answerContext:'default effect, zero swarm counts',sessionAction:{effect:'default',swarmPowerCount:0,swarmHitCount:0},visibleResultMatchesAnswer:true},{snapshotIncludes:['petIDs','effectiveProfiles','skillID','effect','HP','rulesVersion','catalogVersion']},'PVP-D4','manual-page-spec-example');
+add('damage-332',{attackStat:234,defenseStat:226,effectivePower:142.5,stab:1.25,typeMultiplier:2,level:60},{displayPower:356,singleHitDamage:332},{levelCoefficient:37/41},null,'reviewed-library-comment-formula');
+const memory=new Map();
+globalThis.window={localStorage:{getItem:k=>memory.get(k)??null,setItem:(k,v)=>memory.set(k,v),removeItem:k=>memory.delete(k)}};
+Math.random=()=>0.25;
+const teamStorage=load(path.join(root,'src/lib/teamStorage.ts'));
+const legacyTeam={name:'匿名旧队伍',magicItemId:null,slots:[{friendId:3001,personalityId:6,moveIds:[7020360]}]};
+memory.set(teamStorage.TEAM_STORAGE_KEY,JSON.stringify(legacyTeam));
+add('team-v1-local-storage',legacyTeam,teamStorage.getTeamStorageState(),{clock:date,random:0.25});
+const legacyShiny={version:1,entries:{'s4:3659':{collected:true,updatedAt:date}}};
+add('shiny-v1-multi-route',legacyShiny,shiny.parseShinyProgress(legacyShiny));
+const badShiny={version:2,entries:{[key]:{collected:true,updatedAt:'invalid-date'}}};
+add('shiny-invalid-date',badShiny,shiny.parseShinyProgress(badShiny));
+const unmappedShiny={version:1,entries:{'s4:999999':{collected:true,updatedAt:date}}};
+add('shiny-unmapped-preservation',unmappedShiny,{web:shiny.parseShinyProgress(unmappedShiny),iosUnresolved:unmappedShiny.entries}, {},null,'Web-module-plus-manual-native-preservation-contract');
+const handbookMerge=load(path.join(root,'src/lib/handbookProgress/merge.ts'));
+const hbCurrent={version:1,updatedAt:date,collected:{'2':date},topics:{'2':{'1':date}},migratedFromCookies:false};
+const hbIncoming={version:1,updatedAt:date,collected:{},topics:{},migratedFromCookies:false};
+add('handbook-deletion-not-tombstone',{current:hbCurrent,incoming:hbIncoming},handbookMerge.mergeHandbookProgressState(hbCurrent,hbIncoming));
+add('legacy-footprint-species-key',{trial:'grass',location:'somia',footprints:{'2':date},unlitFootprints:{'2':date}},{mappedLit:{'pet:3001':date},unlitUnresolved:{'2':date},neverMapUnknownShapeBlindly:true},{},null,'manual-page-migration-contract');
+const output=JSON.stringify(fixtures,null,2)+'\n';const target='shared/fixtures/ios/p0.json';
+if(process.argv.includes('--check'))assert.equal(fs.readFileSync(target,'utf8'),output,'Frozen fixture drift');else fs.writeFileSync(target,output);
+console.log(`${fixtures.length} anonymous fixtures ${process.argv.includes('--check')?'verified':'frozen'}`);

@@ -1,0 +1,1055 @@
+{
+    "public/data/pets/3001.json": {
+        "id": 3001,
+        "name": "miaomiao",
+        "form": "default",
+        "main_type": {
+            "id": 2,
+            "name": "Grass",
+            "localized": {
+                "zh": "草"
+            }
+        },
+        "sub_type": null,
+        "default_legacy_type": {
+            "id": 2,
+            "name": "Grass",
+            "localized": {
+                "zh": "草"
+            }
+        },
+        "leader_potential": false,
+        "is_leader_form": false,
+        "preferred_attack_style": "Both",
+        "localized": {
+            "zh": {
+                "name": "喵喵"
+            }
+        },
+        "implemented": true,
+        "base_hp": 65,
+        "base_phy_atk": 66,
+        "base_mag_atk": 66,
+        "base_phy_def": 49,
+        "base_mag_def": 91,
+        "base_spd": 33,
+        "evolves_from_id": null,
+        "species": {
+            "id": 2,
+            "name": "miaomiao",
+            "localized": {
+                "zh": "喵喵"
+            }
+        },
+        "trait": {
+            "id": 200076,
+            "name": "氧循环",
+            "description": "使用草系技能后，回复10%生命。",
+            "icon_id": null,
+            "localized": {
+                "zh": {
+                    "name": "氧循环",
+                    "description": "使用草系技能后，回复10%生命。"
+                }
+            }
+        },
+        "move_pool": [
+            {
+                "id": 7020360,
+                "name": "抓挠",
+                "icon_id": null,
+                "move_type": {
+                    "id": 1,
+                    "name": "Normal",
+                    "localized": {
+                        "zh": "普通"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "抓挠",
+                        "description": "造成物伤，自己回复1能量。"
+                    }
+                },
+                "move_category": "Physical Attack",
+                "energy_cost": 0,
+                "power": 35,
+                "description": "造成物伤，自己回复1能量。"
+            }
+        ],
+        "move_stones": [],
+        "legacy_moves": [
+            {
+                "monster_id": 3001,
+                "type_id": 1,
+                "move_id": 7020360,
+                "move": {
+                    "id": 7020360,
+                    "name": "抓挠",
+                    "icon_id": null,
+                    "move_type": {
+                        "id": 1,
+                        "name": "Normal",
+                        "localized": {
+                            "zh": "普通"
+                        }
+                    },
+                    "localized": {
+                        "zh": {
+                            "name": "抓挠",
+                            "description": "造成物伤，自己回复1能量。"
+                        }
+                    },
+                    "move_category": "Physical Attack",
+                    "energy_cost": 0,
+                    "power": 35,
+                    "description": "造成物伤，自己回复1能量。"
+                }
+            }
+        ],
+        "evolution_tree": {
+            "stages": [
+                {
+                    "monsters": [
+                        {
+                            "id": 3001,
+                            "evolution_conditions": []
+                        },
+                        {
+                            "id": 3020,
+                            "evolution_conditions": []
+                        },
+                        {
+                            "id": 3025,
+                            "evolution_conditions": [
+                                "等级达到 16 级"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "world_profile": {
+            "type_desc": "草元素精灵",
+            "description_habitat": "行踪神秘",
+            "introduction": "喜欢阳光，喜欢新鲜的空气，会摇晃尾巴，受到惊吓会快速逃跑。虽然很胆小，但有时候也很调皮。",
+            "refresh_locations": [],
+            "movement_type": "步行",
+            "classis_id": 3,
+            "classis_name": null,
+            "handbook_area_ids": [
+                1,
+                2
+            ]
+        },
+        "catch_info": null,
+        "breeding": null,
+        "breeding_profile": null,
+        "species_id": 2
+    },
+    "public/assets/webp/friends/JL_miaomiao.webp": null,
+    "public/data/pets/3020.json": {
+        "id": 3020,
+        "name": "dishu",
+        "form": "枯水期的样子",
+        "main_type": {
+            "id": 6,
+            "name": "Ground",
+            "localized": {
+                "zh": "地"
+            }
+        },
+        "sub_type": null,
+        "default_legacy_type": {
+            "id": 6,
+            "name": "Ground",
+            "localized": {
+                "zh": "地"
+            }
+        },
+        "leader_potential": false,
+        "is_leader_form": false,
+        "preferred_attack_style": "Physical",
+        "localized": {
+            "zh": {
+                "name": "地鼠"
+            }
+        },
+        "implemented": true,
+        "base_hp": 66,
+        "base_phy_atk": 71,
+        "base_mag_atk": 31,
+        "base_phy_def": 72,
+        "base_mag_def": 51,
+        "base_spd": 66,
+        "evolves_from_id": null,
+        "species": {
+            "id": 277,
+            "name": "dishu",
+            "localized": {
+                "zh": "地鼠"
+            }
+        },
+        "trait": {
+            "id": 200076,
+            "name": "氧循环",
+            "description": "使用草系技能后，回复10%生命。",
+            "icon_id": null,
+            "localized": {
+                "zh": {
+                    "name": "氧循环",
+                    "description": "使用草系技能后，回复10%生命。"
+                }
+            }
+        },
+        "move_pool": [
+            {
+                "id": 7020360,
+                "name": "抓挠",
+                "icon_id": null,
+                "move_type": {
+                    "id": 1,
+                    "name": "Normal",
+                    "localized": {
+                        "zh": "普通"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "抓挠",
+                        "description": "造成物伤，自己回复1能量。"
+                    }
+                },
+                "move_category": "Physical Attack",
+                "energy_cost": 0,
+                "power": 35,
+                "description": "造成物伤，自己回复1能量。"
+            }
+        ],
+        "move_stones": [],
+        "legacy_moves": [
+            {
+                "monster_id": 3020,
+                "type_id": 1,
+                "move_id": 7020360,
+                "move": {
+                    "id": 7020360,
+                    "name": "抓挠",
+                    "icon_id": null,
+                    "move_type": {
+                        "id": 1,
+                        "name": "Normal",
+                        "localized": {
+                            "zh": "普通"
+                        }
+                    },
+                    "localized": {
+                        "zh": {
+                            "name": "抓挠",
+                            "description": "造成物伤，自己回复1能量。"
+                        }
+                    },
+                    "move_category": "Physical Attack",
+                    "energy_cost": 0,
+                    "power": 35,
+                    "description": "造成物伤，自己回复1能量。"
+                }
+            }
+        ],
+        "evolution_tree": {
+            "stages": [
+                {
+                    "monsters": [
+                        {
+                            "id": 3001,
+                            "evolution_conditions": []
+                        },
+                        {
+                            "id": 3020,
+                            "evolution_conditions": []
+                        },
+                        {
+                            "id": 3025,
+                            "evolution_conditions": [
+                                "等级达到 16 级"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "world_profile": {
+            "type_desc": "鼠精灵",
+            "description_habitat": "常见于土路旁",
+            "introduction": "有着小巧的身体，敏感的尾巴是它最大的弱点。族群数量庞大，生命力极强，几乎不需要喝水。",
+            "refresh_locations": [],
+            "movement_type": "步行",
+            "classis_id": 10,
+            "classis_name": null,
+            "handbook_area_ids": [
+                1,
+                3
+            ]
+        },
+        "catch_info": null,
+        "breeding": null,
+        "breeding_profile": null,
+        "species_id": 277
+    },
+    "public/assets/webp/friends/JL_dishu.webp": null,
+    "public/data/pets/3025.json": {
+        "id": 3025,
+        "name": "miaowu",
+        "form": "default",
+        "main_type": {
+            "id": 2,
+            "name": "Grass",
+            "localized": {
+                "zh": "草"
+            }
+        },
+        "sub_type": null,
+        "default_legacy_type": {
+            "id": 2,
+            "name": "Grass",
+            "localized": {
+                "zh": "草"
+            }
+        },
+        "leader_potential": false,
+        "is_leader_form": false,
+        "preferred_attack_style": "Both",
+        "localized": {
+            "zh": {
+                "name": "喵呜"
+            }
+        },
+        "implemented": true,
+        "base_hp": 86,
+        "base_phy_atk": 87,
+        "base_mag_atk": 87,
+        "base_phy_def": 65,
+        "base_mag_def": 121,
+        "base_spd": 44,
+        "evolves_from_id": 3001,
+        "species": {
+            "id": 3,
+            "name": "miaowu",
+            "localized": {
+                "zh": "喵呜"
+            }
+        },
+        "trait": {
+            "id": 200076,
+            "name": "氧循环",
+            "description": "使用草系技能后，回复10%生命。",
+            "icon_id": null,
+            "localized": {
+                "zh": {
+                    "name": "氧循环",
+                    "description": "使用草系技能后，回复10%生命。"
+                }
+            }
+        },
+        "move_pool": [
+            {
+                "id": 7020360,
+                "name": "抓挠",
+                "icon_id": null,
+                "move_type": {
+                    "id": 1,
+                    "name": "Normal",
+                    "localized": {
+                        "zh": "普通"
+                    }
+                },
+                "localized": {
+                    "zh": {
+                        "name": "抓挠",
+                        "description": "造成物伤，自己回复1能量。"
+                    }
+                },
+                "move_category": "Physical Attack",
+                "energy_cost": 0,
+                "power": 35,
+                "description": "造成物伤，自己回复1能量。"
+            }
+        ],
+        "move_stones": [],
+        "legacy_moves": [
+            {
+                "monster_id": 3025,
+                "type_id": 1,
+                "move_id": 7020360,
+                "move": {
+                    "id": 7020360,
+                    "name": "抓挠",
+                    "icon_id": null,
+                    "move_type": {
+                        "id": 1,
+                        "name": "Normal",
+                        "localized": {
+                            "zh": "普通"
+                        }
+                    },
+                    "localized": {
+                        "zh": {
+                            "name": "抓挠",
+                            "description": "造成物伤，自己回复1能量。"
+                        }
+                    },
+                    "move_category": "Physical Attack",
+                    "energy_cost": 0,
+                    "power": 35,
+                    "description": "造成物伤，自己回复1能量。"
+                }
+            }
+        ],
+        "evolution_tree": {
+            "stages": [
+                {
+                    "monsters": [
+                        {
+                            "id": 3001,
+                            "evolution_conditions": []
+                        },
+                        {
+                            "id": 3020,
+                            "evolution_conditions": []
+                        },
+                        {
+                            "id": 3025,
+                            "evolution_conditions": [
+                                "等级达到 16 级"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "world_profile": {
+            "type_desc": "草元素精灵",
+            "description_habitat": "行踪神秘",
+            "introduction": "爱在泉水边嬉戏，是喵喵的进化型，芭蕉叶状的尾巴变成了两条。胆量变大了，会经常吐舌头挑衅对手。",
+            "refresh_locations": [],
+            "movement_type": "步行",
+            "classis_id": 3,
+            "classis_name": null,
+            "handbook_area_ids": [
+                1,
+                2
+            ]
+        },
+        "catch_info": null,
+        "breeding": null,
+        "breeding_profile": null,
+        "species_id": 3
+    },
+    "public/assets/webp/friends/JL_miaowu.webp": null,
+    "public/data/Pets.json": [
+        {
+            "id": 3001,
+            "species_id": 2,
+            "name": "miaomiao",
+            "form": "default",
+            "main_type": {
+                "id": 2,
+                "name": "Grass",
+                "localized": {
+                    "zh": "草"
+                }
+            },
+            "sub_type": null,
+            "default_legacy_type": {
+                "id": 2,
+                "name": "Grass",
+                "localized": {
+                    "zh": "草"
+                }
+            },
+            "leader_potential": false,
+            "is_leader_form": false,
+            "preferred_attack_style": "Both",
+            "localized": {
+                "zh": {
+                    "name": "喵喵"
+                }
+            },
+            "implemented": true,
+            "base_hp": 65,
+            "base_phy_atk": 66,
+            "base_mag_atk": 66,
+            "base_phy_def": 49,
+            "base_mag_def": 91,
+            "base_spd": 33,
+            "evolves_from_id": null,
+            "breeding": null,
+            "breeding_profile": null
+        },
+        {
+            "id": 3020,
+            "species_id": 277,
+            "name": "dishu",
+            "form": "枯水期的样子",
+            "main_type": {
+                "id": 6,
+                "name": "Ground",
+                "localized": {
+                    "zh": "地"
+                }
+            },
+            "sub_type": null,
+            "default_legacy_type": {
+                "id": 6,
+                "name": "Ground",
+                "localized": {
+                    "zh": "地"
+                }
+            },
+            "leader_potential": false,
+            "is_leader_form": false,
+            "preferred_attack_style": "Physical",
+            "localized": {
+                "zh": {
+                    "name": "地鼠"
+                }
+            },
+            "implemented": true,
+            "base_hp": 66,
+            "base_phy_atk": 71,
+            "base_mag_atk": 31,
+            "base_phy_def": 72,
+            "base_mag_def": 51,
+            "base_spd": 66,
+            "evolves_from_id": null,
+            "breeding": null,
+            "breeding_profile": null
+        },
+        {
+            "id": 3025,
+            "species_id": 3,
+            "name": "miaowu",
+            "form": "default",
+            "main_type": {
+                "id": 2,
+                "name": "Grass",
+                "localized": {
+                    "zh": "草"
+                }
+            },
+            "sub_type": null,
+            "default_legacy_type": {
+                "id": 2,
+                "name": "Grass",
+                "localized": {
+                    "zh": "草"
+                }
+            },
+            "leader_potential": false,
+            "is_leader_form": false,
+            "preferred_attack_style": "Both",
+            "localized": {
+                "zh": {
+                    "name": "喵呜"
+                }
+            },
+            "implemented": true,
+            "base_hp": 86,
+            "base_phy_atk": 87,
+            "base_mag_atk": 87,
+            "base_phy_def": 65,
+            "base_mag_def": 121,
+            "base_spd": 44,
+            "evolves_from_id": 3001,
+            "breeding": null,
+            "breeding_profile": null
+        }
+    ],
+    "src/lib/generated/handbookIds.json": [
+        2,
+        3
+    ],
+    "public/data/types.json": [
+        {
+            "id": 1,
+            "name": "Normal",
+            "localized": {
+                "zh": "普通"
+            },
+            "vulnerable_to": [
+                "Fighting"
+            ],
+            "resistant_to": [
+                "Ghost"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Grass",
+            "localized": {
+                "zh": "草"
+            },
+            "vulnerable_to": [
+                "Flying",
+                "Fire",
+                "Ice",
+                "Poison",
+                "Bug"
+            ],
+            "resistant_to": [
+                "Water",
+                "Light",
+                "Ground",
+                "Electric"
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Fire",
+            "localized": {
+                "zh": "火"
+            },
+            "vulnerable_to": [
+                "Ground",
+                "Water"
+            ],
+            "resistant_to": [
+                "Mechanical",
+                "Cute",
+                "Bug",
+                "Grass",
+                "Ice"
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Water",
+            "localized": {
+                "zh": "水"
+            },
+            "vulnerable_to": [
+                "Electric",
+                "Grass"
+            ],
+            "resistant_to": [
+                "Mechanical",
+                "Fire"
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Light",
+            "localized": {
+                "zh": "光"
+            },
+            "vulnerable_to": [
+                "Ghost",
+                "Grass"
+            ],
+            "resistant_to": [
+                "Illusion",
+                "Dark"
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Ground",
+            "localized": {
+                "zh": "地"
+            },
+            "vulnerable_to": [
+                "Fighting",
+                "Water",
+                "Mechanical",
+                "Ice",
+                "Grass"
+            ],
+            "resistant_to": [
+                "Fire",
+                "Electric",
+                "Normal",
+                "Flying",
+                "Poison"
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Ice",
+            "localized": {
+                "zh": "冰"
+            },
+            "vulnerable_to": [
+                "Mechanical",
+                "Ground",
+                "Fire",
+                "Fighting"
+            ],
+            "resistant_to": [
+                "Water",
+                "Light",
+                "Ice"
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Dragon",
+            "localized": {
+                "zh": "龙"
+            },
+            "vulnerable_to": [
+                "Ice",
+                "Dragon",
+                "Cute"
+            ],
+            "resistant_to": [
+                "Water",
+                "Grass",
+                "Fire",
+                "Electric",
+                "Flying"
+            ]
+        },
+        {
+            "id": 9,
+            "name": "Electric",
+            "localized": {
+                "zh": "电"
+            },
+            "vulnerable_to": [
+                "Ground"
+            ],
+            "resistant_to": [
+                "Mechanical",
+                "Electric",
+                "Flying"
+            ]
+        },
+        {
+            "id": 10,
+            "name": "Poison",
+            "localized": {
+                "zh": "毒"
+            },
+            "vulnerable_to": [
+                "Dark",
+                "Illusion",
+                "Ground"
+            ],
+            "resistant_to": [
+                "Cute",
+                "Grass",
+                "Bug",
+                "Poison",
+                "Fighting"
+            ]
+        },
+        {
+            "id": 11,
+            "name": "Bug",
+            "localized": {
+                "zh": "虫"
+            },
+            "vulnerable_to": [
+                "Fire",
+                "Flying"
+            ],
+            "resistant_to": [
+                "Grass",
+                "Fighting"
+            ]
+        },
+        {
+            "id": 12,
+            "name": "Fighting",
+            "localized": {
+                "zh": "武"
+            },
+            "vulnerable_to": [
+                "Cute",
+                "Flying",
+                "Illusion"
+            ],
+            "resistant_to": [
+                "Bug",
+                "Ground",
+                "Dark"
+            ]
+        },
+        {
+            "id": 13,
+            "name": "Flying",
+            "localized": {
+                "zh": "翼"
+            },
+            "vulnerable_to": [
+                "Ice",
+                "Electric"
+            ],
+            "resistant_to": [
+                "Bug",
+                "Fighting",
+                "Grass"
+            ]
+        },
+        {
+            "id": 14,
+            "name": "Cute",
+            "localized": {
+                "zh": "萌"
+            },
+            "vulnerable_to": [
+                "Mechanical",
+                "Dark",
+                "Poison"
+            ],
+            "resistant_to": [
+                "Fighting",
+                "Bug"
+            ]
+        },
+        {
+            "id": 15,
+            "name": "Ghost",
+            "localized": {
+                "zh": "幽"
+            },
+            "vulnerable_to": [
+                "Ghost",
+                "Light",
+                "Dark"
+            ],
+            "resistant_to": [
+                "Poison",
+                "Bug",
+                "Fighting",
+                "Normal"
+            ]
+        },
+        {
+            "id": 16,
+            "name": "Dark",
+            "localized": {
+                "zh": "恶"
+            },
+            "vulnerable_to": [
+                "Fighting",
+                "Bug",
+                "Cute",
+                "Light"
+            ],
+            "resistant_to": [
+                "Dark",
+                "Ghost"
+            ]
+        },
+        {
+            "id": 17,
+            "name": "Mechanical",
+            "localized": {
+                "zh": "机械"
+            },
+            "vulnerable_to": [
+                "Fighting",
+                "Water",
+                "Fire"
+            ],
+            "resistant_to": [
+                "Illusion",
+                "Poison",
+                "Ice",
+                "Bug",
+                "Dragon",
+                "Flying",
+                "Grass",
+                "Cute",
+                "Normal",
+                "Mechanical"
+            ]
+        },
+        {
+            "id": 18,
+            "name": "Illusion",
+            "localized": {
+                "zh": "幻"
+            },
+            "vulnerable_to": [
+                "Ghost",
+                "Bug"
+            ],
+            "resistant_to": [
+                "Illusion",
+                "Fighting"
+            ]
+        },
+        {
+            "id": 19,
+            "name": "Leader",
+            "localized": {
+                "zh": "首领"
+            },
+            "vulnerable_to": [],
+            "resistant_to": []
+        }
+    ],
+    "public/data/moves.json": [
+        {
+            "id": 7020360,
+            "name": "抓挠",
+            "icon_id": null,
+            "move_type": {
+                "id": 1,
+                "name": "Normal",
+                "localized": {
+                    "zh": "普通"
+                }
+            },
+            "localized": {
+                "zh": {
+                    "name": "抓挠",
+                    "description": "造成物伤，自己回复1能量。"
+                }
+            },
+            "move_category": "Physical Attack",
+            "energy_cost": 0,
+            "power": 35,
+            "description": "造成物伤，自己回复1能量。"
+        }
+    ],
+    "public/data/PetSkillIndex.json": {
+        "entries": [
+            {
+                "pet_id": 3001,
+                "move_pool_ids": [
+                    7020360
+                ],
+                "move_stone_ids": []
+            },
+            {
+                "pet_id": 3020,
+                "move_pool_ids": [
+                    7020360
+                ],
+                "move_stone_ids": []
+            },
+            {
+                "pet_id": 3025,
+                "move_pool_ids": [
+                    7020360
+                ],
+                "move_stone_ids": []
+            }
+        ],
+        "skills": [
+            {
+                "id": 7020360,
+                "name": "抓挠",
+                "icon_id": null,
+                "type_id": 1,
+                "move_category": "Physical Attack",
+                "description": "造成物伤，自己回复1能量。",
+                "energy_cost": 0,
+                "power": 35
+            }
+        ]
+    },
+    "public/data/SkillAcquisitionIndex.json": [
+        {
+            "skill_id": 7020360,
+            "skill_name": "抓挠",
+            "alias_ids": [
+                7020360
+            ]
+        }
+    ],
+    "public/data/items.json": [
+        {
+            "id": 100699,
+            "name": "分光水晶",
+            "description": "fixture reward",
+            "quality": null,
+            "icon_id": null
+        }
+    ],
+    "public/data/personalities.json": [
+        {
+            "id": 1,
+            "name": "Timid",
+            "hp_mod_pct": 0,
+            "phy_atk_mod_pct": -0.1,
+            "mag_atk_mod_pct": 0,
+            "phy_def_mod_pct": 0,
+            "mag_def_mod_pct": 0,
+            "spd_mod_pct": 0.2,
+            "localized": {
+                "zh": "胆小"
+            }
+        }
+    ],
+    "public/data/magic_items.json": [
+        {
+            "id": 1,
+            "name": "Evolution Power",
+            "description": "Can be applied only to monsters with Leader legacy type, allowing them to evolve into a Leader form.",
+            "localized": {
+                "zh": {
+                    "name": "进化之力",
+                    "description": "对首领血脉的精灵使用，可以使该精灵在本场战斗中进化，部分精灵会激活远古血脉。"
+                }
+            }
+        }
+    ],
+    "public/data/tables/PET_EVOLUTION_CONF.json": {
+        "RocoDataRows": {
+            "4": {
+                "id": 4,
+                "evolution_chain": [
+                    {
+                        "petbase_id": 3001
+                    },
+                    {
+                        "petbase_id": 3025,
+                        "level": 16
+                    }
+                ]
+            }
+        }
+    },
+    "public/data/tables/PET_HANDBOOK.json": {
+        "RocoDataRows": {
+            "2": {
+                "id": 2,
+                "pet_topic": [
+                    {
+                        "topic_Id": 1,
+                        "topic_desc": "捕捉1只精灵",
+                        "topic_cnt": 1,
+                        "topic_reward": 1
+                    }
+                ]
+            }
+        }
+    },
+    "public/data/handbook-rewards.json": {
+        "1": [
+            {
+                "type": 1,
+                "id": 100699,
+                "count": 1
+            }
+        ]
+    },
+    "src/features/shiny-collection/generated/catalog.json": [
+        {
+            "id": "s4-f2-p3025",
+            "season": 4,
+            "familyId": 2,
+            "targetPetId": 3025,
+            "representativePetId": 3001,
+            "memberPetIds": [
+                3001,
+                3025
+            ],
+            "portrait": null
+        }
+    ]
+}

@@ -15,7 +15,16 @@
         "test:bin-data-export": "python3 ./scripts/test_export_bin_data.py",
         "test:pet-data-quality": "node ./scripts/test-pet-data-quality.mjs",
         "test:skill-acquisition": "node ./scripts/test-skill-acquisition-index.mjs",
-        "test:badge-trials": "node ./scripts/test-badge-trial-data.mjs"
+        "test:badge-trials": "node ./scripts/test-badge-trial-data.mjs",
+        "ios:content:validate": "node scripts/ios/content.mjs validate",
+        "ios:content:generate": "node scripts/ios/content.mjs generate",
+        "ios:content:determinism": "node scripts/ios/content.mjs determinism",
+        "ios:content:test": "node scripts/ios/test-content.mjs",
+        "ios:asset:probe": "node scripts/ios-assets/probe.mjs",
+        "ios:asset:generate": "node scripts/ios-assets/assets.mjs generate",
+        "ios:asset:validate": "node scripts/ios-assets/assets.mjs validate",
+        "ios:asset:determinism": "node scripts/ios-assets/assets.mjs determinism",
+        "ios:asset:test": "node scripts/ios-assets/test-assets.mjs"
     },
     "dependencies": {
         "@paddleocr/paddleocr-js": "^0.4.2",

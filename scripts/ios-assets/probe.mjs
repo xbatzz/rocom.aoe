@@ -1,0 +1,22 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { loadCanonical, root, defaultCanonical } from './assets.mjs';
+
+const args = process.argv.slice(2);
+if (args.length > 1) throw new Error('Usage: yarn ios:asset:probe [iOS-27-simulator-UDID]');
+const inventory = JSON.parse(execFileSync('xcrun', ['simctl', 'list', 'devices', 'available', '--json'], { encoding: 'utf8' }));
+const devices = Object.entries(inventory.devices).filter(([runtime]) => runtime.startsWith('com.apple.CoreSimulator.SimRuntime.iOS-27-')).flatMap(([, entries]) => entries);
+const device = args.length ? devices.find(d => d.udid === args[0]) : devices.find(d => d.state === 'Booted');
+if (!device || device.state !== 'Booted') throw new Error('Requires a booted iOS 27 simulator (no device/P0 app changes)');
+const { content } = loadCanonical(defaultCanonical);
+const directory = path.join(root, 'build/ios-content/assets-evidence'); fs.mkdirSync(directory, { recursive: true });
+const input = path.join(directory, 'probe-input.json'), output = path.join(directory, 'ios27-decode.json'), binary = path.join(directory, 'decode-probe');
+fs.writeFileSync(input, JSON.stringify(content.assets.filter(a => a.availability === 'available').map(a => ({ assetId: a.assetId, path: path.join(root, a.sourcePath), sourceSha256: a.sourceSha256 }))));
+const sdk = execFileSync('xcrun', ['--sdk', 'iphonesimulator', '--show-sdk-path'], { encoding: 'utf8' }).trim();
+const architecture = execFileSync('uname', ['-m'], { encoding: 'utf8' }).trim();
+if (!['arm64', 'x86_64'].includes(architecture)) throw new Error('Unsupported simulator host architecture');
+execFileSync('xcrun', ['--sdk', 'iphonesimulator', 'swiftc', '-parse-as-library', '-swift-version', '6', '-target', `${architecture}-apple-ios27.0-simulator`, '-sdk', sdk, path.join(root, 'scripts/ios-assets/DecodeProbe.swift'), '-o', binary], { stdio: 'inherit' });
+execFileSync('xcrun', ['simctl', 'spawn', device.udid, binary, input, output], { stdio: 'inherit' });
+const report = JSON.parse(fs.readFileSync(output));
+console.log(JSON.stringify({ status: 'passed', platform: report.platform, operatingSystem: report.operatingSystem, assets: report.results.length, output }, null, 4));

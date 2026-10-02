@@ -1,0 +1,209 @@
+{
+    "schemaVersion": 1,
+    "contentVersion": "sha256-3b3e929922b91e0570dd812add181bda2417e217fc580b5530b95352d79844f9",
+    "rulesVersion": "ios-paper-v1",
+    "sourceRevision": "a1b39c7ea22ccf5b8d35f5e73bb70f7fe47dc428",
+    "inputHashes": {
+        "docs/ios-p0/content.schema.json": "34d12a1161027b37b910145366b2714dab56830b808b0d9ba33c329436c591ca",
+        "docs/ios-p0/contracts.md": "ce5a9f1db1b3b96f1c875747aca3a0701ab8283e6705f681d1c117f95008b5cd",
+        "fixture.json": "32a93f699bbb28f9a99f5cacac3621fbd4a0818eb791446413c1fff10893627a",
+        "missing:public/assets/webp/friends/JL_dishu.webp": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+        "missing:public/assets/webp/friends/JL_miaomiao.webp": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+        "missing:public/assets/webp/friends/JL_miaowu.webp": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+        "package.json": "0ab55dd23506beb4e35d85d17476d4aef8720d20bb243f064c1eb83ce7e79e13",
+        "public/data/PetSkillIndex.json": "02cb0a7959d66952a940d8a49686a12384eaff8761f37b3690748ac8cd6d79f0",
+        "public/data/Pets.json": "c76fffd3ad819bc3f637ce948e50e33e6011572b4fbf5e4b04e134215c898e9c",
+        "public/data/SkillAcquisitionIndex.json": "7b1c64f68c8c9b6031499b8517ff2e3f244f9a26d74dc43232ff93011ac3e52f",
+        "public/data/handbook-rewards.json": "de6a44f58cff54617dd5ddf6732624e646d6cfc848bd05c39b8604ed60b385c4",
+        "public/data/items.json": "5e50f593e77e8bfbc11ea7a06165f339033f5bacbc97a6eb53821921524dc66d",
+        "public/data/magic_items.json": "339747b7351981af8ea1454a6dffa720ea5a4ce16216c3bb1b0c0068d26b489e",
+        "public/data/moves.json": "a4b23b776cc2c76ddf50edaa9103ceed0846d9acad831f9a2af1e9ca2b529f8a",
+        "public/data/personalities.json": "bdde53974e80b7459d9f5409655caee4ec9eb2e734f686bcf283dd20fccb8b14",
+        "public/data/pets/3001.json": "5336bb6ac34a41be2eb237bde915f1583e68a8019e11fcd21078c66c51f8df80",
+        "public/data/pets/3020.json": "2d99bc2975e4e1f10bb59c9c7bc2537202676f0b22cfdc98e83bd3fcd626e7d8",
+        "public/data/pets/3025.json": "8cf1c44407991b904e8bfc29d9fd11f03ecef424cbf5de41e0d78bbdbc81d308",
+        "public/data/tables/PET_EVOLUTION_CONF.json": "955a6a0435fe1de71ad31e71fddddf5631293586fb746f35e3b8fb45b0c72b88",
+        "public/data/tables/PET_HANDBOOK.json": "6067b3fc918e620e56dda5b6d79a19ef55f1e90806b9ee34fc44c0df20686632",
+        "public/data/types.json": "a32f609efbdea754497f90133681f73a2481b06fe2e270a1da9c98947c00782d",
+        "scripts/ios/content.mjs": "6b084b03ec286cd5266ddfe9d559b35023a6698c7efc0d4819c8c35c0b13cb58",
+        "scripts/ios/integrity.mjs": "9976e0000aa451b2a4cc1983c917fbc20276c13335cad2060f64791494c37d9b",
+        "scripts/ios/normalize.mjs": "b6354c370b8007109b97f8dea983335011c6fccb124ce274896d11744127c7a6",
+        "scripts/ios/schema.mjs": "c6b2c17f8322f3ea27b201da042e11c93fe016b79b99e2dcc2d9be6d1b9b1d89",
+        "scripts/ios/source.mjs": "5b5672c1c537c81c4c3aefd85fdd14e707a4a9b0a0c1918e7cb0a1d6df8f036e",
+        "scripts/ios/test-content.mjs": "f3f976a066d08f18609e9da9868aed28f5579178219f074f478f2dd198a5ae26",
+        "src/features/shiny-collection/catalog.ts": "3a54f9b65f5c9b8b349278b63484209776b0244ee4d6987c494e88c5f5a06c26",
+        "src/features/shiny-collection/generated/catalog.json": "22e308c11e491218fa32f721916ec25cf61f707cf59b67cf54ea1db56f337d28",
+        "src/lib/badgeTrials/catalog.ts": "ae9b4c5ab8483b57790ef2c2cd9d89b2a12ba7b6daeafcae9e9d62f629263a2c",
+        "src/lib/badgeTrials/types.ts": "4e817ed7bdcca8bb372ae491d6045e90c31ce7b4e25056ad3ae2be9e7cea5991",
+        "src/lib/generated/handbookIds.json": "2396e08ea17221555e80c47fbbcee184d288190683299b5558efbe810899b412",
+        "src/lib/petEvolutionFamilies.ts": "f860ceef079bcc853df3fc61e8e2e5c52fbd5039801c985becd4d3590bcecb25",
+        "src/lib/petHandbook.ts": "9b6b6681bf33f61f5c5bf09f9d730cfa06c0076e14ed8876405fb15e948694ec",
+        "yarn.lock": "8aec4e580975781ea7405cd88bc926058d098733decde0c6fb6513462ef501da"
+    },
+    "generatorVersion": "ios-canonical-v1",
+    "minimumAppBuild": 1,
+    "locale": "zh-CN",
+    "defaultSeason": 4,
+    "counts": {
+        "assets": 3,
+        "badgeFootprints": 3,
+        "badgeLocations": 3,
+        "battleEffects": 1,
+        "evolutions": 1,
+        "families": 4,
+        "handbookTopics": 1,
+        "items": 1,
+        "magicItems": 1,
+        "personalities": 1,
+        "petDetails": 3,
+        "petSkills": 6,
+        "pets": 3,
+        "seasons": 5,
+        "shinySlots": 1,
+        "skillGroups": 1,
+        "skills": 1,
+        "traits": 1,
+        "types": 19
+    },
+    "files": [
+        {
+            "path": "assets.json",
+            "bytes": 1301,
+            "sha256": "11732485091b755c26cd237033aa5667669173256d601e8612bcf1ad6c98358b"
+        },
+        {
+            "path": "badge-footprints.json",
+            "bytes": 476,
+            "sha256": "c42a2597bba6ed14b8c0742a0dacb1760de06d2c43e4206496e3980cb95781e7"
+        },
+        {
+            "path": "badge-locations.json",
+            "bytes": 362,
+            "sha256": "9f36a611461d5958ba375799eea0aa9968f040f8ec7cfae8025edf6371471e7a"
+        },
+        {
+            "path": "battle-effects.json",
+            "bytes": 400,
+            "sha256": "5646898b0e1b4936ba70e2a4022706dfdcf773cfd36587b2013cd5221efc3998"
+        },
+        {
+            "path": "evolutions.json",
+            "bytes": 257,
+            "sha256": "f75b18a81050af42b50462dc05b4c41f112ade079e1f74c94df121db10701572"
+        },
+        {
+            "path": "families.json",
+            "bytes": 987,
+            "sha256": "1294466acd2adc9573be38e3463083fef382bd5fb1b21736ae104704e0bf7a24"
+        },
+        {
+            "path": "handbook-topics.json",
+            "bytes": 366,
+            "sha256": "4454e0032bea6faaaaf9e484afac0b5e4ed116844fe7c9198cd38669c0744da0"
+        },
+        {
+            "path": "items.json",
+            "bytes": 170,
+            "sha256": "111508688a1dce8987e0ea7b7e2a0f4491114f7bc8052a33c7f890b05a87f350"
+        },
+        {
+            "path": "magic-items.json",
+            "bytes": 216,
+            "sha256": "60862f170b16db58e78c8d1d0cd06599e837fcb511f6828115d0675eb9fa3729"
+        },
+        {
+            "path": "personalities.json",
+            "bytes": 286,
+            "sha256": "139a1bd0af9458c4c94e5ef72eae0c1f8738ed806c6c5a31fa11562bcb2c4948"
+        },
+        {
+            "path": "pet-details.json",
+            "bytes": 1371,
+            "sha256": "b95f5d3a2f36c0e9f6921c132912ebeff53554e0b7e276c559112fd038b1760b"
+        },
+        {
+            "path": "pet-skills.json",
+            "bytes": 855,
+            "sha256": "cc542a3a49512195104c2911b1297525749ad0edc23897461c14be3b988c0bca"
+        },
+        {
+            "path": "pets.json",
+            "bytes": 2547,
+            "sha256": "a586dd279bc55a336fd327c67f53197e01b40b231769de14bab5206aee07fa3a"
+        },
+        {
+            "path": "seasons.json",
+            "bytes": 351,
+            "sha256": "3f85db78eace7492d3fc72b65a343b39ad525b450abd6a65aaa7b77027a24c22"
+        },
+        {
+            "path": "shiny-slots.json",
+            "bytes": 265,
+            "sha256": "c39ec0b8819e0713467e67cb63e3243def4ec4cbf8f3f5a194ed3c3a86d20b08"
+        },
+        {
+            "path": "skill-groups.json",
+            "bytes": 184,
+            "sha256": "315b29fc9d267c85d88847738cd495865277663a4d50a8a2fda1e97a89bee879"
+        },
+        {
+            "path": "skills.json",
+            "bytes": 270,
+            "sha256": "db748713e704b3552b4a8986cba612de47f5132bdf1590df135d32935335bf67"
+        },
+        {
+            "path": "traits.json",
+            "bytes": 171,
+            "sha256": "c9f35a2daa1c70df4ef0933159fe4a4a2a35b91bc32c9357fdda3d907aebf248"
+        },
+        {
+            "path": "types.json",
+            "bytes": 5445,
+            "sha256": "c33cbee81ce7d261be706c8f57cd4caee116c8229d113b36056c00b5ba4151fe"
+        }
+    ],
+    "assets": [
+        {
+            "assetId": "portraitGrid:public/assets/webp/friends/JL_dishu.webp",
+            "purpose": "portraitGrid",
+            "sourcePath": "public/assets/webp/friends/JL_dishu.webp",
+            "sourceSha256": null,
+            "outputPath": null,
+            "outputSha256": null,
+            "width": null,
+            "height": null,
+            "format": "placeholder",
+            "missingReason": "source-file-missing; no placeholder approved"
+        },
+        {
+            "assetId": "portraitGrid:public/assets/webp/friends/JL_miaomiao.webp",
+            "purpose": "portraitGrid",
+            "sourcePath": "public/assets/webp/friends/JL_miaomiao.webp",
+            "sourceSha256": null,
+            "outputPath": null,
+            "outputSha256": null,
+            "width": null,
+            "height": null,
+            "format": "placeholder",
+            "missingReason": "source-file-missing; no placeholder approved"
+        },
+        {
+            "assetId": "portraitGrid:public/assets/webp/friends/JL_miaowu.webp",
+            "purpose": "portraitGrid",
+            "sourcePath": "public/assets/webp/friends/JL_miaowu.webp",
+            "sourceSha256": null,
+            "outputPath": null,
+            "outputSha256": null,
+            "width": null,
+            "height": null,
+            "format": "placeholder",
+            "missingReason": "source-file-missing; no placeholder approved"
+        }
+    ],
+    "knownMissingAssets": [
+        "portraitGrid:public/assets/webp/friends/JL_dishu.webp",
+        "portraitGrid:public/assets/webp/friends/JL_miaomiao.webp",
+        "portraitGrid:public/assets/webp/friends/JL_miaowu.webp"
+    ],
+    "idMigrations": []
+}
