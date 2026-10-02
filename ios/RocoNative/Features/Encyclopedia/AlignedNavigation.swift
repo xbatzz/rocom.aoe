@@ -389,8 +389,34 @@ private final class PortraitNavigationAnimator: NSObject, UIViewControllerAnimat
             )
         }
 
-        let sourceFrame = source.convert(source.bounds, to: container)
-        let heroFrame = hero.convert(hero.bounds, to: container)
+        // Put the moving portrait above page content but *below* UINavigationBar.
+        // When the detail has been scrolled, the real Hero is naturally occluded by
+        // the bar. Adding the transition image directly to containerView lifts it
+        // above that occlusion for the first interactive-pop frame, which causes the
+        // visible "jump in front of the title bar".
+        //
+        // A navigation-level transparent overlay inserted immediately below the bar
+        // preserves the exact z-order while still letting the shared portrait move
+        // independently of both page views.
+        let portraitHost: UIView
+        let ownsPortraitHost: Bool
+        if let navigationView = fromVC.navigationController?.view,
+           let navigationBar = fromVC.navigationController?.navigationBar,
+           navigationBar.superview === navigationView {
+            let overlay = UIView(frame: navigationView.bounds)
+            overlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            overlay.backgroundColor = .clear
+            overlay.isUserInteractionEnabled = false
+            navigationView.insertSubview(overlay, belowSubview: navigationBar)
+            portraitHost = overlay
+            ownsPortraitHost = true
+        } else {
+            portraitHost = container
+            ownsPortraitHost = false
+        }
+
+        let sourceFrame = source.convert(source.bounds, to: portraitHost)
+        let heroFrame = hero.convert(hero.bounds, to: portraitHost)
 
         let sourceWasHidden = source.isHidden
         let heroWasHidden = hero.isHidden
@@ -408,13 +434,13 @@ private final class PortraitNavigationAnimator: NSObject, UIViewControllerAnimat
         case .push:
             movingPortrait.frame = sourceFrame
             toView.alpha = 0
-            container.addSubview(movingPortrait)
+            portraitHost.addSubview(movingPortrait)
 
         case .pop:
             movingPortrait.frame = heroFrame
             fromView.alpha = 1
             toView.alpha = 1
-            container.addSubview(movingPortrait)
+            portraitHost.addSubview(movingPortrait)
 
         default:
             break
@@ -445,6 +471,9 @@ private final class PortraitNavigationAnimator: NSObject, UIViewControllerAnimat
             source.isHidden = sourceWasHidden
             hero.isHidden = heroWasHidden
             movingPortrait.removeFromSuperview()
+            if ownsPortraitHost {
+                portraitHost.removeFromSuperview()
+            }
 
             fromView.alpha = 1
             toView.alpha = 1
