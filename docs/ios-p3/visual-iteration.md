@@ -38,3 +38,26 @@ Xcode 27 / iPhone 18 Pro / iOS 27，实际 build、install、launch、simctl scr
 - PVP 子页 r1：伤害页使用原始 skillAssetID、属性与类别速读；真实总伤害／最大生命占比成为主结果。联防使用弱点／中性／抵抗摘要及头像、攻击属性和倍率，计算未动。子页截图审查后，修正数值的 secondary 灰色及不必要的 Web 实现措辞。自评：这些页以真实数据为主体，不是统一 List section。
 - 图鉴一致性 r1：Grid 增加属性；详情保留 Hero 完整几何／注册图调用，基础信息去掉一个容器，属性直接显示在姓名下，技能与特性恢复 canonical 小图标。真实 Grid、Hero 首屏与详情底部截图复查。自评：图片继续是第一焦点，新增内容不会把图鉴变为工具表单。未改 AlignedNavigation、PortraitSurface、PortraitStore 或 shared transition；静态截图不证明实际手势转场表现。
 - 数据版本 r1 → r2：r1 全长 hash 被放大，像调试界面；r2 赛季与配置数量为主要内容，完整内容／来源标识保留为可选中文本，降低字号。自评：可读的原生内容信息页，不再像默认设置。
+
+## 全局修正（运行截图驱动）
+
+第一轮 Dark Mode + 最大辅助字号 audit **不通过**：发现深色主按钮白底白字、首页 1079 换行、地点和赛季菜单文字被挤成竖排、队伍三列压缩、技能速览及结果列挤压、缺图图标越界、图鉴长名字两列拆字。修正为对比明确的主操作、辅助字号单列／纵向指标、可完整换行的原生 Menu 标签、固定装饰图片画布。字体不设上限，正常字号保持原布局。
+
+补查 PVP 六维数据区真实截图后，辅助字号按单项分别显示我方／对方数值。图鉴仅辅助字号切换单列，未改变 portrait geometry 注册或 frozen transition。首页最近队伍的未配置槽位改为编号，避免与 canonical 缺图状态混淆。
+
+再审计伤害子页，发现主结果过于靠后。r2 将技能选择、真实技能图与纸面伤害提前，详细计算倍率保留在原生 DisclosureGroup；条件与基础一击线仍完整显示。Menu 中仍使用原 Picker 和 canonical ID；没有改技能选择范围或计算规则。
+
+## 设计语言
+
+语义系统背景、20pt 内容圆角、20pt 页面边距、24–28pt 大段间距；页面标题／section／正文／辅助信息四级。图片承担图鉴、收藏、队伍和对战的第一焦点，数字承担进度及伤害结果的焦点。属性取游戏图标与轻底色，收藏分别用紫／绿／橙，战斗双方用橙／紫，倍数同时保留文本。透明行用于连续来源／家族／防守候选，卡片只划分有实际关系的内容。搜索、菜单、分段选择、sheet、toolbar 保持原生。
+
+不新增阴影、渐变或动画。辅助字号切换纵向布局，字号照系统设置；图片维持原比例。技能类别沿用统一文字 pill，不混入假图标。缺失资产明确降级，不给缺图 ID 借其他形态的图片。
+
+## 验证
+
+- Debug Simulator 与 Release generic iOS 构建成功，CODE_SIGNING_ALLOWED=NO；没有改变签名和部署配置。
+- Swift 包测试 29 项（11 UserData + 18 Content/Domain）全部通过。
+- yarn type-check 与 yarn build 通过。
+- 保留既有 AppIntents 元数据、Release 设备方向和 Web 大 chunk 提示，没有新增 Swift 编译警告。
+- 与 P3 开始前的 520663fe 比较，public/data、ios/Packages 和 frozen AlignedNavigation / PortraitSurface / PortraitStore 的 diff 均为空。
+- 全部主页面均已实际运行、读取浅色与深色截图，并额外检查 accessibility-extra-extra-extra-large。不是 VoiceOver 或真机验收；不运行 XCUITest。

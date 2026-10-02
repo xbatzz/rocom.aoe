@@ -188,15 +188,21 @@ struct BattleDirectionView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
-            typeRelations
-            oneHitLines
             CompanionSection("伤害技能") {
                 switch Result(catching: { try BattleCore.calculableSkills(attacker, content: content) }) {
                 case .success(let skills):
-                    Picker("固定威力攻击", selection: $selected) {
-                        Text("请选择").tag(nil as SkillID?)
-                        ForEach(skills, id: \.skillId) { Text("\($0.nameZh) #\(String($0.skillId.rawValue))").tag(Optional($0.skillId)) }
-                    }.pickerStyle(.menu).tint(.primary)
+                    Menu {
+                        Picker("固定威力攻击", selection: $selected) {
+                            Text("请选择").tag(nil as SkillID?)
+                            ForEach(skills, id: \.skillId) { Text("\($0.nameZh) #\(String($0.skillId.rawValue))").tag(Optional($0.skillId)) }
+                        }
+                    } label: {
+                        HStack(alignment: .firstTextBaseline, spacing: 8) {
+                            Text(skill.map { "\($0.nameZh) #\(String($0.skillId.rawValue))" } ?? "选择固定威力攻击")
+                                .font(.subheadline.weight(.medium)).fixedSize(horizontal: false, vertical: true)
+                            Image(systemName: "chevron.down").font(.system(size: 12, weight: .semibold))
+                        }.frame(minHeight: 44)
+                    }.tint(.primary).accessibilityLabel("选择固定威力攻击技能")
                 case .failure(let error): Text(String(describing: error)).foregroundStyle(.red)
                 }
             }
@@ -206,9 +212,14 @@ struct BattleDirectionView: View {
                         SkillSummary(skill: skill, content: content)
                     }.buttonStyle(.plain)
                 }
-                effectControls(skill)
                 damageResult(skill)
+                effectControls(skill)
+            } else {
+                Text("选择固定威力攻击技能，查看纸面伤害。")
+                    .font(.subheadline).foregroundStyle(.secondary)
             }
+            typeRelations
+            oneHitLines
             }.padding(20)
         }.reviewScrollPosition().companionBackground().navigationTitle("伤害与一击线")
             .onChange(of: selected) { settings = DamageSettings() }
@@ -283,12 +294,16 @@ struct BattleDirectionView: View {
                     CompanionMetric(value: String(result.total), label: "总伤害", tint: .orange)
                     CompanionMetric(value: "\(result.hpPercent.formatted())%", label: "目标最大生命占比")
                 }.padding(20).companionSurface()
-                LabeledContent("属性倍率") { Text("\(result.typeMultiplier.formatted())×").font(.headline.monospacedDigit()).foregroundStyle(.primary) }
-                LabeledContent("本系倍率") { Text("\(result.stabMultiplier.formatted())×").font(.headline.monospacedDigit()).foregroundStyle(.primary) }
-                LabeledContent("显示威力") { Text(String(result.displayPower)).font(.headline.monospacedDigit()).foregroundStyle(.primary) }
-                LabeledContent("单击 / 总伤害") { Text("\(result.singleHit) / \(result.total)").font(.headline.monospacedDigit()).foregroundStyle(.primary) }
-                LabeledContent("目标最大生命占比") { Text("\(result.hpPercent.formatted())%").font(.headline.monospacedDigit()).foregroundStyle(.primary) }
-                LabeledContent("按最大生命击倒次数") { Text(String(result.hitsToKO)).font(.headline.monospacedDigit()).foregroundStyle(.primary) }
+                DisclosureGroup("计算明细") {
+                    VStack(spacing: 12) {
+                        LabeledContent("属性倍率") { Text("\(result.typeMultiplier.formatted())×").font(.headline.monospacedDigit()).foregroundStyle(.primary) }
+                        LabeledContent("本系倍率") { Text("\(result.stabMultiplier.formatted())×").font(.headline.monospacedDigit()).foregroundStyle(.primary) }
+                        LabeledContent("显示威力") { Text(String(result.displayPower)).font(.headline.monospacedDigit()).foregroundStyle(.primary) }
+                        LabeledContent("单击 / 总伤害") { Text("\(result.singleHit) / \(result.total)").font(.headline.monospacedDigit()).foregroundStyle(.primary) }
+                        LabeledContent("目标最大生命占比") { Text("\(result.hpPercent.formatted())%").font(.headline.monospacedDigit()).foregroundStyle(.primary) }
+                        LabeledContent("按最大生命击倒次数") { Text(String(result.hitsToKO)).font(.headline.monospacedDigit()).foregroundStyle(.primary) }
+                    }.padding(.top, 12)
+                }.tint(.primary)
                 Text("这是当前规则的纸面估算，不包含完整回合、减伤、护盾、随机或未建模效果。")
                     .font(.footnote).foregroundStyle(.secondary)
             case .failure(let error): Text(String(describing: error)).foregroundStyle(.red)
