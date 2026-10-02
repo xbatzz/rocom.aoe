@@ -61,3 +61,73 @@ Xcode 27 / iPhone 18 Pro / iOS 27，实际 build、install、launch、simctl scr
 - 保留既有 AppIntents 元数据、Release 设备方向和 Web 大 chunk 提示，没有新增 Swift 编译警告。
 - 与 P3 开始前的 520663fe 比较，public/data、ios/Packages 和 frozen AlignedNavigation / PortraitSurface / PortraitStore 的 diff 均为空。
 - 全部主页面均已实际运行、读取浅色与深色截图，并额外检查 accessibility-extra-extra-extra-large。不是 VoiceOver 或真机验收；不运行 XCUITest。
+
+## 最后两轮 audit
+
+先前发现问题的轮次不计入“连续通过”。最终 A 轮以浅色、正常字号检查第一焦点／下一步操作／空状态／连续内容；B 轮以深色、正常字号横向检查颜色、资源、20pt 圆角、间距与字体，并结合修正后的最大辅助字号截图检查挤压与截断。伤害子页 r2 的浅色／深色结果也纳入最后两轮。
+
+两轮均未再发现整页明显像 Settings/Form、同权白色 row 或默认 SwiftUI Demo 的主页面。自评问题“如果这是别人上架的 App，我会觉得它只是默认控件拼起来吗？”：当前这些页面的答案是不会；仍存在下列内容与真机限制，未据此虚构资产或声称真机验收完成。
+
+## 每页迭代轮次
+
+轮次按“实施后实际截图复查”的页面专项循环计数，再加一次实际修正的全局适配主题；不把重复截图、Light/Dark 截图各计作新实现轮次。
+
+| 页面 | 专项 | 全局适配 | 合计 | 最终证据 |
+| --- | ---: | ---: | ---: | --- |
+| Home / 洛克工具 | 1 | 1 | 2 | [首屏](screenshots/final-home.png)、[近期队伍](screenshots/final-home-bottom.png) |
+| PVP 助手 | 1 | 1 | 2 | [未选择](screenshots/final-pvp.png)、[双方构筑](screenshots/final-pvp-filled.png) |
+| 配队 / 队伍编辑 | 2 | 1 | 3 | [队伍](screenshots/final-teams.png)、[六槽草稿](screenshots/final-team-draft.png) |
+| 异色收集 | 1 | 1 | 2 | [收藏](screenshots/final-shiny.png) |
+| 草系徽章 / 家族 | 1 | 1 | 2 | [地点进度](screenshots/final-grass.png)、[家族与首领](screenshots/final-grass-family.png) |
+| 命定勇者 | 1 | 1 | 2 | [家族](screenshots/final-hero.png) |
+| 属性克制 | 2 | 1 | 3 | [单属性](screenshots/final-types.png)、[双防御](screenshots/final-types-dual.png) |
+| 技能查询 | 2 | 1 | 3 | [速览与结果](screenshots/final-skills.png) |
+| 技能详情 | 1 | 1 | 2 | [技能及来源](screenshots/final-skill.png) |
+| 备份恢复 | 1 | 1 | 2 | [记录与主要操作](screenshots/final-backup.png) |
+| 图鉴列表 / 详情 | 1 | 1 | 2 | [列表](screenshots/final-grid.png)、[详情](screenshots/final-pet.png)、[技能](screenshots/final-pet-bottom.png) |
+| 伤害 / 一击线 | 2 | 1 | 3 | [结果](screenshots/final-damage.png) |
+| 基础联防 | 1 | 1 | 2 | [候选与倍率](screenshots/final-defense.png) |
+| 数据版本 | 2 | 1 | 3 | [内容信息](screenshots/final-version.png) |
+
+[浅色首页／战斗／队伍概览](screenshots/overview-0.jpg)、[浅色收藏／工具概览](screenshots/overview-1.jpg)、[子页概览](screenshots/overview-2.jpg)、[深色概览 A](screenshots/overview-3.jpg)、[深色概览 B](screenshots/overview-4.jpg)。归档 50 张实际 Simulator 截图，603×1311（原截图 1206×2622 缩小 50%，无界面编辑），来源见 capture-manifest.json。
+
+## 恢复的 Web 游戏内容资产
+
+| 资产 | 页面 |
+| --- | --- |
+| 18 个完整属性图标 | 首页、属性克制三模式、技能查询／详情、图鉴列表／详情、PVP／伤害／联防、队伍、异色／草系／命定勇者 |
+| canonical 技能图片 | 首页技能入口、技能速览／结果／详情、图鉴技能和血脉技能、PVP 伤害 |
+| canonical 特性图片 | 图鉴详情特性；仅有实际 iconAssetId 时使用 |
+| Web collected-check | 异色、草系已点亮、命定勇者已获得状态 |
+| Web leader-crown | 草系家族实际首领形态 |
+
+未恢复：四类独立技能类别图标（Web 无可靠资源集）；零散 effect／medal（没有完整 ID 映射）；贴图式 tab/button 背景（没有识别内容价值）；canonical 缺失的异色／旧技能图（不能可靠对应，不借图、不补假数据）。18 个属性和两个状态小图重新生成后无 diff；技能／特性复用既有 AssetResolver，不增加大资源框架。
+
+## 当前最弱的三个地方与真机判断
+
+1. 部分旧技能配置和异色的 canonical 图片缺失，首屏仍有文字／缺图降级，辨识度低于有资产的内容。
+2. 复杂技能条件、同名技能来源及基础一击线说明的信息密度仍高，需要长时间使用验证阅读节奏。
+3. 最大辅助字号需要较多滚动；原生分段选择和底部搜索的实际可操作性仍需要真机与 VoiceOver 判断。
+
+真机重点：图鉴 frozen portrait 转场与手势连续性、收藏长列表滚动、PVP 条件控件、搜索／菜单在辅助字号下的触达。静态 Simulator 截图不能验证这些触感；没有改变已冻结的转场。
+
+## Commits
+
+| Commit | 主题 |
+| --- | --- |
+| cadfa0f8 | 首页与最小 presentation 组件、游戏图标接入及截图入口 |
+| eabe5bd2 | PVP 对战构筑与六维 |
+| 8f741ca7 | 六槽队伍 overview 与编辑 |
+| b7122f3b | 异色收藏 tracker |
+| 978fa64b | 草系地点／家族进度 |
+| 68fba9e8 | 命定勇者家族 tracker |
+| b39e47bb | 属性克制与游戏属性资源 |
+| 2fbf7286 | 技能图片与原生结果 |
+| bbac9600 | 本机备份恢复 |
+| 8617fc86 | 伤害与联防数据呈现 |
+| ae0b353a | 图鉴语义资源 polish |
+| acd9416c | 内容版本可读性 |
+| 75a914b7 | 全局 Dark Mode / Dynamic Type 修正 |
+| 5ebf7eeb | 伤害结果提前 |
+
+最终证据与此记录为独立文档提交。所有提交推到 codex/p2-overnight，不 merge main。
