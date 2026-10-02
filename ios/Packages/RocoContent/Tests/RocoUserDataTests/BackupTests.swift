@@ -66,6 +66,29 @@ import RocoContent
         #expect(throws: BackupError.self) { try BackupCodec.prepare(bytes, content: content()) }
         #expect(throws: (any Error).self) { try BackupCodec.prepare(Data("{bad".utf8), content: content()) }
     }
+    @Test func explicitEditsRemainNewerThanFutureDatedImports() throws {
+        let container = try UserDatabase.open(inMemory: true)
+        let context = container.mainContext
+        let future = Date.now.addingTimeInterval(86_400)
+        var team = TeamBuild(); team.name = "Before"
+        let imported = UserBackup(shiny: [.init(slotID: "s99-f999-e999", collected: true, updatedAt: future)],
+            grass: [.init(footprintID: "pet:999", locationID: "somia", status: .lit, updatedAt: future)],
+            heroes: [.init(familyID: "species:999", obtained: true, updatedAt: future)],
+            teams: [.init(build: team, updatedAt: future)])
+        try BackupPersistence.restore(imported, mode: .replace, context: context)
+        try UserDatabase.toggleShiny("s99-f999-e999", context: context)
+        try UserDatabase.cycleGrass(footprint: "pet:999", location: "somia", context: context)
+        try UserDatabase.toggleHero("species:999", context: context)
+        team.name = "After"; try UserDatabase.saveTeam(team, context: context)
+        let edited = try BackupCodec.prepare(BackupCodec.encode(BackupPersistence.export(context: context)), content: content()).backup
+        #expect(edited.shiny[0].updatedAt > future)
+        try BackupPersistence.restore(imported, mode: .merge, context: context)
+        let merged = try BackupPersistence.export(context: context)
+        #expect(!merged.shiny[0].collected)
+        #expect(merged.grass[0].status == .unlit)
+        #expect(!merged.heroes[0].obtained)
+        #expect(merged.teams[0].build.name == "After")
+    }
     @Test func legacyUnknownFieldsStableIDsAndExactArchive() throws {
         let bytes = Data("""
         {"format":"rocom-user-data","version":4,"exportedAt":"2026-10-03T00:00:00.000Z","data":{

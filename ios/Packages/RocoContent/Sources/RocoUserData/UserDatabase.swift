@@ -40,6 +40,12 @@ public enum UserDatabase {
         return container
     }
 
+    /// Web src/features/shiny-collection/storage.ts keeps explicit edits newer than imported timestamps.
+    /// One millisecond also survives the JSON backup's millisecond date precision.
+    static func nextTimestamp(after previous: Date) -> Date {
+        Date(timeIntervalSince1970: max(Date.now.timeIntervalSince1970, previous.timeIntervalSince1970 + 0.001))
+    }
+
     /// Shared transaction boundary: failed writes never remain as apparently saved UI state.
     @MainActor private static func save(_ context: ModelContext) throws {
         do { try context.save() }
@@ -48,7 +54,7 @@ public enum UserDatabase {
 
     @MainActor public static func toggleShiny(_ slot: String, context: ModelContext) throws {
         let existing = try context.fetch(FetchDescriptor<ShinyRecord>(predicate: #Predicate { $0.slotID == slot })).first
-        if let existing { existing.collected.toggle(); existing.updatedAt = .now }
+        if let existing { existing.collected.toggle(); existing.updatedAt = nextTimestamp(after: existing.updatedAt) }
         else { context.insert(ShinyRecord(slotID: slot, collected: true)) }
         try save(context)
     }
@@ -83,7 +89,7 @@ extension UserDatabase {
     @MainActor public static func cycleGrass(footprint: String, location: String, context: ModelContext) throws {
         let key = GrassRecord.key(footprint, location)
         let existing = try context.fetch(FetchDescriptor<GrassRecord>(predicate: #Predicate { $0.identity == key })).first
-        if let existing { existing.status = existing.status.next; existing.updatedAt = .now }
+        if let existing { existing.status = existing.status.next; existing.updatedAt = nextTimestamp(after: existing.updatedAt) }
         else { context.insert(GrassRecord(footprintID: footprint, locationID: location, status: .lit)) }
         try save(context)
     }
@@ -102,7 +108,7 @@ extension UserDatabase {
 extension UserDatabase {
     @MainActor public static func toggleHero(_ family: String, context: ModelContext) throws {
         let existing = try context.fetch(FetchDescriptor<HeroRecord>(predicate: #Predicate { $0.familyID == family })).first
-        if let existing { existing.obtained.toggle(); existing.updatedAt = .now }
+        if let existing { existing.obtained.toggle(); existing.updatedAt = nextTimestamp(after: existing.updatedAt) }
         else { context.insert(HeroRecord(familyID: family, obtained: true)) }
         try save(context)
     }

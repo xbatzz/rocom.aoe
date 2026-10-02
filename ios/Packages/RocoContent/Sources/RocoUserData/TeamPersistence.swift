@@ -31,7 +31,7 @@ extension UserDatabase {
         let bytes = try JSONEncoder().encode(build)
         if let existing {
             try validateVersion(existing.dataVersion)
-            existing.name = build.name; existing.payload = bytes; existing.updatedAt = .now
+            existing.name = build.name; existing.payload = bytes; existing.updatedAt = nextTimestamp(after: existing.updatedAt)
         } else {
             guard try context.fetchCount(FetchDescriptor<TeamRecord>()) < 10 else { throw ContentError.invalid("最多 10 支队伍") }
             context.insert(try TeamRecord(build: build))
