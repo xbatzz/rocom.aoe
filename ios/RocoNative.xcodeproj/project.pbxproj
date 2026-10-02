@@ -25,6 +25,7 @@
 ABC100000000000000000001 = {isa = PBXBuildFile; productRef = ABC100000000000000000002; };
 		0E2E5D10309386A5C1CFBAD4 /* RocoNative/Features/Tracking/ShinyCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BA61CC8987595BEAE881D1; };
 		81A5D57D654E61F91DE03A30 /* RocoNative/Features/Tracking/CanonicalThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31A03C5D57E5367FA5ADE27; };
+		F35C94FF0E7D6BCE2E3B2EE9 /* RocoNative/Features/Tracking/GrassBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACC5C8B2B83AAB7DB4D3E21; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@ ABC100000000000000000001 = {isa = PBXBuildFile; productRef = ABC1000000000000000
 		FC663666AB83ECE57D105E03 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/Hub/FeatureHub.swift; sourceTree = SOURCE_ROOT; };
 		92BA61CC8987595BEAE881D1 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/Tracking/ShinyCollectionView.swift; sourceTree = SOURCE_ROOT; };
 		D31A03C5D57E5367FA5ADE27 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/Tracking/CanonicalThumbnail.swift; sourceTree = SOURCE_ROOT; };
+		8ACC5C8B2B83AAB7DB4D3E21 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/Tracking/GrassBadgeView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@ ABC100000000000000000001 = {isa = PBXBuildFile; productRef = ABC1000000000000000
 			isa = PBXGroup;
 			children = (
 				38BD9FAF31E27745F31DB4B9 /* RocoNative/App/RocoApp.swift */,
+				8ACC5C8B2B83AAB7DB4D3E21,
 				D31A03C5D57E5367FA5ADE27,
 				92BA61CC8987595BEAE881D1,
 				FC663666AB83ECE57D105E03,
@@ -252,6 +255,7 @@ ABC100000000000000000001 = {isa = PBXBuildFile; productRef = ABC1000000000000000
 			buildActionMask = 2147483647;
 			files = (
 				FCB5ECBF6B969FD288FDC49F /* RocoNative/App/RocoApp.swift in Sources */,
+				F35C94FF0E7D6BCE2E3B2EE9,
 				81A5D57D654E61F91DE03A30,
 				0E2E5D10309386A5C1CFBAD4,
 				EF5A68EC8E8422E784FF7560,
