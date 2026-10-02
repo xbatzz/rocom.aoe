@@ -30,7 +30,6 @@ struct AlignedNavigation: UIViewControllerRepresentable {
             let scrollView: UIScrollView?
             let interactionWasEnabled: Bool
             let scrollingWasEnabled: Bool?
-            var requiresDidShowFallback = false
 
             init(transitionID: ObjectIdentifier, gridView: UIView, scrollView: UIScrollView?) {
                 self.transitionID = transitionID
@@ -96,8 +95,11 @@ struct AlignedNavigation: UIViewControllerRepresentable {
                 let grid = navigationController.viewControllers.first, viewController === grid,
                 transition.viewController(forKey: .from) !== grid else { return }
             let transitionID = ObjectIdentifier(transition)
-            let interactive = transition.initiallyInteractive
-            if interactive, interactivePop == nil, let gridView = grid.viewIfLoaded {
+            // Keep the destination Grid inert for the entire pop, not just while
+            // UIKit reports the transition as interactive. Fluid zoom keeps using
+            // the live source view during its settling animation, so moving the
+            // ScrollView before didShow can move the zoom target under UIKit.
+            if interactivePop == nil, let gridView = grid.viewIfLoaded {
                 interactivePop = InteractivePopSession(transitionID: transitionID, gridView: gridView,
                     scrollView: firstContentScrollView(in: gridView))
             }
@@ -112,29 +114,18 @@ struct AlignedNavigation: UIViewControllerRepresentable {
                 self.logPopPhase(navigationController, context: context, phase: "interactionChanged")
 #endif
             }
-            let queued = transition.animate(alongsideTransition: nil) { [weak self, weak navigationController] context in
-                guard let self, let navigationController else { return }
-#if DEBUG
-                self.logPopPhase(navigationController, context: context, phase: "transitionCompletion")
-#endif
-                if interactive {
-                    let visible = context.viewController(forKey: context.isCancelled ? .from : .to)
-                    self.completeInteractivePop(navigationController, transitionID: transitionID,
-                        visible: visible, cancelled: context.isCancelled)
-                }
-            }
-            if interactivePop?.transitionID == transitionID {
-                // NO does not mean completion ran. Only didShow can serve as the
-                // public completed-transition fallback; the decision callback cannot.
-                interactivePop?.requiresDidShowFallback = !queued
-            }
+            // Do not release the input lease from a transition-coordinator callback.
+            // With the system fluid zoom, the source view can remain part of the
+            // visual settling/handoff after the interaction itself has ended. The
+            // navigation controller's didShow callback is our single release point.
         }
 
         private func completeInteractivePop(_ nav: UINavigationController, transitionID: ObjectIdentifier,
             visible: UIViewController?, cancelled: Bool) {
             guard let session = interactivePop, session.transitionID == transitionID else { return }
-            // Reassociate only the final visible controller, once UIKit has finished
-            // the completion/reversal animation. Do not change offsets or appearance.
+            // didShow is the only release boundary. Reassociate the final visible
+            // controller here, after UIKit has finished showing it. Do not change
+            // offsets, insets, safe areas, or navigation-bar appearance.
             (visible as? any NavigationScrollTracking)?.synchronizeNavigationScrollTracking()
             if !cancelled {
 #if DEBUG
@@ -162,10 +153,12 @@ struct AlignedNavigation: UIViewControllerRepresentable {
 #if DEBUG
             NavigationBarDiagnostics.log(navigationController, controller: viewController, phase: "didShow")
 #endif
-            if let session = interactivePop, session.requiresDidShowFallback {
+            var completedPopSession = false
+            if let session = interactivePop {
                 let cancelled = viewController !== navigationController.viewControllers.first
                 completeInteractivePop(navigationController, transitionID: session.transitionID,
                     visible: viewController, cancelled: cancelled)
+                completedPopSession = true
             }
             // Observe UIKit's actual stack, never maintain a second navigation state.
             if let detail = viewController as? UIHostingController<PetDetail> {
@@ -175,9 +168,9 @@ struct AlignedNavigation: UIViewControllerRepresentable {
                 logger.notice("zoom shown detail pet=\(origin.petID.rawValue) stack=\(navigationController.viewControllers.count) sameBitmap=\(source?.image === detail.rootView.image)")
 #endif
             } else if navigationController.viewControllers.count == 1, navigationController.topViewController === viewController {
-                // For interactive pop, the coordinator completion owns cleanup even
-                // if didShow arrives before that callback. Never clear the live Hero early.
-                guard interactivePop == nil else { return }
+                // A pop session already performed final cleanup above. For nonanimated
+                // or otherwise sessionless pops, keep the existing fallback cleanup.
+                guard !completedPopSession else { return }
                 // Completed pop, never cancelled pop. A framework-retained detached Hero
                 // must not be resolved by a later route.
 #if DEBUG
@@ -251,6 +244,13 @@ private final class NavigationContentHost<Content: View>: UIHostingController<Co
         guard let view = viewIfLoaded, let scroll = firstContentScrollView(in: view) else { return }
         registeredContentScrollView = scroll
         setContentScrollView(scroll, for: .top)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // Fluid interactive transitions can temporarily move UIKit's top-content
+        // association between controllers. Reassert the already-known real SwiftUI
+        // ScrollView only at the final appeared state; this is not a layout workaround.
+        synchronizeNavigationScrollTracking()
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
