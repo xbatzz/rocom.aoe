@@ -24,6 +24,7 @@ struct SkillsView: View {
     let content: ContentStore
     let portraits: PortraitStore
     let index: SkillSearchIndex
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var query = ""
     @State private var type: TypeID?
     @State private var category: SkillCategory?
@@ -45,7 +46,7 @@ struct SkillsView: View {
                                         VStack(spacing: 8) {
                                             CanonicalThumbnail(assetID: skill.iconAssetId, content: content, size: 64)
                                             Text(skill.nameZh).font(.caption.weight(.medium)).fixedSize(horizontal: false, vertical: true)
-                                        }.frame(width: 76)
+                                        }.frame(width: dynamicTypeSize.isAccessibilitySize ? 160 : 76)
                                     }.buttonStyle(.plain)
                                 }
                             }
@@ -106,7 +107,7 @@ struct SkillDetailView: View {
                         HStack { skillBadges }
                         VStack(alignment: .leading, spacing: 8) { skillBadges }
                     }
-                    HStack {
+                    CompanionMetrics {
                         if let power = skill.power { CompanionMetric(value: power.formatted(), label: "威力") }
                         if let cost = skill.energyCost { CompanionMetric(value: cost.formatted(), label: "能耗") }
                     }

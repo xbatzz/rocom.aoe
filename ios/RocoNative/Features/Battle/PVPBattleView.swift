@@ -117,16 +117,26 @@ struct PVPBattleView: View {
                 VStack(spacing: 16) {
                     ForEach(BattleStat.allCases, id: \.self) { stat in
                         let left = values.0[stat.rawValue], right = values.1[stat.rawValue]
-                        HStack(spacing: 12) {
-                            Text(String(left)).font(.headline.monospacedDigit()).foregroundStyle(left > right ? .orange : .primary).frame(minWidth: 36)
-                            GeometryReader { g in
-                                HStack(spacing: 2) {
-                                    Capsule().fill(Color.orange.opacity(0.7)).frame(width: max(2, g.size.width * CGFloat(left) / CGFloat(max(1, left + right))))
-                                    Capsule().fill(Color.purple.opacity(0.5))
+                        Group {
+                            if dynamicTypeSize.isAccessibilitySize {
+                                VStack(alignment: .leading, spacing: 8) {
+                                    Text(stat.label).font(.headline)
+                                    HStack { Text("我方").font(.caption); Spacer(); Text(String(left)).font(.title3.bold().monospacedDigit()).foregroundStyle(.orange) }
+                                    HStack { Text("对方").font(.caption); Spacer(); Text(String(right)).font(.title3.bold().monospacedDigit()).foregroundStyle(.purple) }
                                 }
-                            }.frame(height: 5).accessibilityHidden(true)
-                            Text(stat.label).font(.caption.weight(.medium)).frame(minWidth: 28)
-                            Text(String(right)).font(.headline.monospacedDigit()).foregroundStyle(right > left ? .purple : .primary).frame(minWidth: 36)
+                            } else {
+                                HStack(spacing: 12) {
+                                    Text(String(left)).font(.headline.monospacedDigit()).foregroundStyle(left > right ? .orange : .primary).frame(minWidth: 36)
+                                    GeometryReader { g in
+                                        HStack(spacing: 2) {
+                                            Capsule().fill(Color.orange.opacity(0.7)).frame(width: max(2, g.size.width * CGFloat(left) / CGFloat(max(1, left + right))))
+                                            Capsule().fill(Color.purple.opacity(0.5))
+                                        }
+                                    }.frame(height: 5).accessibilityHidden(true)
+                                    Text(stat.label).font(.caption.weight(.medium)).frame(minWidth: 28)
+                                    Text(String(right)).font(.headline.monospacedDigit()).foregroundStyle(right > left ? .purple : .primary).frame(minWidth: 36)
+                                }.accessibilityElement(children: .ignore).accessibilityLabel("\(stat.label)，我方 \(left)，对方 \(right)")
+                            }
                         }.accessibilityElement(children: .ignore).accessibilityLabel("\(stat.label)，我方 \(left)，对方 \(right)")
                     }
                 }.padding(20).companionSurface()
@@ -269,7 +279,7 @@ struct BattleDirectionView: View {
         CompanionSection("纸面伤害") {
             switch Result(catching: { try BattleCore.damage(attacker: attacker, defender: defender, skill: skill, settings: settings, content: content) }) {
             case .success(let result):
-                HStack {
+                CompanionMetrics {
                     CompanionMetric(value: String(result.total), label: "总伤害", tint: .orange)
                     CompanionMetric(value: "\(result.hpPercent.formatted())%", label: "目标最大生命占比")
                 }.padding(20).companionSurface()

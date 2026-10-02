@@ -35,14 +35,13 @@ struct GrassBadgeView: View {
         let counts = counts(statuses: statuses)
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                HStack {
-                    locationPicker.pickerStyle(.menu).tint(.primary)
-                    Spacer()
+                VStack(alignment: .leading, spacing: 8) {
+                    BadgeLocationPicker(content: content, selection: $location)
                     Text("地点独立记录").font(.caption).foregroundStyle(.secondary)
                 }
                 CollectionProgress(title: "当前地点目标", count: counts[.lit, default: 0],
                     total: content.badgeLocations[location]?.targetCount ?? 0, tint: .green)
-                HStack {
+                CompanionMetrics {
                     CompanionMetric(value: String(counts[.unrecorded, default: 0]), label: "未记录")
                     CompanionMetric(value: String(counts[.unlit, default: 0]), label: "未点亮")
                     CompanionMetric(value: String(visible.count), label: "筛选家族")
@@ -80,13 +79,7 @@ struct GrassBadgeView: View {
             }.padding(20)
         }.reviewScrollPosition().companionBackground().navigationTitle("草系徽章").searchable(text: $query, prompt: "家族成员名称或 ID")
     }
-    private var locationPicker: some View {
-        Picker("地点", selection: $location) {
-            ForEach(content.badgeLocations.values.sorted { $0.locationId.rawValue < $1.locationId.rawValue }, id: \.locationId) {
-                Text($0.nameZh).tag($0.locationId)
-            }
-        }
-    }
+
 }
 
 struct GrassFamilyView: View {
@@ -111,11 +104,7 @@ struct GrassFamilyView: View {
                         }
                     }
                 }
-                Picker("地点", selection: $location) {
-                    ForEach(content.badgeLocations.values.sorted { $0.locationId.rawValue < $1.locationId.rawValue }, id: \.locationId) {
-                        Text($0.nameZh).tag($0.locationId)
-                    }
-                }.pickerStyle(.menu).tint(.primary)
+                BadgeLocationPicker(content: content, selection: $location)
                 Text("点按足迹切换：未记录 → 已点亮 → 未点亮").font(.footnote).foregroundStyle(.secondary)
                 ForEach(index.footprintsByFamily[family.familyKey] ?? [], id: \.footprintKey) { footprint in
                     if let pet = content.pets[footprint.petId] {
@@ -133,7 +122,7 @@ struct GrassFamilyView: View {
                                             Image(uiImage: image).resizable().scaledToFit().frame(width: 20, height: 20).accessibilityLabel("首领")
                                         }
                                     }
-                                    Text("\(pet.form == "default" ? "默认形态" : pet.form) · #\(pet.petId.rawValue)")
+                                    Text("\(pet.form == "default" ? "默认形态" : pet.form) · #\(String(pet.petId.rawValue))")
                                         .font(.caption).foregroundStyle(.secondary)
                                     CollectionStatus(selected: status == .lit, selectedTitle: "已点亮", idleTitle: status.label)
                                 }

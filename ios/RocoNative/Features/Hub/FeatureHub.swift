@@ -10,6 +10,7 @@ struct NativeFeatureEntry: View {
     let portraits: PortraitStore
     let skills: SkillSearchIndex
     let tracking: TrackingCatalogIndex
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var encyclopedia = false
     @Query(sort: \TeamRecord.updatedAt, order: .reverse) private var teams: [TeamRecord]
     @Query private var shiny: [ShinyRecord]
@@ -18,6 +19,9 @@ struct NativeFeatureEntry: View {
         Array(content.orderedPets.filter { $0.implemented && $0.publicVisible && !$0.isLeader && $0.form == "default" }.prefix(3))
     }
 
+    private var toolLayout: AnyLayout {
+        dynamicTypeSize.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 12)) : AnyLayout(HStackLayout(spacing: 12))
+    }
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -27,10 +31,10 @@ struct NativeFeatureEntry: View {
                             HStack {
                                 VStack(alignment: .leading, spacing: 6) {
                                     Text("精灵图鉴").font(.title2.bold())
-                                    Text("探索属性、技能与进化谱系").font(.subheadline).foregroundStyle(.secondary)
+                                    Text("属性、技能与进化谱系").font(.subheadline).foregroundStyle(.secondary)
                                 }
                                 Spacer()
-                                Image(systemName: "arrow.up.right").font(.title3.weight(.semibold))
+                                if !dynamicTypeSize.isAccessibilitySize { Image(systemName: "arrow.up.right").font(.title3.weight(.semibold)) }
                             }
                             HStack(spacing: 4) {
                                 ForEach(featured, id: \.petId) { pet in
@@ -38,10 +42,10 @@ struct NativeFeatureEntry: View {
                                         .frame(maxWidth: .infinity)
                                 }
                             }.accessibilityHidden(true)
-                            HStack {
+                            CompanionMetrics {
                                 CompanionMetric(value: String(content.pets.count), label: "精灵配置")
                                 CompanionMetric(value: String(content.skills.count), label: "技能配置")
-                                VStack(alignment: .trailing, spacing: 4) {
+                                VStack(alignment: dynamicTypeSize.isAccessibilitySize ? .leading : .trailing, spacing: 4) {
                                     Text("离线可用").font(.caption.weight(.semibold)).foregroundStyle(.green)
                                     Text(content.seasons[content.manifest.defaultSeason]?.nameZh ?? "当前内容")
                                         .font(.caption).foregroundStyle(.secondary)
@@ -50,7 +54,7 @@ struct NativeFeatureEntry: View {
                         }.padding(20).companionSurface()
                     }.buttonStyle(.plain).accessibilityHint("打开精灵图鉴")
 
-                    HStack(spacing: 12) {
+                    toolLayout {
                         NavigationLink { TypeMatchupView(content: content) } label: {
                             VStack(alignment: .leading, spacing: 12) {
                                 HStack(spacing: 4) {
@@ -95,17 +99,32 @@ struct NativeFeatureEntry: View {
                     CompanionHeading(title: "战斗准备", detail: "\(teams.count) 支队伍")
                     NavigationLink { TeamBuilderView(content: content, portraits: portraits, skillIndex: skills) } label: {
                         VStack(alignment: .leading, spacing: 12) {
-                            HStack {
-                                Text("配队").font(.headline)
-                                Spacer()
-                                Text(teams.first?.name ?? "组建第一支队伍").font(.subheadline).foregroundStyle(.secondary)
-                                Image(systemName: "chevron.right").font(.caption)
+                            if dynamicTypeSize.isAccessibilitySize {
+                                VStack(alignment: .leading, spacing: 8) {
+                                    Text("配队").font(.headline)
+                                    Text(teams.first?.name ?? "组建第一支队伍").font(.subheadline).foregroundStyle(.secondary)
+                                }
+                            } else {
+                                HStack {
+                                    Text("配队").font(.headline)
+                                    Spacer()
+                                    Text(teams.first?.name ?? "组建第一支队伍").font(.subheadline).foregroundStyle(.secondary)
+                                    Image(systemName: "chevron.right").font(.caption)
+                                }
                             }
                             if let build = teams.first.flatMap({ try? $0.decode() }) {
                                 HStack(spacing: 4) {
                                     ForEach(build.slots.indices, id: \.self) { i in
-                                        let asset = build.slots[i].petID.flatMap { content.pets[PetID(rawValue: $0)]?.portraitAssetId }
-                                        CanonicalThumbnail(assetID: asset, content: content, size: 40).frame(maxWidth: .infinity)
+                                        Group {
+                                            if let petID = build.slots[i].petID {
+                                                CanonicalThumbnail(assetID: content.pets[PetID(rawValue: petID)]?.portraitAssetId, content: content, size: 40)
+                                            } else {
+                                                Text(String(format: "%02d", i + 1)).font(.system(size: 14, weight: .medium).monospacedDigit())
+                                                    .foregroundStyle(.secondary).frame(width: 40, height: 40)
+                                                    .background(Color(uiColor: .tertiarySystemFill), in: Circle())
+                                                    .accessibilityLabel("槽位 \(i + 1)，未配置")
+                                            }
+                                        }.frame(maxWidth: .infinity)
                                     }
                                 }
                             } else {
@@ -120,12 +139,12 @@ struct NativeFeatureEntry: View {
                                 Text("双方构筑 · 伤害与一击线").font(.subheadline).foregroundStyle(.secondary)
                             }
                             Spacer()
-                            Text("VS").font(.title2.bold()).foregroundStyle(.orange)
+                            if !dynamicTypeSize.isAccessibilitySize { Text("VS").font(.title2.bold()).foregroundStyle(.orange) }
                         }.padding(20).companionSurface()
                     }.buttonStyle(.plain)
-                    HStack {
+                    toolLayout {
                         NavigationLink("备份与恢复") { UserBackupView(content: content) }
-                        Spacer()
+                        if !dynamicTypeSize.isAccessibilitySize { Spacer() }
                         NavigationLink("数据版本") { ContentVersionView(content: content) }
                     }.font(.subheadline).padding(.vertical, 8)
                 }.padding(20)
@@ -150,7 +169,7 @@ struct NativeFeatureEntry: View {
                 } else if let subtitle { Text(subtitle).font(.caption).foregroundStyle(.secondary) }
             }
             Spacer(minLength: 8)
-            Image(systemName: "chevron.right").font(.caption.weight(.semibold)).foregroundStyle(.tertiary)
+            Image(systemName: "chevron.right").font(.system(size: 12, weight: .semibold)).foregroundStyle(.tertiary)
         }.padding(16)
     }
 
@@ -163,7 +182,7 @@ struct ContentVersionView: View {
             VStack(alignment: .leading, spacing: 28) {
                 CompanionSection("当前离线内容") {
                     if let season = content.seasons[content.manifest.defaultSeason] { Text(season.nameZh).font(.title2.bold()) }
-                    HStack {
+                    CompanionMetrics {
                         CompanionMetric(value: String(content.pets.count), label: "精灵配置")
                         CompanionMetric(value: String(content.skills.count), label: "技能配置")
                     }.padding(20).companionSurface()

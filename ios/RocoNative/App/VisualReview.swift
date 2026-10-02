@@ -27,9 +27,23 @@ enum VisualReview {
         try UserDatabase.saveTeam(team, context: context)
     }
     @ViewBuilder static func page(_ route: String, content: ContentStore, portraits: PortraitStore, skills: SkillSearchIndex, tracking: TrackingCatalogIndex) -> some View {
+        if route == "grid" {
+            AlignedNavigation(content: content, portraits: portraits).ignoresSafeArea()
+        } else {
         NavigationStack {
             switch route {
-            case "types": TypeMatchupView(content: content)
+            case "version": ContentVersionView(content: content)
+            case "grass-family":
+                if let family = tracking.badgeFamilies.first { GrassFamilyView(family: family, content: content, index: tracking, location: .somia) }
+            case "damage", "defense":
+                let pets = content.orderedPets.filter { $0.implemented && $0.publicVisible && !$0.isLeader && $0.form == "default" }
+                if pets.count >= 2, let a = try? TeamRules.assign(pets[0], content: content), let b = try? TeamRules.assign(pets[1], content: content) {
+                    var first: BattleProfile { var profile = BattleProfile(); profile.slot = a; return profile }
+                    var second: BattleProfile { var profile = BattleProfile(); profile.slot = b; return profile }
+                    if route == "damage" { BattleDirectionView(attacker: first, defender: second, content: content, portraits: portraits, skillIndex: skills) }
+                    else { TeamDefenseView(opponent: second, content: content) }
+                }
+            case "types", "types-dual", "types-coverage": TypeMatchupView(content: content)
             case "skills": SkillsView(content: content, portraits: portraits, index: skills)
             case "skill":
                 if let skill = content.skills.values.sorted(by: { $0.skillId.rawValue < $1.skillId.rawValue }).first(where: { $0.iconAssetId != nil }) {
@@ -48,6 +62,7 @@ enum VisualReview {
                 }
             default: NativeFeatureEntry(content: content, portraits: portraits, skills: skills, tracking: tracking)
             }
+        }
         }
     }
 }

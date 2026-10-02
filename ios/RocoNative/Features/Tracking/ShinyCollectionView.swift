@@ -35,14 +35,18 @@ struct ShinyCollectionView: View {
             VStack(alignment: .leading, spacing: 20) {
                 CollectionProgress(title: "异色收集", count: seasonalSlots.filter { collected.contains($0.slotId.rawValue) }.count,
                     total: seasonalSlots.count, tint: .purple)
-                HStack {
-                    Picker("赛季", selection: $season) {
-                        Text("全部赛季").tag(nil as SeasonID?)
-                        ForEach(content.seasons.values.sorted { $0.seasonId.rawValue < $1.seasonId.rawValue }, id: \.seasonId) {
-                            Text($0.nameZh).tag(Optional($0.seasonId))
+                VStack(alignment: .leading, spacing: 8) {
+                    Menu {
+                        Picker("赛季", selection: $season) {
+                            Text("全部赛季").tag(nil as SeasonID?)
+                            ForEach(content.seasons.values.sorted { $0.seasonId.rawValue < $1.seasonId.rawValue }, id: \.seasonId) { Text($0.nameZh).tag(Optional($0.seasonId)) }
                         }
-                    }.pickerStyle(.menu).tint(.primary)
-                    Spacer()
+                    } label: {
+                        HStack(spacing: 8) {
+                            Text(season.flatMap { content.seasons[$0]?.nameZh } ?? "全部赛季").font(.subheadline.weight(.medium)).fixedSize(horizontal: false, vertical: true)
+                            Image(systemName: "chevron.down").font(.system(size: 12, weight: .semibold))
+                        }.frame(minHeight: 44)
+                    }.tint(.primary)
                     Text("\(visible.count) 个异色槽").font(.caption.monospacedDigit()).foregroundStyle(.secondary)
                 }
                 Picker("收集状态", selection: $filter) {

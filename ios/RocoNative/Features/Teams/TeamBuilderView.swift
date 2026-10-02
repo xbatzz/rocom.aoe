@@ -13,14 +13,15 @@ struct TeamBuilderView: View {
     @State private var deleting: TeamRecord?
     @State private var editing: TeamBuild?
     @State private var error: String?
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
-                HStack {
+                CompanionMetrics {
                     CompanionMetric(value: String(teams.count), label: "已保存队伍")
                     if !teams.isEmpty {
                     Button("新建队伍", systemImage: "plus") { editing = TeamBuild() }
-                        .buttonStyle(.borderedProminent).controlSize(.large).tint(.primary)
+                        .companionPrimaryAction()
                         .disabled(teams.count >= 10)
                     }
                 }
@@ -31,7 +32,7 @@ struct TeamBuilderView: View {
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 90))], spacing: 16) {
                             ForEach(1...6, id: \.self) { i in
                                 VStack(spacing: 8) {
-                                    Text(String(format: "%02d", i)).font(.title2.bold().monospacedDigit())
+                                    Text(String(format: "%02d", i)).font(.system(size: 22, weight: .bold, design: .rounded).monospacedDigit())
                                         .frame(width: 56, height: 56)
                                         .background(Color(uiColor: .tertiarySystemFill), in: Circle())
                                     Text("空槽位").font(.caption).foregroundStyle(.secondary)
@@ -39,7 +40,7 @@ struct TeamBuilderView: View {
                             }
                         }.accessibilityLabel("六个待配置的队伍槽位")
                         Button("组建第一支队伍") { editing = TeamBuild() }
-                            .buttonStyle(.borderedProminent).controlSize(.large).tint(.primary)
+                            .companionPrimaryAction()
                     }.padding(20).companionSurface()
                 }
                 ForEach(teams) { record in
@@ -55,7 +56,7 @@ struct TeamBuilderView: View {
                             }
                             switch Result(catching: { try record.decode() }) {
                             case .success(let build):
-                                LazyVGrid(columns: [GridItem(.adaptive(minimum: 88), alignment: .top)], spacing: 16) {
+                                LazyVGrid(columns: [GridItem(.adaptive(minimum: dynamicTypeSize.isAccessibilitySize ? 280 : 88), alignment: .top)], spacing: 16) {
                                     ForEach(build.slots.indices, id: \.self) { i in
                                         let slot = build.slots[i]
                                         let pet = slot.petID.flatMap { content.pets[PetID(rawValue: $0)] }
@@ -135,7 +136,7 @@ struct TeamDraftView: View {
                 VStack(alignment: .leading, spacing: 24) {
                     VStack(alignment: .leading, spacing: 12) {
                         TextField("队伍名称", text: $draft.name).font(.title2.bold()).accessibilityLabel("队伍名称")
-                        HStack { Text("魔法道具").font(.subheadline); Spacer(); magicPicker.labelsHidden().tint(.primary) }
+                        CompanionMetrics { Text("魔法道具").font(.subheadline); magicPicker.labelsHidden().tint(.primary) }
                         Text("\(draft.slots.filter { $0.petID != nil }.count) / 6 精灵 · 保存后写入本机")
                             .font(.caption.monospacedDigit()).foregroundStyle(.secondary)
                     }.padding(20).companionSurface()

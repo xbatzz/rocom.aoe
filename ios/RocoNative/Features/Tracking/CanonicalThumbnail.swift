@@ -13,8 +13,8 @@ struct CanonicalThumbnail: View {
     var body: some View {
         Group {
             if let image { Image(uiImage: image).resizable().scaledToFit().accessibilityHidden(true) }
-            else if let error { Image(systemName: "exclamationmark.triangle").accessibilityLabel(error) }
-            else { Image(systemName: "photo").foregroundStyle(.secondary).accessibilityLabel("暂无图片") }
+            else if let error { Image(systemName: "exclamationmark.triangle").resizable().scaledToFit().padding(size * 0.2).accessibilityLabel(error) }
+            else { Image(systemName: "photo").resizable().scaledToFit().padding(size * 0.2).foregroundStyle(.secondary).accessibilityLabel("暂无图片") }
         }.frame(width: size, height: size)
             .task(id: assetID) {
                 image = nil; error = nil

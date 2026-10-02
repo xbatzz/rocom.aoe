@@ -25,7 +25,7 @@ struct TeamDefenseView: View {
                 switch report(selected) {
                 case .success(let report):
                     CompanionSection("按对手本系中最强属性判断") {
-                        HStack {
+                        CompanionMetrics {
                             CompanionMetric(value: String(report.analysis.weakCount), label: "弱点", tint: .orange)
                             CompanionMetric(value: String(report.analysis.neutralCount), label: "中性")
                             CompanionMetric(value: String(report.analysis.resistCount), label: "抵抗", tint: .teal)

@@ -115,6 +115,7 @@ struct AlignedPetGrid: View {
     @State private var query = PetListQuery()
     @State private var showingFilters = false
     @FocusState private var searchFocused: Bool
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     /// Match Web default eligibility using canonical flags, without guessing from assets or egg groups.
     private var catalogPets: [Pet] {
@@ -141,7 +142,7 @@ struct AlignedPetGrid: View {
                         Button("重置搜索与筛选") { query = PetListQuery() }
                     }
                 }
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 20)], spacing: 28) {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: dynamicTypeSize.isAccessibilitySize ? 280 : 150), spacing: 20)], spacing: 28) {
                     ForEach(results, id: \.petId) { pet in
                         PetGridCell(pet: pet, content: content, portraits: portraits, anchors: anchors) { pet, origin in
                             searchFocused = false

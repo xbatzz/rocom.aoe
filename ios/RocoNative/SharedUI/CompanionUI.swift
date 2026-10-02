@@ -85,12 +85,19 @@ struct SkillCategoryPill: View {
 struct CompanionHeading: View {
     let title: String
     var detail: String? = nil
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     var body: some View {
-        HStack(alignment: .firstTextBaseline) {
-            Text(title).font(.title3.bold()).foregroundStyle(.primary).accessibilityAddTraits(.isHeader)
-            Spacer(minLength: 8)
-            if let detail { Text(detail).font(.caption).foregroundStyle(.secondary) }
+        if dynamicTypeSize.isAccessibilitySize {
+            VStack(alignment: .leading, spacing: 6) { heading; detailText }
+        } else {
+            HStack(alignment: .firstTextBaseline) { heading; Spacer(minLength: 8); detailText }
         }
+    }
+    private var heading: some View {
+        Text(title).font(.title3.bold()).foregroundStyle(.primary).fixedSize(horizontal: false, vertical: true).accessibilityAddTraits(.isHeader)
+    }
+    @ViewBuilder private var detailText: some View {
+        if let detail { Text(detail).font(.caption).foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true) }
     }
 }
 
@@ -101,7 +108,7 @@ struct CompanionMetric: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(value).font(.title2.bold().monospacedDigit()).foregroundStyle(tint)
-                .fixedSize(horizontal: false, vertical: true)
+                .fixedSize(horizontal: true, vertical: true)
             Text(label).font(.caption).foregroundStyle(.secondary)
         }.frame(maxWidth: .infinity, alignment: .leading)
             .accessibilityElement(children: .combine)
@@ -113,17 +120,29 @@ struct CollectionProgress: View {
     let count: Int
     let total: Int
     let tint: Color
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
+            if dynamicTypeSize.isAccessibilitySize {
+                Text(title).font(.subheadline.weight(.medium))
+                totalText
+            } else {
             HStack(alignment: .firstTextBaseline, spacing: 6) {
                 Text(count.formatted()).font(.largeTitle.bold().monospacedDigit()).foregroundStyle(tint)
                 Text("/ \(total.formatted())").font(.title3.monospacedDigit()).foregroundStyle(.secondary)
                 Spacer()
                 Text(title).font(.subheadline.weight(.medium))
             }
+            }
             ProgressView(value: Double(count), total: Double(max(1, total))).tint(tint)
                 .accessibilityLabel(title).accessibilityValue("\(count) / \(total)")
         }.padding(20).companionSurface()
+    }
+    private var totalText: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text(count.formatted()).font(.largeTitle.bold().monospacedDigit()).foregroundStyle(tint)
+            Text("共 \(total.formatted())").font(.subheadline.monospacedDigit()).foregroundStyle(.secondary)
+        }
     }
 }
 
@@ -147,6 +166,10 @@ struct CollectionStatus: View {
 extension View {
     func companionSurface() -> some View {
         background(Color(uiColor: .secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20))
+    }
+    func companionPrimaryAction() -> some View {
+        buttonStyle(.borderedProminent).controlSize(.large).tint(.primary)
+            .foregroundStyle(Color(uiColor: .systemBackground))
     }
     func companionBackground() -> some View {
         background(Color(uiColor: .systemGroupedBackground))
@@ -199,6 +222,8 @@ extension View {
         #if DEBUG
         if ProcessInfo.processInfo.arguments.contains("--visual-bottom") {
             self.defaultScrollAnchor(.bottom)
+        } else if ProcessInfo.processInfo.arguments.contains("--visual-middle") {
+            self.defaultScrollAnchor(.center)
         } else { self }
         #else
         self
@@ -209,32 +234,51 @@ extension View {
 struct SkillSummary: View {
     let skill: Skill
     let content: ContentStore
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     var body: some View {
-        HStack(alignment: .center, spacing: 14) {
-            if skill.iconAssetId != nil {
-                CanonicalThumbnail(assetID: skill.iconAssetId, content: content, size: 52)
+        Group {
+            if dynamicTypeSize.isAccessibilitySize {
+                VStack(alignment: .leading, spacing: 14) {
+                    HStack(alignment: .top, spacing: 14) { artwork; name }
+                    skillBadges
+                    CompanionMetrics {
+                        if let power = skill.power { CompanionMetric(value: power.formatted(), label: "威力") }
+                        if let cost = skill.energyCost { CompanionMetric(value: cost.formatted(), label: "能耗") }
+                    }
+                    identifier
+                }
             } else {
-                Text(String(skill.nameZh.prefix(1))).font(.title2.weight(.medium)).foregroundStyle(.secondary)
-                    .frame(width: 52, height: 52).background(Color(uiColor: .tertiarySystemFill), in: RoundedRectangle(cornerRadius: 12))
-                    .accessibilityLabel("暂无技能图标")
-            }
-            VStack(alignment: .leading, spacing: 8) {
-                Text(skill.nameZh).font(.headline).fixedSize(horizontal: false, vertical: true)
-                ViewThatFits(in: .horizontal) {
-                    HStack(spacing: 4) { badges }
-                    VStack(alignment: .leading, spacing: 4) { badges }
+                HStack(alignment: .center, spacing: 14) {
+                    artwork
+                    VStack(alignment: .leading, spacing: 8) { name; skillBadges; identifier }
+                    Spacer(minLength: 0)
+                    VStack(alignment: .trailing, spacing: 6) {
+                        if let power = skill.power {
+                            Text(power.formatted()).font(.title3.bold().monospacedDigit())
+                            Text("威力").font(.caption2).foregroundStyle(.secondary)
+                        }
+                        if let cost = skill.energyCost { Text("\(cost.formatted()) 能耗").font(.caption.monospacedDigit()).foregroundStyle(.secondary) }
+                    }
                 }
-                Text("#\(String(skill.skillId.rawValue))").font(.caption2.monospacedDigit()).foregroundStyle(.secondary)
-            }
-            Spacer(minLength: 0)
-            VStack(alignment: .trailing, spacing: 6) {
-                if let power = skill.power {
-                    Text(power.formatted()).font(.title3.bold().monospacedDigit())
-                    Text("威力").font(.caption2).foregroundStyle(.secondary)
-                }
-                if let cost = skill.energyCost { Text("\(cost.formatted()) 能耗").font(.caption.monospacedDigit()).foregroundStyle(.secondary) }
             }
         }.padding(.vertical, 16)
+    }
+    @ViewBuilder private var artwork: some View {
+        if skill.iconAssetId != nil {
+            CanonicalThumbnail(assetID: skill.iconAssetId, content: content, size: 52)
+        } else {
+            Text(String(skill.nameZh.prefix(1))).font(.system(size: 22, weight: .medium)).foregroundStyle(.secondary)
+                .frame(width: 52, height: 52).background(Color(uiColor: .tertiarySystemFill), in: RoundedRectangle(cornerRadius: 12))
+                .accessibilityLabel("暂无技能图标")
+        }
+    }
+    private var name: some View { Text(skill.nameZh).font(.headline).fixedSize(horizontal: false, vertical: true) }
+    private var identifier: some View { Text("#\(String(skill.skillId.rawValue))").font(.caption2.monospacedDigit()).foregroundStyle(.secondary) }
+    private var skillBadges: some View {
+        ViewThatFits(in: .horizontal) {
+            HStack(spacing: 4) { badges }
+            VStack(alignment: .leading, spacing: 4) { badges }
+        }
     }
     @ViewBuilder private var badges: some View {
         if let id = skill.typeId, let type = content.types[id] { TypeBadge(type: type) }
@@ -242,3 +286,35 @@ struct SkillSummary: View {
     }
 }
 
+struct CompanionMetrics<Content: View>: View {
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    @ViewBuilder let content: Content
+    init(@ViewBuilder content: () -> Content) { self.content = content() }
+    var body: some View {
+        if dynamicTypeSize.isAccessibilitySize {
+            VStack(alignment: .leading, spacing: 16) { content }
+        } else {
+            HStack(alignment: .top, spacing: 12) { content }
+        }
+    }
+}
+
+struct BadgeLocationPicker: View {
+    let content: ContentStore
+    @Binding var selection: BadgeLocationLocationId
+    var body: some View {
+        Menu {
+            Picker("地点", selection: $selection) {
+                ForEach(content.badgeLocations.values.sorted { $0.locationId.rawValue < $1.locationId.rawValue }, id: \.locationId) {
+                    Text($0.nameZh).tag($0.locationId)
+                }
+            }
+        } label: {
+            HStack(alignment: .firstTextBaseline, spacing: 8) {
+                Text(content.badgeLocations[selection]?.nameZh ?? selection.rawValue)
+                    .font(.subheadline.weight(.medium)).fixedSize(horizontal: false, vertical: true)
+                Image(systemName: "chevron.down").font(.system(size: 12, weight: .semibold))
+            }.frame(minHeight: 44)
+        }.tint(.primary).accessibilityLabel("地点：\(content.badgeLocations[selection]?.nameZh ?? selection.rawValue)")
+    }
+}

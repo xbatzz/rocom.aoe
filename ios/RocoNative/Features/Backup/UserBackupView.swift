@@ -30,13 +30,14 @@ struct UserBackupView: View {
     @State private var mode = BackupImportMode.merge
     @State private var error: String?
     @State private var status: String?
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 28) {
                 VStack(alignment: .leading, spacing: 18) {
                     Text("带上你的收藏与队伍").font(.title2.bold())
                     Text("将本机进度保存到文件，在需要时恢复。").font(.subheadline).foregroundStyle(.secondary)
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 140), spacing: 20)], alignment: .leading, spacing: 20) {
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: dynamicTypeSize.isAccessibilitySize ? 280 : 140), spacing: 20)], alignment: .leading, spacing: 20) {
                         CompanionMetric(value: String(shiny.count), label: "异色记录", tint: .purple)
                         CompanionMetric(value: String(grass.count), label: "地点足迹记录", tint: .green)
                         CompanionMetric(value: String(heroes.count), label: "命定勇者记录", tint: .orange)
@@ -45,7 +46,7 @@ struct UserBackupView: View {
                 }.padding(20).companionSurface()
             CompanionSection("备份到 JSON 文件") {
                 Button("生成当前备份", systemImage: "square.and.arrow.up") { generate() }
-                    .buttonStyle(.borderedProminent).controlSize(.large).tint(.primary)
+                    .companionPrimaryAction()
                 if document != nil { Button("保存到文件") { exporting = true } }
                 if let shareURL { ShareLink("分享备份", item: shareURL) }
                 Text("包括异色、各地点草系足迹、命定勇者、全部队伍和保留的 Web 原始归档。备份包含导出时间、格式版本与稳定 ID。").font(.footnote).foregroundStyle(.secondary)
