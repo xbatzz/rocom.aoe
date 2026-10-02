@@ -7,7 +7,7 @@ import RocoContent
 final class AppContent {
     enum State {
         case loading
-        case ready(ContentStore, PortraitStore)
+        case ready(ContentStore, PortraitStore, SkillSearchIndex)
         case failed(String)
     }
     private(set) var state: State = .loading
@@ -22,7 +22,7 @@ final class AppContent {
             }
             let build = Int(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "1") ?? 1
             let store = try await ContentStore.loadInBackground(bundleURL: url, appBuild: build)
-            state = .ready(store, PortraitStore(resolver: store.assetResolver))
+            state = .ready(store, PortraitStore(resolver: store.assetResolver), SkillSearchIndex(content: store))
         } catch {
             state = .failed(String(describing: error))
         }
@@ -40,8 +40,8 @@ struct RocoApp: App {
                 case .loading:
                     ProgressView("正在加载图鉴…")
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                case .ready(let store, let portraits):
-                    NativeFeatureEntry(content: store, portraits: portraits)
+                case .ready(let store, let portraits, let skills):
+                    NativeFeatureEntry(content: store, portraits: portraits, skills: skills)
                 case .failed(let message):
                     ContentUnavailableView("图鉴未能加载", systemImage: "exclamationmark.triangle",
                         description: Text(message))
