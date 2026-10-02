@@ -156,25 +156,29 @@ struct NativeFeatureEntry: View {
 
 }
 
-private struct ContentVersionView: View {
+struct ContentVersionView: View {
     let content: ContentStore
     var body: some View {
-        List {
-            Section("当前离线内容") {
-                LabeledContent("内容版本", value: content.manifest.contentVersion)
-                LabeledContent("规则版本", value: content.manifest.rulesVersion)
-                LabeledContent("精灵", value: String(content.pets.count))
-                LabeledContent("技能", value: String(content.skills.count))
-                if let season = content.seasons[content.manifest.defaultSeason] {
-                    LabeledContent("默认赛季", value: season.nameZh)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 28) {
+                CompanionSection("当前离线内容") {
+                    if let season = content.seasons[content.manifest.defaultSeason] { Text(season.nameZh).font(.title2.bold()) }
+                    HStack {
+                        CompanionMetric(value: String(content.pets.count), label: "精灵配置")
+                        CompanionMetric(value: String(content.skills.count), label: "技能配置")
+                    }.padding(20).companionSurface()
+                    LabeledContent("规则版本", value: content.manifest.rulesVersion)
                 }
-            }
-            Section("来源") {
-                Text(content.manifest.sourceRevision).font(.footnote.monospaced()).textSelection(.enabled)
-                Text("以上为当前安装包的内容快照。本机收藏与队伍独立保存，可通过备份与恢复导出。")
-                    .font(.footnote).foregroundStyle(.secondary)
-                LabeledContent("用户数据格式", value: String(UserDatabase.currentVersion))
-            }
-        }.navigationTitle("数据版本")
+                CompanionSection("内容标识") {
+                    Text(content.manifest.contentVersion).font(.footnote.monospaced()).textSelection(.enabled)
+                }
+                CompanionSection("内容来源") {
+                    Text(content.manifest.sourceRevision).font(.footnote.monospaced()).textSelection(.enabled)
+                    Text("当前安装包的内容快照。本机收藏与队伍独立保存，可通过备份与恢复导出。")
+                        .font(.subheadline).foregroundStyle(.secondary)
+                    LabeledContent("用户数据格式", value: String(UserDatabase.currentVersion))
+                }
+            }.padding(20)
+        }.reviewScrollPosition().companionBackground().navigationTitle("数据版本")
     }
 }
