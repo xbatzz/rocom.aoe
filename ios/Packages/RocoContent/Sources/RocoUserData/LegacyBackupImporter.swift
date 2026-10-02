@@ -9,14 +9,15 @@ import RocoContent
 public enum LegacyBackupImporter {
     public static func prepare(_ bytes: Data, content: ContentStore) throws -> PreparedBackup {
         let root = try object(JSONSerialization.jsonObject(with: bytes), "Web backup")
-        guard root["format"] as? String == "rocom-user-data", let version = root["version"] as? Int,
+        guard root["format"] as? String == "rocom-user-data", let rawVersion = root["version"],
+            let version = try? integer(rawVersion, field: "version", minimum: 1),
             (1...4).contains(version), let original = String(data: bytes, encoding: .utf8) else { throw BackupError.invalid("不支持的 Web 备份版本") }
         let exportedAt = try date(root["exportedAt"])
         let data = try object(root["data"], "data")
         var backup = UserBackup(exportedAt: exportedAt)
         var warnings = ["Web 原始 JSON 已完整归档，主题、图鉴课题/收藏、草系家族奖牌、队伍角色与当前队伍选择暂不激活；这些字段会随原生备份再次导出。"]
         let teamState = try object(data["teams"], "teams")
-        guard teamState["version"] as? Int == 2, let teams = teamState["teams"] as? [[String: Any]],
+        guard try integer(teamState["version"] as Any, field: "teams.version", minimum: 1) == 2, let teams = teamState["teams"] as? [[String: Any]],
             let activeID = teamState["activeTeamId"] as? String,
             teams.contains(where: { $0["id"] as? String == activeID }) else { throw BackupError.invalid("Web teams 结构无效") }
         for team in teams {
@@ -56,10 +57,12 @@ public enum LegacyBackupImporter {
         if version >= 3 {
             let shiny = try object(data["shinyCollection"], "shinyCollection")
             let entries = try object(shiny["entries"], "shiny.entries")
-            guard let shinyVersion = shiny["version"] as? Int, [1,2].contains(shinyVersion) else { throw BackupError.invalid("Web 异色版本无效") }
+            guard let rawVersion = shiny["version"],
+                let shinyVersion = try? integer(rawVersion, field: "shiny.version", minimum: 1), [1,2].contains(shinyVersion) else { throw BackupError.invalid("Web 异色版本无效") }
             for (key, value) in entries.sorted(by: { $0.key < $1.key }) {
                 let entry = try object(value, "shiny entry")
-                guard let collected = entry["collected"] as? Bool else { throw BackupError.invalid("Web 异色状态须为布尔值") }
+                guard let flag = entry["collected"] as? NSNumber, CFGetTypeID(flag) == CFBooleanGetTypeID() else { throw BackupError.invalid("Web 异色状态须为布尔值") }
+                let collected = flag.boolValue
                 let timestamp = try date(entry["updatedAt"])
                 let parts = key.split(separator: ":", maxSplits: 1)
                 guard parts.count == 2, parts[0].hasPrefix("s"), let season = Int(parts[0].dropFirst()), season >= 0 else { throw BackupError.invalid("Web 异色 key 无效") }
@@ -84,7 +87,7 @@ public enum LegacyBackupImporter {
         }
         if version >= 2 {
             let badges = try object(data["badgeTrials"], "badgeTrials")
-            guard badges["version"] as? Int == 1 else { throw BackupError.invalid("Web 徽章版本无效") }
+            guard try integer(badges["version"] as Any, field: "badges.version", minimum: 1) == 1 else { throw BackupError.invalid("Web 徽章版本无效") }
             let trials = try object(badges["trials"], "badgeTrials.trials")
             if let raw = trials["destined-hero"] {
                 let trial = try object(raw, "destined-hero")
@@ -131,12 +134,18 @@ public enum LegacyBackupImporter {
         return try integer(value, field: "ID", minimum: 1)
     }
     private static func integer(_ value: Any, field: String, minimum: Int) throws -> Int {
-        let numeric: Double?
-        if let value = value as? String { numeric = Double(value) }
-        else if let value = value as? NSNumber, CFGetTypeID(value) != CFBooleanGetTypeID() { numeric = value.doubleValue }
-        else { numeric = nil }
-        guard let number = numeric, number.isFinite, number.rounded() == number,
-            number >= Double(minimum), number < Double(Int.max) else { throw BackupError.invalid("Web \(field) 必须是合法整数") }
+        // Numeric Web IDs must be JS-safe; reject rather than round a large JSON number.
+        // Decimal strings can be read exactly without passing through Double.
+        if let text = value as? String {
+            guard let number = Int(text), number >= minimum else { throw BackupError.invalid("Web \(field) 必须是合法整数") }
+            return number
+        }
+        guard let value = value as? NSNumber, CFGetTypeID(value) != CFBooleanGetTypeID() else {
+            throw BackupError.invalid("Web \(field) 必须是整数，不能是布尔值")
+        }
+        let number = value.doubleValue
+        guard number.isFinite, number.rounded() == number, number >= Double(minimum),
+            number <= 9_007_199_254_740_991 else { throw BackupError.invalid("Web \(field) 超出安全整数范围或不是整数") }
         return Int(number)
     }
     /// Arbitrary Web IDs map reproducibly; exact original IDs remain in the archived document.

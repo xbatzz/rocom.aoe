@@ -100,7 +100,15 @@ import RocoContent
             "destined-hero":{"familyMedals":{"species:99999":"2026-10-03T00:00:00.000Z"},"footprints":{},"unlitFootprints":{}}
           }},"extra":{"never":"drop"}}}
         """.utf8)
-        let c = try content(), one = try BackupCodec.prepare(bytes, content: c), two = try BackupCodec.prepare(bytes, content: c)
+        let c = try content()
+        for (from, to) in [("\"collected\":false", "\"collected\":1"), ("\"version\":4", "\"version\":true"),
+            ("\"friendId\":99999", "\"friendId\":9007199254740993")] {
+            let malformed = Data(String(decoding: bytes, as: UTF8.self).replacingOccurrences(of: from, with: to).utf8)
+            #expect(throws: BackupError.self) { try BackupCodec.prepare(malformed, content: c) }
+        }
+        let exactString = Data(String(decoding: bytes, as: UTF8.self).replacingOccurrences(of: "\"friendId\":99999", with: "\"friendId\":\"9007199254740993\"").utf8)
+        #expect(try BackupCodec.prepare(exactString, content: c).backup.teams[0].build.slots[0].petID == 9_007_199_254_740_993)
+        let one = try BackupCodec.prepare(bytes, content: c), two = try BackupCodec.prepare(bytes, content: c)
         #expect(one.backup.teams[0].build.id == two.backup.teams[0].build.id)
         #expect(one.backup.teams[0].build.slots[0].petID == 99999)
         #expect(one.backup.shiny[0].collected == false)

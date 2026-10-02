@@ -1,7 +1,7 @@
 # Autonomous backlog
 
 ## Now
-P3 数据安全：检查 legacy JSON 类型转换是否改变用户 ID 或状态。
+P3 跨功能整合：配队/PVP 使用现有详情入口。
 
 ## Next
 - 审计技能 alias 与家族来源。
@@ -9,6 +9,7 @@ P3 数据安全：检查 legacy JSON 类型转换是否改变用户 ID 或状态
 - 审计收藏筛选成本、空/错误状态。
 
 ## Verified
+- Legacy importer 拒绝数字布尔状态、布尔版本和非 JS-safe 数字 ID；十进制字符串 ID 精确读取，备份测试通过。
 - 本机编辑时间至少递增 1ms，四类数据的未来时间导入/旧备份合并回归测试通过。
 P2-J 队伍复制/删除/超限保留；P2-K 联防与Web威胁fixture；P2-L完整预检/事务回滚/12队/原Web归档测试和device build通过。
 
