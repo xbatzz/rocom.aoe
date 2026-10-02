@@ -40,7 +40,7 @@ public struct UserBackup: Codable, Sendable {
             _ = try JSONSerialization.jsonObject(with: Data(row.originalJSON.utf8))
         }
     }
-    private static func id(_ id: String) throws { guard !id.isEmpty else { throw BackupError.invalid("稳定 ID 不得为空") } }
+    private static func id(_ id: String) throws { guard !id.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, !id.contains("|") else { throw BackupError.invalid("稳定 ID 不得为空或含记录键分隔符") } }
     private static func date(_ date: Date) throws { guard date.timeIntervalSince1970.isFinite else { throw BackupError.invalid("日期无效") } }
     private static func unique(_ ids: [String]) throws {
         guard Set(ids).count == ids.count else { throw BackupError.invalid("备份含重复记录 ID") }

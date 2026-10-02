@@ -66,6 +66,23 @@ import RocoContent
         #expect(throws: BackupError.self) { try BackupCodec.prepare(bytes, content: content()) }
         #expect(throws: (any Error).self) { try BackupCodec.prepare(Data("{bad".utf8), content: content()) }
     }
+    @Test func malformedIdentitiesAndFutureStoredVersionsNeverWrite() throws {
+        let container = try UserDatabase.open(inMemory: true)
+        let context = container.mainContext
+        try UserDatabase.saveTeam(TeamBuild(), context: context)
+        var invalid = UserBackup()
+        var build = TeamBuild(); build.slots[0].skillIDs = [-1]
+        invalid.teams = [.init(build: build, updatedAt: .now)]
+        #expect(throws: ContentError.self) { try BackupPersistence.restore(invalid, mode: .replace, context: context) }
+        invalid.teams = []
+        invalid.grass = [.init(footprintID: "pet:9", locationID: "somia|pet:8", status: .lit, updatedAt: .now)]
+        #expect(throws: BackupError.self) { try BackupPersistence.restore(invalid, mode: .replace, context: context) }
+        let existing = try #require(context.fetch(FetchDescriptor<TeamRecord>()).first)
+        existing.dataVersion = 2; try context.save()
+        #expect(throws: UserDataError.self) { try BackupPersistence.restore(UserBackup(), mode: .replace, context: context) }
+        #expect(try context.fetchCount(FetchDescriptor<TeamRecord>()) == 1)
+        #expect(!context.hasChanges)
+    }
     @Test func explicitEditsRemainNewerThanFutureDatedImports() throws {
         let container = try UserDatabase.open(inMemory: true)
         let context = container.mainContext

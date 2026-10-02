@@ -32,7 +32,10 @@ public struct TeamBuild: Codable, Equatable, Identifiable, Sendable {
         guard !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, name.count <= 32 else {
             throw ContentError.invalid("队伍名称须为 1–32 字")
         }
+        guard magicItemID.map { $0 > 0 } ?? true else { throw ContentError.invalid("魔法道具 ID 必须为正整数") }
         for slot in slots {
+            let ids = [slot.petID, slot.personalityID, slot.legacyTypeID].compactMap { $0 } + slot.skillIDs
+            guard ids.allSatisfy({ $0 > 0 }) else { throw ContentError.invalid("构筑 ID 必须为正整数") }
             try TeamRules.validateIndividuals(slot.individualValues)
             guard slot.skillIDs.count <= 4, Set(slot.skillIDs).count == slot.skillIDs.count else {
                 throw ContentError.invalid("技能最多 4 个且不能重复")

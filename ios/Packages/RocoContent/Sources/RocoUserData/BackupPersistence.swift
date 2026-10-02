@@ -20,6 +20,7 @@ public enum BackupPersistence {
         }.sorted { $0.slotID < $1.slotID }
         let grass = try context.fetch(FetchDescriptor<GrassRecord>()).map {
             try UserDatabase.validateVersion($0.dataVersion)
+            guard $0.identity == GrassRecord.key($0.footprintID, $0.locationID) else { throw BackupError.invalid("草系记录 identity 与内容不一致，原数据保留") }
             return UserBackup.Grass(footprintID: $0.footprintID, locationID: $0.locationID, status: $0.status, updatedAt: $0.updatedAt)
         }.sorted { $0.key < $1.key }
         let heroes = try context.fetch(FetchDescriptor<HeroRecord>()).map {
@@ -49,6 +50,15 @@ public enum BackupPersistence {
                 var heroes = Dictionary(uniqueKeysWithValues: try context.fetch(FetchDescriptor<HeroRecord>()).map { ($0.familyID, $0) })
                 var teams = Dictionary(uniqueKeysWithValues: try context.fetch(FetchDescriptor<TeamRecord>()).map { ($0.teamID, $0) })
                 var archives = Dictionary(uniqueKeysWithValues: try context.fetch(FetchDescriptor<LegacyArchiveRecord>()).map { ($0.digest, $0) })
+                // Validate every existing row before replacement can remove any record.
+                for row in shiny.values { try UserDatabase.validateVersion(row.dataVersion) }
+                for row in grass.values {
+                    try UserDatabase.validateVersion(row.dataVersion)
+                    guard row.identity == GrassRecord.key(row.footprintID, row.locationID) else { throw BackupError.invalid("草系记录 identity 与内容不一致，原数据保留") }
+                }
+                for row in heroes.values { try UserDatabase.validateVersion(row.dataVersion) }
+                for row in teams.values { try UserDatabase.validateVersion(row.dataVersion) }
+                for row in try context.fetch(FetchDescriptor<UserDataMetadata>()) { try UserDatabase.validateVersion(row.dataVersion) }
                 if mode == .replace {
                     let incomingShiny = Set(backup.shiny.map(\.slotID)), incomingGrass = Set(backup.grass.map(\.key))
                     let incomingHeroes = Set(backup.heroes.map(\.familyID)), incomingTeams = Set(backup.teams.map { $0.build.id })
