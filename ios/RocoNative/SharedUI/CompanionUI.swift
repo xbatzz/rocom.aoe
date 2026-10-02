@@ -205,3 +205,40 @@ extension View {
         #endif
     }
 }
+
+struct SkillSummary: View {
+    let skill: Skill
+    let content: ContentStore
+    var body: some View {
+        HStack(alignment: .center, spacing: 14) {
+            if skill.iconAssetId != nil {
+                CanonicalThumbnail(assetID: skill.iconAssetId, content: content, size: 52)
+            } else {
+                Text(String(skill.nameZh.prefix(1))).font(.title2.weight(.medium)).foregroundStyle(.secondary)
+                    .frame(width: 52, height: 52).background(Color(uiColor: .tertiarySystemFill), in: RoundedRectangle(cornerRadius: 12))
+                    .accessibilityLabel("暂无技能图标")
+            }
+            VStack(alignment: .leading, spacing: 8) {
+                Text(skill.nameZh).font(.headline).fixedSize(horizontal: false, vertical: true)
+                ViewThatFits(in: .horizontal) {
+                    HStack(spacing: 4) { badges }
+                    VStack(alignment: .leading, spacing: 4) { badges }
+                }
+                Text("#\(String(skill.skillId.rawValue))").font(.caption2.monospacedDigit()).foregroundStyle(.secondary)
+            }
+            Spacer(minLength: 0)
+            VStack(alignment: .trailing, spacing: 6) {
+                if let power = skill.power {
+                    Text(power.formatted()).font(.title3.bold().monospacedDigit())
+                    Text("威力").font(.caption2).foregroundStyle(.secondary)
+                }
+                if let cost = skill.energyCost { Text("\(cost.formatted()) 能耗").font(.caption.monospacedDigit()).foregroundStyle(.secondary) }
+            }
+        }.padding(.vertical, 16)
+    }
+    @ViewBuilder private var badges: some View {
+        if let id = skill.typeId, let type = content.types[id] { TypeBadge(type: type) }
+        SkillCategoryPill(category: skill.category)
+    }
+}
+
