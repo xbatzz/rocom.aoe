@@ -1,4 +1,6 @@
 import SwiftUI
+import SwiftData
+import RocoUserData
 import RocoContent
 import RocoDomain
 
@@ -6,11 +8,13 @@ struct PVPBattleView: View {
     let content: ContentStore
     let portraits: PortraitStore
     let skillIndex: SkillSearchIndex
+    @State private var choosingTeam = false
     @State private var ally = BattleProfile()
     @State private var opponent = BattleProfile()
     var body: some View {
         List {
             Section("临时构筑 · 不改已保存队伍") {
+                Button("从已保存队伍选择我方", systemImage: "person.3") { choosingTeam = true }
                 NavigationLink("我方：\(name(ally))") { BattleProfileEditor(profile: $ally, content: content, portraits: portraits, skillIndex: skillIndex) }
                 NavigationLink("对方：\(name(opponent))") { BattleProfileEditor(profile: $opponent, content: content, portraits: portraits, skillIndex: skillIndex) }
             }
@@ -25,6 +29,12 @@ struct PVPBattleView: View {
                 }
             } else { Text("选择双方精灵后查看六维、属性关系和双向伤害。") }
         }.navigationTitle("PVP 助手")
+            .sheet(isPresented: $choosingTeam) {
+                BattleTeamPicker(content: content) { slot in
+                    var profile = BattleProfile(); profile.slot = slot
+                    ally = profile
+                }
+            }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button("交换双方", systemImage: "arrow.left.arrow.right") {
@@ -179,6 +189,42 @@ private struct BattleDirectionView: View {
                     .font(.footnote).foregroundStyle(.secondary)
             case .failure(let error): Text(String(describing: error)).foregroundStyle(.red)
             }
+        }
+    }
+}
+
+/// Copy a saved slot into the temporary profile. Never normalize or write the source record.
+private struct BattleTeamPicker: View {
+    let content: ContentStore
+    let select: (TeamSlot) -> Void
+    @Query(sort: \TeamRecord.updatedAt, order: .reverse) private var teams: [TeamRecord]
+    @Environment(\.dismiss) private var dismiss
+    var body: some View {
+        NavigationStack {
+            List {
+                if teams.isEmpty {
+                    ContentUnavailableView("暂无已保存队伍", systemImage: "person.3", description: Text("先在配队中保存队伍，或使用 PVP 的临时构筑。"))
+                }
+                ForEach(teams) { record in
+                    Section(record.name) {
+                        switch Result(catching: { try record.decode() }) {
+                        case .success(let build):
+                            ForEach(build.slots.indices, id: \.self) { i in
+                                let slot = build.slots[i]
+                                if let id = slot.petID {
+                                    Button {
+                                        select(slot); dismiss()
+                                    } label: {
+                                        LabeledContent("槽位 \(i + 1)", value: content.pets[PetID(rawValue: id)]?.nameZh ?? "无法解析 #\(id)")
+                                    }
+                                } else { Text("槽位 \(i + 1) · 空槽").foregroundStyle(.secondary) }
+                            }
+                        case .failure(let error): Text("队伍读取失败，原数据保留：\(error)").foregroundStyle(.red)
+                        }
+                    }
+                }
+            }.navigationTitle("选择已保存构筑")
+                .toolbar { ToolbarItem(placement: .cancellationAction) { Button("取消") { dismiss() } } }
         }
     }
 }

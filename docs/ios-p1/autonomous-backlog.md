@@ -1,13 +1,14 @@
 # Autonomous backlog
 
 ## Now
-P3 release hygiene：最终源码检查与轻量验证。
+P3 release hygiene：检查最终编译与提交卫生。
 
 ## Next
 - 备份文件/分享/导入真机往返验收。
 - 发布卫生检查与轻量 build。
 
 ## Verified
+- PVP 可从已保存队伍复制槽位作为临时我方，所有构筑字段完整保留，读取失败不清空现有 profile，也不写回队伍。
 - 技能 alias 审计：SkillSearchIndex 与 TeamRules 使用真实 SkillID，家族聚合按 skillTerminal 单独展示，没有用 displayId 替代装备 ID。
 - 技能和三个收藏页补上筛选无结果的系统空状态。
 - 备份预检拒绝非正数构筑 ID/含分隔符键；替换前验证全部存量版本，不能删除未来版本记录；7项相关测试通过。
