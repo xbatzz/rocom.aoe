@@ -1,5 +1,6 @@
 import SwiftUI
 import RocoContent
+import RocoUserData
 
 /// Feature navigation surrounds, rather than replaces, the frozen encyclopedia stack.
 struct NativeFeatureEntry: View {
@@ -28,6 +29,7 @@ struct NativeFeatureEntry: View {
                 }
                 Section("用户数据") {
                     NavigationLink { UserBackupView(content: content) } label: { Label("备份与恢复", systemImage: "externaldrive") }
+                    NavigationLink { ContentVersionView(content: content) } label: { Label("数据版本", systemImage: "info.circle") }
                 }
             }.navigationTitle("洛克工具")
         }
@@ -38,5 +40,28 @@ struct NativeFeatureEntry: View {
                     .buttonStyle(.borderedProminent).padding()
             }
         }
+    }
+}
+
+private struct ContentVersionView: View {
+    let content: ContentStore
+    var body: some View {
+        List {
+            Section("当前离线内容") {
+                LabeledContent("内容版本", value: content.manifest.contentVersion)
+                LabeledContent("规则版本", value: content.manifest.rulesVersion)
+                LabeledContent("精灵", value: String(content.pets.count))
+                LabeledContent("技能", value: String(content.skills.count))
+                if let season = content.seasons[content.manifest.defaultSeason] {
+                    LabeledContent("默认赛季", value: season.nameZh)
+                }
+            }
+            Section("来源") {
+                Text(content.manifest.sourceRevision).font(.footnote.monospaced()).textSelection(.enabled)
+                Text("以上为当前安装包的内容快照。本机收藏与队伍独立保存，可通过备份与恢复导出。")
+                    .font(.footnote).foregroundStyle(.secondary)
+                LabeledContent("用户数据格式", value: String(UserDatabase.currentVersion))
+            }
+        }.navigationTitle("数据版本")
     }
 }
