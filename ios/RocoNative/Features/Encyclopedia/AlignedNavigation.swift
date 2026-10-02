@@ -400,14 +400,21 @@ private final class PortraitNavigationAnimator: NSObject, UIViewControllerAnimat
         // independently of both page views.
         let portraitHost: UIView
         let ownsPortraitHost: Bool
-        if let navigationView = fromVC.navigationController?.view,
-           let navigationBar = fromVC.navigationController?.navigationBar,
-           navigationBar.superview === navigationView {
-            let overlay = UIView(frame: navigationView.bounds)
+        if let navigationBar = fromVC.navigationController?.navigationBar,
+           let barParent = navigationBar.superview {
+            // On newer iOS releases UINavigationBar is not guaranteed to be a
+            // direct child of UINavigationController.view. The previous version
+            // required exactly that relationship, so it could silently fall back
+            // to containerView and put the transition portrait above the bar.
+            //
+            // Insert into the bar's *actual* parent, immediately below the bar.
+            // This guarantees the same occlusion relationship as normal scrolling
+            // regardless of UIKit's private wrapper hierarchy.
+            let overlay = UIView(frame: barParent.bounds)
             overlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             overlay.backgroundColor = .clear
             overlay.isUserInteractionEnabled = false
-            navigationView.insertSubview(overlay, belowSubview: navigationBar)
+            barParent.insertSubview(overlay, belowSubview: navigationBar)
             portraitHost = overlay
             ownsPortraitHost = true
         } else {
