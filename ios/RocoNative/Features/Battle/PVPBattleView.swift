@@ -25,6 +25,13 @@ struct PVPBattleView: View {
                 }
             } else { Text("选择双方精灵后查看六维、属性关系和双向伤害。") }
         }.navigationTitle("PVP 助手")
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button("交换双方", systemImage: "arrow.left.arrow.right") {
+                        let previous = ally; ally = opponent; opponent = previous
+                    }.disabled(ally.slot.petID == nil && opponent.slot.petID == nil)
+                }
+            }
     }
     private func name(_ profile: BattleProfile) -> String {
         guard let id = profile.slot.petID else { return "未选择" }
