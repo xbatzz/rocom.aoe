@@ -1,11 +1,13 @@
 # Autonomous backlog
 
 ## Now
-P3 release hygiene：检查最终编译与提交卫生。
+P3 release hygiene：检查最终编译与提交卫生；完成后保留下一轮明确任务。
 
 ## Next
-- 备份文件/分享/导入真机往返验收。
-- 发布卫生检查与轻量 build。
+- 按现有分享链接协议补齐单队伍导入/导出（先读 Web codec，不猜格式）。
+- 技能反查增加最终形态/全部形态筛选，直接关系与家族聚合继续隔离。
+- 数据版本与来源显示（只读 canonical manifest）。
+- 评估草系家族奖牌与图鉴课题的 canonical/持久化迁移边界。
 
 ## Verified
 - PVP 可从已保存队伍复制槽位作为临时我方，所有构筑字段完整保留，读取失败不清空现有 profile，也不写回队伍。
@@ -20,7 +22,7 @@ P3 release hygiene：检查最终编译与提交卫生。
 P2-J 队伍复制/删除/超限保留；P2-K 联防与Web威胁fixture；P2-L完整预检/事务回滚/12队/原Web归档测试和device build通过。
 
 ## Deferred
-合并旧备份是否恢复已删除队伍需要产品决定（目前合并为并集）；真机交互、Dynamic Type/VoiceOver；任何要求改变 frozen 转场的跳转。
+合并旧备份是否恢复已删除队伍需要产品决定（目前合并为并集）；备份文件/分享/导入真机往返、Dynamic Type/VoiceOver；任何要求改变 frozen 转场的跳转。
 
 ## Blocked
 无游戏规则 blocker。Web未激活字段已原样归档并报告。
