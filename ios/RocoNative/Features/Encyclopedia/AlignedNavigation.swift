@@ -123,10 +123,10 @@ struct AlignedNavigation: UIViewControllerRepresentable {
         private func completeInteractivePop(_ nav: UINavigationController, transitionID: ObjectIdentifier,
             visible: UIViewController?, cancelled: Bool) {
             guard let session = interactivePop, session.transitionID == transitionID else { return }
-            // didShow is the only release boundary. Reassociate the final visible
-            // controller here, after UIKit has finished showing it. Do not change
-            // offsets, insets, safe areas, or navigation-bar appearance.
-            (visible as? any NavigationScrollTracking)?.synchronizeNavigationScrollTracking()
+            // didShow is the only release boundary. Do not rebind navigation-bar
+            // scroll tracking here: SwiftUI/UIHostingController already own that
+            // relationship, and binding a transformed destination ScrollView into
+            // UIKit's bar observation path can leave scroll-edge geometry stale.
             if !cancelled {
 #if DEBUG
                 logPopCompletion()
@@ -228,46 +228,23 @@ struct AlignedNavigation: UIViewControllerRepresentable {
     }
 }
 
-/// UIKit owns bar/title state. Select the actual SwiftUI content ScrollView through
-/// the public controller contract instead of the container's subview-search heuristic.
-/// This does not change offsets/insets, force layout, or schedule a post-transition refresh.
-private protocol NavigationScrollTracking: AnyObject {
-    func synchronizeNavigationScrollTracking()
-}
-
-private final class NavigationContentHost<Content: View>: UIHostingController<Content>, NavigationScrollTracking {
-    private weak var registeredContentScrollView: UIScrollView?
+/// Keep the hosting controller deliberately plain. UIKit/SwiftUI own navigation-bar
+/// scroll-edge tracking; the zoom bridge must not register SwiftUI's internal
+/// UIScrollView with setContentScrollView(_:for:) or mutate that relationship during
+/// a transition. The view hierarchy is still inspected read-only in DEBUG diagnostics.
+private final class NavigationContentHost<Content: View>: UIHostingController<Content> {
 #if DEBUG
     private var lastLayoutSnapshot: String?
-#endif
-    func synchronizeNavigationScrollTracking() {
-        guard let view = viewIfLoaded, let scroll = firstContentScrollView(in: view) else { return }
-        registeredContentScrollView = scroll
-        setContentScrollView(scroll, for: .top)
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        // Fluid interactive transitions can temporarily move UIKit's top-content
-        // association between controllers. Reassert the already-known real SwiftUI
-        // ScrollView only at the final appeared state; this is not a layout workaround.
-        synchronizeNavigationScrollTracking()
-    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if let scroll = firstContentScrollView(in: view), registeredContentScrollView !== scroll {
-            // SwiftUI materializes its UIScrollView during layout. Bind each actual
-            // instance once, so UIKit observes scroll-edge changes from its creation.
-            synchronizeNavigationScrollTracking()
-        }
-#if DEBUG
         guard let nav = navigationController else { return }
         let snapshot = NavigationBarDiagnostics.snapshot(nav, controller: self)
         if snapshot != lastLayoutSnapshot {
             lastLayoutSnapshot = snapshot
             NavigationBarDiagnostics.log(nav, controller: self, phase: "layoutChanged", snapshot: snapshot)
         }
-#endif
     }
+#endif
 }
 
 private func firstContentScrollView(in view: UIView) -> UIScrollView? {
