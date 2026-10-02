@@ -1,7 +1,7 @@
 # Autonomous backlog
 
 ## Now
-P3 release hygiene：检查最终编译与提交卫生；完成后保留下一轮明确任务。
+本轮收尾；29项 Package 测试与 Web type-check/build通过。下一轮从单队分享协议迁移继续，需保留足够预算完整读取/实现/验证 codec。
 
 ## Next
 - 按现有分享链接协议补齐单队伍导入/导出（先读 Web codec，不猜格式）。
@@ -9,6 +9,7 @@ P3 release hygiene：检查最终编译与提交卫生；完成后保留下一�
 - 评估草系家族奖牌与图鉴课题的 canonical/持久化迁移边界。
 
 ## Verified
+- Release hygiene：frozen/ContentStore/public数据未改；无日志/DerivedData/xcresult/secret产物入库。本轮Swift源码warning已修正。
 - 数据版本页只读当前 canonical manifest，显示内容/规则版本、赛季、来源 revision 和用户数据格式。
 - PVP 可从已保存队伍复制槽位作为临时我方，所有构筑字段完整保留，读取失败不清空现有 profile，也不写回队伍。
 - 技能 alias 审计：SkillSearchIndex 与 TeamRules 使用真实 SkillID，家族聚合按 skillTerminal 单独展示，没有用 displayId 替代装备 ID。

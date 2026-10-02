@@ -219,7 +219,7 @@ private struct BattleTeamPicker: View {
                                     }
                                 } else { Text("槽位 \(i + 1) · 空槽").foregroundStyle(.secondary) }
                             }
-                        case .failure(let error): Text("队伍读取失败，原数据保留：\(error)").foregroundStyle(.red)
+                        case .failure(let error): Text("队伍读取失败，原数据保留：\(String(describing: error))").foregroundStyle(.red)
                         }
                     }
                 }
