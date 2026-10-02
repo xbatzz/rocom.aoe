@@ -6,6 +6,7 @@ let package = Package(
     platforms: [.iOS(.v27), .macOS(.v15)],
     products: [
         .library(name: "RocoContent", targets: ["RocoContent"]),
+        .library(name: "RocoUserData", targets: ["RocoUserData"]),
         .executable(name: "content-probe", targets: ["ContentProbe"])
     ],
     dependencies: [.package(path: "../RocoCore")],
@@ -13,7 +14,9 @@ let package = Package(
         .target(name: "RocoContent", dependencies: [.product(name: "RocoDomain", package: "RocoCore")],
             swiftSettings: [.enableUpcomingFeature("NonisolatedNonsendingByDefault")]),
         .executableTarget(name: "ContentProbe", dependencies: ["RocoContent"]),
-        .testTarget(name: "RocoContentTests", dependencies: ["RocoContent"])
+        .testTarget(name: "RocoContentTests", dependencies: ["RocoContent"]),
+        .target(name: "RocoUserData"),
+        .testTarget(name: "RocoUserDataTests", dependencies: ["RocoUserData"])
     ],
     swiftLanguageModes: [.v6]
 )

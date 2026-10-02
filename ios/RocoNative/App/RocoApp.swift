@@ -1,13 +1,15 @@
 import SwiftUI
 import Observation
 import RocoContent
+import SwiftData
+import RocoUserData
 
 /// One application-owned snapshot, shared by all windows/features. No feature opens JSON.
 @MainActor @Observable
 final class AppContent {
     enum State {
         case loading
-        case ready(ContentStore, PortraitStore, SkillSearchIndex)
+        case ready(ContentStore, PortraitStore, SkillSearchIndex, TrackingCatalogIndex, ModelContainer)
         case failed(String)
     }
     private(set) var state: State = .loading
@@ -22,7 +24,7 @@ final class AppContent {
             }
             let build = Int(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "1") ?? 1
             let store = try await ContentStore.loadInBackground(bundleURL: url, appBuild: build)
-            state = .ready(store, PortraitStore(resolver: store.assetResolver), SkillSearchIndex(content: store))
+            state = .ready(store, PortraitStore(resolver: store.assetResolver), SkillSearchIndex(content: store), TrackingCatalogIndex(content: store), try UserDatabase.open())
         } catch {
             state = .failed(String(describing: error))
         }
@@ -38,12 +40,12 @@ struct RocoApp: App {
             Group {
                 switch content.state {
                 case .loading:
-                    ProgressView("正在加载图鉴…")
+                    ProgressView("正在加载内容…")
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                case .ready(let store, let portraits, let skills):
-                    NativeFeatureEntry(content: store, portraits: portraits, skills: skills)
+                case .ready(let store, let portraits, let skills, let tracking, let database):
+                    NativeFeatureEntry(content: store, portraits: portraits, skills: skills, tracking: tracking).modelContainer(database)
                 case .failed(let message):
-                    ContentUnavailableView("图鉴未能加载", systemImage: "exclamationmark.triangle",
+                    ContentUnavailableView("内容或用户数据库未能加载", systemImage: "exclamationmark.triangle",
                         description: Text(message))
                 }
             }

@@ -6,6 +6,7 @@ struct NativeFeatureEntry: View {
     let content: ContentStore
     let portraits: PortraitStore
     let skills: SkillSearchIndex
+    let tracking: TrackingCatalogIndex
     @State private var encyclopedia = false
 
     var body: some View {
@@ -16,8 +17,8 @@ struct NativeFeatureEntry: View {
                     NavigationLink { TypeMatchupView(content: content) } label: { Label("属性克制", systemImage: "arrow.triangle.branch") }
                     NavigationLink { SkillsView(content: content, portraits: portraits, index: skills) } label: { Label("技能查询", systemImage: "sparkles") }
                 }
-                Section("收藏工具 · 待实现") {
-                    planned("异色收集", "star")
+                Section("收藏工具") {
+                    NavigationLink { ShinyCollectionView(content: content, index: tracking) } label: { Label("异色收集", systemImage: "star") }
                     planned("草系徽章", "leaf")
                     planned("命定勇者", "medal")
                 }
