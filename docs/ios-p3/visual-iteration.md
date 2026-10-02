@@ -27,3 +27,5 @@ Xcode 27 / iPhone 18 Pro / iOS 27，实际 build、install、launch、simctl scr
 | 其他散落 effect／medal 图片 | 暂不猜映射 | 没有完整且实际使用的 effectID 映射；保留 canonical 描述 |
 
 资源接入不修改 canonical 包；脚本只生成独立 GameIcons 目录，provenance.json 保存来源、hash 与 typeID 对应关系。技能与特性继续复用严格校验的既有资产包。
+
+- 配队 r1 → r2：r1 草稿槽位过高，首屏无法看完整队；空槽像缺图，且保存列表缺属性。r2 紧凑六槽、原生道具菜单有明确标签、空槽显示真实序号、每个已有伙伴展示属性与技能数；实际空态、草稿、保存示例队伍复查。自评：不再是六个 Settings 入口，六槽呈现为一支队；辅助字号下允许单列。示例记录仅在 `--visual-fixture` 的隔离内存数据库中，由真实 domain API 创建。

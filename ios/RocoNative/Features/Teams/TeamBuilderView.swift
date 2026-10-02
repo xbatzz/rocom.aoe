@@ -14,14 +14,73 @@ struct TeamBuilderView: View {
     @State private var editing: TeamBuild?
     @State private var error: String?
     var body: some View {
-        List {
-            Section("最多 10 支队伍 · 每队 6 槽") {
-                Button("新建队伍", systemImage: "plus") { editing = TeamBuild() }.disabled(teams.count >= 10)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 24) {
+                HStack {
+                    CompanionMetric(value: String(teams.count), label: "已保存队伍")
+                    if !teams.isEmpty {
+                    Button("新建队伍", systemImage: "plus") { editing = TeamBuild() }
+                        .buttonStyle(.borderedProminent).controlSize(.large).tint(.primary)
+                        .disabled(teams.count >= 10)
+                    }
+                }
+                if teams.isEmpty {
+                    VStack(alignment: .leading, spacing: 18) {
+                        Text("从六个伙伴开始").font(.title2.bold())
+                        Text("搭配精灵的属性、血脉与技能，保存你的对战构筑。").font(.subheadline).foregroundStyle(.secondary)
+                        LazyVGrid(columns: [GridItem(.adaptive(minimum: 90))], spacing: 16) {
+                            ForEach(1...6, id: \.self) { i in
+                                VStack(spacing: 8) {
+                                    Text(String(format: "%02d", i)).font(.title2.bold().monospacedDigit())
+                                        .frame(width: 56, height: 56)
+                                        .background(Color(uiColor: .tertiarySystemFill), in: Circle())
+                                    Text("空槽位").font(.caption).foregroundStyle(.secondary)
+                                }
+                            }
+                        }.accessibilityLabel("六个待配置的队伍槽位")
+                        Button("组建第一支队伍") { editing = TeamBuild() }
+                            .buttonStyle(.borderedProminent).controlSize(.large).tint(.primary)
+                    }.padding(20).companionSurface()
+                }
                 ForEach(teams) { record in
-                    Button(record.name) {
+                    Button {
                         do { editing = try record.decode() }
                         catch { self.error = String(describing: error) }
-                    }
+                    } label: {
+                        VStack(alignment: .leading, spacing: 16) {
+                            HStack {
+                                Text(record.name).font(.title3.bold())
+                                Spacer()
+                                Image(systemName: "chevron.right").font(.caption.weight(.semibold)).foregroundStyle(.secondary)
+                            }
+                            switch Result(catching: { try record.decode() }) {
+                            case .success(let build):
+                                LazyVGrid(columns: [GridItem(.adaptive(minimum: 88), alignment: .top)], spacing: 16) {
+                                    ForEach(build.slots.indices, id: \.self) { i in
+                                        let slot = build.slots[i]
+                                        let pet = slot.petID.flatMap { content.pets[PetID(rawValue: $0)] }
+                                        VStack(spacing: 6) {
+                                            if let pet {
+                                                CanonicalThumbnail(assetID: pet.portraitAssetId, content: content, size: 64)
+                                            } else {
+                                                Text(String(format: "%02d", i + 1)).font(.title3.monospacedDigit()).foregroundStyle(.secondary)
+                                                    .frame(width: 64, height: 64).background(Color(uiColor: .tertiarySystemFill), in: Circle())
+                                            }
+                                            Text(pet?.nameZh ?? (slot.petID == nil ? "空槽位" : "无法解析"))
+                                                .font(.caption.weight(.medium)).fixedSize(horizontal: false, vertical: true)
+                                            if let pet {
+                                                PetTypes(pet: pet, content: content)
+                                                Text("\(slot.skillIDs.count) / 4 技能").font(.caption2.monospacedDigit()).foregroundStyle(.secondary)
+                                            }
+                                        }
+                                    }
+                                }
+                                Text("\(build.slots.filter { $0.petID != nil }.count) / 6 精灵 · \(build.slots.reduce(0) { $0 + $1.skillIDs.count }) 个技能")
+                                    .font(.caption.monospacedDigit()).foregroundStyle(.secondary)
+                            case .failure: Text("队伍读取失败 · 原数据已保留").font(.subheadline).foregroundStyle(.red)
+                            }
+                        }.padding(20).companionSurface()
+                    }.buttonStyle(.plain)
                     .contextMenu {
                         Button("编辑 / 重命名") {
                             do { editing = try record.decode() }
@@ -34,9 +93,10 @@ struct TeamBuilderView: View {
                         Button("删除", role: .destructive) { deleting = record }.disabled(teams.count <= 1)
                     }
                 }
+                Text("最多保存 10 支队伍，每队 6 个槽位。长按已保存队伍可复制、重命名或删除。").font(.footnote).foregroundStyle(.secondary)
                 if teams.count > 10 { Text("已有 \(teams.count) 队，完整保留。新建与复制暂不可用。").foregroundStyle(.secondary) }
-            }
-        }.navigationTitle("配队")
+            }.padding(20)
+        }.reviewScrollPosition().companionBackground().navigationTitle("配队")
             .confirmationDialog("删除此队伍？此操作不会改变其他队伍或收藏。", isPresented: Binding(get: { deleting != nil }, set: { if !$0 { deleting = nil } }), titleVisibility: .visible) {
                 Button("删除队伍", role: .destructive) {
                     guard let record = deleting else { return }
@@ -52,7 +112,7 @@ struct TeamBuilderView: View {
     }
 }
 
-private struct TeamDraftView: View {
+struct TeamDraftView: View {
     let initial: TeamBuild
     let content: ContentStore
     let portraits: PortraitStore
@@ -68,30 +128,37 @@ private struct TeamDraftView: View {
         self.initial = initial; self.content = content; self.portraits = portraits; self.skillIndex = skillIndex; _draft = State(initialValue: initial)
     }
     private var dirty: Bool { draft != initial }
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     var body: some View {
         NavigationStack {
-            Form {
-                Section("队伍草稿") {
-                    TextField("名称", text: $draft.name)
-                    magicPicker
-                    Text("保存后写入本机。可重复选同一精灵。").font(.footnote).foregroundStyle(.secondary)
-                }
-                Section("6 个槽位") {
-                    ForEach(draft.slots.indices, id: \.self) { i in
-                        NavigationLink {
-                            TeamSlotView(slot: $draft.slots[i], content: content, portraits: portraits, skillIndex: skillIndex)
-                        } label: { LabeledContent("槽位 \(i + 1)", value: slotName(draft.slots[i])) }
+            ScrollView {
+                VStack(alignment: .leading, spacing: 24) {
+                    VStack(alignment: .leading, spacing: 12) {
+                        TextField("队伍名称", text: $draft.name).font(.title2.bold()).accessibilityLabel("队伍名称")
+                        HStack { Text("魔法道具").font(.subheadline); Spacer(); magicPicker.labelsHidden().tint(.primary) }
+                        Text("\(draft.slots.filter { $0.petID != nil }.count) / 6 精灵 · 保存后写入本机")
+                            .font(.caption.monospacedDigit()).foregroundStyle(.secondary)
+                    }.padding(20).companionSurface()
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: dynamicTypeSize.isAccessibilitySize ? 280 : 150), spacing: 12)], spacing: 12) {
+                        ForEach(draft.slots.indices, id: \.self) { i in
+                            NavigationLink {
+                                TeamSlotView(slot: $draft.slots[i], content: content, portraits: portraits, skillIndex: skillIndex)
+                            } label: { TeamPetTile(slot: draft.slots[i], content: content, label: "槽位 \(i + 1)", compact: true) }
+                                .buttonStyle(.plain)
+                        }
                     }
-                }
-                Section("交换两个槽位") {
-                    Picker("来源", selection: $first) { ForEach(0..<6, id: \.self) { Text("槽位 \($0 + 1)").tag($0) } }
-                    Picker("目标", selection: $second) { ForEach(0..<6, id: \.self) { Text("槽位 \($0 + 1)").tag($0) } }
-                    Button("交换") {
-                        do { try draft.swapSlots(first, second) }
-                        catch { self.error = String(describing: error) }
-                    }.disabled(first == second)
-                }
-            }.navigationTitle("队伍编辑")
+                    DisclosureGroup("交换两个槽位") {
+                        VStack(spacing: 12) {
+                            Picker("来源", selection: $first) { ForEach(0..<6, id: \.self) { Text("槽位 \($0 + 1)").tag($0) } }
+                            Picker("目标", selection: $second) { ForEach(0..<6, id: \.self) { Text("槽位 \($0 + 1)").tag($0) } }
+                            Button("交换") {
+                                do { try draft.swapSlots(first, second) }
+                                catch { self.error = String(describing: error) }
+                            }.buttonStyle(.bordered).disabled(first == second)
+                        }.padding(.top, 12)
+                    }.tint(.primary).padding(20).companionSurface()
+                }.padding(20)
+            }.reviewScrollPosition().companionBackground().navigationTitle("队伍编辑")
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
                         Button("取消") { if dirty { discard = true } else { dismiss() } }
@@ -140,7 +207,15 @@ struct TeamSlotView: View {
         Form {
             Section {
                 NavigationLink("选择精灵") { TeamPetPicker(slot: $slot, content: content) }
-                if let pet { Text(pet.nameZh).font(.headline) }
+                if let pet {
+                    HStack(spacing: 16) {
+                        CanonicalThumbnail(assetID: pet.portraitAssetId, content: content, size: 80)
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text(pet.nameZh).font(.title3.bold())
+                            PetTypes(pet: pet, content: content)
+                        }
+                    }.padding(.vertical, 8)
+                }
                 else if let id = slot.petID { Text("无法解析精灵 #\(id)，当前字段保持原样。") }
                 Button("清空此槽", role: .destructive) { slot = TeamSlot() }
             }

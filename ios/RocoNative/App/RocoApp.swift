@@ -32,7 +32,12 @@ final class AppContent {
             }
             let build = Int(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "1") ?? 1
             let store = try await ContentStore.loadInBackground(bundleURL: url, appBuild: build)
-            state = .ready(store, PortraitStore(resolver: store.assetResolver), SkillSearchIndex(content: store), TrackingCatalogIndex(content: store), try UserDatabase.open(inMemory: Self.visualReviewActive))
+            let tracking = TrackingCatalogIndex(content: store)
+            let database = try UserDatabase.open(inMemory: Self.visualReviewActive)
+            #if DEBUG
+            if Self.visualReviewActive { try VisualReview.seed(database.mainContext, content: store, tracking: tracking) }
+            #endif
+            state = .ready(store, PortraitStore(resolver: store.assetResolver), SkillSearchIndex(content: store), tracking, database)
         } catch {
             state = .failed(String(describing: error))
         }
