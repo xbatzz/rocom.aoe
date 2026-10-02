@@ -41,7 +41,7 @@ struct RocoApp: App {
                     ProgressView("正在加载图鉴…")
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 case .ready(let store, let portraits):
-                    AlignedNavigation(content: store, portraits: portraits).ignoresSafeArea()
+                    NativeFeatureEntry(content: store, portraits: portraits)
                 case .failed(let message):
                     ContentUnavailableView("图鉴未能加载", systemImage: "exclamationmark.triangle",
                         description: Text(message))

@@ -19,6 +19,7 @@
 		FCB5ECBF6B969FD288FDC49F /* RocoNative/App/RocoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BD9FAF31E27745F31DB4B9 /* RocoNative/App/RocoApp.swift */; };
 		F02994DB70CD357DFB07D174 /* RocoContent in Frameworks */ = {isa = PBXBuildFile; productRef = F35CBC15132F461AA9B6F091 /* RocoContent */; };
 		0089FB57ACB65968F99D529A /* ContentResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 779BB12EF7FAF2D74A123662 /* ContentResources.bundle */; };
+		1361821B7C74DCAC03D910E2 /* RocoNative/Features/TypeMatchup/TypeMatchupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B0796A07448B70C407FF1; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		A80F0567574A34D24F5AFAC1 /* RocoNative/Tests/TouchDriver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RocoNative/Tests/TouchDriver.m; sourceTree = SOURCE_ROOT; };
 		FFF48512C48EB699684F5C6B /* RocoNative/Tests/NavigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Tests/NavigationTests.swift; sourceTree = SOURCE_ROOT; };
 		779BB12EF7FAF2D74A123662 /* ContentResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cfbundle; path = ../build/ios-content/store/ContentResources.bundle; sourceTree = SOURCE_ROOT; };
+		9B8B0796A07448B70C407FF1 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/TypeMatchup/TypeMatchupView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				38BD9FAF31E27745F31DB4B9 /* RocoNative/App/RocoApp.swift */,
+				9B8B0796A07448B70C407FF1,
 				009E908E0BF378E2918B4629 /* RocoNative/Features/Encyclopedia/AlignedNavigation.swift */,
 				80E4D8086BBC22435972B0AA /* RocoNative/Features/Encyclopedia/PetDetail.swift */,
 				209B501BBD2194B0A0B0C857 /* RocoNative/Features/Encyclopedia/PetGrid.swift */,
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCB5ECBF6B969FD288FDC49F /* RocoNative/App/RocoApp.swift in Sources */,
+				1361821B7C74DCAC03D910E2,
 				1AE73768742C2AF9785D91C4 /* RocoNative/Features/Encyclopedia/AlignedNavigation.swift in Sources */,
 				3EC42020A2F41A8E5925C8AE /* RocoNative/Features/Encyclopedia/PetDetail.swift in Sources */,
 				EB425E06B038067631A79AB3 /* RocoNative/Features/Encyclopedia/PetGrid.swift in Sources */,
