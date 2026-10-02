@@ -312,7 +312,7 @@ private final class PortraitNavigationAnimator: NSObject, UIViewControllerAnimat
     }
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        0.48
+        0.38
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -407,44 +407,29 @@ private final class PortraitNavigationAnimator: NSObject, UIViewControllerAnimat
         switch operation {
         case .push:
             movingPortrait.frame = sourceFrame
-            // Keep the Grid and navigation bar completely stationary. Only the
-            // destination content gets a tiny depth/opacity entrance so the result
-            // feels less mechanical without recreating the system whole-page zoom.
-            toView.alpha = 0.84
-            toView.transform = CGAffineTransform(scaleX: 0.992, y: 0.992)
-                .translatedBy(x: 0, y: 4)
+            toView.alpha = 0
             container.addSubview(movingPortrait)
 
         case .pop:
             movingPortrait.frame = heroFrame
             fromView.alpha = 1
-            fromView.transform = .identity
             toView.alpha = 1
-            toView.transform = .identity
             container.addSubview(movingPortrait)
 
         default:
             break
         }
 
-        let spring = UISpringTimingParameters(
-            dampingRatio: 0.86,
-            initialVelocity: .zero
-        )
-        let animator = UIViewPropertyAnimator(duration: duration, timingParameters: spring)
+        let animator = UIViewPropertyAnimator(duration: duration, curve: .easeInOut)
 
         animator.addAnimations {
             switch self.operation {
             case .push:
                 toView.alpha = 1
-                toView.transform = .identity
                 movingPortrait.frame = heroFrame
 
             case .pop:
-                // The destination Grid remains fixed. Fade/soften only the outgoing
-                // detail while the portrait springs back to its live source.
-                fromView.alpha = 0.18
-                fromView.transform = CGAffineTransform(scaleX: 1.006, y: 1.006)
+                fromView.alpha = 0
                 movingPortrait.frame = sourceFrame
 
             default:
@@ -462,9 +447,7 @@ private final class PortraitNavigationAnimator: NSObject, UIViewControllerAnimat
             movingPortrait.removeFromSuperview()
 
             fromView.alpha = 1
-            fromView.transform = .identity
             toView.alpha = 1
-            toView.transform = .identity
 
             transitionContext.completeTransition(!cancelled)
             self.runningAnimator = nil
@@ -490,8 +473,7 @@ private final class PortraitNavigationAnimator: NSObject, UIViewControllerAnimat
             break
         }
 
-        let spring = UISpringTimingParameters(dampingRatio: 0.88, initialVelocity: .zero)
-        let animator = UIViewPropertyAnimator(duration: duration, timingParameters: spring)
+        let animator = UIViewPropertyAnimator(duration: duration, curve: .easeInOut)
 
         animator.addAnimations {
             switch self.operation {
