@@ -1,0 +1,41 @@
+import SwiftUI
+import RocoContent
+
+/// Feature navigation surrounds, rather than replaces, the frozen encyclopedia stack.
+struct NativeFeatureEntry: View {
+    let content: ContentStore
+    let portraits: PortraitStore
+    let skills: SkillSearchIndex
+    @State private var encyclopedia = false
+
+    var body: some View {
+        NavigationStack {
+            List {
+                Section("探索") {
+                    Button { encyclopedia = true } label: { Label("图鉴", systemImage: "book.closed") }
+                    NavigationLink { TypeMatchupView(content: content) } label: { Label("属性克制", systemImage: "arrow.triangle.branch") }
+                    NavigationLink { SkillsView(content: content, portraits: portraits, index: skills) } label: { Label("技能查询", systemImage: "sparkles") }
+                }
+                Section("收藏工具 · 待实现") {
+                    planned("异色收集", "star")
+                    planned("草系徽章", "leaf")
+                    planned("命定勇者", "medal")
+                }
+                Section("战斗工具 · 待实现") {
+                    planned("配队", "person.3")
+                    planned("PVP 助手", "bolt.shield")
+                }
+            }.navigationTitle("洛克工具")
+        }
+        .fullScreenCover(isPresented: $encyclopedia) {
+            ZStack(alignment: .bottomTrailing) {
+                AlignedNavigation(content: content, portraits: portraits).ignoresSafeArea()
+                Button("功能首页", systemImage: "house") { encyclopedia = false }
+                    .buttonStyle(.borderedProminent).padding()
+            }
+        }
+    }
+    private func planned(_ name: String, _ symbol: String) -> some View {
+        LabeledContent { Text("待实现").foregroundStyle(.secondary) } label: { Label(name, systemImage: symbol) }
+    }
+}

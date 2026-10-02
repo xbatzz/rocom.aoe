@@ -76,26 +76,3 @@ struct TypeMatchupView: View {
         }
     }
 }
-
-struct NativeFeatureEntry: View {
-    let content: ContentStore
-    let portraits: PortraitStore
-    let skills: SkillSearchIndex
-    @State private var encyclopedia = false
-    var body: some View {
-        NavigationStack {
-            List {
-                Button("图鉴") { encyclopedia = true }
-                NavigationLink("属性克制") { TypeMatchupView(content: content) }
-                NavigationLink("技能查询") { SkillsView(content: content, portraits: portraits, index: skills) }
-            }.navigationTitle("洛克工具")
-        }
-        .fullScreenCover(isPresented: $encyclopedia) {
-            ZStack(alignment: .bottomTrailing) {
-                AlignedNavigation(content: content, portraits: portraits).ignoresSafeArea()
-                Button("功能首页", systemImage: "house") { encyclopedia = false }
-                    .buttonStyle(.borderedProminent).padding()
-            }
-        }
-    }
-}
