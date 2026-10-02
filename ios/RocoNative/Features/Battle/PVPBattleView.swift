@@ -149,7 +149,7 @@ private struct BattleProfileEditor: View {
                 Picker("陨星之仔捕捉球", selection: $profile.meteorBall) {
                     ForEach(MeteorBall.allCases, id: \.self) { Text($0.label).tag($0) }
                 }
-                Text("遵循 Web 规则，仅将捕捉球的速度修正计入本工具。棱镜球的随机效果不作确定性推断。")
+                Text("遵循当前规则，仅将捕捉球的速度修正计入本工具。棱镜球的随机效果不作确定性推断。")
                     .font(.footnote).foregroundStyle(.secondary)
             }
             Text("此页为临时构筑，离开 PVP 入口后不保存。技能伤害可选当前配置的技能池、技能石和各血脉技能。")
@@ -158,7 +158,7 @@ private struct BattleProfileEditor: View {
     }
 }
 
-private struct BattleDirectionView: View {
+struct BattleDirectionView: View {
     let attacker: BattleProfile
     let defender: BattleProfile
     let content: ContentStore
@@ -166,6 +166,14 @@ private struct BattleDirectionView: View {
     let skillIndex: SkillSearchIndex
     @State private var selected: SkillID?
     @State private var settings = DamageSettings()
+    init(attacker: BattleProfile, defender: BattleProfile, content: ContentStore, portraits: PortraitStore, skillIndex: SkillSearchIndex) {
+        self.attacker = attacker; self.defender = defender; self.content = content; self.portraits = portraits; self.skillIndex = skillIndex
+        #if DEBUG
+        if VisualReview.route == "damage", let skills = try? BattleCore.calculableSkills(attacker, content: content) {
+            _selected = State(initialValue: skills.first?.skillId)
+        }
+        #endif
+    }
     private var skill: Skill? { selected.flatMap { content.skills[$0] } }
     var body: some View {
         ScrollView {
@@ -177,14 +185,16 @@ private struct BattleDirectionView: View {
                 case .success(let skills):
                     Picker("固定威力攻击", selection: $selected) {
                         Text("请选择").tag(nil as SkillID?)
-                        ForEach(skills, id: \.skillId) { Text("\($0.nameZh) #\($0.skillId.rawValue)").tag(Optional($0.skillId)) }
-                    }
+                        ForEach(skills, id: \.skillId) { Text("\($0.nameZh) #\(String($0.skillId.rawValue))").tag(Optional($0.skillId)) }
+                    }.pickerStyle(.menu).tint(.primary)
                 case .failure(let error): Text(String(describing: error)).foregroundStyle(.red)
                 }
             }
             if let skill {
                 CompanionSection("技能资料") {
-                    NavigationLink(skill.nameZh) { SkillDetailView(skill: skill, content: content, portraits: portraits, index: skillIndex) }
+                    NavigationLink { SkillDetailView(skill: skill, content: content, portraits: portraits, index: skillIndex) } label: {
+                        SkillSummary(skill: skill, content: content)
+                    }.buttonStyle(.plain)
                 }
                 effectControls(skill)
                 damageResult(skill)
@@ -223,7 +233,7 @@ private struct BattleDirectionView: View {
                         } else { Text("无可用一击线").foregroundStyle(.secondary) }
                     }
                 }
-                Text("按攻击偏好选择物理/魔法，范围 1–5000。此处遵循 Web 基础一击线，不加入所选技能条件、虫群奉献或爆燃层数。")
+                Text("按攻击偏好选择物理/魔法，范围 1–5000。此处遵循基础一击线，不加入所选技能条件、虫群奉献或爆燃层数。")
                     .font(.footnote).foregroundStyle(.secondary)
             case .failure(let error): Text(String(describing: error)).foregroundStyle(.red)
             }
@@ -259,13 +269,17 @@ private struct BattleDirectionView: View {
         CompanionSection("纸面伤害") {
             switch Result(catching: { try BattleCore.damage(attacker: attacker, defender: defender, skill: skill, settings: settings, content: content) }) {
             case .success(let result):
-                LabeledContent("属性倍率", value: "\(result.typeMultiplier.formatted())×")
-                LabeledContent("本系倍率", value: "\(result.stabMultiplier.formatted())×")
-                LabeledContent("显示威力", value: String(result.displayPower))
-                LabeledContent("单击 / 总伤害", value: "\(result.singleHit) / \(result.total)")
-                LabeledContent("目标最大生命占比", value: "\(result.hpPercent.formatted())%")
-                LabeledContent("按最大生命击倒次数", value: String(result.hitsToKO))
-                Text("这是当前 Web 公式的纸面估算，不包含完整回合、减伤、护盾、随机或未建模效果。")
+                HStack {
+                    CompanionMetric(value: String(result.total), label: "总伤害", tint: .orange)
+                    CompanionMetric(value: "\(result.hpPercent.formatted())%", label: "目标最大生命占比")
+                }.padding(20).companionSurface()
+                LabeledContent("属性倍率") { Text("\(result.typeMultiplier.formatted())×").font(.headline.monospacedDigit()).foregroundStyle(.primary) }
+                LabeledContent("本系倍率") { Text("\(result.stabMultiplier.formatted())×").font(.headline.monospacedDigit()).foregroundStyle(.primary) }
+                LabeledContent("显示威力") { Text(String(result.displayPower)).font(.headline.monospacedDigit()).foregroundStyle(.primary) }
+                LabeledContent("单击 / 总伤害") { Text("\(result.singleHit) / \(result.total)").font(.headline.monospacedDigit()).foregroundStyle(.primary) }
+                LabeledContent("目标最大生命占比") { Text("\(result.hpPercent.formatted())%").font(.headline.monospacedDigit()).foregroundStyle(.primary) }
+                LabeledContent("按最大生命击倒次数") { Text(String(result.hitsToKO)).font(.headline.monospacedDigit()).foregroundStyle(.primary) }
+                Text("这是当前规则的纸面估算，不包含完整回合、减伤、护盾、随机或未建模效果。")
                     .font(.footnote).foregroundStyle(.secondary)
             case .failure(let error): Text(String(describing: error)).foregroundStyle(.red)
             }
@@ -295,7 +309,7 @@ private struct BattleTeamPicker: View {
                                     Button {
                                         select(slot); dismiss()
                                     } label: {
-                                        LabeledContent("槽位 \(i + 1)", value: content.pets[PetID(rawValue: id)]?.nameZh ?? "无法解析 #\(id)")
+                                        LabeledContent("槽位 \(i + 1)") { Text(content.pets[PetID(rawValue: id)]?.nameZh ?? "无法解析 #\(id)").font(.headline.monospacedDigit()).foregroundStyle(.primary) }
                                     }
                                 } else { Text("槽位 \(i + 1) · 空槽").foregroundStyle(.secondary) }
                             }

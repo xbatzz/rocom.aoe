@@ -15,24 +15,38 @@ struct TeamDefenseView: View {
         let unresolved: [Int]
     }
     var body: some View {
-        List {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 24) {
             Picker("分析队伍", selection: $selected) {
                 Text("请选择").tag(nil as UUID?)
                 ForEach(teams) { Text($0.name).tag(Optional($0.teamID)) }
-            }
+            }.pickerStyle(.menu).tint(.primary)
             if let selected {
                 switch report(selected) {
                 case .success(let report):
-                    Section("按对手本系中最强属性判断") {
-                        LabeledContent("弱点 / 中性 / 抵抗", value: "\(report.analysis.weakCount) / \(report.analysis.neutralCount) / \(report.analysis.resistCount)")
+                    CompanionSection("按对手本系中最强属性判断") {
+                        HStack {
+                            CompanionMetric(value: String(report.analysis.weakCount), label: "弱点", tint: .orange)
+                            CompanionMetric(value: String(report.analysis.neutralCount), label: "中性")
+                            CompanionMetric(value: String(report.analysis.resistCount), label: "抵抗", tint: .teal)
+                        }.padding(20).companionSurface()
                         Text(report.analysis.hasSafeSwitch ? "存在属性抵抗的换人候选" : "没有属性抵抗的换人候选")
-                        if report.analysis.pierceRisk { Text("按 Web 规则存在穿透风险").foregroundStyle(.orange) }
-                        LabeledContent("Web 威胁分", value: report.analysis.score.formatted())
+                        if report.analysis.pierceRisk { Text("存在属性穿透风险").foregroundStyle(.orange) }
+                        LabeledContent("威胁分", value: report.analysis.score.formatted())
                     }
-                    Section("候选槽位") {
+                    CompanionSection("候选槽位") {
                         ForEach(report.analysis.slots, id: \.index) { slot in
                             if let pet = content.pets[slot.petID], let type = content.types[slot.attackTypeID] {
-                                LabeledContent("槽 \(report.positions[slot.index] + 1) · \(pet.nameZh)", value: "\(type.nameZh) \(slot.multiplier.formatted())×")
+                                HStack(spacing: 14) {
+                                    CanonicalThumbnail(assetID: pet.portraitAssetId, content: content, size: 64)
+                                    VStack(alignment: .leading, spacing: 8) {
+                                        Text("槽 \(report.positions[slot.index] + 1) · \(pet.nameZh)").font(.headline)
+                                        TypeBadge(type: type)
+                                    }
+                                    Spacer()
+                                    Text("\(slot.multiplier.formatted())×").font(.title2.bold().monospacedDigit())
+                                        .foregroundStyle(slot.multiplier > 1 ? .orange : slot.multiplier < 1 ? .teal : .primary)
+                                }
                             }
                         }
                     }
@@ -45,7 +59,13 @@ struct TeamDefenseView: View {
             } else if teams.isEmpty {
                 ContentUnavailableView("尚无保存队伍", systemImage: "person.3", description: Text("先在配队中保存一支队伍。"))
             }
-        }.navigationTitle("基础联防")
+            }.padding(20)
+        }.reviewScrollPosition().companionBackground().navigationTitle("基础联防")
+            .task {
+                #if DEBUG
+                if VisualReview.route == "defense" { selected = teams.first?.teamID }
+                #endif
+            }
     }
     private func report(_ id: UUID) -> Result<Report, Error> {
         Result {
