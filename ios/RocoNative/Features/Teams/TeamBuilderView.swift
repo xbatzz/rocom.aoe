@@ -6,6 +6,8 @@ import RocoUserData
 
 struct TeamBuilderView: View {
     let content: ContentStore
+    let portraits: PortraitStore
+    let skillIndex: SkillSearchIndex
     @Query(sort: \TeamRecord.updatedAt, order: .reverse) private var teams: [TeamRecord]
     @Environment(\.modelContext) private var context
     @State private var deleting: TeamRecord?
@@ -43,7 +45,7 @@ struct TeamBuilderView: View {
                 }
                 Button("取消", role: .cancel) { deleting = nil }
             }
-            .sheet(item: $editing) { build in TeamDraftView(initial: build, content: content) }
+            .sheet(item: $editing) { build in TeamDraftView(initial: build, content: content, portraits: portraits, skillIndex: skillIndex) }
             .alert("队伍读取失败 · 原数据已保留", isPresented: Binding(get: { error != nil }, set: { if !$0 { error = nil } })) {
                 Button("好", role: .cancel) { error = nil }
             } message: { Text(error ?? "") }
@@ -53,6 +55,8 @@ struct TeamBuilderView: View {
 private struct TeamDraftView: View {
     let initial: TeamBuild
     let content: ContentStore
+    let portraits: PortraitStore
+    let skillIndex: SkillSearchIndex
     @State private var draft: TeamBuild
     @State private var first = 0
     @State private var second = 1
@@ -60,8 +64,8 @@ private struct TeamDraftView: View {
     @State private var discard = false
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
-    init(initial: TeamBuild, content: ContentStore) {
-        self.initial = initial; self.content = content; _draft = State(initialValue: initial)
+    init(initial: TeamBuild, content: ContentStore, portraits: PortraitStore, skillIndex: SkillSearchIndex) {
+        self.initial = initial; self.content = content; self.portraits = portraits; self.skillIndex = skillIndex; _draft = State(initialValue: initial)
     }
     private var dirty: Bool { draft != initial }
     var body: some View {
@@ -75,7 +79,7 @@ private struct TeamDraftView: View {
                 Section("6 个槽位") {
                     ForEach(draft.slots.indices, id: \.self) { i in
                         NavigationLink {
-                            TeamSlotView(slot: $draft.slots[i], content: content)
+                            TeamSlotView(slot: $draft.slots[i], content: content, portraits: portraits, skillIndex: skillIndex)
                         } label: { LabeledContent("槽位 \(i + 1)", value: slotName(draft.slots[i])) }
                     }
                 }
@@ -128,6 +132,8 @@ private struct TeamDraftView: View {
 struct TeamSlotView: View {
     @Binding var slot: TeamSlot
     let content: ContentStore
+    let portraits: PortraitStore
+    let skillIndex: SkillSearchIndex
     @State private var error: String?
     private var pet: Pet? { slot.petID.flatMap { content.pets[PetID(rawValue: $0)] } }
     var body: some View {
@@ -139,6 +145,14 @@ struct TeamSlotView: View {
                 Button("清空此槽", role: .destructive) { slot = TeamSlot() }
             }
             if let pet {
+                Section("资料") {
+                    NavigationLink("精灵详情") { ExistingPetDestination(pet: pet, content: content, portraits: portraits) }
+                    ForEach(slot.skillIDs, id: \.self) { id in
+                        if let skill = content.skills[SkillID(rawValue: id)] {
+                            NavigationLink(skill.nameZh) { SkillDetailView(skill: skill, content: content, portraits: portraits, index: skillIndex) }
+                        }
+                    }
+                }
                 Section("性格与血脉") {
                     personalityPicker
                     legacyPicker(pet)

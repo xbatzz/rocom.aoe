@@ -4,22 +4,24 @@ import RocoDomain
 
 struct PVPBattleView: View {
     let content: ContentStore
+    let portraits: PortraitStore
+    let skillIndex: SkillSearchIndex
     @State private var ally = BattleProfile()
     @State private var opponent = BattleProfile()
     var body: some View {
         List {
             Section("临时构筑 · 不改已保存队伍") {
-                NavigationLink("我方：\(name(ally))") { BattleProfileEditor(profile: $ally, content: content) }
-                NavigationLink("对方：\(name(opponent))") { BattleProfileEditor(profile: $opponent, content: content) }
+                NavigationLink("我方：\(name(ally))") { BattleProfileEditor(profile: $ally, content: content, portraits: portraits, skillIndex: skillIndex) }
+                NavigationLink("对方：\(name(opponent))") { BattleProfileEditor(profile: $opponent, content: content, portraits: portraits, skillIndex: skillIndex) }
             }
             if ally.slot.petID != nil && opponent.slot.petID != nil {
                 comparisons
                 NavigationLink("对方本系 → 已保存队伍联防") { TeamDefenseView(opponent: opponent, content: content) }
                 NavigationLink("我方 → 对方：伤害与一击线") {
-                    BattleDirectionView(attacker: ally, defender: opponent, content: content).id(ally.slot.petID)
+                    BattleDirectionView(attacker: ally, defender: opponent, content: content, portraits: portraits, skillIndex: skillIndex).id(ally.slot.petID)
                 }
                 NavigationLink("对方 → 我方：伤害与一击线") {
-                    BattleDirectionView(attacker: opponent, defender: ally, content: content).id(opponent.slot.petID)
+                    BattleDirectionView(attacker: opponent, defender: ally, content: content, portraits: portraits, skillIndex: skillIndex).id(opponent.slot.petID)
                 }
             } else { Text("选择双方精灵后查看六维、属性关系和双向伤害。") }
         }.navigationTitle("PVP 助手")
@@ -44,9 +46,11 @@ struct PVPBattleView: View {
 private struct BattleProfileEditor: View {
     @Binding var profile: BattleProfile
     let content: ContentStore
+    let portraits: PortraitStore
+    let skillIndex: SkillSearchIndex
     var body: some View {
         Form {
-            NavigationLink("精灵、性格、个体值、血脉与技能") { TeamSlotView(slot: $profile.slot, content: content) }
+            NavigationLink("精灵、性格、个体值、血脉与技能") { TeamSlotView(slot: $profile.slot, content: content, portraits: portraits, skillIndex: skillIndex) }
             Stepper("当前生命：\(profile.hpPercent)%", value: $profile.hpPercent, in: 0...100)
             if profile.slot.petID == 3400 {
                 Picker("陨星之仔捕捉球", selection: $profile.meteorBall) {
@@ -65,6 +69,8 @@ private struct BattleDirectionView: View {
     let attacker: BattleProfile
     let defender: BattleProfile
     let content: ContentStore
+    let portraits: PortraitStore
+    let skillIndex: SkillSearchIndex
     @State private var selected: SkillID?
     @State private var settings = DamageSettings()
     private var skill: Skill? { selected.flatMap { content.skills[$0] } }
@@ -83,6 +89,9 @@ private struct BattleDirectionView: View {
                 }
             }
             if let skill {
+                Section("技能资料") {
+                    NavigationLink(skill.nameZh) { SkillDetailView(skill: skill, content: content, portraits: portraits, index: skillIndex) }
+                }
                 effectControls(skill)
                 damageResult(skill)
             }

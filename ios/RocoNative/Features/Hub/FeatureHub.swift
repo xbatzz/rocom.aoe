@@ -23,8 +23,8 @@ struct NativeFeatureEntry: View {
                     NavigationLink { DestinedHeroView(content: content, index: tracking) } label: { Label("命定勇者", systemImage: "medal") }
                 }
                 Section("战斗工具") {
-                    NavigationLink { TeamBuilderView(content: content) } label: { Label("配队", systemImage: "person.3") }
-                    NavigationLink { PVPBattleView(content: content) } label: { Label("PVP 助手", systemImage: "bolt.shield") }
+                    NavigationLink { TeamBuilderView(content: content, portraits: portraits, skillIndex: skills) } label: { Label("配队", systemImage: "person.3") }
+                    NavigationLink { PVPBattleView(content: content, portraits: portraits, skillIndex: skills) } label: { Label("PVP 助手", systemImage: "bolt.shield") }
                 }
                 Section("用户数据") {
                     NavigationLink { UserBackupView(content: content) } label: { Label("备份与恢复", systemImage: "externaldrive") }
