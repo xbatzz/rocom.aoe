@@ -12,14 +12,15 @@ struct DestinedHeroView: View {
     @State private var filter = 0
     @State private var error: String?
     private var obtained: Set<String> { Set(records.filter(\.obtained).map(\.familyID)) }
-    private var visible: [Family] {
-        let saved = obtained
-        return index.badgeFamilies.filter {
+    private func visible(saved: Set<String>) -> [Family] {
+        index.badgeFamilies.filter {
             (query.isEmpty || index.familySearch[$0.familyKey]?.localizedStandardContains(query) == true)
                 && (filter == 0 || saved.contains($0.familyKey.rawValue) == (filter == 1))
         }
     }
     var body: some View {
+        let obtained = obtained
+        let visible = visible(saved: obtained)
         List {
             Section {
                 Picker("状态", selection: $filter) {

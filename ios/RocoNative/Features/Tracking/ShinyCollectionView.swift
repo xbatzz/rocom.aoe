@@ -19,15 +19,17 @@ struct ShinyCollectionView: View {
         let slots = season.map { content.shinySlotsBySeason[$0] ?? [] } ?? Array(content.shinySlots.values)
         return slots.sorted { ($0.seasonId.rawValue, $0.slotId.rawValue) < ($1.seasonId.rawValue, $1.slotId.rawValue) }
     }
-    private var visible: [ShinySlot] {
-        let saved = collected
-        return seasonalSlots.filter {
+    private func visible(slots: [ShinySlot], saved: Set<String>) -> [ShinySlot] {
+        slots.filter {
             (query.isEmpty || index.slotSearch[$0.slotId]?.localizedStandardContains(query) == true)
                 && (filter == 0 || saved.contains($0.slotId.rawValue) == (filter == 1))
         }
     }
 
     var body: some View {
+        let collected = collected
+        let seasonalSlots = seasonalSlots
+        let visible = visible(slots: seasonalSlots, saved: collected)
         List {
             Section {
                 Picker("赛季", selection: $season) {

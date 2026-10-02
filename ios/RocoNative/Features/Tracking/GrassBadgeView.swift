@@ -15,7 +15,7 @@ struct GrassBadgeView: View {
     private var statuses: [String: BadgeState] {
         Dictionary(uniqueKeysWithValues: records.filter { $0.locationID == location.rawValue }.map { ($0.footprintID, $0.status) })
     }
-    private var visible: [Family] {
+    private func visible(statuses: [String: BadgeState]) -> [Family] {
         index.badgeFamilies.filter { family in
             let footprints = index.footprintsByFamily[family.familyKey] ?? []
             let matchesSearch = query.isEmpty || index.familySearch[family.familyKey]?.localizedStandardContains(query) == true
@@ -24,12 +24,15 @@ struct GrassBadgeView: View {
             return matchesSearch && matchesState
         }
     }
-    private var counts: [BadgeState: Int] {
+    private func counts(statuses: [String: BadgeState]) -> [BadgeState: Int] {
         var result: [BadgeState: Int] = [:]
         for footprint in content.badgeFootprints.values { result[statuses[footprint.footprintKey.rawValue] ?? .unrecorded, default: 0] += 1 }
         return result
     }
     var body: some View {
+        let statuses = statuses
+        let visible = visible(statuses: statuses)
+        let counts = counts(statuses: statuses)
         List {
             Section("地点记录相互独立") {
                 locationPicker
@@ -77,6 +80,7 @@ private struct GrassFamilyView: View {
     @State private var error: String?
 
     var body: some View {
+        let statuses = Dictionary(uniqueKeysWithValues: records.filter { $0.locationID == location.rawValue }.map { ($0.footprintID, $0.status) })
         List {
             Picker("地点", selection: $location) {
                 ForEach(content.badgeLocations.values.sorted { $0.locationId.rawValue < $1.locationId.rawValue }, id: \.locationId) {
@@ -86,7 +90,7 @@ private struct GrassFamilyView: View {
             Section("点按循环：未记录 → 已点亮 → 未点亮") {
                 ForEach(index.footprintsByFamily[family.familyKey] ?? [], id: \.footprintKey) { footprint in
                     if let pet = content.pets[footprint.petId] {
-                        let status = records.first { $0.identity == GrassRecord.key(footprint.footprintKey.rawValue, location.rawValue) }?.status ?? .unrecorded
+                        let status = statuses[footprint.footprintKey.rawValue] ?? .unrecorded
                         Button {
                             do { try UserDatabase.cycleGrass(footprint: footprint.footprintKey.rawValue, location: location.rawValue, context: context) }
                             catch { self.error = String(describing: error) }
