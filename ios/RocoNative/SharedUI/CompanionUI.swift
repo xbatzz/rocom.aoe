@@ -172,22 +172,36 @@ struct TeamPetTile: View {
     let slot: TeamSlot
     let content: ContentStore
     var label: String? = nil
+    var compact = false
     private var pet: Pet? { slot.petID.flatMap { content.pets[PetID(rawValue: $0)] } }
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: compact ? 6 : 10) {
             if let label { Text(label).font(.caption.weight(.semibold)).foregroundStyle(.secondary) }
             if let pet {
-                CanonicalThumbnail(assetID: pet.portraitAssetId, content: content, size: 88).frame(maxWidth: .infinity)
+                CanonicalThumbnail(assetID: pet.portraitAssetId, content: content, size: compact ? 60 : 88).frame(maxWidth: .infinity)
                 Text(pet.nameZh).font(.headline).fixedSize(horizontal: false, vertical: true)
                 PetTypes(pet: pet, content: content)
                 Text("\(slot.skillIDs.count) / 4 技能").font(.caption.monospacedDigit()).foregroundStyle(.secondary)
             } else {
                 Image(systemName: "plus").font(.title2.weight(.medium)).foregroundStyle(.secondary)
-                    .frame(maxWidth: .infinity, minHeight: 88).accessibilityHidden(true)
+                    .frame(maxWidth: .infinity, minHeight: compact ? 44 : 88).accessibilityHidden(true)
                 Text(slot.petID.map { "无法解析 #\($0)" } ?? "选择精灵").font(.headline)
                     .fixedSize(horizontal: false, vertical: true)
                 Text(slot.petID == nil ? "搭配属性与技能" : "原构筑保留").font(.caption).foregroundStyle(.secondary)
             }
-        }.frame(maxWidth: .infinity, alignment: .leading).padding(16).companionSurface()
+        }.frame(maxWidth: .infinity, alignment: .leading).padding(compact ? 12 : 16).companionSurface()
+    }
+}
+
+// Debug screenshot positioning has no effect on Release behavior.
+extension View {
+    @ViewBuilder func reviewScrollPosition() -> some View {
+        #if DEBUG
+        if ProcessInfo.processInfo.arguments.contains("--visual-bottom") {
+            self.defaultScrollAnchor(.bottom)
+        } else { self }
+        #else
+        self
+        #endif
     }
 }

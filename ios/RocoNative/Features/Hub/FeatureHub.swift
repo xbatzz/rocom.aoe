@@ -129,7 +129,7 @@ struct NativeFeatureEntry: View {
                         NavigationLink("数据版本") { ContentVersionView(content: content) }
                     }.font(.subheadline).padding(.vertical, 8)
                 }.padding(20)
-            }.companionBackground().navigationTitle("洛克工具")
+            }.reviewScrollPosition().companionBackground().navigationTitle("洛克工具")
         }
         .fullScreenCover(isPresented: $encyclopedia) {
             ZStack(alignment: .bottomTrailing) {

@@ -11,28 +11,60 @@ struct PVPBattleView: View {
     @State private var choosingTeam = false
     @State private var ally = BattleProfile()
     @State private var opponent = BattleProfile()
-    var body: some View {
-        List {
-            Section("临时构筑 · 不改已保存队伍") {
-                Button("从已保存队伍选择我方", systemImage: "person.3") { choosingTeam = true }
-                NavigationLink("我方：\(name(ally))") { BattleProfileEditor(profile: $ally, content: content, portraits: portraits, skillIndex: skillIndex) }
-                NavigationLink("对方：\(name(opponent))") { BattleProfileEditor(profile: $opponent, content: content, portraits: portraits, skillIndex: skillIndex) }
+    init(content: ContentStore, portraits: PortraitStore, skillIndex: SkillSearchIndex) {
+        self.content = content; self.portraits = portraits; self.skillIndex = skillIndex
+        #if DEBUG
+        if VisualReview.route == "pvp-filled" {
+            let pets = content.orderedPets.filter { $0.implemented && $0.publicVisible && !$0.isLeader && $0.form == "default" }
+            if pets.count >= 2, let firstSlot = try? TeamRules.assign(pets[0], content: content), let secondSlot = try? TeamRules.assign(pets[1], content: content) {
+                var first = BattleProfile(); first.slot = firstSlot
+                var second = BattleProfile(); second.slot = secondSlot
+                _ally = State(initialValue: first); _opponent = State(initialValue: second)
             }
-            if ally.slot.petID != nil && opponent.slot.petID != nil {
-                comparisons
-                NavigationLink("对方本系 → 已保存队伍联防") { TeamDefenseView(opponent: opponent, content: content) }
-                NavigationLink("我方 → 对方：伤害与一击线") {
-                    BattleDirectionView(attacker: ally, defender: opponent, content: content, portraits: portraits, skillIndex: skillIndex).id(ally.slot.petID)
+        }
+        #endif
+    }
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 24) {
+                CompanionHeading(title: "对战构筑", detail: "临时计算")
+                if dynamicTypeSize.isAccessibilitySize {
+                    VStack(spacing: 12) { allyCard; versus; opponentCard }
+                } else {
+                    HStack(alignment: .top, spacing: 8) { allyCard; versus.padding(.top, 68); opponentCard }
                 }
-                NavigationLink("对方 → 我方：伤害与一击线") {
-                    BattleDirectionView(attacker: opponent, defender: ally, content: content, portraits: portraits, skillIndex: skillIndex).id(opponent.slot.petID)
+                Button("从已保存队伍选择我方", systemImage: "person.3") { choosingTeam = true }
+                    .buttonStyle(.bordered).controlSize(.large).tint(.primary)
+                if ally.slot.petID != nil && opponent.slot.petID != nil {
+                    comparisons
+                    CompanionSection("对战分析") {
+                        NavigationLink {
+                            BattleDirectionView(attacker: ally, defender: opponent, content: content, portraits: portraits, skillIndex: skillIndex).id(ally.slot.petID)
+                        } label: { analysisLink("我方 → 对方", detail: "伤害与一击线", tint: .orange) }
+                        NavigationLink {
+                            BattleDirectionView(attacker: opponent, defender: ally, content: content, portraits: portraits, skillIndex: skillIndex).id(opponent.slot.petID)
+                        } label: { analysisLink("对方 → 我方", detail: "伤害与一击线", tint: .purple) }
+                        NavigationLink { TeamDefenseView(opponent: opponent, content: content) } label: {
+                            analysisLink("已保存队伍联防", detail: "对方本系的进攻覆盖", tint: .primary)
+                        }
+                    }.buttonStyle(.plain)
+                } else {
+                    CompanionSection("准备一次对战") {
+                        preparationStep("01", title: "选择双方精灵", detail: "点按上方槽位，配置性格、血脉与技能。")
+                        Divider()
+                        preparationStep("02", title: "比较六维与属性", detail: "确认速度优势与属性承伤倍率。")
+                        Divider()
+                        preparationStep("03", title: "计算伤害与一击线", detail: "选择技能，按实际条件查看纸面结果。")
+                    }
                 }
-            } else { Text("选择双方精灵后查看六维、属性关系和双向伤害。") }
-        }.navigationTitle("PVP 助手")
+                Text("临时构筑不会更改已保存队伍。伤害沿用当前规则的纸面估算。")
+                    .font(.footnote).foregroundStyle(.secondary)
+            }.padding(20)
+        }.reviewScrollPosition().companionBackground().navigationTitle("PVP 助手")
             .sheet(isPresented: $choosingTeam) {
                 BattleTeamPicker(content: content) { slot in
-                    var profile = BattleProfile(); profile.slot = slot
-                    ally = profile
+                    var profile = BattleProfile(); profile.slot = slot; ally = profile
                 }
             }
             .toolbar {
@@ -43,6 +75,37 @@ struct PVPBattleView: View {
                 }
             }
     }
+    private var versus: some View { Text("VS").font(.headline.bold()).foregroundStyle(.secondary).accessibilityHidden(true) }
+    private var allyCard: some View {
+        NavigationLink { BattleProfileEditor(profile: $ally, content: content, portraits: portraits, skillIndex: skillIndex) } label: {
+            TeamPetTile(slot: ally.slot, content: content, label: "我方")
+        }.buttonStyle(.plain)
+    }
+    private var opponentCard: some View {
+        NavigationLink { BattleProfileEditor(profile: $opponent, content: content, portraits: portraits, skillIndex: skillIndex) } label: {
+            TeamPetTile(slot: opponent.slot, content: content, label: "对方")
+        }.buttonStyle(.plain)
+    }
+    private func analysisLink(_ title: String, detail: String, tint: Color) -> some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 6) {
+                Text(title).font(.headline).foregroundStyle(tint)
+                Text(detail).font(.subheadline).foregroundStyle(.secondary)
+            }
+            Spacer()
+            Image(systemName: "arrow.right").foregroundStyle(tint)
+        }.padding(18).companionSurface()
+    }
+    private func preparationStep(_ number: String, title: String, detail: String) -> some View {
+        HStack(alignment: .top, spacing: 16) {
+            Text(number).font(.title2.bold().monospacedDigit()).foregroundStyle(.orange)
+            VStack(alignment: .leading, spacing: 6) {
+                Text(title).font(.headline)
+                Text(detail).font(.subheadline).foregroundStyle(.secondary)
+            }
+        }.padding(.vertical, 4)
+    }
+
     private func name(_ profile: BattleProfile) -> String {
         guard let id = profile.slot.petID else { return "未选择" }
         return content.pets[PetID(rawValue: id)]?.nameZh ?? "无法解析 #\(id)"
@@ -50,10 +113,23 @@ struct PVPBattleView: View {
     @ViewBuilder private var comparisons: some View {
         switch Result(catching: { (try BattleCore.stats(ally, content: content), try BattleCore.stats(opponent, content: content)) }) {
         case .success(let values):
-            Section("六维 · 我方 / 对方") {
-                ForEach(BattleStat.allCases, id: \.self) {
-                    LabeledContent($0.label, value: "\(values.0[$0.rawValue]) / \(values.1[$0.rawValue])")
-                }
+            CompanionSection("六维比较 · 我方 / 对方") {
+                VStack(spacing: 16) {
+                    ForEach(BattleStat.allCases, id: \.self) { stat in
+                        let left = values.0[stat.rawValue], right = values.1[stat.rawValue]
+                        HStack(spacing: 12) {
+                            Text(String(left)).font(.headline.monospacedDigit()).foregroundStyle(left > right ? .orange : .primary).frame(minWidth: 36)
+                            GeometryReader { g in
+                                HStack(spacing: 2) {
+                                    Capsule().fill(Color.orange.opacity(0.7)).frame(width: max(2, g.size.width * CGFloat(left) / CGFloat(max(1, left + right))))
+                                    Capsule().fill(Color.purple.opacity(0.5))
+                                }
+                            }.frame(height: 5).accessibilityHidden(true)
+                            Text(stat.label).font(.caption.weight(.medium)).frame(minWidth: 28)
+                            Text(String(right)).font(.headline.monospacedDigit()).foregroundStyle(right > left ? .purple : .primary).frame(minWidth: 36)
+                        }.accessibilityElement(children: .ignore).accessibilityLabel("\(stat.label)，我方 \(left)，对方 \(right)")
+                    }
+                }.padding(20).companionSurface()
             }
         case .failure(let error): Text(String(describing: error)).foregroundStyle(.red)
         }
@@ -92,10 +168,11 @@ private struct BattleDirectionView: View {
     @State private var settings = DamageSettings()
     private var skill: Skill? { selected.flatMap { content.skills[$0] } }
     var body: some View {
-        List {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 24) {
             typeRelations
             oneHitLines
-            Section("伤害技能") {
+            CompanionSection("伤害技能") {
                 switch Result(catching: { try BattleCore.calculableSkills(attacker, content: content) }) {
                 case .success(let skills):
                     Picker("固定威力攻击", selection: $selected) {
@@ -106,17 +183,18 @@ private struct BattleDirectionView: View {
                 }
             }
             if let skill {
-                Section("技能资料") {
+                CompanionSection("技能资料") {
                     NavigationLink(skill.nameZh) { SkillDetailView(skill: skill, content: content, portraits: portraits, index: skillIndex) }
                 }
                 effectControls(skill)
                 damageResult(skill)
             }
-        }.navigationTitle("伤害与一击线")
+            }.padding(20)
+        }.reviewScrollPosition().companionBackground().navigationTitle("伤害与一击线")
             .onChange(of: selected) { settings = DamageSettings() }
     }
     @ViewBuilder private var typeRelations: some View {
-        Section("攻击方技能属性 → 防守方承伤") {
+        CompanionSection("攻击方技能属性 → 防守方承伤") {
             switch Result(catching: {
                 let attack = try BattleCore.pet(attacker, content: content)
                 let target = try BattleCore.pet(defender, content: content)
@@ -125,14 +203,16 @@ private struct BattleDirectionView: View {
             }) {
             case .success(let rows):
                 ForEach(rows, id: \.0) { id, multiplier in
-                    if let type = content.types[id] { LabeledContent(type.nameZh, value: "\(multiplier.formatted())×") }
+                    if let type = content.types[id] {
+                        HStack { TypeBadge(type: type); Spacer(); Text("\(multiplier.formatted())×").font(.title2.bold().monospacedDigit()) }
+                    }
                 }
             case .failure(let error): Text(String(describing: error)).foregroundStyle(.red)
             }
         }
     }
     @ViewBuilder private var oneHitLines: some View {
-        Section("基础纸面一击威力线 · 目标生命 \(defender.hpPercent)%") {
+        CompanionSection("基础纸面一击威力线 · 目标生命 \(defender.hpPercent)%") {
             switch Result(catching: { try BattleCore.oneHitLines(attacker: attacker, defender: defender, content: content) }) {
             case .success(let lines):
                 ForEach(lines.indices, id: \.self) { i in
@@ -150,7 +230,7 @@ private struct BattleDirectionView: View {
         }
     }
     @ViewBuilder private func effectControls(_ skill: Skill) -> some View {
-        Section("技能与条件") {
+        CompanionSection("技能与条件") {
             Text(skill.description)
             let choices = BattleCore.choices(skill)
             if !choices.isEmpty {
@@ -176,7 +256,7 @@ private struct BattleDirectionView: View {
         }
     }
     @ViewBuilder private func damageResult(_ skill: Skill) -> some View {
-        Section("纸面伤害") {
+        CompanionSection("纸面伤害") {
             switch Result(catching: { try BattleCore.damage(attacker: attacker, defender: defender, skill: skill, settings: settings, content: content) }) {
             case .success(let result):
                 LabeledContent("属性倍率", value: "\(result.typeMultiplier.formatted())×")
