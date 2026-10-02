@@ -45,7 +45,7 @@ struct ShinyCollectionView: View {
                 ForEach(visible, id: \.slotId) { slot in
                     ShinySlotRow(slot: slot, content: content, isCollected: collected.contains(slot.slotId.rawValue)) {
                         do { try UserDatabase.toggleShiny(slot.slotId.rawValue, context: context) }
-                        catch { error = String(describing: error) }
+                        catch { self.error = String(describing: error) }
                     }
                 }
             }
