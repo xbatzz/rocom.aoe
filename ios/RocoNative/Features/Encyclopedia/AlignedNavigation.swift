@@ -80,6 +80,7 @@ struct AlignedNavigation: UIViewControllerRepresentable {
             let root = NavigationContentHost(
                 rootView: AlignedPetGrid(
                     pets: pets,
+                    content: content,
                     portraits: portraits,
                     anchors: anchors,
                     open: open
