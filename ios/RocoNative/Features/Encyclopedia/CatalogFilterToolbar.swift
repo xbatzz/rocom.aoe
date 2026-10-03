@@ -16,12 +16,14 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
     let content: ContentStore
     @Binding var query: PetCatalogQuery
     @Binding var ascending: Bool
+    var chromeVisible: Bool
 
     func makeUIViewController(context: Context) -> ToolbarHost {
         ToolbarHost(
             content: content,
             query: $query,
-            ascending: $ascending
+            ascending: $ascending,
+            chromeVisible: chromeVisible
         )
     }
 
@@ -29,7 +31,8 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         host.update(
             content: content,
             query: $query,
-            ascending: $ascending
+            ascending: $ascending,
+            chromeVisible: chromeVisible
         )
     }
 
@@ -38,6 +41,7 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         private var content: ContentStore
         private var query: Binding<PetCatalogQuery>
         private var ascending: Binding<Bool>
+        private var chromeVisible: Bool
 
         private weak var itemOwner: UIViewController?
         private weak var navigation: UINavigationController?
@@ -48,11 +52,13 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         init(
             content: ContentStore,
             query: Binding<PetCatalogQuery>,
-            ascending: Binding<Bool>
+            ascending: Binding<Bool>,
+            chromeVisible: Bool
         ) {
             self.content = content
             self.query = query
             self.ascending = ascending
+            self.chromeVisible = chromeVisible
             super.init(nibName: nil, bundle: nil)
         }
 
@@ -79,7 +85,7 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             installChromeIfNeeded()
-            navigation?.setToolbarHidden(false, animated: animated)
+            applyChromeVisibility(animated: animated)
             associateCatalogScrollView()
         }
 
@@ -92,14 +98,17 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         func update(
             content: ContentStore,
             query: Binding<PetCatalogQuery>,
-            ascending: Binding<Bool>
+            ascending: Binding<Bool>,
+            chromeVisible: Bool
         ) {
             self.content = content
             self.query = query
             self.ascending = ascending
+            self.chromeVisible = chromeVisible
             installChromeIfNeeded()
             rebuildMenu()
             syncSearchText()
+            applyChromeVisibility(animated: true)
         }
 
         private func installChromeIfNeeded() {
@@ -168,13 +177,32 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
             synchronizingSearchText = false
         }
 
+        private func applyChromeVisibility(animated: Bool) {
+            // Keep the search UI stable while editing or while a keyword is active.
+            // Otherwise hide/show UIKit's own bars; no custom opacity/geometry.
+            let shouldShow = chromeVisible ||
+                searchController.isActive ||
+                !query.wrappedValue.keyword.isEmpty
+            navigation?.setNavigationBarHidden(!shouldShow, animated: animated)
+            navigation?.setToolbarHidden(!shouldShow, animated: animated)
+        }
+
         func updateSearchResults(for searchController: UISearchController) {
             guard !synchronizingSearchText else { return }
             setKeyword(searchController.searchBar.text ?? "")
         }
 
+        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+            applyChromeVisibility(animated: true)
+        }
+
+        func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+            applyChromeVisibility(animated: true)
+        }
+
         func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
             setKeyword("")
+            applyChromeVisibility(animated: true)
         }
 
         private func setKeyword(_ keyword: String) {
@@ -182,6 +210,7 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
             var value = query.wrappedValue
             value.keyword = keyword
             query.wrappedValue = value
+            applyChromeVisibility(animated: true)
         }
 
         private func rebuildMenu() {
