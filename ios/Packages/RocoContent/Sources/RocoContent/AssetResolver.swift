@@ -14,6 +14,8 @@ public struct KnownMissingAsset: Equatable, Sendable {
 /// Resolves metadata/URLs only. Does not decode WebP or allocate placeholder bitmaps.
 public struct AssetResolver: Sendable {
     private let resolutions: [AssetID: AssetResolution]
+    private let deferredFiles: [AssetID: AssetFile]
+    private let root: URL
     let records: [AssetID: MaterializedAsset]
     public let materializedCount: Int
     public let missingCount: Int
@@ -23,8 +25,10 @@ public struct AssetResolver: Sendable {
         AssetID(rawValue: "portraitGrid:public/assets/webp/friends/img_Wat_ZhuZhuTun2_001_Res.webp"): PetID(rawValue: 3785)
     ]
 
-    init(bundle: Bundle, directory: String, canonical: [AssetID: Asset], manifest: Manifest, canonicalManifestHash: String) throws {
+    init(bundle: Bundle, directory: String, canonical: [AssetID: Asset], manifest: Manifest, canonicalManifestHash: String,
+        validation: AssetValidationMode) throws {
         let reader = try BundleReader(bundle: bundle, directory: directory)
+        root = reader.root
         let assets = try reader.decode(AssetManifest.self, path: "asset-manifest.json")
         try require(assets.assetManifestVersion == 1 && assets.canonicalSchemaVersion == 2 && assets.mode == "copy-webp", "Unsupported asset manifest version/mode")
         try require(assets.canonicalContentVersion == manifest.contentVersion && assets.canonicalManifestSha256 == canonicalManifestHash, "Asset manifest belongs to different canonical package")
@@ -33,6 +37,7 @@ public struct AssetResolver: Sendable {
         try require(Set(records.keys) == Set(canonical.keys), "Asset manifest/canonical IDs differ")
         try require(Set(manifest.knownMissingAssets) == Set(Self.knownMissing.keys) && manifest.knownMissingAssets.count == 2, "Unknown/mismatched knownMissingAssets")
         var states: [AssetID: AssetResolution] = [:]
+        var pending: [AssetID: AssetFile] = [:]
         var paths = Set<String>()
         var materialized = 0, missing = 0
         for (id, source) in canonical {
@@ -51,10 +56,16 @@ public struct AssetResolver: Sendable {
                 try require(source.availability == .available && source.sourceFormat == .webp && source.sourceSha256 != nil && source.missingReason == nil && output.missingReason == nil && output.format == "webp" && output.outputSha256 == source.sourceSha256 && file.sha256 == source.sourceSha256, "Invalid available output: \(id.rawValue)")
                 try require(path.hasPrefix("images/" + source.purpose.rawValue + "/") && path.hasSuffix(".webp") && paths.insert(path).inserted, "Invalid/duplicate output path: \(path)")
                 try require((output.width ?? 0) > 0 && (output.height ?? 0) > 0 && output.alpha != nil && output.hasAlpha != nil, "Missing decode metadata: \(id.rawValue)")
-                let data = try reader.data(path)
-                try require(data.count == file.bytes && sha256(data) == file.sha256, "Missing/corrupt Bundle WebP: \(path)")
-                try require(data.count >= 12 && data.prefix(4) == Data("RIFF".utf8) && data[8..<12] == Data("WEBP".utf8), "Invalid WebP header: \(path)")
-                states[id] = .available(try BundleReader.containedURL(root: reader.root, path: path))
+                try BundleReader.validateRelativePath(path)
+                switch validation {
+                case .eager:
+                    let url = try BundleReader.containedURL(root: reader.root, path: path)
+                    try Self.validateImage(at: url, file: file)
+                    states[id] = .available(url)
+                case .onDemand:
+                    states[id] = .available(reader.root.appendingPathComponent(path))
+                    pending[id] = file
+                }
                 materialized += 1
             }
         }
@@ -67,12 +78,26 @@ public struct AssetResolver: Sendable {
         try require(files["decode-evidence.json"]?.sha256 == assets.nativeDecodeEvidenceSha256, "Decode evidence hash mismatch")
         try require(assets.counts == ["assets": canonical.count, "materialized": materialized, "missing": missing] && missing == 2, "Asset counts mismatch")
         resolutions = states
+        deferredFiles = pending
         materializedCount = materialized
         missingCount = missing
     }
 
     public func resolve(_ id: AssetID) throws -> AssetResolution {
         guard let result = resolutions[id] else { throw ContentError.invalid("Unknown asset ID: \(id.rawValue)") }
+        if let file = deferredFiles[id] {
+            let url = try BundleReader.containedURL(root: root, path: file.relativePath)
+            try Self.validateImage(at: url, file: file)
+            return .available(url)
+        }
         return result
+    }
+
+    private static func validateImage(at url: URL, file: AssetFile) throws {
+        let data: Data
+        do { data = try Data(contentsOf: url) }
+        catch { throw ContentError.invalid("Cannot read \(url.path): \(error)") }
+        try require(data.count == file.bytes && sha256(data) == file.sha256, "Missing/corrupt Bundle WebP: \(file.relativePath)")
+        try require(data.count >= 12 && data.prefix(4) == Data("RIFF".utf8) && data[8..<12] == Data("WEBP".utf8), "Invalid WebP header: \(file.relativePath)")
     }
 }

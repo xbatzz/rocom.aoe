@@ -1,7 +1,8 @@
 import Foundation
 import RocoDomain
 
-/// Fully validated snapshot. All storage is immutable and compiler-checked Sendable.
+/// Validated canonical snapshot; image byte validation follows the selected policy.
+/// All storage is immutable and compiler-checked Sendable.
 /// Own one instance per application lifetime; queries never decode or scan entity arrays.
 public struct ContentStore: Sendable {
     public let manifest: Manifest
@@ -36,17 +37,19 @@ public struct ContentStore: Sendable {
 
     /// Layout: <Bundle resources>/Content/{canonical,assets}/...
     /// Throws with a file/field/ID context; never returns a partial snapshot.
-    public static func load(bundle: Bundle, directory: String = "Content", appBuild: Int = 1) throws -> ContentStore {
-        try ContentStore(bundle: bundle, directory: directory, appBuild: appBuild)
+    public static func load(bundle: Bundle, directory: String = "Content", appBuild: Int = 1,
+        assetValidation: AssetValidationMode = .eager) throws -> ContentStore {
+        try ContentStore(bundle: bundle, directory: directory, appBuild: appBuild, assetValidation: assetValidation)
     }
 
     /// Real-package validation takes hundreds of milliseconds; this entry point keeps it off the UI actor.
-    @concurrent public static func loadInBackground(bundleURL: URL, directory: String = "Content", appBuild: Int = 1) async throws -> ContentStore {
+    @concurrent public static func loadInBackground(bundleURL: URL, directory: String = "Content", appBuild: Int = 1,
+        assetValidation: AssetValidationMode = .eager) async throws -> ContentStore {
         guard let bundle = Bundle(url: bundleURL) else { throw ContentError.invalid("Cannot open Bundle: \(bundleURL.path)") }
-        return try load(bundle: bundle, directory: directory, appBuild: appBuild)
+        return try load(bundle: bundle, directory: directory, appBuild: appBuild, assetValidation: assetValidation)
     }
 
-    private init(bundle: Bundle, directory: String, appBuild: Int) throws {
+    private init(bundle: Bundle, directory: String, appBuild: Int, assetValidation: AssetValidationMode) throws {
         let reader = try BundleReader(bundle: bundle, directory: directory + "/canonical")
         let manifestBytes = try reader.data("manifest.json")
         let decodedManifest = try decodeData(Manifest.self, bytes: manifestBytes, context: "manifest.json")
@@ -120,7 +123,7 @@ public struct ContentStore: Sendable {
         battleEffectsBySkill = optionalIndex(battleEffectsRows, id: { $0.skillId })
         battleEffectsByPet = optionalIndex(battleEffectsRows, id: { $0.petId })
         assetResolver = try AssetResolver(bundle: bundle, directory: directory + "/assets",
-            canonical: assets, manifest: manifest, canonicalManifestHash: sha256(manifestBytes))
+            canonical: assets, manifest: manifest, canonicalManifestHash: sha256(manifestBytes), validation: assetValidation)
         try validateRelations(petSkillsRows: petSkillsRows)
     }
 

@@ -8,12 +8,15 @@ struct BundleReader {
         root = try Self.containedURL(root: resources, path: directory)
     }
     static func containedURL(root: URL, path: String) throws -> URL {
-        let parts = path.split(separator: "/", omittingEmptySubsequences: false)
-        try require(!path.isEmpty && !path.hasPrefix("/") && !parts.contains("..") && !parts.contains(".") && !parts.contains(""), "Unsafe Bundle path: \(path)")
+        try validateRelativePath(path)
         let base = root.resolvingSymlinksInPath().standardizedFileURL
         let url = base.appendingPathComponent(path).resolvingSymlinksInPath().standardizedFileURL
         try require(url.path.hasPrefix(base.path + "/"), "Bundle path escapes root: \(path)")
         return url
+    }
+    static func validateRelativePath(_ path: String) throws {
+        let parts = path.split(separator: "/", omittingEmptySubsequences: false)
+        try require(!path.isEmpty && !path.hasPrefix("/") && !parts.contains("..") && !parts.contains(".") && !parts.contains(""), "Unsafe Bundle path: \(path)")
     }
     func data(_ path: String) throws -> Data {
         let url = try Self.containedURL(root: root, path: path)
