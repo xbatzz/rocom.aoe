@@ -14,18 +14,35 @@ import os
 struct AlignedNavigation: UIViewControllerRepresentable {
     let content: ContentStore
     let portraits: PortraitStore
+    @Binding var query: PetCatalogQuery
+    @Binding var ascending: Bool
+    @Binding var chromeVisible: Bool
+    var detailPopRequest: Int
+    var onDetailVisibilityChanged: (Bool) -> Void
     var returnToHome: (() -> Void)? = nil
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(content: content, portraits: portraits, returnToHome: returnToHome)
+        Coordinator(
+            content: content,
+            portraits: portraits,
+            returnToHome: returnToHome,
+            onDetailVisibilityChanged: onDetailVisibilityChanged
+        )
     }
 
     func makeUIViewController(context: Context) -> UINavigationController {
-        context.coordinator.makeNavigation(pets: content.orderedPets)
+        context.coordinator.makeNavigation(
+            pets: content.orderedPets,
+            query: $query,
+            ascending: $ascending,
+            chromeVisible: $chromeVisible
+        )
     }
 
     func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
         context.coordinator.returnToHome = returnToHome
+        context.coordinator.onDetailVisibilityChanged = onDetailVisibilityChanged
+        context.coordinator.handleDetailPopRequest(detailPopRequest)
     }
 
     @MainActor
@@ -34,6 +51,7 @@ struct AlignedNavigation: UIViewControllerRepresentable {
         let content: ContentStore
         let portraits: PortraitStore
         var returnToHome: (() -> Void)?
+        var onDetailVisibilityChanged: (Bool) -> Void
 
         weak var navigation: UINavigationController?
         private weak var edgePan: UIScreenEdgePanGestureRecognizer?
@@ -43,6 +61,7 @@ struct AlignedNavigation: UIViewControllerRepresentable {
 
         private var interactiveDriver: UIPercentDrivenInteractiveTransition?
         private var inputLease: InputLease?
+        private var lastDetailPopRequest = 0
 
 #if DEBUG
         private let logger = Logger(subsystem: "com.batzz.rocom", category: "navigation")
@@ -74,37 +93,46 @@ struct AlignedNavigation: UIViewControllerRepresentable {
             }
         }
 
-        init(content: ContentStore, portraits: PortraitStore, returnToHome: (() -> Void)? = nil) {
+        init(
+            content: ContentStore,
+            portraits: PortraitStore,
+            returnToHome: (() -> Void)? = nil,
+            onDetailVisibilityChanged: @escaping (Bool) -> Void
+        ) {
             self.content = content
             self.portraits = portraits
             self.returnToHome = returnToHome
+            self.onDetailVisibilityChanged = onDetailVisibilityChanged
             super.init()
         }
 
-        func makeNavigation(pets: [Pet]) -> UINavigationController {
+        func makeNavigation(
+            pets: [Pet],
+            query: Binding<PetCatalogQuery>,
+            ascending: Binding<Bool>,
+            chromeVisible: Binding<Bool>
+        ) -> UINavigationController {
             let root = NavigationContentHost(
                 rootView: AlignedPetGrid(
                     pets: pets,
                     content: content,
                     portraits: portraits,
                     anchors: anchors,
-                    open: open
+                    open: open,
+                    query: query,
+                    ascending: ascending,
+                    chromeVisible: chromeVisible
                 )
             )
             root.title = ""
             root.navigationItem.largeTitleDisplayMode = .never
 
-            if returnToHome != nil {
-                let back = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain,
-                    target: self, action: #selector(returnToFeatureHome))
-                back.accessibilityLabel = "返回"
-                back.accessibilityIdentifier = "catalog-back"
-                root.navigationItem.leftBarButtonItem = back
-            }
             let nav = returnToHome == nil ? UINavigationController(rootViewController: root)
                 : CatalogNavigationController(rootViewController: root)
             nav.navigationBar.prefersLargeTitles = false
             nav.hidesBarsOnSwipe = false
+            nav.setNavigationBarHidden(true, animated: false)
+            nav.setToolbarHidden(true, animated: false)
             nav.delegate = self
             navigation = nav
 
@@ -124,10 +152,14 @@ struct AlignedNavigation: UIViewControllerRepresentable {
             return nav
         }
 
-        @objc private func returnToFeatureHome() {
-            guard navigation?.viewControllers.count == 1,
-                navigation?.transitionCoordinator == nil else { return }
-            returnToHome?()
+        func handleDetailPopRequest(_ request: Int) {
+            guard request != lastDetailPopRequest else { return }
+            lastDetailPopRequest = request
+            guard let navigation,
+                  navigation.viewControllers.count > 1,
+                  navigation.transitionCoordinator == nil,
+                  interactiveDriver == nil else { return }
+            navigation.popViewController(animated: true)
         }
 
         func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -228,18 +260,12 @@ struct AlignedNavigation: UIViewControllerRepresentable {
         ) {
             let showingCatalogGrid = viewController === navigationController.viewControllers.first
             navigationController.hidesBarsOnSwipe = false
-            if !showingCatalogGrid {
-                // Detail pages always get a fully visible navigation bar. The grid
-                // may have faded its chrome without changing navigation geometry.
-                navigationController.navigationBar.layer.removeAllAnimations()
-                navigationController.toolbar.layer.removeAllAnimations()
-                navigationController.navigationBar.alpha = 1
-                navigationController.toolbar.alpha = 1
-                navigationController.navigationBar.isUserInteractionEnabled = true
-                navigationController.toolbar.isUserInteractionEnabled = true
-                navigationController.setNavigationBarHidden(false, animated: false)
-                navigationController.setToolbarHidden(true, animated: animated)
-            }
+            // The outer home NavigationStack owns all visible chrome. Keep the
+            // encyclopedia's private navigation controller visually chrome-free;
+            // it exists only for the image-only pet detail transition.
+            navigationController.setNavigationBarHidden(true, animated: false)
+            navigationController.setToolbarHidden(true, animated: false)
+            onDetailVisibilityChanged(!showingCatalogGrid)
             (navigationController as? CatalogNavigationController)?.setHomeReturnEnabled(false)
 #if DEBUG
             NavigationBarDiagnostics.log(navigationController, controller: viewController, phase: "willShow")
@@ -263,8 +289,9 @@ struct AlignedNavigation: UIViewControllerRepresentable {
             didShow viewController: UIViewController,
             animated: Bool
         ) {
-            (navigationController as? CatalogNavigationController)?.setHomeReturnEnabled(
-                navigationController.viewControllers.count == 1)
+            let showingCatalogGrid = navigationController.viewControllers.count == 1
+            (navigationController as? CatalogNavigationController)?.setHomeReturnEnabled(showingCatalogGrid)
+            onDetailVisibilityChanged(!showingCatalogGrid)
             inputLease?.restore()
             inputLease = nil
             interactiveDriver = nil
@@ -472,6 +499,8 @@ private final class PortraitNavigationAnimator: NSObject, UIViewControllerAnimat
         let portraitHost: UIView
         let ownsPortraitHost: Bool
         if let navigationBar = fromVC.navigationController?.navigationBar,
+           !navigationBar.isHidden,
+           navigationBar.alpha > 0.001,
            let barParent = navigationBar.superview {
             // On newer iOS releases UINavigationBar is not guaranteed to be a
             // direct child of UINavigationController.view. The previous version
