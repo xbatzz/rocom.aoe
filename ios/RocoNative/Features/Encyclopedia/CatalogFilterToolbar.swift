@@ -75,11 +75,6 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
             associateCatalogScrollView()
         }
 
-        override func viewWillDisappear(_ animated: Bool) {
-            super.viewWillDisappear(animated)
-            navigation?.setToolbarHidden(true, animated: animated)
-        }
-
         override func viewDidLayoutSubviews() {
             super.viewDidLayoutSubviews()
             installChromeIfNeeded()
