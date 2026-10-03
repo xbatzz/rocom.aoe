@@ -1,8 +1,8 @@
 import SwiftUI
 import RocoContent
 
-/// Host a control view, never a destination controller, in the navigation bar.
-/// UINavigationController must keep the grid as its sole root destination.
+/// The bar reserves a 44pt anchor; one glass surface lives above the bar and grid
+/// so it can grow down and left without navigation-bar clipping or a popover.
 struct CatalogFilterToolbar: UIViewControllerRepresentable {
     let content: ContentStore
     @Binding var query: PetCatalogQuery
@@ -13,23 +13,21 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_ host: ToolbarHost, context: Context) {
-        host.button.configuration = ToolbarHost.configuration(
-            CatalogFilterButton(content: content, query: $query, ascending: $ascending))
+        host.updateButton(CatalogFilterButton(content: content, query: $query, ascending: $ascending))
     }
 
     final class ToolbarHost: UIViewController {
-        let button: UIView & UIContentView
+        private let anchor = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+        private let overlay = TouchSurface()
+        private let button: UIView & UIContentView
+        private var definition: CatalogFilterButton
         private weak var itemOwner: UIViewController?
         private var item: UIBarButtonItem?
-
-        static func configuration(_ button: CatalogFilterButton) -> some UIContentConfiguration {
-            UIHostingConfiguration { button }
-                .margins(.all, 0)
-                .minSize(width: 44, height: 44)
-        }
+        private var lastAnchor: CGRect?
 
         init(button: CatalogFilterButton) {
-            self.button = Self.configuration(button).makeContentView()
+            definition = button
+            self.button = UIHostingConfiguration { button }.margins(.all, 0).makeContentView()
             super.init(nibName: nil, bundle: nil)
         }
 
@@ -38,20 +36,44 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         override func viewDidLoad() {
             super.viewDidLoad()
             view.isUserInteractionEnabled = false
+            anchor.isUserInteractionEnabled = false
+            overlay.backgroundColor = .clear
             button.backgroundColor = .clear
-            button.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+            button.translatesAutoresizingMaskIntoConstraints = false
+            overlay.addSubview(button)
+            NSLayoutConstraint.activate([
+                button.topAnchor.constraint(equalTo: overlay.topAnchor),
+                button.trailingAnchor.constraint(equalTo: overlay.trailingAnchor),
+                button.bottomAnchor.constraint(equalTo: overlay.bottomAnchor),
+                button.leadingAnchor.constraint(equalTo: overlay.leadingAnchor)
+            ])
+            overlay.onLayout = { [weak self] in self?.refreshAnchor() }
         }
 
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             var owner = parent
             while let candidate = owner {
-                if candidate.navigationController != nil {
-                    let item = UIBarButtonItem(customView: button)
+                if let navigation = candidate.navigationController {
+                    let item = UIBarButtonItem(customView: anchor)
                     item.hidesSharedBackground = true
                     candidate.navigationItem.rightBarButtonItem = item
                     self.item = item
                     itemOwner = candidate
+                    if overlay.superview !== navigation.view {
+                        overlay.removeFromSuperview()
+                        overlay.translatesAutoresizingMaskIntoConstraints = false
+                        navigation.view.addSubview(overlay)
+                        NSLayoutConstraint.activate([
+                            overlay.topAnchor.constraint(equalTo: navigation.view.topAnchor),
+                            overlay.trailingAnchor.constraint(equalTo: navigation.view.trailingAnchor),
+                            overlay.bottomAnchor.constraint(equalTo: navigation.view.bottomAnchor),
+                            overlay.leadingAnchor.constraint(equalTo: navigation.view.leadingAnchor)
+                        ])
+                    }
+                    overlay.isHidden = false
+                    navigation.view.bringSubviewToFront(overlay)
+                    refreshAnchor()
                     associateCatalogScrollView()
                     break
                 }
@@ -59,9 +81,38 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
             }
         }
 
+        override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+            overlay.isHidden = true
+        }
+
         override func viewDidLayoutSubviews() {
             super.viewDidLayoutSubviews()
+            refreshAnchor()
             associateCatalogScrollView()
+        }
+
+        func updateButton(_ definition: CatalogFilterButton) {
+            self.definition = definition
+            refreshConfiguration()
+        }
+
+        private func refreshAnchor() {
+            guard anchor.window != nil, overlay.bounds.width > 0 else { return }
+            let rect = anchor.convert(anchor.bounds, to: overlay)
+            guard lastAnchor != rect else { return }
+            lastAnchor = rect
+            overlay.anchorFrame = rect
+            refreshConfiguration()
+        }
+
+        private func refreshConfiguration() {
+            var control = definition
+            let rect = lastAnchor ?? CGRect(x: overlay.bounds.width - 60, y: 0, width: 44, height: 44)
+            control.topInset = max(0, rect.minY)
+            control.trailingInset = max(0, overlay.bounds.width - rect.maxX)
+            control.onPresentationChange = { [weak self] expanded in self?.overlay.expanded = expanded }
+            button.configuration = UIHostingConfiguration { control }.margins(.all, 0)
         }
 
         private func associateCatalogScrollView() {
@@ -69,7 +120,6 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
                 let rootView = owner.viewIfLoaded,
                 let scrollView = Self.contentScrollView(in: rootView),
                 owner.contentScrollView(for: .top) !== scrollView else { return }
-            // Native bar tracking only. Never set offsets, insets or scroll delegates.
             owner.setContentScrollView(scrollView, for: .top)
         }
 
@@ -85,7 +135,23 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
             if host.itemOwner?.navigationItem.rightBarButtonItem === host.item {
                 host.itemOwner?.navigationItem.rightBarButtonItem = nil
             }
-            host.button.removeFromSuperview()
+            host.overlay.removeFromSuperview()
+        }
+
+        /// When collapsed, every point outside the icon passes through to the app.
+        private final class TouchSurface: UIView {
+            var anchorFrame = CGRect.zero
+            var expanded = false
+            var onLayout: (() -> Void)?
+
+            override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+                expanded ? super.point(inside: point, with: event) : anchorFrame.contains(point)
+            }
+
+            override func layoutSubviews() {
+                super.layoutSubviews()
+                onLayout?()
+            }
         }
     }
 
