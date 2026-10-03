@@ -45,6 +45,7 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
 
         private weak var itemOwner: UIViewController?
         private weak var navigation: UINavigationController?
+        private var leadingItem: UIBarButtonItem?
         private var filterItem: UIBarButtonItem?
         private let searchController = UISearchController(searchResultsController: nil)
         private var synchronizingSearchText = false
@@ -119,6 +120,7 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
 
                 itemOwner = owner
                 navigation = owner.navigationController
+                leadingItem = owner.navigationItem.leftBarButtonItem
                 owner.definesPresentationContext = true
 
                 let item = UIBarButtonItem(
@@ -178,23 +180,35 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         }
 
         private func applyChromeVisibility(animated: Bool) {
-            // Keep both UIKit bars mounted at all times while browsing the grid.
-            // Showing/hiding either bar changes safe-area geometry and makes the
-            // SwiftUI scroll content jump. Only fade their chrome and hit testing.
+            // Keep both bars mounted so their safe-area geometry never changes.
+            // Hide only the bar-button items. This leaves the navigation row in
+            // place, so the scrolling "图鉴 / xx只精灵" content never jumps upward
+            // to occupy it when the buttons disappear.
             let shouldShow = chromeVisible ||
                 searchController.isActive ||
                 !query.wrappedValue.keyword.isEmpty
 
-            guard let navigation else { return }
+            guard let navigation, let owner = itemOwner else { return }
 
             navigation.setNavigationBarHidden(false, animated: false)
             navigation.setToolbarHidden(false, animated: false)
+            navigation.navigationBar.alpha = 1
+            navigation.navigationBar.isUserInteractionEnabled = true
 
-            navigation.navigationBar.isUserInteractionEnabled = shouldShow
+            if shouldShow {
+                if owner.navigationItem.leftBarButtonItem == nil, let leadingItem {
+                    owner.navigationItem.setLeftBarButton(leadingItem, animated: animated)
+                }
+                if owner.navigationItem.rightBarButtonItem == nil, let filterItem {
+                    owner.navigationItem.setRightBarButton(filterItem, animated: animated)
+                }
+            } else {
+                owner.navigationItem.setLeftBarButton(nil, animated: animated)
+                owner.navigationItem.setRightBarButton(nil, animated: animated)
+            }
+
             navigation.toolbar.isUserInteractionEnabled = shouldShow
-
-            let changes = {
-                navigation.navigationBar.alpha = shouldShow ? 1 : 0
+            let toolbarChanges = {
                 navigation.toolbar.alpha = shouldShow ? 1 : 0
             }
 
@@ -203,12 +217,11 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
                     withDuration: 0.20,
                     delay: 0,
                     options: [.beginFromCurrentState, .curveEaseOut, .allowUserInteraction],
-                    animations: changes
+                    animations: toolbarChanges
                 )
             } else {
-                navigation.navigationBar.layer.removeAllAnimations()
                 navigation.toolbar.layer.removeAllAnimations()
-                changes()
+                toolbarChanges()
             }
         }
 
