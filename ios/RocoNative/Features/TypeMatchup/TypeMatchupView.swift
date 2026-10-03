@@ -38,10 +38,20 @@ struct TypeMatchupView: View {
                         HStack(spacing: 8) {
                             ForEach(engine.selectable, id: \.typeId) { type in
                                 Button { first = type.typeId } label: {
-                                    TypeBadge(type: type).padding(.vertical, 6).padding(.horizontal, 4)
-                                        .background(first == type.typeId ? Color.primary.opacity(0.08) : .clear, in: Capsule())
-                                        .overlay(Capsule().strokeBorder(first == type.typeId ? Color.primary.opacity(0.5) : .clear))
+                                    VStack(spacing: 6) {
+                                        if let image = GameIconCatalog.type(type.typeId) {
+                                            Image(uiImage: image).resizable().scaledToFit()
+                                                .frame(width: 30, height: 31).accessibilityHidden(true)
+                                        }
+                                        Text(type.nameZh).font(.subheadline.weight(.medium))
+                                        Image(systemName: "checkmark").font(.caption.bold())
+                                            .opacity(first == type.typeId ? 1 : 0).accessibilityHidden(true)
+                                    }
+                                    .frame(minWidth: 52, minHeight: 68).padding(8)
+                                    .background(first == type.typeId ? GameIconCatalog.color(type.typeId).opacity(0.12) : .clear, in: RoundedRectangle(cornerRadius: 16))
+                                    .overlay(RoundedRectangle(cornerRadius: 16).strokeBorder(first == type.typeId ? Color.primary.opacity(0.5) : .clear))
                                 }.buttonStyle(.plain).accessibilityAddTraits(first == type.typeId ? .isSelected : [])
+                                    .accessibilityLabel("\(type.nameZh)属性")
                             }
                         }
                     }.scrollIndicators(.hidden)
@@ -54,16 +64,21 @@ struct TypeMatchupView: View {
                 }
                 HStack(spacing: 12) {
                     if let type = engine.selectable.first(where: { $0.typeId == first }) {
-                        if let image = GameIconCatalog.type(first) {
-                            Image(uiImage: image).resizable().scaledToFit().frame(width: 32, height: 33).accessibilityHidden(true)
-                        }
+                        VStack(spacing: 6) {
+                            if let image = GameIconCatalog.type(first) {
+                                Image(uiImage: image).resizable().scaledToFit().frame(width: 32, height: 33)
+                            }
+                            if mode != 0, let second, let image = GameIconCatalog.type(second) {
+                                Image(uiImage: image).resizable().scaledToFit().frame(width: 32, height: 33)
+                            }
+                        }.accessibilityHidden(true)
                         VStack(alignment: .leading, spacing: 4) {
                             Text(type.nameZh + (mode == 0 ? "属性" : second.flatMap { id in engine.selectable.first { $0.typeId == id }?.nameZh }.map { " + " + $0 } ?? "属性"))
                                 .font(.title2.bold())
-                            Text(mode == 2 ? "克制覆盖按并集合并" : "下方倍率为受到攻击时的伤害倍率").font(.subheadline).foregroundStyle(.secondary)
+                            Text(mode == 2 ? "克制覆盖按并集合并" : "受到攻击时的伤害倍率").font(.subheadline).foregroundStyle(.secondary)
                         }
                     }
-                }
+                }.frame(maxWidth: .infinity, alignment: .leading).padding(20).companionAccentSurface(tint: GameIconCatalog.color(first))
                 result
             }.padding(20)
         }.reviewScrollPosition().companionBackground().navigationTitle("属性克制")

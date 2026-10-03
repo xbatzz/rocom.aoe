@@ -36,10 +36,12 @@ struct NativeFeatureEntry: View {
                                 Spacer()
                                 if !dynamicTypeSize.isAccessibilitySize { Image(systemName: "arrow.up.right").font(.title3.weight(.semibold)) }
                             }
-                            HStack(spacing: 4) {
-                                ForEach(featured, id: \.petId) { pet in
-                                    CanonicalThumbnail(assetID: pet.portraitAssetId, content: content, size: 92)
-                                        .frame(maxWidth: .infinity)
+                            (dynamicTypeSize.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 16)) : AnyLayout(HStackLayout(spacing: 4))) {
+                                ForEach(dynamicTypeSize.isAccessibilitySize ? Array(featured.prefix(1)) : featured, id: \.petId) { pet in
+                                    VStack(spacing: 8) {
+                                        CanonicalThumbnail(assetID: pet.portraitAssetId, content: content, size: 92)
+                                        PetTypes(pet: pet, content: content)
+                                    }.frame(maxWidth: .infinity)
                                 }
                             }.accessibilityHidden(true)
                             CompanionMetrics {
@@ -51,7 +53,7 @@ struct NativeFeatureEntry: View {
                                         .font(.caption).foregroundStyle(.secondary)
                                 }
                             }
-                        }.padding(20).companionSurface()
+                        }.padding(20).companionAccentSurface(tint: .teal)
                     }.buttonStyle(.plain).accessibilityHint("打开精灵图鉴")
 
                     toolLayout {

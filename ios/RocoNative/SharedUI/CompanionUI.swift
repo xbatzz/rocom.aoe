@@ -61,27 +61,6 @@ struct PetTypes: View {
     }
 }
 
-extension SkillCategory {
-    var displayName: String {
-        switch self {
-        case .physicalAttack: "物理攻击"
-        case .magicAttack: "魔法攻击"
-        case .status: "变化"
-        case .defense: "防御"
-        case .unknown: "未分类"
-        }
-    }
-}
-
-struct SkillCategoryPill: View {
-    let category: SkillCategory
-    var body: some View {
-        Text(category.displayName).font(.caption.weight(.medium))
-            .padding(.horizontal, 8).padding(.vertical, 5)
-            .background(Color(uiColor: .tertiarySystemFill), in: Capsule())
-    }
-}
-
 struct CompanionHeading: View {
     let title: String
     var detail: String? = nil
@@ -136,7 +115,7 @@ struct CollectionProgress: View {
             }
             ProgressView(value: Double(count), total: Double(max(1, total))).tint(tint)
                 .accessibilityLabel(title).accessibilityValue("\(count) / \(total)")
-        }.padding(20).companionSurface()
+        }.padding(20).companionAccentSurface(tint: tint)
     }
     private var totalText: some View {
         VStack(alignment: .leading, spacing: 4) {
@@ -212,7 +191,8 @@ struct TeamPetTile: View {
                     .fixedSize(horizontal: false, vertical: true)
                 Text(slot.petID == nil ? "搭配属性与技能" : "原构筑保留").font(.caption).foregroundStyle(.secondary)
             }
-        }.frame(maxWidth: .infinity, alignment: .leading).padding(compact ? 12 : 16).companionSurface()
+        }.frame(maxWidth: .infinity, alignment: .leading).padding(compact ? 12 : 16)
+            .companionAccentSurface(tint: pet?.typeIds.first.map(GameIconCatalog.color) ?? .clear)
     }
 }
 
@@ -224,6 +204,10 @@ extension View {
             self.defaultScrollAnchor(.bottom)
         } else if ProcessInfo.processInfo.arguments.contains("--visual-middle") {
             self.defaultScrollAnchor(.center)
+        } else if let index = ProcessInfo.processInfo.arguments.firstIndex(of: "--visual-anchor"),
+            ProcessInfo.processInfo.arguments.indices.contains(index + 1),
+            let y = Double(ProcessInfo.processInfo.arguments[index + 1]), (0...1).contains(y) {
+            self.defaultScrollAnchor(UnitPoint(x: 0.5, y: y))
         } else { self }
         #else
         self
@@ -264,8 +248,8 @@ struct SkillSummary: View {
         }.padding(.vertical, 16)
     }
     @ViewBuilder private var artwork: some View {
-        if skill.iconAssetId != nil {
-            CanonicalThumbnail(assetID: skill.iconAssetId, content: content, size: 52)
+        if let icon = content.skillIcon(for: skill) {
+            CanonicalThumbnail(assetID: icon, content: content, size: 52)
         } else {
             Text(String(skill.nameZh.prefix(1))).font(.system(size: 22, weight: .medium)).foregroundStyle(.secondary)
                 .frame(width: 52, height: 52).background(Color(uiColor: .tertiarySystemFill), in: RoundedRectangle(cornerRadius: 12))

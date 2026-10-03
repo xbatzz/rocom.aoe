@@ -34,6 +34,11 @@ ABC100000000000000000001 = {isa = PBXBuildFile; productRef = ABC1000000000000000
 82CE116F75FFF26BA666EDFA = {isa = PBXBuildFile; fileRef = C47D7B16EDA063633A351C23; };
 B9BC19222315769C05B73793 = {isa = PBXBuildFile; fileRef = EEDD9EC12AA1418BB7D97FBE; };
 A94E3A08960FF6B2800271B1 = {isa = PBXBuildFile; fileRef = 974989699C1B340A40D67EC9; };
+A017DDBE73B94C32470D6A9A = {isa = PBXBuildFile; fileRef = 1FD1D83CB09E62F0F64D98BA; };
+BAC719260182F165F64A760B = {isa = PBXBuildFile; fileRef = 9AD5BFAEC97C077CB5A9C191; };
+A0FB53FBCBE566F69137F709 = {isa = PBXBuildFile; fileRef = 7D0DABA1CCA5430EFFDCC664; };
+F1C24EA25313570978CF4966 = {isa = PBXBuildFile; fileRef = 70B9FDC9EB10A94E5A041E5A; };
+865C0D8F61A3C308977ADBC4 = {isa = PBXBuildFile; fileRef = F13F039A71DF618AE5909B7E; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +79,11 @@ A94E3A08960FF6B2800271B1 = {isa = PBXBuildFile; fileRef = 974989699C1B340A40D67E
 C47D7B16EDA063633A351C23 = {isa = PBXFileReference; lastKnownFileType = folder; path = "RocoNative/Resources/GameIcons"; sourceTree = SOURCE_ROOT; };
 EEDD9EC12AA1418BB7D97FBE = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RocoNative/SharedUI/CompanionUI.swift"; sourceTree = SOURCE_ROOT; };
 974989699C1B340A40D67EC9 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RocoNative/App/VisualReview.swift"; sourceTree = SOURCE_ROOT; };
+1FD1D83CB09E62F0F64D98BA = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RocoNative/SharedUI/CompanionAccentSurface.swift"; sourceTree = SOURCE_ROOT; };
+9AD5BFAEC97C077CB5A9C191 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RocoNative/SharedUI/PetStatChart.swift"; sourceTree = SOURCE_ROOT; };
+7D0DABA1CCA5430EFFDCC664 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RocoNative/SharedUI/SkillCategory+Presentation.swift"; sourceTree = SOURCE_ROOT; };
+70B9FDC9EB10A94E5A041E5A = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RocoNative/SharedUI/SkillCategoryPill.swift"; sourceTree = SOURCE_ROOT; };
+F13F039A71DF618AE5909B7E = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RocoNative/SharedUI/TraitDetailCard.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +119,11 @@ EEDD9EC12AA1418BB7D97FBE = {isa = PBXFileReference; lastKnownFileType = sourceco
 			children = (
                 974989699C1B340A40D67EC9,
                 EEDD9EC12AA1418BB7D97FBE,
+F13F039A71DF618AE5909B7E,
+70B9FDC9EB10A94E5A041E5A,
+7D0DABA1CCA5430EFFDCC664,
+9AD5BFAEC97C077CB5A9C191,
+1FD1D83CB09E62F0F64D98BA,
                 C47D7B16EDA063633A351C23,
 				38BD9FAF31E27745F31DB4B9 /* RocoNative/App/RocoApp.swift */,
 				F2898F2180388039F7C966A9,
@@ -281,6 +296,11 @@ EEDD9EC12AA1418BB7D97FBE = {isa = PBXFileReference; lastKnownFileType = sourceco
 			files = (
                 A94E3A08960FF6B2800271B1,
                 B9BC19222315769C05B73793,
+865C0D8F61A3C308977ADBC4,
+F1C24EA25313570978CF4966,
+A0FB53FBCBE566F69137F709,
+BAC719260182F165F64A760B,
+A017DDBE73B94C32470D6A9A,
 				FCB5ECBF6B969FD288FDC49F /* RocoNative/App/RocoApp.swift in Sources */,
 				882B465886E4314D48590325,
 				78598F2FAB88EEFA14E548A7,

@@ -41,17 +41,17 @@ struct SkillsView: View {
                     CompanionSection("技能速览") {
                         ScrollView(.horizontal) {
                             HStack(alignment: .top, spacing: 20) {
-                                ForEach(content.skills.values.filter { $0.iconAssetId != nil }.sorted { $0.skillId.rawValue < $1.skillId.rawValue }.prefix(6), id: \.skillId) { skill in
+                                ForEach(content.skills.values.filter { content.skillIcon(for: $0) != nil }.sorted { $0.skillId.rawValue < $1.skillId.rawValue }.prefix(6), id: \.skillId) { skill in
                                     NavigationLink { SkillDetailView(skill: skill, content: content, portraits: portraits, index: index) } label: {
                                         VStack(spacing: 8) {
-                                            CanonicalThumbnail(assetID: skill.iconAssetId, content: content, size: 64)
+                                            CanonicalThumbnail(assetID: content.skillIcon(for: skill), content: content, size: 64)
                                             Text(skill.nameZh).font(.caption.weight(.medium)).fixedSize(horizontal: false, vertical: true)
                                         }.frame(width: dynamicTypeSize.isAccessibilitySize ? 160 : 76)
                                     }.buttonStyle(.plain)
                                 }
                             }
                         }.scrollIndicators(.hidden)
-                    }
+                    }.padding(16).companionAccentSurface(tint: .purple)
                 }
                 CompanionHeading(title: "技能目录", detail: "\(ids.count) 个 · ID 排序")
                 if ids.isEmpty { ContentUnavailableView("没有符合条件的技能", systemImage: "sparkle.magnifyingglass", description: Text("尝试其他关键词，或更改属性与类别筛选。")) }
@@ -72,15 +72,21 @@ struct SkillsView: View {
     private var typeFilter: some View {
         Picker("属性", selection: $type) {
             Text("全部属性").tag(nil as TypeID?)
-            ForEach(content.types.values.sorted { $0.typeId.rawValue < $1.typeId.rawValue }, id: \.typeId) {
-                Text($0.nameZh).tag(Optional($0.typeId))
+            ForEach(content.types.values.sorted { $0.typeId.rawValue < $1.typeId.rawValue }, id: \.typeId) { type in
+                Label {
+                    Text(type.nameZh)
+                } icon: {
+                    if let image = GameIconCatalog.type(type.typeId) { Image(uiImage: image) }
+                }.tag(Optional(type.typeId))
             }
         }.pickerStyle(.menu).tint(.primary)
     }
     private var categoryFilter: some View {
         Picker("类别", selection: $category) {
             Text("全部类别").tag(nil as SkillCategory?)
-            ForEach(skillCategories, id: \.rawValue) { Text(categoryName($0)).tag(Optional($0)) }
+            ForEach(skillCategories, id: \.rawValue) {
+                Label(categoryName($0), systemImage: $0.symbolName).tag(Optional($0))
+            }
         }.pickerStyle(.menu).tint(.primary)
     }
 
@@ -97,7 +103,7 @@ struct SkillDetailView: View {
             VStack(alignment: .leading, spacing: 28) {
                 VStack(alignment: .leading, spacing: 18) {
                     HStack(spacing: 16) {
-                        CanonicalThumbnail(assetID: skill.iconAssetId, content: content, size: 72)
+                        CanonicalThumbnail(assetID: content.skillIcon(for: skill), content: content, size: 72)
                         VStack(alignment: .leading, spacing: 8) {
                             Text(skill.nameZh).font(.title2.bold())
                             Text("技能 #\(String(skill.skillId.rawValue))").font(.caption.monospacedDigit()).foregroundStyle(.secondary)
@@ -111,7 +117,7 @@ struct SkillDetailView: View {
                         if let power = skill.power { CompanionMetric(value: power.formatted(), label: "威力") }
                         if let cost = skill.energyCost { CompanionMetric(value: cost.formatted(), label: "能耗") }
                     }
-                }.padding(20).companionSurface()
+                }.padding(20).companionAccentSurface(tint: skill.typeId.map(GameIconCatalog.color) ?? skill.category.tint)
                 if !skill.description.isEmpty {
                     CompanionSection("技能效果") { Text(skill.description).font(.body).textSelection(.enabled) }
                 }

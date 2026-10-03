@@ -53,20 +53,10 @@ struct PetDetail: View {
                             .font(.caption).foregroundStyle(.secondary)
                     }
                     detailCard("种族值") {
-                        ForEach(stats, id: \.0) { label, value in
-                            detailValue(label, String(value))
-                        }
-                        Divider()
-                        detailValue("总种族值", String(stats.reduce(0) { $0 + $1.1 }))
+                        PetStatChart(pet: pet)
                     }
                     if let traitId = content.petDetails[pet.petId]?.traitId, let trait = content.traits[traitId] {
-                        detailCard("特性") {
-                            HStack(spacing: 14) {
-                                CanonicalThumbnail(assetID: trait.iconAssetId, content: content, size: 48)
-                                Text(trait.nameZh).font(.headline)
-                            }
-                            if !trait.description.isEmpty { Text(trait.description).foregroundStyle(.secondary) }
-                        }
+                        TraitDetailCard(trait: trait, content: content, tint: pet.typeIds.first.map(GameIconCatalog.color) ?? .teal)
                     }
                     evolutionSections
                     familySections
@@ -80,12 +70,6 @@ struct PetDetail: View {
             .accessibilityIdentifier("detail-\(pet.petId.rawValue)")
         }
         .background(Color(uiColor: .systemBackground))
-    }
-
-    private var stats: [(String, Int)] {
-        let s = pet.baseStats
-        return [("生命", s.hp), ("物攻", s.physicalAttack), ("魔攻", s.magicalAttack),
-                ("物防", s.physicalDefense), ("魔防", s.magicalDefense), ("速度", s.speed)]
     }
 
     @ViewBuilder private var evolutionSections: some View {
@@ -196,21 +180,6 @@ struct PetDetail: View {
 
     private func relatedRow(_ related: Pet) -> some View {
         RelatedPetRow(pet: related, portraits: portraits, anchors: relatedAnchors, open: openRelated)
-    }
-
-    private func detailValue(_ label: String, _ value: String) -> some View {
-        ViewThatFits(in: .horizontal) {
-            HStack(alignment: .firstTextBaseline) {
-                Text(label).foregroundStyle(.secondary)
-                Spacer(minLength: 16)
-                Text(value).monospacedDigit()
-            }
-            VStack(alignment: .leading, spacing: 4) {
-                Text(label).foregroundStyle(.secondary)
-                Text(value).monospacedDigit()
-            }
-        }
-        .accessibilityElement(children: .combine)
     }
 
     private func detailCard<Content: View>(_ title: String, @ViewBuilder content: () -> Content) -> some View {

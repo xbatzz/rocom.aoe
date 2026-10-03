@@ -12,7 +12,7 @@ extension Pet {
 /// Catalog queries operate only on canonical values; images remain owned by lazy cells.
 private struct PetListQuery {
     enum Sort: String, CaseIterable {
-        case ordinal = "图鉴顺序", total = "总种族值", speed = "速度", name = "中文名"
+        case handbook = "图鉴顺序", total = "总种族值", speed = "速度", name = "中文名"
     }
     enum Leader: String, CaseIterable {
         case all = "全部", leader = "首领", ordinary = "非首领"
@@ -27,7 +27,7 @@ private struct PetListQuery {
     var attackStyle: PetAttackStyle?
     var leader = Leader.all
     var stage = Stage.all
-    var sort = Sort.ordinal
+    var sort = Sort.handbook
 
     var hasFilters: Bool {
         firstType != nil || secondType != nil || attackStyle != nil || leader != .all || stage != .all
@@ -67,10 +67,10 @@ private struct PetListQuery {
             let fields = [pet.nameZh, pet.resourceKey, pet.form] + pet.searchAliases + typeNames
             return fields.contains { Self.normalize($0).contains(query) }
         }
-        return matches.sorted { left, right in
+        return PetCatalogPresentation.collapseDuplicateLeaderConfigurations(matches).sorted { left, right in
             switch sort {
-            case .ordinal:
-                if left.ordinal != right.ordinal { return left.ordinal < right.ordinal }
+            case .handbook:
+                return PetCatalogPresentation.handbookOrder(left, right)
             case .total:
                 let l = Self.total(left), r = Self.total(right)
                 if l != r { return l > r }
@@ -192,7 +192,7 @@ struct AlignedPetGrid: View {
                     sortMenu
                 }
             }
-            Text("\(resultCount) / \(catalogPets.count) 只已实装精灵")
+            Text("\(resultCount) / \(PetCatalogPresentation.collapseDuplicateLeaderConfigurations(catalogPets).count) 只已实装精灵")
                 .font(.subheadline.monospacedDigit()).foregroundStyle(.secondary)
         }
     }

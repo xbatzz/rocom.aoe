@@ -293,7 +293,7 @@ struct BattleDirectionView: View {
                 CompanionMetrics {
                     CompanionMetric(value: String(result.total), label: "总伤害", tint: .orange)
                     CompanionMetric(value: "\(result.hpPercent.formatted())%", label: "目标最大生命占比")
-                }.padding(20).companionSurface()
+                }.padding(20).companionAccentSurface(tint: .orange)
                 DisclosureGroup("计算明细") {
                     VStack(spacing: 12) {
                         LabeledContent("属性倍率") { Text("\(result.typeMultiplier.formatted())×").font(.headline.monospacedDigit()).foregroundStyle(.primary) }

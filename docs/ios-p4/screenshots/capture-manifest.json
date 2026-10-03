@@ -1,0 +1,182 @@
+{
+  "device": "iPhone 18 Pro",
+  "runtime": "iOS 27.0 (24A434)",
+  "simulator": "25EE507E-F0E7-4FB8-8484-0D7D216800DA",
+  "captures": [
+    {
+      "file": "final-backup.png",
+      "sha256": "e93097e133371ae202e6c6b247fedd78c9bdfe927b006eff59ac3489773e19e4",
+      "source": "/tmp/rocom-expressive-shots/final-backup.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-contrast-types.png",
+      "sha256": "f3cc0de486199281315cf4cbaf5c10e26ff9f72fc491015008c51a2e730cfa5d",
+      "source": "/tmp/rocom-expressive-shots/final-contrast-types.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-damage.png",
+      "sha256": "9a9cb515204eb0a70a3bc9e8378573a7c3c190b7736773905fdb8401131df77e",
+      "source": "/tmp/rocom-expressive-shots/final-damage.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-defense.png",
+      "sha256": "6e8ccaf4c45fb3176af921cf41521e09721ff7915ced2021d6ada9d6d24cdb49",
+      "source": "/tmp/rocom-expressive-shots/final-defense.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-grass.png",
+      "sha256": "2d9cce3fcacbcebf4c179e8dca2ab44d5a9d25212edfa4161e6f7993c922a7b3",
+      "source": "/tmp/rocom-expressive-shots/final-grass.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-grid.png",
+      "sha256": "0a765fdbfe1ff92cf8b667331e7ea804c969f07fa16ed1b3f3733e3579af2847",
+      "source": "/tmp/rocom-expressive-shots/final-grid.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-hero.png",
+      "sha256": "fe751a4ceda2e89b2162a80fa787622edb40d01a242c4e77c55217e9dbd5f4d0",
+      "source": "/tmp/rocom-expressive-shots/final-hero.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-home-ax.png",
+      "sha256": "5dbab36835ef92c892483dc22154bfaae50845bdf5424ba85368fd3a5a53dd0a",
+      "source": "/tmp/rocom-expressive-shots/final-home-ax.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-home-dark.png",
+      "sha256": "9e4ae933841284ae8b588a201cc804b5b2a4f79985e309cacf78e8615d1f515c",
+      "source": "/tmp/rocom-expressive-shots/final-home-dark.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-home.png",
+      "sha256": "f8037c4c0c6dd95efea73639370e554cac4f2735c296766aa08e77ecba279d68",
+      "source": "/tmp/rocom-expressive-shots/final-home.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-pet-ax.png",
+      "sha256": "26bbc166cba7c90e14ee238cdea96f4a27371b0f7c16ae867a41ea21924682df",
+      "source": "/tmp/rocom-expressive-shots/final-pet-ax.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-pet-stats.png",
+      "sha256": "957363a2c06dd37876f283a3157ae0c5de632dc4f68aabdab535ac2a5794e8a8",
+      "source": "/tmp/rocom-expressive-shots/final-pet-stats.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-pvp-dark.png",
+      "sha256": "fa97972cbb8879132214fd7e77d28d14dc3f4a4fcd033f1d405713cc28760df8",
+      "source": "/tmp/rocom-expressive-shots/final-pvp-dark.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-pvp.png",
+      "sha256": "9b825111ff35aeab74a4b237259a86f864aa284792a144441c984a4b0681d547",
+      "source": "/tmp/rocom-expressive-shots/final-pvp.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-shiny.png",
+      "sha256": "e955ee9bbe04069762a5316e882ecebc363b9f16e5461856af3f5fb7be6cdced",
+      "source": "/tmp/rocom-expressive-shots/final-shiny.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-skill.png",
+      "sha256": "0f6a7d7312f7173d38779a785aad08a92c01d0cce987a5ac2bbf8fb97dd77bb7",
+      "source": "/tmp/rocom-expressive-shots/final-skill.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-skills-ax.png",
+      "sha256": "ed82915a793c53c26effd7353e01a3bd103a8246108e4955a5ed578123c78e8c",
+      "source": "/tmp/rocom-expressive-shots/final-skills-ax.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-skills-dark.png",
+      "sha256": "7e79d3c226061541aa9984b9e0f255471d9e20f528fea78b915d1df8705cd534",
+      "source": "/tmp/rocom-expressive-shots/final-skills-dark.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-skills.png",
+      "sha256": "1a5965cdce62817154e508f99b52b35ba6f32c6a95300f0d7cbab93759399b84",
+      "source": "/tmp/rocom-expressive-shots/final-skills.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-solid-home.png",
+      "sha256": "28ffceefd77156931a58098d1f3478b3dce800aa6abd3d916c6395d5cc2fae80",
+      "source": "/tmp/rocom-expressive-shots/final-solid-home.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-team-draft.png",
+      "sha256": "29482e7cf0d02e240bc30206dab39c61c7a8b20251830ced33fb8135126ec7c0",
+      "source": "/tmp/rocom-expressive-shots/final-team-draft.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-teams.png",
+      "sha256": "6fe476996695a80f7567bc13a35cdebc3f8aed8f6c74dcaa78471314f9086bf8",
+      "source": "/tmp/rocom-expressive-shots/final-teams.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-types-ax.png",
+      "sha256": "58f8f4e4acd1eb0378ce93c96502c223ccf56a2c225ae4f5f1125125b73ffd41",
+      "source": "/tmp/rocom-expressive-shots/final-types-ax.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-types.png",
+      "sha256": "1341933bf7de4aa2988aed3611df1cfb0ddd2bb6cc4d95692b58750af8f0660d",
+      "source": "/tmp/rocom-expressive-shots/final-types.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    },
+    {
+      "file": "final-version.png",
+      "sha256": "5271a4b46b9da4ddd6323cbc2f369281984265e31dabdf061b2824b1f67f1072",
+      "source": "/tmp/rocom-expressive-shots/final-version.png",
+      "pixels": "1206×2622",
+      "process": "original simctl screenshot; no image editing"
+    }
+  ]
+}
