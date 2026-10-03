@@ -229,7 +229,12 @@ struct AlignedNavigation: UIViewControllerRepresentable {
             let showingCatalogGrid = viewController === navigationController.viewControllers.first
             navigationController.hidesBarsOnSwipe = false
             if !showingCatalogGrid {
-                navigationController.setNavigationBarHidden(false, animated: animated)
+                // Detail pages always get a fully visible navigation bar. The grid
+                // may have faded its chrome without changing navigation geometry.
+                navigationController.navigationBar.layer.removeAllAnimations()
+                navigationController.navigationBar.alpha = 1
+                navigationController.navigationBar.isUserInteractionEnabled = true
+                navigationController.setNavigationBarHidden(false, animated: false)
                 navigationController.setToolbarHidden(true, animated: animated)
             }
             (navigationController as? CatalogNavigationController)?.setHomeReturnEnabled(false)
