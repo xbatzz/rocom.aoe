@@ -67,6 +67,7 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         private var toolbarSpacer: UIBarButtonItem?
         private let searchController = UISearchController(searchResultsController: nil)
         private var synchronizingSearchText = false
+        private var pageHasAppeared = false
 
         init(
             content: ContentStore,
@@ -112,6 +113,16 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
             installChromeIfNeeded()
             applyChromeVisibility(animated: animated)
             associateCatalogScrollView()
+        }
+
+        override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+            pageHasAppeared = true
+            // Do not let the destination filter item participate in the parent
+            // NavigationStack's push animation. Mount it only after the outer
+            // interactive transition has settled, matching the stable chrome
+            // behavior of the other top-level pages.
+            applyChromeVisibility(animated: false)
         }
 
         override func viewDidLayoutSubviews() {
@@ -176,7 +187,6 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
                 )
                 item.accessibilityLabel = "筛选与排序"
                 item.accessibilityIdentifier = "catalog-filter-button"
-                owner.navigationItem.rightBarButtonItem = item
                 filterItem = item
 
                 owner.navigationItem.searchController = searchController
@@ -272,16 +282,27 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
                 searchController.isActive ||
                 !query.wrappedValue.keyword.isEmpty
 
+            let outerTransitionActive =
+                !pageHasAppeared && navigation.transitionCoordinator != nil
+
             if shouldShow {
                 if owner.navigationItem.leftBarButtonItem !== leadingItem {
                     owner.navigationItem.setLeftBarButton(leadingItem, animated: animated)
                 }
-                if owner.navigationItem.rightBarButtonItem !== filterItem {
+                // A right item added while NavigationStack is pushing the page is
+                // animated by UIKit as part of the bar transition, which looked like
+                // the filter button shooting across the screen. Defer only this item
+                // until viewDidAppear; after that it uses the normal system item
+                // animation for scroll hide/show.
+                if !outerTransitionActive,
+                   owner.navigationItem.rightBarButtonItem !== filterItem {
                     owner.navigationItem.setRightBarButton(filterItem, animated: animated)
                 }
             } else {
                 owner.navigationItem.setLeftBarButton(nil, animated: animated)
-                owner.navigationItem.setRightBarButton(nil, animated: animated)
+                if !outerTransitionActive {
+                    owner.navigationItem.setRightBarButton(nil, animated: animated)
+                }
             }
 
             if let searchItem, let toolbarSpacer {
@@ -512,6 +533,7 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
             owner.toolbarItems = originalToolbarItems
             navigation?.toolbar.alpha = 1
             navigation?.toolbar.isUserInteractionEnabled = true
+            pageHasAppeared = false
         }
 
         static func dismantle(_ host: ToolbarHost) {
