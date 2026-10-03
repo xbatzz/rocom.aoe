@@ -238,7 +238,7 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         ) -> UIAction {
             UIAction(
                 title: title,
-                image: systemImage.flatMap(UIImage.init(systemName:)),
+                image: systemImage.flatMap { UIImage(systemName: $0) },
                 state: selected ? .on : .off
             ) { [weak self] _ in
                 guard let self else { return }
