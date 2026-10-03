@@ -20,7 +20,6 @@ struct AlignedPetGrid: View {
     let open: (Pet, PortraitOrigin) -> Void
     @State private var query = PetCatalogQuery()
     @State private var ascending = true
-    @State private var searchChromeVisible = true
     @State private var results: [Pet] = []
     @State private var prefetchByPet: [PetID: [AssetID]] = [:]
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
@@ -66,12 +65,6 @@ struct AlignedPetGrid: View {
             .onChange(of: query) {
                 proxy.scrollTo("catalog-results-top", anchor: .top)
             }
-            .onScrollPhaseChange { _, phase, _ in
-                // Keep the official integrated search expanded while browsing is
-                // idle; hide the entire system toolbar while the user scrolls.
-                // This changes only on phase boundaries, never on every scroll frame.
-                searchChromeVisible = phase == .idle
-            }
             .reviewScrollPosition()
             .scrollDismissesKeyboard(.interactively)
             .background(Color(uiColor: .systemBackground))
@@ -79,8 +72,7 @@ struct AlignedPetGrid: View {
                 CatalogFilterToolbar(
                     content: content,
                     query: $query,
-                    ascending: $ascending,
-                    searchChromeVisible: searchChromeVisible
+                    ascending: $ascending
                 )
                     .frame(width: 0, height: 0)
             }
