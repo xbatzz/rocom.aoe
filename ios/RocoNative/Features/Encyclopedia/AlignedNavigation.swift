@@ -104,6 +104,7 @@ struct AlignedNavigation: UIViewControllerRepresentable {
             let nav = returnToHome == nil ? UINavigationController(rootViewController: root)
                 : CatalogNavigationController(rootViewController: root)
             nav.navigationBar.prefersLargeTitles = true
+            nav.hidesBarsOnSwipe = true
             nav.delegate = self
             navigation = nav
 
@@ -226,6 +227,7 @@ struct AlignedNavigation: UIViewControllerRepresentable {
             animated: Bool
         ) {
             let showingCatalogGrid = viewController === navigationController.viewControllers.first
+            navigationController.hidesBarsOnSwipe = showingCatalogGrid
             navigationController.setToolbarHidden(!showingCatalogGrid, animated: animated)
             (navigationController as? CatalogNavigationController)?.setHomeReturnEnabled(false)
 #if DEBUG
