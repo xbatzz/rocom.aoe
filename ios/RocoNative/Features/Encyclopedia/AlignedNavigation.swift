@@ -130,7 +130,6 @@ struct AlignedNavigation: UIViewControllerRepresentable {
             let nav = returnToHome == nil ? UINavigationController(rootViewController: root)
                 : CatalogNavigationController(rootViewController: root)
             nav.view.backgroundColor = .systemBackground
-            root.view.backgroundColor = .systemBackground
             nav.navigationBar.prefersLargeTitles = false
             nav.hidesBarsOnSwipe = false
             nav.setNavigationBarHidden(true, animated: false)
@@ -676,12 +675,19 @@ private final class PortraitNavigationAnimator: NSObject, UIViewControllerAnimat
 /// Deliberately plain hosting controller. The bridge never takes ownership of
 /// SwiftUI's internal ScrollView/navigation-bar tracking relationship.
 private final class NavigationContentHost<Content: View>: UIHostingController<Content> {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Every destination, including related pets, needs an opaque backing
+        // surface when the portrait animator crossfades the hosting views.
+        view.backgroundColor = .systemBackground
+    }
+
 #if DEBUG
     private var lastLayoutSnapshot: String?
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        guard let nav = navigationController else { return }
+        guard NavigationBarDiagnostics.isEnabled, let nav = navigationController else { return }
 
         let snapshot = NavigationBarDiagnostics.snapshot(nav, controller: self)
         if snapshot != lastLayoutSnapshot {
@@ -713,6 +719,7 @@ private func firstContentScrollView(in view: UIView) -> UIScrollView? {
 
 #if DEBUG
 private enum NavigationBarDiagnostics {
+    static let isEnabled = ProcessInfo.processInfo.arguments.contains("--navigation-diagnostics")
     private static let logger = Logger(
         subsystem: "com.batzz.rocom",
         category: "navigation-bar"
@@ -752,6 +759,7 @@ private enum NavigationBarDiagnostics {
         phase: String,
         snapshot: String? = nil
     ) {
+        guard isEnabled else { return }
         let value = snapshot ?? self.snapshot(nav, controller: controller)
         logger.notice(
             "nav-bar phase=\(phase, privacy: .public) \(value, privacy: .public)"

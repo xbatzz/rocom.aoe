@@ -21,40 +21,44 @@ struct CatalogNavigationPage: View {
                 .ignoresSafeArea()
 
             AlignedNavigation(
-            content: content,
-            portraits: portraits,
-            query: $query,
-            ascending: $ascending,
-            chromeVisible: $chromeVisible,
-            detailPopRequest: detailPopRequest,
-            onDetailVisibilityChanged: { detailPresented = $0 },
-            returnToHome: { dismiss() }
-        )
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .background {
-            // Use the exact same shared chrome bridge as SkillsView and the other
-            // top-level pages. The catalog only supplies its query/menu semantics.
-            CompanionScrollChrome(
-                query: keywordBinding,
-                visible: chromeVisible,
-                prompt: "名称、编号或配置 ID",
-                searchLabel: "搜索精灵",
-                identifier: "catalog",
-                returnToParent: {
-                    if detailPresented {
-                        detailPopRequest &+= 1
-                    } else {
-                        dismiss()
-                    }
-                },
-                makeMenu: makeFilterMenu,
-                filterValue: "\(query.filterCount) 项筛选，按\(query.sort.rawValue)排序，\(ascending ? "升序" : "降序")",
-                chromeEnabled: !detailPresented,
-                keepLeadingWhenDisabled: detailPresented
+                content: content,
+                portraits: portraits,
+                query: $query,
+                ascending: $ascending,
+                chromeVisible: $chromeVisible,
+                detailPopRequest: detailPopRequest,
+                onDetailVisibilityChanged: { detailPresented = $0 },
+                returnToHome: { dismiss() }
             )
-            .frame(width: 0, height: 0)
-        }
+            // UIKit receives the full page bounds and applies the inherited
+            // system-bar safe area once, so scrolling content reaches below
+            // the transparent navigation bar and bottom search toolbar.
+            .ignoresSafeArea(.container, edges: .vertical)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .background {
+                // Use the exact same shared chrome bridge as SkillsView and the other
+                // top-level pages. The catalog only supplies its query/menu semantics.
+                CompanionScrollChrome(
+                    query: keywordBinding,
+                    visible: chromeVisible,
+                    prompt: "名称、编号或配置 ID",
+                    searchLabel: "搜索精灵",
+                    identifier: "catalog",
+                    returnToParent: {
+                        if detailPresented {
+                            detailPopRequest &+= 1
+                        } else {
+                            dismiss()
+                        }
+                    },
+                    makeMenu: makeFilterMenu,
+                    filterValue: "\(query.filterCount) 项筛选，按\(query.sort.rawValue)排序，\(ascending ? "升序" : "降序")",
+                    chromeEnabled: !detailPresented,
+                    keepLeadingWhenDisabled: detailPresented
+                )
+                .frame(width: 0, height: 0)
+            }
         }
     }
 

@@ -19,6 +19,9 @@ struct CompanionScrollChrome: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_ host: Host, context: Context) {
+        if host.configuration.chromeEnabled != chromeEnabled {
+            host.trackedScrollView = nil
+        }
         host.configuration = self
         host.refresh()
     }
@@ -42,6 +45,8 @@ struct CompanionScrollChrome: UIViewControllerRepresentable {
         private var originalHidesBack = false
         private var synchronizing = false
         private var isLeavingPage = false
+        private var isRefreshing = false
+        fileprivate weak var trackedScrollView: UIScrollView?
         private weak var returnNavigation: UINavigationController?
         private weak var originalEdgeDelegate: (any UIGestureRecognizerDelegate)?
         private var originalEdgeEnabled: Bool?
@@ -121,7 +126,9 @@ struct CompanionScrollChrome: UIViewControllerRepresentable {
         }
 
         func refresh(allowTransitionSetup: Bool = false) {
-            guard !isLeavingPage else { return }
+            guard !isLeavingPage, !isRefreshing else { return }
+            isRefreshing = true
+            defer { isRefreshing = false }
             var candidate = parent
             while let current = candidate, current.navigationController == nil { candidate = current.parent }
             guard let candidate else { return }
@@ -141,7 +148,13 @@ struct CompanionScrollChrome: UIViewControllerRepresentable {
                     leading?.accessibilityIdentifier = "\(configuration.identifier)-back"
                 }
                 candidate.navigationItem.hidesBackButton = true
-                trailing = UIBarButtonItem(title: nil, image: UIImage(systemName: "line.3.horizontal.decrease"), primaryAction: nil, menu: configuration.makeMenu())
+                trailing = UIBarButtonItem(title: nil, image: UIImage(systemName: "line.3.horizontal.decrease"), primaryAction: nil, menu: UIMenu(children: [
+                    // Build the latest filter actions only when the menu opens.
+                    // Keyboard layout must not repeatedly replace a UIKit menu.
+                    UIDeferredMenuElement.uncached { [weak self] completion in
+                        completion(self?.configuration.makeMenu().children ?? [])
+                    }
+                ]))
                 trailing?.accessibilityLabel = "筛选"
                 trailing?.accessibilityIdentifier = "\(configuration.identifier)-filter-button"
                 candidate.navigationItem.setLeftBarButton(leading, animated: false)
@@ -157,13 +170,16 @@ struct CompanionScrollChrome: UIViewControllerRepresentable {
             // An offscreen page must not overwrite the detail page's bar state.
             guard candidate.navigationController?.topViewController === candidate,
                   allowTransitionSetup || candidate.navigationController?.transitionCoordinator == nil else { return }
-            search.searchBar.placeholder = configuration.prompt
+            if search.searchBar.placeholder != configuration.prompt {
+                search.searchBar.placeholder = configuration.prompt
+            }
             search.searchBar.accessibilityLabel = configuration.searchLabel
             search.searchBar.accessibilityIdentifier = "\(configuration.identifier)-search-field"
             searchItem?.accessibilityLabel = configuration.searchLabel
             searchItem?.accessibilityIdentifier = "\(configuration.identifier)-search-button"
-            trailing?.menu = configuration.makeMenu()
-            trailing?.accessibilityValue = configuration.filterValue
+            if trailing?.accessibilityValue != configuration.filterValue {
+                trailing?.accessibilityValue = configuration.filterValue
+            }
             if !configuration.chromeEnabled && search.isActive {
                 search.isActive = false
             }
@@ -177,7 +193,10 @@ struct CompanionScrollChrome: UIViewControllerRepresentable {
             } else {
                 restoreEdgeReturn()
             }
-            if let scroll = Self.contentScrollView(in: candidate.view), candidate.contentScrollView(for: .top) !== scroll {
+            if trackedScrollView == nil || trackedScrollView?.window !== view.window {
+                trackedScrollView = Self.contentScrollView(in: candidate.view)
+            }
+            if let scroll = trackedScrollView, candidate.contentScrollView(for: .top) !== scroll {
                 candidate.setContentScrollView(scroll, for: .top)
             }
             applyVisibility(allowTransitionSetup: allowTransitionSetup)
@@ -273,6 +292,7 @@ struct CompanionScrollChrome: UIViewControllerRepresentable {
         }
 
         func detach() {
+            trackedScrollView = nil
             restoreEdgeReturn()
             guard let owner else { return }
             search.isActive = false

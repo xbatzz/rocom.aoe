@@ -362,6 +362,67 @@ final class NavigationTests: XCTestCase {
     }
 
     @MainActor
+    func testCatalogSearchFocusAndRepeatedActivation() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--visual-review", "home"]
+        app.launch()
+        let entry = app.buttons["home-encyclopedia"]
+        XCTAssertTrue(entry.waitForExistence(timeout: 8))
+        entry.tap()
+        let search = app.searchFields.firstMatch
+        XCTAssertTrue(search.waitForExistence(timeout: 5))
+        for _ in 0..<2 {
+            search.tap()
+            XCTAssertTrue(app.keyboards.firstMatch.waitForExistence(timeout: 3))
+            search.typeText("喵喵")
+            XCTAssertTrue(app.buttons["pet-3001"].waitForExistence(timeout: 5))
+            XCTAssertTrue(search.isHittable)
+            attach("catalog-search-keyboard", app)
+            let cancel = app.buttons.matching(NSPredicate(format: "label IN %@", ["关闭", "Close", "取消", "Cancel"])).firstMatch
+            XCTAssertTrue(cancel.waitForExistence(timeout: 3))
+            cancel.tap()
+            XCTAssertTrue(app.buttons["pet-3004"].waitForExistence(timeout: 5))
+        }
+        app.buttons["catalog-filter-button"].tap()
+        XCTAssertTrue(app.buttons["形态"].firstMatch.waitForExistence(timeout: 3))
+        app.buttons["形态"].firstMatch.tap()
+        app.buttons["首领"].firstMatch.tap()
+        XCTAssertTrue((app.buttons["catalog-filter-button"].value as? String)?.contains("1 项筛选") == true)
+        app.buttons["catalog-filter-button"].tap()
+        app.buttons["清除筛选"].firstMatch.tap()
+        XCTAssertTrue((app.buttons["catalog-filter-button"].value as? String)?.contains("0 项筛选") == true)
+    }
+
+    @MainActor
+    func testCatalogContentExtendsUnderSystemBars() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--visual-review", "home", "-AppleInterfaceStyle", "Light"]
+        app.launch()
+        let entry = app.buttons["home-encyclopedia"]
+        XCTAssertTrue(entry.waitForExistence(timeout: 8))
+        entry.tap()
+        let pet = app.buttons["pet-3004"]
+        XCTAssertTrue(pet.waitForExistence(timeout: 5))
+        let grid = app.scrollViews.firstMatch
+        XCTAssertEqual(grid.frame.minY, app.frame.minY, accuracy: 1)
+        XCTAssertEqual(grid.frame.maxY, app.frame.maxY, accuracy: 1)
+        attach("catalog-full-height-background", app)
+        pet.tap()
+        let detail = app.scrollViews["detail-3004"]
+        XCTAssertTrue(detail.waitForExistence(timeout: 3))
+        // The detail tabs inset the top; its bottom still reaches the screen edge.
+        XCTAssertEqual(detail.frame.maxY, app.frame.maxY, accuracy: 1)
+        attach("catalog-detail-full-height-background", app)
+        detail.swipeUp()
+        attach("catalog-detail-scrolled-background", app)
+        app.buttons["catalog-back"].tap()
+        XCTAssertTrue(pet.waitForExistence(timeout: 3))
+        XCTAssertEqual(grid.frame.minY, app.frame.minY, accuracy: 1)
+        XCTAssertEqual(grid.frame.maxY, app.frame.maxY, accuracy: 1)
+        attach("catalog-return-full-height-background", app)
+    }
+
+    @MainActor
     func testCatalogDetailEdgeReturnKeepsHomeStack() {
         let app = XCUIApplication()
         app.launchArguments = ["--visual-review", "home"]
