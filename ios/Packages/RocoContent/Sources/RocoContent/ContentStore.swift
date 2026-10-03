@@ -1,7 +1,8 @@
 import Foundation
 import RocoDomain
 
-/// Fully validated snapshot. All storage is immutable and compiler-checked Sendable.
+/// Validated canonical snapshot; image byte validation follows the selected policy.
+/// All storage is immutable and compiler-checked Sendable.
 /// Own one instance per application lifetime; queries never decode or scan entity arrays.
 public struct ContentStore: Sendable {
     public let manifest: Manifest
@@ -11,6 +12,7 @@ public struct ContentStore: Sendable {
     public let petDetails: [PetID: PetDetail]
     public let types: [TypeID: BattleType]
     public let skills: [SkillID: Skill]
+    private let skillIconsByName: [String: AssetID]
     public let skillGroups: [SkillGroupID: SkillGroup]
     public let traits: [TraitID: Trait]
     public let evolutions: [EvolutionEdgeID: Evolution]
@@ -35,17 +37,19 @@ public struct ContentStore: Sendable {
 
     /// Layout: <Bundle resources>/Content/{canonical,assets}/...
     /// Throws with a file/field/ID context; never returns a partial snapshot.
-    public static func load(bundle: Bundle, directory: String = "Content", appBuild: Int = 1) throws -> ContentStore {
-        try ContentStore(bundle: bundle, directory: directory, appBuild: appBuild)
+    public static func load(bundle: Bundle, directory: String = "Content", appBuild: Int = 1,
+        assetValidation: AssetValidationMode = .eager) throws -> ContentStore {
+        try ContentStore(bundle: bundle, directory: directory, appBuild: appBuild, assetValidation: assetValidation)
     }
 
     /// Real-package validation takes hundreds of milliseconds; this entry point keeps it off the UI actor.
-    @concurrent public static func loadInBackground(bundleURL: URL, directory: String = "Content", appBuild: Int = 1) async throws -> ContentStore {
+    @concurrent public static func loadInBackground(bundleURL: URL, directory: String = "Content", appBuild: Int = 1,
+        assetValidation: AssetValidationMode = .eager) async throws -> ContentStore {
         guard let bundle = Bundle(url: bundleURL) else { throw ContentError.invalid("Cannot open Bundle: \(bundleURL.path)") }
-        return try load(bundle: bundle, directory: directory, appBuild: appBuild)
+        return try load(bundle: bundle, directory: directory, appBuild: appBuild, assetValidation: assetValidation)
     }
 
-    private init(bundle: Bundle, directory: String, appBuild: Int) throws {
+    private init(bundle: Bundle, directory: String, appBuild: Int, assetValidation: AssetValidationMode) throws {
         let reader = try BundleReader(bundle: bundle, directory: directory + "/canonical")
         let manifestBytes = try reader.data("manifest.json")
         let decodedManifest = try decodeData(Manifest.self, bytes: manifestBytes, context: "manifest.json")
@@ -69,6 +73,13 @@ public struct ContentStore: Sendable {
         types = try uniqueIndex(typesRows, id: { $0.typeId }, context: "types")
         let skillsRows = try load(Skill.self, "skills", "skills.json")
         skills = try uniqueIndex(skillsRows, id: { $0.skillId }, context: "skills")
+        var icons: [String: AssetID] = [:]
+        for skill in skillsRows.sorted(by: { $0.skillId.rawValue < $1.skillId.rawValue }) {
+            if let icon = skill.iconAssetId, icons[skill.nameZh] == nil {
+                icons[skill.nameZh] = icon
+            }
+        }
+        skillIconsByName = icons
         let skillGroupsRows = try load(SkillGroup.self, "skillGroups", "skill-groups.json")
         skillGroups = try uniqueIndex(skillGroupsRows, id: { $0.groupId }, context: "skillGroups")
         let petSkillsRows = try load(PetSkill.self, "petSkills", "pet-skills.json")
@@ -112,12 +123,17 @@ public struct ContentStore: Sendable {
         battleEffectsBySkill = optionalIndex(battleEffectsRows, id: { $0.skillId })
         battleEffectsByPet = optionalIndex(battleEffectsRows, id: { $0.petId })
         assetResolver = try AssetResolver(bundle: bundle, directory: directory + "/assets",
-            canonical: assets, manifest: manifest, canonicalManifestHash: sha256(manifestBytes))
+            canonical: assets, manifest: manifest, canonicalManifestHash: sha256(manifestBytes), validation: assetValidation)
         try validateRelations(petSkillsRows: petSkillsRows)
     }
 
     public func pet(_ id: PetID) -> Pet? { pets[id] }
     public func skill(_ id: SkillID) -> Skill? { skills[id] }
+    /// Catalog IDs can omit artwork supplied by a same-name pet skill configuration.
+    /// Preserve each configuration's own icon; use the lowest-ID named icon only as a fallback.
+    public func skillIcon(for skill: Skill) -> AssetID? {
+        skill.iconAssetId ?? skillIconsByName[skill.nameZh]
+    }
     public func type(_ id: TypeID) -> BattleType? { types[id] }
     public func trait(_ id: TraitID) -> Trait? { traits[id] }
     public func petSkills(for id: PetID) -> [PetSkill] { petSkillsByPet[id] ?? [] }

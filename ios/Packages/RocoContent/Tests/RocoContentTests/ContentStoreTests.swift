@@ -196,6 +196,65 @@ private func expectFailure(_ bundle: Bundle, containing message: String) throws 
         }
     }
 
+    @Test func onDemandAssetsMatchEagerSnapshot() throws {
+        let bundle = try resourceBundle()
+        let eager = try ContentStore.load(bundle: bundle)
+        let deferred = try ContentStore.load(bundle: bundle, assetValidation: .onDemand)
+        #expect(deferred.manifest == eager.manifest)
+        #expect(deferred.pets == eager.pets)
+        #expect(deferred.assetResolver.materializedCount == eager.assetResolver.materializedCount)
+        #expect(deferred.assetResolver.missingCount == eager.assetResolver.missingCount)
+        for id in eager.assets.keys {
+            #expect(try deferred.assetResolver.resolve(id) == eager.assetResolver.resolve(id))
+        }
+        #expect(throws: ContentError.self) { try deferred.assetResolver.resolve(AssetID(rawValue: "unknown")) }
+    }
+
+    @Test func onDemandRejectsMissingCorruptAndEscapingImagesWhenRequested() throws {
+        for mutation in ["missing", "corrupt", "symlink"] {
+            var affectedID: AssetID?
+            try editedBundle({ root in
+                let manifest = try #require(json(root.appendingPathComponent("assets/asset-manifest.json")) as? [String: Any])
+                let rows = try #require(manifest["assets"] as? [[String: Any]])
+                let row = try #require(rows.first { $0["relativeOutputPath"] is String })
+                affectedID = AssetID(rawValue: try #require(row["assetKey"] as? String))
+                let path = try #require(row["relativeOutputPath"] as? String)
+                let file = root.appendingPathComponent("assets/" + path)
+                switch mutation {
+                case "missing": try FileManager.default.removeItem(at: file)
+                case "corrupt": try Data("bad".utf8).write(to: file)
+                default:
+                    let outside = root.appendingPathComponent("outside.webp")
+                    try FileManager.default.moveItem(at: file, to: outside)
+                    try FileManager.default.createSymbolicLink(at: file, withDestinationURL: outside)
+                }
+            }, body: { bundle in
+                let store = try ContentStore.load(bundle: bundle, assetValidation: .onDemand)
+                let id = try #require(affectedID)
+                let other = try #require(store.assets.keys.first { $0 != id && store.assets[$0]?.availability == .available })
+                _ = try store.assetResolver.resolve(other)
+                do {
+                    _ = try store.assetResolver.resolve(id)
+                    Issue.record("Expected rejection of \(mutation) image")
+                } catch {
+                    let expected = mutation == "missing" ? "Cannot read" : mutation == "corrupt" ? "Missing/corrupt Bundle WebP" : "Bundle path escapes root"
+                    #expect(String(describing: error).contains(expected))
+                }
+            })
+        }
+    }
+
+    @Test func onDemandStillRejectsCorruptCanonicalData() throws {
+        try editedBundle({ root in
+            try Data("[]".utf8).write(to: root.appendingPathComponent("canonical/skills.json"))
+        }, body: { bundle in
+            do {
+                _ = try ContentStore.load(bundle: bundle, assetValidation: .onDemand)
+                Issue.record("Expected canonical integrity failure")
+            } catch { #expect(String(describing: error).contains("bytes/hash mismatch")) }
+        })
+    }
+
 
     @Test func realDTOsRoundTripWithRequiredNulls() throws {
         let store = try ContentStore.load(bundle: resourceBundle())

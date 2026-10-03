@@ -16,6 +16,7 @@ func residentBytes() throws -> UInt64 {
 }
 
 struct ProbeReport: Codable {
+    let assetValidation: String
     let operatingSystem: String
     let runs: Int
     let loadMilliseconds: [Double]
@@ -31,10 +32,12 @@ struct ProbeReport: Codable {
 
 @main struct ContentProbe {
     static func main() throws {
-        guard CommandLine.arguments.count == 3,
+        guard (3...4).contains(CommandLine.arguments.count),
+            CommandLine.arguments.count == 3 || CommandLine.arguments[3] == "--on-demand-assets",
             let bundle = Bundle(url: URL(fileURLWithPath: CommandLine.arguments[1])) else {
-            throw ContentError.invalid("Usage: content-probe <ContentResources.bundle> <report.json>")
+            throw ContentError.invalid("Usage: content-probe <ContentResources.bundle> <report.json> [--on-demand-assets]")
         }
+        let validation: AssetValidationMode = CommandLine.arguments.count == 4 ? .onDemand : .eager
         let baseline = try residentBytes()
         var times: [Double] = []
         var firstLoaded: UInt64 = 0
@@ -42,7 +45,7 @@ struct ProbeReport: Codable {
         for _ in 0..<5 {
             retained = nil
             let start = ContinuousClock.now
-            let store = try autoreleasepool { try ContentStore.load(bundle: bundle) }
+            let store = try autoreleasepool { try ContentStore.load(bundle: bundle, assetValidation: validation) }
             let elapsed = start.duration(to: .now).components
             times.append(Double(elapsed.seconds) * 1000 + Double(elapsed.attoseconds) / 1e15)
             retained = store
@@ -61,7 +64,8 @@ struct ProbeReport: Codable {
             missing.append(number)
         }
         let loaded = try residentBytes()
-        let report = ProbeReport(operatingSystem: ProcessInfo.processInfo.operatingSystemVersionString,
+        let report = ProbeReport(assetValidation: validation == .onDemand ? "onDemand" : "eager",
+            operatingSystem: ProcessInfo.processInfo.operatingSystemVersionString,
             runs: 5, loadMilliseconds: times, baselineResidentBytes: baseline, firstLoadedResidentBytes: firstLoaded,
             firstResidentDeltaBytes: Int64(firstLoaded) - Int64(baseline), loadedResidentBytes: loaded,
             residentDeltaBytes: Int64(loaded) - Int64(baseline), counts: store.manifest.counts,

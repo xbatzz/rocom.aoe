@@ -2,6 +2,24 @@ import XCTest
 
 final class NavigationTests: XCTestCase {
     @MainActor
+    func testHomeStartupAndFeatureNavigation() {
+        let app = XCUIApplication()
+        // Exercise the production home with an isolated database, including a fresh process relaunch.
+        app.launchArguments = ["--visual-review", "home"]
+        for _ in 0..<2 {
+            app.launch()
+            XCTAssertTrue(app.navigationBars["洛克工具"].waitForExistence(timeout: 5))
+            XCTAssertFalse(app.staticTexts["正在加载内容…"].exists)
+            app.staticTexts["技能查询"].firstMatch.tap()
+            XCTAssertTrue(app.navigationBars["技能查询"].waitForExistence(timeout: 3))
+            app.navigationBars.buttons.element(boundBy: 0).tap()
+            app.staticTexts["异色收集"].firstMatch.tap()
+            XCTAssertTrue(app.navigationBars["异色收集"].waitForExistence(timeout: 3))
+            app.terminate()
+        }
+    }
+
+    @MainActor
     func testCrossFadePrototype() {
         let app = XCUIApplication()
         app.launchArguments = ["--swiftui-cross-fade"]

@@ -22,7 +22,13 @@ Use TypeScript and Vue single-file components. Follow the existing 4-space inden
 
 ## Testing Guidelines
 
-There is no broad unit test framework configured. At minimum, run `yarn type-check` and `yarn build` before submitting changes. For handbook progress logic, run `node scripts/test-handbook-progress.mjs`. When changing data generation, run `yarn sync:pet-data` and inspect the resulting `public/data` diff carefully.
+There is no broad Web unit test framework configured. Select validation by the affected platform; do not run Web `yarn build` or full Web regression by default for iOS-only changes.
+
+Run Web validation only when a change affects Web business code under `src/`, Vite/Web build configuration, a shared data generator or schema that may affect Web, or the task explicitly requires Web parity verification. For Web code/build changes, run `yarn type-check` and `yarn build`. For handbook progress logic, run `node scripts/test-handbook-progress.mjs`.
+
+For changes limited to Swift/SwiftUI, iOS assets, ContentStore, resource resolution, presentation/navigation, or iOS-only persistence, run only the relevant Swift tests and one quick iOS build. Reading or copying existing Web images as iOS source assets does not modify Web and does not require a Web build. Full Web builds have previously reached approximately 38.5 GB of memory use and must not be treated as a routine iOS iteration step.
+
+For canonical/exporter changes, prioritize the corresponding exporter, validator, and determinism checks; `yarn build` is not a substitute for data validation. When changing base game data generation, run `yarn sync:pet-data` and inspect the resulting `public/data` diff carefully. Add Web validation only if one of the Web-impact conditions above applies.
 
 ## Data & Generated File Boundaries
 

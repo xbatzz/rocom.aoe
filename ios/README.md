@@ -1,6 +1,6 @@
 # rocom 原生 iOS App
 
-**当前 App 已接 P1 真实图鉴 ContentStore（721 条配置）。** 架构沿用已冻结的 UIKit shared zoom；接线、lazy 图片和本轮 focused check 见 [真实图鉴接线](../docs/ios-p1/encyclopedia-wiring.md)。先运行 `python3 scripts/ios-store/prepare-bundle.py`，再打开 `ios/RocoNative.xcodeproj` Run。App 不再加载 PrototypeContent 或接受纯 SwiftUI transition 实验参数。
+**当前 App 已接 P1 canonical 内容，并提供 P2 原生功能首页：图鉴、属性克制、技能查询、异色收集、草系徽章、命定勇者、配队、PVP 纸面计算。** 收藏/配队使用独立 SwiftData 本机存储；PVP 临时构筑不写已保存队伍。实施与轻量验证见 [P2 记录](../docs/ios-p2/overnight.md)。 架构沿用已冻结的 UIKit shared zoom；接线、lazy 图片和本轮 focused check 见 [真实图鉴接线](../docs/ios-p1/encyclopedia-wiring.md)。先运行 `python3 scripts/ios-store/prepare-bundle.py`，再打开 `ios/RocoNative.xcodeproj` Run。App 不再加载 PrototypeContent 或接受纯 SwiftUI transition 实验参数。
 
 保留现有个人真机签名设置。下文 P0 命令/样本仅作历史记录，**不要运行旧 create-project.py 覆盖当前 P1 工程**。
 

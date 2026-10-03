@@ -36,8 +36,10 @@ final class NavigationLifetimeTests: XCTestCase {
         let observer = NavigationObserver(forwarding: coordinator)
         nav.delegate = observer
         let root = try XCTUnwrap(nav.viewControllers.first)
+        let visiblePets = visibleCatalogPets(pets)
+        XCTAssertGreaterThanOrEqual(visiblePets.count, 2)
         for index in 0..<10 {
-            let pet = pets[index % 2]
+            let pet = visiblePets[index % 2]
             let origin = PortraitOrigin(petID: pet.petId, instance: "encyclopedia-grid")
             await observer.perform(expecting: { $0 === root }) {
                 coordinator.open(pet, origin)
@@ -72,7 +74,7 @@ final class NavigationLifetimeTests: XCTestCase {
         let window = try makeWindow(nav)
         defer { window.isHidden = true; window.rootViewController = nil }
         nav.view.layoutIfNeeded()
-        let pet = try XCTUnwrap(pets.first)
+        let pet = try XCTUnwrap(visibleCatalogPets(pets).first)
         let origin = PortraitOrigin(petID: pet.petId, instance: "encyclopedia-grid")
         let source = try XCTUnwrap(coordinator.anchors.source(for: origin))
         coordinator.open(pet, origin)
@@ -128,7 +130,7 @@ final class NavigationLifetimeTests: XCTestCase {
         defer { window.isHidden = true; window.rootViewController = nil }
         nav.view.layoutIfNeeded()
         await nextMainTurn()
-        let pet = try XCTUnwrap(pets.first)
+        let pet = try XCTUnwrap(visibleCatalogPets(pets).first)
         let origin = PortraitOrigin(petID: pet.petId, instance: "encyclopedia-grid")
         let source = try XCTUnwrap(coordinator.anchors.source(for: origin))
         let image = try XCTUnwrap(source.image)
@@ -143,6 +145,11 @@ final class NavigationLifetimeTests: XCTestCase {
         XCTAssertTrue(coordinator.anchors.hero?.image === image)
         nav.popViewController(animated: false)
         await nextMainTurn()
+    }
+
+    private func visibleCatalogPets(_ pets: [Pet]) -> [Pet] {
+        PetCatalogPresentation.collapseDuplicateLeaderConfigurations(pets.filter { $0.implemented && $0.publicVisible })
+            .sorted(by: PetCatalogPresentation.handbookOrder)
     }
 
     @MainActor

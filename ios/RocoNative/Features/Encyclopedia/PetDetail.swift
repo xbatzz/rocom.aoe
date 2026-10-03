@@ -46,25 +46,17 @@ struct PetDetail: View {
                     if pet.portraitAssetId.flatMap({ content.assets[$0]?.availability }) == .missing {
                         Label("暂无精灵图片", systemImage: "photo").foregroundStyle(.secondary)
                     }
-                    detailCard("基础信息") {
-                        if let number = pet.handbookId { detailValue("图鉴编号", String(format: "No. %03d", number.rawValue)) }
-                        detailValue("配置 ID", String(pet.petId.rawValue))
-                        detailValue("形态", pet.form == "default" ? "默认形态" : pet.form)
-                        let types = pet.typeIds.compactMap { content.types[$0]?.nameZh }.joined(separator: " · ")
-                        if !types.isEmpty { detailValue("属性", types) }
+                    PetTypes(pet: pet, content: content)
+                    VStack(alignment: .leading, spacing: 6) {
+                        if let number = pet.handbookId { Text(String(format: "No. %03d", number.rawValue)).font(.subheadline.monospacedDigit()) }
+                        Text("配置 \(String(pet.petId.rawValue)) · \(pet.form == "default" ? "默认形态" : pet.form)")
+                            .font(.caption).foregroundStyle(.secondary)
                     }
                     detailCard("种族值") {
-                        ForEach(stats, id: \.0) { label, value in
-                            detailValue(label, String(value))
-                        }
-                        Divider()
-                        detailValue("总种族值", String(stats.reduce(0) { $0 + $1.1 }))
+                        PetStatChart(pet: pet)
                     }
                     if let traitId = content.petDetails[pet.petId]?.traitId, let trait = content.traits[traitId] {
-                        detailCard("特性") {
-                            Text(trait.nameZh).font(.headline)
-                            if !trait.description.isEmpty { Text(trait.description).foregroundStyle(.secondary) }
-                        }
+                        TraitDetailCard(trait: trait, content: content, tint: pet.typeIds.first.map(GameIconCatalog.color) ?? .teal)
                     }
                     evolutionSections
                     familySections
@@ -74,15 +66,10 @@ struct PetDetail: View {
                 .padding(.horizontal, 24)
                 .padding(.bottom, 40)
             }
+            .reviewScrollPosition()
             .accessibilityIdentifier("detail-\(pet.petId.rawValue)")
         }
         .background(Color(uiColor: .systemBackground))
-    }
-
-    private var stats: [(String, Int)] {
-        let s = pet.baseStats
-        return [("生命", s.hp), ("物攻", s.physicalAttack), ("魔攻", s.magicalAttack),
-                ("物防", s.physicalDefense), ("魔防", s.magicalDefense), ("速度", s.speed)]
     }
 
     @ViewBuilder private var evolutionSections: some View {
@@ -144,14 +131,10 @@ struct PetDetail: View {
 
     private func skillRow(_ skill: Skill, relation: PetSkill) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(skill.nameZh).font(.headline)
-            let labels = [skill.typeId.flatMap { content.types[$0]?.nameZh }, categoryLabel(skill.category)].compactMap { $0 }
-            if !labels.isEmpty { Text(labels.joined(separator: " · ")).font(.subheadline).foregroundStyle(.secondary) }
+            SkillSummary(skill: skill, content: content)
             if let legacy = relation.legacyTypeId, let type = content.types[legacy] {
                 Text("血脉属性：\(type.nameZh)").font(.subheadline).foregroundStyle(.secondary)
             }
-            if let power = skill.power { detailValue("威力", power.formatted(.number)) }
-            if let energy = skill.energyCost { detailValue("能耗", energy.formatted(.number)) }
             if !skill.description.isEmpty { Text(skill.description).font(.subheadline).foregroundStyle(.secondary) }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -197,21 +180,6 @@ struct PetDetail: View {
 
     private func relatedRow(_ related: Pet) -> some View {
         RelatedPetRow(pet: related, portraits: portraits, anchors: relatedAnchors, open: openRelated)
-    }
-
-    private func detailValue(_ label: String, _ value: String) -> some View {
-        ViewThatFits(in: .horizontal) {
-            HStack(alignment: .firstTextBaseline) {
-                Text(label).foregroundStyle(.secondary)
-                Spacer(minLength: 16)
-                Text(value).monospacedDigit()
-            }
-            VStack(alignment: .leading, spacing: 4) {
-                Text(label).foregroundStyle(.secondary)
-                Text(value).monospacedDigit()
-            }
-        }
-        .accessibilityElement(children: .combine)
     }
 
     private func detailCard<Content: View>(_ title: String, @ViewBuilder content: () -> Content) -> some View {

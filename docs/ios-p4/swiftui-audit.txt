@@ -1,0 +1,37 @@
+SwiftUI UI audit: 25 files, profile=expressive, high=0 medium=36 low=0
+[MEDIUM] App/VisualReview.swift:31 layout.ignores-safe-area — Verify that only decorative/background content crosses safe areas and controls remain reachable.
+[MEDIUM] Features/Backup/UserBackupView.swift:102 identity.foreach-indices — Index-derived identity can break state and transitions when content changes.
+[MEDIUM] Features/Battle/PVPBattleView.swift:130 layout.geometry-reader — GeometryReader is valid but often overused; verify it does not create unstable or greedy layout.
+[MEDIUM] Features/Battle/PVPBattleView.swift:135 layout.fixed-frame — Review this fixed dimension at small containers and accessibility text sizes.
+[MEDIUM] Features/Battle/PVPBattleView.swift:203 typography.hardcoded-size — Hardcoded font sizes need Dynamic Type scaling or a documented display-only reason.
+[MEDIUM] Features/Battle/PVPBattleView.swift:249 identity.foreach-indices — Index-derived identity can break state and transitions when content changes.
+[MEDIUM] Features/Battle/PVPBattleView.swift:269 identity.foreach-indices — Index-derived identity can break state and transitions when content changes.
+[MEDIUM] Features/Battle/PVPBattleView.swift:331 identity.foreach-indices — Index-derived identity can break state and transitions when content changes.
+[MEDIUM] Features/Encyclopedia/PetDetail.swift:29 layout.geometry-reader — GeometryReader is valid but often overused; verify it does not create unstable or greedy layout.
+[MEDIUM] Features/Encyclopedia/PetDetail.swift:113 identity.foreach-indices — Index-derived identity can break state and transitions when content changes.
+[MEDIUM] Features/Encyclopedia/PetDetail.swift:214 layout.fixed-frame — Review this fixed dimension at small containers and accessibility text sizes.
+[MEDIUM] Features/Hub/FeatureHub.swift:65 layout.fixed-frame — Review this fixed dimension at small containers and accessibility text sizes.
+[MEDIUM] Features/Hub/FeatureHub.swift:119 identity.foreach-indices — Index-derived identity can break state and transitions when content changes.
+[MEDIUM] Features/Hub/FeatureHub.swift:124 typography.hardcoded-size — Hardcoded font sizes need Dynamic Type scaling or a documented display-only reason.
+[MEDIUM] Features/Hub/FeatureHub.swift:125 layout.fixed-frame — Review this fixed dimension at small containers and accessibility text sizes.
+[MEDIUM] Features/Hub/FeatureHub.swift:157 layout.ignores-safe-area — Verify that only decorative/background content crosses safe areas and controls remain reachable.
+[MEDIUM] Features/Hub/FeatureHub.swift:174 typography.hardcoded-size — Hardcoded font sizes need Dynamic Type scaling or a documented display-only reason.
+[MEDIUM] Features/Skills/SkillsView.swift:135 identity.foreach-indices — Index-derived identity can break state and transitions when content changes.
+[MEDIUM] Features/Teams/TeamBuilderView.swift:35 typography.hardcoded-size — Hardcoded font sizes need Dynamic Type scaling or a documented display-only reason.
+[MEDIUM] Features/Teams/TeamBuilderView.swift:36 layout.fixed-frame — Review this fixed dimension at small containers and accessibility text sizes.
+[MEDIUM] Features/Teams/TeamBuilderView.swift:60 identity.foreach-indices — Index-derived identity can break state and transitions when content changes.
+[MEDIUM] Features/Teams/TeamBuilderView.swift:68 layout.fixed-frame — Review this fixed dimension at small containers and accessibility text sizes.
+[MEDIUM] Features/Teams/TeamBuilderView.swift:144 identity.foreach-indices — Index-derived identity can break state and transitions when content changes.
+[MEDIUM] Features/Tracking/GrassBadgeView.swift:122 layout.fixed-frame — Review this fixed dimension at small containers and accessibility text sizes.
+[MEDIUM] Features/Tracking/ShinyCollectionView.swift:47 typography.hardcoded-size — Hardcoded font sizes need Dynamic Type scaling or a documented display-only reason.
+[MEDIUM] Features/TypeMatchup/TypeMatchupView.swift:44 layout.fixed-frame — Review this fixed dimension at small containers and accessibility text sizes.
+[MEDIUM] Features/TypeMatchup/TypeMatchupView.swift:69 layout.fixed-frame — Review this fixed dimension at small containers and accessibility text sizes.
+[MEDIUM] Features/TypeMatchup/TypeMatchupView.swift:72 layout.fixed-frame — Review this fixed dimension at small containers and accessibility text sizes.
+[MEDIUM] SharedUI/CompanionUI.swift:38 layout.fixed-frame — Review this fixed dimension at small containers and accessibility text sizes.
+[MEDIUM] SharedUI/CompanionUI.swift:136 layout.fixed-frame — Review this fixed dimension at small containers and accessibility text sizes.
+[MEDIUM] SharedUI/CompanionUI.swift:254 typography.hardcoded-size — Hardcoded font sizes need Dynamic Type scaling or a documented display-only reason.
+[MEDIUM] SharedUI/CompanionUI.swift:255 layout.fixed-frame — Review this fixed dimension at small containers and accessibility text sizes.
+[MEDIUM] SharedUI/CompanionUI.swift:300 typography.hardcoded-size — Hardcoded font sizes need Dynamic Type scaling or a documented display-only reason.
+[MEDIUM] SharedUI/PetStatChart.swift:27 layout.geometry-reader — GeometryReader is valid but often overused; verify it does not create unstable or greedy layout.
+[MEDIUM] SharedUI/PetStatChart.swift:31 layout.fixed-frame — Review this fixed dimension at small containers and accessibility text sizes.
+[MEDIUM] SharedUI/PortraitSurface.swift:38 layout.geometry-reader — GeometryReader is valid but often overused; verify it does not create unstable or greedy layout.

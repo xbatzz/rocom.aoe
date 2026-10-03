@@ -12,7 +12,7 @@ extension Pet {
 /// Catalog queries operate only on canonical values; images remain owned by lazy cells.
 private struct PetListQuery {
     enum Sort: String, CaseIterable {
-        case ordinal = "图鉴顺序", total = "总种族值", speed = "速度", name = "中文名"
+        case handbook = "图鉴顺序", total = "总种族值", speed = "速度", name = "中文名"
     }
     enum Leader: String, CaseIterable {
         case all = "全部", leader = "首领", ordinary = "非首领"
@@ -27,7 +27,7 @@ private struct PetListQuery {
     var attackStyle: PetAttackStyle?
     var leader = Leader.all
     var stage = Stage.all
-    var sort = Sort.ordinal
+    var sort = Sort.handbook
 
     var hasFilters: Bool {
         firstType != nil || secondType != nil || attackStyle != nil || leader != .all || stage != .all
@@ -67,10 +67,10 @@ private struct PetListQuery {
             let fields = [pet.nameZh, pet.resourceKey, pet.form] + pet.searchAliases + typeNames
             return fields.contains { Self.normalize($0).contains(query) }
         }
-        return matches.sorted { left, right in
+        return PetCatalogPresentation.collapseDuplicateLeaderConfigurations(matches).sorted { left, right in
             switch sort {
-            case .ordinal:
-                if left.ordinal != right.ordinal { return left.ordinal < right.ordinal }
+            case .handbook:
+                return PetCatalogPresentation.handbookOrder(left, right)
             case .total:
                 let l = Self.total(left), r = Self.total(right)
                 if l != r { return l > r }
@@ -115,6 +115,7 @@ struct AlignedPetGrid: View {
     @State private var query = PetListQuery()
     @State private var showingFilters = false
     @FocusState private var searchFocused: Bool
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     /// Match Web default eligibility using canonical flags, without guessing from assets or egg groups.
     private var catalogPets: [Pet] {
@@ -141,9 +142,9 @@ struct AlignedPetGrid: View {
                         Button("重置搜索与筛选") { query = PetListQuery() }
                     }
                 }
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 20)], spacing: 28) {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: dynamicTypeSize.isAccessibilitySize ? 280 : 150), spacing: 20)], spacing: 28) {
                     ForEach(results, id: \.petId) { pet in
-                        PetGridCell(pet: pet, portraits: portraits, anchors: anchors) { pet, origin in
+                        PetGridCell(pet: pet, content: content, portraits: portraits, anchors: anchors) { pet, origin in
                             searchFocused = false
                             open(pet, origin)
                         }
@@ -151,6 +152,7 @@ struct AlignedPetGrid: View {
                 }
             }.padding(24)
         }
+        .reviewScrollPosition()
         .scrollDismissesKeyboard(.interactively)
         .background(Color(uiColor: .systemBackground))
         .sheet(isPresented: $showingFilters) { filterSheet }
@@ -190,7 +192,7 @@ struct AlignedPetGrid: View {
                     sortMenu
                 }
             }
-            Text("\(resultCount) / \(catalogPets.count) 只已实装精灵")
+            Text("\(resultCount) / \(PetCatalogPresentation.collapseDuplicateLeaderConfigurations(catalogPets).count) 只已实装精灵")
                 .font(.subheadline.monospacedDigit()).foregroundStyle(.secondary)
         }
     }
@@ -285,6 +287,7 @@ struct AlignedPetGrid: View {
 /// 721-element UIImage array or per-pet @State bitmap retained after scrolling away.
 private struct PetGridCell: View {
     let pet: Pet
+    let content: ContentStore
     let portraits: PortraitStore
     let anchors: PortraitAnchors
     let open: (Pet, PortraitOrigin) -> Void
@@ -311,7 +314,8 @@ private struct PetGridCell: View {
                 .allowsHitTesting(false)
                 Text(pet.nameZh).font(.headline).foregroundStyle(.primary)
                     .fixedSize(horizontal: false, vertical: true)
-                Text(pet.numberLabel).font(.caption.monospacedDigit()).foregroundStyle(.primary.opacity(0.72))
+                Text(pet.numberLabel).font(.caption.monospacedDigit()).foregroundStyle(.secondary)
+                PetTypes(pet: pet, content: content)
                 if case .failure(let error) = portrait {
                     Text(String(describing: error)).font(.caption2).foregroundStyle(.red)
                 }

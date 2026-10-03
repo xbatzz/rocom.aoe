@@ -1,0 +1,133 @@
+# P3 Visual Autonomous Iteration · 2026-10-03
+
+分支 codex/p2-overnight。导航、业务规则、canonical 数据和 frozen image-only shared portrait transition 保持原状。不运行 XCUITest。
+
+审计发现默认 List/Form 主导首页、PVP、配队、收藏、属性、技能与备份。使用 Apple 原生导航、动态字体、语义背景；真实游戏内容成为层级。没有加入渐变、阴影或动画。
+
+## 实际复查方式
+
+Xcode 27 / iPhone 18 Pro / iOS 27，实际 build、install、launch、simctl screenshot，读取截图。桌面 Simulator CUA 接口两次 timeout；Debug 的 `--visual-review <route>` 入口运行真实 feature View，使用隔离内存数据库，不改个人数据、不进入 Release 导航。不是 XCUITest。截图脚本位于 scripts/ios-ui/capture-review.py。真实完整分辨率截图与构建日志在 /tmp/roco-p3-shots 和 /tmp/roco-p3；最终缩略证据另存本目录。
+
+## 页面日志
+
+- 首页 r1：默认探索／收藏／战斗 List 改为图片图鉴主入口、真实内容配置数、属性／技能工具入口、收藏进度与最近队伍。截图首屏主体是精灵，主要操作清晰。自评：不再是默认 SwiftUI 拼装；战斗与底部入口留待全局滚动审查。
+- PVP r1：我方／VS／对方 selection cards，真实头像与属性，六维双向比较，分析入口及空状态步骤。实际空态与有双方构筑截图复查。自评：不再像 Form；默认蓝色保存队伍按钮降为中性。Debug 示例使用真实 canonical 两只精灵与 TeamRules.assign，不写队伍。
+
+## 资产审计
+
+| Web 使用证据 | iOS 策略 | 原因 |
+| --- | --- | --- |
+| src/lib/typeIcons.ts、TypeIcon.vue，Species.png | 18 个 typeID 精确裁剪 PNG；GameIconCatalog + TypeBadge | 完整映射；沿用 Web 防串色裁剪，52×54，原比例渲染 |
+| SkillIcon.vue、skills/SkillResultCard.vue、pets/[id].vue | canonical skill.iconAssetId → 现有 AssetResolver → 原比例小图 | 不猜文件名；包内已有高质量图标 |
+| pets/[id].vue 的 trait SkillIcon | canonical trait.iconAssetId，同上 | canonical 映射可靠 |
+| encyclopedia.vue、TeamSlotCard.vue 的 leader-crown | 小型首领语义图标 | 仅在真实 isLeader 状态使用 |
+| handbook-progress.vue、pets/[id].vue 的 collected-check | 已收集／获得语义图标 | 未收集保持文字，避免不完整状态映射 |
+| 物理／魔法／变化／防御类别 | 统一 SkillCategoryPill 文字 | Web 实际没有独立、可靠的四类游戏类别图标，不以独立技能图冒充类别图 |
+| active-tab-background、primary-action-button | 不恢复 | 控件底板与原生交互不一致；不是信息内容 |
+| 其他散落 effect／medal 图片 | 暂不猜映射 | 没有完整且实际使用的 effectID 映射；保留 canonical 描述 |
+
+资源接入不修改 canonical 包；脚本只生成独立 GameIcons 目录，provenance.json 保存来源、hash 与 typeID 对应关系。技能与特性继续复用严格校验的既有资产包。
+
+- 配队 r1 → r2：r1 草稿槽位过高，首屏无法看完整队；空槽像缺图，且保存列表缺属性。r2 紧凑六槽、原生道具菜单有明确标签、空槽显示真实序号、每个已有伙伴展示属性与技能数；实际空态、草稿、保存示例队伍复查。自评：不再是六个 Settings 入口，六槽呈现为一支队；辅助字号下允许单列。示例记录仅在 `--visual-fixture` 的隔离内存数据库中，由真实 domain API 创建。
+- 异色 r1：真实异色 portrait、属性、赛季、收藏状态与范围进度；已收藏状态使用 Web 小勾。实际 5 / 81 测试记录截图复查，两个来源缺图不猜普通形态代替。自评：是 collection tracker，不是表格；搜索沿用原生控件。
+- 草系 r1：地点目标、三态统计、家族头像与足迹进度、家族内形态图片／首领状态。使用透明行与分隔线，避免每个家族再套卡片。实际首页截图复查；自评：内容主导，已摆脱数据库列表感。地点目标与已知目录的区别明确保留。
+- 命定勇者 r1：家族图片、成员数、属性与获得状态；真实 5 / 192 测试记录复查。自评：collection tracker 的层级明确，不再是名字加 medal 的默认 List。
+- 属性 r1 → r2：r1 折叠中性属性且普通属性没有进攻克制，显得空。r2 默认展开有用的中性承伤图标，零进攻克制明确显示，不造数据。单／双防御与并集计算仍调用原 TypeMatchup，52px 来源图只作小尺寸内容图标。自评：倍率／弱点／抵抗主次清楚，已摆脱等权 LabeledContent 表。
+- 技能 r1 → r2：r1 原 ID 顺序首屏都是 canonical 缺图旧配置。r2 增加来自有 iconAssetID 的真实技能速览，原结果和排序不变；缺图使用明确文字降级，不借同名其他 ID 图片。统一属性／类别／威力／能耗与来源头像。自评：速览是真实游戏内容，正文数据可读；独立技能详情首轮已合格。复用行提取到 SharedUI。
+- 备份 r1：本机实际记录数与主要导出操作成为首屏；恢复独立为次级操作。保留完整预检、合并／替换说明和原 file importer/exporter。自评：原生个人进度工具，摆脱 Settings 列表；不强行添加游戏贴图。
+- PVP 子页 r1：伤害页使用原始 skillAssetID、属性与类别速读；真实总伤害／最大生命占比成为主结果。联防使用弱点／中性／抵抗摘要及头像、攻击属性和倍率，计算未动。子页截图审查后，修正数值的 secondary 灰色及不必要的 Web 实现措辞。自评：这些页以真实数据为主体，不是统一 List section。
+- 图鉴一致性 r1：Grid 增加属性；详情保留 Hero 完整几何／注册图调用，基础信息去掉一个容器，属性直接显示在姓名下，技能与特性恢复 canonical 小图标。真实 Grid、Hero 首屏与详情底部截图复查。自评：图片继续是第一焦点，新增内容不会把图鉴变为工具表单。未改 AlignedNavigation、PortraitSurface、PortraitStore 或 shared transition；静态截图不证明实际手势转场表现。
+- 数据版本 r1 → r2：r1 全长 hash 被放大，像调试界面；r2 赛季与配置数量为主要内容，完整内容／来源标识保留为可选中文本，降低字号。自评：可读的原生内容信息页，不再像默认设置。
+
+## 全局修正（运行截图驱动）
+
+第一轮 Dark Mode + 最大辅助字号 audit **不通过**：发现深色主按钮白底白字、首页 1079 换行、地点和赛季菜单文字被挤成竖排、队伍三列压缩、技能速览及结果列挤压、缺图图标越界、图鉴长名字两列拆字。修正为对比明确的主操作、辅助字号单列／纵向指标、可完整换行的原生 Menu 标签、固定装饰图片画布。字体不设上限，正常字号保持原布局。
+
+补查 PVP 六维数据区真实截图后，辅助字号按单项分别显示我方／对方数值。图鉴仅辅助字号切换单列，未改变 portrait geometry 注册或 frozen transition。首页最近队伍的未配置槽位改为编号，避免与 canonical 缺图状态混淆。
+
+再审计伤害子页，发现主结果过于靠后。r2 将技能选择、真实技能图与纸面伤害提前，详细计算倍率保留在原生 DisclosureGroup；条件与基础一击线仍完整显示。Menu 中仍使用原 Picker 和 canonical ID；没有改技能选择范围或计算规则。
+
+## 设计语言
+
+语义系统背景、20pt 内容圆角、20pt 页面边距、24–28pt 大段间距；页面标题／section／正文／辅助信息四级。图片承担图鉴、收藏、队伍和对战的第一焦点，数字承担进度及伤害结果的焦点。属性取游戏图标与轻底色，收藏分别用紫／绿／橙，战斗双方用橙／紫，倍数同时保留文本。透明行用于连续来源／家族／防守候选，卡片只划分有实际关系的内容。搜索、菜单、分段选择、sheet、toolbar 保持原生。
+
+不新增阴影、渐变或动画。辅助字号切换纵向布局，字号照系统设置；图片维持原比例。技能类别沿用统一文字 pill，不混入假图标。缺失资产明确降级，不给缺图 ID 借其他形态的图片。
+
+## 验证
+
+- Debug Simulator 与 Release generic iOS 构建成功，CODE_SIGNING_ALLOWED=NO；没有改变签名和部署配置。
+- Swift 包测试 29 项（11 UserData + 18 Content/Domain）全部通过。
+- yarn type-check 与 yarn build 通过。
+- 保留既有 AppIntents 元数据、Release 设备方向和 Web 大 chunk 提示，没有新增 Swift 编译警告。
+- 与 P3 开始前的 520663fe 比较，public/data、ios/Packages 和 frozen AlignedNavigation / PortraitSurface / PortraitStore 的 diff 均为空。
+- 全部主页面均已实际运行、读取浅色与深色截图，并额外检查 accessibility-extra-extra-extra-large。不是 VoiceOver 或真机验收；不运行 XCUITest。
+
+## 最后两轮 audit
+
+先前发现问题的轮次不计入“连续通过”。最终 A 轮以浅色、正常字号检查第一焦点／下一步操作／空状态／连续内容；B 轮以深色、正常字号横向检查颜色、资源、20pt 圆角、间距与字体，并结合修正后的最大辅助字号截图检查挤压与截断。伤害子页 r2 的浅色／深色结果也纳入最后两轮。
+
+两轮均未再发现整页明显像 Settings/Form、同权白色 row 或默认 SwiftUI Demo 的主页面。自评问题“如果这是别人上架的 App，我会觉得它只是默认控件拼起来吗？”：当前这些页面的答案是不会；仍存在下列内容与真机限制，未据此虚构资产或声称真机验收完成。
+
+## 每页迭代轮次
+
+轮次按“实施后实际截图复查”的页面专项循环计数，再加一次实际修正的全局适配主题；不把重复截图、Light/Dark 截图各计作新实现轮次。
+
+| 页面 | 专项 | 全局适配 | 合计 | 最终证据 |
+| --- | ---: | ---: | ---: | --- |
+| Home / 洛克工具 | 1 | 1 | 2 | [首屏](screenshots/final-home.png)、[近期队伍](screenshots/final-home-bottom.png) |
+| PVP 助手 | 1 | 1 | 2 | [未选择](screenshots/final-pvp.png)、[双方构筑](screenshots/final-pvp-filled.png) |
+| 配队 / 队伍编辑 | 2 | 1 | 3 | [队伍](screenshots/final-teams.png)、[六槽草稿](screenshots/final-team-draft.png) |
+| 异色收集 | 1 | 1 | 2 | [收藏](screenshots/final-shiny.png) |
+| 草系徽章 / 家族 | 1 | 1 | 2 | [地点进度](screenshots/final-grass.png)、[家族与首领](screenshots/final-grass-family.png) |
+| 命定勇者 | 1 | 1 | 2 | [家族](screenshots/final-hero.png) |
+| 属性克制 | 2 | 1 | 3 | [单属性](screenshots/final-types.png)、[双防御](screenshots/final-types-dual.png) |
+| 技能查询 | 2 | 1 | 3 | [速览与结果](screenshots/final-skills.png) |
+| 技能详情 | 1 | 1 | 2 | [技能及来源](screenshots/final-skill.png) |
+| 备份恢复 | 1 | 1 | 2 | [记录与主要操作](screenshots/final-backup.png) |
+| 图鉴列表 / 详情 | 1 | 1 | 2 | [列表](screenshots/final-grid.png)、[详情](screenshots/final-pet.png)、[技能](screenshots/final-pet-bottom.png) |
+| 伤害 / 一击线 | 2 | 1 | 3 | [结果](screenshots/final-damage.png) |
+| 基础联防 | 1 | 1 | 2 | [候选与倍率](screenshots/final-defense.png) |
+| 数据版本 | 2 | 1 | 3 | [内容信息](screenshots/final-version.png) |
+
+[浅色首页／战斗／队伍概览](screenshots/overview-0.jpg)、[浅色收藏／工具概览](screenshots/overview-1.jpg)、[子页概览](screenshots/overview-2.jpg)、[深色概览 A](screenshots/overview-3.jpg)、[深色概览 B](screenshots/overview-4.jpg)。归档 50 张实际 Simulator 截图，603×1311（原截图 1206×2622 缩小 50%，无界面编辑），来源见 capture-manifest.json。
+
+## 恢复的 Web 游戏内容资产
+
+| 资产 | 页面 |
+| --- | --- |
+| 18 个完整属性图标 | 首页、属性克制三模式、技能查询／详情、图鉴列表／详情、PVP／伤害／联防、队伍、异色／草系／命定勇者 |
+| canonical 技能图片 | 首页技能入口、技能速览／结果／详情、图鉴技能和血脉技能、PVP 伤害 |
+| canonical 特性图片 | 图鉴详情特性；仅有实际 iconAssetId 时使用 |
+| Web collected-check | 异色、草系已点亮、命定勇者已获得状态 |
+| Web leader-crown | 草系家族实际首领形态 |
+
+未恢复：四类独立技能类别图标（Web 无可靠资源集）；零散 effect／medal（没有完整 ID 映射）；贴图式 tab/button 背景（没有识别内容价值）；canonical 缺失的异色／旧技能图（不能可靠对应，不借图、不补假数据）。18 个属性和两个状态小图重新生成后无 diff；技能／特性复用既有 AssetResolver，不增加大资源框架。
+
+## 当前最弱的三个地方与真机判断
+
+1. 部分旧技能配置和异色的 canonical 图片缺失，首屏仍有文字／缺图降级，辨识度低于有资产的内容。
+2. 复杂技能条件、同名技能来源及基础一击线说明的信息密度仍高，需要长时间使用验证阅读节奏。
+3. 最大辅助字号需要较多滚动；原生分段选择和底部搜索的实际可操作性仍需要真机与 VoiceOver 判断。
+
+真机重点：图鉴 frozen portrait 转场与手势连续性、收藏长列表滚动、PVP 条件控件、搜索／菜单在辅助字号下的触达。静态 Simulator 截图不能验证这些触感；没有改变已冻结的转场。
+
+## Commits
+
+| Commit | 主题 |
+| --- | --- |
+| cadfa0f8 | 首页与最小 presentation 组件、游戏图标接入及截图入口 |
+| eabe5bd2 | PVP 对战构筑与六维 |
+| 8f741ca7 | 六槽队伍 overview 与编辑 |
+| b7122f3b | 异色收藏 tracker |
+| 978fa64b | 草系地点／家族进度 |
+| 68fba9e8 | 命定勇者家族 tracker |
+| b39e47bb | 属性克制与游戏属性资源 |
+| 2fbf7286 | 技能图片与原生结果 |
+| bbac9600 | 本机备份恢复 |
+| 8617fc86 | 伤害与联防数据呈现 |
+| ae0b353a | 图鉴语义资源 polish |
+| acd9416c | 内容版本可读性 |
+| 75a914b7 | 全局 Dark Mode / Dynamic Type 修正 |
+| 5ebf7eeb | 伤害结果提前 |
+
+最终证据与此记录为独立文档提交。所有提交推到 codex/p2-overnight，不 merge main。
