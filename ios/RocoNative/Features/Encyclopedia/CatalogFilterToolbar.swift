@@ -17,13 +17,19 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
     @Binding var query: PetCatalogQuery
     @Binding var ascending: Bool
     var chromeVisible: Bool
+    var detailPresented: Bool
+    let returnToParent: () -> Void
+    let popDetail: () -> Void
 
     func makeUIViewController(context: Context) -> ToolbarHost {
         ToolbarHost(
             content: content,
             query: $query,
             ascending: $ascending,
-            chromeVisible: chromeVisible
+            chromeVisible: chromeVisible,
+            detailPresented: detailPresented,
+            returnToParent: returnToParent,
+            popDetail: popDetail
         )
     }
 
@@ -32,7 +38,10 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
             content: content,
             query: $query,
             ascending: $ascending,
-            chromeVisible: chromeVisible
+            chromeVisible: chromeVisible,
+            detailPresented: detailPresented,
+            returnToParent: returnToParent,
+            popDetail: popDetail
         )
     }
 
@@ -42,9 +51,16 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         private var query: Binding<PetCatalogQuery>
         private var ascending: Binding<Bool>
         private var chromeVisible: Bool
+        private var detailPresented: Bool
+        private var returnToParent: () -> Void
+        private var popDetail: () -> Void
 
         private weak var itemOwner: UIViewController?
         private weak var navigation: UINavigationController?
+        private var originalLeadingItem: UIBarButtonItem?
+        private var originalRightItem: UIBarButtonItem?
+        private var originalToolbarItems: [UIBarButtonItem]?
+        private var originalHidesBackButton = false
         private var leadingItem: UIBarButtonItem?
         private var filterItem: UIBarButtonItem?
         private var searchItem: UIBarButtonItem?
@@ -56,12 +72,18 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
             content: ContentStore,
             query: Binding<PetCatalogQuery>,
             ascending: Binding<Bool>,
-            chromeVisible: Bool
+            chromeVisible: Bool,
+            detailPresented: Bool,
+            returnToParent: @escaping () -> Void,
+            popDetail: @escaping () -> Void
         ) {
             self.content = content
             self.query = query
             self.ascending = ascending
             self.chromeVisible = chromeVisible
+            self.detailPresented = detailPresented
+            self.returnToParent = returnToParent
+            self.popDetail = popDetail
             super.init(nibName: nil, bundle: nil)
         }
 
@@ -102,12 +124,18 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
             content: ContentStore,
             query: Binding<PetCatalogQuery>,
             ascending: Binding<Bool>,
-            chromeVisible: Bool
+            chromeVisible: Bool,
+            detailPresented: Bool,
+            returnToParent: @escaping () -> Void,
+            popDetail: @escaping () -> Void
         ) {
             self.content = content
             self.query = query
             self.ascending = ascending
             self.chromeVisible = chromeVisible
+            self.detailPresented = detailPresented
+            self.returnToParent = returnToParent
+            self.popDetail = popDetail
             installChromeIfNeeded()
             rebuildMenu()
             syncSearchText()
@@ -122,8 +150,23 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
 
                 itemOwner = owner
                 navigation = owner.navigationController
-                leadingItem = owner.navigationItem.leftBarButtonItem
+                originalLeadingItem = owner.navigationItem.leftBarButtonItem
+                originalRightItem = owner.navigationItem.rightBarButtonItem
+                originalToolbarItems = owner.toolbarItems
+                originalHidesBackButton = owner.navigationItem.hidesBackButton
+                owner.navigationItem.hidesBackButton = true
                 owner.definesPresentationContext = true
+
+                let back = UIBarButtonItem(
+                    image: UIImage(systemName: "chevron.backward"),
+                    style: .plain,
+                    target: self,
+                    action: #selector(handleBack)
+                )
+                back.accessibilityLabel = "返回"
+                back.accessibilityIdentifier = "catalog-back"
+                leadingItem = back
+                owner.navigationItem.leftBarButtonItem = back
 
                 let item = UIBarButtonItem(
                     title: nil,
@@ -187,26 +230,53 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         }
 
         private func applyChromeVisibility(animated: Bool) {
-            // Keep both bars mounted so their safe-area geometry never changes.
-            // Hide only the bar-button items. This leaves the navigation row in
-            // place, so the scrolling "图鉴 / xx只精灵" content never jumps upward
-            // to occupy it when the buttons disappear.
-            let shouldShow = chromeVisible ||
-                searchController.isActive ||
-                !query.wrappedValue.keyword.isEmpty
-
             guard let navigation, let owner = itemOwner else { return }
 
+            // The outer home navigation controller owns the visible catalog chrome.
+            // Keep both bars mounted on the grid so interactive pop matches the other
+            // top-level pages and never changes grid safe-area geometry.
             navigation.setNavigationBarHidden(false, animated: false)
             navigation.setToolbarHidden(false, animated: false)
             navigation.navigationBar.alpha = 1
             navigation.navigationBar.isUserInteractionEnabled = true
 
-            if shouldShow {
-                if owner.navigationItem.leftBarButtonItem == nil, let leadingItem {
+            if detailPresented {
+                // Pet details still live in the encyclopedia's private navigation
+                // stack, but their back control remains in the outer system bar.
+                if searchController.isActive {
+                    searchController.isActive = false
+                }
+                if owner.navigationItem.leftBarButtonItem !== leadingItem {
                     owner.navigationItem.setLeftBarButton(leadingItem, animated: animated)
                 }
-                if owner.navigationItem.rightBarButtonItem == nil, let filterItem {
+                if owner.navigationItem.rightBarButtonItem != nil {
+                    owner.navigationItem.setRightBarButton(nil, animated: animated)
+                }
+                if let toolbarSpacer {
+                    owner.setToolbarItems([toolbarSpacer], animated: animated)
+                }
+                searchController.searchBar.isUserInteractionEnabled = false
+                searchController.searchBar.accessibilityElementsHidden = true
+
+                // Preserve bottom geometry during the image transition without
+                // leaving visible empty chrome on the detail page.
+                navigation.toolbar.isUserInteractionEnabled = false
+                navigation.toolbar.alpha = 0
+                return
+            }
+
+            navigation.toolbar.alpha = 1
+            navigation.toolbar.isUserInteractionEnabled = true
+
+            let shouldShow = chromeVisible ||
+                searchController.isActive ||
+                !query.wrappedValue.keyword.isEmpty
+
+            if shouldShow {
+                if owner.navigationItem.leftBarButtonItem !== leadingItem {
+                    owner.navigationItem.setLeftBarButton(leadingItem, animated: animated)
+                }
+                if owner.navigationItem.rightBarButtonItem !== filterItem {
                     owner.navigationItem.setRightBarButton(filterItem, animated: animated)
                 }
             } else {
@@ -214,11 +284,6 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
                 owner.navigationItem.setRightBarButton(nil, animated: animated)
             }
 
-            // `searchBarPlacementBarButtonItem` is the actual system-owned
-            // integrated-search control placed in the toolbar. Remove/restore that
-            // item instead of fading UISearchBar itself: UIKit may re-parent or reset
-            // the search bar view, but the placement item remains the authoritative
-            // toolbar control. The toolbar stays visible, so content geometry is fixed.
             if let searchItem, let toolbarSpacer {
                 let currentlyShowsSearch =
                     owner.toolbarItems?.contains(where: { $0 === searchItem }) == true
@@ -233,6 +298,14 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
 
             searchController.searchBar.isUserInteractionEnabled = shouldShow
             searchController.searchBar.accessibilityElementsHidden = !shouldShow
+        }
+
+        @objc private func handleBack() {
+            if detailPresented {
+                popDetail()
+            } else {
+                returnToParent()
+            }
         }
 
         func updateSearchResults(for searchController: UISearchController) {
@@ -430,13 +503,15 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         private func detach(from owner: UIViewController?) {
             guard let owner else { return }
 
-            if owner.navigationItem.rightBarButtonItem === filterItem {
-                owner.navigationItem.rightBarButtonItem = nil
-            }
+            owner.navigationItem.setLeftBarButton(originalLeadingItem, animated: false)
+            owner.navigationItem.setRightBarButton(originalRightItem, animated: false)
+            owner.navigationItem.hidesBackButton = originalHidesBackButton
             if owner.navigationItem.searchController === searchController {
                 owner.navigationItem.searchController = nil
             }
-            owner.toolbarItems = nil
+            owner.toolbarItems = originalToolbarItems
+            navigation?.toolbar.alpha = 1
+            navigation?.toolbar.isUserInteractionEnabled = true
         }
 
         static func dismantle(_ host: ToolbarHost) {
