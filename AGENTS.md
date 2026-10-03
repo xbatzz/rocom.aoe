@@ -20,6 +20,10 @@ Use Yarn only. This repository is locked by `yarn.lock`; do not use npm for inst
 
 Use TypeScript and Vue single-file components. Follow the existing 4-space indentation and semicolon style. Components use PascalCase names, for example `FriendPortrait.vue`; route pages follow file-based routing patterns such as `src/pages/pets/[id].vue`. Prefer existing helpers in `src/lib/` before adding new abstractions. Keep generated declaration files such as `src/components.d.ts` and `src/auto-imports.d.ts` aligned with tooling output.
 
+## iOS UI Conventions
+
+Before changing an iOS top-level feature page, navigation/search chrome, scrolling title behavior, or toolbar behavior, read `docs/ios-page-chrome.md` and treat it as the current interaction contract. The encyclopedia implementation is the verified reference. In particular, ordinary scrolling must not hide/show the whole navigation bar or toolbar in a way that changes safe-area geometry; keep system bars mounted and hide/restore their system items instead.
+
 ## Testing Guidelines
 
 There is no broad Web unit test framework configured. Select validation by the affected platform; do not run Web `yarn build` or full Web regression by default for iOS-only changes.
