@@ -129,6 +129,8 @@ struct AlignedNavigation: UIViewControllerRepresentable {
 
             let nav = returnToHome == nil ? UINavigationController(rootViewController: root)
                 : CatalogNavigationController(rootViewController: root)
+            nav.view.backgroundColor = .systemBackground
+            root.view.backgroundColor = .systemBackground
             nav.navigationBar.prefersLargeTitles = false
             nav.hidesBarsOnSwipe = false
             nav.setNavigationBarHidden(true, animated: false)
