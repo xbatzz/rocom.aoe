@@ -1,5 +1,6 @@
 import SwiftUI
 import RocoContent
+import RocoDomain
 
 /// Home navigation owns the catalog chrome; the private UIKit stack is used only
 /// for the image-only pet-detail transition.
@@ -69,14 +70,6 @@ struct CatalogNavigationPage: View {
         let ascendingBinding = $ascending
         let value = query
 
-        func mutate(_ change: @escaping (inout PetCatalogQuery) -> Void) -> UIActionHandler {
-            { _ in
-                var next = queryBinding.wrappedValue
-                change(&next)
-                queryBinding.wrappedValue = next
-            }
-        }
-
         func action(
             title: String,
             image: String? = nil,
@@ -86,9 +79,12 @@ struct CatalogNavigationPage: View {
             UIAction(
                 title: title,
                 image: image.flatMap { UIImage(systemName: $0) },
-                state: selected ? .on : .off,
-                handler: mutate(change)
-            )
+                state: selected ? .on : .off
+            ) { _ in
+                var next = queryBinding.wrappedValue
+                change(&next)
+                queryBinding.wrappedValue = next
+            }
         }
 
         func typeMenu(title: String, selected: TypeID?, slot: Int) -> UIMenu {
