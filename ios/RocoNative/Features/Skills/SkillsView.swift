@@ -2,15 +2,9 @@ import SwiftUI
 import RocoContent
 import RocoDomain
 
-private let skillCategories: [SkillCategory] = [.physicalAttack, .magicAttack, .status, .defense, .unknown]
+private let skillCategories: [SkillCategory] = [.physicalAttack, .magicAttack, .status, .defense]
 func categoryName(_ category: SkillCategory) -> String {
-    switch category {
-    case .physicalAttack: "物理攻击"
-    case .magicAttack: "魔法攻击"
-    case .status: "变化"
-    case .defense: "防御"
-    case .unknown: "未分类"
-    }
+    category.displayName
 }
 func sourceName(_ source: PetSkillSource) -> String {
     switch source {
@@ -24,7 +18,8 @@ struct SkillsView: View {
     let content: ContentStore
     let portraits: PortraitStore
     let index: SkillSearchIndex
-    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    @Environment(\.dismiss) private var dismiss
+    @State private var chromeVisible = true
     @State private var query = ""
     @State private var type: TypeID?
     @State private var category: SkillCategory?
@@ -35,26 +30,7 @@ struct SkillsView: View {
         ScrollViewReader { proxy in
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    ViewThatFits(in: .horizontal) {
-                        HStack { typeFilter; Spacer(); categoryFilter }
-                        VStack(alignment: .leading) { typeFilter; categoryFilter }
-                    }
-                    if query.isEmpty && type == nil && category == nil {
-                        CompanionSection("技能速览") {
-                            ScrollView(.horizontal) {
-                                HStack(alignment: .top, spacing: 20) {
-                                    ForEach(skills.filter { content.skillIcon(for: $0) != nil }.prefix(6), id: \.skillId) { skill in
-                                        NavigationLink { SkillDetailView(skill: skill, content: content, portraits: portraits, index: index) } label: {
-                                            VStack(spacing: 8) {
-                                                CanonicalThumbnail(assetID: content.skillIcon(for: skill), content: content, size: 64)
-                                                Text(skill.nameZh).font(.caption.weight(.medium)).fixedSize(horizontal: false, vertical: true)
-                                            }.frame(width: dynamicTypeSize.isAccessibilitySize ? 160 : 76)
-                                        }.buttonStyle(.plain)
-                                    }
-                                }
-                            }.scrollIndicators(.hidden)
-                        }.padding(16).companionAccentSurface(tint: .purple)
-                    }
+                    CompanionPageHeader(title: "技能查询", subtitle: "\(skills.count) 个技能", identifier: "skills")
                     CompanionHeading(title: "技能目录", detail: "\(skills.count) 个 · ID 排序")
                     if skills.isEmpty { ContentUnavailableView("没有符合条件的技能", systemImage: "sparkle.magnifyingglass", description: Text("尝试其他关键词，或更改属性与类别筛选。")) }
                     Color.clear.frame(height: 0).id("catalog-results-top")
@@ -80,29 +56,50 @@ struct SkillsView: View {
             .onChange(of: [query as AnyHashable, type as AnyHashable, category as AnyHashable]) {
                 proxy.scrollTo("catalog-results-top", anchor: .top)
             }
-                .reviewScrollPosition().companionBackground().searchable(text: $query, prompt: "中文名、ID 或描述")
-                .navigationTitle("技能查询")
+            .onScrollPhaseChange { _, phase, _ in
+                chromeVisible = phase == .idle
+            }
+            .reviewScrollPosition()
+            .scrollDismissesKeyboard(.interactively)
+            .companionBackground()
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .background {
+                CompanionScrollChrome(query: $query, visible: chromeVisible,
+                    prompt: "中文名、ID 或描述", searchLabel: "搜索技能", identifier: "skills",
+                    returnToParent: { dismiss() }, makeMenu: makeFilterMenu,
+                    filterValue: "\(type.flatMap { content.types[$0]?.nameZh } ?? "全部属性")，\(category.map(categoryName) ?? "全部类别")")
+                    .frame(width: 0, height: 0)
+            }
         }
     }
-    private var typeFilter: some View {
-        Picker("属性", selection: $type) {
-            Text("全部属性").tag(nil as TypeID?)
-            ForEach(content.orderedTypes, id: \.typeId) { type in
-                Label {
-                    Text(type.nameZh)
-                } icon: {
-                    if let image = GameIconCatalog.type(type.typeId) { Image(uiImage: image) }
-                }.tag(Optional(type.typeId))
+    private func makeFilterMenu() -> UIMenu {
+        let typeBinding = $type
+        let categoryBinding = $category
+        let types = [UIAction(title: "全部属性", state: type == nil ? .on : .off) { _ in
+            typeBinding.wrappedValue = nil
+        }] + content.orderedTypes.filter(\.normalBattleType).map { value in
+            UIAction(title: value.nameZh, image: GameIconCatalog.type(value.typeId), state: type == value.typeId ? .on : .off) { _ in
+                typeBinding.wrappedValue = value.typeId
             }
-        }.pickerStyle(.menu).tint(.primary)
-    }
-    private var categoryFilter: some View {
-        Picker("类别", selection: $category) {
-            Text("全部类别").tag(nil as SkillCategory?)
-            ForEach(skillCategories, id: \.rawValue) {
-                Label(categoryName($0), systemImage: $0.symbolName).tag(Optional($0))
+        }
+        let categories = [UIAction(title: "全部类别", state: category == nil ? .on : .off) { _ in
+            categoryBinding.wrappedValue = nil
+        }] + skillCategories.map { value in
+            UIAction(title: categoryName(value), image: UIImage(systemName: value.symbolName), state: category == value ? .on : .off) { _ in
+                categoryBinding.wrappedValue = value
             }
-        }.pickerStyle(.menu).tint(.primary)
+        }
+        let clear = UIAction(title: "清除筛选", image: UIImage(systemName: "line.3.horizontal.decrease.circle"),
+            attributes: type == nil && category == nil ? [.disabled] : []) { _ in
+                typeBinding.wrappedValue = nil
+                categoryBinding.wrappedValue = nil
+            }
+        return UIMenu(children: [
+            UIMenu(title: "属性", options: .singleSelection, children: types),
+            UIMenu(title: "类别", options: .singleSelection, children: categories),
+            UIMenu(options: .displayInline, children: [clear])
+        ])
     }
 
 }
@@ -142,12 +139,6 @@ struct SkillDetailView: View {
                 }.padding(20).companionAccentSurface(tint: skill.typeId.map(GameIconCatalog.color) ?? skill.category.tint)
                 if !skill.description.isEmpty {
                     CompanionSection("技能效果") { Text(skill.description).font(.body).textSelection(.enabled) }
-                }
-                if !skill.isBattleEquipmentGranted, let ids = index.sameNameSkillIDs[skill.skillId], ids.count > 1 {
-                    CompanionSection("同名技能组") {
-                        Text("技能 ID：\(ids.map { String($0.rawValue) }.joined(separator: "、"))")
-                        Text("获得方式汇总同名技能，具体效果以精灵实际技能为准。").font(.footnote).foregroundStyle(.secondary)
-                    }
                 }
             } else {
                 if let description = skill.acquisitionDescription {

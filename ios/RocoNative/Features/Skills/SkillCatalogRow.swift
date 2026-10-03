@@ -17,9 +17,11 @@ struct SkillCatalogRow: View {
                 SkillDetailView(skill: skill, content: content, portraits: portraits, index: index)
             } label: {
                 VStack(alignment: .leading, spacing: 6) {
-                    SkillSummary(skill: skill, content: content)
-                    Text(skill.acquisitionDescription ?? "\(index.sameNameFamilyCount[skill.skillId] ?? 0) 个可获得家族")
-                        .font(.caption).foregroundStyle(.secondary)
+                    SkillSummary(skill: skill, content: content, showsIdentifier: false)
+                    if let description = skill.acquisitionDescription {
+                        Text(description)
+                            .font(.caption).foregroundStyle(.secondary)
+                    }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .contentShape(Rectangle())

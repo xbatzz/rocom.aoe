@@ -218,6 +218,7 @@ extension View {
 struct SkillSummary: View {
     let skill: Skill
     let content: ContentStore
+    var showsIdentifier = true
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     var body: some View {
         Group {
@@ -229,12 +230,16 @@ struct SkillSummary: View {
                         if let power = skill.power { CompanionMetric(value: power.formatted(), label: "威力") }
                         if let cost = skill.energyCost { CompanionMetric(value: cost.formatted(), label: "能耗") }
                     }
-                    identifier
+                    if showsIdentifier { identifier }
                 }
             } else {
                 HStack(alignment: .center, spacing: 14) {
                     artwork
-                    VStack(alignment: .leading, spacing: 8) { name; skillBadges; identifier }
+                    VStack(alignment: .leading, spacing: 8) {
+                        name
+                        skillBadges
+                        if showsIdentifier { identifier }
+                    }
                     Spacer(minLength: 0)
                     VStack(alignment: .trailing, spacing: 6) {
                         if let power = skill.power {

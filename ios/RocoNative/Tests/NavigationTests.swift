@@ -356,7 +356,7 @@ final class NavigationTests: XCTestCase {
         back.tap()
         XCTAssertTrue(app.navigationBars["洛克工具"].waitForExistence(timeout: 3))
         app.staticTexts["技能查询"].firstMatch.tap()
-        XCTAssertTrue(app.navigationBars["技能查询"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.staticTexts["skills-title"].waitForExistence(timeout: 3))
         start.press(forDuration: 0.05, thenDragTo: end, withVelocity: .slow, thenHoldForDuration: 0)
         XCTAssertTrue(app.navigationBars["洛克工具"].waitForExistence(timeout: 3), "Sibling navigation must keep system edge return")
     }
@@ -410,12 +410,61 @@ final class NavigationTests: XCTestCase {
     }
 
     @MainActor
+    func testSkillsPageChromeSearchFiltersAndReturn() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--visual-review", "home"]
+        app.launch()
+        XCTAssertTrue(app.navigationBars["洛克工具"].waitForExistence(timeout: 8))
+        app.staticTexts["技能查询"].firstMatch.tap()
+        let title = app.staticTexts["skills-title"]
+        let filter = app.buttons["skills-filter-button"]
+        XCTAssertTrue(title.waitForExistence(timeout: 5))
+        XCTAssertTrue(filter.waitForExistence(timeout: 3))
+        XCTAssertTrue(app.buttons["skills-back"].isHittable)
+        XCTAssertGreaterThanOrEqual(title.frame.minY, app.navigationBars.firstMatch.frame.maxY)
+        let toolbar = app.toolbars.firstMatch
+        XCTAssertTrue(toolbar.exists)
+        let toolbarFrame = toolbar.frame
+        let navigationFrame = app.navigationBars.firstMatch.frame
+        attach("skills-chrome-initial", app)
+        for _ in 0..<3 { app.swipeUp() }
+        XCTAssertFalse(title.isHittable, "The content title must scroll away")
+        XCTAssertTrue(filter.isHittable, "Items restore when scrolling stops")
+        XCTAssertEqual(toolbar.frame.minY, toolbarFrame.minY, accuracy: 1)
+        XCTAssertEqual(toolbar.frame.height, toolbarFrame.height, accuracy: 1)
+        XCTAssertEqual(app.navigationBars.firstMatch.frame.height, navigationFrame.height, accuracy: 1)
+        attach("skills-chrome-scrolled", app)
+        filter.tap()
+        app.buttons["类别"].firstMatch.tap()
+        app.buttons["防御"].firstMatch.tap()
+        XCTAssertTrue(filter.waitForExistence(timeout: 3))
+        XCTAssertTrue((filter.value as? String)?.contains("防御") == true)
+        filter.tap(); app.buttons["清除筛选"].firstMatch.tap()
+        let search = app.searchFields["skills-search-field"]
+        if !search.isHittable { app.buttons["skills-search-button"].tap() }
+        XCTAssertTrue(search.waitForExistence(timeout: 3))
+        search.tap(); search.typeText("力量增效")
+        let result = app.staticTexts["力量增效"].firstMatch
+        XCTAssertTrue(result.waitForExistence(timeout: 5))
+        app.swipeUp()
+        XCTAssertTrue(search.isHittable, "A nonempty query protects integrated search")
+        attach("skills-chrome-search", app)
+        result.tap()
+        XCTAssertTrue(app.navigationBars["力量增效"].waitForExistence(timeout: 3))
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+        XCTAssertTrue(filter.waitForExistence(timeout: 3))
+        XCTAssertEqual(search.value as? String, "力量增效")
+        app.buttons["skills-back"].tap()
+        XCTAssertTrue(app.navigationBars["洛克工具"].waitForExistence(timeout: 3))
+    }
+
+    @MainActor
     func testContinuousSkillsAndLargeText() {
         let app = XCUIApplication()
         for extra in [[], ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]] {
             app.launchArguments = ["--visual-review", "skills", "--reduce-motion"] + extra
             app.launch()
-            XCTAssertTrue(app.navigationBars["技能查询"].waitForExistence(timeout: 8))
+            XCTAssertTrue(app.staticTexts["skills-title"].waitForExistence(timeout: 8))
             XCTAssertFalse(app.buttons["pagination-next"].exists)
             let later = app.buttons["skill-30"]
             let name = app.staticTexts["力量增效"].firstMatch
@@ -661,7 +710,7 @@ final class NavigationTests: XCTestCase {
             XCTAssertTrue(app.navigationBars["洛克工具"].waitForExistence(timeout: 5))
             XCTAssertFalse(app.staticTexts["正在加载内容…"].exists)
             app.staticTexts["技能查询"].firstMatch.tap()
-            XCTAssertTrue(app.navigationBars["技能查询"].waitForExistence(timeout: 3))
+            XCTAssertTrue(app.staticTexts["skills-title"].waitForExistence(timeout: 3))
             app.navigationBars.buttons.element(boundBy: 0).tap()
             app.staticTexts["异色收集"].firstMatch.tap()
             XCTAssertTrue(app.navigationBars["异色收集"].waitForExistence(timeout: 3))

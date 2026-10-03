@@ -6,7 +6,7 @@ extension SkillCategory {
         switch self {
         case .physicalAttack: "物理攻击"
         case .magicAttack: "魔法攻击"
-        case .status: "变化"
+        case .status: "属性"
         case .defense: "防御"
         case .unknown: "未分类"
         }

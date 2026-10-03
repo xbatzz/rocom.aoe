@@ -53,6 +53,8 @@ F1C24EA25313570978CF4966 = {isa = PBXBuildFile; fileRef = 70B9FDC9EB10A94E5A041E
 		CATA100000000000000000004 /* CatalogNavigationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CATA200000000000000000004; };
 		CATA100000000000000000005 /* CatalogNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CATA200000000000000000005; };
 		CATA100000000000000000007 /* CatalogFilterToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CATA200000000000000000007; };
+		CCAA20000000000000000000 /* CompanionPageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA10000000000000000000; };
+		CCAA20000000000000000001 /* CompanionScrollChrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA10000000000000000001; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +114,8 @@ F13F039A71DF618AE5909B7E = {isa = PBXFileReference; lastKnownFileType = sourceco
 		CATA200000000000000000004 /* CatalogNavigationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/Encyclopedia/CatalogNavigationPage.swift; sourceTree = SOURCE_ROOT; };
 		CATA200000000000000000005 /* CatalogNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/Encyclopedia/CatalogNavigationController.swift; sourceTree = SOURCE_ROOT; };
 		CATA200000000000000000007 /* CatalogFilterToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/Encyclopedia/CatalogFilterToolbar.swift; sourceTree = SOURCE_ROOT; };
+		CCAA10000000000000000000 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/SharedUI/CompanionPageHeader.swift; sourceTree = SOURCE_ROOT; };
+		CCAA10000000000000000001 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/SharedUI/CompanionScrollChrome.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,6 +361,8 @@ A017DDBE73B94C32470D6A9A,
 				1AE73768742C2AF9785D91C4 /* RocoNative/Features/Encyclopedia/AlignedNavigation.swift in Sources */,
 				3EC42020A2F41A8E5925C8AE /* RocoNative/Features/Encyclopedia/PetDetail.swift in Sources */,
 				87F813E1BC31558A98066F8A,
+				CCAA20000000000000000001 /* CompanionScrollChrome.swift in Sources */,
+				CCAA20000000000000000000 /* CompanionPageHeader.swift in Sources */,
 				BDD35D7F6F1999850B47A9E0,
 				74CB9D09E8B47C52F0544D97,
 				C1F0555BC8BEED82606C171A,
