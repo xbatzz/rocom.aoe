@@ -20,12 +20,8 @@ struct AlignedPetGrid: View {
     let open: (Pet, PortraitOrigin) -> Void
     @State private var query = PetCatalogQuery()
     @State private var ascending = true
-    @State private var searchPresentation = CatalogSearchPresentation()
     @State private var results: [Pet] = []
     @State private var prefetchByPet: [PetID: [AssetID]] = [:]
-    @State private var controlsCompact = false
-    @State private var scrollSample = CatalogScrollSample()
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
 
@@ -69,42 +65,13 @@ struct AlignedPetGrid: View {
             .onChange(of: query) {
                 proxy.scrollTo("catalog-results-top", anchor: .top)
             }
-            .onScrollPhaseChange { _, phase, context in
-                scrollSample.isUserScrolling = phase == .interacting || phase == .decelerating
-                if phase == .idle {
-                    scrollSample.reset()
-                    setCompact(false)
-                } else if scrollSample.isUserScrolling, let velocity = context.velocity, abs(velocity.dy) > 700 {
-                    setCompact(true)
-                }
-            }
-            .onScrollGeometryChange(for: Int.self) { geometry in
-                Int(geometry.contentOffset.y / 64)
-            } action: { _, bucket in
-                if scrollSample.isFast(at: bucket) { setCompact(true) }
-            }
-            .onScrollGeometryChange(for: CGFloat.self) { geometry in
-                geometry.contentOffset.y + geometry.contentInsets.top
-            } action: { _, offset in
-                searchPresentation.scroll(to: offset, userScrolling: scrollSample.isUserScrolling)
-            }
-            .safeAreaInset(edge: .bottom, spacing: 0) {
-                CatalogBottomControls(query: $query, presentation: searchPresentation)
-            }
             .reviewScrollPosition()
-            .scrollDismissesKeyboard(searchPresentation.isSearching ? .never : .interactively)
+            .scrollDismissesKeyboard(.interactively)
             .background(Color(uiColor: .systemBackground))
             .background {
                 CatalogFilterToolbar(content: content, query: $query, ascending: $ascending)
                     .frame(width: 0, height: 0)
             }
-        }
-    }
-
-    private func setCompact(_ compact: Bool) {
-        guard controlsCompact != compact else { return }
-        withAnimation(reduceMotion ? nil : .smooth(duration: 0.25)) {
-            controlsCompact = compact
         }
     }
 
