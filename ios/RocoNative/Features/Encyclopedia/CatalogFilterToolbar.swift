@@ -23,6 +23,7 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         private let button: UIView & UIContentView
         private var definition: CatalogFilterButton
         private weak var itemOwner: UIViewController?
+        private weak var navigation: UINavigationController?
         private var item: UIBarButtonItem?
         private var lastAnchor: CGRect?
 
@@ -46,7 +47,7 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
 
             overlay.backgroundColor = .clear
             button.backgroundColor = .clear
-            button.isHidden = true
+            button.isHidden = false
             button.translatesAutoresizingMaskIntoConstraints = false
             overlay.addSubview(button)
             NSLayoutConstraint.activate([
@@ -70,6 +71,7 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
                     candidate.navigationItem.rightBarButtonItem = item
                     self.item = item
                     itemOwner = candidate
+                    self.navigation = navigation
 
                     if overlay.superview !== navigation.view {
                         overlay.removeFromSuperview()
@@ -116,21 +118,24 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
 
         func updateButton(_ definition: CatalogFilterButton) {
             self.definition = definition
-            guard lastAnchor != nil else { return }
             refreshConfiguration()
         }
 
         private func refreshAnchor() {
-            guard anchor.window != nil,
-                  overlay.window != nil,
-                  overlay.bounds.width > 0,
+            guard overlay.bounds.width > 0,
                   anchor.bounds.width > 1,
-                  anchor.bounds.height > 1 else {
+                  anchor.bounds.height > 1,
+                  anchor.superview != nil,
+                  overlay.superview != nil else {
+                refreshConfiguration()
                 return
             }
 
             let rect = anchor.convert(anchor.bounds, to: overlay)
-            guard rect.width > 1, rect.height > 1 else { return }
+            guard rect.width > 1, rect.height > 1 else {
+                refreshConfiguration()
+                return
+            }
 
             let normalized = CGRect(
                 x: rect.midX - 22,
@@ -139,15 +144,29 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
                 height: 44
             )
 
-            guard lastAnchor != normalized else { return }
-            lastAnchor = normalized
-            overlay.anchorFrame = normalized
-            button.isHidden = false
+            if lastAnchor != normalized {
+                lastAnchor = normalized
+                overlay.anchorFrame = normalized
+            }
             refreshConfiguration()
         }
 
+        private func fallbackAnchor() -> CGRect {
+            guard let navigation, overlay.bounds.width > 0 else {
+                return CGRect(x: max(0, overlay.bounds.width - 60), y: 0, width: 44, height: 44)
+            }
+            let barFrame = navigation.navigationBar.convert(navigation.navigationBar.bounds, to: overlay)
+            return CGRect(
+                x: max(0, overlay.bounds.width - navigation.view.safeAreaInsets.right - 60),
+                y: max(0, barFrame.minY),
+                width: 44,
+                height: 44
+            )
+        }
+
         private func refreshConfiguration() {
-            guard let rect = lastAnchor else { return }
+            let rect = lastAnchor ?? fallbackAnchor()
+            overlay.anchorFrame = rect
 
             var control = definition
             control.topInset = max(0, rect.minY)
@@ -188,6 +207,18 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         /// the overlay icon appear in the wrong place and reject taps.
         private final class BarAnchorView: UIView {
             var onLayout: (() -> Void)?
+
+            override init(frame: CGRect) {
+                super.init(frame: frame)
+            }
+
+            convenience init() {
+                self.init(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+            }
+
+            required init?(coder: NSCoder) {
+                fatalError("init(coder:) has not been implemented")
+            }
 
             override var intrinsicContentSize: CGSize {
                 CGSize(width: 44, height: 44)
