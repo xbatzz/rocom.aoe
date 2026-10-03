@@ -16,14 +16,12 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
     let content: ContentStore
     @Binding var query: PetCatalogQuery
     @Binding var ascending: Bool
-    var searchChromeVisible: Bool
 
     func makeUIViewController(context: Context) -> ToolbarHost {
         ToolbarHost(
             content: content,
             query: $query,
-            ascending: $ascending,
-            searchChromeVisible: searchChromeVisible
+            ascending: $ascending
         )
     }
 
@@ -31,8 +29,7 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         host.update(
             content: content,
             query: $query,
-            ascending: $ascending,
-            searchChromeVisible: searchChromeVisible
+            ascending: $ascending
         )
     }
 
@@ -41,7 +38,6 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         private var content: ContentStore
         private var query: Binding<PetCatalogQuery>
         private var ascending: Binding<Bool>
-        private var searchChromeVisible: Bool
 
         private weak var itemOwner: UIViewController?
         private weak var navigation: UINavigationController?
@@ -52,13 +48,11 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         init(
             content: ContentStore,
             query: Binding<PetCatalogQuery>,
-            ascending: Binding<Bool>,
-            searchChromeVisible: Bool
+            ascending: Binding<Bool>
         ) {
             self.content = content
             self.query = query
             self.ascending = ascending
-            self.searchChromeVisible = searchChromeVisible
             super.init(nibName: nil, bundle: nil)
         }
 
@@ -85,7 +79,7 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             installChromeIfNeeded()
-            applySearchChromeVisibility(animated: animated)
+            navigation?.setToolbarHidden(false, animated: animated)
             associateCatalogScrollView()
         }
 
@@ -98,17 +92,14 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         func update(
             content: ContentStore,
             query: Binding<PetCatalogQuery>,
-            ascending: Binding<Bool>,
-            searchChromeVisible: Bool
+            ascending: Binding<Bool>
         ) {
             self.content = content
             self.query = query
             self.ascending = ascending
-            self.searchChromeVisible = searchChromeVisible
             installChromeIfNeeded()
             rebuildMenu()
             syncSearchText()
-            applySearchChromeVisibility(animated: true)
         }
 
         private func installChromeIfNeeded() {
@@ -135,9 +126,8 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
                 owner.navigationItem.searchController = searchController
                 owner.navigationItem.preferredSearchBarPlacement = .integrated
                 owner.navigationItem.searchBarPlacementAllowsToolbarIntegration = true
-                // Visibility while browsing is driven by ScrollPhase below. Keep
-                // UIKit's own automatic scroll-hiding disabled so the two policies
-                // do not fight each other.
+                // The navigation controller hides both bars on swipe. Keep search
+                // itself expanded whenever the bars are visible.
                 owner.navigationItem.hidesSearchBarWhenScrolling = false
 
                 let searchItem = owner.navigationItem.searchBarPlacementBarButtonItem
@@ -176,16 +166,6 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
             synchronizingSearchText = true
             searchController.searchBar.text = text
             synchronizingSearchText = false
-        }
-
-        private func applySearchChromeVisibility(animated: Bool) {
-            // Never remove the field out from under an active search session or a
-            // non-empty query. Otherwise the system toolbar fully disappears while
-            // scrolling and returns, expanded, when scrolling becomes idle.
-            let shouldShow = searchChromeVisible ||
-                searchController.isActive ||
-                !query.wrappedValue.keyword.isEmpty
-            navigation?.setToolbarHidden(!shouldShow, animated: animated)
         }
 
         func updateSearchResults(for searchController: UISearchController) {
