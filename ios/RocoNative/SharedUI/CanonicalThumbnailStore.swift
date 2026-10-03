@@ -52,6 +52,16 @@ actor CanonicalThumbnailStore {
         #endif
         return image
     }
+
+    /// One small lookahead window; yield between decodes so visible requests can run.
+    func prefetch(_ assetIDs: [AssetID], maxPixelSize: Int) async {
+        for id in assetIDs.prefix(4) {
+            guard !Task.isCancelled else { return }
+            _ = try? image(for: id, maxPixelSize: maxPixelSize)
+            await Task.yield()
+        }
+    }
+
 }
 
 extension EnvironmentValues {

@@ -31,7 +31,7 @@ public enum PetSearch {
     }
 }
 
-public struct PetQuery: Sendable {
+public struct PetQuery: Equatable, Sendable {
     public enum Implementation: String, CaseIterable, Sendable { case all = "全部", implemented = "已实装", unimplemented = "未实装" }
     public enum Stage: String, CaseIterable, Sendable { case all = "全部", initial = "初始", evolved = "已进化", canEvolve = "可进化" }
     public enum Sort: String, CaseIterable, Sendable {
@@ -47,9 +47,10 @@ public struct PetQuery: Sendable {
     public var sort = Sort.handbook
     public var descending = false
     public init() {}
+    @concurrent public func resultsInBackground(content: ContentStore) async -> [Pet] { results(content: content) }
     public func results(content: ContentStore) -> [Pet] {
         let search = PetSearch.Query(keyword)
-        let parents = Set(content.pets.values.compactMap(\.parentPetId)).union(content.evolutions.values.map(\.sourcePetId))
+        let parents = content.evolutionSources
         let matches = content.orderedPets.filter { pet in
             guard pet.publicVisible, search.matches(pet), type == nil || pet.typeIds.contains(type!),
                 style == nil || pet.attackStyle == style else { return false }

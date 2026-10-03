@@ -10,14 +10,14 @@ extension Pet {
 }
 
 /// Catalog queries operate only on canonical values; images remain owned by lazy cells.
-private struct PetListQuery {
-    enum Sort: String, CaseIterable {
+nonisolated private struct PetListQuery: Equatable, Sendable {
+    enum Sort: String, CaseIterable, Sendable {
         case handbook = "图鉴顺序", total = "总种族值", speed = "速度", name = "中文名"
     }
-    enum Leader: String, CaseIterable {
+    enum Leader: String, CaseIterable, Sendable {
         case all = "全部", leader = "首领", ordinary = "非首领"
     }
-    enum Stage: String, CaseIterable {
+    enum Stage: String, CaseIterable, Sendable {
         case all = "全部", initial = "初始", evolved = "已进化", canEvolve = "可进化"
     }
 
@@ -34,13 +34,12 @@ private struct PetListQuery {
         firstType != nil || secondType != nil || attackStyle != nil || leader != .all || stage != .all || leaderPotential
     }
 
-    func results(pets: [Pet], content: ContentStore) -> [Pet] {
+    @concurrent func results(pets: [Pet], content: ContentStore) async -> [Pet] {
         let query = Self.normalize(keyword)
         let numeric = !query.isEmpty && query.utf8.allSatisfy { (48...57).contains($0) }
         // parentPetId preserves Web's reverse-parent rule, including links absent
         // from the narrower evolution edge table. Branch edges are included too.
-        let evolutionSources = Set(content.pets.values.compactMap(\.parentPetId))
-            .union(content.evolutions.values.map(\.sourcePetId))
+        let evolutionSources = content.evolutionSources
         let matches = pets.filter { pet in
             let typesMatch = [firstType, secondType].compactMap { $0 }.allSatisfy { pet.typeIds.contains($0) }
             let leaderMatch = leader == .all || (leader == .leader ? pet.isLeader : !pet.isLeader)
@@ -115,53 +114,56 @@ struct AlignedPetGrid: View {
     let open: (Pet, PortraitOrigin) -> Void
     @State private var query = PetListQuery()
     @State private var showingFilters = false
-    @State private var page = 1
+    @State private var results: [Pet] = []
+    @State private var prefetchByPet: [PetID: [AssetID]] = [:]
     @FocusState private var searchFocused: Bool
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     /// Match Web default eligibility using canonical flags, without guessing from assets or egg groups.
-    private var catalogPets: [Pet] {
-        pets.filter { $0.implemented && $0.publicVisible }
-    }
-
-    private var typeOptions: [BattleType] {
-        let used = Set(catalogPets.flatMap(\.typeIds))
-        return content.types.values.filter { used.contains($0.typeId) }
-            .sorted { $0.typeId.rawValue < $1.typeId.rawValue }
-    }
+    private var catalogPets: [Pet] { content.catalogPets }
+    private var typeOptions: [BattleType] { content.catalogTypes }
 
     var body: some View {
-        let results = query.results(pets: catalogPets, content: content)
-        let window = CatalogPage(totalCount: results.count, requestedPage: page)
-        ScrollView {
-            VStack(alignment: .leading, spacing: 28) {
-                listControls(resultCount: results.count)
-                if results.isEmpty {
-                    ContentUnavailableView {
-                        Label("没有符合条件的精灵", systemImage: "magnifyingglass")
-                    } description: {
-                        Text("试试其他关键词，或清除筛选条件。")
-                    } actions: {
-                        Button("重置搜索与筛选") { query = PetListQuery() }
-                    }
-                }
-                CatalogPagination(window: window, page: $page).id("catalog-results-top")
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: dynamicTypeSize.isAccessibilitySize ? 280 : 150), spacing: 20)], spacing: 28) {
-                    ForEach(results[window.range], id: \.petId) { pet in
-                        PetGridCell(pet: pet, content: content, portraits: portraits, anchors: anchors) { pet, origin in
-                            searchFocused = false
-                            open(pet, origin)
+        ScrollViewReader { proxy in
+            ScrollView {
+                VStack(alignment: .leading, spacing: 28) {
+                    listControls(resultCount: results.count)
+                    if results.isEmpty {
+                        ContentUnavailableView {
+                            Label("没有符合条件的精灵", systemImage: "magnifyingglass")
+                        } description: {
+                            Text("试试其他关键词，或清除筛选条件。")
+                        } actions: {
+                            Button("重置搜索与筛选") { query = PetListQuery() }
                         }
                     }
+                    Color.clear.frame(height: 0).id("catalog-results-top")
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: dynamicTypeSize.isAccessibilitySize ? 280 : 150), spacing: 20)], spacing: 28) {
+                        ForEach(results, id: \.petId) { pet in
+                            PetGridCell(pet: pet, content: content, portraits: portraits, anchors: anchors, prefetch: prefetchByPet[pet.petId] ?? []) { pet, origin in
+                                searchFocused = false
+                                open(pet, origin)
+                            }
+                        }
+                    }
+                }.padding(24)
+            }
+            .task(id: query) {
+                let updated = await query.results(pets: catalogPets, content: content)
+                guard !Task.isCancelled else { return }
+                var ahead: [PetID: [AssetID]] = [:]
+                for offset in stride(from: 0, to: updated.count, by: 4) {
+                    ahead[updated[offset].petId] = updated.dropFirst(offset + 1).prefix(4).compactMap(\.portraitAssetId)
                 }
-                if window.pageCount > 1 { CatalogPagination(window: window, page: $page) }
-            }.padding(24)
+                prefetchByPet = ahead
+                results = updated
+            }
+            .onChange(of: query) { proxy.scrollTo("catalog-results-top", anchor: .top) }
+            .reviewScrollPosition()
+            .scrollDismissesKeyboard(.interactively)
+            .background(Color(uiColor: .systemBackground))
+            .sheet(isPresented: $showingFilters) { filterSheet }
         }
-        .catalogPagination(page: $page, totalCount: results.count, resetKey: [query.keyword, query.firstType as AnyHashable, query.secondType as AnyHashable, query.attackStyle as AnyHashable, query.leader, query.stage, query.leaderPotential, query.sort])
-        .reviewScrollPosition()
-        .scrollDismissesKeyboard(.interactively)
-        .background(Color(uiColor: .systemBackground))
-        .sheet(isPresented: $showingFilters) { filterSheet }
     }
 
     private func listControls(resultCount: Int) -> some View {
@@ -198,7 +200,7 @@ struct AlignedPetGrid: View {
                     sortMenu
                 }
             }
-            Text("\(resultCount) / \(PetCatalogPresentation.collapseDuplicateLeaderConfigurations(catalogPets).count) 只已实装精灵")
+            Text("\(resultCount) / \(content.catalogPetCount) 只已实装精灵")
                 .font(.subheadline.monospacedDigit()).foregroundStyle(.secondary)
         }
     }
@@ -243,7 +245,7 @@ struct AlignedPetGrid: View {
                         Text("物攻").tag(Optional(PetAttackStyle.physical))
                         Text("魔攻").tag(Optional(PetAttackStyle.magic))
                         Text("双攻").tag(Optional(PetAttackStyle.both))
-                        if catalogPets.contains(where: { $0.attackStyle == .unknown }) {
+                        if content.catalogHasUnknownAttackStyle {
                             Text("未知").tag(Optional(PetAttackStyle.unknown))
                         }
                     }
@@ -290,33 +292,29 @@ struct AlignedPetGrid: View {
     }
 }
 
-/// Decoding lives in the lazy cell body, never in the catalog/ForEach input construction.
-/// The mounted UIImageView and bounded PortraitStore cache own the bitmap; there is no
-/// 721-element UIImage array or per-pet @State bitmap retained after scrolling away.
+/// The mounted UIImageView owns the bitmap; cell state retains only load status.
+/// Scrolling away dismantles the view without retaining one UIImage per visited pet.
 private struct PetGridCell: View {
     let pet: Pet
     let content: ContentStore
     let portraits: PortraitStore
     let anchors: PortraitAnchors
+    let prefetch: [AssetID]
     let open: (Pet, PortraitOrigin) -> Void
+    @State private var loaded = false
+    @State private var error: String?
 
     var body: some View {
         let origin = PortraitOrigin(petID: pet.petId, instance: "encyclopedia-grid")
-        let portrait = Result { try portraits.image(for: pet) }
         Button { open(pet, origin) } label: {
             VStack(alignment: .leading, spacing: 8) {
-                Group {
-                    switch portrait {
-                    case .success(let image):
-                        AnchoredPortrait(image: image, origin: origin, anchors: anchors)
-                    case .failure:
-                        VStack(spacing: 8) {
-                            Image(systemName: "exclamationmark.triangle")
-                            Text("图片加载失败").font(.caption)
-                        }
-                        .foregroundStyle(.red)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                GeometryReader { geometry in
+                    LoadingPortrait(pet: pet, portraits: portraits, origin: origin, anchors: anchors) { failure in
+                        error = failure
+                        loaded = failure == nil
                     }
+                    .frame(width: geometry.size.width * 0.84, height: geometry.size.height * 0.84)
+                    .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
                 }
                 .aspectRatio(1, contentMode: .fit)
                 .allowsHitTesting(false)
@@ -324,24 +322,19 @@ private struct PetGridCell: View {
                     .fixedSize(horizontal: false, vertical: true)
                 Text(pet.numberLabel).font(.caption.monospacedDigit()).foregroundStyle(.secondary)
                 PetTypes(pet: pet, content: content)
-                if case .failure(let error) = portrait {
-                    Text(String(describing: error)).font(.caption2).foregroundStyle(.red)
-                }
+                if let error { Text(error).font(.caption2).foregroundStyle(.red) }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .contentShape(.interaction, Rectangle())
         }
         .buttonStyle(.plain)
-        .disabled(portrait.isFailure)
+        .disabled(!loaded)
         .accessibilityIdentifier("pet-\(pet.petId.rawValue)")
         .accessibilityLabel("\(pet.nameZh)，\(pet.numberLabel)")
-        .accessibilityHint(portrait.isFailure ? "图片加载失败" : "查看精灵详情")
-    }
-}
-
-private extension Result {
-    var isFailure: Bool {
-        if case .failure = self { return true }
-        return false
+        .accessibilityHint(error != nil ? "图片加载失败" : loaded ? "查看精灵详情" : "正在加载图片")
+        .task(id: pet.petId) {
+            guard !prefetch.isEmpty else { return }
+            await portraits.thumbnails.prefetch(prefetch, maxPixelSize: 512)
+        }
     }
 }

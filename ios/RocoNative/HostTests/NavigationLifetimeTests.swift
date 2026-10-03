@@ -147,22 +147,28 @@ final class NavigationLifetimeTests: XCTestCase {
         XCTAssertEqual(pets.count, 721)
         XCTAssertEqual(pets.map(\.petId), coordinator.content.orderedPets.map(\.petId))
         XCTAssertEqual(pets.first?.petId.rawValue, 16000004)
-        XCTAssertEqual(portraits.decodeCount, 0, "Initializing the store must not decode any images")
+        let emptyDecodes = await portraits.decodeCount
+        XCTAssertEqual(emptyDecodes, 0, "Initializing the store must not decode any images")
         XCTAssertEqual(portraits.placeholderCreationCount, 0)
         let pet = try XCTUnwrap(coordinator.content.pet(PetID(rawValue: 3001)))
         XCTAssertEqual(pet.nameZh, "喵喵")
-        let image = try portraits.image(for: pet)
-        XCTAssertTrue(try portraits.image(for: pet) === image)
-        XCTAssertEqual(portraits.decodeCount, 1)
+        let image = try await portraits.image(for: pet)
+        let repeated = try await portraits.image(for: pet)
+        XCTAssertTrue(repeated === image)
+        let decoded = await portraits.decodeCount
+        XCTAssertEqual(decoded, 1)
         XCTAssertLessThanOrEqual(image.cgImage?.width ?? 0, 512)
         XCTAssertLessThanOrEqual(image.cgImage?.height ?? 0, 512)
         let a = try XCTUnwrap(coordinator.content.pet(PetID(rawValue: 3784)))
         let b = try XCTUnwrap(coordinator.content.pet(PetID(rawValue: 3785)))
-        let placeholder = try portraits.image(for: a)
-        XCTAssertTrue(try portraits.image(for: b) === placeholder)
-        XCTAssertTrue(try portraits.image(for: a) === placeholder)
+        let placeholder = try await portraits.image(for: a)
+        let missingB = try await portraits.image(for: b)
+        XCTAssertTrue(missingB === placeholder)
+        let missingAgain = try await portraits.image(for: a)
+        XCTAssertTrue(missingAgain === placeholder)
         XCTAssertEqual(portraits.placeholderCreationCount, 1)
-        XCTAssertEqual(portraits.decodeCount, 1, "Known missing never decode a fabricated file")
+        let finalDecodes = await portraits.decodeCount
+        XCTAssertEqual(finalDecodes, 1, "Known missing never decode a fabricated file")
     }
 
     @MainActor
@@ -175,10 +181,13 @@ final class NavigationLifetimeTests: XCTestCase {
         await nextMainTurn()
         let pet = try XCTUnwrap(visibleCatalogPets(pets).first)
         let origin = PortraitOrigin(petID: pet.petId, instance: "encyclopedia-grid")
+        let deadline = ContinuousClock.now.advanced(by: .seconds(5))
+        while coordinator.anchors.source(for: origin) == nil && ContinuousClock.now < deadline { await nextMainTurn() }
         let source = try XCTUnwrap(coordinator.anchors.source(for: origin))
         let image = try XCTUnwrap(source.image)
-        XCTAssertLessThan(coordinator.portraits.decodeCount, pets.count, "Lazy first render must not decode the catalog")
-        print("FOCUSED_GRID pets=\(pets.count) initialDecoded=\(coordinator.portraits.decodeCount)")
+        let initialDecoded = await coordinator.portraits.decodeCount
+        XCTAssertLessThan(initialDecoded, pets.count, "Lazy first render must not decode the catalog")
+        print("FOCUSED_GRID pets=\(pets.count) initialDecoded=\(initialDecoded)")
         coordinator.open(pet, origin)
         let detail = try XCTUnwrap(nav.topViewController as? UIHostingController<RocoNative.PetDetail>)
         XCTAssertTrue(detail.rootView.image === image)

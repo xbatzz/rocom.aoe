@@ -47,49 +47,34 @@ final class NavigationTests: XCTestCase {
     }
 
     @MainActor
-    func testPaginationInLargeSkillAndPetResults() {
+    func testTeamPickerPagination() {
         let app = XCUIApplication()
-        for route in ["pet-many-skills", "skill-many-pets", "advanced", "team-many-skills"] {
-            app.launchArguments = ["--visual-review", route, "--reduce-motion"]
-            app.launch()
-            if route == "pet-many-skills" {
-                let tabs = app.segmentedControls["pet-detail-tabs"]
-                XCTAssertTrue(tabs.waitForExistence(timeout: 8)); tabs.buttons["技能"].tap()
-                app.segmentedControls["pet-skill-tabs"].buttons["技能石"].tap()
-            } else if route == "skill-many-pets" {
-                let tabs = app.segmentedControls["skill-detail-tabs"]
-                XCTAssertTrue(tabs.waitForExistence(timeout: 8)); tabs.buttons["获得方式"].tap()
-            } else if route == "team-many-skills" {
-                XCTAssertTrue(app.navigationBars["队伍编辑"].waitForExistence(timeout: 8))
-                app.buttons.matching(NSPredicate(format: "label CONTAINS '学院呱呱'")).firstMatch.tap()
-                XCTAssertTrue(app.navigationBars["槽位草稿"].waitForExistence(timeout: 3))
-                app.buttons["选择精灵"].firstMatch.tap()
-                let pickerNext = app.buttons["pagination-next"].firstMatch
-                XCTAssertTrue(pickerNext.waitForExistence(timeout: 3)); pickerNext.tap()
-                XCTAssertTrue(app.staticTexts["pagination-range"].firstMatch.label.hasPrefix("第 25–"))
-                app.navigationBars.buttons.element(boundBy: 0).tap()
-            } else {
-                XCTAssertTrue(app.navigationBars["高级筛选"].waitForExistence(timeout: 8))
-            }
-            let next = app.buttons["pagination-next"].firstMatch
-            // Form rows below the initial viewport enter the accessibility tree lazily.
-            for _ in 0..<14 where !next.exists || !next.isHittable { app.swipeUp() }
-            XCTAssertTrue(next.waitForExistence(timeout: 3), route)
-            XCTAssertTrue(next.isHittable, route); next.tap()
-            XCTAssertTrue(app.staticTexts["pagination-range"].firstMatch.label.hasPrefix("第 25–"), route)
-            XCTAssertTrue(next.isHittable, "\(route) must scroll back to the first row")
-            app.buttons["pagination-previous"].firstMatch.tap()
-            XCTAssertTrue(app.staticTexts["pagination-range"].firstMatch.label.hasPrefix("第 1–"), route)
-            XCTAssertFalse(app.buttons["pagination-previous"].firstMatch.isEnabled, route)
-            attach("pagination-large-\(route)", app)
-            app.terminate()
-        }
+        app.launchArguments = ["--visual-review", "team-many-skills", "--reduce-motion"]
+        app.launch()
+        XCTAssertTrue(app.navigationBars["队伍编辑"].waitForExistence(timeout: 8))
+        app.buttons.matching(NSPredicate(format: "label CONTAINS '学院呱呱'")).firstMatch.tap()
+        XCTAssertTrue(app.navigationBars["槽位草稿"].waitForExistence(timeout: 3))
+        app.buttons["选择精灵"].firstMatch.tap()
+        let pickerNext = app.buttons["pagination-next"].firstMatch
+        XCTAssertTrue(pickerNext.waitForExistence(timeout: 3)); pickerNext.tap()
+        XCTAssertTrue(app.staticTexts["pagination-range"].firstMatch.label.hasPrefix("第 25–"))
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+        let next = app.buttons["pagination-next"].firstMatch
+        for _ in 0..<14 where !next.exists || !next.isHittable { app.swipeUp() }
+        XCTAssertTrue(next.waitForExistence(timeout: 3))
+        XCTAssertTrue(next.isHittable); next.tap()
+        XCTAssertTrue(app.staticTexts["pagination-range"].firstMatch.label.hasPrefix("第 25–"))
+        XCTAssertTrue(next.isHittable)
+        app.buttons["pagination-previous"].firstMatch.tap()
+        XCTAssertTrue(app.staticTexts["pagination-range"].firstMatch.label.hasPrefix("第 1–"))
+        XCTAssertFalse(app.buttons["pagination-previous"].firstMatch.isEnabled)
+        attach("pagination-team-picker", app)
     }
 
     @MainActor
     func testCatalogPaginationAndSearchReset() {
         let app = XCUIApplication()
-        for route in ["skills", "hero", "grass", "shiny"] {
+        for route in ["hero", "grass", "shiny"] {
             app.launchArguments = ["--visual-review", route, "--visual-fixture", "--reduce-motion"]
             app.launch()
             if route == "shiny" {
@@ -154,28 +139,76 @@ final class NavigationTests: XCTestCase {
     }
 
     @MainActor
-    func testPaginatedEncyclopediaReturnAndLargeText() {
-        let app = XCUIApplication(); app.launchArguments = ["--visual-review", "grid", "--reduce-motion"]
+    func testContinuousEncyclopediaReturnAndSearch() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--visual-review", "grid", "--reduce-motion"]
         app.launch()
-        let next = app.buttons["pagination-next"].firstMatch
-        XCTAssertTrue(next.waitForExistence(timeout: 8))
-        for _ in 0..<5 where !next.isHittable { app.swipeUp() }
-        next.tap()
-        let cell = app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH 'pet-'")).firstMatch
-        XCTAssertTrue(cell.waitForExistence(timeout: 3)); cell.tap()
-        XCTAssertTrue(app.scrollViews.matching(NSPredicate(format: "identifier BEGINSWITH 'detail-'")).firstMatch.waitForExistence(timeout: 3))
+        let first = app.buttons["pet-3001"]
+        XCTAssertTrue(first.waitForExistence(timeout: 8))
+        XCTAssertFalse(app.buttons["pagination-next"].exists)
+        let later = app.buttons["pet-3028"]
+        for _ in 0..<14 where !later.isHittable { app.swipeUp() }
+        XCTAssertTrue(later.isHittable, "A pet past the former 24-row boundary must be reachable by scrolling")
+        let enabled = NSPredicate(format: "enabled == true")
+        expectation(for: enabled, evaluatedWith: later)
+        waitForExpectations(timeout: 5)
+        later.tap()
+        XCTAssertTrue(app.scrollViews["detail-3028"].waitForExistence(timeout: 3))
         app.navigationBars.buttons.element(boundBy: 0).tap()
-        XCTAssertTrue(app.staticTexts["pagination-range"].firstMatch.label.hasPrefix("第 25–"))
-        attach("pagination-grid-return", app)
-        app.terminate()
-        app.launchArguments = ["--visual-review", "hero", "--reduce-motion", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
-        app.launch()
-        XCTAssertTrue(next.waitForExistence(timeout: 8))
-        for _ in 0..<8 where !next.isHittable { app.swipeUp() }
-        XCTAssertTrue(next.isHittable); next.tap()
-        XCTAssertTrue(app.staticTexts["pagination-range"].firstMatch.label.hasPrefix("第 25–"))
-        XCTAssertTrue(next.isHittable)
-        attach("pagination-accessibility-text", app)
+        XCTAssertTrue(later.waitForExistence(timeout: 3))
+        XCTAssertTrue(later.isHittable, "Returning must retain the continuous scroll position")
+        attach("continuous-grid-return", app)
+        for _ in 0..<20 where !app.textFields["搜索精灵"].isHittable { app.swipeDown() }
+        let search = app.textFields["搜索精灵"]
+        XCTAssertTrue(search.isHittable)
+        search.tap(); search.typeText("不存在的精灵987654321")
+        XCTAssertTrue(app.staticTexts["没有符合条件的精灵"].waitForExistence(timeout: 3))
+    }
+
+    @MainActor
+    func testContinuousSkillsAndLargeText() {
+        let app = XCUIApplication()
+        for extra in [[], ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]] {
+            app.launchArguments = ["--visual-review", "skills", "--reduce-motion"] + extra
+            app.launch()
+            XCTAssertTrue(app.navigationBars["技能查询"].waitForExistence(timeout: 8))
+            XCTAssertFalse(app.buttons["pagination-next"].exists)
+            let later = app.buttons["skill-30"]
+            let name = app.staticTexts["力量增效"].firstMatch
+            for _ in 0..<(extra.isEmpty ? 25 : 70) where !name.isHittable || name.frame.midY > app.frame.maxY - 160 { app.swipeUp() }
+            XCTAssertTrue(later.isHittable, "Skill #30 must be reachable without a page control")
+            // At AX XXXL a row is taller than a viewport; its geometric center
+            // can be offscreen. Tap its visible semantic name instead.
+            XCTAssertTrue(name.isHittable)
+            name.tap()
+            XCTAssertTrue(app.navigationBars["力量增效"].waitForExistence(timeout: 3))
+            app.navigationBars.buttons.element(boundBy: 0).tap()
+            XCTAssertTrue(later.isHittable)
+            attach("continuous-skills-\(extra.isEmpty ? "default" : "large")", app)
+            app.terminate()
+        }
+    }
+
+    @MainActor
+    func testContinuousNestedCatalogs() {
+        let app = XCUIApplication()
+        for route in ["pet-many-skills", "skill-many-pets", "advanced"] {
+            app.launchArguments = ["--visual-review", route, "--reduce-motion"]
+            app.launch()
+            if route == "pet-many-skills" {
+                let tabs = app.segmentedControls["pet-detail-tabs"]
+                XCTAssertTrue(tabs.waitForExistence(timeout: 8)); tabs.buttons["技能"].tap()
+                app.segmentedControls["pet-skill-tabs"].buttons["技能石"].tap()
+            } else if route == "skill-many-pets" {
+                let tabs = app.segmentedControls["skill-detail-tabs"]
+                XCTAssertTrue(tabs.waitForExistence(timeout: 8)); tabs.buttons["获得方式"].tap()
+            } else { XCTAssertTrue(app.navigationBars["高级筛选"].waitForExistence(timeout: 8)) }
+            for _ in 0..<8 { app.swipeUp() }
+            XCTAssertFalse(app.buttons["pagination-next"].exists)
+            XCTAssertFalse(app.buttons["pagination-previous"].exists)
+            attach("continuous-\(route)", app)
+            app.terminate()
+        }
     }
 
     @MainActor

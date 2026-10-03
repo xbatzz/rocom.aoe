@@ -7,6 +7,13 @@ public struct SkillAcquisitionQuery: Sendable {
         public let key: String
         public let representative: Pet
         public let acquired: [PetSkill]
+        public let memberCount: Int
+        init(key: String, representative: Pet, acquired: [PetSkill]) {
+            self.key = key
+            self.representative = representative
+            self.acquired = acquired
+            memberCount = Set(acquired.map(\.petId)).count
+        }
     }
     public var keyword = ""
     public var source: PetSkillSource?
@@ -15,10 +22,17 @@ public struct SkillAcquisitionQuery: Sendable {
     public var highest = true
     public let scope: Scope
     public init(scope: Scope = .configuration) { self.scope = scope }
+    @concurrent public func resultsInBackground(skill: SkillID, index: SkillSearchIndex, content: ContentStore) async -> [Result] {
+        results(skill: skill, index: index, content: content)
+    }
+
     public func results(skill: SkillID, index: SkillSearchIndex, content: ContentStore) -> [Result] {
         let search = PetSearch.Query(keyword)
         let ids = scope == .sameName ? index.sameNameSkillIDs[skill] ?? [skill] : [skill]
-        let relations = ids.flatMap { index.directBySkill[$0] ?? [] }.filter { source == nil || $0.source == source }
+        let relations = ids.flatMap { id in
+            if let source { return index.directBySkillAndSource[id]?[source] ?? [] }
+            return index.directBySkill[id] ?? []
+        }
         var rows: [Result] = []
         if highest {
             var seen = Set<FamilyKey>()

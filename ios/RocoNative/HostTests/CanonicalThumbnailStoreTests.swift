@@ -5,6 +5,25 @@ import RocoDomain
 
 final class CanonicalThumbnailStoreTests: XCTestCase {
     @MainActor
+    func testPortraitAndThumbnailShareCacheAndBoundedPrefetch() async throws {
+        let url = try XCTUnwrap(Bundle.main.url(forResource: "ContentResources", withExtension: "bundle"))
+        let content = try await ContentStore.loadInBackground(bundleURL: url, assetValidation: .onDemand)
+        let portraits = PortraitStore(resolver: content.assetResolver)
+        let pet = try XCTUnwrap(content.pet(PetID(rawValue: 3001)))
+        let id = try XCTUnwrap(pet.portraitAssetId)
+        async let portrait = portraits.image(for: pet)
+        async let thumbnail = portraits.thumbnails.image(for: id, maxPixelSize: 512)
+        let (a, b) = try await (portrait, thumbnail)
+        XCTAssertTrue(a === b, "Both presentation paths share one decode and bitmap")
+        let initial = await portraits.decodeCount
+        XCTAssertEqual(initial, 1)
+        let candidates = Array(Set(content.catalogPets.compactMap(\.portraitAssetId).filter { content.assets[$0]?.availability == .available }).subtracting([id])).prefix(6)
+        await portraits.thumbnails.prefetch(Array(candidates), maxPixelSize: 128)
+        let final = await portraits.decodeCount
+        XCTAssertEqual(final, initial + 4, "Prefetch must respect its four-image limit")
+    }
+
+    @MainActor
     func testSharedRequestsSizesMissingAndCancellation() async throws {
         let url = try XCTUnwrap(Bundle.main.url(forResource: "ContentResources", withExtension: "bundle"))
         let content = try await ContentStore.loadInBackground(bundleURL: url, assetValidation: .onDemand)

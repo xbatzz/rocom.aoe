@@ -266,7 +266,11 @@ struct SkillSummary: View {
     }
     @ViewBuilder private var badges: some View {
         if let id = skill.typeId, let type = content.types[id] { TypeBadge(type: type) }
-        SkillCategoryPill(category: skill.category)
+        if skill.isBattleEquipmentGranted {
+            SkillCategoryPill(category: .physicalAttack, title: "物理/魔法")
+        } else {
+            SkillCategoryPill(category: skill.category)
+        }
     }
 }
 

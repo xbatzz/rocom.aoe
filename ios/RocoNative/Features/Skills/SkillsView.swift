@@ -28,62 +28,66 @@ struct SkillsView: View {
     @State private var query = ""
     @State private var type: TypeID?
     @State private var category: SkillCategory?
-    @State private var page = 1
+    @State private var skills: [Skill] = []
+    @State private var prefetchBySkill: [SkillID: [AssetID]] = [:]
 
     var body: some View {
-        let ids = index.search(query, type: type, category: category)
-        let window = CatalogPage(totalCount: ids.count, requestedPage: page)
-        ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                ViewThatFits(in: .horizontal) {
-                    HStack { typeFilter; Spacer(); categoryFilter }
-                    VStack(alignment: .leading) { typeFilter; categoryFilter }
-                }
-                if query.isEmpty && type == nil && category == nil {
-                    CompanionSection("技能速览") {
-                        ScrollView(.horizontal) {
-                            HStack(alignment: .top, spacing: 20) {
-                                ForEach(content.skills.values.filter { content.skillIcon(for: $0) != nil }.sorted { $0.skillId.rawValue < $1.skillId.rawValue }.prefix(6), id: \.skillId) { skill in
-                                    NavigationLink { SkillDetailView(skill: skill, content: content, portraits: portraits, index: index) } label: {
-                                        VStack(spacing: 8) {
-                                            CanonicalThumbnail(assetID: content.skillIcon(for: skill), content: content, size: 64)
-                                            Text(skill.nameZh).font(.caption.weight(.medium)).fixedSize(horizontal: false, vertical: true)
-                                        }.frame(width: dynamicTypeSize.isAccessibilitySize ? 160 : 76)
-                                    }.buttonStyle(.plain)
+        ScrollViewReader { proxy in
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    ViewThatFits(in: .horizontal) {
+                        HStack { typeFilter; Spacer(); categoryFilter }
+                        VStack(alignment: .leading) { typeFilter; categoryFilter }
+                    }
+                    if query.isEmpty && type == nil && category == nil {
+                        CompanionSection("技能速览") {
+                            ScrollView(.horizontal) {
+                                HStack(alignment: .top, spacing: 20) {
+                                    ForEach(skills.filter { content.skillIcon(for: $0) != nil }.prefix(6), id: \.skillId) { skill in
+                                        NavigationLink { SkillDetailView(skill: skill, content: content, portraits: portraits, index: index) } label: {
+                                            VStack(spacing: 8) {
+                                                CanonicalThumbnail(assetID: content.skillIcon(for: skill), content: content, size: 64)
+                                                Text(skill.nameZh).font(.caption.weight(.medium)).fixedSize(horizontal: false, vertical: true)
+                                            }.frame(width: dynamicTypeSize.isAccessibilitySize ? 160 : 76)
+                                        }.buttonStyle(.plain)
+                                    }
                                 }
-                            }
-                        }.scrollIndicators(.hidden)
-                    }.padding(16).companionAccentSurface(tint: .purple)
-                }
-                CompanionHeading(title: "技能目录", detail: "\(ids.count) 个 · ID 排序")
-                if ids.isEmpty { ContentUnavailableView("没有符合条件的技能", systemImage: "sparkle.magnifyingglass", description: Text("尝试其他关键词，或更改属性与类别筛选。")) }
-                CatalogPagination(window: window, page: $page).id("catalog-results-top")
-                LazyVStack(spacing: 0) {
-                    ForEach(ids[window.range], id: \.self) { id in
-                        if let skill = content.skills[id] {
-                            NavigationLink {
-                                SkillDetailView(skill: skill, content: content, portraits: portraits, index: index)
-                            } label: {
-                                VStack(alignment: .leading, spacing: 6) {
-                                    SkillSummary(skill: skill, content: content)
-                                    Text("\(SkillAcquisitionQuery(scope: .sameName).results(skill: id, index: index, content: content).count) 个可获得家族")
-                                        .font(.caption).foregroundStyle(.secondary)
-                                }
-                            }.buttonStyle(.plain)
-                            Divider().padding(.leading, 70)
+                            }.scrollIndicators(.hidden)
+                        }.padding(16).companionAccentSurface(tint: .purple)
+                    }
+                    CompanionHeading(title: "技能目录", detail: "\(skills.count) 个 · ID 排序")
+                    if skills.isEmpty { ContentUnavailableView("没有符合条件的技能", systemImage: "sparkle.magnifyingglass", description: Text("尝试其他关键词，或更改属性与类别筛选。")) }
+                    Color.clear.frame(height: 0).id("catalog-results-top")
+                    LazyVStack(spacing: 0) {
+                        ForEach(skills, id: \.skillId) { skill in
+                            SkillCatalogRow(skill: skill, content: content, portraits: portraits, index: index,
+                                prefetch: prefetchBySkill[skill.skillId] ?? [])
                         }
                     }
+                }.padding(20)
+            }
+            .task(id: [query as AnyHashable, type as AnyHashable, category as AnyHashable]) {
+                let updated = await index.searchInBackground(query, type: type, category: category)
+                guard !Task.isCancelled else { return }
+                var ahead: [SkillID: [AssetID]] = [:]
+                for offset in stride(from: 0, to: updated.count, by: 4) {
+                    ahead[updated[offset]] = updated.dropFirst(offset + 1).prefix(4)
+                        .compactMap { content.skills[$0].flatMap { content.skillIcon(for: $0) } }
                 }
-                if window.pageCount > 1 { CatalogPagination(window: window, page: $page) }
-            }.padding(20)
-        }.catalogPagination(page: $page, totalCount: ids.count, resetKey: [query, type as AnyHashable, category as AnyHashable])
-            .reviewScrollPosition().companionBackground().searchable(text: $query, prompt: "中文名、ID 或描述")
-            .navigationTitle("技能查询")
+                prefetchBySkill = ahead
+                skills = updated.compactMap { content.skills[$0] }
+            }
+            .onChange(of: [query as AnyHashable, type as AnyHashable, category as AnyHashable]) {
+                proxy.scrollTo("catalog-results-top", anchor: .top)
+            }
+                .reviewScrollPosition().companionBackground().searchable(text: $query, prompt: "中文名、ID 或描述")
+                .navigationTitle("技能查询")
+        }
     }
     private var typeFilter: some View {
         Picker("属性", selection: $type) {
             Text("全部属性").tag(nil as TypeID?)
-            ForEach(content.types.values.sorted { $0.typeId.rawValue < $1.typeId.rawValue }, id: \.typeId) { type in
+            ForEach(content.orderedTypes, id: \.typeId) { type in
                 Label {
                     Text(type.nameZh)
                 } icon: {
@@ -114,11 +118,10 @@ struct SkillDetailView: View {
         case acquisition = "获得方式"
     }
     @State private var section = Section.details
-    @State private var acquisitionPage = 1
     @State private var acquisitionQuery = SkillAcquisitionQuery(scope: .sameName)
 
     var body: some View {
-        CompanionTabbedPage(title: "技能分区", selection: $section, options: Section.allCases, identifier: "skill-detail-tabs", scrollResetKey: acquisitionPage) {
+        CompanionTabbedPage(title: "技能分区", selection: $section, options: Section.allCases, identifier: "skill-detail-tabs") {
             if section == .details {
                 VStack(alignment: .leading, spacing: 18) {
                     HStack(spacing: 16) {
@@ -140,20 +143,28 @@ struct SkillDetailView: View {
                 if !skill.description.isEmpty {
                     CompanionSection("技能效果") { Text(skill.description).font(.body).textSelection(.enabled) }
                 }
-                if let ids = index.sameNameSkillIDs[skill.skillId], ids.count > 1 {
+                if !skill.isBattleEquipmentGranted, let ids = index.sameNameSkillIDs[skill.skillId], ids.count > 1 {
                     CompanionSection("同名技能组") {
                         Text("技能 ID：\(ids.map { String($0.rawValue) }.joined(separator: "、"))")
                         Text("获得方式汇总同名技能，具体效果以精灵实际技能为准。").font(.footnote).foregroundStyle(.secondary)
                     }
                 }
             } else {
-                SkillAcquisitionResultsView(skill: skill.skillId, content: content, portraits: portraits, index: index, query: $acquisitionQuery, page: $acquisitionPage)
+                if let description = skill.acquisitionDescription {
+                    CompanionSection("获得方式") { Text(description).font(.body) }
+                } else {
+                    SkillAcquisitionResultsView(skill: skill.skillId, content: content, portraits: portraits, index: index, query: $acquisitionQuery)
+                }
             }
         }.navigationTitle(skill.nameZh)
     }
     @ViewBuilder private var skillBadges: some View {
         if let id = skill.typeId, let type = content.types[id] { TypeBadge(type: type) }
-        SkillCategoryPill(category: skill.category)
+        if skill.isBattleEquipmentGranted {
+            SkillCategoryPill(category: .physicalAttack, title: "物理/魔法")
+        } else {
+            SkillCategoryPill(category: skill.category)
+        }
     }
     private func petLink(_ pet: Pet) -> some View {
         NavigationLink { ExistingPetDestination(pet: pet, content: content, portraits: portraits) } label: {
@@ -185,6 +196,13 @@ struct ExistingPetDestination: View {
                     .overlay(alignment: .bottom) { Text("图片未能加载，精灵资料仍可查看").font(.caption).padding().background(.regularMaterial) }
             case nil: ProgressView()
             }
-        }.task { result = Result { try portraits.image(for: pet) } }
+        }.task(id: pet.petId) {
+            do {
+                let image = try await portraits.image(for: pet)
+                try Task.checkCancellation()
+                result = .success(image)
+            } catch is CancellationError {
+            } catch { result = .failure(error) }
+        }
     }
 }

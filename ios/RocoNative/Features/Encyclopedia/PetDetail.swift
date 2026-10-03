@@ -32,7 +32,7 @@ struct PetDetail: View {
     @State private var moveSource = PetSkillSource.pool
     @State private var selectedSkill: SkillID?
     @State private var index: SkillSearchIndex?
-    @State private var movePage = 1
+    @State private var moveRows: [PetSkill] = []
     @State private var moveKeyword = ""
     @State private var moveType: TypeID?
     @State private var moveCategory: SkillCategory?
@@ -116,12 +116,16 @@ struct PetDetail: View {
                 .onChange(of: section) {
                     proxy.scrollTo(section == .overview ? "pet-top" : "pet-section", anchor: .top)
                 }
-                .onChange(of: movePage) { proxy.scrollTo("catalog-results-top", anchor: .top) }
-                .onChange(of: moveSource) { movePage = 1; proxy.scrollTo("pet-section", anchor: .top) }
+                .onChange(of: moveSource) { proxy.scrollTo("pet-section", anchor: .top) }
             }
         }
         .background(Color(uiColor: .systemBackground))
-        .task { if index == nil { index = SkillSearchIndex(content: content) } }
+        .task {
+            guard index == nil else { return }
+            let built = await SkillSearchIndex.buildInBackground(content: content)
+            guard !Task.isCancelled else { return }
+            index = built
+        }
         .sheet(isPresented: Binding(get: { selectedSkill != nil }, set: { if !$0 { selectedSkill = nil } })) {
             NavigationStack {
                 if let id = selectedSkill, let skill = content.skills[id], let index, let portraits {
@@ -173,7 +177,7 @@ struct PetDetail: View {
                 TextField("技能名称或描述", text: $moveKeyword).textInputAutocapitalization(.never).autocorrectionDisabled()
                 Picker("属性", selection: $moveType) {
                     Text("全部").tag(nil as TypeID?)
-                    ForEach(content.types.values.sorted { $0.typeId.rawValue < $1.typeId.rawValue }, id: \.typeId) { Text($0.nameZh).tag(Optional($0.typeId)) }
+                    ForEach(content.orderedTypes, id: \.typeId) { Text($0.nameZh).tag(Optional($0.typeId)) }
                 }
                 Picker("类别", selection: $moveCategory) {
                     Text("全部").tag(nil as SkillCategory?)
@@ -182,32 +186,34 @@ struct PetDetail: View {
                 Button("重置筛选") { moveKeyword = ""; moveType = nil; moveCategory = nil }
             }.tint(.primary)
         }
-        let allRows = (content.petSkillsByPet[pet.petId] ?? []).filter { $0.source == moveSource }
-        let rows = moveSource == .bloodline ? allRows : allRows.filter { relation in
-            guard let skill = content.skills[relation.skillId] else { return false }
-            return (moveKeyword.isEmpty || "\(skill.nameZh) \(skill.description)".localizedStandardContains(moveKeyword))
-                && (moveType == nil || skill.typeId == moveType) && (moveCategory == nil || skill.category == moveCategory)
-        }
-        let window = CatalogPage(totalCount: rows.count, requestedPage: movePage)
+        let allRows = content.petSkillsByPetAndSource[pet.petId]?[moveSource] ?? []
         detailCard(sourceTitle(moveSource)) {
             if allRows.isEmpty {
                 Text("当前精灵没有\(sourceTitle(moveSource))资料").foregroundStyle(.secondary)
-            } else if rows.isEmpty {
+            } else if moveRows.isEmpty {
                 Text("没有符合筛选条件的技能").foregroundStyle(.secondary)
             }
-            CatalogPagination(window: window, page: $movePage).id("catalog-results-top")
-            ForEach(Array(rows[window.range].enumerated()), id: \.offset) { rowIndex, relation in
-                if let skill = content.skills[relation.skillId] {
-                    if rowIndex > 0 { Divider() }
-                    Button { selectedSkill = skill.skillId } label: { skillRow(skill, relation: relation) }
-                        .buttonStyle(.plain).disabled(index == nil || portraits == nil)
-                        .accessibilityHint("打开完整技能说明与获得方式")
+            Color.clear.frame(height: 0).id("catalog-results-top")
+            LazyVStack(alignment: .leading, spacing: 0) {
+                ForEach(moveRows) { relation in
+                    VStack(alignment: .leading, spacing: 0) {
+                        if let skill = content.skills[relation.skillId] {
+                            Divider()
+                            Button { selectedSkill = skill.skillId } label: { skillRow(skill, relation: relation) }
+                                .buttonStyle(.plain).disabled(index == nil || portraits == nil)
+                                .accessibilityHint("打开完整技能说明与获得方式")
+                        }
+                    }
                 }
             }
-            if window.pageCount > 1 { CatalogPagination(window: window, page: $movePage) }
         }
-        .onChange(of: [moveKeyword, moveType as AnyHashable, moveCategory as AnyHashable]) { movePage = 1 }
-        .onChange(of: rows.count) { movePage = CatalogPage(totalCount: rows.count, requestedPage: movePage).number }
+        .task(id: [pet.petId as AnyHashable, moveSource as AnyHashable, moveKeyword as AnyHashable, moveType as AnyHashable, moveCategory as AnyHashable]) {
+            moveRows = allRows.filter { relation in
+                guard let skill = content.skills[relation.skillId] else { return false }
+                return moveSource == .bloodline || ((moveKeyword.isEmpty || "\(skill.nameZh) \(skill.description)".localizedStandardContains(moveKeyword))
+                    && (moveType == nil || skill.typeId == moveType) && (moveCategory == nil || skill.category == moveCategory))
+            }
+        }
     }
 
     private func sourceTitle(_ source: PetSkillSource) -> String {
@@ -345,7 +351,11 @@ private struct RelatedPetRow: View {
         .disabled(open == nil)
         .task {
             guard image == nil, let portraits else { return }
-            do { image = try portraits.image(for: pet) }
+            do {
+                let loaded = try await portraits.image(for: pet)
+                try Task.checkCancellation()
+                image = loaded
+            } catch is CancellationError { }
             catch { imageFailed = true }
         }
     }

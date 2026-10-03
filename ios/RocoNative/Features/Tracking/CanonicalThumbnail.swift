@@ -21,6 +21,12 @@ struct CanonicalThumbnail: View {
             else if let error { Image(systemName: "exclamationmark.triangle").resizable().scaledToFit().padding(size * 0.2).accessibilityLabel(error) }
             else { Image(systemName: "photo").resizable().scaledToFit().padding(size * 0.2).foregroundStyle(.secondary).accessibilityLabel("暂无图片") }
         }.frame(width: size, height: size)
+            .onDisappear {
+                // Lazy containers can retain cell state after its surface disappears.
+                // Only the bounded application cache should retain offscreen bitmaps.
+                image = nil
+                error = nil
+            }
             .task(id: request) {
                 image = nil; error = nil
                 guard let assetID = request.assetID else { return }

@@ -1,58 +1,29 @@
 import UIKit
-import ImageIO
 import RocoDomain
 import RocoContent
-import os
 
 @MainActor
 final class PortraitStore {
     let thumbnails: CanonicalThumbnailStore
-    private let resolver: AssetResolver
-    private let cache = NSCache<NSString, UIImage>()
-    private let logger = Logger(subsystem: "com.batzz.rocom", category: "portraits")
     private var missingPlaceholder: UIImage?
 #if DEBUG
-    private(set) var decodeCount = 0
+    var decodeCount: Int { get async { await thumbnails.decodeCount } }
     private(set) var placeholderCreationCount = 0
 #endif
     init(resolver: AssetResolver) {
-        self.resolver = resolver
         thumbnails = CanonicalThumbnailStore(resolver: resolver)
-        cache.totalCostLimit = 16 * 1024 * 1024
     }
     nonisolated deinit {}
 
-    /// Called by lazy visible/near-visible cells. Reuses the existing ImageIO thumbnail
-    /// decoder and bounded cache; asset identity also shares bitmaps across pet forms.
-    func image(for pet: Pet) throws -> UIImage {
-        guard let assetId = pet.portraitAssetId else {
+    /// The same actor owns validation, decoding and cache entries for both catalogs.
+    /// A 512px portrait also preserves the frozen source/hero bitmap identity.
+    func image(for pet: Pet) async throws -> UIImage {
+        guard let assetID = pet.portraitAssetId else {
             throw ContentError.invalid("Pet \(pet.petId.rawValue) has no canonical portraitAssetId")
         }
-        let key = assetId.rawValue as NSString
-        if let image = cache.object(forKey: key) { return image }
-        switch try resolver.resolve(assetId) {
-        case .missing:
-            return placeholder()
-        case .available(let url):
-            let start = ContinuousClock.now
-            guard let source = CGImageSourceCreateWithURL(url as CFURL, nil),
-                let bitmap = CGImageSourceCreateThumbnailAtIndex(source, 0, [
-                    kCGImageSourceCreateThumbnailFromImageAlways: true,
-                    kCGImageSourceThumbnailMaxPixelSize: 512,
-                    kCGImageSourceShouldCacheImmediately: true
-                ] as CFDictionary), CGImageSourceGetStatus(source) == .statusComplete else {
-                logger.error("portrait decode failed pet=\(pet.petId.rawValue) asset=\(assetId.rawValue, privacy: .public)")
-                throw ContentError.invalid("WebP decode failed: pet \(pet.petId.rawValue), \(url.lastPathComponent)")
-            }
-            let image = UIImage(cgImage: bitmap)
-            let cost = bitmap.bytesPerRow * bitmap.height
-            cache.setObject(image, forKey: key, cost: cost)
-#if DEBUG
-            decodeCount += 1
-            logger.notice("decode pet=\(pet.petId.rawValue) bytes=\(cost) elapsed=\(String(describing: start.duration(to: .now)), privacy: .public)")
-#endif
-            return image
-        }
+        let image = try await thumbnails.image(for: assetID, maxPixelSize: 512)
+        try Task.checkCancellation()
+        return image ?? placeholder()
     }
 
     /// Only AssetResolver's validated known missing state reaches this native bitmap.

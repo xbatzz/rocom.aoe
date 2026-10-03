@@ -1,5 +1,6 @@
 import SwiftUI
 import RocoDomain
+import RocoContent
 
 /// The displayed image IS the registered zoom view. SwiftUI owns its layout;
 /// no parent layoutSubviews rewrites a child frame while UIKit owns its transform.
@@ -67,5 +68,55 @@ private struct RegisteredPortrait: UIViewRepresentable {
             size = nil
         }
         return size
+    }
+}
+
+/// Async loading keeps image bytes in the mounted surface, preserving the shared
+/// zoom's exact UIImage while avoiding bitmap retention in lazy-cell @State.
+struct LoadingPortrait: UIViewRepresentable {
+    let pet: Pet
+    let portraits: PortraitStore
+    let origin: PortraitOrigin
+    let anchors: PortraitAnchors
+    let completed: (String?) -> Void
+
+    final class Coordinator {
+        var petID: PetID?
+        var task: Task<Void, Never>?
+        nonisolated deinit {}
+    }
+
+    func makeCoordinator() -> Coordinator { Coordinator() }
+    func makeUIView(context: Context) -> PortraitSurface {
+        PortraitSurface(portrait: UIImage())
+    }
+    func updateUIView(_ view: PortraitSurface, context: Context) {
+        guard context.coordinator.petID != pet.petId else { return }
+        context.coordinator.task?.cancel()
+        context.coordinator.petID = pet.petId
+        view.image = nil
+        context.coordinator.task = Task { [weak view] in
+            do {
+                let image = try await portraits.image(for: pet)
+                try Task.checkCancellation()
+                guard let view else { return }
+                view.image = image
+                anchors.register(view, origin: origin)
+                completed(nil)
+            } catch is CancellationError {
+            } catch {
+                guard !Task.isCancelled, view != nil else { return }
+                completed(String(describing: error))
+            }
+        }
+    }
+    static func dismantleUIView(_ view: PortraitSurface, coordinator: Coordinator) {
+        coordinator.task?.cancel()
+        view.image = nil
+    }
+    func sizeThatFits(_ proposal: ProposedViewSize, uiView: PortraitSurface, context: Context) -> CGSize? {
+        guard let width = proposal.width, let height = proposal.height,
+            width.isFinite, height.isFinite else { return nil }
+        return CGSize(width: width, height: height)
     }
 }

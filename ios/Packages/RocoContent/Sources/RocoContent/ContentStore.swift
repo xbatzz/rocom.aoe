@@ -8,6 +8,15 @@ public struct ContentStore: Sendable {
     public let manifest: Manifest
     public let assetResolver: AssetResolver
     public let orderedPets: [Pet]
+    public let catalogPets: [Pet]
+    public let catalogPetCount: Int
+    public let catalogHasUnknownAttackStyle: Bool
+    public let orderedTypes: [BattleType]
+    public let normalTypes: [BattleType]
+    public let orderedSkills: [Skill]
+    public let catalogTypes: [BattleType]
+    public let evolutionSources: Set<PetID>
+    public let skillPreview: [Skill]
     public let pets: [PetID: Pet]
     public let petDetails: [PetID: PetDetail]
     public let types: [TypeID: BattleType]
@@ -24,6 +33,7 @@ public struct ContentStore: Sendable {
     public let seasons: [SeasonID: Season]
     public let battleEffects: [EffectID: BattleEffect]
     public let assets: [AssetID: Asset]
+    public let petSkillsByPetAndSource: [PetID: [PetSkillSource: [PetSkill]]]
     public let petSkillsByPet: [PetID: [PetSkill]]
     public let evolutionsByPet: [PetID: [Evolution]]
     public let incomingEvolutionsByPet: [PetID: [Evolution]]
@@ -105,6 +115,16 @@ public struct ContentStore: Sendable {
         let assetsRows = try load(Asset.self, "assets", "assets.json")
         assets = try uniqueIndex(assetsRows, id: { $0.assetId }, context: "assets")
         orderedPets = petsRows.sorted { $0.ordinal < $1.ordinal }
+        catalogPets = orderedPets.filter { $0.implemented && $0.publicVisible }
+        catalogHasUnknownAttackStyle = catalogPets.contains { $0.attackStyle == .unknown }
+        catalogPetCount = PetCatalogPresentation.collapseDuplicateLeaderConfigurations(catalogPets).count
+        orderedTypes = typesRows.sorted { $0.typeId.rawValue < $1.typeId.rawValue }
+        normalTypes = orderedTypes.filter(\.normalBattleType)
+        orderedSkills = skillsRows.sorted { $0.skillId.rawValue < $1.skillId.rawValue }
+        let usedTypes = Set(catalogPets.flatMap(\.typeIds))
+        catalogTypes = orderedTypes.filter { usedTypes.contains($0.typeId) }
+        evolutionSources = Set(petsRows.compactMap(\.parentPetId)).union(evolutionsRows.map(\.sourcePetId))
+        skillPreview = Array(orderedSkills.filter { $0.iconAssetId != nil || icons[$0.nameZh] != nil }.prefix(6))
         try require(assetsRows == manifest.assets, "manifest.assets differs from assets.json")
         families = try uniqueIndex(familiesRows, id: { FamilyIdentity(kind: $0.kind, key: $0.familyKey) }, context: "families")
         var familyIndex: [PetID: [FamilyKind: [Family]]] = [:]
@@ -115,6 +135,7 @@ public struct ContentStore: Sendable {
         }
         familiesByPet = familyIndex.mapValues { $0.mapValues { $0.sorted { $0.ordinal < $1.ordinal } } }
         petSkillsByPet = Dictionary(grouping: petSkillsRows, by: \.petId).mapValues { $0.sorted { $0.ordinal < $1.ordinal } }
+        petSkillsByPetAndSource = petSkillsByPet.mapValues { Dictionary(grouping: $0, by: \.source) }
         evolutionsByPet = Dictionary(grouping: evolutionsRows, by: \.sourcePetId).mapValues { $0.sorted { $0.ordinal < $1.ordinal } }
         incomingEvolutionsByPet = Dictionary(grouping: evolutionsRows, by: \.targetPetId).mapValues { $0.sorted { $0.ordinal < $1.ordinal } }
         shinySlotsByPet = memberIndex(shinySlotsRows, members: { $0.memberPetIds })

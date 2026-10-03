@@ -464,7 +464,17 @@ public struct Trait: Codable, Equatable, Sendable {
     }
 }
 
-public struct PetSkill: Codable, Equatable, Sendable {
+public struct PetSkill: Codable, Equatable, Sendable, Identifiable {
+    public struct Identity: Hashable, Sendable {
+        public let pet: PetID
+        public let skill: SkillID
+        public let source: PetSkillSource
+        public let legacyType: TypeID?
+        public let ordinal: Int
+    }
+    public var id: Identity {
+        Identity(pet: petId, skill: skillId, source: source, legacyType: legacyTypeId, ordinal: ordinal)
+    }
     public let petId: PetID
     public let skillId: SkillID
     public let source: PetSkillSource
@@ -522,6 +532,12 @@ public struct SkillGroup: Codable, Equatable, Sendable {
 }
 
 public struct Skill: Codable, Equatable, Sendable {
+    /// Granted by equipment during battle rather than learned through a family.
+    public var isBattleEquipmentGranted: Bool { nameZh == "愿力冲击" }
+    public var acquisitionDescription: String? {
+        isBattleEquipmentGranted ? "战斗中装备愿力冲击后，可赋予任意精灵。" : nil
+    }
+
     public let skillId: SkillID
     public let nameZh: String
     public let category: SkillCategory

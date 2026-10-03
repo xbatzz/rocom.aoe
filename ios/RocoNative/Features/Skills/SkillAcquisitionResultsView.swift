@@ -8,13 +8,11 @@ struct SkillAcquisitionResultsView: View {
     let portraits: PortraitStore
     let index: SkillSearchIndex
     @Binding var query: SkillAcquisitionQuery
-    @Binding var page: Int
+    @State private var rows: [SkillAcquisitionQuery.Result] = []
     private var resetKey: [AnyHashable] {
         [skill, query.keyword, query.source as AnyHashable, query.type as AnyHashable, query.implementation, query.highest]
     }
     var body: some View {
-        let rows = query.results(skill: skill, index: index, content: content)
-        let window = CatalogPage(totalCount: rows.count, requestedPage: page)
         CompanionSection("可获得精灵 · \(rows.count) \(query.highest ? "个家族" : "个形态")") {
             Text("汇总同名技能的获得方式，具体效果以精灵实际技能为准。").font(.footnote).foregroundStyle(.secondary)
             DisclosureGroup("筛选获得关系") {
@@ -25,7 +23,7 @@ struct SkillAcquisitionResultsView: View {
                 }
                 Picker("属性", selection: $query.type) {
                     Text("全部").tag(nil as TypeID?)
-                    ForEach(TypeMatchup(types: content.types).selectable, id: \.typeId) { Text($0.nameZh).tag(Optional($0.typeId)) }
+                    ForEach(content.normalTypes, id: \.typeId) { Text($0.nameZh).tag(Optional($0.typeId)) }
                 }
                 Picker("实装", selection: $query.implementation) {
                     ForEach(PetQuery.Implementation.allCases, id: \.self) { Text($0.rawValue).tag($0) }
@@ -34,28 +32,32 @@ struct SkillAcquisitionResultsView: View {
                 Button("重置") { query = SkillAcquisitionQuery(scope: .sameName) }
             }.tint(.primary)
             if rows.isEmpty { Text("没有符合条件的获得关系").foregroundStyle(.secondary) }
-            CatalogPagination(window: window, page: $page).id("catalog-results-top")
-            ForEach(rows[window.range], id: \.key) { row in
-                VStack(alignment: .leading, spacing: 10) {
-                    petLink(row.representative)
-                    DisclosureGroup("实际获得成员 · \(Set(row.acquired.map(\.petId)).count)") {
-                        ForEach(Array(row.acquired.enumerated()), id: \.offset) { _, relation in
-                            if let pet = content.pets[relation.petId] {
-                                VStack(alignment: .leading, spacing: 4) {
-                                    petLink(pet)
-                                    Text(sourceName(relation.source) + (relation.legacyTypeId.flatMap { content.types[$0]?.nameZh }.map { " · 需\($0)血脉" } ?? ""))
-                                        .font(.caption).foregroundStyle(.secondary)
-                                }.padding(.vertical, 6)
+            Color.clear.frame(height: 0).id("catalog-results-top")
+            LazyVStack(alignment: .leading, spacing: 0) {
+                ForEach(rows, id: \.key) { row in
+                    VStack(alignment: .leading, spacing: 10) {
+                        petLink(row.representative)
+                        DisclosureGroup("实际获得成员 · \(row.memberCount)") {
+                            ForEach(row.acquired) { relation in
+                                if let pet = content.pets[relation.petId] {
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        petLink(pet)
+                                        Text(sourceName(relation.source) + (relation.legacyTypeId.flatMap { content.types[$0]?.nameZh }.map { " · 需\($0)血脉" } ?? ""))
+                                            .font(.caption).foregroundStyle(.secondary)
+                                    }.padding(.vertical, 6)
+                                }
                             }
-                        }
-                    }.tint(.primary)
-                }.padding(.vertical, 10)
-                Divider()
+                        }.tint(.primary)
+                        Divider()
+                    }.padding(.vertical, 10)
+                }
             }
-            if window.pageCount > 1 { CatalogPagination(window: window, page: $page) }
         }
-        .onChange(of: resetKey) { page = 1 }
-        .onChange(of: rows.count) { page = CatalogPage(totalCount: rows.count, requestedPage: page).number }
+        .task(id: resetKey) {
+            let updated = await query.resultsInBackground(skill: skill, index: index, content: content)
+            guard !Task.isCancelled else { return }
+            rows = updated
+        }
     }
     private func petLink(_ pet: Pet) -> some View {
         NavigationLink { ExistingPetDestination(pet: pet, content: content, portraits: portraits) } label: {
