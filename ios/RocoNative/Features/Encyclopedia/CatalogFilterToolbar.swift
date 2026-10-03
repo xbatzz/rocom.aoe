@@ -3,11 +3,15 @@ import UIKit
 import RocoContent
 import RocoDomain
 
-/// Standard UIKit navigation-bar menu for catalog filtering.
+/// System-owned catalog chrome.
 ///
-/// The navigation controller owns the real UIBarButtonItem and UIKit owns its
-/// placement, hit testing, menu presentation, and Liquid Glass appearance.
-/// Do not replace this with a customView/overlay/coordinate bridge.
+/// UIKit owns both pieces of chrome:
+/// - a real navigation-bar `UIBarButtonItem + UIMenu` for filtering
+/// - a real `UISearchController` using iOS integrated toolbar search
+///
+/// Do not replace either control with custom glass, customView anchors, overlay
+/// geometry, or hand-written hit testing. UIKit supplies placement, Liquid Glass,
+/// keyboard motion, menu morphing, and accessibility behavior.
 struct CatalogFilterToolbar: UIViewControllerRepresentable {
     let content: ContentStore
     @Binding var query: PetCatalogQuery
@@ -22,13 +26,16 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
     }
 
     @MainActor
-    final class ToolbarHost: UIViewController {
+    final class ToolbarHost: UIViewController, UISearchResultsUpdating, UISearchBarDelegate {
         private var content: ContentStore
         private var query: Binding<PetCatalogQuery>
         private var ascending: Binding<Bool>
 
         private weak var itemOwner: UIViewController?
-        private var item: UIBarButtonItem?
+        private weak var navigation: UINavigationController?
+        private var filterItem: UIBarButtonItem?
+        private let searchController = UISearchController(searchResultsController: nil)
+        private var synchronizingSearchText = false
 
         init(
             content: ContentStore,
@@ -49,17 +56,33 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
             super.viewDidLoad()
             view.isUserInteractionEnabled = false
             view.backgroundColor = .clear
+
+            searchController.searchResultsUpdater = self
+            searchController.obscuresBackgroundDuringPresentation = false
+            searchController.searchBar.delegate = self
+            searchController.searchBar.placeholder = "名称、编号或配置 ID"
+            searchController.searchBar.autocapitalizationType = .none
+            searchController.searchBar.autocorrectionType = .no
+            searchController.searchBar.returnKeyType = .search
+            searchController.searchBar.accessibilityLabel = "搜索精灵"
+            searchController.searchBar.accessibilityIdentifier = "catalog-search-field"
         }
 
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
-            installBarItemIfNeeded()
+            installChromeIfNeeded()
+            navigation?.setToolbarHidden(false, animated: animated)
             associateCatalogScrollView()
+        }
+
+        override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+            navigation?.setToolbarHidden(true, animated: animated)
         }
 
         override func viewDidLayoutSubviews() {
             super.viewDidLayoutSubviews()
-            installBarItemIfNeeded()
+            installChromeIfNeeded()
             associateCatalogScrollView()
         }
 
@@ -71,31 +94,52 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
             self.content = content
             self.query = query
             self.ascending = ascending
-            installBarItemIfNeeded()
+            installChromeIfNeeded()
             rebuildMenu()
+            syncSearchText()
         }
 
-        private func installBarItemIfNeeded() {
+        private func installChromeIfNeeded() {
             guard let owner = navigationItemOwner() else { return }
 
-            if itemOwner !== owner || item == nil {
-                let barItem = UIBarButtonItem(
+            if itemOwner !== owner {
+                detach(from: itemOwner)
+
+                itemOwner = owner
+                navigation = owner.navigationController
+                owner.definesPresentationContext = true
+
+                let item = UIBarButtonItem(
                     title: nil,
                     image: UIImage(systemName: "line.3.horizontal.decrease"),
                     primaryAction: nil,
                     menu: makeMenu()
                 )
-                barItem.accessibilityLabel = "筛选与排序"
-                barItem.accessibilityIdentifier = "catalog-filter-button"
+                item.accessibilityLabel = "筛选与排序"
+                item.accessibilityIdentifier = "catalog-filter-button"
+                owner.navigationItem.rightBarButtonItem = item
+                filterItem = item
 
-                // Keep the system-provided navigation-bar appearance. On current
-                // iOS this is the Liquid Glass treatment; no custom background,
-                // customView, or manual positioning is applied.
-                owner.navigationItem.rightBarButtonItem = barItem
-                itemOwner = owner
-                item = barItem
+                owner.navigationItem.searchController = searchController
+                owner.navigationItem.preferredSearchBarPlacement = .integratedButton
+                owner.navigationItem.searchBarPlacementAllowsToolbarIntegration = true
+                owner.navigationItem.hidesSearchBarWhenScrolling = false
+
+                let searchItem = owner.navigationItem.searchBarPlacementBarButtonItem
+                searchItem.accessibilityLabel = "搜索精灵"
+                searchItem.accessibilityIdentifier = "catalog-search-button"
+
+                // Keep search leading, matching the catalog's established thumb-reach
+                // layout. The system still owns the search button -> field morph.
+                owner.toolbarItems = [
+                    searchItem,
+                    UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+                ]
+
+                syncSearchText()
             } else {
                 rebuildMenu()
+                syncSearchText()
             }
         }
 
@@ -110,9 +154,34 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
             return nil
         }
 
+        private func syncSearchText() {
+            let text = query.wrappedValue.keyword
+            guard searchController.searchBar.text != text else { return }
+
+            synchronizingSearchText = true
+            searchController.searchBar.text = text
+            synchronizingSearchText = false
+        }
+
+        func updateSearchResults(for searchController: UISearchController) {
+            guard !synchronizingSearchText else { return }
+            setKeyword(searchController.searchBar.text ?? "")
+        }
+
+        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            setKeyword("")
+        }
+
+        private func setKeyword(_ keyword: String) {
+            guard query.wrappedValue.keyword != keyword else { return }
+            var value = query.wrappedValue
+            value.keyword = keyword
+            query.wrappedValue = value
+        }
+
         private func rebuildMenu() {
-            item?.menu = makeMenu()
-            item?.accessibilityValue =
+            filterItem?.menu = makeMenu()
+            filterItem?.accessibilityValue =
                 "\(query.wrappedValue.filterCount) 项筛选，按\(query.wrappedValue.sort.rawValue)排序，\(ascending.wrappedValue ? "升序" : "降序")"
         }
 
@@ -251,6 +320,7 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
             change(&value)
             query.wrappedValue = value
             rebuildMenu()
+            syncSearchText()
         }
 
         private func associateCatalogScrollView() {
@@ -275,10 +345,22 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
             return nil
         }
 
-        static func dismantle(_ host: ToolbarHost) {
-            if host.itemOwner?.navigationItem.rightBarButtonItem === host.item {
-                host.itemOwner?.navigationItem.rightBarButtonItem = nil
+        private func detach(from owner: UIViewController?) {
+            guard let owner else { return }
+
+            if owner.navigationItem.rightBarButtonItem === filterItem {
+                owner.navigationItem.rightBarButtonItem = nil
             }
+            if owner.navigationItem.searchController === searchController {
+                owner.navigationItem.searchController = nil
+            }
+            owner.toolbarItems = nil
+        }
+
+        static func dismantle(_ host: ToolbarHost) {
+            host.searchController.isActive = false
+            host.navigation?.setToolbarHidden(true, animated: false)
+            host.detach(from: host.itemOwner)
         }
     }
 
