@@ -18,7 +18,7 @@ struct NativeFeatureEntry: View {
     @Query private var preferences: [UserPreferences]
     private var currentTeam: TeamRecord? { teams.first { $0.teamID == preferences.first?.activeTeamID } ?? teams.first }
     private var featured: [Pet] {
-        Array(content.orderedPets.filter { $0.implemented && $0.publicVisible && !$0.isLeader && $0.form == "default" }.prefix(3))
+        Array(content.orderedPets.lazy.filter { $0.implemented && $0.publicVisible && !$0.isLeader && $0.form == "default" }.prefix(3))
     }
 
     private var toolLayout: AnyLayout {
@@ -74,7 +74,7 @@ struct NativeFeatureEntry: View {
                         }
                         NavigationLink { SkillsView(content: content, portraits: portraits, index: skills) } label: {
                             VStack(alignment: .leading, spacing: 12) {
-                                if let skill = content.skills.values.sorted(by: { $0.skillId.rawValue < $1.skillId.rawValue }).first(where: { $0.iconAssetId != nil }) {
+                                if let skill = content.skills.values.lazy.filter({ $0.iconAssetId != nil }).min(by: { $0.skillId.rawValue < $1.skillId.rawValue }) {
                                     CanonicalThumbnail(assetID: skill.iconAssetId, content: content, size: 28)
                                 }
                                 Text("技能查询").font(.headline)
@@ -87,7 +87,7 @@ struct NativeFeatureEntry: View {
                     VStack(spacing: 0) {
                         NavigationLink { ShinyCollectionView(content: content, index: tracking) } label: {
                             homeCollection("异色收集", count: shiny.filter { $0.collected && content.shinySlots[ShinySlotID(rawValue: $0.slotID)] != nil }.count,
-                                total: content.shinySlots.count, tint: .purple, asset: content.shinySlots.values.sorted { $0.slotId.rawValue < $1.slotId.rawValue }.first?.portraitAssetId)
+                                total: content.shinySlots.count, tint: .purple, asset: content.shinySlots.values.min(by: { $0.slotId.rawValue < $1.slotId.rawValue })?.portraitAssetId)
                         }.accessibilityIdentifier("home-shiny")
                         Divider().padding(.leading, 74)
                         NavigationLink { GrassBadgeView(content: content, index: tracking) } label: {
@@ -95,7 +95,7 @@ struct NativeFeatureEntry: View {
                         }.accessibilityIdentifier("home-grass")
                         Divider().padding(.leading, 74)
                         NavigationLink { DestinedHeroView(content: content, index: tracking) } label: {
-                            homeCollection("命定勇者", count: heroes.filter { record in record.obtained && tracking.badgeFamilies.contains(where: { $0.familyKey.rawValue == record.familyID }) }.count,
+                            homeCollection("命定勇者", count: heroes.filter { record in record.obtained && tracking.familySearch[FamilyKey(rawValue: record.familyID)] != nil }.count,
                                 total: tracking.badgeFamilies.count, tint: .orange, asset: tracking.badgeFamilies.dropFirst().first.flatMap { content.pets[$0.representativePetId]?.portraitAssetId })
                         }.accessibilityIdentifier("home-hero")
                     }.buttonStyle(.plain).companionSurface()

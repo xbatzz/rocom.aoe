@@ -3,6 +3,50 @@ import UIKit
 
 final class NavigationTests: XCTestCase {
     @MainActor
+    func testEncyclopediaHostedThumbnails() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--visual-review", "grid", "--reduce-motion"]
+        app.launch()
+        let pet = app.buttons["pet-3001"]
+        XCTAssertTrue(pet.waitForExistence(timeout: 8)); pet.tap()
+        XCTAssertTrue(app.scrollViews["detail-3001"].waitForExistence(timeout: 3))
+        XCTAssertFalse(app.images.matching(NSPredicate(format: "label CONTAINS '缺少缩略图缓存'")).firstMatch.exists)
+        app.segmentedControls["pet-detail-tabs"].buttons["技能"].tap()
+        XCTAssertTrue(app.segmentedControls["pet-skill-tabs"].waitForExistence(timeout: 3))
+        XCTAssertFalse(app.images.matching(NSPredicate(format: "label CONTAINS '缺少缩略图缓存'")).firstMatch.exists)
+        attach("encyclopedia-hosted-thumbnails", app)
+    }
+
+    @MainActor
+    func testGrassRecordsStayLiveAcrossLocationAndModeChanges() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--visual-review", "grass", "--visual-fixture", "--grass-performance-fixture", "--reduce-motion"]
+        app.launch()
+        let progress = app.progressIndicators["当前地点目标"]
+        XCTAssertTrue(progress.waitForExistence(timeout: 8))
+        XCTAssertEqual(progress.value as? String, "601 / 210")
+        let status = app.buttons["grass-status-pet:3001"].firstMatch
+        for _ in 0..<5 where !status.isHittable { app.swipeUp() }
+        XCTAssertTrue(status.isHittable)
+        status.tap(); app.buttons["未点亮"].firstMatch.tap()
+        for _ in 0..<5 where !app.buttons["grass-location"].isHittable { app.swipeDown() }
+        XCTAssertEqual(progress.value as? String, "600 / 210", "Edits must invalidate the location snapshot")
+        app.buttons["grass-location"].tap()
+        app.buttons["记忆中的普拉塔草原"].firstMatch.tap()
+        XCTAssertEqual(progress.value as? String, "0 / 199", "Locations must keep independent records")
+        app.buttons["grass-location"].tap()
+        app.buttons["记忆中的索米亚草原"].firstMatch.tap()
+        XCTAssertEqual(progress.value as? String, "600 / 210")
+        app.segmentedControls.buttons["家族奖牌"].tap()
+        let medals = app.progressIndicators["家族奖牌"]
+        XCTAssertTrue(medals.waitForExistence(timeout: 3))
+        XCTAssertEqual(medals.value as? String, "0 / 192", "Footprints must not imply family medals")
+        app.segmentedControls.buttons["地点足迹"].tap()
+        XCTAssertEqual(progress.value as? String, "600 / 210")
+        attach("grass-records-performance", app)
+    }
+
+    @MainActor
     func testPaginationInLargeSkillAndPetResults() {
         let app = XCUIApplication()
         for route in ["pet-many-skills", "skill-many-pets", "advanced", "team-many-skills"] {

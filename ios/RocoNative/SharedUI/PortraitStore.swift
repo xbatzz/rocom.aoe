@@ -6,6 +6,7 @@ import os
 
 @MainActor
 final class PortraitStore {
+    let thumbnails: CanonicalThumbnailStore
     private let resolver: AssetResolver
     private let cache = NSCache<NSString, UIImage>()
     private let logger = Logger(subsystem: "com.batzz.rocom", category: "portraits")
@@ -16,6 +17,7 @@ final class PortraitStore {
 #endif
     init(resolver: AssetResolver) {
         self.resolver = resolver
+        thumbnails = CanonicalThumbnailStore(resolver: resolver)
         cache.totalCostLimit = 16 * 1024 * 1024
     }
     nonisolated deinit {}

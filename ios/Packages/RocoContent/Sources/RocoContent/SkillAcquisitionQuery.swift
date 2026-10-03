@@ -16,6 +16,7 @@ public struct SkillAcquisitionQuery: Sendable {
     public let scope: Scope
     public init(scope: Scope = .configuration) { self.scope = scope }
     public func results(skill: SkillID, index: SkillSearchIndex, content: ContentStore) -> [Result] {
+        let search = PetSearch.Query(keyword)
         let ids = scope == .sameName ? index.sameNameSkillIDs[skill] ?? [skill] : [skill]
         let relations = ids.flatMap { index.directBySkill[$0] ?? [] }.filter { source == nil || $0.source == source }
         var rows: [Result] = []
@@ -37,8 +38,8 @@ public struct SkillAcquisitionQuery: Sendable {
             let pet = row.representative
             return (implementation == .all || pet.implemented == (implementation == .implemented))
                 && (type == nil || pet.typeIds.contains(type!))
-                && (PetSearch.matches(pet, query: keyword) || row.acquired.contains { relation in
-                    content.pets[relation.petId].map { PetSearch.matches($0, query: keyword) } == true
+                && (search.matches(pet) || row.acquired.contains { relation in
+                    content.pets[relation.petId].map { search.matches($0) } == true
                 })
         }.sorted { ($0.representative.speciesId.rawValue, $0.representative.petId.rawValue) < ($1.representative.speciesId.rawValue, $1.representative.petId.rawValue) }
     }

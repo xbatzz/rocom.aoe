@@ -38,6 +38,7 @@ struct PetDetail: View {
     @State private var moveCategory: SkillCategory?
     private let relatedAnchors = PortraitAnchors()
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    @Environment(\.canonicalThumbnails) private var inheritedThumbnails
 
     var body: some View {
         GeometryReader { geometry in
@@ -129,6 +130,8 @@ struct PetDetail: View {
                 }
             }
         }
+        // UIKit-created hosting controllers do not inherit the app environment.
+        .environment(\.canonicalThumbnails, portraits?.thumbnails ?? inheritedThumbnails)
     }
 
     @ViewBuilder private var evolutionSections: some View {

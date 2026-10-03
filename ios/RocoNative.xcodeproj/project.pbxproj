@@ -47,6 +47,8 @@ F1C24EA25313570978CF4966 = {isa = PBXBuildFile; fileRef = 70B9FDC9EB10A94E5A041E
 		C1F0555BC8BEED82606C171A /* CatalogPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4F267B6E79F819B6E25B95; };
 		74CB9D09E8B47C52F0544D97 /* CatalogPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C659B63E8F6D935B33BC85; };
 		BDD35D7F6F1999850B47A9E0 /* CatalogPaginationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F40A86B7E554372F4AAFE7; };
+		AEF9A1DA1BADFD41D9B0EF02 /* CanonicalThumbnailStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF9A1DA1BADFD41D9B0EF01; };
+		AEF9A1DA1BADFD41D9B0EF04 /* CanonicalThumbnailStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF9A1DA1BADFD41D9B0EF03; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,8 @@ F13F039A71DF618AE5909B7E = {isa = PBXFileReference; lastKnownFileType = sourceco
 		4F4F267B6E79F819B6E25B95 /* CatalogPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/SharedUI/CatalogPage.swift; sourceTree = SOURCE_ROOT; };
 		00C659B63E8F6D935B33BC85 /* CatalogPagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/SharedUI/CatalogPagination.swift; sourceTree = SOURCE_ROOT; };
 		C2F40A86B7E554372F4AAFE7 /* CatalogPaginationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/SharedUI/CatalogPaginationModifier.swift; sourceTree = SOURCE_ROOT; };
+		AEF9A1DA1BADFD41D9B0EF01 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/SharedUI/CanonicalThumbnailStore.swift; sourceTree = SOURCE_ROOT; };
+		AEF9A1DA1BADFD41D9B0EF03 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/HostTests/CanonicalThumbnailStoreTests.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,10 +163,12 @@ F13F039A71DF618AE5909B7E,
 				009E908E0BF378E2918B4629 /* RocoNative/Features/Encyclopedia/AlignedNavigation.swift */,
 				80E4D8086BBC22435972B0AA /* RocoNative/Features/Encyclopedia/PetDetail.swift */,
 				209B501BBD2194B0A0B0C857 /* RocoNative/Features/Encyclopedia/PetGrid.swift */,
+				AEF9A1DA1BADFD41D9B0EF01 /* CanonicalThumbnailStore.swift */,
 				024CDA09AFFBEB7684C0D1DC /* RocoNative/SharedUI/PortraitStore.swift */,
 				9DA10CDC5EDAF224361F7F73 /* RocoNative/SharedUI/PortraitSurface.swift */,
 				FFF48512C48EB699684F5C6B /* RocoNative/Tests/NavigationTests.swift */,
 				A80F0567574A34D24F5AFAC1 /* RocoNative/Tests/TouchDriver.m */,
+				AEF9A1DA1BADFD41D9B0EF03 /* CanonicalThumbnailStoreTests.swift */,
 				139F0E28427145634E354058 /* RocoNative/HostTests/NavigationLifetimeTests.swift */,
 				779BB12EF7FAF2D74A123662 /* ContentResources.bundle */,
 				FBDC4F23F93125BBEEAE800C /* Products */,
@@ -343,6 +349,7 @@ A017DDBE73B94C32470D6A9A,
 				C1F0555BC8BEED82606C171A,
 				2A5721CD7FFC475FB43CBF9F,
 				EB425E06B038067631A79AB3 /* RocoNative/Features/Encyclopedia/PetGrid.swift in Sources */,
+				AEF9A1DA1BADFD41D9B0EF02 /* CanonicalThumbnailStore.swift in Sources */,
 				E711AE5CB5E54BC155D069F3 /* RocoNative/SharedUI/PortraitStore.swift in Sources */,
 				DD9FB72834688E4CDD95520C /* RocoNative/SharedUI/PortraitSurface.swift in Sources */,
 			);
@@ -361,6 +368,7 @@ A017DDBE73B94C32470D6A9A,
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEF9A1DA1BADFD41D9B0EF04 /* CanonicalThumbnailStoreTests.swift in Sources */,
 				644041AD05D482A18CAA31A5 /* RocoNative/HostTests/NavigationLifetimeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

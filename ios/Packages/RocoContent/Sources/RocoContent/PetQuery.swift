@@ -3,16 +3,31 @@ import RocoDomain
 
 /// Shared identifier semantics for catalog, build pickers and collection members.
 public enum PetSearch {
-    public static func matches(_ pet: Pet, query: String) -> Bool {
-        let text = query.trimmingCharacters(in: .whitespacesAndNewlines)
-            .applyingTransform(.fullwidthToHalfwidth, reverse: false)?.lowercased() ?? query.lowercased()
-        if text.isEmpty { return true }
-        let numberText = text.hasPrefix("#") ? String(text.dropFirst()) : text
-        if let number = Int(numberText), numberText.allSatisfy(\.isNumber) {
-            return pet.petId.rawValue == number || pet.handbookId?.rawValue == number || pet.speciesId.rawValue == number
+    /// Prepare once per result set, rather than running ICU transforms per pet.
+    public struct Query: Sendable {
+        private let text: String
+        private let number: Int?
+        public var isEmpty: Bool { text.isEmpty }
+
+        public init(_ query: String) {
+            let trimmed = query.trimmingCharacters(in: .whitespacesAndNewlines)
+            text = trimmed.isEmpty ? "" : trimmed.applyingTransform(.fullwidthToHalfwidth, reverse: false)?.lowercased() ?? query.lowercased()
+            let numberText = text.hasPrefix("#") ? String(text.dropFirst()) : text
+            number = numberText.allSatisfy(\.isNumber) ? Int(numberText) : nil
         }
-        return ([pet.nameZh, pet.form, pet.resourceKey] + pet.searchAliases)
-            .contains { $0.localizedStandardContains(text) }
+
+        public func matches(_ pet: Pet) -> Bool {
+            if isEmpty { return true }
+            if let number {
+                return pet.petId.rawValue == number || pet.handbookId?.rawValue == number || pet.speciesId.rawValue == number
+            }
+            return pet.nameZh.localizedStandardContains(text) || pet.form.localizedStandardContains(text)
+                || pet.resourceKey.localizedStandardContains(text) || pet.searchAliases.contains { $0.localizedStandardContains(text) }
+        }
+    }
+
+    public static func matches(_ pet: Pet, query: String) -> Bool {
+        Query(query).matches(pet)
     }
 }
 
@@ -33,9 +48,10 @@ public struct PetQuery: Sendable {
     public var descending = false
     public init() {}
     public func results(content: ContentStore) -> [Pet] {
+        let search = PetSearch.Query(keyword)
         let parents = Set(content.pets.values.compactMap(\.parentPetId)).union(content.evolutions.values.map(\.sourcePetId))
         let matches = content.orderedPets.filter { pet in
-            guard pet.publicVisible, PetSearch.matches(pet, query: keyword), type == nil || pet.typeIds.contains(type!),
+            guard pet.publicVisible, search.matches(pet), type == nil || pet.typeIds.contains(type!),
                 style == nil || pet.attackStyle == style else { return false }
             if implementation != .all && pet.implemented != (implementation == .implemented) { return false }
             if stage == .initial && pet.parentPetId != nil || stage == .evolved && pet.parentPetId == nil || stage == .canEvolve && !parents.contains(pet.petId) { return false }

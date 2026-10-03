@@ -21,6 +21,15 @@ enum VisualReview {
         for family in tracking.badgeFamilies.prefix(5) {
             try UserDatabase.toggleHero(family.familyKey.rawValue, context: context)
         }
+        if ProcessInfo.processInfo.arguments.contains("--grass-performance-fixture") {
+            for location in ["somia", "plata", "stonehenge"] {
+                for footprint in tracking.orderedBadgeFootprints {
+                    context.insert(GrassRecord(footprintID: footprint.footprintKey.rawValue, locationID: location,
+                        status: location == "somia" ? .lit : .unlit))
+                }
+            }
+            try context.save()
+        }
         var team = TeamBuild(); team.name = "视觉复查示例队伍"
         let pets = content.orderedPets.filter { $0.implemented && $0.publicVisible && !$0.isLeader && $0.form == "default" }.prefix(4)
         for (i, pet) in pets.enumerated() { team.slots[i] = try TeamRules.assign(pet, content: content) }

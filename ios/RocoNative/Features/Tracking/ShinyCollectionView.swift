@@ -25,8 +25,9 @@ struct ShinyCollectionView: View {
         return slots.sorted { ($0.seasonId.rawValue, $0.slotId.rawValue) < ($1.seasonId.rawValue, $1.slotId.rawValue) }
     }
     private func visible(slots: [ShinySlot], saved: Set<String>) -> [ShinySlot] {
-        slots.filter {
-            index.matches($0, query: query, content: content)
+        let search = PetSearch.Query(query)
+        return slots.filter {
+            index.matches($0, query: search, content: content)
                 && (filter == 0 || saved.contains($0.slotId.rawValue) == (filter == 1))
         }
     }

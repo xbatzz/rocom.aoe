@@ -14,8 +14,9 @@ struct DestinedHeroView: View {
     @State private var error: String?
     private var obtained: Set<String> { Set(records.filter(\.obtained).map(\.familyID)) }
     private func visible(saved: Set<String>) -> [Family] {
-        index.badgeFamilies.filter {
-            index.matches($0, query: query, content: content)
+        let search = PetSearch.Query(query)
+        return index.badgeFamilies.filter {
+            index.matches($0, query: search, content: content)
                 && (filter == 0 || saved.contains($0.familyKey.rawValue) == (filter == 1))
         }
     }

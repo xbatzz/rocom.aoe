@@ -5,13 +5,20 @@ public struct TrackingCatalogIndex: Sendable {
     public let slotSearch: [ShinySlotID: String]
     public let familySearch: [FamilyKey: String]
     public let badgeFamilies: [Family]
+    public let orderedBadgeFootprints: [BadgeFootprint]
     public let footprintsByFamily: [FamilyKey: [BadgeFootprint]]
 
     public func matches(_ family: Family, query: String, content: ContentStore) -> Bool {
-        family.memberPetIds.contains { content.pets[$0].map { PetSearch.matches($0, query: query) } == true }
+        matches(family, query: PetSearch.Query(query), content: content)
     }
     public func matches(_ slot: ShinySlot, query: String, content: ContentStore) -> Bool {
-        slot.memberPetIds.contains { content.pets[$0].map { PetSearch.matches($0, query: query) } == true }
+        matches(slot, query: PetSearch.Query(query), content: content)
+    }
+    public func matches(_ family: Family, query: PetSearch.Query, content: ContentStore) -> Bool {
+        family.memberPetIds.contains { content.pets[$0].map { query.matches($0) } == true }
+    }
+    public func matches(_ slot: ShinySlot, query: PetSearch.Query, content: ContentStore) -> Bool {
+        slot.memberPetIds.contains { content.pets[$0].map { query.matches($0) } == true }
     }
 
     public init(content: ContentStore) {
@@ -23,6 +30,7 @@ public struct TrackingCatalogIndex: Sendable {
         slotSearch = content.shinySlots.mapValues { terms($0.memberPetIds) }
         badgeFamilies = content.families.values.filter { $0.kind == .badgeRoot }.sorted { $0.ordinal < $1.ordinal }
         familySearch = Dictionary(uniqueKeysWithValues: badgeFamilies.map { ($0.familyKey, terms($0.memberPetIds)) })
+        orderedBadgeFootprints = content.badgeFootprints.values.sorted { ($0.stageDepth, $0.petId.rawValue) < ($1.stageDepth, $1.petId.rawValue) }
         var footprints: [FamilyKey: [BadgeFootprint]] = [:]
         for footprint in content.badgeFootprints.values {
             // family keys have distinct tag types; use the canonical string identity.

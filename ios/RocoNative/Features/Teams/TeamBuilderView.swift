@@ -399,8 +399,9 @@ struct TeamPetPicker: View {
     @State private var error: String?
     @Environment(\.dismiss) private var dismiss
     private var candidates: [Pet] {
-        content.orderedPets.filter { $0.implemented && $0.publicVisible && (purpose == .battle || !$0.isLeader) }.filter { pet in
-            (type == nil || pet.typeIds.contains(type!)) && PetSearch.matches(pet, query: query)
+        let search = PetSearch.Query(query)
+        return content.orderedPets.filter { $0.implemented && $0.publicVisible && (purpose == .battle || !$0.isLeader) }.filter { pet in
+            (type == nil || pet.typeIds.contains(type!)) && search.matches(pet)
         }
     }
     var body: some View {
