@@ -232,8 +232,11 @@ struct AlignedNavigation: UIViewControllerRepresentable {
                 // Detail pages always get a fully visible navigation bar. The grid
                 // may have faded its chrome without changing navigation geometry.
                 navigationController.navigationBar.layer.removeAllAnimations()
+                navigationController.toolbar.layer.removeAllAnimations()
                 navigationController.navigationBar.alpha = 1
+                navigationController.toolbar.alpha = 1
                 navigationController.navigationBar.isUserInteractionEnabled = true
+                navigationController.toolbar.isUserInteractionEnabled = true
                 navigationController.setNavigationBarHidden(false, animated: false)
                 navigationController.setToolbarHidden(true, animated: animated)
             }
