@@ -179,12 +179,37 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
 
         private func applyChromeVisibility(animated: Bool) {
             // Keep the search UI stable while editing or while a keyword is active.
-            // Otherwise hide/show UIKit's own bars; no custom opacity/geometry.
+            //
+            // Never hide the navigation bar itself here. Hiding UINavigationBar
+            // changes the top safe-area inset and makes the first catalog row jump
+            // when the buttons return. Keep its geometry mounted and fade only its
+            // chrome, while the system toolbar continues to show/hide normally.
             let shouldShow = chromeVisible ||
                 searchController.isActive ||
                 !query.wrappedValue.keyword.isEmpty
-            navigation?.setNavigationBarHidden(!shouldShow, animated: animated)
-            navigation?.setToolbarHidden(!shouldShow, animated: animated)
+
+            guard let navigation else { return }
+
+            navigation.setNavigationBarHidden(false, animated: false)
+            navigation.navigationBar.isUserInteractionEnabled = shouldShow
+
+            let changes = {
+                navigation.navigationBar.alpha = shouldShow ? 1 : 0
+            }
+
+            if animated {
+                UIView.animate(
+                    withDuration: 0.20,
+                    delay: 0,
+                    options: [.beginFromCurrentState, .curveEaseOut, .allowUserInteraction],
+                    animations: changes
+                )
+            } else {
+                navigation.navigationBar.layer.removeAllAnimations()
+                changes()
+            }
+
+            navigation.setToolbarHidden(!shouldShow, animated: animated)
         }
 
         func updateSearchResults(for searchController: UISearchController) {
