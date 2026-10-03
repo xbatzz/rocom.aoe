@@ -18,9 +18,9 @@ struct AlignedPetGrid: View {
     let portraits: PortraitStore
     let anchors: PortraitAnchors
     let open: (Pet, PortraitOrigin) -> Void
-    @State private var query = PetCatalogQuery()
-    @State private var ascending = true
-    @State private var chromeVisible = true
+    @Binding var query: PetCatalogQuery
+    @Binding var ascending: Bool
+    @Binding var chromeVisible: Bool
     @State private var results: [Pet] = []
     @State private var prefetchByPet: [PetID: [AssetID]] = [:]
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
@@ -85,15 +85,6 @@ struct AlignedPetGrid: View {
             .reviewScrollPosition()
             .scrollDismissesKeyboard(.interactively)
             .background(Color(uiColor: .systemBackground))
-            .background {
-                CatalogFilterToolbar(
-                    content: content,
-                    query: $query,
-                    ascending: $ascending,
-                    chromeVisible: chromeVisible
-                )
-                    .frame(width: 0, height: 0)
-            }
         }
     }
 
