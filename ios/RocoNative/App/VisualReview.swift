@@ -41,7 +41,6 @@ enum VisualReview {
         } else {
         NavigationStack {
             switch route {
-            case "catalog-controls": CatalogControlsReview(content: content)
             case "advanced": AdvancedPetFilterView(content: content, portraits: portraits)
             case "ocr": TeamImageImportView(content: content, portraits: portraits, skillIndex: skills)
             case "version": ContentVersionView(content: content)
