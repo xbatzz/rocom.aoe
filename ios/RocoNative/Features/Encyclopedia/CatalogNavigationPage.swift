@@ -16,7 +16,11 @@ struct CatalogNavigationPage: View {
     @State private var detailPopRequest = 0
 
     var body: some View {
-        AlignedNavigation(
+        ZStack {
+            Color(uiColor: .systemBackground)
+                .ignoresSafeArea()
+
+            AlignedNavigation(
             content: content,
             portraits: portraits,
             query: $query,
@@ -50,6 +54,7 @@ struct CatalogNavigationPage: View {
                 keepLeadingWhenDisabled: detailPresented
             )
             .frame(width: 0, height: 0)
+        }
         }
     }
 
