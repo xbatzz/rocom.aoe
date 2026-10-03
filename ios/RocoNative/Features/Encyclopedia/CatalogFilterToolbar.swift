@@ -116,9 +116,9 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
                 filterItem = item
 
                 owner.navigationItem.searchController = searchController
-                owner.navigationItem.preferredSearchBarPlacement = .integratedButton
+                owner.navigationItem.preferredSearchBarPlacement = .integrated
                 owner.navigationItem.searchBarPlacementAllowsToolbarIntegration = true
-                owner.navigationItem.hidesSearchBarWhenScrolling = false
+                owner.navigationItem.hidesSearchBarWhenScrolling = true
 
                 let searchItem = owner.navigationItem.searchBarPlacementBarButtonItem
                 searchItem.accessibilityLabel = "搜索精灵"
