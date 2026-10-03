@@ -20,6 +20,7 @@ struct UserBackupView: View {
     @Query private var shiny: [ShinyRecord]
     @Query private var grass: [GrassRecord]
     @Query private var heroes: [HeroRecord]
+    @Query private var medals: [GrassFamilyMedalRecord]
     @Query private var teams: [TeamRecord]
     @Environment(\.modelContext) private var context
     @State private var document: BackupDocument?
@@ -41,6 +42,7 @@ struct UserBackupView: View {
                         CompanionMetric(value: String(shiny.count), label: "异色记录", tint: .purple)
                         CompanionMetric(value: String(grass.count), label: "地点足迹记录", tint: .green)
                         CompanionMetric(value: String(heroes.count), label: "命定勇者记录", tint: .orange)
+                        CompanionMetric(value: String(medals.count), label: "草系奖牌记录", tint: .green)
                         CompanionMetric(value: String(teams.count), label: "保存队伍")
                     }
                 }.padding(20).companionSurface()
@@ -49,7 +51,7 @@ struct UserBackupView: View {
                     .companionPrimaryAction()
                 if document != nil { Button("保存到文件") { exporting = true } }
                 if let shareURL { ShareLink("分享备份", item: shareURL) }
-                Text("包括异色、各地点草系足迹、命定勇者、全部队伍和保留的 Web 原始归档。备份包含导出时间、格式版本与稳定 ID。").font(.footnote).foregroundStyle(.secondary)
+                Text("包括异色、各地点草系足迹、草系家族奖牌、命定勇者、全部队伍、当前队伍、主题和保留的原始归档。支持新版 Web 双向恢复。备份包含导出时间、格式版本与稳定 ID。").font(.footnote).foregroundStyle(.secondary)
             }
             CompanionSection("从文件恢复") {
                 Button("选择 JSON 文件", systemImage: "folder") { importing = true }
@@ -98,7 +100,7 @@ struct UserBackupView: View {
     private func preview(_ prepared: PreparedBackup) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("文件已完整解析，尚未修改本机数据。").font(.headline)
-            Text("异色 \(prepared.backup.shiny.count) · 足迹 \(prepared.backup.grass.count) · 命定 \(prepared.backup.heroes.count) · 队伍 \(prepared.backup.teams.count)")
+            Text("异色 \(prepared.backup.shiny.count) · 足迹 \(prepared.backup.grass.count) · 命定 \(prepared.backup.heroes.count) · 奖牌 \(prepared.backup.grassMedals?.count ?? 0) · 队伍 \(prepared.backup.teams.count)")
             ForEach(prepared.warnings.indices, id: \.self) { Text(prepared.warnings[$0]).foregroundStyle(.secondary) }
         }
     }

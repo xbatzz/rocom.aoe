@@ -3,7 +3,7 @@ import RocoContent
 import RocoDomain
 
 private let skillCategories: [SkillCategory] = [.physicalAttack, .magicAttack, .status, .defense, .unknown]
-private func categoryName(_ category: SkillCategory) -> String {
+func categoryName(_ category: SkillCategory) -> String {
     switch category {
     case .physicalAttack: "物理攻击"
     case .magicAttack: "魔法攻击"
@@ -12,7 +12,7 @@ private func categoryName(_ category: SkillCategory) -> String {
     case .unknown: "未分类"
     }
 }
-private func sourceName(_ source: PetSkillSource) -> String {
+func sourceName(_ source: PetSkillSource) -> String {
     switch source {
     case .pool: "技能池"
     case .stone: "技能石"
@@ -60,7 +60,13 @@ struct SkillsView: View {
                         if let skill = content.skills[id] {
                             NavigationLink {
                                 SkillDetailView(skill: skill, content: content, portraits: portraits, index: index)
-                            } label: { SkillSummary(skill: skill, content: content) }.buttonStyle(.plain)
+                            } label: {
+                                VStack(alignment: .leading, spacing: 6) {
+                                    SkillSummary(skill: skill, content: content)
+                                    Text("\(SkillAcquisitionQuery().results(skill: id, index: index, content: content).count) 个可获得家族")
+                                        .font(.caption).foregroundStyle(.secondary)
+                                }
+                            }.buttonStyle(.plain)
                             Divider().padding(.leading, 70)
                         }
                     }
@@ -98,9 +104,16 @@ struct SkillDetailView: View {
     let portraits: PortraitStore
     let index: SkillSearchIndex
 
+    private enum Section: String, CaseIterable {
+        case details = "技能资料"
+        case acquisition = "获得方式"
+    }
+    @State private var section = Section.details
+    @State private var acquisitionQuery = SkillAcquisitionQuery()
+
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 28) {
+        CompanionTabbedPage(title: "技能分区", selection: $section, options: Section.allCases, identifier: "skill-detail-tabs") {
+            if section == .details {
                 VStack(alignment: .leading, spacing: 18) {
                     HStack(spacing: 16) {
                         CanonicalThumbnail(assetID: content.skillIcon(for: skill), content: content, size: 72)
@@ -128,32 +141,10 @@ struct SkillDetailView: View {
                         Text("以下关系仅对应当前技能配置 ID。").font(.footnote).foregroundStyle(.secondary)
                     }
                 }
-                ForEach([PetSkillSource.pool, .stone, .bloodline], id: \.rawValue) { source in
-                    let relations = (index.directBySkill[skill.skillId] ?? []).filter { $0.source == source }
-                    if !relations.isEmpty {
-                        CompanionSection("直接配置 · \(sourceName(source))") {
-                            ForEach(relations.indices, id: \.self) { i in
-                                if let pet = content.pets[relations[i].petId] {
-                                    petLink(pet)
-                                    if let legacy = relations[i].legacyTypeId, let type = content.types[legacy] {
-                                        Text("血脉条件：\(type.nameZh)").font(.caption).foregroundStyle(.secondary)
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                let families = index.familiesBySkill[skill.skillId] ?? []
-                if !families.isEmpty {
-                    CompanionSection("家族聚合能力") {
-                        Text("某成员有该技能，不表示代表形态直接会。直接关系请查看上方来源。").font(.footnote).foregroundStyle(.secondary)
-                        ForEach(families, id: \.familyKey) { family in
-                            if let pet = content.pets[family.representativePetId] { petLink(pet) }
-                        }
-                    }
-                }
-            }.padding(20)
-        }.reviewScrollPosition().companionBackground().navigationTitle(skill.nameZh)
+            } else {
+                SkillAcquisitionResultsView(skill: skill.skillId, content: content, portraits: portraits, index: index, query: $acquisitionQuery)
+            }
+        }.navigationTitle(skill.nameZh)
     }
     @ViewBuilder private var skillBadges: some View {
         if let id = skill.typeId, let type = content.types[id] { TypeBadge(type: type) }
@@ -184,7 +175,9 @@ struct ExistingPetDestination: View {
         Group {
             switch result {
             case .success(let image): PetDetail(pet: pet, content: content, image: image, portraits: portraits)
-            case .failure(let error): ContentUnavailableView("图片未能加载", systemImage: "photo", description: Text(String(describing: error)))
+            case .failure:
+                PetDetail(pet: pet, content: content, image: UIImage(systemName: "photo") ?? UIImage(), portraits: portraits)
+                    .overlay(alignment: .bottom) { Text("图片未能加载，精灵资料仍可查看").font(.caption).padding().background(.regularMaterial) }
             case nil: ProgressView()
             }
         }.task { result = Result { try portraits.image(for: pet) } }

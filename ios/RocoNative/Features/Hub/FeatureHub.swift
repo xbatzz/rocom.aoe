@@ -15,6 +15,8 @@ struct NativeFeatureEntry: View {
     @Query(sort: \TeamRecord.updatedAt, order: .reverse) private var teams: [TeamRecord]
     @Query private var shiny: [ShinyRecord]
     @Query private var heroes: [HeroRecord]
+    @Query private var preferences: [UserPreferences]
+    private var currentTeam: TeamRecord? { teams.first { $0.teamID == preferences.first?.activeTeamID } ?? teams.first }
     private var featured: [Pet] {
         Array(content.orderedPets.filter { $0.implemented && $0.publicVisible && !$0.isLeader && $0.form == "default" }.prefix(3))
     }
@@ -98,23 +100,24 @@ struct NativeFeatureEntry: View {
                         }
                     }.buttonStyle(.plain).companionSurface()
 
+                    NavigationLink { AdvancedPetFilterView(content: content, portraits: portraits) } label: { Label("精灵高级筛选", systemImage: "line.3.horizontal.decrease") }
                     CompanionHeading(title: "战斗准备", detail: "\(teams.count) 支队伍")
                     NavigationLink { TeamBuilderView(content: content, portraits: portraits, skillIndex: skills) } label: {
                         VStack(alignment: .leading, spacing: 12) {
                             if dynamicTypeSize.isAccessibilitySize {
                                 VStack(alignment: .leading, spacing: 8) {
                                     Text("配队").font(.headline)
-                                    Text(teams.first?.name ?? "组建第一支队伍").font(.subheadline).foregroundStyle(.secondary)
+                                    Text(currentTeam?.name ?? "组建第一支队伍").font(.subheadline).foregroundStyle(.secondary)
                                 }
                             } else {
                                 HStack {
                                     Text("配队").font(.headline)
                                     Spacer()
-                                    Text(teams.first?.name ?? "组建第一支队伍").font(.subheadline).foregroundStyle(.secondary)
+                                    Text(currentTeam?.name ?? "组建第一支队伍").font(.subheadline).foregroundStyle(.secondary)
                                     Image(systemName: "chevron.right").font(.caption)
                                 }
                             }
-                            if let build = teams.first.flatMap({ try? $0.decode() }) {
+                            if let build = currentTeam.flatMap({ try? $0.decode() }) {
                                 HStack(spacing: 4) {
                                     ForEach(build.slots.indices, id: \.self) { i in
                                         Group {
@@ -147,7 +150,7 @@ struct NativeFeatureEntry: View {
                     toolLayout {
                         NavigationLink("备份与恢复") { UserBackupView(content: content) }
                         if !dynamicTypeSize.isAccessibilitySize { Spacer() }
-                        NavigationLink("数据版本") { ContentVersionView(content: content) }
+                        NavigationLink("设置与数据版本") { ContentVersionView(content: content) }
                     }.font(.subheadline).padding(.vertical, 8)
                 }.padding(20)
             }.reviewScrollPosition().companionBackground().navigationTitle("洛克工具")
@@ -179,9 +182,18 @@ struct NativeFeatureEntry: View {
 
 struct ContentVersionView: View {
     let content: ContentStore
+    @Query private var preferences: [UserPreferences]
+    @Environment(\.modelContext) private var context
+    @State private var error: String?
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 28) {
+                CompanionSection("外观") {
+                    Picker("主题", selection: Binding(get: { preferences.first?.appearance ?? .system }, set: { value in
+                        do { try UserDatabase.setAppearance(value, context: context) } catch { self.error = String(describing: error) }
+                    })) { ForEach(AppAppearance.allCases, id: \.self) { Text($0.label).tag($0) } }
+                    if let error { Text(error).foregroundStyle(.red) }
+                }
                 CompanionSection("当前离线内容") {
                     if let season = content.seasons[content.manifest.defaultSeason] { Text(season.nameZh).font(.title2.bold()) }
                     CompanionMetrics {

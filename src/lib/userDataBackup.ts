@@ -1,4 +1,6 @@
+import { NATIVE_EXCHANGE_KEY, archiveOriginal, captureNative, mergeNative, parseNativeBackup, projectNative, readExchangeCache, type NativeBackup, stableTeamID } from "@/lib/nativeUserDataExchange";
 import {
+    TEAM_STORAGE_V2_KEY,
     getTeamStorageState,
     parseTeamStorageState,
     saveTeamStorageState,
@@ -6,6 +8,7 @@ import {
     type TeamStorageTeam,
 } from "@/lib/teamStorage";
 import {
+    HANDBOOK_PROGRESS_STORAGE_KEY,
     mergeHandbookProgressState,
     parseHandbookProgressState,
     readHandbookProgressState,
@@ -19,6 +22,7 @@ import {
     type AppTheme,
 } from "@/lib/theme";
 import {
+    BADGE_TRIAL_PROGRESS_STORAGE_KEY,
     createEmptyBadgeTrialProgressState,
     mergeBadgeTrialProgressStates,
     parseBadgeTrialProgressState,
@@ -39,7 +43,7 @@ import {
 } from "@/features/shiny-collection/storage";
 
 export const USER_DATA_BACKUP_FORMAT = "rocom-user-data";
-export const USER_DATA_BACKUP_VERSION = 4 as const;
+export const USER_DATA_BACKUP_VERSION = 5 as const;
 const LEGACY_USER_DATA_BACKUP_VERSION = 1 as const;
 
 export type UserDataImportMode = "merge" | "replace";
@@ -48,6 +52,8 @@ export interface UserDataBackup {
     format: typeof USER_DATA_BACKUP_FORMAT;
     version: typeof USER_DATA_BACKUP_VERSION;
     exportedAt: string;
+    native?: NativeBackup;
+    original?: unknown;
     data: {
         teams: TeamStorageState;
         handbookProgress: HandbookProgressState;
@@ -67,8 +73,8 @@ export interface UserDataImportSummary {
     theme: AppTheme;
 }
 
-export function createUserDataBackup(): UserDataBackup {
-    return {
+export async function createUserDataBackup(): Promise<UserDataBackup> {
+    const backup: UserDataBackup = {
         format: USER_DATA_BACKUP_FORMAT,
         version: USER_DATA_BACKUP_VERSION,
         exportedAt: new Date().toISOString(),
@@ -80,9 +86,14 @@ export function createUserDataBackup(): UserDataBackup {
             theme: readStoredTheme(),
         },
     };
+    const cache = readExchangeCache();
+    backup.native = await captureNative(backup.data, cache);
+    await archiveOriginal(backup.native, { format: backup.format, version: 4, exportedAt: backup.exportedAt, data: backup.data });
+    window.localStorage.setItem(NATIVE_EXCHANGE_KEY, JSON.stringify({ native: backup.native, baseline: backup.data, original: cache?.original }));
+    return backup;
 }
 
-export function parseUserDataBackup(raw: unknown): UserDataBackup | null {
+function parseWebBackup(raw: unknown): UserDataBackup | null {
     if (!raw || typeof raw !== "object" || Array.isArray(raw)) {
         return null;
     }
@@ -96,7 +107,7 @@ export function parseUserDataBackup(raw: unknown): UserDataBackup | null {
 
     if (
         value.format !== USER_DATA_BACKUP_FORMAT ||
-        (value.version !== USER_DATA_BACKUP_VERSION && value.version !== 3 &&
+        (value.version !== USER_DATA_BACKUP_VERSION && value.version !== 4 && value.version !== 3 &&
             value.version !== 2 &&
             value.version !== LEGACY_USER_DATA_BACKUP_VERSION) ||
         typeof value.exportedAt !== "string" ||
@@ -123,7 +134,7 @@ export function parseUserDataBackup(raw: unknown): UserDataBackup | null {
             ? createEmptyBadgeTrialProgressState()
             : parseBadgeTrialProgressState(data.badgeTrials);
     const theme = parseTheme(data.theme);
-    const shinyCollection = (value.version === USER_DATA_BACKUP_VERSION || value.version === 3)
+    const shinyCollection = (value.version === USER_DATA_BACKUP_VERSION || value.version === 4 || value.version === 3)
         ? parseShinyProgress(data.shinyCollection)
         : createEmptyShinyProgress();
 
@@ -145,18 +156,45 @@ export function parseUserDataBackup(raw: unknown): UserDataBackup | null {
     };
 }
 
-export function importUserDataBackup(
+export async function parseUserDataBackup(raw: unknown): Promise<UserDataBackup | null> {
+    if (!raw || typeof raw !== "object" || Array.isArray(raw)) return null;
+    const root = raw as Record<string, unknown>;
+    const isNative = root.format === "rocom-native-user-data";
+    const isExchange = root.format === USER_DATA_BACKUP_FORMAT && root.version === 5;
+    if (!isNative && !isExchange) {
+        const parsed = parseWebBackup(raw);
+        if (parsed) parsed.original = raw;
+        return parsed;
+    }
+    const native = await parseNativeBackup(isNative ? raw : root.native);
+    if (!native) return null;
+    let web = isExchange ? parseWebBackup(raw) : null;
+    if (!web && !isExchange) {
+        for (const archive of [...native.legacyArchives].sort((a, b) => Date.parse(b.receivedAt) - Date.parse(a.receivedAt))) {
+            try { const candidate = parseWebBackup(JSON.parse(archive.originalJSON)); if (candidate) { web = candidate; break; } } catch { /* Keep opaque archives unchanged. */ }
+        }
+    }
+    if (isExchange && !web) return null;
+    const base = web?.data ?? { teams: getTeamStorageState(), handbookProgress: readHandbookProgressState(), badgeTrials: createEmptyBadgeTrialProgressState(), shinyCollection: createEmptyShinyProgress(), theme: readStoredTheme() };
+    const stableBase = JSON.parse(JSON.stringify(base)) as typeof base;
+    stableBase.teams.teams = await Promise.all(base.teams.teams.map(async team => ({ ...team, id: await stableTeamID(team.id) })));
+    stableBase.teams.activeTeamId = await stableTeamID(base.teams.activeTeamId);
+    const projected = projectNative(native, stableBase);
+    return { format: USER_DATA_BACKUP_FORMAT, version: USER_DATA_BACKUP_VERSION, exportedAt: native.exportedAt, native, original: raw, data: { ...base, ...projected } };
+}
+
+export async function importUserDataBackup(
     backup: UserDataBackup,
     mode: UserDataImportMode,
-): UserDataImportSummary {
+): Promise<UserDataImportSummary> {
+    const storageSnapshot = new Map([TEAM_STORAGE_V2_KEY, HANDBOOK_PROGRESS_STORAGE_KEY, BADGE_TRIAL_PROGRESS_STORAGE_KEY, SHINY_STORAGE_KEY, THEME_STORAGE_KEY, NATIVE_EXCHANGE_KEY].map(key => [key, window.localStorage.getItem(key)]));
     const currentTeams = getTeamStorageState();
     const currentProgress = readHandbookProgressState();
     const currentBadgeTrials = readBadgeTrialProgressState();
-    const currentShinyRaw = window.localStorage.getItem(SHINY_STORAGE_KEY);
     // Replacement can recover malformed progress; keep the original bytes for rollback.
     const currentShinyCollection = mode === "merge" ? readShinyProgress() : createEmptyShinyProgress();
     const currentTheme = readStoredTheme();
-    const teams =
+    let teams =
         mode === "merge"
             ? mergeTeamStorageStates(currentTeams, backup.data.teams)
             : backup.data.teams;
@@ -167,16 +205,27 @@ export function importUserDataBackup(
                   backup.data.handbookProgress,
               )
             : replaceHandbookProgressState(backup.data.handbookProgress);
-    const badgeTrials =
+    let badgeTrials =
         mode === "merge"
             ? mergeBadgeTrialProgressStates(
                   currentBadgeTrials,
                   backup.data.badgeTrials,
               )
             : replaceBadgeTrialProgressState(backup.data.badgeTrials);
-    const shinyCollection = mode === "merge"
+    let shinyCollection = mode === "merge"
         ? mergeShinyProgress(currentShinyCollection, backup.data.shinyCollection)
         : backup.data.shinyCollection;
+
+    const currentData = { teams: currentTeams, badgeTrials: currentBadgeTrials, shinyCollection: currentShinyCollection, theme: currentTheme };
+    const currentNative = mode === "merge" ? await captureNative(currentData, readExchangeCache()) : null;
+    const incomingNative = backup.native ?? await captureNative(backup.data);
+    const native = currentNative ? mergeNative(currentNative, incomingNative) : JSON.parse(JSON.stringify(incomingNative)) as NativeBackup;
+    // Archive the complete unknown Web fields without recursively nesting exchange snapshots.
+    const original: Record<string, unknown> = backup.original && typeof backup.original === "object" ? { ...backup.original as Record<string, unknown> } : { format: backup.format, version: 4, exportedAt: backup.exportedAt, data: backup.data };
+    if (original.format === USER_DATA_BACKUP_FORMAT) { delete original.native; delete original.original; original.version = 4; await archiveOriginal(native, original); }
+    const stableTeams: TeamStorageState = { ...teams, activeTeamId: await stableTeamID(teams.activeTeamId), teams: await Promise.all(teams.teams.map(async team => ({ ...team, id: await stableTeamID(team.id) }))) };
+    const projected = projectNative(native, { teams: stableTeams, badgeTrials, shinyCollection, theme: backup.data.theme });
+    teams = projected.teams; badgeTrials = projected.badgeTrials; shinyCollection = projected.shinyCollection;
 
     try {
         saveTeamStorageState(teams);
@@ -193,18 +242,17 @@ export function importUserDataBackup(
             throw new Error("异色进度写入失败，请检查浏览器存储权限。");
         }
 
-        setTheme(backup.data.theme);
+        setTheme(projected.theme);
+        if (window.localStorage.getItem(THEME_STORAGE_KEY) !== projected.theme) throw new Error("主题写入失败，请检查浏览器存储权限。");
+        window.localStorage.setItem(NATIVE_EXCHANGE_KEY, JSON.stringify({ native, baseline: projected, original: backup.original }));
     } catch (error) {
         try {
-            saveTeamStorageState(currentTeams);
-            writeHandbookProgressState(currentProgress);
-            writeBadgeTrialProgressState(currentBadgeTrials);
-            if (currentShinyRaw === null) {
-                window.localStorage.removeItem(SHINY_STORAGE_KEY);
-            } else {
-                window.localStorage.setItem(SHINY_STORAGE_KEY, currentShinyRaw);
-            }
             setTheme(currentTheme);
+            // Restore exact bytes, including absent keys and malformed data recovered by replacement.
+            for (const [key, bytes] of storageSnapshot) {
+                if (bytes === null) window.localStorage.removeItem(key);
+                else window.localStorage.setItem(key, bytes);
+            }
         } catch {
             // Keep the original import error when rollback is unavailable.
         }
@@ -217,7 +265,7 @@ export function importUserDataBackup(
         handbookProgress,
         badgeTrials,
         shinyCollection,
-        backup.data.theme,
+        projected.theme,
     );
 }
 

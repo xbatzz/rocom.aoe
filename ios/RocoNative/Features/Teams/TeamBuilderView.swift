@@ -12,6 +12,8 @@ struct TeamBuilderView: View {
     @Environment(\.modelContext) private var context
     @State private var deleting: TeamRecord?
     @State private var editing: TeamBuild?
+    @State private var importingImage = false
+    @Query private var preferences: [UserPreferences]
     @State private var error: String?
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     var body: some View {
@@ -25,6 +27,7 @@ struct TeamBuilderView: View {
                         .disabled(teams.count >= 10)
                     }
                 }
+                Button("识别游戏队伍图片", systemImage: "photo") { importingImage = true }.buttonStyle(.bordered).disabled(teams.count >= 10)
                 if teams.isEmpty {
                     VStack(alignment: .leading, spacing: 18) {
                         Text("从六个伙伴开始").font(.title2.bold())
@@ -51,6 +54,7 @@ struct TeamBuilderView: View {
                         VStack(alignment: .leading, spacing: 16) {
                             HStack {
                                 Text(record.name).font(.title3.bold())
+                                if preferences.first?.activeTeamID == record.teamID { Text("当前").font(.caption).foregroundStyle(.orange) }
                                 Spacer()
                                 Image(systemName: "chevron.right").font(.caption.weight(.semibold)).foregroundStyle(.secondary)
                             }
@@ -83,6 +87,9 @@ struct TeamBuilderView: View {
                         }.padding(20).companionSurface()
                     }.buttonStyle(.plain)
                     .contextMenu {
+                        Button("设为当前队伍", systemImage: "checkmark.circle") {
+                            do { try UserDatabase.setActiveTeam(record.teamID, context: context) } catch { self.error = String(describing: error) }
+                        }
                         Button("编辑 / 重命名") {
                             do { editing = try record.decode() }
                             catch { self.error = String(describing: error) }
@@ -106,6 +113,7 @@ struct TeamBuilderView: View {
                 }
                 Button("取消", role: .cancel) { deleting = nil }
             }
+            .sheet(isPresented: $importingImage) { TeamImageImportView(content: content, portraits: portraits, skillIndex: skillIndex) }
             .sheet(item: $editing) { build in TeamDraftView(initial: build, content: content, portraits: portraits, skillIndex: skillIndex) }
             .alert("队伍读取失败 · 原数据已保留", isPresented: Binding(get: { error != nil }, set: { if !$0 { error = nil } })) {
                 Button("好", role: .cancel) { error = nil }
@@ -123,6 +131,7 @@ struct TeamDraftView: View {
     @State private var second = 1
     @State private var error: String?
     @State private var discard = false
+    @State private var clearTeam = false
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
     init(initial: TeamBuild, content: ContentStore, portraits: PortraitStore, skillIndex: SkillSearchIndex) {
@@ -143,11 +152,18 @@ struct TeamDraftView: View {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: dynamicTypeSize.isAccessibilitySize ? 280 : 150), spacing: 12)], spacing: 12) {
                         ForEach(draft.slots.indices, id: \.self) { i in
                             NavigationLink {
-                                TeamSlotView(slot: $draft.slots[i], content: content, portraits: portraits, skillIndex: skillIndex)
+                                TeamSlotView(slot: $draft.slots[i], content: content, portraits: portraits, skillIndex: skillIndex, usedSlots: draft.slots)
                             } label: { TeamPetTile(slot: draft.slots[i], content: content, label: "槽位 \(i + 1)", compact: true) }
                                 .buttonStyle(.plain)
                         }
                     }
+                    DisclosureGroup("拖动排列槽位") {
+                        List {
+                            ForEach(draft.slots.indices, id: \.self) { i in Text("槽位 \(i + 1) · \(slotName(draft.slots[i]))") }
+                                .onMove { from, to in draft.slots.move(fromOffsets: from, toOffset: to) }
+                        }.environment(\.editMode, .constant(.active)).frame(height: 320).scrollDisabled(true)
+                    }.tint(.primary)
+                    Button("清空当前整队", role: .destructive) { clearTeam = true }.buttonStyle(.bordered)
                     DisclosureGroup("交换两个槽位") {
                         VStack(spacing: 12) {
                             Picker("来源", selection: $first) { ForEach(0..<6, id: \.self) { Text("槽位 \($0 + 1)").tag($0) } }
@@ -172,7 +188,11 @@ struct TeamDraftView: View {
                     }
                 }
         }.interactiveDismissDisabled(dirty)
-            .confirmationDialog("放弃未保存的队伍草稿？", isPresented: $discard, titleVisibility: .visible) {
+            .alert("清空所有槽位与魔法道具？保存前仍是草稿。", isPresented: $clearTeam) {
+                Button("清空整队", role: .destructive) { draft.slots = Array(repeating: TeamSlot(), count: 6); draft.magicItemID = nil }
+                Button("保留草稿", role: .cancel) {}
+            }
+            .alert("放弃未保存的队伍草稿？", isPresented: $discard) {
                 Button("放弃草稿", role: .destructive) { dismiss() }
                 Button("继续编辑", role: .cancel) {}
             }
@@ -197,17 +217,24 @@ struct TeamDraftView: View {
     }
 }
 
+enum PetPickerPurpose { case team, battle }
+
 struct TeamSlotView: View {
     @Binding var slot: TeamSlot
     let content: ContentStore
     let portraits: PortraitStore
     let skillIndex: SkillSearchIndex
+    var purpose: PetPickerPurpose = .team
+    var usedSlots: [TeamSlot] = []
+    @State private var moveSearch = ""
+    @State private var moveSource: PetSkillSource?
+    @State private var replacePosition: Int?
     @State private var error: String?
     private var pet: Pet? { slot.petID.flatMap { content.pets[PetID(rawValue: $0)] } }
     var body: some View {
         Form {
             Section {
-                NavigationLink("选择精灵") { TeamPetPicker(slot: $slot, content: content) }
+                NavigationLink("选择精灵") { TeamPetPicker(slot: $slot, content: content, purpose: purpose, usedSlots: usedSlots) }
                 if let pet {
                     HStack(spacing: 16) {
                         CanonicalThumbnail(assetID: pet.portraitAssetId, content: content, size: 80)
@@ -228,6 +255,12 @@ struct TeamSlotView: View {
                             NavigationLink(skill.nameZh) { SkillDetailView(skill: skill, content: content, portraits: portraits, index: skillIndex) }
                         }
                     }
+                }
+                Section("快捷预设") {
+                    ForEach(BuildPreset.allCases.filter { purpose == .battle || $0 != .none }, id: \.self) { preset in
+                        Button(preset.rawValue) { slot = preset.apply(to: slot, pet: pet, content: content) }
+                    }
+                    Button("清空全部个体值") { slot.individualValues = Array(repeating: 0, count: 6) }
                 }
                 Section("性格与血脉") {
                     personalityPicker
@@ -299,6 +332,15 @@ struct TeamSlotView: View {
     }
     @ViewBuilder private var movesSection: some View {
         Section("技能 · \(slot.skillIDs.count) / 4") {
+            TextField("技能名称、描述或 ID", text: $moveSearch)
+            Picker("来源", selection: $moveSource) {
+                Text("全部").tag(nil as PetSkillSource?)
+                ForEach([PetSkillSource.pool, .stone, .bloodline], id: \.self) { Text(sourceName($0)).tag(Optional($0)) }
+            }
+            Picker("添加或替换", selection: $replacePosition) {
+                Text("添加 / 移除").tag(nil as Int?)
+                ForEach(slot.skillIDs.indices, id: \.self) { Text("替换第 \($0 + 1) 个技能").tag(Optional($0)) }
+            }
             ForEach(slot.skillIDs, id: \.self) { id in
                 Button("移除：\(content.skills[SkillID(rawValue: id)]?.nameZh ?? "无法解析 #\(id) · 保留")", role: .destructive) {
                     slot.skillIDs.removeAll { $0 == id }
@@ -310,9 +352,15 @@ struct TeamSlotView: View {
             }
             switch Result(catching: { try TeamRules.options(slot, content: content) }) {
             case .success(let options):
-                ForEach(options, id: \.skill.skillId) { option in
+                ForEach(options.filter { (moveSource == nil || $0.source == moveSource) && (moveSearch.isEmpty || "\($0.skill.nameZh) \($0.skill.description) \($0.skill.skillId.rawValue)".localizedStandardContains(moveSearch)) }, id: \.skill.skillId) { option in
                     Button {
-                        do { slot = try TeamRules.toggleSkill(option.skill.skillId.rawValue, slot: slot, content: content) }
+                        do {
+                            if let position = replacePosition, slot.skillIDs.indices.contains(position) {
+                                let id = option.skill.skillId.rawValue
+                                guard !slot.skillIDs.enumerated().contains(where: { $0.offset != position && $0.element == id }) else { throw ContentError.invalid("其他位置已有此技能") }
+                                slot.skillIDs[position] = id; replacePosition = nil
+                            } else { slot = try TeamRules.toggleSkill(option.skill.skillId.rawValue, slot: slot, content: content) }
+                        }
                         catch { self.error = String(describing: error) }
                     } label: {
                         VStack(alignment: .leading) {
@@ -327,25 +375,50 @@ struct TeamSlotView: View {
     }
 }
 
-private struct TeamPetPicker: View {
+struct TeamPetPicker: View {
     @Binding var slot: TeamSlot
     let content: ContentStore
+    var purpose: PetPickerPurpose = .team
+    var usedSlots: [TeamSlot] = []
     @State private var query = ""
+    @State private var type: TypeID?
     @State private var error: String?
     @Environment(\.dismiss) private var dismiss
     private var candidates: [Pet] {
-        content.orderedPets.filter {
-            $0.implemented && $0.publicVisible && !$0.isLeader &&
-                (query.isEmpty || "\($0.nameZh) \($0.petId.rawValue) \($0.searchAliases.joined(separator: " "))".localizedStandardContains(query))
+        content.orderedPets.filter { $0.implemented && $0.publicVisible && (purpose == .battle || !$0.isLeader) }.filter { pet in
+            (type == nil || pet.typeIds.contains(type!)) && PetSearch.matches(pet, query: query)
         }
     }
     var body: some View {
-        List(candidates, id: \.petId) { pet in
-            Button(pet.nameZh) {
-                do { slot = try TeamRules.assign(pet, content: content); dismiss() }
-                catch { self.error = String(describing: error) }
+        List {
+            Picker("属性", selection: $type) {
+                Text("全部").tag(nil as TypeID?)
+                ForEach(TypeMatchup(types: content.types).selectable, id: \.typeId) { Text($0.nameZh).tag(Optional($0.typeId)) }
             }
-        }.navigationTitle("选择精灵").searchable(text: $query)
+            ForEach(candidates, id: \.petId) { pet in
+                Button {
+                    do {
+                        if purpose == .team { slot = try TeamRules.assign(pet, content: content) }
+                        else {
+                            var chosen = TeamSlot(); chosen.petID = pet.petId.rawValue
+                            chosen.legacyTypeID = pet.defaultLegacyTypeId?.rawValue
+                            chosen.skillIDs = try TeamRules.recommended(chosen, content: content); slot = chosen
+                        }
+                        dismiss()
+                    } catch { self.error = String(describing: error) }
+                } label: {
+                    HStack {
+                        CanonicalThumbnail(assetID: pet.portraitAssetId, content: content, size: 44)
+                        VStack(alignment: .leading) {
+                            Text(pet.nameZh + (pet.isLeader ? " · 首领" : ""))
+                            Text("#\(String(pet.handbookId?.rawValue ?? pet.speciesId.rawValue)) · 配置 \(String(pet.petId.rawValue))").font(.caption).foregroundStyle(.secondary)
+                            let positions = usedSlots.enumerated().filter { $0.element.petID == pet.petId.rawValue }.map { String($0.offset + 1) }
+                            if !positions.isEmpty { Text("已用于槽位 " + positions.joined(separator: "、")).font(.caption).foregroundStyle(.orange) }
+                        }
+                    }
+                }
+            }
+        }.navigationTitle(purpose == .battle ? "选择对战精灵" : "选择精灵").searchable(text: $query, prompt: "名称、图鉴编号或配置 ID")
             .alert("无法选取", isPresented: Binding(get: { error != nil }, set: { if !$0 { error = nil } })) {
                 Button("好", role: .cancel) { error = nil }
             } message: { Text(error ?? "") }

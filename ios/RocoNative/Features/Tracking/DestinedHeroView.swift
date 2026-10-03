@@ -14,7 +14,7 @@ struct DestinedHeroView: View {
     private var obtained: Set<String> { Set(records.filter(\.obtained).map(\.familyID)) }
     private func visible(saved: Set<String>) -> [Family] {
         index.badgeFamilies.filter {
-            (query.isEmpty || index.familySearch[$0.familyKey]?.localizedStandardContains(query) == true)
+            index.matches($0, query: query, content: content)
                 && (filter == 0 || saved.contains($0.familyKey.rawValue) == (filter == 1))
         }
     }

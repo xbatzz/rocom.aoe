@@ -8,6 +8,30 @@ import RocoContent
 /// Programmatic interruption does not substitute for a finger tapping during zoom.
 final class NavigationLifetimeTests: XCTestCase {
     @MainActor
+    func testFixedTeamImageCropRecognition() async throws {
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: 1625, height: 747))
+        let image = renderer.image { context in
+            UIColor.white.setFill(); context.fill(CGRect(x: 0, y: 0, width: 1625, height: 747))
+            let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 22), .foregroundColor: UIColor.black]
+            for top in [22, 270, 518] {
+                for x in [334, 970] {
+                    ("ALPHA" as NSString).draw(at: CGPoint(x: x + 3, y: top + 4), withAttributes: attributes)
+                    ("BRAVE" as NSString).draw(at: CGPoint(x: x + 181, y: top + 55), withAttributes: attributes)
+                    for offset in [0, 85, 169, 254] { ("MOVE" as NSString).draw(at: CGPoint(x: x + offset + 1, y: top + 179), withAttributes: attributes) }
+                }
+            }
+            ("TEAM" as NSString).draw(at: CGPoint(x: 1383, y: 523), withAttributes: attributes)
+        }
+        let decoded = try await TeamImageOCR.decode(XCTUnwrap(image.pngData()))
+        XCTAssertLessThanOrEqual(decoded.width, 1625)
+        let result = try await TeamImageOCR.read(decoded, templates: [])
+        XCTAssertEqual(result.slots.count, 6)
+        XCTAssertTrue(result.slots.allSatisfy { $0.text[0] == "ALPHA" && $0.text[1] == "BRAVE" && $0.typeID == nil })
+        XCTAssertEqual(result.name, "TEAM")
+        XCTAssertTrue(result.slots.allSatisfy { $0.text.dropFirst(3).allSatisfy { $0 == "MOVE" } })
+    }
+
+    @MainActor
     func testCoordinatorOwnershipEndsWithNavigation() async throws {
         var (coordinator, pets): (AlignedNavigation.Coordinator?, [Pet]) = try await fixture()
         var nav: UINavigationController? = try XCTUnwrap(coordinator).makeNavigation(pets: pets)

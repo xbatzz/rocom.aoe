@@ -36,6 +36,11 @@ extension UserDatabase {
             guard try context.fetchCount(FetchDescriptor<TeamRecord>()) < 10 else { throw ContentError.invalid("最多 10 支队伍") }
             context.insert(try TeamRecord(build: build))
         }
+        let preferences = try preferences(context: context)
+        if preferences.activeTeamID == nil {
+            preferences.activeTeamID = build.id
+            preferences.activeTeamUpdatedAt = nextTimestamp(after: preferences.activeTeamUpdatedAt)
+        }
         do { try context.save() }
         catch { context.rollback(); throw error }
     }
@@ -54,6 +59,13 @@ extension UserDatabase {
             throw ContentError.invalid("至少保留一支队伍")
         }
         context.delete(record)
+        let preferences = try preferences(context: context)
+        if preferences.activeTeamID == record.teamID {
+            let remaining = try context.fetch(FetchDescriptor<TeamRecord>()).filter { $0.teamID != record.teamID }
+                .sorted { $0.updatedAt > $1.updatedAt }
+            preferences.activeTeamID = remaining.first?.teamID
+            preferences.activeTeamUpdatedAt = nextTimestamp(after: preferences.activeTeamUpdatedAt)
+        }
         do { try context.save() }
         catch { context.rollback(); throw error }
     }

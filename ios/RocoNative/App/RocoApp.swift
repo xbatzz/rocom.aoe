@@ -70,12 +70,12 @@ struct RocoApp: App {
                 case .ready(let store, let portraits, let skills, let tracking, let database):
                     #if DEBUG
                     if let route = VisualReview.route {
-                        VisualReview.page(route, content: store, portraits: portraits, skills: skills, tracking: tracking).modelContainer(database)
+                        AppearanceContainer { VisualReview.page(route, content: store, portraits: portraits, skills: skills, tracking: tracking) }.modelContainer(database)
                     } else {
-                        NativeFeatureEntry(content: store, portraits: portraits, skills: skills, tracking: tracking).modelContainer(database)
+                        AppearanceContainer { NativeFeatureEntry(content: store, portraits: portraits, skills: skills, tracking: tracking) }.modelContainer(database)
                     }
                     #else
-                    NativeFeatureEntry(content: store, portraits: portraits, skills: skills, tracking: tracking).modelContainer(database)
+                    AppearanceContainer { NativeFeatureEntry(content: store, portraits: portraits, skills: skills, tracking: tracking) }.modelContainer(database)
                     #endif
                 case .failed(let message):
                     ContentUnavailableView("内容或用户数据库未能加载", systemImage: "exclamationmark.triangle",
@@ -85,5 +85,13 @@ struct RocoApp: App {
             .background(Color(uiColor: .systemBackground))
             .task { await content.load() }
         }
+    }
+}
+
+private struct AppearanceContainer<Content: View>: View {
+    @Query private var preferences: [UserPreferences]
+    @ViewBuilder var content: () -> Content
+    var body: some View {
+        content().preferredColorScheme(preferences.first?.appearance == .light ? .light : preferences.first?.appearance == .dark ? .dark : nil)
     }
 }

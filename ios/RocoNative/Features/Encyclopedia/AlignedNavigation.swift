@@ -262,9 +262,9 @@ struct AlignedNavigation: UIViewControllerRepresentable {
             guard let nav = navigation,
                   interactiveDriver == nil,
                   nav.transitionCoordinator == nil,
-                  nav.topViewController is UIHostingController<PetDetail>,
-                  let image = anchors.source(for: origin)?.image
+                  nav.topViewController is UIHostingController<PetDetail>
             else { return }
+            let image = anchors.source(for: origin)?.image ?? UIImage(systemName: "photo")!
 
             let detail = NavigationContentHost(rootView: PetDetail(
                 pet: pet, content: content, image: image, anchors: anchors,

@@ -21,7 +21,7 @@ public enum UserDatabase {
         guard version == currentVersion else { throw UserDataError.unsupportedVersion(version) }
     }
     @MainActor public static func open(inMemory: Bool = false, url: URL? = nil) throws -> ModelContainer {
-        let schema = Schema([ShinyRecord.self, GrassRecord.self, HeroRecord.self, UserDataMetadata.self, TeamRecord.self, LegacyArchiveRecord.self])
+        let schema = Schema([ShinyRecord.self, GrassRecord.self, HeroRecord.self, UserDataMetadata.self, TeamRecord.self, LegacyArchiveRecord.self, GrassFamilyMedalRecord.self, UserPreferences.self])
         let config: ModelConfiguration
         if let url {
             config = ModelConfiguration("RocoUserData", schema: schema, url: url, cloudKitDatabase: .none)
@@ -37,6 +37,7 @@ public enum UserDatabase {
         for row in try context.fetch(FetchDescriptor<ShinyRecord>()) { try validateVersion(row.dataVersion) }
         for row in try context.fetch(FetchDescriptor<GrassRecord>()) { try validateVersion(row.dataVersion) }
         for row in try context.fetch(FetchDescriptor<HeroRecord>()) { try validateVersion(row.dataVersion) }
+        for row in try context.fetch(FetchDescriptor<GrassFamilyMedalRecord>()) { try validateVersion(row.dataVersion) }
         return container
     }
 
@@ -116,6 +117,7 @@ extension UserDatabase {
 
 public enum UserDataError: Error {
     case unsupportedVersion(Int)
+    case missingTeam
 }
 
 /// Data-format boundary for future backup/import. Unknown versions fail; no destructive reset.

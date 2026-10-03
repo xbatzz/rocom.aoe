@@ -13,6 +13,10 @@ struct ShinyCollectionView: View {
     @State private var season: SeasonID?
     @State private var filter = 0
     @State private var error: String?
+    @State private var undo: (id: String, old: Bool)?
+    init(content: ContentStore, index: TrackingCatalogIndex) {
+        self.content = content; self.index = index; _season = State(initialValue: content.manifest.defaultSeason)
+    }
 
     private var collected: Set<String> { Set(records.filter(\.collected).map(\.slotID)) }
     private var seasonalSlots: [ShinySlot] {
@@ -21,7 +25,7 @@ struct ShinyCollectionView: View {
     }
     private func visible(slots: [ShinySlot], saved: Set<String>) -> [ShinySlot] {
         slots.filter {
-            (query.isEmpty || index.slotSearch[$0.slotId]?.localizedStandardContains(query) == true)
+            index.matches($0, query: query, content: content)
                 && (filter == 0 || saved.contains($0.slotId.rawValue) == (filter == 1))
         }
     }
@@ -33,6 +37,18 @@ struct ShinyCollectionView: View {
         let visible = visible(slots: seasonalSlots, saved: collected)
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
+                DisclosureGroup("各赛季进度") {
+                    ForEach(content.seasons.values.sorted { $0.seasonId.rawValue < $1.seasonId.rawValue }, id: \.seasonId) { season in
+                        let slots = content.shinySlotsBySeason[season.seasonId] ?? []
+                        CollectionProgress(title: season.nameZh, count: slots.filter { collected.contains($0.slotId.rawValue) }.count, total: slots.count, tint: .purple)
+                    }
+                }.tint(.primary)
+                if let undo {
+                    Button("撤销上次切换", systemImage: "arrow.uturn.backward") {
+                        do { try UserDatabase.setShiny(undo.old, slot: undo.id, context: context); self.undo = nil }
+                        catch { self.error = String(describing: error) }
+                    }.buttonStyle(.bordered)
+                }
                 CollectionProgress(title: "异色收集", count: seasonalSlots.filter { collected.contains($0.slotId.rawValue) }.count,
                     total: seasonalSlots.count, tint: .purple)
                 VStack(alignment: .leading, spacing: 8) {
@@ -53,11 +69,19 @@ struct ShinyCollectionView: View {
                     Text("全部").tag(0); Text("已收集").tag(1); Text("未收集").tag(2)
                 }.pickerStyle(.segmented)
                 if visible.isEmpty { ContentUnavailableView("没有符合条件的异色槽", systemImage: "star", description: Text("尝试其他关键词、赛季或收集状态。")) }
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: dynamicTypeSize.isAccessibilitySize ? 280 : 150), spacing: 12)], spacing: 12) {
-                    ForEach(visible, id: \.slotId) { slot in
-                        ShinySlotRow(slot: slot, content: content, isCollected: collected.contains(slot.slotId.rawValue)) {
-                            do { try UserDatabase.toggleShiny(slot.slotId.rawValue, context: context) }
-                            catch { self.error = String(describing: error) }
+                let keys = Set(visible.map(\.familyId)).sorted { $0.rawValue < $1.rawValue }
+                ForEach(keys, id: \.self) { family in
+                    let familySlots = seasonalSlots.filter { $0.familyId == family }
+                    let shown = visible.filter { $0.familyId == family }
+                    CompanionHeading(title: familySlots.first.flatMap { content.pets[$0.representativePetId]?.nameZh } ?? "家族 #\(family.rawValue)", detail: "\(familySlots.filter { collected.contains($0.slotId.rawValue) }.count) / \(familySlots.count) 已收集")
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: dynamicTypeSize.isAccessibilitySize ? 280 : 150), spacing: 12)], spacing: 12) {
+                        ForEach(shown, id: \.slotId) { slot in
+                            ShinySlotRow(slot: slot, content: content, isCollected: collected.contains(slot.slotId.rawValue)) {
+                                do {
+                                    let old = collected.contains(slot.slotId.rawValue)
+                                    try UserDatabase.toggleShiny(slot.slotId.rawValue, context: context); undo = (slot.slotId.rawValue, old)
+                                } catch { self.error = String(describing: error) }
+                            }
                         }
                     }
                 }
@@ -76,11 +100,13 @@ private struct ShinySlotRow: View {
     let isCollected: Bool
     let toggle: () -> Void
     var body: some View {
-        if let pet = content.pets[slot.representativePetId] {
+        if let pet = content.pets[slot.targetPetId] {
             Button(action: toggle) {
                 VStack(alignment: .leading, spacing: 10) {
                     CanonicalThumbnail(assetID: slot.portraitAssetId, content: content, size: 96).frame(maxWidth: .infinity)
                     Text(pet.nameZh).font(.headline).fixedSize(horizontal: false, vertical: true)
+                    Text("\(pet.form == "default" ? "默认形态" : pet.form) · 路线 \(slot.slotId.rawValue)").font(.caption).foregroundStyle(.secondary)
+                    Text(slot.memberPetIds.compactMap { content.pets[$0]?.nameZh }.joined(separator: " → ")).font(.caption).foregroundStyle(.secondary)
                     PetTypes(pet: pet, content: content)
                     if let season = content.seasons[slot.seasonId] {
                         Text(season.nameZh).font(.caption).foregroundStyle(.secondary)

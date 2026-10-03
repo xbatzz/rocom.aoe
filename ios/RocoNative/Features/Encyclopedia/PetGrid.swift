@@ -27,10 +27,11 @@ private struct PetListQuery {
     var attackStyle: PetAttackStyle?
     var leader = Leader.all
     var stage = Stage.all
+    var leaderPotential = false
     var sort = Sort.handbook
 
     var hasFilters: Bool {
-        firstType != nil || secondType != nil || attackStyle != nil || leader != .all || stage != .all
+        firstType != nil || secondType != nil || attackStyle != nil || leader != .all || stage != .all || leaderPotential
     }
 
     func results(pets: [Pet], content: ContentStore) -> [Pet] {
@@ -49,7 +50,7 @@ private struct PetListQuery {
             case .evolved: pet.parentPetId != nil
             case .canEvolve: evolutionSources.contains(pet.petId)
             }
-            guard typesMatch, leaderMatch, stageMatch,
+            guard typesMatch, leaderMatch, stageMatch, !leaderPotential || pet.leaderPotential,
                 attackStyle == nil || pet.attackStyle == attackStyle else { return false }
             if query.isEmpty { return true }
             if numeric {
@@ -231,6 +232,7 @@ struct AlignedPetGrid: View {
                     Text("属性匹配任意属性位；选择两项时需同时满足。")
                 }
                 Section("战斗特征") {
+                    Toggle("具有首领潜力", isOn: $query.leaderPotential)
                     Picker("攻击倾向", selection: $query.attackStyle) {
                         Text("全部").tag(Optional<PetAttackStyle>.none)
                         Text("物攻").tag(Optional(PetAttackStyle.physical))
@@ -258,6 +260,7 @@ struct AlignedPetGrid: View {
                         query.attackStyle = nil
                         query.leader = .all
                         query.stage = .all
+                        query.leaderPotential = false
                     }
                     .disabled(!query.hasFilters)
                 }

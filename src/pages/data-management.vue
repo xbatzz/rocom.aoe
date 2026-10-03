@@ -39,6 +39,7 @@ const importMode = ref<UserDataImportMode>("merge");
 const importDialogOpen = ref(false);
 const feedbackMessage = ref("");
 const errorMessage = ref("");
+const operationBusy = ref(false);
 const currentSummary = ref(readCurrentSummary());
 
 onMounted(() => {
@@ -98,12 +99,14 @@ function readCurrentSummary() {
     };
 }
 
-function exportAllData() {
+async function exportAllData() {
+    if (operationBusy.value) return;
+    operationBusy.value = true;
     feedbackMessage.value = "";
     errorMessage.value = "";
 
     try {
-        const backup = createUserDataBackup();
+        const backup = await createUserDataBackup();
         const blob = new Blob([JSON.stringify(backup, null, 2)], {
             type: "application/json",
         });
@@ -116,7 +119,7 @@ function exportAllData() {
         feedbackMessage.value = "全部用户数据已导出。";
     } catch {
         errorMessage.value = "导出失败，请检查浏览器是否允许下载文件。";
-    }
+    } finally { operationBusy.value = false; }
 }
 
 function openImportPicker() {
@@ -135,7 +138,7 @@ async function handleImportFileChange(event: Event) {
     }
 
     try {
-        const parsed = parseUserDataBackup(JSON.parse(await file.text()));
+        const parsed = await parseUserDataBackup(JSON.parse(await file.text()));
 
         if (!parsed) {
             throw new Error("invalid backup");
@@ -146,17 +149,18 @@ async function handleImportFileChange(event: Event) {
         importDialogOpen.value = true;
     } catch {
         errorMessage.value =
-            "无法识别该备份文件，请选择由数据管理页导出的 JSON。";
+            "无法识别该备份文件，请选择Web 或 iOS 导出的 JSON。";
     }
 }
 
-function confirmImport() {
-    if (!pendingBackup.value) {
+async function confirmImport() {
+    if (operationBusy.value || !pendingBackup.value) {
         return;
     }
 
+    operationBusy.value = true;
     try {
-        const summary = importUserDataBackup(
+        const summary = await importUserDataBackup(
             pendingBackup.value,
             importMode.value,
         );
@@ -172,7 +176,7 @@ function confirmImport() {
     } catch (error) {
         errorMessage.value =
             error instanceof Error ? error.message : "导入失败。";
-    }
+    } finally { operationBusy.value = false; }
 }
 
 function closeImportDialog() {
@@ -283,7 +287,7 @@ document.title = "数据管理 - 洛克王国工具箱";
                             下载一个 JSON 文件。iOS 可保存到“文件”或 iCloud Drive，桌面端可保存到任意备份目录。
                         </p>
                     </div>
-                    <Button class="w-full rounded-[12px]" @click="exportAllData">
+                    <Button class="w-full rounded-[12px]" :disabled="operationBusy" @click="exportAllData">
                         <Download class="mr-2 h-4 w-4" />
                         下载完整备份
                     </Button>
@@ -380,12 +384,12 @@ document.title = "数据管理 - 洛克王国工具箱";
                 </div>
 
                 <DialogFooter>
-                    <Button variant="outline" @click="closeImportDialog">
+                    <Button variant="outline" :disabled="operationBusy" @click="closeImportDialog">
                         取消
                     </Button>
                     <Button
                         :variant="importMode === 'replace' ? 'destructive' : 'default'"
-                        @click="confirmImport"
+                        :disabled="operationBusy" @click="confirmImport"
                     >
                         <FileJson class="mr-2 h-4 w-4" />
                         确认导入

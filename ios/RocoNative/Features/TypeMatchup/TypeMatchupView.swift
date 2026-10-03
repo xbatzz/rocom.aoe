@@ -88,7 +88,15 @@ struct TypeMatchupView: View {
         switch makeResult() {
         case .success(let rows):
             if mode == 2 {
-                CompanionSection("克制覆盖 · \(rows.count) 种属性") { typeGrid(rows) }
+                CompanionSection("合并覆盖 · \(rows.count) 种属性") { typeGrid(rows) }
+                let firstRows = engine.selectable.filter { $0.weakToTypeIds.contains(first) }.map { Row(type: $0, multiplier: 2) }
+                CompanionSection("\(engine.selectable.first { $0.typeId == first }?.nameZh ?? "第一属性")分别覆盖") { typeGrid(firstRows) }
+                if let second {
+                    let secondRows = engine.selectable.filter { $0.weakToTypeIds.contains(second) }.map { Row(type: $0, multiplier: 2) }
+                    CompanionSection("\(engine.selectable.first { $0.typeId == second }?.nameZh ?? "第二属性")分别覆盖") { typeGrid(secondRows) }
+                    let overlap = firstRows.filter { row in secondRows.contains { $0.id == row.id } }
+                    CompanionSection("重叠覆盖 · \(overlap.count) 种") { typeGrid(overlap); if overlap.isEmpty { Text("没有重叠覆盖").foregroundStyle(.secondary) } }
+                }
                 if rows.isEmpty { Text("当前选择没有克制覆盖。").foregroundStyle(.secondary) }
             } else {
                 ForEach(Array(Set(rows.map(\.multiplier))).filter { $0 != 1 }.sorted(by: >), id: \.self) { multiplier in
@@ -104,6 +112,13 @@ struct TypeMatchupView: View {
                     let targets = engine.selectable.filter { $0.weakToTypeIds.contains(first) }
                     if targets.isEmpty { Text("该属性没有额外的进攻克制。").font(.subheadline).foregroundStyle(.secondary) }
                     else { typeGrid(targets.map { Row(type: $0, multiplier: 2) }) }
+                }
+            }
+            if mode == 0 {
+                CompanionSection("进攻被抵抗") {
+                    let targets = engine.selectable.filter { $0.resistToTypeIds.contains(first) }
+                    if targets.isEmpty { Text("没有被抵抗的目标属性").foregroundStyle(.secondary) }
+                    typeGrid(targets.map { Row(type: $0, multiplier: 0.5) })
                 }
             }
             if mode == 1 { Text("双属性相乘；4 倍按项目规则计为 3 倍。重复属性只计算一次。").font(.footnote).foregroundStyle(.secondary) }

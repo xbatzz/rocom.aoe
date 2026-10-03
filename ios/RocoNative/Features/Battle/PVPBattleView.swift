@@ -8,7 +8,17 @@ struct PVPBattleView: View {
     let content: ContentStore
     let portraits: PortraitStore
     let skillIndex: SkillSearchIndex
+    private enum Section: String, CaseIterable {
+        case build = "双方构筑"
+        case comparison = "能力比较"
+        case analysis = "对战分析"
+    }
+    @State private var section = Section.build
     @State private var choosingTeam = false
+    @State private var reset = false
+    @State private var initialized = false
+    @Query(sort: \TeamRecord.updatedAt, order: .reverse) private var teams: [TeamRecord]
+    @Query private var preferences: [UserPreferences]
     @State private var ally = BattleProfile()
     @State private var opponent = BattleProfile()
     init(content: ContentStore, portraits: PortraitStore, skillIndex: SkillSearchIndex) {
@@ -26,8 +36,8 @@ struct PVPBattleView: View {
     }
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
+        CompanionTabbedPage(title: "PVP 分区", selection: $section, options: Section.allCases, identifier: "pvp-tabs") {
+            if section == .build {
                 CompanionHeading(title: "对战构筑", detail: "临时计算")
                 if dynamicTypeSize.isAccessibilitySize {
                     VStack(spacing: 12) { allyCard; versus; opponentCard }
@@ -36,32 +46,44 @@ struct PVPBattleView: View {
                 }
                 Button("从已保存队伍选择我方", systemImage: "person.3") { choosingTeam = true }
                     .buttonStyle(.bordered).controlSize(.large).tint(.primary)
-                if ally.slot.petID != nil && opponent.slot.petID != nil {
-                    comparisons
-                    CompanionSection("对战分析") {
-                        NavigationLink {
-                            BattleDirectionView(attacker: ally, defender: opponent, content: content, portraits: portraits, skillIndex: skillIndex).id(ally.slot.petID)
-                        } label: { analysisLink("我方 → 对方", detail: "伤害与一击线", tint: .orange) }
-                        NavigationLink {
-                            BattleDirectionView(attacker: opponent, defender: ally, content: content, portraits: portraits, skillIndex: skillIndex).id(opponent.slot.petID)
-                        } label: { analysisLink("对方 → 我方", detail: "伤害与一击线", tint: .purple) }
-                        NavigationLink { TeamDefenseView(opponent: opponent, content: content) } label: {
-                            analysisLink("已保存队伍联防", detail: "对方本系的进攻覆盖", tint: .primary)
-                        }
-                    }.buttonStyle(.plain)
-                } else {
+                if !isReady {
                     CompanionSection("准备一次对战") {
                         preparationStep("01", title: "选择双方精灵", detail: "点按上方槽位，配置性格、血脉与技能。")
                         Divider()
-                        preparationStep("02", title: "比较六维与属性", detail: "确认速度优势与属性承伤倍率。")
+                        preparationStep("02", title: "比较六维与属性", detail: "切换到能力比较，确认速度优势。")
                         Divider()
-                        preparationStep("03", title: "计算伤害与一击线", detail: "选择技能，按实际条件查看纸面结果。")
+                        preparationStep("03", title: "计算伤害与一击线", detail: "切换到对战分析，按实际条件查看纸面结果。")
                     }
                 }
-                Text("临时构筑不会更改已保存队伍。伤害沿用当前规则的纸面估算。")
-                    .font(.footnote).foregroundStyle(.secondary)
-            }.padding(20)
-        }.reviewScrollPosition().companionBackground().navigationTitle("PVP 助手")
+            } else if isReady {
+                CompanionHeading(title: "\(name(ally)) / \(name(opponent))", detail: "我方 / 对方")
+                Button("调整双方构筑", systemImage: "slider.horizontal.3") { section = .build }
+                    .buttonStyle(.bordered).tint(.primary)
+                if section == .comparison {
+                    comparisons
+                } else {
+                    analysisSection
+                }
+            } else {
+                ContentUnavailableView {
+                    Label("先选择双方精灵", systemImage: "person.2")
+                } description: {
+                    Text("配置我方与对方后，即可比较能力、计算伤害和查看队伍联防。")
+                } actions: {
+                    Button("选择双方精灵") { section = .build }.companionPrimaryAction()
+                }
+            }
+            Text("临时构筑不会更改已保存队伍。伤害沿用当前规则的纸面估算。")
+                .font(.footnote).foregroundStyle(.secondary)
+        }.navigationTitle("PVP 助手")
+            .task {
+                guard !initialized else { return }; initialized = true
+                if ally.slot.petID == nil, let team = (teams.first { $0.teamID == preferences.first?.activeTeamID } ?? teams.first),
+                    let build = try? team.decode(), let slot = build.slots.first(where: { $0.petID != nil }) { ally.slot = slot }
+            }
+            .confirmationDialog("重置双方临时构筑？", isPresented: $reset, titleVisibility: .visible) {
+                Button("重置全部", role: .destructive) { ally = BattleProfile(); opponent = BattleProfile(); section = .build }
+            }
             .sheet(isPresented: $choosingTeam) {
                 BattleTeamPicker(content: content) { slot in
                     var profile = BattleProfile(); profile.slot = slot; ally = profile
@@ -69,20 +91,35 @@ struct PVPBattleView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
+                    Button("重置", systemImage: "arrow.counterclockwise") { reset = true }
                     Button("交换双方", systemImage: "arrow.left.arrow.right") {
                         let previous = ally; ally = opponent; opponent = previous
                     }.disabled(ally.slot.petID == nil && opponent.slot.petID == nil)
                 }
             }
     }
+    private var isReady: Bool { ally.slot.petID != nil && opponent.slot.petID != nil }
+    private var analysisSection: some View {
+        CompanionSection("对战分析") {
+            NavigationLink {
+                BattleDirectionView(attacker: ally, defender: opponent, content: content, portraits: portraits, skillIndex: skillIndex).id(ally.slot.petID)
+            } label: { analysisLink("我方 → 对方", detail: "伤害与一击线", tint: .orange) }
+            NavigationLink {
+                BattleDirectionView(attacker: opponent, defender: ally, content: content, portraits: portraits, skillIndex: skillIndex).id(opponent.slot.petID)
+            } label: { analysisLink("对方 → 我方", detail: "伤害与一击线", tint: .purple) }
+            NavigationLink { TeamDefenseView(opponent: opponent, content: content) } label: {
+                analysisLink("已保存队伍联防", detail: "对方本系的进攻覆盖", tint: .primary)
+            }
+        }.buttonStyle(.plain)
+    }
     private var versus: some View { Text("VS").font(.headline.bold()).foregroundStyle(.secondary).accessibilityHidden(true) }
     private var allyCard: some View {
-        NavigationLink { BattleProfileEditor(profile: $ally, content: content, portraits: portraits, skillIndex: skillIndex) } label: {
+        NavigationLink { BattleProfileEditor(profile: $ally, content: content, portraits: portraits, skillIndex: skillIndex, purpose: .battle) } label: {
             TeamPetTile(slot: ally.slot, content: content, label: "我方")
         }.buttonStyle(.plain)
     }
     private var opponentCard: some View {
-        NavigationLink { BattleProfileEditor(profile: $opponent, content: content, portraits: portraits, skillIndex: skillIndex) } label: {
+        NavigationLink { BattleProfileEditor(profile: $opponent, content: content, portraits: portraits, skillIndex: skillIndex, purpose: .battle) } label: {
             TeamPetTile(slot: opponent.slot, content: content, label: "对方")
         }.buttonStyle(.plain)
     }
@@ -110,9 +147,30 @@ struct PVPBattleView: View {
         guard let id = profile.slot.petID else { return "未选择" }
         return content.pets[PetID(rawValue: id)]?.nameZh ?? "无法解析 #\(id)"
     }
+    private func speedReferences(_ pet: Pet) -> [(String, Int)] {
+        let personalities = content.personalities.values.sorted { $0.personalityId.rawValue < $1.personalityId.rawValue }
+        let up = personalities.first { $0.modifiers.speed.rawValue > 0 }
+        let down = personalities.first { $0.modifiers.speed.rawValue < 0 }
+        var full = Array(repeating: 0, count: 6); full[5] = 10
+        return [("满速", full, up), ("满个体", full, nil), ("无速", Array(repeating: 0, count: 6), nil), ("减速", Array(repeating: 0, count: 6), down)].compactMap { label, iv, nature in
+            (try? BattleStatsCalculator.calculate(pet: pet, individuals: iv, personality: nature)).map { (label, $0[5]) }
+        }
+    }
     @ViewBuilder private var comparisons: some View {
         switch Result(catching: { (try BattleCore.stats(ally, content: content), try BattleCore.stats(opponent, content: content)) }) {
         case .success(let values):
+            CompanionSection("速度比较") {
+                LabeledContent("我方 − 对方", value: String(values.0[5] - values.1[5]))
+                if let pet = try? BattleCore.pet(opponent, content: content) {
+                    ForEach(speedReferences(pet), id: \.0) { label, speed in
+                        LabeledContent("对方\(label)", value: "\(speed) · 差 \(values.0[5] - speed)")
+                    }
+                }
+            }
+            DisclosureGroup("双方资料与配置") {
+                CompanionSection("我方") { BattleProfileFacts(profile: ally, content: content) }
+                CompanionSection("对方") { BattleProfileFacts(profile: opponent, content: content) }
+            }.tint(.primary)
             CompanionSection("六维比较 · 我方 / 对方") {
                 VStack(spacing: 16) {
                     ForEach(BattleStat.allCases, id: \.self) { stat in
@@ -151,9 +209,19 @@ private struct BattleProfileEditor: View {
     let content: ContentStore
     let portraits: PortraitStore
     let skillIndex: SkillSearchIndex
+    var purpose: PetPickerPurpose = .battle
     var body: some View {
         Form {
-            NavigationLink("精灵、性格、个体值、血脉与技能") { TeamSlotView(slot: $profile.slot, content: content, portraits: portraits, skillIndex: skillIndex) }
+            NavigationLink("精灵、性格、个体值、血脉与技能") { TeamSlotView(slot: $profile.slot, content: content, portraits: portraits, skillIndex: skillIndex, purpose: purpose) }
+            Section("生命快捷值") {
+                HStack { ForEach([100, 75, 50, 25, 1], id: \.self) { value in Button("\(value)%") { profile.hpPercent = value } } }
+                LabeledContent("直接输入百分比") { TextField("0–100", value: $profile.hpPercent, format: .number).keyboardType(.numberPad).multilineTextAlignment(.trailing) }
+                    .onChange(of: profile.hpPercent) { profile.hpPercent = min(100, max(0, profile.hpPercent)) }
+                if let values = try? BattleCore.stats(profile, content: content) {
+                    LabeledContent("当前生命 / 最大生命", value: "\(Int((Double(values[0]) * Double(profile.hpPercent) / 100).rounded())) / \(values[0])")
+                }
+            }
+            BattleProfileFacts(profile: profile, content: content)
             Stepper("当前生命：\(profile.hpPercent)%", value: $profile.hpPercent, in: 0...100)
             if profile.slot.petID == 3400 {
                 Picker("陨星之仔捕捉球", selection: $profile.meteorBall) {
@@ -174,8 +242,16 @@ struct BattleDirectionView: View {
     let content: ContentStore
     let portraits: PortraitStore
     let skillIndex: SkillSearchIndex
+    private enum Section: String, CaseIterable {
+        case damage = "伤害计算"
+        case types = "属性关系"
+        case oneHit = "一击线"
+    }
+    @State private var section = Section.damage
     @State private var selected: SkillID?
     @State private var settings = DamageSettings()
+    @State private var skillSearch = ""
+    @State private var skillGroup = 0
     init(attacker: BattleProfile, defender: BattleProfile, content: ContentStore, portraits: PortraitStore, skillIndex: SkillSearchIndex) {
         self.attacker = attacker; self.defender = defender; self.content = content; self.portraits = portraits; self.skillIndex = skillIndex
         #if DEBUG
@@ -186,42 +262,52 @@ struct BattleDirectionView: View {
     }
     private var skill: Skill? { selected.flatMap { content.skills[$0] } }
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
-            CompanionSection("伤害技能") {
-                switch Result(catching: { try BattleCore.calculableSkills(attacker, content: content) }) {
-                case .success(let skills):
-                    Menu {
-                        Picker("固定威力攻击", selection: $selected) {
-                            Text("请选择").tag(nil as SkillID?)
-                            ForEach(skills, id: \.skillId) { Text("\($0.nameZh) #\(String($0.skillId.rawValue))").tag(Optional($0.skillId)) }
-                        }
-                    } label: {
-                        HStack(alignment: .firstTextBaseline, spacing: 8) {
-                            Text(skill.map { "\($0.nameZh) #\(String($0.skillId.rawValue))" } ?? "选择固定威力攻击")
-                                .font(.subheadline.weight(.medium)).fixedSize(horizontal: false, vertical: true)
-                            Image(systemName: "chevron.down").font(.system(size: 12, weight: .semibold))
-                        }.frame(minHeight: 44)
-                    }.tint(.primary).accessibilityLabel("选择固定威力攻击技能")
-                case .failure(let error): Text(String(describing: error)).foregroundStyle(.red)
+        CompanionTabbedPage(title: "对战计算", selection: $section, options: Section.allCases, identifier: "damage-tabs") {
+            if section == .damage {
+                CompanionSection("伤害技能") {
+                    switch Result(catching: { try BattleCore.calculableSkills(attacker, content: content) }) {
+                    case .success(let skills):
+                        TextField("技能名称、描述或 ID", text: $skillSearch)
+                        Picker("选招范围", selection: $skillGroup) {
+                            Text("全部攻击").tag(0); Text("已配招").tag(1); Text("推荐").tag(2)
+                        }.pickerStyle(.segmented)
+                        let recommended = (try? TeamRules.recommended(attacker.slot, content: content)) ?? []
+                        let filtered = skills.filter { (skillGroup == 0 || (skillGroup == 1 ? attacker.slot.skillIDs : recommended).contains($0.skillId.rawValue)) && (skillSearch.isEmpty || "\($0.nameZh) \($0.description) \($0.skillId.rawValue)".localizedStandardContains(skillSearch)) }
+                        if filtered.isEmpty { Text("没有符合条件的固定威力攻击").foregroundStyle(.secondary) }
+                        Menu {
+                            Picker("固定威力攻击", selection: $selected) {
+                                Text("请选择").tag(nil as SkillID?)
+                                ForEach(filtered, id: \.skillId) { Text("\($0.nameZh) #\(String($0.skillId.rawValue))").tag(Optional($0.skillId)) }
+                            }
+                        } label: {
+                            HStack(alignment: .firstTextBaseline, spacing: 8) {
+                                Text(skill.map { "\($0.nameZh) #\(String($0.skillId.rawValue))" } ?? "选择固定威力攻击")
+                                    .font(.subheadline.weight(.medium)).fixedSize(horizontal: false, vertical: true)
+                                Image(systemName: "chevron.down").font(.system(size: 12, weight: .semibold))
+                            }.frame(minHeight: 44)
+                        }.tint(.primary).accessibilityLabel("选择固定威力攻击技能")
+                            .accessibilityValue(skill.map { "\($0.nameZh) #\($0.skillId.rawValue)" } ?? "未选择")
+                    case .failure(let error): Text(String(describing: error)).foregroundStyle(.red)
+                    }
                 }
-            }
-            if let skill {
-                CompanionSection("技能资料") {
-                    NavigationLink { SkillDetailView(skill: skill, content: content, portraits: portraits, index: skillIndex) } label: {
-                        SkillSummary(skill: skill, content: content)
-                    }.buttonStyle(.plain)
+                if let skill {
+                    CompanionSection("技能资料") {
+                        NavigationLink { SkillDetailView(skill: skill, content: content, portraits: portraits, index: skillIndex) } label: {
+                            SkillSummary(skill: skill, content: content)
+                        }.buttonStyle(.plain)
+                    }
+                    damageResult(skill)
+                    effectControls(skill)
+                } else {
+                    Text("选择固定威力攻击技能，查看纸面伤害。")
+                        .font(.subheadline).foregroundStyle(.secondary)
                 }
-                damageResult(skill)
-                effectControls(skill)
+            } else if section == .types {
+                typeRelations
             } else {
-                Text("选择固定威力攻击技能，查看纸面伤害。")
-                    .font(.subheadline).foregroundStyle(.secondary)
+                oneHitLines
             }
-            typeRelations
-            oneHitLines
-            }.padding(20)
-        }.reviewScrollPosition().companionBackground().navigationTitle("伤害与一击线")
+        }.navigationTitle("伤害与一击线")
             .onChange(of: selected) { settings = DamageSettings() }
     }
     @ViewBuilder private var typeRelations: some View {
@@ -262,7 +348,11 @@ struct BattleDirectionView: View {
     }
     @ViewBuilder private func effectControls(_ skill: Skill) -> some View {
         CompanionSection("技能与条件") {
-            Text(skill.description)
+            if !skill.description.isEmpty {
+                DisclosureGroup("技能说明") {
+                    Text(skill.description).font(.subheadline).foregroundStyle(.secondary)
+                }.tint(.primary)
+            }
             let choices = BattleCore.choices(skill)
             if !choices.isEmpty {
                 Picker("技能选项", selection: $settings.choiceIndex) {
@@ -344,6 +434,27 @@ private struct BattleTeamPicker: View {
                 }
             }.navigationTitle("选择已保存构筑")
                 .toolbar { ToolbarItem(placement: .cancellationAction) { Button("取消") { dismiss() } } }
+        }
+    }
+}
+
+struct BattleProfileFacts: View {
+    let profile: BattleProfile
+    let content: ContentStore
+    var body: some View {
+        if let pet = try? BattleCore.pet(profile, content: content) {
+            VStack(alignment: .leading, spacing: 8) {
+                Text(pet.nameZh + (pet.isLeader ? " · 首领" : "")).font(.headline)
+                PetTypes(pet: pet, content: content)
+                Text("种族值 HP \(pet.baseStats.hp) / 物攻 \(pet.baseStats.physicalAttack) / 魔攻 \(pet.baseStats.magicalAttack) / 物防 \(pet.baseStats.physicalDefense) / 魔防 \(pet.baseStats.magicalDefense) / 速度 \(pet.baseStats.speed)").font(.subheadline)
+                Text("性格：" + (profile.slot.personalityID.flatMap { content.personalities[PersonalityID(rawValue: $0)]?.nameZh } ?? "无修正"))
+                Text("个体值：" + profile.slot.individualValues.map(String.init).joined(separator: " / "))
+                Text("血脉：" + (profile.slot.legacyTypeID.flatMap { content.types[TypeID(rawValue: $0)]?.nameZh } ?? "无"))
+                Text("技能：" + profile.slot.skillIDs.map { content.skills[SkillID(rawValue: $0)]?.nameZh ?? "#\($0)" }.joined(separator: "、"))
+                if let traitID = content.petDetails[pet.petId]?.traitId, let trait = content.traits[traitID] {
+                    Text(trait.nameZh).font(.headline); Text(trait.description).font(.subheadline).foregroundStyle(.secondary)
+                }
+            }
         }
     }
 }

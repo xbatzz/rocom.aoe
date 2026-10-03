@@ -19,11 +19,12 @@ public enum TeamDefense {
         public let pierceRisk: Bool
         public let score: Double
     }
-    public static func analyze(attacker: Pet, candidates: [Pet], content: ContentStore) throws -> Analysis {
+    public static func analyze(attacker: Pet, candidates: [Pet], content: ContentStore, attackType: TypeID? = nil) throws -> Analysis {
         guard !candidates.isEmpty, !attacker.typeIds.isEmpty else { throw ContentError.invalid("请选择对手和非空队伍") }
+        if let attackType, content.types[attackType]?.normalBattleType != true { throw ContentError.invalid("请选择普通攻击属性") }
         let slots = try candidates.enumerated().map { index, defender in
             var best: (TypeID, Int)?
-            for attack in attacker.typeIds {
+            for attack in attackType.map({ [$0] }) ?? attacker.typeIds {
                 var net = 0
                 for type in defender.typeIds {
                     guard let details = content.types[type], content.types[attack] != nil else { throw ContentError.invalid("联防属性无法解析") }
@@ -46,7 +47,8 @@ public enum TeamDefense {
         let b = attacker.baseStats
         let total = b.hp + b.physicalAttack + b.magicalAttack + b.physicalDefense + b.magicalDefense + b.speed
         let score = Double(weak * 8 + neutral * 3 - resist * 6) + Double(b.speed) * 0.04 + Double(total) * 0.02 + (pierce ? 18 : 0)
-        return Analysis(slots: slots, weakCount: weak, neutralCount: neutral, resistCount: resist,
+        let orderedSlots = attackType == nil ? slots : slots.sorted { $0.multiplier == $1.multiplier ? $0.index < $1.index : $0.multiplier < $1.multiplier }
+        return Analysis(slots: orderedSlots, weakCount: weak, neutralCount: neutral, resistCount: resist,
             hasSafeSwitch: safe, pierceRisk: pierce, score: score)
     }
 }

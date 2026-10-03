@@ -1,6 +1,203 @@
 import XCTest
+import UIKit
 
 final class NavigationTests: XCTestCase {
+    @MainActor
+    func testSavedDarkAppearanceReachesRoot() throws {
+        let app = XCUIApplication(); app.launchArguments = ["--visual-review", "version", "--visual-fixture"]
+        app.launch()
+        XCTAssertTrue(app.navigationBars["数据版本"].waitForExistence(timeout: 8))
+        app.buttons.matching(NSPredicate(format: "label CONTAINS '跟随系统'")).firstMatch.tap()
+        app.buttons["深色"].firstMatch.tap()
+        let screenshot = app.screenshot()
+        let cg = try XCTUnwrap(UIImage(data: screenshot.pngRepresentation)?.cgImage)
+        var pixel = [UInt8](repeating: 0, count: 4)
+        pixel.withUnsafeMutableBytes { bytes in
+            let context = CGContext(data: bytes.baseAddress, width: 1, height: 1, bitsPerComponent: 8, bytesPerRow: 4, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)!
+            context.draw(cg, in: CGRect(x: -CGFloat(cg.width) * 0.025, y: -CGFloat(cg.height) * 0.4, width: CGFloat(cg.width), height: CGFloat(cg.height)))
+        }
+        XCTAssertLessThan(pixel[0], 80); XCTAssertLessThan(pixel[1], 80); XCTAssertLessThan(pixel[2], 80)
+        attach("selected-dark-root", app)
+    }
+
+    @MainActor
+    func testSelectedParityScreensAndLargeTextControls() {
+        let app = XCUIApplication()
+        let pages: [(String, String)] = [("advanced", "高级筛选"), ("skill", ""), ("types-coverage", "属性克制"), ("grass", "草系徽章"), ("shiny", "异色收集"), ("pvp-filled", "PVP 助手"), ("version", "数据版本")]
+        for (route, title) in pages {
+            app.launchArguments = ["--visual-review", route, "--visual-fixture", "--reduce-motion"]
+            if route == "advanced" || route == "version" { app.launchArguments += ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"] }
+            app.launch()
+            if !title.isEmpty { XCTAssertTrue(app.navigationBars[title].waitForExistence(timeout: 8)) }
+            else {
+                XCTAssertTrue(app.segmentedControls["skill-detail-tabs"].waitForExistence(timeout: 8))
+                app.segmentedControls["skill-detail-tabs"].buttons["获得方式"].tap()
+                XCTAssertTrue(app.staticTexts["筛选获得关系"].waitForExistence(timeout: 8))
+            }
+            if route == "grass" {
+                app.buttons["家族奖牌"].firstMatch.tap()
+                XCTAssertTrue(app.staticTexts["家族奖牌单独保存，与地点足迹、命定勇者分别统计。"].waitForExistence(timeout: 3))
+            }
+            if route == "version" {
+                let theme = app.buttons.matching(NSPredicate(format: "label CONTAINS '跟随系统'")).firstMatch
+                XCTAssertTrue(theme.isHittable); theme.tap()
+                app.buttons["深色"].firstMatch.tap()
+            }
+            attach("selected-\(route)", app); app.terminate()
+        }
+    }
+
+    @MainActor
+    func testSelectedParityDetailAndDraftProtection() {
+        let app = XCUIApplication(); app.launchArguments = ["--visual-review", "pet"]
+        app.launch()
+        XCTAssertTrue(app.scrollViews["detail-3001"].waitForExistence(timeout: 8))
+        app.segmentedControls["pet-detail-tabs"].buttons["进化"].tap()
+        let related = app.staticTexts["喵呜"].firstMatch
+        for _ in 0..<8 where !related.isHittable { app.swipeUp() }
+        XCTAssertTrue(related.isHittable); related.tap()
+        XCTAssertTrue(app.scrollViews["detail-3025"].waitForExistence(timeout: 4))
+        attach("selected-related-pet", app)
+        app.terminate(); app.launchArguments = ["--visual-review", "team-draft"]; app.launch()
+        XCTAssertTrue(app.navigationBars["队伍编辑"].waitForExistence(timeout: 8))
+        let name = app.textFields["队伍名称"].firstMatch; name.tap(); name.typeText("测试草稿")
+        app.buttons["取消"].firstMatch.tap()
+        XCTAssertTrue(app.buttons["继续编辑"].waitForExistence(timeout: 3)); app.buttons["继续编辑"].tap()
+        XCTAssertTrue(name.exists)
+        attach("selected-team-draft-protection", app)
+    }
+
+    @MainActor
+    func testPetDetailQuickSectionsAndSkillFilters() {
+        let app = XCUIApplication(); app.launchArguments = ["--visual-review", "pet"]
+        app.launch()
+        let detail = app.scrollViews["detail-3001"]
+        XCTAssertTrue(detail.waitForExistence(timeout: 8))
+        let tabs = app.segmentedControls["pet-detail-tabs"]
+        tabs.buttons["技能"].tap()
+        XCTAssertTrue(app.staticTexts["筛选自有与学习技能"].waitForExistence(timeout: 3))
+        app.staticTexts["筛选自有与学习技能"].tap()
+        let keyword = app.textFields["技能名称或描述"]
+        XCTAssertTrue(keyword.isHittable); keyword.tap(); keyword.typeText("不存在的技能")
+        XCTAssertTrue(app.staticTexts["没有符合筛选条件的技能"].waitForExistence(timeout: 3))
+        tabs.buttons["介绍"].tap()
+        XCTAssertTrue(app.staticTexts["精灵资料"].waitForExistence(timeout: 3))
+        XCTAssertLessThan(app.staticTexts["精灵资料"].frame.minY, tabs.frame.maxY + 80, "Short sections should open immediately below the fixed tabs")
+        attach("quick-pet-profile", app)
+        tabs.buttons["技能"].tap()
+        // Reopen the filter if its transient disclosure state was reset.
+        if !keyword.isHittable { app.staticTexts["筛选自有与学习技能"].tap() }
+        XCTAssertEqual(keyword.value as? String, "不存在的技能")
+        app.buttons["重置筛选"].tap()
+        detail.swipeUp(); detail.swipeUp()
+        XCTAssertTrue(tabs.buttons["介绍"].isHittable, "Section controls must remain reachable after scrolling")
+        let sources = app.segmentedControls["pet-skill-tabs"]
+        sources.buttons["血脉技能"].tap()
+        XCTAssertFalse(keyword.exists)
+        sources.buttons["技能石"].tap()
+        sources.buttons["技能池"].tap()
+        attach("quick-pet-skills", app)
+        tabs.buttons["进化"].tap()
+        XCTAssertTrue(app.staticTexts["喵呜"].firstMatch.isHittable)
+        attach("quick-pet-evolution", app)
+        tabs.buttons["概览"].tap()
+        XCTAssertTrue(app.staticTexts["喵喵"].isHittable)
+        attach("quick-pet-overview", app)
+    }
+
+    @MainActor
+    func testPVPQuickSectionsAndPreparation() {
+        let app = XCUIApplication(); app.launchArguments = ["--visual-review", "pvp-filled"]
+        app.launch()
+        let tabs = app.segmentedControls["pvp-tabs"]
+        XCTAssertTrue(tabs.waitForExistence(timeout: 8))
+        for _ in 0..<2 {
+            tabs.buttons["能力比较"].tap()
+            XCTAssertTrue(app.staticTexts["速度比较"].isHittable)
+            app.swipeUp()
+            tabs.buttons["对战分析"].tap()
+            XCTAssertTrue(app.staticTexts["我方 → 对方"].isHittable)
+            tabs.buttons["双方构筑"].tap()
+            XCTAssertTrue(app.staticTexts["对战构筑"].isHittable)
+        }
+        tabs.buttons["对战分析"].tap()
+        attach("quick-pvp-analysis", app)
+        app.staticTexts["我方 → 对方"].tap()
+        XCTAssertTrue(app.segmentedControls["damage-tabs"].waitForExistence(timeout: 3))
+        app.segmentedControls["damage-tabs"].buttons["一击线"].tap()
+        XCTAssertTrue(app.staticTexts["基础纸面一击威力线 · 目标生命 100%"].isHittable)
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+        XCTAssertTrue(tabs.buttons["对战分析"].isSelected)
+        app.terminate(); app.launchArguments = ["--visual-review", "pvp"]; app.launch()
+        XCTAssertTrue(tabs.waitForExistence(timeout: 8))
+        tabs.buttons["对战分析"].tap()
+        XCTAssertTrue(app.buttons["选择双方精灵"].isHittable)
+        app.buttons["选择双方精灵"].tap()
+        XCTAssertTrue(tabs.buttons["双方构筑"].isSelected)
+    }
+
+    @MainActor
+    func testDamageQuickSectionsRetainSelection() {
+        let app = XCUIApplication(); app.launchArguments = ["--visual-review", "damage", "--reduce-motion"]
+        app.launch()
+        let tabs = app.segmentedControls["damage-tabs"]
+        XCTAssertTrue(tabs.waitForExistence(timeout: 8))
+        let chosenSkill = app.buttons["选择固定威力攻击技能"].value as? String
+        XCTAssertNotNil(chosenSkill)
+        XCTAssertTrue(app.staticTexts["纸面伤害"].exists)
+        app.swipeUp()
+        tabs.buttons["属性关系"].tap()
+        XCTAssertTrue(app.staticTexts["攻击方技能属性 → 防守方承伤"].isHittable)
+        attach("quick-damage-types", app)
+        tabs.buttons["一击线"].tap()
+        XCTAssertTrue(app.staticTexts["基础纸面一击威力线 · 目标生命 100%"].isHittable)
+        attach("quick-damage-one-hit", app)
+        tabs.buttons["伤害计算"].tap()
+        XCTAssertEqual(app.buttons["选择固定威力攻击技能"].value as? String, chosenSkill)
+        XCTAssertTrue(app.buttons["选择固定威力攻击技能"].isHittable)
+        XCTAssertTrue(app.staticTexts["纸面伤害"].exists)
+        attach("quick-damage-result", app)
+    }
+
+    @MainActor
+    func testQuickSectionsWithAccessibilityText() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--visual-review", "pet", "--reduce-motion", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
+        app.launch()
+        XCTAssertTrue(app.scrollViews["detail-3001"].waitForExistence(timeout: 8))
+        let menu = app.buttons.matching(NSPredicate(format: "label CONTAINS '概览'")).firstMatch
+        XCTAssertTrue(menu.isHittable); menu.tap()
+        app.buttons["介绍"].firstMatch.tap()
+        XCTAssertTrue(app.staticTexts["精灵资料"].isHittable)
+        attach("quick-pet-accessibility-profile", app)
+        let profileMenu = app.buttons.matching(NSPredicate(format: "label CONTAINS '介绍'")).firstMatch
+        profileMenu.tap(); app.buttons["技能"].firstMatch.tap()
+        let sourceMenu = app.buttons.matching(NSPredicate(format: "label CONTAINS '技能池'")).firstMatch
+        XCTAssertTrue(sourceMenu.isHittable); sourceMenu.tap()
+        app.buttons["血脉技能"].firstMatch.tap()
+        attach("quick-pet-accessibility-bloodline", app)
+    }
+
+    @MainActor
+    func testSkillDetailSectionsRetainAcquisitionFilters() {
+        let app = XCUIApplication(); app.launchArguments = ["--visual-review", "skill"]
+        app.launch()
+        let tabs = app.segmentedControls["skill-detail-tabs"]
+        XCTAssertTrue(tabs.waitForExistence(timeout: 8))
+        tabs.buttons["获得方式"].tap()
+        app.staticTexts["筛选获得关系"].tap()
+        let keyword = app.textFields["成员名称、图鉴编号或配置 ID"]
+        keyword.tap(); keyword.typeText("不存在的成员")
+        XCTAssertTrue(app.staticTexts["没有符合条件的获得关系"].exists)
+        tabs.buttons["技能资料"].tap()
+        XCTAssertTrue(app.staticTexts["技能效果"].isHittable)
+        attach("quick-skill-detail", app)
+        tabs.buttons["获得方式"].tap()
+        app.staticTexts["筛选获得关系"].tap()
+        XCTAssertEqual(keyword.value as? String, "不存在的成员")
+        attach("quick-skill-acquisition-filter", app)
+    }
+
     @MainActor
     func testHomeStartupAndFeatureNavigation() {
         let app = XCUIApplication()
@@ -305,8 +502,14 @@ final class NavigationTests: XCTestCase {
     @MainActor
     func testScrolledDetailReturnsToSource() {
         let app = XCUIApplication()
+        app.launchArguments = ["--visual-review", "grid"]
         app.launch()
         let cell = app.buttons["pet-3001"]
+        XCTAssertTrue(cell.waitForExistence(timeout: 8))
+        // The full catalog can start with this pet below the viewport. Capture
+        // the source position after bringing it onscreen, before XCTest's tap.
+        for _ in 0..<8 where !cell.isHittable { app.swipeUp() }
+        XCTAssertTrue(cell.isHittable)
         let before = cell.frame
         cell.tap()
         XCTAssertTrue(app.scrollViews["detail-3001"].waitForExistence(timeout: 4))

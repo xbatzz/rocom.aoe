@@ -32,6 +32,8 @@ enum VisualReview {
         } else {
         NavigationStack {
             switch route {
+            case "advanced": AdvancedPetFilterView(content: content, portraits: portraits)
+            case "ocr": TeamImageImportView(content: content, portraits: portraits, skillIndex: skills)
             case "version": ContentVersionView(content: content)
             case "grass-family":
                 if let family = tracking.badgeFamilies.first { GrassFamilyView(family: family, content: content, index: tracking, location: .somia) }
@@ -57,7 +59,7 @@ enum VisualReview {
             case "pvp", "pvp-filled": PVPBattleView(content: content, portraits: portraits, skillIndex: skills)
             case "backup": UserBackupView(content: content)
             case "pet":
-                if let pet = content.orderedPets.first(where: { $0.implemented && $0.publicVisible && !$0.isLeader && $0.form == "default" }) {
+                if let pet = content.pets[PetID(rawValue: 3001)] {
                     ExistingPetDestination(pet: pet, content: content, portraits: portraits)
                 }
             default: NativeFeatureEntry(content: content, portraits: portraits, skills: skills, tracking: tracking)

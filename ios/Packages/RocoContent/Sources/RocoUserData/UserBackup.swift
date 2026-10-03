@@ -4,16 +4,25 @@ import RocoContent
 
 public struct UserBackup: Codable, Sendable {
     public var format = "rocom-native-user-data"
-    public var schemaVersion = 1
+    public var schemaVersion = 2
     public var exportedAt: Date
     public var shiny: [Shiny]
     public var grass: [Grass]
     public var heroes: [Hero]
     public var teams: [Team]
     public var legacyArchives: [Archive]
-    public init(exportedAt: Date = .now, shiny: [Shiny] = [], grass: [Grass] = [], heroes: [Hero] = [], teams: [Team] = [], legacyArchives: [Archive] = []) {
+    public var grassMedals: [Hero]?
+    public var preferences: Preferences?
+    public struct Preferences: Codable, Sendable {
+        public var activeTeamID: UUID?
+        public var activeTeamUpdatedAt: Date
+        public var appearance: AppAppearance
+        public var appearanceUpdatedAt: Date
+    }
+    public init(exportedAt: Date = .now, shiny: [Shiny] = [], grass: [Grass] = [], heroes: [Hero] = [], teams: [Team] = [], legacyArchives: [Archive] = [], grassMedals: [Hero] = [], preferences: Preferences? = nil) {
         self.exportedAt = exportedAt; self.shiny = shiny; self.grass = grass; self.heroes = heroes
         self.teams = teams; self.legacyArchives = legacyArchives
+        self.grassMedals = grassMedals; self.preferences = preferences
     }
     public struct Shiny: Codable, Sendable { public var slotID: String; public var collected: Bool; public var updatedAt: Date }
     public struct Grass: Codable, Sendable {
@@ -26,13 +35,16 @@ public struct UserBackup: Codable, Sendable {
     public struct Archive: Codable, Sendable { public var digest: String; public var originalJSON: String; public var receivedAt: Date }
 
     public func validate() throws {
-        guard format == "rocom-native-user-data", schemaVersion == 1 else { throw BackupError.invalid("不支持的备份格式/版本") }
+        guard format == "rocom-native-user-data", [1, 2].contains(schemaVersion) else { throw BackupError.invalid("不支持的备份格式/版本") }
         try Self.date(exportedAt)
         try Self.unique(shiny.map(\.slotID)); try Self.unique(grass.map(\.key))
         try Self.unique(heroes.map(\.familyID)); try Self.unique(teams.map { $0.build.id.uuidString }); try Self.unique(legacyArchives.map(\.digest))
         for row in shiny { try Self.id(row.slotID); try Self.date(row.updatedAt) }
         for row in grass { try Self.id(row.footprintID); try Self.id(row.locationID); try Self.date(row.updatedAt) }
         for row in heroes { try Self.id(row.familyID); try Self.date(row.updatedAt) }
+        try Self.unique((grassMedals ?? []).map(\.familyID))
+        for row in grassMedals ?? [] { try Self.id(row.familyID); try Self.date(row.updatedAt) }
+        if let preferences { try Self.date(preferences.activeTeamUpdatedAt); try Self.date(preferences.appearanceUpdatedAt) }
         for row in teams { try row.build.validate(); try Self.date(row.updatedAt) }
         for row in legacyArchives {
             try Self.date(row.receivedAt)
@@ -83,7 +95,25 @@ public enum BackupCodec {
     public static func digest(_ data: Data) -> String { SHA256.hash(data: data).map { String(format: "%02x", $0) }.joined() }
     public static func prepare(_ data: Data, content: ContentStore) throws -> PreparedBackup {
         guard let object = try JSONSerialization.jsonObject(with: data) as? [String: Any], let format = object["format"] as? String else { throw BackupError.invalid("备份须为有 format 的 JSON 对象") }
-        if format == "rocom-user-data" { return try LegacyBackupImporter.prepare(data, content: content) }
+        if format == "rocom-user-data" {
+            if object["version"] as? Int == 5, let native = object["native"] as? [String: Any] {
+                let prepared = try prepare(JSONSerialization.data(withJSONObject: native), content: content)
+                var backup = prepared.backup
+                var original = object
+                original.removeValue(forKey: "native")
+                original.removeValue(forKey: "original")
+                // Keep all Web-only and future user fields without recursively nesting snapshots.
+                original["version"] = 4
+                let bytes = try JSONSerialization.data(withJSONObject: original, options: [.sortedKeys])
+                let digest = digest(bytes)
+                if !backup.legacyArchives.contains(where: { $0.digest == digest }) {
+                    backup.legacyArchives.append(.init(digest: digest, originalJSON: String(decoding: bytes, as: UTF8.self), receivedAt: backup.exportedAt))
+                }
+                try backup.validate()
+                return PreparedBackup(backup: backup, warnings: prepared.warnings)
+            }
+            return try LegacyBackupImporter.prepare(data, content: content)
+        }
         guard format == "rocom-native-user-data" else { throw BackupError.invalid("不支持此备份格式") }
         try validateKeys(object)
         let backup = try decoder().decode(UserBackup.self, from: data)
@@ -95,7 +125,13 @@ public enum BackupCodec {
         func keys(_ object: [String: Any], _ allowed: Set<String>) throws {
             guard Set(object.keys).isSubset(of: allowed) else { throw BackupError.invalid("备份含未支持字段：\(Set(object.keys).subtracting(allowed).sorted().joined(separator: ", "))") }
         }
-        try keys(root, ["format","schemaVersion","exportedAt","shiny","grass","heroes","teams","legacyArchives"])
+        try keys(root, ["format","schemaVersion","exportedAt","shiny","grass","heroes","teams","legacyArchives","grassMedals","preferences"])
+        if let medals = root["grassMedals"] as? [[String: Any]] {
+            for row in medals { try keys(row, ["familyID","obtained","updatedAt"]) }
+        }
+        if let preferences = root["preferences"] as? [String: Any] {
+            try keys(preferences, ["activeTeamID","activeTeamUpdatedAt","appearance","appearanceUpdatedAt"])
+        }
         for (name, allowed) in [("shiny", Set(["slotID","collected","updatedAt"])), ("grass", Set(["footprintID","locationID","status","updatedAt"])), ("heroes", Set(["familyID","obtained","updatedAt"])), ("legacyArchives", Set(["digest","originalJSON","receivedAt"]))] {
             guard let rows = root[name] as? [[String: Any]] else { throw BackupError.invalid("\(name) 必须是记录数组") }
             for row in rows { try keys(row, allowed) }

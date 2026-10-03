@@ -22,54 +22,111 @@ struct PetDetail: View {
     var transitionOrigin: PortraitOrigin? = nil
     var portraits: PortraitStore? = nil
     var openRelated: ((Pet, PortraitOrigin, PortraitAnchors) -> Void)? = nil
+    private enum Section: String, CaseIterable {
+        case overview = "概览"
+        case skills = "技能"
+        case evolution = "进化"
+        case profile = "介绍"
+    }
+    @State private var section = Section.overview
+    @State private var moveSource = PetSkillSource.pool
+    @State private var selectedSkill: SkillID?
+    @State private var index: SkillSearchIndex?
+    @State private var moveKeyword = ""
+    @State private var moveType: TypeID?
+    @State private var moveCategory: SkillCategory?
     private let relatedAnchors = PortraitAnchors()
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
         GeometryReader { geometry in
-            // Keep the frozen Hero geometry and its position inside the ScrollView.
+            // Keep the frozen Hero sizing and its mounted view inside the
+            // ScrollView across section changes for the shared-image return.
             let side = max(0, min(320, geometry.size.width - 48, geometry.size.height * (dynamicTypeSize.isAccessibilitySize ? 0.26 : 0.44)))
-            ScrollView {
-                VStack(alignment: .leading, spacing: 28) {
-                    Group {
-                        if let anchors {
-                            AnchoredPortrait(image: image, origin: nil, anchors: anchors)
-                        } else {
-                            PetPortrait(image: image)
+            ScrollViewReader { proxy in
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 28) {
+                        VStack(alignment: .leading, spacing: 28) {
+                            Group {
+                                if let anchors {
+                                    AnchoredPortrait(image: image, origin: nil, anchors: anchors)
+                                } else {
+                                    PetPortrait(image: image)
+                                }
+                            }
+                            .frame(width: side, height: side)
+                            .frame(maxWidth: .infinity)
+                            .accessibilityIdentifier("hero-\(pet.petId.rawValue)")
+                            .accessibilityHidden(true)
+                            Text(pet.nameZh).font(.largeTitle.bold()).accessibilityAddTraits(.isHeader)
+                            if pet.portraitAssetId.flatMap({ content.assets[$0]?.availability }) == .missing {
+                                Label("暂无精灵图片", systemImage: "photo").foregroundStyle(.secondary)
+                            }
+                            PetTypes(pet: pet, content: content)
+                            VStack(alignment: .leading, spacing: 6) {
+                                if let number = pet.handbookId { Text(String(format: "No. %03d", number.rawValue)).font(.subheadline.monospacedDigit()) }
+                                Text("配置 \(String(pet.petId.rawValue)) · \(pet.form == "default" ? "默认形态" : pet.form)")
+                                    .font(.caption).foregroundStyle(.secondary)
+                            }
+                        }.id("pet-top")
+                        VStack(alignment: .leading, spacing: 28) {
+                            switch section {
+                            case .overview:
+                                detailCard("种族值") { PetStatChart(pet: pet) }
+                                if let traitId = content.petDetails[pet.petId]?.traitId, let trait = content.traits[traitId] {
+                                    TraitDetailCard(trait: trait, content: content, tint: pet.typeIds.first.map(GameIconCatalog.color) ?? .teal)
+                                }
+                            case .skills:
+                                skillSections
+                            case .evolution:
+                                evolutionSections
+                                familySections
+                                if !hasEvolutionRelations {
+                                    ContentUnavailableView("暂无进化关系", systemImage: "arrow.triangle.branch", description: Text("当前精灵没有可展示的进化或谱系资料。"))
+                                }
+                            case .profile:
+                                profileSection
+                            }
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        // Short sections must still be able to align below the
+                        // fixed tabs while the shared portrait remains mounted.
+                        .frame(minHeight: section == .overview ? nil : geometry.size.height, alignment: .topLeading)
+                        .id("pet-section")
                     }
-                    .frame(width: side, height: side)
-                    .frame(maxWidth: .infinity)
-                    .accessibilityIdentifier("hero-\(pet.petId.rawValue)")
-                    .accessibilityHidden(true)
-                    Text(pet.nameZh).font(.largeTitle.bold()).accessibilityAddTraits(.isHeader)
-                    if pet.portraitAssetId.flatMap({ content.assets[$0]?.availability }) == .missing {
-                        Label("暂无精灵图片", systemImage: "photo").foregroundStyle(.secondary)
-                    }
-                    PetTypes(pet: pet, content: content)
-                    VStack(alignment: .leading, spacing: 6) {
-                        if let number = pet.handbookId { Text(String(format: "No. %03d", number.rawValue)).font(.subheadline.monospacedDigit()) }
-                        Text("配置 \(String(pet.petId.rawValue)) · \(pet.form == "default" ? "默认形态" : pet.form)")
-                            .font(.caption).foregroundStyle(.secondary)
-                    }
-                    detailCard("种族值") {
-                        PetStatChart(pet: pet)
-                    }
-                    if let traitId = content.petDetails[pet.petId]?.traitId, let trait = content.traits[traitId] {
-                        TraitDetailCard(trait: trait, content: content, tint: pet.typeIds.first.map(GameIconCatalog.color) ?? .teal)
-                    }
-                    evolutionSections
-                    familySections
-                    skillSections
-                    profileSection
+                    .padding(.horizontal, 24)
+                    .padding(.bottom, 40)
                 }
-                .padding(.horizontal, 24)
-                .padding(.bottom, 40)
+                .scrollDismissesKeyboard(.interactively)
+                .reviewScrollPosition()
+                .accessibilityIdentifier("detail-\(pet.petId.rawValue)")
+                .safeAreaInset(edge: .top, spacing: 0) {
+                    VStack(spacing: 0) {
+                        CompanionTabBar(title: "精灵详情", selection: $section, options: Section.allCases, identifier: "pet-detail-tabs")
+                            .padding(.horizontal, 24).padding(.vertical, 6)
+                        if section == .skills {
+                            CompanionTabBar(title: "技能来源", selection: $moveSource, options: [.pool, .stone, .bloodline], identifier: "pet-skill-tabs", label: sourceTitle)
+                                .padding(.horizontal, 24).padding(.bottom, 6)
+                        }
+                        Divider()
+                    }.background(Color(uiColor: .systemBackground))
+                }
+                .onChange(of: section) {
+                    proxy.scrollTo(section == .overview ? "pet-top" : "pet-section", anchor: .top)
+                }
+                .onChange(of: moveSource) { proxy.scrollTo("pet-section", anchor: .top) }
             }
-            .reviewScrollPosition()
-            .accessibilityIdentifier("detail-\(pet.petId.rawValue)")
         }
         .background(Color(uiColor: .systemBackground))
+        .task { if index == nil { index = SkillSearchIndex(content: content) } }
+        .sheet(isPresented: Binding(get: { selectedSkill != nil }, set: { if !$0 { selectedSkill = nil } })) {
+            NavigationStack {
+                if let id = selectedSkill, let skill = content.skills[id], let index, let portraits {
+                    SkillDetailView(skill: skill, content: content, portraits: portraits, index: index)
+                        .toolbar { ToolbarItem(placement: .confirmationAction) { Button("完成") { selectedSkill = nil } } }
+                }
+            }
+        }
     }
 
     @ViewBuilder private var evolutionSections: some View {
@@ -106,16 +163,38 @@ struct PetDetail: View {
 
     @ViewBuilder private var skillSections: some View {
         // Only current-pet relations; dictionary lookups resolve exact skill IDs.
-        let groups = Dictionary(grouping: content.petSkillsByPet[pet.petId] ?? [], by: \.source)
-        ForEach([PetSkillSource.pool, .stone, .bloodline], id: \.rawValue) { source in
-            if let rows = groups[source], !rows.isEmpty {
-                detailCard(sourceTitle(source)) {
-                    ForEach(Array(rows.enumerated()), id: \.offset) { index, relation in
-                        if let skill = content.skills[relation.skillId] {
-                            if index > 0 { Divider() }
-                            skillRow(skill, relation: relation)
-                        }
-                    }
+        if moveSource != .bloodline {
+            DisclosureGroup("筛选自有与学习技能") {
+                TextField("技能名称或描述", text: $moveKeyword).textInputAutocapitalization(.never).autocorrectionDisabled()
+                Picker("属性", selection: $moveType) {
+                    Text("全部").tag(nil as TypeID?)
+                    ForEach(content.types.values.sorted { $0.typeId.rawValue < $1.typeId.rawValue }, id: \.typeId) { Text($0.nameZh).tag(Optional($0.typeId)) }
+                }
+                Picker("类别", selection: $moveCategory) {
+                    Text("全部").tag(nil as SkillCategory?)
+                    ForEach([SkillCategory.physicalAttack, .magicAttack, .status, .defense, .unknown], id: \.self) { Text(categoryName($0)).tag(Optional($0)) }
+                }
+                Button("重置筛选") { moveKeyword = ""; moveType = nil; moveCategory = nil }
+            }.tint(.primary)
+        }
+        let allRows = (content.petSkillsByPet[pet.petId] ?? []).filter { $0.source == moveSource }
+        let rows = moveSource == .bloodline ? allRows : allRows.filter { relation in
+            guard let skill = content.skills[relation.skillId] else { return false }
+            return (moveKeyword.isEmpty || "\(skill.nameZh) \(skill.description)".localizedStandardContains(moveKeyword))
+                && (moveType == nil || skill.typeId == moveType) && (moveCategory == nil || skill.category == moveCategory)
+        }
+        detailCard(sourceTitle(moveSource)) {
+            if allRows.isEmpty {
+                Text("当前精灵没有\(sourceTitle(moveSource))资料").foregroundStyle(.secondary)
+            } else if rows.isEmpty {
+                Text("没有符合筛选条件的技能").foregroundStyle(.secondary)
+            }
+            ForEach(Array(rows.enumerated()), id: \.offset) { rowIndex, relation in
+                if let skill = content.skills[relation.skillId] {
+                    if rowIndex > 0 { Divider() }
+                    Button { selectedSkill = skill.skillId } label: { skillRow(skill, relation: relation) }
+                        .buttonStyle(.plain).disabled(index == nil || portraits == nil)
+                        .accessibilityHint("打开完整技能说明与获得方式")
                 }
             }
         }
@@ -135,7 +214,10 @@ struct PetDetail: View {
             if let legacy = relation.legacyTypeId, let type = content.types[legacy] {
                 Text("血脉属性：\(type.nameZh)").font(.subheadline).foregroundStyle(.secondary)
             }
-            if !skill.description.isEmpty { Text(skill.description).font(.subheadline).foregroundStyle(.secondary) }
+            if !skill.description.isEmpty {
+                Text(skill.description).font(.subheadline).foregroundStyle(.secondary)
+                    .lineLimit(dynamicTypeSize.isAccessibilitySize ? nil : 2)
+            }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -150,24 +232,35 @@ struct PetDetail: View {
         }
     }
 
+    private var profileRows: [(String, String)] {
+        let profile = content.petDetails[pet.petId]?.worldProfile ?? [:]
+        return [("精灵类别", profile["type_desc"]), ("栖息描述", profile["description_habitat"]), ("简介", profile["introduction"])]
+            .compactMap { label, value in
+                guard let value, !value.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return nil }
+                return (label, value)
+            }
+    }
+
     @ViewBuilder private var profileSection: some View {
-        if let profile = content.petDetails[pet.petId]?.worldProfile {
-            let rows = [("精灵类别", profile["type_desc"]), ("栖息描述", profile["description_habitat"]), ("简介", profile["introduction"])]
-                .compactMap { label, value -> (String, String)? in
-                    guard let value, !value.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return nil }
-                    return (label, value)
-                }
-            if !rows.isEmpty {
-                detailCard("精灵资料") {
-                    ForEach(rows, id: \.0) { label, value in
-                        VStack(alignment: .leading, spacing: 6) {
-                            Text(label).font(.subheadline).foregroundStyle(.secondary)
-                            Text(value)
-                        }
+        if profileRows.isEmpty {
+            ContentUnavailableView("暂无精灵介绍", systemImage: "text.book.closed", description: Text("当前精灵的类别、栖息描述与简介尚未收录。"))
+        } else {
+            detailCard("精灵资料") {
+                ForEach(profileRows, id: \.0) { label, value in
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text(label).font(.subheadline).foregroundStyle(.secondary)
+                        Text(value).textSelection(.enabled)
                     }
                 }
             }
         }
+    }
+
+    private var hasEvolutionRelations: Bool {
+        let ids = (content.incomingEvolutionsByPet[pet.petId] ?? []).map(\.sourcePetId)
+            + (content.evolutionsByPet[pet.petId] ?? []).map(\.targetPetId)
+            + (content.familiesByPet[pet.petId]?[.skillTerminal] ?? []).flatMap(\.memberPetIds).filter { $0 != pet.petId }
+        return !relatedPets(ids).isEmpty
     }
 
     private func relatedPets(_ ids: [PetID]) -> [Pet] {
@@ -179,7 +272,19 @@ struct PetDetail: View {
     }
 
     private func relatedRow(_ related: Pet) -> some View {
-        RelatedPetRow(pet: related, portraits: portraits, anchors: relatedAnchors, open: openRelated)
+        Group {
+            if let openRelated {
+                RelatedPetRow(pet: related, portraits: portraits, anchors: relatedAnchors, open: openRelated)
+            } else if let portraits {
+                NavigationLink { ExistingPetDestination(pet: related, content: content, portraits: portraits) } label: {
+                    HStack {
+                        CanonicalThumbnail(assetID: related.portraitAssetId, content: content, size: 52)
+                        VStack(alignment: .leading) { Text(related.nameZh).font(.headline); Text(related.numberLabel).font(.caption).foregroundStyle(.secondary) }
+                        Spacer(); Image(systemName: "chevron.right").font(.caption)
+                    }.padding(.vertical, 6)
+                }.buttonStyle(.plain)
+            }
+        }
     }
 
     private func detailCard<Content: View>(_ title: String, @ViewBuilder content: () -> Content) -> some View {
@@ -227,7 +332,7 @@ private struct RelatedPetRow: View {
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
-        .disabled(open == nil || image == nil)
+        .disabled(open == nil)
         .task {
             guard image == nil, let portraits else { return }
             do { image = try portraits.image(for: pet) }

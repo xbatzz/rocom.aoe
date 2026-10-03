@@ -9,6 +9,8 @@ struct TeamDefenseView: View {
     let content: ContentStore
     @Query(sort: \TeamRecord.updatedAt, order: .reverse) private var teams: [TeamRecord]
     @State private var selected: UUID?
+    @State private var attackType: TypeID?
+    @Query private var preferences: [UserPreferences]
     private struct Report {
         let analysis: TeamDefense.Analysis
         let positions: [Int]
@@ -21,10 +23,14 @@ struct TeamDefenseView: View {
                 Text("请选择").tag(nil as UUID?)
                 ForEach(teams) { Text($0.name).tag(Optional($0.teamID)) }
             }.pickerStyle(.menu).tint(.primary)
+            Picker("攻击属性", selection: $attackType) {
+                Text("综合 · 对手本系最强").tag(nil as TypeID?)
+                ForEach(TypeMatchup(types: content.types).selectable, id: \.typeId) { Text($0.nameZh).tag(Optional($0.typeId)) }
+            }.pickerStyle(.menu).tint(.primary)
             if let selected {
                 switch report(selected) {
                 case .success(let report):
-                    CompanionSection("按对手本系中最强属性判断") {
+                    CompanionSection(attackType == nil ? "按对手本系中最强属性判断" : "指定属性抵抗候选") {
                         CompanionMetrics {
                             CompanionMetric(value: String(report.analysis.weakCount), label: "弱点", tint: .orange)
                             CompanionMetric(value: String(report.analysis.neutralCount), label: "中性")
@@ -62,6 +68,7 @@ struct TeamDefenseView: View {
             }.padding(20)
         }.reviewScrollPosition().companionBackground().navigationTitle("基础联防")
             .task {
+                selected = teams.first { $0.teamID == preferences.first?.activeTeamID }?.teamID ?? teams.first?.teamID
                 #if DEBUG
                 if VisualReview.route == "defense" { selected = teams.first?.teamID }
                 #endif
@@ -77,7 +84,7 @@ struct TeamDefenseView: View {
                 if let pet = content.pets[PetID(rawValue: id)] { pets.append(pet); positions.append(i) }
                 else { unresolved.append(i) }
             }
-            return Report(analysis: try TeamDefense.analyze(attacker: BattleCore.pet(opponent, content: content), candidates: pets, content: content), positions: positions, unresolved: unresolved)
+            return Report(analysis: try TeamDefense.analyze(attacker: BattleCore.pet(opponent, content: content), candidates: pets, content: content, attackType: attackType), positions: positions, unresolved: unresolved)
         }
     }
 }

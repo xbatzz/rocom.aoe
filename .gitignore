@@ -52,3 +52,5 @@ ios/**/xcuserdata/
 *.xcuserstate
 DerivedData/
 *.xcresult/
+# Generated cross-platform backup fixtures and Simulator review evidence.
+/build/ios-parity/
