@@ -11,6 +11,8 @@ struct CompanionScrollChrome: UIViewControllerRepresentable {
     let returnToParent: () -> Void
     let makeMenu: () -> UIMenu
     let filterValue: String
+    var chromeEnabled = true
+    var keepLeadingWhenDisabled = false
 
     func makeUIViewController(context: Context) -> Host {
         Host(configuration: self)
@@ -78,7 +80,9 @@ struct CompanionScrollChrome: UIViewControllerRepresentable {
             isLeavingPage = false
             refresh()
             mountBars(animated: false)
-            installEdgeReturn()
+            if configuration.chromeEnabled {
+                installEdgeReturn()
+            }
         }
 
         override func viewDidLayoutSubviews() {
@@ -160,10 +164,18 @@ struct CompanionScrollChrome: UIViewControllerRepresentable {
             searchItem?.accessibilityIdentifier = "\(configuration.identifier)-search-button"
             trailing?.menu = configuration.makeMenu()
             trailing?.accessibilityValue = configuration.filterValue
+            if !configuration.chromeEnabled && search.isActive {
+                search.isActive = false
+            }
             if search.searchBar.text != configuration.query {
                 synchronizing = true
                 search.searchBar.text = configuration.query
                 synchronizing = false
+            }
+            if configuration.chromeEnabled {
+                if view.window != nil { installEdgeReturn() }
+            } else {
+                restoreEdgeReturn()
             }
             if let scroll = Self.contentScrollView(in: candidate.view), candidate.contentScrollView(for: .top) !== scroll {
                 candidate.setContentScrollView(scroll, for: .top)
@@ -173,22 +185,32 @@ struct CompanionScrollChrome: UIViewControllerRepresentable {
 
         private func applyVisibility(allowTransitionSetup: Bool = false) {
             guard !isLeavingPage, let owner,
-                  owner.navigationController?.topViewController === owner,
-                  allowTransitionSetup || owner.navigationController?.transitionCoordinator == nil,
+                  let navigation = owner.navigationController,
+                  navigation.topViewController === owner,
+                  allowTransitionSetup || navigation.transitionCoordinator == nil,
                   let searchItem else { return }
-            let show = configuration.visible || search.isActive || !configuration.query.isEmpty
+
+            let showChrome = configuration.chromeEnabled &&
+                (configuration.visible || search.isActive || !configuration.query.isEmpty)
+            let showLeading = configuration.chromeEnabled
+                ? showChrome
+                : configuration.keepLeadingWhenDisabled
             let animated = !UIAccessibility.isReduceMotionEnabled
-            if owner.navigationItem.leftBarButtonItem !== (show ? leading : nil) {
-                owner.navigationItem.setLeftBarButton(show ? leading : nil, animated: animated)
+
+            if owner.navigationItem.leftBarButtonItem !== (showLeading ? leading : nil) {
+                owner.navigationItem.setLeftBarButton(showLeading ? leading : nil, animated: animated)
             }
-            if owner.navigationItem.rightBarButtonItem !== (show ? trailing : nil) {
-                owner.navigationItem.setRightBarButton(show ? trailing : nil, animated: animated)
+            if owner.navigationItem.rightBarButtonItem !== (showChrome ? trailing : nil) {
+                owner.navigationItem.setRightBarButton(showChrome ? trailing : nil, animated: animated)
             }
-            if (owner.toolbarItems?.contains(where: { $0 === searchItem }) == true) != show {
-                owner.setToolbarItems(show ? [searchItem, spacer] : [spacer], animated: animated)
+            if (owner.toolbarItems?.contains(where: { $0 === searchItem }) == true) != showChrome {
+                owner.setToolbarItems(showChrome ? [searchItem, spacer] : [spacer], animated: animated)
             }
-            search.searchBar.isUserInteractionEnabled = show
-            search.searchBar.accessibilityElementsHidden = !show
+
+            navigation.toolbar.alpha = configuration.chromeEnabled ? 1 : 0
+            navigation.toolbar.isUserInteractionEnabled = configuration.chromeEnabled
+            search.searchBar.isUserInteractionEnabled = showChrome
+            search.searchBar.accessibilityElementsHidden = !showChrome
         }
 
         func updateSearchResults(for searchController: UISearchController) {
@@ -219,7 +241,8 @@ struct CompanionScrollChrome: UIViewControllerRepresentable {
         }
 
         func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-            guard let navigation = returnNavigation,
+            guard configuration.chromeEnabled,
+                  let navigation = returnNavigation,
                   gestureRecognizer === navigation.interactivePopGestureRecognizer,
                   navigation.topViewController === owner,
                   navigation.viewControllers.count > 1,
@@ -258,6 +281,8 @@ struct CompanionScrollChrome: UIViewControllerRepresentable {
             owner.navigationItem.hidesBackButton = originalHidesBack
             if owner.navigationItem.searchController === search { owner.navigationItem.searchController = nil }
             owner.toolbarItems = originalToolbar
+            owner.navigationController?.toolbar.alpha = 1
+            owner.navigationController?.toolbar.isUserInteractionEnabled = true
             self.owner = nil
         }
     }
