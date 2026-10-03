@@ -20,6 +20,7 @@ struct AlignedPetGrid: View {
     let open: (Pet, PortraitOrigin) -> Void
     @State private var query = PetCatalogQuery()
     @State private var ascending = true
+    @State private var chromeVisible = true
     @State private var results: [Pet] = []
     @State private var prefetchByPet: [PetID: [AssetID]] = [:]
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
@@ -65,6 +66,11 @@ struct AlignedPetGrid: View {
             .onChange(of: query) {
                 proxy.scrollTo("catalog-results-top", anchor: .top)
             }
+            .onScrollPhaseChange { _, phase, _ in
+                // SwiftUI owns the scroll gesture in this embedded hierarchy, so
+                // drive UIKit's standard bar visibility only at phase boundaries.
+                chromeVisible = phase == .idle
+            }
             .reviewScrollPosition()
             .scrollDismissesKeyboard(.interactively)
             .background(Color(uiColor: .systemBackground))
@@ -72,7 +78,8 @@ struct AlignedPetGrid: View {
                 CatalogFilterToolbar(
                     content: content,
                     query: $query,
-                    ascending: $ascending
+                    ascending: $ascending,
+                    chromeVisible: chromeVisible
                 )
                     .frame(width: 0, height: 0)
             }
