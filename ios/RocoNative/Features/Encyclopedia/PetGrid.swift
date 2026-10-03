@@ -28,37 +28,47 @@ struct AlignedPetGrid: View {
 
     var body: some View {
         ScrollViewReader { proxy in
-            ScrollView {
-                VStack(alignment: .leading, spacing: 28) {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("图鉴")
-                            .font(.largeTitle.bold())
-                            .accessibilityAddTraits(.isHeader)
-                            .accessibilityIdentifier("catalog-title")
-                        Text("\(results.count) 只精灵")
-                            .font(.subheadline.monospacedDigit())
-                            .foregroundStyle(.secondary)
-                            .accessibilityIdentifier("catalog-count")
-                    }
-                    .fixedSize(horizontal: false, vertical: true)
-                    if results.isEmpty {
-                        ContentUnavailableView {
-                            Label("没有符合条件的精灵", systemImage: "magnifyingglass")
-                        } description: {
-                            Text("试试其他关键词，或清除筛选条件。")
-                        } actions: {
-                            Button("重置搜索与筛选") { query = PetCatalogQuery() }
+            VStack(spacing: 0) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("图鉴")
+                        .font(.largeTitle.bold())
+                        .accessibilityAddTraits(.isHeader)
+                        .accessibilityIdentifier("catalog-title")
+                    Text("\(results.count) 只精灵")
+                        .font(.subheadline.monospacedDigit())
+                        .foregroundStyle(.secondary)
+                        .accessibilityIdentifier("catalog-count")
+                }
+                .fixedSize(horizontal: false, vertical: true)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 20)
+                .padding(.top, 12)
+                .padding(.bottom, 18)
+                .background(Color(uiColor: .systemBackground))
+
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 28) {
+                        if results.isEmpty {
+                            ContentUnavailableView {
+                                Label("没有符合条件的精灵", systemImage: "magnifyingglass")
+                            } description: {
+                                Text("试试其他关键词，或清除筛选条件。")
+                            } actions: {
+                                Button("重置搜索与筛选") { query = PetCatalogQuery() }
+                            }
                         }
-                    }
-                    Color.clear.frame(height: 0).id("catalog-results-top")
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: dynamicTypeSize.isAccessibilitySize ? 280 : 150), spacing: 20)], spacing: 28) {
-                        ForEach(displayedResults, id: \.petId) { pet in
-                            PetGridCell(pet: pet, content: content, portraits: portraits, anchors: anchors, prefetch: prefetchByPet[pet.petId] ?? []) { pet, origin in
-                                open(pet, origin)
+                        Color.clear.frame(height: 0).id("catalog-results-top")
+                        LazyVGrid(columns: [GridItem(.adaptive(minimum: dynamicTypeSize.isAccessibilitySize ? 280 : 150), spacing: 20)], spacing: 28) {
+                            ForEach(displayedResults, id: \.petId) { pet in
+                                PetGridCell(pet: pet, content: content, portraits: portraits, anchors: anchors, prefetch: prefetchByPet[pet.petId] ?? []) { pet, origin in
+                                    open(pet, origin)
+                                }
                             }
                         }
                     }
-                }.padding(.horizontal, 20).padding(.top, 12).padding(.bottom, 32)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 32)
+                }
             }
             .task(id: query) {
                 let updated = await query.results(content: content)
