@@ -44,7 +44,7 @@ final class CatalogSearchPresentation {
 
     func cancel() {
         isSearching = false
-        collapseProgress = keywordIsEmpty ? 1 : 0
+        collapseProgress = 1
         scrollOrigin = nil
     }
 }

@@ -261,8 +261,8 @@ final class NavigationTests: XCTestCase {
         attach("catalog-search-icon-after-browse", app)
         XCTAssertTrue(app.keyboards.firstMatch.waitForExistence(timeout: 3))
         field.typeText("迪莫")
-        // Ending keyboard input keeps a nonempty search fully expanded.
-        close.tap()
+        // Submitting ends keyboard input while retaining the search surface.
+        app.keyboards.buttons["搜索"].tap()
         XCTAssertTrue(field.isHittable)
         XCTAssertFalse(app.keyboards.firstMatch.exists)
         app.swipeUp()
@@ -270,8 +270,13 @@ final class NavigationTests: XCTestCase {
         XCTAssertTrue(close.isHittable)
         XCTAssertEqual(search.frame.minX, leading, accuracy: 1)
         attach("catalog-search-retained-for-keyword", app)
-        app.buttons["清除搜索"].tap()
         close.tap()
+        XCTAssertFalse(close.isHittable, "Explicit cancellation must close even a nonempty search")
+        search.tap()
+        XCTAssertTrue(app.keyboards.firstMatch.waitForExistence(timeout: 3))
+        XCTAssertEqual(field.value as? String, "迪莫", "Cancellation preserves the keyword")
+        close.tap()
+        XCTAssertFalse(app.keyboards.firstMatch.exists)
         XCTAssertFalse(close.isHittable)
         XCTAssertEqual(search.frame.minX, leading, accuracy: 1)
     }
@@ -296,6 +301,27 @@ final class NavigationTests: XCTestCase {
         XCTAssertLessThanOrEqual(last.frame.maxY, filter.frame.minY - 16)
         XCTAssertGreaterThanOrEqual(last.frame.minY, app.navigationBars["图鉴"].frame.maxY)
         attach("catalog-last-row-inset", app)
+    }
+
+    @MainActor
+    func testCatalogTitleCollapsesIntoNavigationBar() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--visual-review", "home"]
+        app.launch()
+        let entry = app.buttons["home-encyclopedia"]
+        XCTAssertTrue(entry.waitForExistence(timeout: 8))
+        entry.tap()
+        let title = app.navigationBars["图鉴"].staticTexts["图鉴"]
+        XCTAssertTrue(title.waitForExistence(timeout: 3))
+        let largeTitle = title.frame
+        let filter = app.buttons["catalog-filter-button"]
+        let filterFrame = filter.frame
+        app.swipeUp()
+        XCTAssertLessThan(title.frame.height, largeTitle.height)
+        XCTAssertLessThan(title.frame.minY, largeTitle.minY)
+        XCTAssertEqual(filter.frame.minX, filterFrame.minX, accuracy: 1)
+        XCTAssertTrue(title.isHittable)
+        attach("catalog-title-inline-after-scroll", app)
     }
 
     @MainActor

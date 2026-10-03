@@ -1,8 +1,8 @@
 import SwiftUI
 import RocoContent
 
-/// Mount only this control in the existing UIKit navigation bar. The system
-/// owns its placement during large-title collapse; no scroll observer moves it.
+/// Host a control view, never a destination controller, in the navigation bar.
+/// UINavigationController must keep the grid as its sole root destination.
 struct CatalogFilterToolbar: UIViewControllerRepresentable {
     let content: ContentStore
     @Binding var query: PetCatalogQuery
@@ -13,17 +13,23 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_ host: ToolbarHost, context: Context) {
-        host.button.rootView = CatalogFilterButton(content: content, query: $query, ascending: $ascending)
+        host.button.configuration = ToolbarHost.configuration(
+            CatalogFilterButton(content: content, query: $query, ascending: $ascending))
     }
 
     final class ToolbarHost: UIViewController {
-        let button: UIHostingController<CatalogFilterButton>
+        let button: UIView & UIContentView
         private weak var itemOwner: UIViewController?
         private var item: UIBarButtonItem?
 
+        static func configuration(_ button: CatalogFilterButton) -> some UIContentConfiguration {
+            UIHostingConfiguration { button }
+                .margins(.all, 0)
+                .minSize(width: 44, height: 44)
+        }
+
         init(button: CatalogFilterButton) {
-            self.button = UIHostingController(rootView: button)
-            self.button.safeAreaRegions = []
+            self.button = Self.configuration(button).makeContentView()
             super.init(nibName: nil, bundle: nil)
         }
 
@@ -32,40 +38,54 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         override func viewDidLoad() {
             super.viewDidLoad()
             view.isUserInteractionEnabled = false
-            button.view.backgroundColor = .clear
-            button.view.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+            button.backgroundColor = .clear
+            button.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         }
 
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             var owner = parent
             while let candidate = owner {
-                if let navigation = candidate.navigationController {
-                    if button.parent !== navigation {
-                        button.willMove(toParent: nil)
-                        button.removeFromParent()
-                        navigation.addChild(button)
-                    }
-                    let item = UIBarButtonItem(customView: button.view)
-                    // The SwiftUI view already supplies its own interactive glass.
+                if candidate.navigationController != nil {
+                    let item = UIBarButtonItem(customView: button)
                     item.hidesSharedBackground = true
                     candidate.navigationItem.rightBarButtonItem = item
-                    button.didMove(toParent: navigation)
                     self.item = item
                     itemOwner = candidate
+                    associateCatalogScrollView()
                     break
                 }
                 owner = candidate.parent
             }
         }
 
+        override func viewDidLayoutSubviews() {
+            super.viewDidLayoutSubviews()
+            associateCatalogScrollView()
+        }
+
+        private func associateCatalogScrollView() {
+            guard let owner = itemOwner,
+                let rootView = owner.viewIfLoaded,
+                let scrollView = Self.contentScrollView(in: rootView),
+                owner.contentScrollView(for: .top) !== scrollView else { return }
+            // Native bar tracking only. Never set offsets, insets or scroll delegates.
+            owner.setContentScrollView(scrollView, for: .top)
+        }
+
+        private static func contentScrollView(in view: UIView) -> UIScrollView? {
+            if let scrollView = view as? UIScrollView { return scrollView }
+            for child in view.subviews {
+                if let scrollView = contentScrollView(in: child) { return scrollView }
+            }
+            return nil
+        }
+
         static func dismantle(_ host: ToolbarHost) {
             if host.itemOwner?.navigationItem.rightBarButtonItem === host.item {
                 host.itemOwner?.navigationItem.rightBarButtonItem = nil
             }
-            host.button.willMove(toParent: nil)
-            host.button.view.removeFromSuperview()
-            host.button.removeFromParent()
+            host.button.removeFromSuperview()
         }
     }
 

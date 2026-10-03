@@ -68,7 +68,7 @@ struct CatalogBottomControls: View {
                     .clipped()
                     .allowsHitTesting(expansion > 0.01)
                     .accessibilityHidden(expansion < 0.01)
-                    .accessibilityLabel("收起搜索")
+                    .accessibilityLabel("取消搜索")
                     .accessibilityIdentifier("catalog-search-close")
                 }
                 .buttonStyle(.plain)

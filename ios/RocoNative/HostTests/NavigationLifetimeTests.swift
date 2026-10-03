@@ -51,6 +51,22 @@ final class NavigationLifetimeTests: XCTestCase {
     }
 
     @MainActor
+    func testCatalogToolbarDoesNotAddANavigationDestination() async throws {
+        let (coordinator, pets) = try await fixture()
+        let nav = coordinator.makeNavigation(pets: pets)
+        let window = try makeWindow(nav)
+        defer { window.isHidden = true; window.rootViewController = nil }
+        let mounted = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in
+            nav.viewControllers.first?.navigationItem.rightBarButtonItem != nil
+        }, object: nil)
+        let result = await XCTWaiter.fulfillment(of: [mounted], timeout: 3)
+        XCTAssertEqual(result, .completed)
+        XCTAssertEqual(nav.viewControllers.count, 1, "The filter is a control, never a navigation destination")
+        XCTAssertEqual(nav.topViewController?.title, "图鉴")
+        XCTAssertNotNil(nav.topViewController?.contentScrollView(for: .top), "The title bar tracks the catalog scroll view")
+    }
+
+    @MainActor
     func testCoordinatorOwnershipEndsWithNavigation() async throws {
         var (coordinator, pets): (AlignedNavigation.Coordinator?, [Pet]) = try await fixture()
         var nav: UINavigationController? = try XCTUnwrap(coordinator).makeNavigation(pets: pets)

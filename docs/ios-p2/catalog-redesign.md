@@ -8,8 +8,10 @@
 
 - 筛选图标固定在系统导航栏右上角，以按钮边界为锚点使用 SwiftUI popover，compact adaptation 保持 popover；属性、形态、阶段、排序与升降序的二级选项在一级菜单左侧连续展开。形态显示“普通 / 首领”，点外部关闭。
 - 搜索使用同一个输入框和玻璃表面，默认展开且不请求焦点。空词、未聚焦并手动向下滚动时，忽略 20pt 小幅调整，再在 100pt 距离内直接驱动连续 morph；聚焦或非空词时保持展开。
-- 左下边缘固定，宽度、圆角、placeholder 和清除/取消控件随进度变化。点击圆形图标在同一交互中展开并通过官方 UITextField first-responder API 聚焦；空词取消时按原路径收回。safeAreaInset 保持搜索栏位于键盘上方。
+- 左下边缘固定，宽度、圆角、placeholder 和清除/取消控件随进度变化。点击圆形图标在同一交互中展开并通过官方 UITextField first-responder API 聚焦；主动取消时按原路径收回并保留关键词。safeAreaInset 保持搜索栏位于键盘上方。
 - 使用 GlassEffectContainer、glassEffect、稳定 glassEffectID 和 glassEffectTransition；滚动进度不启动 spring。仅搜索时保护键盘焦点，不改变列表连续滚动或冻结 portrait transition。
+- 导航回归修复：筛选按钮改由 UIHostingConfiguration 承载，禁止向 UINavigationController 加入控件控制器，避免破坏根页数量判断、返回及详情打开；使用 setContentScrollView(_:for: .top) 显式关联图鉴 ScrollView，恢复系统大标题收缩。未改写滚动 offset、inset、delegate 或冻结图片转场。
+- 此次回归验证：1 项 host 测试和 5 项 UI 测试通过，覆盖导航栈、标题收缩、返回按钮、边缘返回、点击精灵、连续滚动后详情原位返回、筛选与非空搜索取消；连续进度检查和 iOS 构建通过。修复后的标题截图已检查。
 - 最新 iPhone 18 Pro 验证：4 项针对控件的 UI 测试通过，覆盖默认展开不弹键盘、一次点击聚焦、键盘位置、浏览收起、非空词保留、筛选浮层与最大辅助字体；iOS 构建及独立连续进度检查通过。
 
 ## 实现
