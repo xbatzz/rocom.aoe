@@ -158,11 +158,229 @@ final class NavigationTests: XCTestCase {
         XCTAssertTrue(later.waitForExistence(timeout: 3))
         XCTAssertTrue(later.isHittable, "Returning must retain the continuous scroll position")
         attach("continuous-grid-return", app)
-        for _ in 0..<20 where !app.textFields["搜索精灵"].isHittable { app.swipeDown() }
-        let search = app.textFields["搜索精灵"]
+        app.buttons["catalog-search-button"].tap()
+        let search = app.textFields["catalog-search-field"]
         XCTAssertTrue(search.isHittable)
         search.tap(); search.typeText("不存在的精灵987654321")
         XCTAssertTrue(app.staticTexts["没有符合条件的精灵"].waitForExistence(timeout: 3))
+    }
+
+    @MainActor
+    func testCatalogGlassControlsAndLeaderFilter() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--visual-review", "grid"]
+        app.launch()
+        let filter = app.buttons["catalog-filter-button"]
+        XCTAssertTrue(filter.waitForExistence(timeout: 8))
+        XCTAssertGreaterThan(filter.frame.minX, app.frame.midX)
+        XCTAssertLessThan(filter.frame.maxY, app.frame.height / 3)
+        filter.tap()
+        let form = app.buttons["catalog-filter-形态"]
+        XCTAssertTrue(form.waitForExistence(timeout: 3))
+        form.tap()
+        let leader = app.buttons["首领"].firstMatch
+        XCTAssertTrue(leader.waitForExistence(timeout: 3))
+        XCTAssertLessThan(leader.frame.maxX, form.frame.minX)
+        XCTAssertTrue(app.buttons["catalog-filter-属性"].isHittable)
+        XCTAssertFalse(app.staticTexts["首领潜力"].exists)
+        leader.tap()
+        attach("catalog-anchored-submenu", app)
+        app.coordinate(withNormalizedOffset: CGVector(dx: 0.04, dy: 0.65)).tap()
+        XCTAssertFalse(form.exists)
+        XCTAssertEqual(filter.value as? String, "1 项筛选，按图鉴编号排序")
+        let searchButton = app.buttons["catalog-search-button"]
+        XCTAssertEqual(searchButton.frame.width, 52, accuracy: 1)
+        searchButton.tap()
+        let field = app.textFields["catalog-search-field"]
+        XCTAssertTrue(field.waitForExistence(timeout: 3))
+        XCTAssertTrue(filter.exists)
+        XCTAssertTrue(app.keyboards.firstMatch.waitForExistence(timeout: 3))
+        field.typeText("不存在的精灵987654321")
+        XCTAssertTrue(app.staticTexts["没有符合条件的精灵"].waitForExistence(timeout: 3))
+        attach("catalog-search-above-keyboard", app)
+        app.buttons["清除搜索"].tap()
+        app.buttons["catalog-search-close"].tap()
+        filter.tap()
+        app.buttons["catalog-clear-filters"].tap()
+        app.coordinate(withNormalizedOffset: CGVector(dx: 0.04, dy: 0.65)).tap()
+        XCTAssertEqual(filter.value as? String, "0 项筛选，按图鉴编号排序")
+    }
+
+    @MainActor
+    func testCatalogControlsKeepTheirEdgeAnchors() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--visual-review", "catalog-controls"]
+        app.launch()
+        let filter = app.buttons["catalog-filter-button"]
+        let search = app.buttons["catalog-search-button"]
+        let field = app.textFields["catalog-search-field"]
+        XCTAssertTrue(filter.waitForExistence(timeout: 8))
+        XCTAssertTrue(field.isHittable, "Entry starts with a full search field")
+        XCTAssertFalse(app.keyboards.firstMatch.exists, "Entry must not request focus")
+        let filterFrame = filter.frame
+        let leading = search.frame.minX
+        XCTAssertEqual(leading, 20, accuracy: 1)
+        // One field tap focuses immediately, without an expansion tap first.
+        field.tap()
+        XCTAssertTrue(app.keyboards.firstMatch.waitForExistence(timeout: 3))
+        XCTAssertLessThanOrEqual(field.frame.maxY, app.keyboards.firstMatch.frame.minY)
+        app.buttons["catalog-search-close"].tap()
+        XCTAssertEqual(search.frame.minX, leading, accuracy: 1)
+        XCTAssertEqual(search.frame.width, 52, accuracy: 1)
+        app.buttons["review-toggle-compact"].tap()
+        XCTAssertEqual(filter.frame.minX, filterFrame.minX, accuracy: 1)
+        XCTAssertEqual(search.frame.minX, leading, accuracy: 1)
+        // One icon tap both expands and focuses.
+        search.tap()
+        XCTAssertTrue(app.keyboards.firstMatch.waitForExistence(timeout: 3))
+        XCTAssertTrue(field.isHittable)
+        XCTAssertEqual(search.frame.minX, leading, accuracy: 1)
+        XCTAssertLessThanOrEqual(field.frame.maxY, app.keyboards.firstMatch.frame.minY)
+        attach("catalog-left-anchored-search", app)
+        app.buttons["catalog-search-close"].tap()
+        XCTAssertEqual(search.frame.minX, leading, accuracy: 1)
+        XCTAssertEqual(search.frame.width, 52, accuracy: 1)
+    }
+
+    @MainActor
+    func testCatalogSearchYieldsToBrowsingOnlyWhenEmptyAndUnfocused() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--visual-review", "grid"]
+        app.launch()
+        let search = app.buttons["catalog-search-button"]
+        let field = app.textFields["catalog-search-field"]
+        let close = app.buttons["catalog-search-close"]
+        XCTAssertTrue(field.waitForExistence(timeout: 8))
+        XCTAssertTrue(field.isHittable)
+        XCTAssertFalse(app.keyboards.firstMatch.exists)
+        let leading = search.frame.minX
+        app.swipeUp()
+        XCTAssertFalse(close.isHittable, "Browsing an empty unfocused field collapses it")
+        XCTAssertEqual(search.frame.minX, leading, accuracy: 1)
+        search.tap()
+        attach("catalog-search-icon-after-browse", app)
+        XCTAssertTrue(app.keyboards.firstMatch.waitForExistence(timeout: 3))
+        field.typeText("迪莫")
+        // Ending keyboard input keeps a nonempty search fully expanded.
+        close.tap()
+        XCTAssertTrue(field.isHittable)
+        XCTAssertFalse(app.keyboards.firstMatch.exists)
+        app.swipeUp()
+        XCTAssertTrue(field.isHittable)
+        XCTAssertTrue(close.isHittable)
+        XCTAssertEqual(search.frame.minX, leading, accuracy: 1)
+        attach("catalog-search-retained-for-keyword", app)
+        app.buttons["清除搜索"].tap()
+        close.tap()
+        XCTAssertFalse(close.isHittable)
+        XCTAssertEqual(search.frame.minX, leading, accuracy: 1)
+    }
+
+    @MainActor
+    func testCatalogLastRowClearsBottomControls() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--visual-review", "grid", "--reduce-motion"]
+        app.launch()
+        let filter = app.buttons["catalog-search-button"]
+        XCTAssertTrue(filter.waitForExistence(timeout: 8))
+        app.buttons["catalog-search-button"].tap()
+        let field = app.textFields["catalog-search-field"]
+        XCTAssertTrue(field.waitForExistence(timeout: 3))
+        field.tap(); field.typeText("迪莫")
+        app.buttons["catalog-search-close"].tap()
+        let last = app.buttons["pet-5028"]
+        for _ in 0..<5 where !last.isHittable || last.frame.maxY > filter.frame.minY - 16 {
+            app.swipeUp()
+        }
+        XCTAssertTrue(last.isHittable)
+        XCTAssertLessThanOrEqual(last.frame.maxY, filter.frame.minY - 16)
+        XCTAssertGreaterThanOrEqual(last.frame.minY, app.navigationBars["图鉴"].frame.maxY)
+        attach("catalog-last-row-inset", app)
+    }
+
+    @MainActor
+    func testCatalogHomeBackAndEdgeReturn() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--visual-review", "home"]
+        app.launch()
+        let entry = app.buttons["home-encyclopedia"]
+        XCTAssertTrue(entry.waitForExistence(timeout: 8))
+        entry.tap()
+        let back = app.buttons["catalog-back"]
+        XCTAssertTrue(back.waitForExistence(timeout: 3))
+        XCTAssertFalse(app.buttons["功能首页"].exists)
+        attach("catalog-home-navigation", app)
+        back.tap()
+        XCTAssertTrue(app.navigationBars["洛克工具"].waitForExistence(timeout: 3))
+        entry.tap()
+        XCTAssertTrue(back.waitForExistence(timeout: 3))
+        let start = app.coordinate(withNormalizedOffset: CGVector(dx: 0.005, dy: 0.45))
+        let end = app.coordinate(withNormalizedOffset: CGVector(dx: 0.85, dy: 0.45))
+        start.press(forDuration: 0.05, thenDragTo: end, withVelocity: .slow, thenHoldForDuration: 0)
+        XCTAssertTrue(app.navigationBars["洛克工具"].waitForExistence(timeout: 3))
+        entry.tap()
+        XCTAssertTrue(back.waitForExistence(timeout: 3))
+        let pet = app.buttons["pet-3004"]
+        XCTAssertTrue(pet.waitForExistence(timeout: 5))
+        pet.tap()
+        XCTAssertTrue(app.scrollViews["detail-3004"].waitForExistence(timeout: 3))
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+        XCTAssertTrue(back.waitForExistence(timeout: 3), "Detail back must return to the grid, not home")
+        XCTAssertFalse(app.scrollViews["detail-3004"].exists)
+        back.tap()
+        XCTAssertTrue(app.navigationBars["洛克工具"].waitForExistence(timeout: 3))
+        app.staticTexts["技能查询"].firstMatch.tap()
+        XCTAssertTrue(app.navigationBars["技能查询"].waitForExistence(timeout: 3))
+        start.press(forDuration: 0.05, thenDragTo: end, withVelocity: .slow, thenHoldForDuration: 0)
+        XCTAssertTrue(app.navigationBars["洛克工具"].waitForExistence(timeout: 3), "Sibling navigation must keep system edge return")
+    }
+
+    @MainActor
+    func testCatalogDetailEdgeReturnKeepsHomeStack() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--visual-review", "home"]
+        app.launch()
+        let entry = app.buttons["home-encyclopedia"]
+        XCTAssertTrue(entry.waitForExistence(timeout: 8))
+        entry.tap()
+        let pet = app.buttons["pet-3004"]
+        XCTAssertTrue(pet.waitForExistence(timeout: 5))
+        pet.tap()
+        XCTAssertTrue(app.scrollViews["detail-3004"].waitForExistence(timeout: 3))
+        let start = app.coordinate(withNormalizedOffset: CGVector(dx: 0.005, dy: 0.45))
+        let end = app.coordinate(withNormalizedOffset: CGVector(dx: 0.85, dy: 0.45))
+        start.press(forDuration: 0.05, thenDragTo: end, withVelocity: .slow, thenHoldForDuration: 0)
+        XCTAssertTrue(app.buttons["catalog-back"].waitForExistence(timeout: 3))
+        XCTAssertFalse(app.scrollViews["detail-3004"].exists)
+        start.press(forDuration: 0.05, thenDragTo: end, withVelocity: .slow, thenHoldForDuration: 0)
+        XCTAssertTrue(app.navigationBars["洛克工具"].waitForExistence(timeout: 3))
+    }
+
+    @MainActor
+    func testCatalogControlsWithAccessibilityText() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--visual-review", "grid", "--reduce-motion",
+            "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
+        app.launch()
+        let filter = app.buttons["catalog-filter-button"]
+        let search = app.buttons["catalog-search-button"]
+        XCTAssertTrue(filter.waitForExistence(timeout: 8))
+        XCTAssertTrue(filter.isHittable)
+        XCTAssertTrue(search.isHittable)
+        XCTAssertGreaterThanOrEqual(search.frame.width, 44)
+        XCTAssertLessThan(filter.frame.maxY, search.frame.minY)
+        attach("catalog-large-text", app)
+        search.tap()
+        let field = app.textFields["catalog-search-field"]
+        XCTAssertTrue(field.waitForExistence(timeout: 3))
+        XCTAssertTrue(field.isHittable)
+        XCTAssertTrue(app.buttons["catalog-search-close"].isHittable)
+        attach("catalog-large-text-search", app)
+        app.buttons["catalog-search-close"].tap()
+        filter.tap()
+        XCTAssertTrue(app.buttons["catalog-filter-形态"].waitForExistence(timeout: 3))
+        app.coordinate(withNormalizedOffset: CGVector(dx: 0.04, dy: 0.65)).tap()
+        XCTAssertTrue(filter.isHittable)
     }
 
     @MainActor

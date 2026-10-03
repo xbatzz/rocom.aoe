@@ -50,6 +50,16 @@ F1C24EA25313570978CF4966 = {isa = PBXBuildFile; fileRef = 70B9FDC9EB10A94E5A041E
 		AEF9A1DA1BADFD41D9B0EF02 /* CanonicalThumbnailStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF9A1DA1BADFD41D9B0EF01; };
 		AEF9A1DA1BADFD41D9B0EF04 /* CanonicalThumbnailStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF9A1DA1BADFD41D9B0EF03; };
 		CA7A10910000000000000002 /* SkillCatalogRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7A10910000000000000001; };
+		CATA100000000000000000001 /* CatalogBottomControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = CATA200000000000000000001; };
+		CATA100000000000000000002 /* CatalogFilterSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CATA200000000000000000002; };
+		CATA100000000000000000003 /* CatalogScrollSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = CATA200000000000000000003; };
+		CATA100000000000000000004 /* CatalogNavigationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CATA200000000000000000004; };
+		CATA100000000000000000005 /* CatalogNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CATA200000000000000000005; };
+		CATA100000000000000000006 /* CatalogControlsReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CATA200000000000000000006; };
+		CATA100000000000000000008 /* CatalogFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CATA200000000000000000008; };
+		CATA100000000000000000007 /* CatalogFilterToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CATA200000000000000000007; };
+		CATA100000000000000000009 /* CatalogSearchPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CATA200000000000000000009; };
+		CATA100000000000000000010 /* CatalogSearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CATA200000000000000000010; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +116,16 @@ F13F039A71DF618AE5909B7E = {isa = PBXFileReference; lastKnownFileType = sourceco
 		AEF9A1DA1BADFD41D9B0EF01 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/SharedUI/CanonicalThumbnailStore.swift; sourceTree = SOURCE_ROOT; };
 		AEF9A1DA1BADFD41D9B0EF03 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/HostTests/CanonicalThumbnailStoreTests.swift; sourceTree = SOURCE_ROOT; };
 		CA7A10910000000000000001 /* SkillCatalogRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/Skills/SkillCatalogRow.swift; sourceTree = SOURCE_ROOT; };
+		CATA200000000000000000001 /* CatalogBottomControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/Encyclopedia/CatalogBottomControls.swift; sourceTree = SOURCE_ROOT; };
+		CATA200000000000000000002 /* CatalogFilterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/Encyclopedia/CatalogFilterSheet.swift; sourceTree = SOURCE_ROOT; };
+		CATA200000000000000000003 /* CatalogScrollSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/Encyclopedia/CatalogScrollSample.swift; sourceTree = SOURCE_ROOT; };
+		CATA200000000000000000004 /* CatalogNavigationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/Encyclopedia/CatalogNavigationPage.swift; sourceTree = SOURCE_ROOT; };
+		CATA200000000000000000005 /* CatalogNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/Encyclopedia/CatalogNavigationController.swift; sourceTree = SOURCE_ROOT; };
+		CATA200000000000000000006 /* CatalogControlsReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/App/CatalogControlsReview.swift; sourceTree = SOURCE_ROOT; };
+		CATA200000000000000000008 /* CatalogFilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/Encyclopedia/CatalogFilterButton.swift; sourceTree = SOURCE_ROOT; };
+		CATA200000000000000000007 /* CatalogFilterToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/Encyclopedia/CatalogFilterToolbar.swift; sourceTree = SOURCE_ROOT; };
+		CATA200000000000000000009 /* CatalogSearchPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/Encyclopedia/CatalogSearchPresentation.swift; sourceTree = SOURCE_ROOT; };
+		CATA200000000000000000010 /* CatalogSearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/Features/Encyclopedia/CatalogSearchField.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +186,16 @@ F13F039A71DF618AE5909B7E,
 				009E908E0BF378E2918B4629 /* RocoNative/Features/Encyclopedia/AlignedNavigation.swift */,
 				80E4D8086BBC22435972B0AA /* RocoNative/Features/Encyclopedia/PetDetail.swift */,
 				209B501BBD2194B0A0B0C857 /* RocoNative/Features/Encyclopedia/PetGrid.swift */,
+				CATA200000000000000000006 /* CatalogControlsReview.swift */,
+				CATA200000000000000000005 /* CatalogNavigationController.swift */,
+				CATA200000000000000000004 /* CatalogNavigationPage.swift */,
+				CATA200000000000000000003 /* CatalogScrollSample.swift */,
+				CATA200000000000000000002 /* CatalogFilterSheet.swift */,
+				CATA200000000000000000007 /* CatalogFilterToolbar.swift */,
+				CATA200000000000000000008 /* CatalogFilterButton.swift */,
+				CATA200000000000000000001 /* CatalogBottomControls.swift */,
+				CATA200000000000000000009 /* CatalogSearchPresentation.swift */,
+				CATA200000000000000000010 /* CatalogSearchField.swift */,
 				AEF9A1DA1BADFD41D9B0EF01 /* CanonicalThumbnailStore.swift */,
 				024CDA09AFFBEB7684C0D1DC /* RocoNative/SharedUI/PortraitStore.swift */,
 				9DA10CDC5EDAF224361F7F73 /* RocoNative/SharedUI/PortraitSurface.swift */,
@@ -353,6 +383,16 @@ A017DDBE73B94C32470D6A9A,
 				C1F0555BC8BEED82606C171A,
 				2A5721CD7FFC475FB43CBF9F,
 				EB425E06B038067631A79AB3 /* RocoNative/Features/Encyclopedia/PetGrid.swift in Sources */,
+				CATA100000000000000000006 /* CatalogControlsReview.swift in Sources */,
+				CATA100000000000000000005 /* CatalogNavigationController.swift in Sources */,
+				CATA100000000000000000004 /* CatalogNavigationPage.swift in Sources */,
+				CATA100000000000000000003 /* CatalogScrollSample.swift in Sources */,
+				CATA100000000000000000002 /* CatalogFilterSheet.swift in Sources */,
+				CATA100000000000000000007 /* CatalogFilterToolbar.swift in Sources */,
+				CATA100000000000000000008 /* CatalogFilterButton.swift in Sources */,
+				CATA100000000000000000001 /* CatalogBottomControls.swift in Sources */,
+				CATA100000000000000000009 /* CatalogSearchPresentation.swift in Sources */,
+				CATA100000000000000000010 /* CatalogSearchField.swift in Sources */,
 				AEF9A1DA1BADFD41D9B0EF02 /* CanonicalThumbnailStore.swift in Sources */,
 				E711AE5CB5E54BC155D069F3 /* RocoNative/SharedUI/PortraitStore.swift in Sources */,
 				DD9FB72834688E4CDD95520C /* RocoNative/SharedUI/PortraitSurface.swift in Sources */,

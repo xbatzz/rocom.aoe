@@ -11,7 +11,6 @@ struct NativeFeatureEntry: View {
     let skills: SkillSearchIndex
     let tracking: TrackingCatalogIndex
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
-    @State private var encyclopedia = false
     @Query(sort: \TeamRecord.updatedAt, order: .reverse) private var teams: [TeamRecord]
     @Query private var shiny: [ShinyRecord]
     @Query private var heroes: [HeroRecord]
@@ -28,7 +27,7 @@ struct NativeFeatureEntry: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
-                    Button { encyclopedia = true } label: {
+                    NavigationLink { CatalogNavigationPage(content: content, portraits: portraits) } label: {
                         VStack(alignment: .leading, spacing: 12) {
                             HStack {
                                 VStack(alignment: .leading, spacing: 6) {
@@ -56,7 +55,7 @@ struct NativeFeatureEntry: View {
                                 }
                             }
                         }.padding(20).companionAccentSurface(tint: .teal)
-                    }.buttonStyle(.plain).accessibilityHint("打开精灵图鉴")
+                    }.buttonStyle(.plain).accessibilityHint("打开精灵图鉴").accessibilityIdentifier("home-encyclopedia")
 
                     toolLayout {
                         NavigationLink { TypeMatchupView(content: content) } label: {
@@ -154,13 +153,6 @@ struct NativeFeatureEntry: View {
                     }.font(.subheadline).padding(.vertical, 8)
                 }.padding(20)
             }.reviewScrollPosition().companionBackground().navigationTitle("洛克工具")
-        }
-        .fullScreenCover(isPresented: $encyclopedia) {
-            ZStack(alignment: .bottomTrailing) {
-                AlignedNavigation(content: content, portraits: portraits).ignoresSafeArea()
-                Button("功能首页", systemImage: "house") { encyclopedia = false }
-                    .buttonStyle(.borderedProminent).padding()
-            }
         }
     }
     private func homeCollection(_ title: String, count: Int? = nil, total: Int = 0, tint: Color = .green, subtitle: String? = nil, asset: AssetID?) -> some View {

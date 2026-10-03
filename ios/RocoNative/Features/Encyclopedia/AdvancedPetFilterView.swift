@@ -37,7 +37,6 @@ struct AdvancedPetFilterView: View {
                         Text("双攻").tag(Optional(PetAttackStyle.both)); Text("未分类").tag(Optional(PetAttackStyle.unknown))
                     }
                     Picker("阶段", selection: $query.stage) { ForEach(PetQuery.Stage.allCases, id: \.self) { Text($0.rawValue).tag($0) } }
-                    Picker("实装", selection: $query.implementation) { ForEach(PetQuery.Implementation.allCases, id: \.self) { Text($0.rawValue).tag($0) } }
                     Picker("排序", selection: $query.sort) { ForEach(PetQuery.Sort.allCases, id: \.self) { Text($0.rawValue).tag($0) } }
                     Toggle("降序", isOn: $query.descending)
                     Button("重置全部条件") { query = PetQuery(); skillSearch = "" }
@@ -50,7 +49,7 @@ struct AdvancedPetFilterView: View {
                                 CanonicalThumbnail(assetID: pet.portraitAssetId, content: content, size: 48)
                                 VStack(alignment: .leading) {
                                     Text(pet.nameZh).font(.headline)
-                                    Text("#\(String(pet.handbookId?.rawValue ?? pet.speciesId.rawValue)) · \(pet.form) · \(pet.implemented ? "已实装" : "未实装")").font(.caption).foregroundStyle(.secondary)
+                                    Text("#\(String(pet.handbookId?.rawValue ?? pet.speciesId.rawValue)) · \(pet.form)").font(.caption).foregroundStyle(.secondary)
                                     Text("总种族值 \(pet.baseStats.hp + pet.baseStats.physicalAttack + pet.baseStats.magicalAttack + pet.baseStats.physicalDefense + pet.baseStats.magicalDefense + pet.baseStats.speed)").font(.caption)
                                 }
                             }

@@ -14,22 +14,26 @@ import os
 struct AlignedNavigation: UIViewControllerRepresentable {
     let content: ContentStore
     let portraits: PortraitStore
+    var returnToHome: (() -> Void)? = nil
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(content: content, portraits: portraits)
+        Coordinator(content: content, portraits: portraits, returnToHome: returnToHome)
     }
 
     func makeUIViewController(context: Context) -> UINavigationController {
         context.coordinator.makeNavigation(pets: content.orderedPets)
     }
 
-    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {}
+    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
+        context.coordinator.returnToHome = returnToHome
+    }
 
     @MainActor
     final class Coordinator: NSObject, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
         let anchors = PortraitAnchors()
         let content: ContentStore
         let portraits: PortraitStore
+        var returnToHome: (() -> Void)?
 
         weak var navigation: UINavigationController?
         private weak var edgePan: UIScreenEdgePanGestureRecognizer?
@@ -70,9 +74,10 @@ struct AlignedNavigation: UIViewControllerRepresentable {
             }
         }
 
-        init(content: ContentStore, portraits: PortraitStore) {
+        init(content: ContentStore, portraits: PortraitStore, returnToHome: (() -> Void)? = nil) {
             self.content = content
             self.portraits = portraits
+            self.returnToHome = returnToHome
             super.init()
         }
 
@@ -89,7 +94,15 @@ struct AlignedNavigation: UIViewControllerRepresentable {
             root.title = "图鉴"
             root.navigationItem.largeTitleDisplayMode = .always
 
-            let nav = UINavigationController(rootViewController: root)
+            if returnToHome != nil {
+                let back = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain,
+                    target: self, action: #selector(returnToFeatureHome))
+                back.accessibilityLabel = "返回"
+                back.accessibilityIdentifier = "catalog-back"
+                root.navigationItem.leftBarButtonItem = back
+            }
+            let nav = returnToHome == nil ? UINavigationController(rootViewController: root)
+                : CatalogNavigationController(rootViewController: root)
             nav.navigationBar.prefersLargeTitles = true
             nav.delegate = self
             navigation = nav
@@ -108,6 +121,12 @@ struct AlignedNavigation: UIViewControllerRepresentable {
             edgePan = edge
 
             return nav
+        }
+
+        @objc private func returnToFeatureHome() {
+            guard navigation?.viewControllers.count == 1,
+                navigation?.transitionCoordinator == nil else { return }
+            returnToHome?()
         }
 
         func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -206,6 +225,7 @@ struct AlignedNavigation: UIViewControllerRepresentable {
             willShow viewController: UIViewController,
             animated: Bool
         ) {
+            (navigationController as? CatalogNavigationController)?.setHomeReturnEnabled(false)
 #if DEBUG
             NavigationBarDiagnostics.log(navigationController, controller: viewController, phase: "willShow")
 #endif
@@ -228,6 +248,8 @@ struct AlignedNavigation: UIViewControllerRepresentable {
             didShow viewController: UIViewController,
             animated: Bool
         ) {
+            (navigationController as? CatalogNavigationController)?.setHomeReturnEnabled(
+                navigationController.viewControllers.count == 1)
             inputLease?.restore()
             inputLease = nil
             interactiveDriver = nil

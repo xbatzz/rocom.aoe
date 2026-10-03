@@ -70,4 +70,65 @@ struct PetCatalogPresentationTests {
         #expect(PetCatalogPresentation.collapseDuplicateLeaderConfigurations([noStats, alternate]).map(\.petId) == [alternate.petId])
         #expect(PetCatalogPresentation.collapseDuplicateLeaderConfigurations([unreleased, noStats]).map(\.petId) == [first.petId])
     }
+    @Test func catalogLeaderFilterSelectsFormsRatherThanPotential() async throws {
+        let content = try content()
+        var query = PetCatalogQuery()
+        let all = await query.results(content: content)
+        #expect(all.count == content.catalogPetCount)
+        #expect(all.allSatisfy { $0.implemented && $0.publicVisible })
+        query.leader = .leader
+        let leaders = await query.results(content: content)
+        #expect(!leaders.isEmpty)
+        #expect(leaders.allSatisfy { $0.isLeader })
+        let ordinaryWithPotential = try #require(all.first { !$0.isLeader && $0.leaderPotential })
+        #expect(!leaders.contains { $0.petId == ordinaryWithPotential.petId })
+        query.leader = .ordinary
+        let ordinary = await query.results(content: content)
+        #expect(ordinary.contains { $0.petId == ordinaryWithPotential.petId })
+        #expect(ordinary.allSatisfy { !$0.isLeader })
+    }
+
+    @Test func catalogSkillSourceMustMatchTheSelectedSkillRecord() async throws {
+        let content = try content()
+        let pet = try #require(content.catalogPets.first { pet in
+            let records = content.petSkills(for: pet.petId)
+            return records.contains { record in
+                records.contains { $0.source != record.source }
+                    && !records.contains { $0.skillId == record.skillId && $0.source != record.source }
+            }
+        })
+        let records = content.petSkills(for: pet.petId)
+        let record = try #require(records.first { record in
+            records.contains { $0.source != record.source }
+                && !records.contains { $0.skillId == record.skillId && $0.source != record.source }
+        })
+        let otherSource = try #require(records.first { $0.source != record.source }?.source)
+        var query = PetCatalogQuery()
+        query.skill = record.skillId
+        query.source = record.source
+        let matching = await query.results(content: content)
+        #expect(matching.contains { $0.petId == pet.petId })
+        query.source = otherSource
+        let mismatched = await query.results(content: content)
+        #expect(!mismatched.contains { $0.petId == pet.petId })
+        query.skill = nil
+        let sourceOnly = await query.results(content: content)
+        #expect(sourceOnly.contains { $0.petId == pet.petId })
+    }
+
+    @Test func clearingCatalogFiltersPreservesSearchAndSort() {
+        var query = PetCatalogQuery()
+        query.keyword = "喵喵"
+        query.sort = .speed
+        query.firstType = TypeID(rawValue: 2)
+        query.secondType = TypeID(rawValue: 2)
+        query.leader = .leader
+        query.source = .stone
+        #expect(query.filterCount == 3)
+        query.clearFilters()
+        #expect(!query.hasFilters)
+        #expect(query.keyword == "喵喵")
+        #expect(query.sort == .speed)
+    }
+
 }
