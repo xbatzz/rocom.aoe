@@ -30,10 +30,17 @@ struct AlignedPetGrid: View {
         ScrollViewReader { proxy in
             ScrollView {
                 VStack(alignment: .leading, spacing: 28) {
-                    Text("\(results.count) 只精灵")
-                        .font(.subheadline.monospacedDigit())
-                        .foregroundStyle(.secondary)
-                        .accessibilityIdentifier("catalog-count")
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("图鉴")
+                            .font(.largeTitle.bold())
+                            .accessibilityAddTraits(.isHeader)
+                            .accessibilityIdentifier("catalog-title")
+                        Text("\(results.count) 只精灵")
+                            .font(.subheadline.monospacedDigit())
+                            .foregroundStyle(.secondary)
+                            .accessibilityIdentifier("catalog-count")
+                    }
+                    .fixedSize(horizontal: false, vertical: true)
                     if results.isEmpty {
                         ContentUnavailableView {
                             Label("没有符合条件的精灵", systemImage: "magnifyingglass")
