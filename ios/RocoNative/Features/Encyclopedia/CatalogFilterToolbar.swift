@@ -47,6 +47,8 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         private weak var navigation: UINavigationController?
         private var leadingItem: UIBarButtonItem?
         private var filterItem: UIBarButtonItem?
+        private var searchItem: UIBarButtonItem?
+        private var toolbarSpacer: UIBarButtonItem?
         private let searchController = UISearchController(searchResultsController: nil)
         private var synchronizingSearchText = false
 
@@ -144,13 +146,18 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
                 let searchItem = owner.navigationItem.searchBarPlacementBarButtonItem
                 searchItem.accessibilityLabel = "搜索精灵"
                 searchItem.accessibilityIdentifier = "catalog-search-button"
+                let spacer = UIBarButtonItem(
+                    barButtonSystemItem: .flexibleSpace,
+                    target: nil,
+                    action: nil
+                )
+                self.searchItem = searchItem
+                toolbarSpacer = spacer
 
                 // Keep search leading, matching the catalog's established thumb-reach
-                // layout. The system still owns the search button -> field morph.
-                owner.toolbarItems = [
-                    searchItem,
-                    UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-                ]
+                // layout. The toolbar itself remains mounted at all times so its
+                // safe-area geometry never changes.
+                owner.toolbarItems = [searchItem, spacer]
 
                 syncSearchText()
             } else {
@@ -207,27 +214,25 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
                 owner.navigationItem.setRightBarButton(nil, animated: animated)
             }
 
-            // The integrated search view is owned by UISearchController and is not
-            // guaranteed to follow the UIToolbar's alpha. Fade the actual search bar
-            // while leaving the toolbar mounted so bottom safe-area geometry stays fixed.
+            // `searchBarPlacementBarButtonItem` is the actual system-owned
+            // integrated-search control placed in the toolbar. Remove/restore that
+            // item instead of fading UISearchBar itself: UIKit may re-parent or reset
+            // the search bar view, but the placement item remains the authoritative
+            // toolbar control. The toolbar stays visible, so content geometry is fixed.
+            if let searchItem, let toolbarSpacer {
+                let currentlyShowsSearch =
+                    owner.toolbarItems?.contains(where: { $0 === searchItem }) == true
+
+                if shouldShow != currentlyShowsSearch {
+                    owner.setToolbarItems(
+                        shouldShow ? [searchItem, toolbarSpacer] : [toolbarSpacer],
+                        animated: animated
+                    )
+                }
+            }
+
             searchController.searchBar.isUserInteractionEnabled = shouldShow
             searchController.searchBar.accessibilityElementsHidden = !shouldShow
-
-            let searchChanges = {
-                self.searchController.searchBar.alpha = shouldShow ? 1 : 0
-            }
-
-            if animated {
-                UIView.animate(
-                    withDuration: 0.20,
-                    delay: 0,
-                    options: [.beginFromCurrentState, .curveEaseOut, .allowUserInteraction],
-                    animations: searchChanges
-                )
-            } else {
-                searchController.searchBar.layer.removeAllAnimations()
-                searchChanges()
-            }
         }
 
         func updateSearchResults(for searchController: UISearchController) {
