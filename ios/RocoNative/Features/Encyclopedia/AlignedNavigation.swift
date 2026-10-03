@@ -91,8 +91,8 @@ struct AlignedNavigation: UIViewControllerRepresentable {
                     open: open
                 )
             )
-            root.title = "图鉴"
-            root.navigationItem.largeTitleDisplayMode = .always
+            root.title = ""
+            root.navigationItem.largeTitleDisplayMode = .never
 
             if returnToHome != nil {
                 let back = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain,
@@ -103,7 +103,7 @@ struct AlignedNavigation: UIViewControllerRepresentable {
             }
             let nav = returnToHome == nil ? UINavigationController(rootViewController: root)
                 : CatalogNavigationController(rootViewController: root)
-            nav.navigationBar.prefersLargeTitles = true
+            nav.navigationBar.prefersLargeTitles = false
             nav.hidesBarsOnSwipe = false
             nav.delegate = self
             navigation = nav
