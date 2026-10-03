@@ -37,7 +37,9 @@ enum VisualReview {
     }
     @ViewBuilder static func page(_ route: String, content: ContentStore, portraits: PortraitStore, skills: SkillSearchIndex, tracking: TrackingCatalogIndex) -> some View {
         if route == "grid" {
-            AlignedNavigation(content: content, portraits: portraits).ignoresSafeArea()
+            NavigationStack {
+                CatalogNavigationPage(content: content, portraits: portraits)
+            }
         } else {
         NavigationStack {
             switch route {
