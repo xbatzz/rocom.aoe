@@ -207,9 +207,14 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
                 owner.navigationItem.setRightBarButton(nil, animated: animated)
             }
 
-            navigation.toolbar.isUserInteractionEnabled = shouldShow
-            let toolbarChanges = {
-                navigation.toolbar.alpha = shouldShow ? 1 : 0
+            // The integrated search view is owned by UISearchController and is not
+            // guaranteed to follow the UIToolbar's alpha. Fade the actual search bar
+            // while leaving the toolbar mounted so bottom safe-area geometry stays fixed.
+            searchController.searchBar.isUserInteractionEnabled = shouldShow
+            searchController.searchBar.accessibilityElementsHidden = !shouldShow
+
+            let searchChanges = {
+                self.searchController.searchBar.alpha = shouldShow ? 1 : 0
             }
 
             if animated {
@@ -217,11 +222,11 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
                     withDuration: 0.20,
                     delay: 0,
                     options: [.beginFromCurrentState, .curveEaseOut, .allowUserInteraction],
-                    animations: toolbarChanges
+                    animations: searchChanges
                 )
             } else {
-                navigation.toolbar.layer.removeAllAnimations()
-                toolbarChanges()
+                searchController.searchBar.layer.removeAllAnimations()
+                searchChanges()
             }
         }
 
