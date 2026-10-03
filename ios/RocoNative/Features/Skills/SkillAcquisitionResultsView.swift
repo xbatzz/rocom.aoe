@@ -11,6 +11,7 @@ struct SkillAcquisitionResultsView: View {
     var body: some View {
         let rows = query.results(skill: skill, index: index, content: content)
         CompanionSection("可获得精灵 · \(rows.count) \(query.highest ? "个家族" : "个形态")") {
+            Text("汇总同名技能的获得方式，具体效果以精灵实际技能为准。").font(.footnote).foregroundStyle(.secondary)
             DisclosureGroup("筛选获得关系") {
                 TextField("成员名称、图鉴编号或配置 ID", text: $query.keyword)
                 Picker("来源", selection: $query.source) {
@@ -25,7 +26,7 @@ struct SkillAcquisitionResultsView: View {
                     ForEach(PetQuery.Implementation.allCases, id: \.self) { Text($0.rawValue).tag($0) }
                 }
                 Toggle("家族最高形态", isOn: $query.highest)
-                Button("重置") { query = SkillAcquisitionQuery() }
+                Button("重置") { query = SkillAcquisitionQuery(scope: .sameName) }
             }.tint(.primary)
             if rows.isEmpty { Text("没有符合条件的获得关系").foregroundStyle(.secondary) }
             ForEach(rows, id: \.key) { row in

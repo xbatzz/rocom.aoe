@@ -1,7 +1,8 @@
 import RocoDomain
 
-/// Query a concrete SkillID. Deliberately does not merge aliases or change the skill directory.
+/// Concrete configuration queries stay exact; the skill catalog can opt into same-name acquisition.
 public struct SkillAcquisitionQuery: Sendable {
+    public enum Scope: Sendable { case configuration, sameName }
     public struct Result: Sendable {
         public let key: String
         public let representative: Pet
@@ -12,12 +13,15 @@ public struct SkillAcquisitionQuery: Sendable {
     public var type: TypeID?
     public var implementation = PetQuery.Implementation.implemented
     public var highest = true
-    public init() {}
+    public let scope: Scope
+    public init(scope: Scope = .configuration) { self.scope = scope }
     public func results(skill: SkillID, index: SkillSearchIndex, content: ContentStore) -> [Result] {
-        let relations = (index.directBySkill[skill] ?? []).filter { source == nil || $0.source == source }
+        let ids = scope == .sameName ? index.sameNameSkillIDs[skill] ?? [skill] : [skill]
+        let relations = ids.flatMap { index.directBySkill[$0] ?? [] }.filter { source == nil || $0.source == source }
         var rows: [Result] = []
         if highest {
-            for family in index.familiesBySkill[skill] ?? [] {
+            var seen = Set<FamilyKey>()
+            for family in ids.flatMap({ index.familiesBySkill[$0] ?? [] }) where seen.insert(family.familyKey).inserted {
                 guard let pet = content.pets[family.representativePetId], !pet.isLeader else { continue }
                 let members = Set(family.memberPetIds)
                 let acquired = relations.filter { members.contains($0.petId) }

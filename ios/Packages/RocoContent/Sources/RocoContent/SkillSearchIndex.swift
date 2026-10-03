@@ -13,6 +13,7 @@ public struct SkillSearchIndex: Sendable {
     public let directBySkill: [SkillID: [PetSkill]]
     public let familiesBySkill: [SkillID: [Family]]
     public let groupsBySkill: [SkillID: SkillGroup]
+    public let sameNameSkillIDs: [SkillID: [SkillID]]
 
     public init(content: ContentStore) {
         entries = content.skills.values.sorted { $0.skillId.rawValue < $1.skillId.rawValue }.map {
@@ -31,6 +32,12 @@ public struct SkillSearchIndex: Sendable {
             for id in Set(group.aliasIds + [group.displayId]) { groups[id] = group }
         }
         groupsBySkill = groups
+        var sameNameIndex: [SkillID: [SkillID]] = [:]
+        for skills in Dictionary(grouping: content.skills.values, by: \.nameZh).values {
+            let ids = skills.map(\.skillId).sorted { $0.rawValue < $1.rawValue }
+            for id in ids { sameNameIndex[id] = ids }
+        }
+        sameNameSkillIDs = sameNameIndex
     }
 
     public func search(_ query: String, type: TypeID?, category: SkillCategory?) -> [SkillID] {

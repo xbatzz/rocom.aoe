@@ -63,7 +63,7 @@ struct SkillsView: View {
                             } label: {
                                 VStack(alignment: .leading, spacing: 6) {
                                     SkillSummary(skill: skill, content: content)
-                                    Text("\(SkillAcquisitionQuery().results(skill: id, index: index, content: content).count) 个可获得家族")
+                                    Text("\(SkillAcquisitionQuery(scope: .sameName).results(skill: id, index: index, content: content).count) 个可获得家族")
                                         .font(.caption).foregroundStyle(.secondary)
                                 }
                             }.buttonStyle(.plain)
@@ -109,7 +109,7 @@ struct SkillDetailView: View {
         case acquisition = "获得方式"
     }
     @State private var section = Section.details
-    @State private var acquisitionQuery = SkillAcquisitionQuery()
+    @State private var acquisitionQuery = SkillAcquisitionQuery(scope: .sameName)
 
     var body: some View {
         CompanionTabbedPage(title: "技能分区", selection: $section, options: Section.allCases, identifier: "skill-detail-tabs") {
@@ -134,11 +134,10 @@ struct SkillDetailView: View {
                 if !skill.description.isEmpty {
                     CompanionSection("技能效果") { Text(skill.description).font(.body).textSelection(.enabled) }
                 }
-                if let group = index.groupsBySkill[skill.skillId] {
+                if let ids = index.sameNameSkillIDs[skill.skillId], ids.count > 1 {
                     CompanionSection("同名技能组") {
-                        Text("展示 ID：\(String(group.displayId.rawValue))")
-                        Text("别名 ID：\(group.aliasIds.map { String($0.rawValue) }.joined(separator: "、"))")
-                        Text("以下关系仅对应当前技能配置 ID。").font(.footnote).foregroundStyle(.secondary)
+                        Text("技能 ID：\(ids.map { String($0.rawValue) }.joined(separator: "、"))")
+                        Text("获得方式汇总同名技能，具体效果以精灵实际技能为准。").font(.footnote).foregroundStyle(.secondary)
                     }
                 }
             } else {
