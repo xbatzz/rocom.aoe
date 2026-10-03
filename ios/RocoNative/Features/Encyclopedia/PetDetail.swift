@@ -29,6 +29,7 @@ struct PetDetail: View {
         case profile = "介绍"
     }
     @State private var section = Section.overview
+    @State private var sectionControlsVisible = true
     @State private var moveSource = PetSkillSource.pool
     @State private var selectedSkill: SkillID?
     @State private var index: SkillSearchIndex?
@@ -38,6 +39,9 @@ struct PetDetail: View {
     @State private var moveCategory: SkillCategory?
     private let relatedAnchors = PortraitAnchors()
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
+    @Environment(\.accessibilityVoiceOverEnabled) private var voiceOverEnabled
     @Environment(\.canonicalThumbnails) private var inheritedThumbnails
 
     var body: some View {
@@ -91,8 +95,8 @@ struct PetDetail: View {
                             }
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        // Short sections must still be able to align below the
-                        // fixed tabs while the shared portrait remains mounted.
+                        // Short sections can align at the top while the shared
+                        // portrait remains mounted for the return transition.
                         .frame(minHeight: section == .overview ? nil : geometry.size.height, alignment: .topLeading)
                         .id("pet-section")
                     }
@@ -102,16 +106,18 @@ struct PetDetail: View {
                 .scrollDismissesKeyboard(.interactively)
                 .reviewScrollPosition()
                 .accessibilityIdentifier("detail-\(pet.petId.rawValue)")
-                .safeAreaInset(edge: .top, spacing: 0) {
-                    VStack(spacing: 0) {
-                        CompanionTabBar(title: "精灵详情", selection: $section, options: Section.allCases, identifier: "pet-detail-tabs")
-                            .padding(.horizontal, 24).padding(.vertical, 6)
-                        if section == .skills {
-                            CompanionTabBar(title: "技能来源", selection: $moveSource, options: [.pool, .stone, .bloodline], identifier: "pet-skill-tabs", label: sourceTitle)
-                                .padding(.horizontal, 24).padding(.bottom, 6)
-                        }
-                        Divider()
-                    }.background(Color(uiColor: .systemBackground))
+                .safeAreaInset(edge: .bottom, spacing: 0) {
+                    sectionControls
+                        // Keep the same safe-area reservation in every scroll phase.
+                        .opacity(sectionControlsVisible || voiceOverEnabled ? 1 : 0)
+                        .allowsHitTesting(sectionControlsVisible || voiceOverEnabled)
+                        .accessibilityHidden(!sectionControlsVisible && !voiceOverEnabled)
+                        .padding(.horizontal, 24)
+                        .padding(.vertical, 8)
+                        .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: sectionControlsVisible)
+                }
+                .onScrollPhaseChange { _, phase, _ in
+                    sectionControlsVisible = phase == .idle
                 }
                 .onChange(of: section) {
                     proxy.scrollTo(section == .overview ? "pet-top" : "pet-section", anchor: .top)
@@ -136,6 +142,20 @@ struct PetDetail: View {
         }
         // UIKit-created hosting controllers do not inherit the app environment.
         .environment(\.canonicalThumbnails, portraits?.thumbnails ?? inheritedThumbnails)
+    }
+
+    private var sectionPicker: some View {
+        CompanionTabBar(title: "精灵详情", selection: $section, options: Section.allCases, identifier: "pet-detail-tabs")
+            .padding(.horizontal, 12)
+            .padding(.vertical, 6)
+    }
+
+    @ViewBuilder private var sectionControls: some View {
+        if reduceTransparency {
+            sectionPicker.background(Color(uiColor: .systemBackground), in: Capsule())
+        } else {
+            sectionPicker.glassEffect(.regular, in: Capsule())
+        }
     }
 
     @ViewBuilder private var evolutionSections: some View {
@@ -171,6 +191,7 @@ struct PetDetail: View {
     }
 
     @ViewBuilder private var skillSections: some View {
+        CompanionTabBar(title: "技能来源", selection: $moveSource, options: [.pool, .stone, .bloodline], identifier: "pet-skill-tabs", label: sourceTitle)
         // Only current-pet relations; dictionary lookups resolve exact skill IDs.
         if moveSource != .bloodline {
             DisclosureGroup("筛选自有与学习技能") {

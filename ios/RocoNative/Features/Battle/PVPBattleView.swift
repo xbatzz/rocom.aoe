@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 import SwiftData
 import RocoUserData
 import RocoContent
@@ -37,6 +38,7 @@ struct PVPBattleView: View {
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     var body: some View {
         CompanionTabbedPage(title: "PVP 分区", selection: $section, options: Section.allCases, identifier: "pvp-tabs") {
+            CompanionPageHeader(title: "PVP 助手", identifier: "pvp")
             if section == .build {
                 CompanionHeading(title: "对战构筑", detail: "临时计算")
                 if dynamicTypeSize.isAccessibilitySize {
@@ -75,7 +77,8 @@ struct PVPBattleView: View {
             }
             Text("临时构筑不会更改已保存队伍。伤害沿用当前规则的纸面估算。")
                 .font(.footnote).foregroundStyle(.secondary)
-        }.navigationTitle("PVP 助手")
+        }.companionPageChrome(identifier: "pvp", makeMenu: makeActionMenu,
+            menuLabel: "对战操作", menuSymbol: "ellipsis")
             .task {
                 guard !initialized else { return }; initialized = true
                 if ally.slot.petID == nil, let team = (teams.first { $0.teamID == preferences.first?.activeTeamID } ?? teams.first),
@@ -89,15 +92,24 @@ struct PVPBattleView: View {
                     var profile = BattleProfile(); profile.slot = slot; ally = profile
                 }
             }
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    Button("重置", systemImage: "arrow.counterclockwise") { reset = true }
-                    Button("交换双方", systemImage: "arrow.left.arrow.right") {
-                        let previous = ally; ally = opponent; opponent = previous
-                    }.disabled(ally.slot.petID == nil && opponent.slot.petID == nil)
-                }
-            }
     }
+    private func makeActionMenu() -> UIMenu {
+        let ally = $ally
+        let opponent = $opponent
+        let reset = $reset
+        return UIMenu(children: [
+            UIAction(title: "交换双方", image: UIImage(systemName: "arrow.left.arrow.right"),
+                attributes: ally.wrappedValue.slot.petID == nil && opponent.wrappedValue.slot.petID == nil ? [.disabled] : []) { _ in
+                let previous = ally.wrappedValue
+                ally.wrappedValue = opponent.wrappedValue
+                opponent.wrappedValue = previous
+            },
+            UIAction(title: "重置", image: UIImage(systemName: "arrow.counterclockwise")) { _ in
+                reset.wrappedValue = true
+            }
+        ])
+    }
+
     private var isReady: Bool { ally.slot.petID != nil && opponent.slot.petID != nil }
     private var analysisSection: some View {
         CompanionSection("对战分析") {

@@ -471,6 +471,60 @@ final class NavigationTests: XCTestCase {
     }
 
     @MainActor
+    func testFeaturePageChromeKeepsSystemBarGeometry() {
+        let app = XCUIApplication()
+        let pages = [("shiny", "shiny", true), ("grass", "grass", true), ("hero", "heroes", true),
+            ("types", "types", false), ("teams", "teams", false), ("pvp-filled", "pvp", false),
+            ("backup", "backup", false), ("version", "settings", false), ("advanced", "advanced-filter", true)]
+        for (route, identifier, hasSearch) in pages {
+            app.launchArguments = ["--visual-review", route, "--visual-fixture"]
+            if ["teams", "pvp-filled", "backup", "version"].contains(route) {
+                app.launchArguments += ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
+            }
+            app.launch()
+            let title = app.staticTexts["\(identifier)-title"]
+            XCTAssertTrue(title.waitForExistence(timeout: 8), route)
+            let navigation = app.navigationBars.firstMatch
+            let navigationFrame = navigation.frame
+            XCTAssertGreaterThanOrEqual(title.frame.minY, navigationFrame.maxY, route)
+            let searchButton = app.buttons["\(identifier)-search-button"]
+            let searchField = app.searchFields["\(identifier)-search-field"]
+            XCTAssertEqual(searchButton.exists || searchField.exists, hasSearch, route)
+            let toolbar = app.toolbars.firstMatch
+            let toolbarFrame = toolbar.frame
+            for _ in 0..<3 { app.swipeUp() }
+            XCTAssertFalse(title.isHittable, "\(route): title must scroll with content")
+            XCTAssertEqual(navigation.frame.minY, navigationFrame.minY, accuracy: 1, route)
+            XCTAssertEqual(navigation.frame.height, navigationFrame.height, accuracy: 1, route)
+            if hasSearch {
+                XCTAssertTrue(searchButton.isHittable || searchField.isHittable, route)
+                XCTAssertEqual(toolbar.frame.minY, toolbarFrame.minY, accuracy: 1, route)
+                XCTAssertEqual(toolbar.frame.height, toolbarFrame.height, accuracy: 1, route)
+                if ["shiny", "grass", "hero"].contains(route) {
+                    let filter = app.buttons["\(identifier)-filter-button"]
+                    XCTAssertTrue(filter.isHittable, route)
+                    filter.tap()
+                    if route == "grass" {
+                        app.buttons["状态"].firstMatch.tap()
+                        app.buttons["未点亮"].firstMatch.tap()
+                    } else {
+                        app.buttons[route == "shiny" ? "未收集" : "未获得"].firstMatch.tap()
+                    }
+                    XCTAssertTrue(filter.isHittable, route)
+                }
+                if !searchField.isHittable { searchButton.tap() }
+                searchField.tap()
+                searchField.typeText("不存在的精灵")
+                XCTAssertEqual(searchField.value as? String, "不存在的精灵", route)
+                app.swipeUp()
+                XCTAssertTrue(searchField.isHittable, "\(route): nonempty query protects search")
+            }
+            attach("page-chrome-\(route)", app)
+            app.terminate()
+        }
+    }
+
+    @MainActor
     func testSkillsPageChromeSearchFiltersAndReturn() {
         let app = XCUIApplication()
         app.launchArguments = ["--visual-review", "home"]
@@ -556,7 +610,7 @@ final class NavigationTests: XCTestCase {
             } else if route == "skill-many-pets" {
                 let tabs = app.segmentedControls["skill-detail-tabs"]
                 XCTAssertTrue(tabs.waitForExistence(timeout: 8)); tabs.buttons["获得方式"].tap()
-            } else { XCTAssertTrue(app.navigationBars["高级筛选"].waitForExistence(timeout: 8)) }
+            } else { XCTAssertTrue(app.staticTexts["advanced-filter-title"].waitForExistence(timeout: 8)) }
             for _ in 0..<8 { app.swipeUp() }
             XCTAssertFalse(app.buttons["pagination-next"].exists)
             XCTAssertFalse(app.buttons["pagination-previous"].exists)
@@ -569,7 +623,7 @@ final class NavigationTests: XCTestCase {
     func testSavedDarkAppearanceReachesRoot() throws {
         let app = XCUIApplication(); app.launchArguments = ["--visual-review", "version", "--visual-fixture"]
         app.launch()
-        XCTAssertTrue(app.navigationBars["数据版本"].waitForExistence(timeout: 8))
+        XCTAssertTrue(app.staticTexts["settings-title"].waitForExistence(timeout: 8))
         app.buttons.matching(NSPredicate(format: "label CONTAINS '跟随系统'")).firstMatch.tap()
         app.buttons["深色"].firstMatch.tap()
         let screenshot = app.screenshot()
@@ -586,13 +640,14 @@ final class NavigationTests: XCTestCase {
     @MainActor
     func testSelectedParityScreensAndLargeTextControls() {
         let app = XCUIApplication()
-        let pages: [(String, String)] = [("advanced", "高级筛选"), ("skill", ""), ("types-coverage", "属性克制"), ("grass", "草系徽章"), ("shiny", "异色收集"), ("pvp-filled", "PVP 助手"), ("version", "数据版本")]
-        for (route, title) in pages {
+        let pages: [(String, String)] = [("advanced", "advanced-filter"), ("skill", ""), ("types-coverage", "types"), ("grass", "grass"), ("shiny", "shiny"), ("pvp-filled", "pvp"), ("version", "settings")]
+        for (route, identifier) in pages {
             app.launchArguments = ["--visual-review", route, "--visual-fixture", "--reduce-motion"]
             if route == "advanced" || route == "version" { app.launchArguments += ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"] }
             app.launch()
-            if !title.isEmpty { XCTAssertTrue(app.navigationBars[title].waitForExistence(timeout: 8)) }
-            else {
+            if !identifier.isEmpty {
+                XCTAssertTrue(app.staticTexts["\(identifier)-title"].waitForExistence(timeout: 8))
+            } else {
                 XCTAssertTrue(app.segmentedControls["skill-detail-tabs"].waitForExistence(timeout: 8))
                 app.segmentedControls["skill-detail-tabs"].buttons["获得方式"].tap()
                 XCTAssertTrue(app.staticTexts["筛选获得关系"].waitForExistence(timeout: 8))
@@ -637,6 +692,8 @@ final class NavigationTests: XCTestCase {
         let detail = app.scrollViews["detail-3001"]
         XCTAssertTrue(detail.waitForExistence(timeout: 8))
         let tabs = app.segmentedControls["pet-detail-tabs"]
+        let bottomTabsFrame = tabs.frame
+        XCTAssertGreaterThan(bottomTabsFrame.minY, app.frame.midY, "Section controls belong at the bottom")
         tabs.buttons["技能"].tap()
         XCTAssertTrue(app.staticTexts["筛选自有与学习技能"].waitForExistence(timeout: 3))
         app.staticTexts["筛选自有与学习技能"].tap()
@@ -645,7 +702,7 @@ final class NavigationTests: XCTestCase {
         XCTAssertTrue(app.staticTexts["没有符合筛选条件的技能"].waitForExistence(timeout: 3))
         tabs.buttons["介绍"].tap()
         XCTAssertTrue(app.staticTexts["精灵资料"].waitForExistence(timeout: 3))
-        XCTAssertLessThan(app.staticTexts["精灵资料"].frame.minY, tabs.frame.maxY + 80, "Short sections should open immediately below the fixed tabs")
+        XCTAssertLessThan(app.staticTexts["精灵资料"].frame.minY, tabs.frame.minY, "Short sections should open above the bottom controls")
         attach("quick-pet-profile", app)
         tabs.buttons["技能"].tap()
         // Reopen the filter if its transient disclosure state was reset.
@@ -653,7 +710,10 @@ final class NavigationTests: XCTestCase {
         XCTAssertEqual(keyword.value as? String, "不存在的技能")
         app.buttons["重置筛选"].tap()
         detail.swipeUp(); detail.swipeUp()
-        XCTAssertTrue(tabs.buttons["介绍"].isHittable, "Section controls must remain reachable after scrolling")
+        XCTAssertTrue(tabs.buttons["介绍"].isHittable, "Section controls must return when scrolling stops")
+        XCTAssertEqual(tabs.frame.minY, bottomTabsFrame.minY, accuracy: 1, "Scrolling must preserve the bottom control slot")
+        tabs.buttons["介绍"].tap()
+        tabs.buttons["技能"].tap()
         let sources = app.segmentedControls["pet-skill-tabs"]
         sources.buttons["血脉技能"].tap()
         XCTAssertFalse(keyword.exists)
@@ -691,6 +751,12 @@ final class NavigationTests: XCTestCase {
         XCTAssertTrue(app.staticTexts["基础纸面一击威力线 · 目标生命 100%"].isHittable)
         app.navigationBars.buttons.element(boundBy: 0).tap()
         XCTAssertTrue(tabs.buttons["对战分析"].isSelected)
+        let actions = app.buttons["pvp-filter-button"]
+        XCTAssertTrue(actions.waitForExistence(timeout: 3))
+        actions.tap(); app.buttons["交换双方"].tap()
+        actions.tap(); app.buttons["重置"].tap()
+        app.buttons["重置全部"].tap()
+        XCTAssertTrue(tabs.buttons["双方构筑"].isSelected)
         app.terminate(); app.launchArguments = ["--visual-review", "pvp"]; app.launch()
         XCTAssertTrue(tabs.waitForExistence(timeout: 8))
         tabs.buttons["对战分析"].tap()
@@ -774,7 +840,7 @@ final class NavigationTests: XCTestCase {
             XCTAssertTrue(app.staticTexts["skills-title"].waitForExistence(timeout: 3))
             app.navigationBars.buttons.element(boundBy: 0).tap()
             app.staticTexts["异色收集"].firstMatch.tap()
-            XCTAssertTrue(app.navigationBars["异色收集"].waitForExistence(timeout: 3))
+            XCTAssertTrue(app.staticTexts["shiny-title"].waitForExistence(timeout: 3))
             app.terminate()
         }
     }

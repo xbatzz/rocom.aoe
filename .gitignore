@@ -54,3 +54,6 @@ DerivedData/
 *.xcresult/
 # Generated cross-platform backup fixtures and Simulator review evidence.
 /build/ios-parity/
+
+# Xcode generated build output
+/build/ios-pet-detail-glass/

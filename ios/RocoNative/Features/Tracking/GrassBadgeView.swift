@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 import SwiftData
 import RocoContent
 import RocoDomain
@@ -42,10 +43,10 @@ struct GrassBadgeView: View {
         let window = CatalogPage(totalCount: mode == 1 ? families.count : footprints.count, requestedPage: page)
         ScrollView {
             LazyVStack(alignment: .leading, spacing: 20) {
+                CompanionPageHeader(title: "草系徽章", subtitle: "\(window.totalCount) 条记录", identifier: "grass")
                 Picker("记录目录", selection: $mode) { Text("地点足迹").tag(0); Text("家族奖牌").tag(1) }.pickerStyle(.segmented)
                 if mode == 1 {
                     CollectionProgress(title: "家族奖牌", count: index.badgeFamilies.filter { obtained.contains($0.familyKey.rawValue) }.count, total: index.badgeFamilies.count, tint: .green)
-                    Picker("奖牌状态", selection: $medalFilter) { Text("全部").tag(0); Text("已获得").tag(1); Text("未获得").tag(2) }.pickerStyle(.segmented)
                     Text("家族奖牌单独保存，与地点足迹、命定勇者分别统计。").font(.footnote).foregroundStyle(.secondary)
                     CatalogPagination(window: window, page: $page).id("catalog-results-top")
                     ForEach(families[window.range], id: \.familyKey) { family in
@@ -70,16 +71,6 @@ struct GrassBadgeView: View {
                         CompanionMetric(value: String(statuses.values.filter { $0 != .unrecorded }.count), label: "当前地点已录入")
                         CompanionMetric(value: String(statuses.values.filter { $0 == .unlit }.count), label: "未点亮")
                     }
-                    DisclosureGroup("足迹筛选") {
-                        Toggle("仅当前地点已录入", isOn: $recordedOnly)
-                        Picker("状态", selection: $state) { Text("全部").tag(nil as BadgeState?); ForEach(BadgeState.allCases, id: \.self) { Text($0.label).tag(Optional($0)) } }
-                        Picker("属性", selection: $type) {
-                            Text("全部").tag(nil as TypeID?)
-                            ForEach(TypeMatchup(types: content.types).selectable, id: \.typeId) { Text($0.nameZh).tag(Optional($0.typeId)) }
-                        }
-                        Picker("形态", selection: $leader) { Text("全部").tag(0); Text("普通").tag(1); Text("首领").tag(2) }
-                        Button("重置筛选") { recordedOnly = false; state = nil; type = nil; leader = 0; query = "" }
-                    }.tint(.primary)
                     if !query.isEmpty {
                         let suggestions = index.badgeFamilies.filter { index.matches($0, query: search, content: content) }
                         if !suggestions.isEmpty {
@@ -109,9 +100,59 @@ struct GrassBadgeView: View {
             }.padding(20)
         }.catalogPagination(page: $page, totalCount: window.totalCount, resetKey: [query, location, state as AnyHashable, mode, medalFilter, recordedOnly, type as AnyHashable, leader])
             .onChange(of: query) { suggestionPage = 1 }
-            .reviewScrollPosition().companionBackground().navigationTitle("草系徽章").searchable(text: $query, prompt: "成员名称、图鉴编号、配置 ID 或形态")
+            .reviewScrollPosition().companionBackground().companionPageChrome(identifier: "grass", query: $query, prompt: "成员名称、图鉴编号、配置 ID 或形态", searchLabel: "搜索草系徽章", makeMenu: makeFilterMenu)
             .alert("保存失败", isPresented: Binding(get: { error != nil }, set: { if !$0 { error = nil } })) { Button("好", role: .cancel) {} } message: { Text(error ?? "") }
     }
+    private func makeFilterMenu() -> UIMenu {
+        if mode == 1 {
+            let selection = $medalFilter
+            return UIMenu(children: ["全部", "已获得", "未获得"].enumerated().map { value, label in
+                UIAction(title: label, state: medalFilter == value ? .on : .off) { _ in
+                    selection.wrappedValue = value
+                }
+            })
+        }
+        let query = $query
+        let state = $state
+        let type = $type
+        let leader = $leader
+        let recordedOnly = $recordedOnly
+        let states = [UIAction(title: "全部", state: state.wrappedValue == nil ? .on : .off) { _ in
+            state.wrappedValue = nil
+        }] + BadgeState.allCases.map { value in
+            UIAction(title: value.label, state: state.wrappedValue == value ? .on : .off) { _ in
+                state.wrappedValue = value
+            }
+        }
+        let types = [UIAction(title: "全部", state: type.wrappedValue == nil ? .on : .off) { _ in
+            type.wrappedValue = nil
+        }] + content.normalTypes.map { value in
+            UIAction(title: value.nameZh, image: GameIconCatalog.type(value.typeId), state: type.wrappedValue == value.typeId ? .on : .off) { _ in
+                type.wrappedValue = value.typeId
+            }
+        }
+        let forms = ["全部", "普通", "首领"].enumerated().map { value, label in
+            UIAction(title: label, state: leader.wrappedValue == value ? .on : .off) { _ in
+                leader.wrappedValue = value
+            }
+        }
+        return UIMenu(children: [
+            UIAction(title: "仅当前地点已录入", state: recordedOnly.wrappedValue ? .on : .off) { _ in
+                recordedOnly.wrappedValue.toggle()
+            },
+            UIMenu(title: "状态", options: .singleSelection, children: states),
+            UIMenu(title: "属性", options: .singleSelection, children: types),
+            UIMenu(title: "形态", options: .singleSelection, children: forms),
+            UIAction(title: "重置筛选") { _ in
+                recordedOnly.wrappedValue = false
+                state.wrappedValue = nil
+                type.wrappedValue = nil
+                leader.wrappedValue = 0
+                query.wrappedValue = ""
+            }
+        ])
+    }
+
 }
 
 struct GrassFamilyView: View {

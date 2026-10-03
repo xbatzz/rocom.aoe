@@ -35,6 +35,7 @@ struct UserBackupView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 28) {
+                CompanionPageHeader(title: "备份与恢复", identifier: "backup")
                 VStack(alignment: .leading, spacing: 18) {
                     Text("带上你的收藏与队伍").font(.title2.bold())
                     Text("将本机进度保存到文件，在需要时恢复。").font(.subheadline).foregroundStyle(.secondary)
@@ -77,7 +78,8 @@ struct UserBackupView: View {
             }
             if let status { Label(status, systemImage: "checkmark.circle.fill").font(.subheadline).foregroundStyle(.green) }
             }.padding(20)
-        }.reviewScrollPosition().companionBackground().navigationTitle("备份与恢复")
+        }.reviewScrollPosition().companionBackground()
+            .companionPageChrome(identifier: "backup")
             .fileExporter(isPresented: $exporting, document: document, contentType: .json, defaultFilename: "rocom-native-user-data") {
                 switch $0 { case .success: status = "备份文件已保存。"; case .failure(let error): self.error = String(describing: error) }
             }

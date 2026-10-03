@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 import SwiftData
 import RocoContent
 import RocoDomain
@@ -43,6 +44,7 @@ struct ShinyCollectionView: View {
         let pageSlots = visible[window.range]
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
+                CompanionPageHeader(title: "异色收集", subtitle: "\(visible.count) 个异色槽", identifier: "shiny")
                 DisclosureGroup("各赛季进度") {
                     ForEach(content.seasons.values.sorted { $0.seasonId.rawValue < $1.seasonId.rawValue }, id: \.seasonId) { season in
                         let slots = content.shinySlotsBySeason[season.seasonId] ?? []
@@ -71,9 +73,6 @@ struct ShinyCollectionView: View {
                     }.tint(.primary).accessibilityIdentifier("shiny-season")
                     Text("\(visible.count) 个异色槽").font(.caption.monospacedDigit()).foregroundStyle(.secondary)
                 }
-                Picker("收集状态", selection: $filter) {
-                    Text("全部").tag(0); Text("已收集").tag(1); Text("未收集").tag(2)
-                }.pickerStyle(.segmented)
                 if visible.isEmpty { ContentUnavailableView("没有符合条件的异色槽", systemImage: "star", description: Text("尝试其他关键词、赛季或收集状态。")) }
                 CatalogPagination(window: window, page: $page).id("catalog-results-top")
                 let keys = Set(pageSlots.map(\.familyId)).sorted { $0.rawValue < $1.rawValue }
@@ -95,12 +94,22 @@ struct ShinyCollectionView: View {
                 if window.pageCount > 1 { CatalogPagination(window: window, page: $page) }
             }.padding(20)
         }.catalogPagination(page: $page, totalCount: visible.count, resetKey: [query, season as AnyHashable, filter])
-            .reviewScrollPosition().companionBackground().navigationTitle("异色收集")
-            .searchable(text: $query, prompt: "任一成员名称或 ID")
+            .reviewScrollPosition().companionBackground()
+            .companionPageChrome(identifier: "shiny", query: $query, prompt: "任一成员名称或 ID", searchLabel: "搜索异色收集", makeMenu: makeFilterMenu)
             .alert("保存失败", isPresented: Binding(get: { error != nil }, set: { if !$0 { error = nil } })) {
                 Button("好", role: .cancel) { error = nil }
             } message: { Text(error ?? "") }
     }
+    private func makeFilterMenu() -> UIMenu {
+        let selection = $filter
+        let labels = ["全部", "已收集", "未收集"]
+        return UIMenu(children: labels.enumerated().map { value, label in
+            UIAction(title: label, state: filter == value ? .on : .off) { _ in
+                selection.wrappedValue = value
+            }
+        })
+    }
+
 }
 
 private struct ShinySlotRow: View {

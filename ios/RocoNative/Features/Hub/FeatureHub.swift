@@ -183,6 +183,7 @@ struct ContentVersionView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 28) {
+                CompanionPageHeader(title: "设置与数据版本", identifier: "settings")
                 CompanionSection("外观") {
                     Picker("主题", selection: Binding(get: { preferences.first?.appearance ?? .system }, set: { value in
                         do { try UserDatabase.setAppearance(value, context: context) } catch { self.error = String(describing: error) }
@@ -207,6 +208,6 @@ struct ContentVersionView: View {
                     LabeledContent("用户数据格式", value: String(UserDatabase.currentVersion))
                 }
             }.padding(20)
-        }.reviewScrollPosition().companionBackground().navigationTitle("数据版本")
+        }.reviewScrollPosition().companionBackground().companionPageChrome(identifier: "settings")
     }
 }

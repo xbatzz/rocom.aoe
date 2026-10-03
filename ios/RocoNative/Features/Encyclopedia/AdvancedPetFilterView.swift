@@ -12,8 +12,10 @@ struct AdvancedPetFilterView: View {
     var body: some View {
         ScrollViewReader { proxy in
             List {
+                CompanionPageHeader(title: "高级筛选", subtitle: "\(pets.count) 个配置", identifier: "advanced-filter")
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
                 Section("组合筛选") {
-                    TextField("精灵名称、图鉴编号或配置 ID", text: $query.keyword)
                     Picker("属性", selection: $query.type) {
                         Text("全部").tag(nil as TypeID?)
                         ForEach(content.normalTypes, id: \.typeId) { Text($0.nameZh).tag(Optional($0.typeId)) }
@@ -67,7 +69,8 @@ struct AdvancedPetFilterView: View {
                 skillOptions = content.orderedSkills.filter { $0.skillId == query.skill || skillSearch.isEmpty || "\($0.nameZh) \($0.skillId.rawValue)".localizedStandardContains(skillSearch) }
             }
             .onChange(of: query) { proxy.scrollTo("catalog-results-top", anchor: .top) }
-                .navigationTitle("高级筛选")
+                .companionPageChrome(identifier: "advanced-filter", query: $query.keyword,
+                    prompt: "精灵名称、图鉴编号或配置 ID", searchLabel: "搜索精灵")
         }
     }
 }

@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 import SwiftData
 import RocoContent
 import RocoUserData
@@ -27,11 +28,9 @@ struct DestinedHeroView: View {
         let window = CatalogPage(totalCount: visible.count, requestedPage: page)
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
+                CompanionPageHeader(title: "命定勇者", subtitle: "\(visible.count) 个家族", identifier: "heroes")
                 CollectionProgress(title: "家族已获得", count: index.badgeFamilies.filter { obtained.contains($0.familyKey.rawValue) }.count,
                     total: index.badgeFamilies.count, tint: .orange)
-                Picker("状态", selection: $filter) {
-                    Text("全部").tag(0); Text("已获得").tag(1); Text("未获得").tag(2)
-                }.pickerStyle(.segmented)
                 CompanionHeading(title: "家族收藏", detail: "\(visible.count) 个家族")
                 if visible.isEmpty { ContentUnavailableView("没有符合条件的家族", systemImage: "medal", description: Text("尝试其他关键词或获得状态。")) }
                 CatalogPagination(window: window, page: $page).id("catalog-results-top")
@@ -56,9 +55,19 @@ struct DestinedHeroView: View {
                 if window.pageCount > 1 { CatalogPagination(window: window, page: $page) }
             }.padding(20)
         }.catalogPagination(page: $page, totalCount: visible.count, resetKey: [query, filter])
-            .reviewScrollPosition().companionBackground().navigationTitle("命定勇者").searchable(text: $query, prompt: "家族任一成员名称或 ID")
+            .reviewScrollPosition().companionBackground().companionPageChrome(identifier: "heroes", query: $query, prompt: "家族任一成员名称或 ID", searchLabel: "搜索命定勇者", makeMenu: makeFilterMenu)
             .alert("保存失败", isPresented: Binding(get: { error != nil }, set: { if !$0 { error = nil } })) {
                 Button("好", role: .cancel) { error = nil }
             } message: { Text(error ?? "") }
     }
+    private func makeFilterMenu() -> UIMenu {
+        let selection = $filter
+        let labels = ["全部", "已获得", "未获得"]
+        return UIMenu(children: labels.enumerated().map { value, label in
+            UIAction(title: label, state: filter == value ? .on : .off) { _ in
+                selection.wrappedValue = value
+            }
+        })
+    }
+
 }

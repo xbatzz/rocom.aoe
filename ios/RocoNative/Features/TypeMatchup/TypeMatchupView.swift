@@ -27,6 +27,7 @@ struct TypeMatchupView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
+                CompanionPageHeader(title: "属性克制", identifier: "types")
                 Picker("模式", selection: $mode) {
                     Text("单属性").tag(0)
                     Text("双防御").tag(1)
@@ -81,7 +82,8 @@ struct TypeMatchupView: View {
                 }.frame(maxWidth: .infinity, alignment: .leading).padding(20).companionAccentSurface(tint: GameIconCatalog.color(first))
                 result
             }.padding(20)
-        }.reviewScrollPosition().companionBackground().navigationTitle("属性克制")
+        }.reviewScrollPosition().companionBackground()
+            .companionPageChrome(identifier: "types")
     }
 
     @ViewBuilder private var result: some View {

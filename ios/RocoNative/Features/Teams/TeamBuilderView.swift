@@ -19,6 +19,7 @@ struct TeamBuilderView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
+                CompanionPageHeader(title: "配队", subtitle: "\(teams.count) 支已保存队伍", identifier: "teams")
                 CompanionMetrics {
                     CompanionMetric(value: String(teams.count), label: "已保存队伍")
                     if !teams.isEmpty {
@@ -104,7 +105,8 @@ struct TeamBuilderView: View {
                 Text("最多保存 10 支队伍，每队 6 个槽位。长按已保存队伍可复制、重命名或删除。").font(.footnote).foregroundStyle(.secondary)
                 if teams.count > 10 { Text("已有 \(teams.count) 队，完整保留。新建与复制暂不可用。").foregroundStyle(.secondary) }
             }.padding(20)
-        }.reviewScrollPosition().companionBackground().navigationTitle("配队")
+        }.reviewScrollPosition().companionBackground()
+            .companionPageChrome(identifier: "teams")
             .confirmationDialog("删除此队伍？此操作不会改变其他队伍或收藏。", isPresented: Binding(get: { deleting != nil }, set: { if !$0 { deleting = nil } }), titleVisibility: .visible) {
                 Button("删除队伍", role: .destructive) {
                     guard let record = deleting else { return }

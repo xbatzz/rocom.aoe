@@ -5,12 +5,15 @@ import UIKit
 struct CompanionScrollChrome: UIViewControllerRepresentable {
     @Binding var query: String
     let visible: Bool
-    let prompt: String
-    let searchLabel: String
+    var prompt = ""
+    var searchLabel = ""
     let identifier: String
     let returnToParent: () -> Void
-    let makeMenu: () -> UIMenu
-    let filterValue: String
+    var makeMenu: (() -> UIMenu)? = nil
+    var filterValue = ""
+    var hasSearch = true
+    var menuLabel = "筛选"
+    var menuSymbol = "line.3.horizontal.decrease"
     var chromeEnabled = true
     var keepLeadingWhenDisabled = false
 
@@ -67,6 +70,7 @@ struct CompanionScrollChrome: UIViewControllerRepresentable {
             search.searchBar.delegate = self
             search.delegate = self
             search.obscuresBackgroundDuringPresentation = false
+            search.hidesNavigationBarDuringPresentation = false
             search.searchBar.autocapitalizationType = .none
             search.searchBar.autocorrectionType = .no
             search.searchBar.returnKeyType = .search
@@ -120,8 +124,8 @@ struct CompanionScrollChrome: UIViewControllerRepresentable {
             if navigation.isNavigationBarHidden {
                 navigation.setNavigationBarHidden(false, animated: animated)
             }
-            if navigation.isToolbarHidden {
-                navigation.setToolbarHidden(false, animated: animated)
+            if navigation.isToolbarHidden == configuration.hasSearch {
+                navigation.setToolbarHidden(!configuration.hasSearch, animated: animated)
             }
         }
 
@@ -148,24 +152,28 @@ struct CompanionScrollChrome: UIViewControllerRepresentable {
                     leading?.accessibilityIdentifier = "\(configuration.identifier)-back"
                 }
                 candidate.navigationItem.hidesBackButton = true
-                trailing = UIBarButtonItem(title: nil, image: UIImage(systemName: "line.3.horizontal.decrease"), primaryAction: nil, menu: UIMenu(children: [
-                    // Build the latest filter actions only when the menu opens.
-                    // Keyboard layout must not repeatedly replace a UIKit menu.
-                    UIDeferredMenuElement.uncached { [weak self] completion in
-                        completion(self?.configuration.makeMenu().children ?? [])
-                    }
-                ]))
-                trailing?.accessibilityLabel = "筛选"
+                if configuration.makeMenu != nil {
+                    trailing = UIBarButtonItem(title: nil, image: UIImage(systemName: configuration.menuSymbol), primaryAction: nil, menu: UIMenu(children: [
+                        // Build the latest filter actions only when the menu opens.
+                        // Keyboard layout must not repeatedly replace a UIKit menu.
+                        UIDeferredMenuElement.uncached { [weak self] completion in
+                            completion(self?.configuration.makeMenu?().children ?? [])
+                        }
+                    ]))
+                }
+                trailing?.accessibilityLabel = configuration.menuLabel
                 trailing?.accessibilityIdentifier = "\(configuration.identifier)-filter-button"
                 candidate.navigationItem.setLeftBarButton(leading, animated: false)
                 candidate.navigationItem.setRightBarButton(trailing, animated: false)
                 candidate.definesPresentationContext = true
-                candidate.navigationItem.searchController = search
-                candidate.navigationItem.preferredSearchBarPlacement = .integrated
-                candidate.navigationItem.searchBarPlacementAllowsToolbarIntegration = true
-                candidate.navigationItem.hidesSearchBarWhenScrolling = false
-                searchItem = candidate.navigationItem.searchBarPlacementBarButtonItem
-                if let searchItem { candidate.toolbarItems = [searchItem, spacer] }
+                if configuration.hasSearch {
+                    candidate.navigationItem.searchController = search
+                    candidate.navigationItem.preferredSearchBarPlacement = .integrated
+                    candidate.navigationItem.searchBarPlacementAllowsToolbarIntegration = true
+                    candidate.navigationItem.hidesSearchBarWhenScrolling = false
+                    searchItem = candidate.navigationItem.searchBarPlacementBarButtonItem
+                    if let searchItem { candidate.toolbarItems = [searchItem, spacer] }
+                }
             }
             // An offscreen page must not overwrite the detail page's bar state.
             guard candidate.navigationController?.topViewController === candidate,
@@ -175,6 +183,8 @@ struct CompanionScrollChrome: UIViewControllerRepresentable {
             }
             search.searchBar.accessibilityLabel = configuration.searchLabel
             search.searchBar.accessibilityIdentifier = "\(configuration.identifier)-search-field"
+            search.searchBar.searchTextField.accessibilityLabel = configuration.searchLabel
+            search.searchBar.searchTextField.accessibilityIdentifier = "\(configuration.identifier)-search-field"
             searchItem?.accessibilityLabel = configuration.searchLabel
             searchItem?.accessibilityIdentifier = "\(configuration.identifier)-search-button"
             if trailing?.accessibilityValue != configuration.filterValue {
@@ -206,8 +216,7 @@ struct CompanionScrollChrome: UIViewControllerRepresentable {
             guard !isLeavingPage, let owner,
                   let navigation = owner.navigationController,
                   navigation.topViewController === owner,
-                  allowTransitionSetup || navigation.transitionCoordinator == nil,
-                  let searchItem else { return }
+                  allowTransitionSetup || navigation.transitionCoordinator == nil else { return }
 
             let showChrome = configuration.chromeEnabled &&
                 (configuration.visible || search.isActive || !configuration.query.isEmpty)
@@ -222,7 +231,7 @@ struct CompanionScrollChrome: UIViewControllerRepresentable {
             if owner.navigationItem.rightBarButtonItem !== (showChrome ? trailing : nil) {
                 owner.navigationItem.setRightBarButton(showChrome ? trailing : nil, animated: animated)
             }
-            if (owner.toolbarItems?.contains(where: { $0 === searchItem }) == true) != showChrome {
+            if let searchItem, (owner.toolbarItems?.contains(where: { $0 === searchItem }) == true) != showChrome {
                 owner.setToolbarItems(showChrome ? [searchItem, spacer] : [spacer], animated: animated)
             }
 

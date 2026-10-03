@@ -167,6 +167,8 @@ SwiftUI 页面负责提供“正在滚动还是已停止”的粗粒度状态：
 - dragging / decelerating：顶部按钮和底部搜索消失。
 - 搜索正在激活，或 query 非空时：搜索 chrome 保持显示，避免输入过程中控件被移走。
 
+搜索控制器同时设置 `hidesNavigationBarDuringPresentation = false`，避免搜索激活或从详情返回时，UIKit 的默认搜索呈现隐藏整个导航栏。
+
 ## 3.1 嵌套导航页面的归属规则
 
 如果一级页面内部为了特殊详情转场而持有自己的 `UINavigationController`，**一级页面 chrome 仍必须属于外层首页 NavigationStack**。
@@ -226,7 +228,7 @@ SwiftUI 页面负责提供“正在滚动还是已停止”的粗粒度状态：
 
 ## 6. 推荐的公共抽象
 
-图鉴与技能查询现在共用 `CompanionScrollChrome.swift`。其他一级页面应直接复用这个共享实现，不再新增页面专用的 navigation/search chrome bridge。
+图鉴与技能查询直接使用 `CompanionScrollChrome.swift`；其余一级入口通过 `CompanionPageChromeModifier.swift` 复用同一个 bridge。其他一级页面应直接复用这个共享实现，不再新增页面专用的 navigation/search chrome bridge。
 
 推荐目标（名称可按现有目录规范调整）：
 
@@ -285,6 +287,15 @@ ios/RocoNative/Shared/UI/
 - 无筛选：不创建多余按钮。
 
 详情页、编辑 sheet、picker 页面可以继续使用正常 `.navigationTitle` / toolbar；本规范重点约束“一级功能入口页面”。
+
+### 当前迁移范围
+
+- 图鉴、技能查询：保留已验证的共享 chrome，图鉴内部头像转场不变。
+- 异色收集、草系徽章、命定勇者、高级筛选：内容标题 + integrated 系统搜索。异色、草系和命定勇者的筛选使用顶部系统菜单，赛季 / 地点 / 目录切换保留在内容中。高级筛选中的指定技能搜索仍是局部表单控件。
+- 配队、属性克制、PVP 助手、备份与恢复、设置与数据版本：内容标题 + 滚动感知的系统返回按钮，不创建搜索 item。
+- PVP 的“交换双方 / 重置”放入顶部系统操作菜单；原有内容分区保持不变。
+
+无搜索页面在入场生命周期中不挂载底部搜索 toolbar；有搜索页面入场时挂载。这个页面配置不会随 scroll phase 改变：普通滚动只修改 navigation item 和 search placement item，不改变 bar 或 safe-area 高度。详情、编辑 sheet 和 picker 沿用其正常导航标题。
 
 ## 8. 禁止的回归
 
@@ -356,3 +367,13 @@ ios/RocoNative/Shared/UI/
 一句话原则：
 
 > **一级页面标题属于滚动内容；系统 navigation bar 与 toolbar 永不因普通滚动改变几何高度；滚动时只隐藏/恢复其中的系统 item，避免任何 safe-area 跳动。**
+
+## 11. 本次迁移验证（2026-10-04）
+
+- Xcode 27 / iPhone 18 Pro / iOS 27 模拟器：构建成功。
+- 九页 chrome 测试验证标题滚出内容、导航栏 / 搜索 toolbar 几何稳定、筛选菜单、搜索输入及非空 query 滚动保护；短页面使用最大辅助字号制造足够的滚动内容。
+- 首页功能导航、技能搜索 / 筛选 / 详情返回、PVP 分区 / 交换 / 重置、深色设置测试通过。日志：`build/ios-page-chrome-verification.log`。
+- 图鉴首页返回 / 边缘返回、重复搜索激活测试通过；头像转场代码保持不变。日志：`build/ios-page-chrome-catalog-regression.log`。
+- UI 静态审计无 high 项；现有 medium 项不属于此次 chrome 改动。
+- 主 scheme 的现有 `NavigationLifetimeTests` 仍调用旧图鉴导航接口，无法编译；上述 UI 测试通过临时只包含 UI tests 的 scheme 执行，临时配置在验证后移除。
+- 真机仍需验收拖动过程中 item 显隐、safe-area 连续性、取消返回手势、VoiceOver 和减少动态效果；模拟器验收不代替这些项目。
