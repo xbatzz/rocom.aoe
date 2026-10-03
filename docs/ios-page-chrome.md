@@ -167,6 +167,31 @@ SwiftUI 页面负责提供“正在滚动还是已停止”的粗粒度状态：
 - dragging / decelerating：顶部按钮和底部搜索消失。
 - 搜索正在激活，或 query 非空时：搜索 chrome 保持显示，避免输入过程中控件被移走。
 
+## 3.1 嵌套导航页面的归属规则
+
+如果一级页面内部为了特殊详情转场而持有自己的 `UINavigationController`，**一级页面 chrome 仍必须属于外层首页 NavigationStack**。
+
+图鉴就是这个例子：
+
+```text
+首页 NavigationStack（拥有一级页面 chrome）
+├── 返回首页
+├── 筛选
+├── 底部搜索
+└── CatalogNavigationPage
+    └── 私有 CatalogNavigationController（不显示自己的 bar）
+        ├── 图鉴 Grid
+        └── PetDetail（只负责内部 push/pop 与共享头像动画）
+```
+
+要求：
+
+- 首页 ↔ 一级页面：使用外层导航容器的系统 bar 和 interactive pop。
+- 一级页面内部特殊详情：可以保留私有导航控制器，但私有导航栏 / toolbar 默认隐藏。
+- 不要把一级页面的返回、筛选、搜索挂到私有导航控制器，否则外层 interactive pop 时这些控件会作为页面内容一起横向移动，与其他一级页面不一致。
+- 私有导航需要详情返回按钮时，优先让外层 bar 的 leading item 临时改为“返回内部详情”，而不是再显示第二条导航栏。
+- 外层与内层导航手势必须互斥：内部详情存在时禁用“返回首页”的外层 pop；回到一级根页面后再恢复。
+
 ## 4. 为什么不用 `hidesBarsOnSwipe`
 
 不要把 `UINavigationController.hidesBarsOnSwipe` 作为这个项目一级 SwiftUI 页面默认实现。
