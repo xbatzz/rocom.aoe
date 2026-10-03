@@ -9,7 +9,7 @@
 当前以图鉴页为交互基准，参考：
 
 - `ios/RocoNative/Features/Encyclopedia/PetGrid.swift`
-- `ios/RocoNative/Features/Encyclopedia/CatalogFilterToolbar.swift`
+- `ios/RocoNative/SharedUI/CompanionScrollChrome.swift`
 - `ios/RocoNative/Features/Encyclopedia/AlignedNavigation.swift`
 
 这些文件中的“页面 chrome”行为经过真机反复调整。迁移其他页面时，应复用其原则，不要重新发明一套滚动栏逻辑。
@@ -226,7 +226,7 @@ SwiftUI 页面负责提供“正在滚动还是已停止”的粗粒度状态：
 
 ## 6. 推荐的公共抽象
 
-当前图鉴实现仍包含页面专用代码。迁移两个或以上一级页面时，优先抽出共享实现，而不是复制 `CatalogFilterToolbar.swift`。
+图鉴与技能查询现在共用 `CompanionScrollChrome.swift`。其他一级页面应直接复用这个共享实现，不再新增页面专用的 navigation/search chrome bridge。
 
 推荐目标（名称可按现有目录规范调整）：
 
