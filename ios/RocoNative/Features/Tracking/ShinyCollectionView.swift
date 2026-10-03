@@ -12,6 +12,7 @@ struct ShinyCollectionView: View {
     @State private var query = ""
     @State private var season: SeasonID?
     @State private var filter = 0
+    @State private var page = 1
     @State private var error: String?
     @State private var undo: (id: String, old: Bool)?
     init(content: ContentStore, index: TrackingCatalogIndex) {
@@ -34,7 +35,11 @@ struct ShinyCollectionView: View {
     var body: some View {
         let collected = collected
         let seasonalSlots = seasonalSlots
-        let visible = visible(slots: seasonalSlots, saved: collected)
+        let visible = visible(slots: seasonalSlots, saved: collected).sorted {
+            ($0.familyId.rawValue, $0.seasonId.rawValue, $0.slotId.rawValue) < ($1.familyId.rawValue, $1.seasonId.rawValue, $1.slotId.rawValue)
+        }
+        let window = CatalogPage(totalCount: visible.count, requestedPage: page)
+        let pageSlots = visible[window.range]
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 DisclosureGroup("各赛季进度") {
@@ -62,17 +67,18 @@ struct ShinyCollectionView: View {
                             Text(season.flatMap { content.seasons[$0]?.nameZh } ?? "全部赛季").font(.subheadline.weight(.medium)).fixedSize(horizontal: false, vertical: true)
                             Image(systemName: "chevron.down").font(.system(size: 12, weight: .semibold))
                         }.frame(minHeight: 44)
-                    }.tint(.primary)
+                    }.tint(.primary).accessibilityIdentifier("shiny-season")
                     Text("\(visible.count) 个异色槽").font(.caption.monospacedDigit()).foregroundStyle(.secondary)
                 }
                 Picker("收集状态", selection: $filter) {
                     Text("全部").tag(0); Text("已收集").tag(1); Text("未收集").tag(2)
                 }.pickerStyle(.segmented)
                 if visible.isEmpty { ContentUnavailableView("没有符合条件的异色槽", systemImage: "star", description: Text("尝试其他关键词、赛季或收集状态。")) }
-                let keys = Set(visible.map(\.familyId)).sorted { $0.rawValue < $1.rawValue }
+                CatalogPagination(window: window, page: $page).id("catalog-results-top")
+                let keys = Set(pageSlots.map(\.familyId)).sorted { $0.rawValue < $1.rawValue }
                 ForEach(keys, id: \.self) { family in
                     let familySlots = seasonalSlots.filter { $0.familyId == family }
-                    let shown = visible.filter { $0.familyId == family }
+                    let shown = pageSlots.filter { $0.familyId == family }
                     CompanionHeading(title: familySlots.first.flatMap { content.pets[$0.representativePetId]?.nameZh } ?? "家族 #\(family.rawValue)", detail: "\(familySlots.filter { collected.contains($0.slotId.rawValue) }.count) / \(familySlots.count) 已收集")
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: dynamicTypeSize.isAccessibilitySize ? 280 : 150), spacing: 12)], spacing: 12) {
                         ForEach(shown, id: \.slotId) { slot in
@@ -85,8 +91,10 @@ struct ShinyCollectionView: View {
                         }
                     }
                 }
+                if window.pageCount > 1 { CatalogPagination(window: window, page: $page) }
             }.padding(20)
-        }.reviewScrollPosition().companionBackground().navigationTitle("异色收集")
+        }.catalogPagination(page: $page, totalCount: visible.count, resetKey: [query, season as AnyHashable, filter])
+            .reviewScrollPosition().companionBackground().navigationTitle("异色收集")
             .searchable(text: $query, prompt: "任一成员名称或 ID")
             .alert("保存失败", isPresented: Binding(get: { error != nil }, set: { if !$0 { error = nil } })) {
                 Button("好", role: .cancel) { error = nil }

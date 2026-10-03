@@ -8,8 +8,13 @@ struct SkillAcquisitionResultsView: View {
     let portraits: PortraitStore
     let index: SkillSearchIndex
     @Binding var query: SkillAcquisitionQuery
+    @Binding var page: Int
+    private var resetKey: [AnyHashable] {
+        [skill, query.keyword, query.source as AnyHashable, query.type as AnyHashable, query.implementation, query.highest]
+    }
     var body: some View {
         let rows = query.results(skill: skill, index: index, content: content)
+        let window = CatalogPage(totalCount: rows.count, requestedPage: page)
         CompanionSection("可获得精灵 · \(rows.count) \(query.highest ? "个家族" : "个形态")") {
             Text("汇总同名技能的获得方式，具体效果以精灵实际技能为准。").font(.footnote).foregroundStyle(.secondary)
             DisclosureGroup("筛选获得关系") {
@@ -29,7 +34,8 @@ struct SkillAcquisitionResultsView: View {
                 Button("重置") { query = SkillAcquisitionQuery(scope: .sameName) }
             }.tint(.primary)
             if rows.isEmpty { Text("没有符合条件的获得关系").foregroundStyle(.secondary) }
-            ForEach(rows, id: \.key) { row in
+            CatalogPagination(window: window, page: $page).id("catalog-results-top")
+            ForEach(rows[window.range], id: \.key) { row in
                 VStack(alignment: .leading, spacing: 10) {
                     petLink(row.representative)
                     DisclosureGroup("实际获得成员 · \(Set(row.acquired.map(\.petId)).count)") {
@@ -46,7 +52,10 @@ struct SkillAcquisitionResultsView: View {
                 }.padding(.vertical, 10)
                 Divider()
             }
+            if window.pageCount > 1 { CatalogPagination(window: window, page: $page) }
         }
+        .onChange(of: resetKey) { page = 1 }
+        .onChange(of: rows.count) { page = CatalogPage(totalCount: rows.count, requestedPage: page).number }
     }
     private func petLink(_ pet: Pet) -> some View {
         NavigationLink { ExistingPetDestination(pet: pet, content: content, portraits: portraits) } label: {
@@ -56,7 +65,7 @@ struct SkillAcquisitionResultsView: View {
                     Text(pet.nameZh).font(.headline)
                     Text("#\(String(pet.handbookId?.rawValue ?? pet.speciesId.rawValue)) · \(pet.form == "default" ? "默认形态" : pet.form) · 配置 \(String(pet.petId.rawValue))").font(.caption).foregroundStyle(.secondary)
                 }
-            }
+            }.frame(maxWidth: .infinity, alignment: .leading).contentShape(Rectangle())
         }.buttonStyle(.plain)
     }
 }

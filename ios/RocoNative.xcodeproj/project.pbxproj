@@ -44,6 +44,9 @@ F1C24EA25313570978CF4966 = {isa = PBXBuildFile; fileRef = 70B9FDC9EB10A94E5A041E
 		4D427A188523F6E053542052 = {isa = PBXBuildFile; fileRef = 1BB54C6ADB580EC17FEA7D84; };
 		2A5721CD7FFC475FB43CBF9F /* RocoNative/SharedUI/CompanionTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100130590CE126BC9B8F7CA6; };
 		87F813E1BC31558A98066F8A /* RocoNative/SharedUI/CompanionTabbedPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2B260393B17169FC9006E0; };
+		C1F0555BC8BEED82606C171A /* CatalogPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4F267B6E79F819B6E25B95; };
+		74CB9D09E8B47C52F0544D97 /* CatalogPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C659B63E8F6D935B33BC85; };
+		BDD35D7F6F1999850B47A9E0 /* CatalogPaginationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F40A86B7E554372F4AAFE7; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +97,9 @@ F13F039A71DF618AE5909B7E = {isa = PBXFileReference; lastKnownFileType = sourceco
 		1BB54C6ADB580EC17FEA7D84 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RocoNative/Features/Teams/TeamImageImportView.swift"; sourceTree = SOURCE_ROOT; };
 		100130590CE126BC9B8F7CA6 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RocoNative/SharedUI/CompanionTabBar.swift"; sourceTree = SOURCE_ROOT; };
 		EA2B260393B17169FC9006E0 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RocoNative/SharedUI/CompanionTabbedPage.swift"; sourceTree = SOURCE_ROOT; };
+		4F4F267B6E79F819B6E25B95 /* CatalogPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/SharedUI/CatalogPage.swift; sourceTree = SOURCE_ROOT; };
+		00C659B63E8F6D935B33BC85 /* CatalogPagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/SharedUI/CatalogPagination.swift; sourceTree = SOURCE_ROOT; };
+		C2F40A86B7E554372F4AAFE7 /* CatalogPaginationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocoNative/SharedUI/CatalogPaginationModifier.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,6 +338,9 @@ A017DDBE73B94C32470D6A9A,
 				1AE73768742C2AF9785D91C4 /* RocoNative/Features/Encyclopedia/AlignedNavigation.swift in Sources */,
 				3EC42020A2F41A8E5925C8AE /* RocoNative/Features/Encyclopedia/PetDetail.swift in Sources */,
 				87F813E1BC31558A98066F8A,
+				BDD35D7F6F1999850B47A9E0,
+				74CB9D09E8B47C52F0544D97,
+				C1F0555BC8BEED82606C171A,
 				2A5721CD7FFC475FB43CBF9F,
 				EB425E06B038067631A79AB3 /* RocoNative/Features/Encyclopedia/PetGrid.swift in Sources */,
 				E711AE5CB5E54BC155D069F3 /* RocoNative/SharedUI/PortraitStore.swift in Sources */,

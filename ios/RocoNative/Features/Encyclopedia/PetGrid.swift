@@ -115,6 +115,7 @@ struct AlignedPetGrid: View {
     let open: (Pet, PortraitOrigin) -> Void
     @State private var query = PetListQuery()
     @State private var showingFilters = false
+    @State private var page = 1
     @FocusState private var searchFocused: Bool
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
@@ -131,6 +132,7 @@ struct AlignedPetGrid: View {
 
     var body: some View {
         let results = query.results(pets: catalogPets, content: content)
+        let window = CatalogPage(totalCount: results.count, requestedPage: page)
         ScrollView {
             VStack(alignment: .leading, spacing: 28) {
                 listControls(resultCount: results.count)
@@ -143,16 +145,19 @@ struct AlignedPetGrid: View {
                         Button("重置搜索与筛选") { query = PetListQuery() }
                     }
                 }
+                CatalogPagination(window: window, page: $page).id("catalog-results-top")
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: dynamicTypeSize.isAccessibilitySize ? 280 : 150), spacing: 20)], spacing: 28) {
-                    ForEach(results, id: \.petId) { pet in
+                    ForEach(results[window.range], id: \.petId) { pet in
                         PetGridCell(pet: pet, content: content, portraits: portraits, anchors: anchors) { pet, origin in
                             searchFocused = false
                             open(pet, origin)
                         }
                     }
                 }
+                if window.pageCount > 1 { CatalogPagination(window: window, page: $page) }
             }.padding(24)
         }
+        .catalogPagination(page: $page, totalCount: results.count, resetKey: [query.keyword, query.firstType as AnyHashable, query.secondType as AnyHashable, query.attackStyle as AnyHashable, query.leader, query.stage, query.leaderPotential, query.sort])
         .reviewScrollPosition()
         .scrollDismissesKeyboard(.interactively)
         .background(Color(uiColor: .systemBackground))

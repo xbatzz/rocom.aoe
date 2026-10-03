@@ -3,6 +3,138 @@ import UIKit
 
 final class NavigationTests: XCTestCase {
     @MainActor
+    func testPaginationInLargeSkillAndPetResults() {
+        let app = XCUIApplication()
+        for route in ["pet-many-skills", "skill-many-pets", "advanced", "team-many-skills"] {
+            app.launchArguments = ["--visual-review", route, "--reduce-motion"]
+            app.launch()
+            if route == "pet-many-skills" {
+                let tabs = app.segmentedControls["pet-detail-tabs"]
+                XCTAssertTrue(tabs.waitForExistence(timeout: 8)); tabs.buttons["技能"].tap()
+                app.segmentedControls["pet-skill-tabs"].buttons["技能石"].tap()
+            } else if route == "skill-many-pets" {
+                let tabs = app.segmentedControls["skill-detail-tabs"]
+                XCTAssertTrue(tabs.waitForExistence(timeout: 8)); tabs.buttons["获得方式"].tap()
+            } else if route == "team-many-skills" {
+                XCTAssertTrue(app.navigationBars["队伍编辑"].waitForExistence(timeout: 8))
+                app.buttons.matching(NSPredicate(format: "label CONTAINS '学院呱呱'")).firstMatch.tap()
+                XCTAssertTrue(app.navigationBars["槽位草稿"].waitForExistence(timeout: 3))
+                app.buttons["选择精灵"].firstMatch.tap()
+                let pickerNext = app.buttons["pagination-next"].firstMatch
+                XCTAssertTrue(pickerNext.waitForExistence(timeout: 3)); pickerNext.tap()
+                XCTAssertTrue(app.staticTexts["pagination-range"].firstMatch.label.hasPrefix("第 25–"))
+                app.navigationBars.buttons.element(boundBy: 0).tap()
+            } else {
+                XCTAssertTrue(app.navigationBars["高级筛选"].waitForExistence(timeout: 8))
+            }
+            let next = app.buttons["pagination-next"].firstMatch
+            // Form rows below the initial viewport enter the accessibility tree lazily.
+            for _ in 0..<14 where !next.exists || !next.isHittable { app.swipeUp() }
+            XCTAssertTrue(next.waitForExistence(timeout: 3), route)
+            XCTAssertTrue(next.isHittable, route); next.tap()
+            XCTAssertTrue(app.staticTexts["pagination-range"].firstMatch.label.hasPrefix("第 25–"), route)
+            XCTAssertTrue(next.isHittable, "\(route) must scroll back to the first row")
+            app.buttons["pagination-previous"].firstMatch.tap()
+            XCTAssertTrue(app.staticTexts["pagination-range"].firstMatch.label.hasPrefix("第 1–"), route)
+            XCTAssertFalse(app.buttons["pagination-previous"].firstMatch.isEnabled, route)
+            attach("pagination-large-\(route)", app)
+            app.terminate()
+        }
+    }
+
+    @MainActor
+    func testCatalogPaginationAndSearchReset() {
+        let app = XCUIApplication()
+        for route in ["skills", "hero", "grass", "shiny"] {
+            app.launchArguments = ["--visual-review", route, "--visual-fixture", "--reduce-motion"]
+            app.launch()
+            if route == "shiny" {
+                // The current season has 19 slots; all seasons exercise multiple pages.
+                let season = app.buttons["shiny-season"]
+                XCTAssertTrue(season.waitForExistence(timeout: 8)); season.tap()
+                app.buttons["全部赛季"].firstMatch.tap()
+            }
+            let next = app.buttons["pagination-next"].firstMatch
+            XCTAssertTrue(next.waitForExistence(timeout: 8), route)
+            for _ in 0..<6 where !next.isHittable { app.swipeUp() }
+            XCTAssertTrue(next.isHittable, route)
+            next.tap()
+            let range = app.staticTexts["pagination-range"].firstMatch
+            XCTAssertTrue(range.label.hasPrefix("第 25–"), "\(route): \(range.label)")
+            XCTAssertTrue(next.isHittable, "Page changes must return to the list controls")
+            app.buttons["pagination-previous"].firstMatch.tap()
+            XCTAssertTrue(range.label.hasPrefix("第 1–"), route)
+            next.tap()
+            let search = app.searchFields.firstMatch
+            for _ in 0..<8 where !search.isHittable { app.swipeDown() }
+            XCTAssertTrue(search.isHittable, route)
+            search.tap(); search.typeText("不存在的精灵技能")
+            XCTAssertFalse(app.buttons["pagination-next"].firstMatch.exists, "Empty searches must not retain a stale page")
+            let clear = search.buttons.firstMatch
+            XCTAssertTrue(clear.exists)
+            clear.tap()
+            XCTAssertTrue(range.waitForExistence(timeout: 3))
+            XCTAssertTrue(range.label.hasPrefix("第 1–"), "Clearing the search resets to page 1: \(route)")
+            if route == "hero" {
+                // A direct jump exercises the final boundary and disabled next control.
+                search.typeText("\n")
+                let menu = app.buttons["pagination-page"].firstMatch
+                for _ in 0..<5 where !menu.isHittable { app.swipeUp() }
+                menu.tap(); app.buttons["第 8 / 8 页"].firstMatch.tap()
+                XCTAssertTrue(range.label.hasPrefix("第 169–192"))
+                XCTAssertFalse(app.buttons["pagination-next"].firstMatch.isEnabled)
+                menu.tap(); app.buttons["第 1 / 8 页"].firstMatch.tap()
+            }
+            attach("pagination-\(route)", app)
+            app.terminate()
+        }
+    }
+
+    @MainActor
+    func testCollectionEntryPortraitAndWhitespaceNavigation() {
+        let app = XCUIApplication(); app.launchArguments = ["--visual-review", "home"]
+        app.launch()
+        XCTAssertTrue(app.navigationBars["洛克工具"].waitForExistence(timeout: 8))
+        for (identifier, title) in [("home-shiny", "异色收集"), ("home-grass", "草系徽章"), ("home-hero", "命定勇者")] {
+            for (x, y) in [(0.08, 0.5), (0.60, 0.84), (0.88, 0.5)] {
+                let entry = app.buttons[identifier].firstMatch
+                for _ in 0..<5 where !entry.isHittable || entry.frame.maxY > app.frame.maxY - 45 { app.swipeUp() }
+                XCTAssertTrue(entry.isHittable, title)
+                entry.coordinate(withNormalizedOffset: CGVector(dx: x, dy: y)).tap()
+                XCTAssertTrue(app.navigationBars[title].waitForExistence(timeout: 3), "\(title) should open from x=\(x)")
+                app.navigationBars.buttons.element(boundBy: 0).tap()
+                XCTAssertTrue(app.navigationBars["洛克工具"].waitForExistence(timeout: 3))
+            }
+        }
+        attach("collection-entry-hit-targets", app)
+    }
+
+    @MainActor
+    func testPaginatedEncyclopediaReturnAndLargeText() {
+        let app = XCUIApplication(); app.launchArguments = ["--visual-review", "grid", "--reduce-motion"]
+        app.launch()
+        let next = app.buttons["pagination-next"].firstMatch
+        XCTAssertTrue(next.waitForExistence(timeout: 8))
+        for _ in 0..<5 where !next.isHittable { app.swipeUp() }
+        next.tap()
+        let cell = app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH 'pet-'")).firstMatch
+        XCTAssertTrue(cell.waitForExistence(timeout: 3)); cell.tap()
+        XCTAssertTrue(app.scrollViews.matching(NSPredicate(format: "identifier BEGINSWITH 'detail-'")).firstMatch.waitForExistence(timeout: 3))
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+        XCTAssertTrue(app.staticTexts["pagination-range"].firstMatch.label.hasPrefix("第 25–"))
+        attach("pagination-grid-return", app)
+        app.terminate()
+        app.launchArguments = ["--visual-review", "hero", "--reduce-motion", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
+        app.launch()
+        XCTAssertTrue(next.waitForExistence(timeout: 8))
+        for _ in 0..<8 where !next.isHittable { app.swipeUp() }
+        XCTAssertTrue(next.isHittable); next.tap()
+        XCTAssertTrue(app.staticTexts["pagination-range"].firstMatch.label.hasPrefix("第 25–"))
+        XCTAssertTrue(next.isHittable)
+        attach("pagination-accessibility-text", app)
+    }
+
+    @MainActor
     func testSavedDarkAppearanceReachesRoot() throws {
         let app = XCUIApplication(); app.launchArguments = ["--visual-review", "version", "--visual-fixture"]
         app.launch()

@@ -28,9 +28,11 @@ struct SkillsView: View {
     @State private var query = ""
     @State private var type: TypeID?
     @State private var category: SkillCategory?
+    @State private var page = 1
 
     var body: some View {
         let ids = index.search(query, type: type, category: category)
+        let window = CatalogPage(totalCount: ids.count, requestedPage: page)
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 ViewThatFits(in: .horizontal) {
@@ -55,8 +57,9 @@ struct SkillsView: View {
                 }
                 CompanionHeading(title: "技能目录", detail: "\(ids.count) 个 · ID 排序")
                 if ids.isEmpty { ContentUnavailableView("没有符合条件的技能", systemImage: "sparkle.magnifyingglass", description: Text("尝试其他关键词，或更改属性与类别筛选。")) }
+                CatalogPagination(window: window, page: $page).id("catalog-results-top")
                 LazyVStack(spacing: 0) {
-                    ForEach(ids, id: \.self) { id in
+                    ForEach(ids[window.range], id: \.self) { id in
                         if let skill = content.skills[id] {
                             NavigationLink {
                                 SkillDetailView(skill: skill, content: content, portraits: portraits, index: index)
@@ -71,8 +74,10 @@ struct SkillsView: View {
                         }
                     }
                 }
+                if window.pageCount > 1 { CatalogPagination(window: window, page: $page) }
             }.padding(20)
-        }.reviewScrollPosition().companionBackground().searchable(text: $query, prompt: "中文名、ID 或描述")
+        }.catalogPagination(page: $page, totalCount: ids.count, resetKey: [query, type as AnyHashable, category as AnyHashable])
+            .reviewScrollPosition().companionBackground().searchable(text: $query, prompt: "中文名、ID 或描述")
             .navigationTitle("技能查询")
     }
     private var typeFilter: some View {
@@ -109,10 +114,11 @@ struct SkillDetailView: View {
         case acquisition = "获得方式"
     }
     @State private var section = Section.details
+    @State private var acquisitionPage = 1
     @State private var acquisitionQuery = SkillAcquisitionQuery(scope: .sameName)
 
     var body: some View {
-        CompanionTabbedPage(title: "技能分区", selection: $section, options: Section.allCases, identifier: "skill-detail-tabs") {
+        CompanionTabbedPage(title: "技能分区", selection: $section, options: Section.allCases, identifier: "skill-detail-tabs", scrollResetKey: acquisitionPage) {
             if section == .details {
                 VStack(alignment: .leading, spacing: 18) {
                     HStack(spacing: 16) {
@@ -141,7 +147,7 @@ struct SkillDetailView: View {
                     }
                 }
             } else {
-                SkillAcquisitionResultsView(skill: skill.skillId, content: content, portraits: portraits, index: index, query: $acquisitionQuery)
+                SkillAcquisitionResultsView(skill: skill.skillId, content: content, portraits: portraits, index: index, query: $acquisitionQuery, page: $acquisitionPage)
             }
         }.navigationTitle(skill.nameZh)
     }

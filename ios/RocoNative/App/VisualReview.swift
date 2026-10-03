@@ -47,19 +47,24 @@ enum VisualReview {
                 }
             case "types", "types-dual", "types-coverage": TypeMatchupView(content: content)
             case "skills": SkillsView(content: content, portraits: portraits, index: skills)
-            case "skill":
-                if let skill = content.skills.values.sorted(by: { $0.skillId.rawValue < $1.skillId.rawValue }).first(where: { $0.iconAssetId != nil }) {
+            case "skill", "skill-many-pets":
+                if let skill = route == "skill-many-pets" ? content.skills[SkillID(rawValue: 7020780)] : content.skills.values.sorted(by: { $0.skillId.rawValue < $1.skillId.rawValue }).first(where: { $0.iconAssetId != nil }) {
                     SkillDetailView(skill: skill, content: content, portraits: portraits, index: skills)
                 }
             case "shiny": ShinyCollectionView(content: content, index: tracking)
             case "grass": GrassBadgeView(content: content, index: tracking)
             case "hero": DestinedHeroView(content: content, index: tracking)
             case "team-draft": TeamDraftView(initial: TeamBuild(), content: content, portraits: portraits, skillIndex: skills)
+            case "team-many-skills":
+                if let pet = content.pets[PetID(rawValue: 3620)], let slot = try? TeamRules.assign(pet, content: content) {
+                    var build: TeamBuild { var build = TeamBuild(); build.slots[0] = slot; return build }
+                    TeamDraftView(initial: build, content: content, portraits: portraits, skillIndex: skills)
+                }
             case "teams": TeamBuilderView(content: content, portraits: portraits, skillIndex: skills)
             case "pvp", "pvp-filled": PVPBattleView(content: content, portraits: portraits, skillIndex: skills)
             case "backup": UserBackupView(content: content)
-            case "pet":
-                if let pet = content.pets[PetID(rawValue: 3001)] {
+            case "pet", "pet-many-skills":
+                if let pet = content.pets[PetID(rawValue: route == "pet-many-skills" ? 3620 : 3001)] {
                     ExistingPetDestination(pet: pet, content: content, portraits: portraits)
                 }
             default: NativeFeatureEntry(content: content, portraits: portraits, skills: skills, tracking: tracking)

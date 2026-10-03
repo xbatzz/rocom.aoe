@@ -32,6 +32,7 @@ struct PetDetail: View {
     @State private var moveSource = PetSkillSource.pool
     @State private var selectedSkill: SkillID?
     @State private var index: SkillSearchIndex?
+    @State private var movePage = 1
     @State private var moveKeyword = ""
     @State private var moveType: TypeID?
     @State private var moveCategory: SkillCategory?
@@ -114,7 +115,8 @@ struct PetDetail: View {
                 .onChange(of: section) {
                     proxy.scrollTo(section == .overview ? "pet-top" : "pet-section", anchor: .top)
                 }
-                .onChange(of: moveSource) { proxy.scrollTo("pet-section", anchor: .top) }
+                .onChange(of: movePage) { proxy.scrollTo("catalog-results-top", anchor: .top) }
+                .onChange(of: moveSource) { movePage = 1; proxy.scrollTo("pet-section", anchor: .top) }
             }
         }
         .background(Color(uiColor: .systemBackground))
@@ -183,13 +185,15 @@ struct PetDetail: View {
             return (moveKeyword.isEmpty || "\(skill.nameZh) \(skill.description)".localizedStandardContains(moveKeyword))
                 && (moveType == nil || skill.typeId == moveType) && (moveCategory == nil || skill.category == moveCategory)
         }
+        let window = CatalogPage(totalCount: rows.count, requestedPage: movePage)
         detailCard(sourceTitle(moveSource)) {
             if allRows.isEmpty {
                 Text("当前精灵没有\(sourceTitle(moveSource))资料").foregroundStyle(.secondary)
             } else if rows.isEmpty {
                 Text("没有符合筛选条件的技能").foregroundStyle(.secondary)
             }
-            ForEach(Array(rows.enumerated()), id: \.offset) { rowIndex, relation in
+            CatalogPagination(window: window, page: $movePage).id("catalog-results-top")
+            ForEach(Array(rows[window.range].enumerated()), id: \.offset) { rowIndex, relation in
                 if let skill = content.skills[relation.skillId] {
                     if rowIndex > 0 { Divider() }
                     Button { selectedSkill = skill.skillId } label: { skillRow(skill, relation: relation) }
@@ -197,7 +201,10 @@ struct PetDetail: View {
                         .accessibilityHint("打开完整技能说明与获得方式")
                 }
             }
+            if window.pageCount > 1 { CatalogPagination(window: window, page: $movePage) }
         }
+        .onChange(of: [moveKeyword, moveType as AnyHashable, moveCategory as AnyHashable]) { movePage = 1 }
+        .onChange(of: rows.count) { movePage = CatalogPage(totalCount: rows.count, requestedPage: movePage).number }
     }
 
     private func sourceTitle(_ source: PetSkillSource) -> String {

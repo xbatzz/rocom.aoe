@@ -7,8 +7,10 @@ struct AdvancedPetFilterView: View {
     let portraits: PortraitStore
     @State private var query = PetQuery()
     @State private var skillSearch = ""
+    @State private var page = 1
     var body: some View {
         let pets = query.results(content: content)
+        let window = CatalogPage(totalCount: pets.count, requestedPage: page)
         List {
             Section("组合筛选") {
                 TextField("精灵名称、图鉴编号或配置 ID", text: $query.keyword)
@@ -41,7 +43,8 @@ struct AdvancedPetFilterView: View {
                 Button("重置全部条件") { query = PetQuery(); skillSearch = "" }
             }
             Section("结果 · \(pets.count) 个配置") {
-                ForEach(pets, id: \.petId) { pet in
+                CatalogPagination(window: window, page: $page).id("catalog-results-top")
+                ForEach(pets[window.range], id: \.petId) { pet in
                     NavigationLink { ExistingPetDestination(pet: pet, content: content, portraits: portraits) } label: {
                         HStack {
                             CanonicalThumbnail(assetID: pet.portraitAssetId, content: content, size: 48)
@@ -53,8 +56,10 @@ struct AdvancedPetFilterView: View {
                         }
                     }
                 }
+                if window.pageCount > 1 { CatalogPagination(window: window, page: $page) }
                 if pets.isEmpty { Text("没有符合条件的精灵").foregroundStyle(.secondary) }
             }
-        }.navigationTitle("高级筛选")
+        }.catalogPagination(page: $page, totalCount: pets.count, resetKey: [query.keyword, query.type as AnyHashable, query.skill as AnyHashable, query.source as AnyHashable, query.style as AnyHashable, query.stage, query.implementation, query.sort, query.descending])
+            .navigationTitle("高级筛选")
     }
 }

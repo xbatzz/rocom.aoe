@@ -7,6 +7,25 @@ import RocoContent
 /// App-hosted integration tests use the real system navigation controller on Simulator.
 /// Programmatic interruption does not substitute for a finger tapping during zoom.
 final class NavigationLifetimeTests: XCTestCase {
+    func testPaginationTraversalAndShrinkingResults() {
+        let items = Array(0..<721)
+        var visited: [Int] = []
+        let first = CatalogPage(totalCount: items.count, requestedPage: 1)
+        XCTAssertEqual(first.pageCount, 31)
+        for number in 1...first.pageCount {
+            let window = CatalogPage(totalCount: items.count, requestedPage: number)
+            XCTAssertLessThanOrEqual(window.range.count, 24)
+            visited.append(contentsOf: items[window.range])
+        }
+        XCTAssertEqual(visited, items, "Every item must be reachable exactly once, in order")
+        XCTAssertEqual(CatalogPage(totalCount: 48, requestedPage: 3).range, 24..<48)
+        XCTAssertEqual(CatalogPage(totalCount: 49, requestedPage: 3).range, 48..<49)
+        XCTAssertEqual(CatalogPage(totalCount: 24, requestedPage: 31).number, 1)
+        XCTAssertEqual(CatalogPage(totalCount: 0, requestedPage: 31).range, 0..<0)
+        XCTAssertEqual(CatalogPage(totalCount: 0, requestedPage: 31).number, 1)
+        XCTAssertEqual(CatalogPage(totalCount: 25, requestedPage: -1).range, 0..<24)
+    }
+
     @MainActor
     func testFixedTeamImageCropRecognition() async throws {
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: 1625, height: 747))

@@ -227,11 +227,19 @@ struct TeamSlotView: View {
     var purpose: PetPickerPurpose = .team
     var usedSlots: [TeamSlot] = []
     @State private var moveSearch = ""
+    @State private var movePage = 1
     @State private var moveSource: PetSkillSource?
     @State private var replacePosition: Int?
     @State private var error: String?
     private var pet: Pet? { slot.petID.flatMap { content.pets[PetID(rawValue: $0)] } }
     var body: some View {
+        let moveOptions = Result {
+            try TeamRules.options(slot, content: content).filter {
+                (moveSource == nil || $0.source == moveSource)
+                    && (moveSearch.isEmpty || "\($0.skill.nameZh) \($0.skill.description) \($0.skill.skillId.rawValue)".localizedStandardContains(moveSearch))
+            }
+        }
+        let optionCount = (try? moveOptions.get().count) ?? 0
         Form {
             Section {
                 NavigationLink("选择精灵") { TeamPetPicker(slot: $slot, content: content, purpose: purpose, usedSlots: usedSlots) }
@@ -268,9 +276,10 @@ struct TeamSlotView: View {
                 }
                 individualSection
                 statsSection(pet)
-                movesSection
+                movesSection(options: moveOptions)
             }
-        }.navigationTitle("槽位草稿")
+        }.catalogPagination(page: $movePage, totalCount: optionCount, resetKey: [slot.petID as AnyHashable, slot.legacyTypeID as AnyHashable, moveSearch, moveSource as AnyHashable])
+            .navigationTitle("槽位草稿")
             .alert("无法应用更改", isPresented: Binding(get: { error != nil }, set: { if !$0 { error = nil } })) {
                 Button("好", role: .cancel) { error = nil }
             } message: { Text(error ?? "") }
@@ -330,7 +339,7 @@ struct TeamSlotView: View {
             return try BattleStatsCalculator.calculate(pet: pet, individuals: slot.individualValues, personality: personality)
         }
     }
-    @ViewBuilder private var movesSection: some View {
+    @ViewBuilder private func movesSection(options: Result<[TeamRules.MoveOption], Error>) -> some View {
         Section("技能 · \(slot.skillIDs.count) / 4") {
             TextField("技能名称、描述或 ID", text: $moveSearch)
             Picker("来源", selection: $moveSource) {
@@ -350,9 +359,12 @@ struct TeamSlotView: View {
                 do { slot.skillIDs = try TeamRules.recommended(slot, content: content) }
                 catch { self.error = String(describing: error) }
             }
-            switch Result(catching: { try TeamRules.options(slot, content: content) }) {
+            switch options {
             case .success(let options):
-                ForEach(options.filter { (moveSource == nil || $0.source == moveSource) && (moveSearch.isEmpty || "\($0.skill.nameZh) \($0.skill.description) \($0.skill.skillId.rawValue)".localizedStandardContains(moveSearch)) }, id: \.skill.skillId) { option in
+                let window = CatalogPage(totalCount: options.count, requestedPage: movePage)
+                CatalogPagination(window: window, page: $movePage).id("catalog-results-top")
+                if options.isEmpty { Text("没有符合条件的技能").foregroundStyle(.secondary) }
+                ForEach(options[window.range], id: \.skill.skillId) { option in
                     Button {
                         do {
                             if let position = replacePosition, slot.skillIDs.indices.contains(position) {
@@ -369,6 +381,7 @@ struct TeamSlotView: View {
                         }
                     }
                 }
+                if window.pageCount > 1 { CatalogPagination(window: window, page: $movePage) }
             case .failure(let error): Text(String(describing: error)).foregroundStyle(.red)
             }
         }
@@ -382,6 +395,7 @@ struct TeamPetPicker: View {
     var usedSlots: [TeamSlot] = []
     @State private var query = ""
     @State private var type: TypeID?
+    @State private var page = 1
     @State private var error: String?
     @Environment(\.dismiss) private var dismiss
     private var candidates: [Pet] {
@@ -390,12 +404,15 @@ struct TeamPetPicker: View {
         }
     }
     var body: some View {
+        let candidates = candidates
+        let window = CatalogPage(totalCount: candidates.count, requestedPage: page)
         List {
             Picker("属性", selection: $type) {
                 Text("全部").tag(nil as TypeID?)
                 ForEach(TypeMatchup(types: content.types).selectable, id: \.typeId) { Text($0.nameZh).tag(Optional($0.typeId)) }
             }
-            ForEach(candidates, id: \.petId) { pet in
+            CatalogPagination(window: window, page: $page).id("catalog-results-top")
+            ForEach(candidates[window.range], id: \.petId) { pet in
                 Button {
                     do {
                         if purpose == .team { slot = try TeamRules.assign(pet, content: content) }
@@ -418,7 +435,10 @@ struct TeamPetPicker: View {
                     }
                 }
             }
-        }.navigationTitle(purpose == .battle ? "选择对战精灵" : "选择精灵").searchable(text: $query, prompt: "名称、图鉴编号或配置 ID")
+            if window.pageCount > 1 { CatalogPagination(window: window, page: $page) }
+            if candidates.isEmpty { Text("没有符合条件的精灵").foregroundStyle(.secondary) }
+        }.catalogPagination(page: $page, totalCount: candidates.count, resetKey: [query, type as AnyHashable])
+            .navigationTitle(purpose == .battle ? "选择对战精灵" : "选择精灵").searchable(text: $query, prompt: "名称、图鉴编号或配置 ID")
             .alert("无法选取", isPresented: Binding(get: { error != nil }, set: { if !$0 { error = nil } })) {
                 Button("好", role: .cancel) { error = nil }
             } message: { Text(error ?? "") }

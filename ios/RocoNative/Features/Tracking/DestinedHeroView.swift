@@ -10,6 +10,7 @@ struct DestinedHeroView: View {
     @Environment(\.modelContext) private var context
     @State private var query = ""
     @State private var filter = 0
+    @State private var page = 1
     @State private var error: String?
     private var obtained: Set<String> { Set(records.filter(\.obtained).map(\.familyID)) }
     private func visible(saved: Set<String>) -> [Family] {
@@ -22,6 +23,7 @@ struct DestinedHeroView: View {
     var body: some View {
         let obtained = obtained
         let visible = visible(saved: obtained)
+        let window = CatalogPage(totalCount: visible.count, requestedPage: page)
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 CollectionProgress(title: "家族已获得", count: index.badgeFamilies.filter { obtained.contains($0.familyKey.rawValue) }.count,
@@ -31,8 +33,9 @@ struct DestinedHeroView: View {
                 }.pickerStyle(.segmented)
                 CompanionHeading(title: "家族收藏", detail: "\(visible.count) 个家族")
                 if visible.isEmpty { ContentUnavailableView("没有符合条件的家族", systemImage: "medal", description: Text("尝试其他关键词或获得状态。")) }
+                CatalogPagination(window: window, page: $page).id("catalog-results-top")
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: dynamicTypeSize.isAccessibilitySize ? 280 : 150), spacing: 12)], spacing: 12) {
-                    ForEach(visible, id: \.familyKey) { family in
+                    ForEach(visible[window.range], id: \.familyKey) { family in
                         if let pet = content.pets[family.representativePetId] {
                             Button {
                                 do { try UserDatabase.toggleHero(family.familyKey.rawValue, context: context) }
@@ -49,8 +52,10 @@ struct DestinedHeroView: View {
                         }
                     }
                 }
+                if window.pageCount > 1 { CatalogPagination(window: window, page: $page) }
             }.padding(20)
-        }.reviewScrollPosition().companionBackground().navigationTitle("命定勇者").searchable(text: $query, prompt: "家族任一成员名称或 ID")
+        }.catalogPagination(page: $page, totalCount: visible.count, resetKey: [query, filter])
+            .reviewScrollPosition().companionBackground().navigationTitle("命定勇者").searchable(text: $query, prompt: "家族任一成员名称或 ID")
             .alert("保存失败", isPresented: Binding(get: { error != nil }, set: { if !$0 { error = nil } })) {
                 Button("好", role: .cancel) { error = nil }
             } message: { Text(error ?? "") }

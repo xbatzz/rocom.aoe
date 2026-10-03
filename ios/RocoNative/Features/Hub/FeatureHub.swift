@@ -88,16 +88,16 @@ struct NativeFeatureEntry: View {
                         NavigationLink { ShinyCollectionView(content: content, index: tracking) } label: {
                             homeCollection("异色收集", count: shiny.filter { $0.collected && content.shinySlots[ShinySlotID(rawValue: $0.slotID)] != nil }.count,
                                 total: content.shinySlots.count, tint: .purple, asset: content.shinySlots.values.sorted { $0.slotId.rawValue < $1.slotId.rawValue }.first?.portraitAssetId)
-                        }
+                        }.accessibilityIdentifier("home-shiny")
                         Divider().padding(.leading, 74)
                         NavigationLink { GrassBadgeView(content: content, index: tracking) } label: {
                             homeCollection("草系徽章", subtitle: "按地点记录家族足迹", asset: tracking.badgeFamilies.first.flatMap { content.pets[$0.representativePetId]?.portraitAssetId })
-                        }
+                        }.accessibilityIdentifier("home-grass")
                         Divider().padding(.leading, 74)
                         NavigationLink { DestinedHeroView(content: content, index: tracking) } label: {
                             homeCollection("命定勇者", count: heroes.filter { record in record.obtained && tracking.badgeFamilies.contains(where: { $0.familyKey.rawValue == record.familyID }) }.count,
                                 total: tracking.badgeFamilies.count, tint: .orange, asset: tracking.badgeFamilies.dropFirst().first.flatMap { content.pets[$0.representativePetId]?.portraitAssetId })
-                        }
+                        }.accessibilityIdentifier("home-hero")
                     }.buttonStyle(.plain).companionSurface()
 
                     NavigationLink { AdvancedPetFilterView(content: content, portraits: portraits) } label: { Label("精灵高级筛选", systemImage: "line.3.horizontal.decrease") }
@@ -171,11 +171,14 @@ struct NativeFeatureEntry: View {
                 if let count {
                     Text("\(count) / \(total) 已收集").font(.caption.monospacedDigit()).foregroundStyle(tint)
                     ProgressView(value: Double(count), total: Double(max(1, total))).tint(tint)
+                        .allowsHitTesting(false).accessibilityHidden(true)
                 } else if let subtitle { Text(subtitle).font(.caption).foregroundStyle(.secondary) }
             }
             Spacer(minLength: 8)
             Image(systemName: "chevron.right").font(.system(size: 12, weight: .semibold)).foregroundStyle(.tertiary)
-        }.padding(16)
+        }.frame(maxWidth: .infinity, alignment: .leading)
+            .padding(16)
+            .contentShape(.interaction, Rectangle())
     }
 
 }

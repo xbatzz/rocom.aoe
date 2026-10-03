@@ -7,6 +7,7 @@ struct CompanionTabbedPage<Selection: Hashable & RawRepresentable, Content: View
     @Binding var selection: Selection
     let options: [Selection]
     let identifier: String
+    var scrollResetKey = 0
     @ViewBuilder var content: () -> Content
 
     var body: some View {
@@ -28,6 +29,7 @@ struct CompanionTabbedPage<Selection: Hashable & RawRepresentable, Content: View
                     Divider()
                 }.background(Color(uiColor: .systemGroupedBackground))
             }
+            .onChange(of: scrollResetKey) { proxy.scrollTo("catalog-results-top", anchor: .top) }
             .onChange(of: selection) { proxy.scrollTo("section-top", anchor: .top) }
         }.companionBackground()
     }

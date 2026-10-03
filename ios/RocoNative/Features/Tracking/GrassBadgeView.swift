@@ -18,12 +18,15 @@ struct GrassBadgeView: View {
     @State private var recordedOnly = false
     @State private var type: TypeID?
     @State private var leader = 0
+    @State private var page = 1
+    @State private var suggestionPage = 1
     @State private var error: String?
     private var statuses: [String: BadgeState] {
         Dictionary(uniqueKeysWithValues: records.filter { $0.locationID == location.rawValue }.map { ($0.footprintID, $0.status) })
     }
     private var footprints: [BadgeFootprint] {
-        content.badgeFootprints.values.filter { footprint in
+        let statuses = statuses
+        return content.badgeFootprints.values.filter { footprint in
             guard let pet = content.pets[footprint.petId] else { return false }
             let status = statuses[footprint.footprintKey.rawValue] ?? .unrecorded
             return PetSearch.matches(pet, query: query) && (type == nil || pet.typeIds.contains(type!))
@@ -34,6 +37,8 @@ struct GrassBadgeView: View {
     var body: some View {
         let obtained = Set(medals.filter(\.obtained).map(\.familyID))
         let families = index.badgeFamilies.filter { index.matches($0, query: query, content: content) && (medalFilter == 0 || obtained.contains($0.familyKey.rawValue) == (medalFilter == 1)) }
+        let footprints = footprints
+        let window = CatalogPage(totalCount: mode == 1 ? families.count : footprints.count, requestedPage: page)
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 Picker("记录目录", selection: $mode) { Text("地点足迹").tag(0); Text("家族奖牌").tag(1) }.pickerStyle(.segmented)
@@ -41,7 +46,8 @@ struct GrassBadgeView: View {
                     CollectionProgress(title: "家族奖牌", count: index.badgeFamilies.filter { obtained.contains($0.familyKey.rawValue) }.count, total: index.badgeFamilies.count, tint: .green)
                     Picker("奖牌状态", selection: $medalFilter) { Text("全部").tag(0); Text("已获得").tag(1); Text("未获得").tag(2) }.pickerStyle(.segmented)
                     Text("家族奖牌单独保存，与地点足迹、命定勇者分别统计。").font(.footnote).foregroundStyle(.secondary)
-                    ForEach(families, id: \.familyKey) { family in
+                    CatalogPagination(window: window, page: $page).id("catalog-results-top")
+                    ForEach(families[window.range], id: \.familyKey) { family in
                         if let pet = content.pets[family.representativePetId] {
                             Button {
                                 do { try UserDatabase.toggleGrassMedal(family.familyKey.rawValue, context: context) } catch { self.error = String(describing: error) }
@@ -50,7 +56,8 @@ struct GrassBadgeView: View {
                                     CanonicalThumbnail(assetID: pet.portraitAssetId, content: content, size: 64)
                                     VStack(alignment: .leading) { Text(pet.nameZh).font(.headline); CollectionStatus(selected: obtained.contains(family.familyKey.rawValue), selectedTitle: "已获得", idleTitle: "未获得") }
                                     Spacer()
-                                }.padding(12).companionSurface()
+                                }.frame(maxWidth: .infinity, alignment: .leading).padding(12).companionSurface()
+                                    .contentShape(Rectangle())
                             }.buttonStyle(.plain)
                         }
                     }
@@ -76,20 +83,32 @@ struct GrassBadgeView: View {
                         let suggestions = index.badgeFamilies.filter { index.matches($0, query: query, content: content) }
                         if !suggestions.isEmpty {
                             DisclosureGroup("成员匹配的家族 · \(suggestions.count)") {
-                                ForEach(suggestions, id: \.familyKey) { family in
-                                    NavigationLink(content.pets[family.representativePetId]?.nameZh ?? family.familyKey.rawValue) { GrassFamilyView(family: family, content: content, index: index, location: location) }
+                                let suggestionWindow = CatalogPage(totalCount: suggestions.count, requestedPage: suggestionPage)
+                                CatalogPagination(window: suggestionWindow, page: $suggestionPage)
+                                ForEach(suggestions[suggestionWindow.range], id: \.familyKey) { family in
+                                    NavigationLink { GrassFamilyView(family: family, content: content, index: index, location: location) } label: {
+                                        HStack {
+                                            Text(content.pets[family.representativePetId]?.nameZh ?? family.familyKey.rawValue)
+                                            Spacer()
+                                            Image(systemName: "chevron.right").font(.caption).foregroundStyle(.secondary)
+                                        }.frame(minHeight: 44).contentShape(Rectangle())
+                                    }.buttonStyle(.plain)
                                 }
                             }.tint(.primary)
                         }
                     }
                     Text("\(footprints.count) 条足迹 · 地点独立保存").font(.caption).foregroundStyle(.secondary)
-                    ForEach(footprints, id: \.footprintKey) { footprint in
+                    CatalogPagination(window: window, page: $page).id("catalog-results-top")
+                    ForEach(footprints[window.range], id: \.footprintKey) { footprint in
                         GrassFootprintRow(footprint: footprint, status: statuses[footprint.footprintKey.rawValue] ?? .unrecorded, location: location, content: content)
                     }
                     if footprints.isEmpty { Text("没有符合条件的足迹").foregroundStyle(.secondary) }
                 }
+                if window.pageCount > 1 { CatalogPagination(window: window, page: $page) }
             }.padding(20)
-        }.reviewScrollPosition().companionBackground().navigationTitle("草系徽章").searchable(text: $query, prompt: "成员名称、图鉴编号、配置 ID 或形态")
+        }.catalogPagination(page: $page, totalCount: window.totalCount, resetKey: [query, location, state as AnyHashable, mode, medalFilter, recordedOnly, type as AnyHashable, leader])
+            .onChange(of: query) { suggestionPage = 1 }
+            .reviewScrollPosition().companionBackground().navigationTitle("草系徽章").searchable(text: $query, prompt: "成员名称、图鉴编号、配置 ID 或形态")
             .alert("保存失败", isPresented: Binding(get: { error != nil }, set: { if !$0 { error = nil } })) { Button("好", role: .cancel) {} } message: { Text(error ?? "") }
     }
 }
@@ -100,14 +119,20 @@ struct GrassFamilyView: View {
     let index: TrackingCatalogIndex
     @State var location: BadgeLocationLocationId
     @Query private var records: [GrassRecord]
+    @State private var page = 1
     var body: some View {
         let statuses = Dictionary(uniqueKeysWithValues: records.filter { $0.locationID == location.rawValue }.map { ($0.footprintID, $0.status) })
+        let footprints = index.footprintsByFamily[family.familyKey] ?? []
+        let window = CatalogPage(totalCount: footprints.count, requestedPage: page)
         List {
             BadgeLocationPicker(content: content, selection: $location)
-            ForEach(index.footprintsByFamily[family.familyKey] ?? [], id: \.footprintKey) { footprint in
+            CatalogPagination(window: window, page: $page).id("catalog-results-top")
+            ForEach(footprints[window.range], id: \.footprintKey) { footprint in
                 GrassFootprintRow(footprint: footprint, status: statuses[footprint.footprintKey.rawValue] ?? .unrecorded, location: location, content: content)
             }
-        }.navigationTitle(content.pets[family.representativePetId]?.nameZh ?? family.familyKey.rawValue)
+            if window.pageCount > 1 { CatalogPagination(window: window, page: $page) }
+        }.catalogPagination(page: $page, totalCount: footprints.count, resetKey: [family.familyKey, location])
+            .navigationTitle(content.pets[family.representativePetId]?.nameZh ?? family.familyKey.rawValue)
     }
 }
 
