@@ -178,12 +178,9 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
         }
 
         private func applyChromeVisibility(animated: Bool) {
-            // Keep the search UI stable while editing or while a keyword is active.
-            //
-            // Never hide the navigation bar itself here. Hiding UINavigationBar
-            // changes the top safe-area inset and makes the first catalog row jump
-            // when the buttons return. Keep its geometry mounted and fade only its
-            // chrome, while the system toolbar continues to show/hide normally.
+            // Keep both UIKit bars mounted at all times while browsing the grid.
+            // Showing/hiding either bar changes safe-area geometry and makes the
+            // SwiftUI scroll content jump. Only fade their chrome and hit testing.
             let shouldShow = chromeVisible ||
                 searchController.isActive ||
                 !query.wrappedValue.keyword.isEmpty
@@ -191,10 +188,14 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
             guard let navigation else { return }
 
             navigation.setNavigationBarHidden(false, animated: false)
+            navigation.setToolbarHidden(false, animated: false)
+
             navigation.navigationBar.isUserInteractionEnabled = shouldShow
+            navigation.toolbar.isUserInteractionEnabled = shouldShow
 
             let changes = {
                 navigation.navigationBar.alpha = shouldShow ? 1 : 0
+                navigation.toolbar.alpha = shouldShow ? 1 : 0
             }
 
             if animated {
@@ -206,10 +207,9 @@ struct CatalogFilterToolbar: UIViewControllerRepresentable {
                 )
             } else {
                 navigation.navigationBar.layer.removeAllAnimations()
+                navigation.toolbar.layer.removeAllAnimations()
                 changes()
             }
-
-            navigation.setToolbarHidden(!shouldShow, animated: animated)
         }
 
         func updateSearchResults(for searchController: UISearchController) {
