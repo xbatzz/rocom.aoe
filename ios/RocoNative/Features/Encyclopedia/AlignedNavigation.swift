@@ -225,6 +225,8 @@ struct AlignedNavigation: UIViewControllerRepresentable {
             willShow viewController: UIViewController,
             animated: Bool
         ) {
+            let showingCatalogGrid = viewController === navigationController.viewControllers.first
+            navigationController.setToolbarHidden(!showingCatalogGrid, animated: animated)
             (navigationController as? CatalogNavigationController)?.setHomeReturnEnabled(false)
 #if DEBUG
             NavigationBarDiagnostics.log(navigationController, controller: viewController, phase: "willShow")
